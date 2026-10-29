@@ -2408,7 +2408,8 @@ function ghostDraw(pos) {
   const value=(arr,k)=>Number.isFinite(lerp(arr,k))?Math.round(lerp(arr,k)):'—';
   [st.A,st.B].forEach((L,i)=>{const k=i?pos.kb:pos.ka,done=time>=L.total;
     $('ghostDriver'+i).textContent=st.H.drivers[L.meta.d].c+' · '+(done?'BİTİŞ':value(L.v,k)+' km/sa');
-    $('ghostMetric'+i).textContent='Vites '+value(L.gear,k)+' · Gaz %'+value(L.thr,k)+' · Fren '+(L.quality.brake.missing?'—':near(L.brk,k)?'AÇIK':'KAPALI');
+    const bp=L.source||L,bk=kAtTime(bp,time*(bp.t[bp.t.length-1]/L.total)),braking=!done&&!L.quality.brake.missing&&near(bp.brk,bk)>=.5;
+    $('ghostMetric'+i).textContent='Vites '+value(L.gear,k)+' · Gaz %'+value(L.thr,k)+' · Fren '+(L.quality.brake.missing?'—':braking?'AÇIK':'KAPALI');
   });
   const delta=lerp(st.delta,pos.ka);$('ghostDelta').textContent=fmtGap(delta)+' s';
   ghostBrakeDraw(pos);
