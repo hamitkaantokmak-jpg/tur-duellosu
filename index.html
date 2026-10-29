@@ -295,6 +295,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
 
 .brake-dashboard{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 22px 18px}.pedal-card{border:1px solid var(--line-2);border-radius:8px;background:#111c27;padding:13px 15px;transition:background .12s,border-color .12s}.pedal-card.braking{background:#261924;border-color:#a43b50}.pedal-title{display:flex;align-items:center;justify-content:space-between;gap:12px;font:600 10px var(--mono);color:var(--muted)}.pedal-title b{font-size:12px;color:var(--fg)}.braking .pedal-title b{color:#ff6b7e}.pedal-bars{display:grid;grid-template-columns:35px minmax(0,1fr) 48px;align-items:center;gap:8px;margin-top:14px;font:10px var(--mono)}.pedal-bars b{text-align:right;font-size:10px}.pedal-track{height:8px;background:#08121b;border-radius:3px;overflow:hidden}.pedal-track i{display:block;height:100%;background:#42d9a3;width:0}.pedal-track.brake i{background:#ff5268}.pedal-card p{margin:10px 0 0;font:10px/1.5 var(--mono);color:var(--muted)}.brake-analysis{margin:0 22px 18px;padding:16px;border:1px solid var(--line-2);border-radius:8px;background:#0c151e}.brake-analysis-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.brake-analysis-head p,.brake-caveat{font-size:11px;color:var(--muted);margin:5px 0 0}#brakeTimeline{display:block;width:100%;height:92px;margin-top:12px;cursor:pointer;touch-action:pan-y}.brake-event-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}.brake-event-cols h3{font:700 15px var(--display);margin:0 0 4px}.brake-event-cols p{font:10px var(--mono);color:var(--muted);margin:0 0 10px}.brake-event{display:block;width:100%;border:0;border-top:1px solid var(--line);padding:8px 0;background:none;color:var(--fg);font:10px/1.5 var(--mono);text-align:left;cursor:pointer}.brake-event:hover{color:#ff6b7e}.brake-caveat{margin-top:12px;line-height:1.6}@media(max-width:650px){.brake-dashboard{grid-template-columns:1fr;padding:0 14px 14px}.brake-analysis{margin:0 14px 14px;padding:12px}.brake-event-cols{grid-template-columns:1fr}.pedal-title{font-size:9px}}
 
+.ghost-options{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding:0 18px 12px;color:var(--muted);font-size:11px}.ghost-options>span{flex:1;min-width:200px}.ghost-options label{display:flex;align-items:center;gap:5px;cursor:pointer}.ghost-options input{accent-color:#69d9c6}
 </style>
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -393,6 +394,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
       <section class="card ghost-panel" id="ghostPanel" hidden aria-label="Hayalet tur simülatörü">
   <div class="ghost-head"><div><span class="eyebrow">GHOST LAB / TELEMETRİ REPLAY</span><h2>İki tur. Tek başlangıç.</h2></div><button class="chip" id="ghostClose">Düelloya dön</button></div>
   <div class="ghost-cameras" id="ghostCameras" role="group" aria-label="Kamera seçimi"><button class="chip" data-camera="tv" aria-pressed="true">Yayın kamerası</button><button class="chip" data-camera="a" aria-pressed="false">A'yı takip et</button><button class="chip" data-camera="b" aria-pressed="false">B'yi takip et</button><button class="chip" data-camera="overview" aria-pressed="false">Tüm pist</button></div>
+  <div class="ghost-options"><span id="ghostScenery"></span><label><input type="checkbox" id="ghostTraces"> Konum izleri</label><label><input type="checkbox" id="ghostZones"> Fren bölgeleri</label></div>
   <div class="ghost-stage"><canvas id="ghostCanvas" aria-label="Gerçek tur telemetrisinden hareket eden iki hayalet aracın perspektif görünümü"></canvas><div class="ghost-overlay"><span>TELEMETRİ REPLAY · GÖRSEL PİST MODELİ</span><b id="ghostDelta">+0.000 s</b><small>Aynı mesafedeki zaman farkı</small></div></div>
   <div class="ghost-drivers"><div class="ghost-driver ga"><strong id="ghostDriver0">A · Veri bekleniyor</strong><small id="ghostMetric0">Pilot ve turu yukarıdan seç</small></div><div class="ghost-driver gb"><strong id="ghostDriver1">B · Veri bekleniyor</strong><small id="ghostMetric1">Pilot ve turu yukarıdan seç</small></div></div>
   <div class="ghost-controls"><button class="btn primary" id="ghostPlay">▶ Oynat</button><button class="btn" id="ghostRestart" aria-label="Hayalet turu başa sar">↺</button><input id="ghostScrub" type="range" min="0" max="10000" step="1" value="0" aria-label="Hayalet tur zamanı"><label class="sel"><select id="ghostRate" aria-label="Hayalet oynatma hızı"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label><span id="ghostClock">0:00.000</span></div>
@@ -2262,6 +2264,15 @@ function ghostMotionPose(L,time) {
   return {x:x.v,z:z.v,fx:x.d/len,fz:z.d/len};
 }
 
+function ghostTrackProfile(event) {
+  const name=String(event||'');
+  const base={name:'Kalıcı pist',grass:'#526444',runoff:'#a59c84',paint:null,barrier:24};
+  if(/United States/i.test(name))return {...base,name:'Austin · COTA',grass:'#77764d',runoff:'#676f70',paint:['#b94047','#e4e3d9','#416c9b']};
+  if(/Monaco|Singapore|Azerbaijan|Las Vegas/i.test(name))return {...base,name:'Sokak pisti',grass:'#777c7c',runoff:'#535b61',barrier:10};
+  if(/Bahrain|Saudi|Abu Dhabi|Qatar/i.test(name))return {...base,name:'Çöl çevresi',grass:'#ae9b77',runoff:'#bcb097',paint:['#547f88','#ddddcd'],barrier:28};
+  if(/French/i.test(name))return {...base,name:'Paul Ricard tarzı',grass:'#7a8062',runoff:'#687078',paint:['#4879a3','#b94b4d'],barrier:30};
+  return base;
+}
 function ghostBuild() {
   if (!st.A || !st.B) return null;
   if (ghost.source===st.A) return ghost.scene;
@@ -2278,7 +2289,7 @@ function ghostBuild() {
   });
   const xs=center.map(p=>p.x), zs=center.map(p=>p.z);
   const native=[A,B].map(L=>ghostMotionBuild(L.source||L,L,ox,oz,scale));
-  ghost.scene={native,paths,edges,n,minX:Math.min(...xs),maxX:Math.max(...xs),minZ:Math.min(...zs),maxZ:Math.max(...zs)};
+  ghost.scene={profile:ghostTrackProfile(st.H.event),native,paths,edges,n,minX:Math.min(...xs),maxX:Math.max(...xs),minZ:Math.min(...zs),maxZ:Math.max(...zs)};
   ghost.source=A; return ghost.scene;
 }
 function ghostPoint(path,k) {
@@ -2316,14 +2327,26 @@ function ghostDraw(pos) {
   const stamp=performance.now(),last=ghost.cameraState;
   if(last&&last.mode===ghost.camera&&st.play.on&&Math.abs(st.play.e-last.time)<.5){const mix=1-Math.exp(-Math.min(.1,(stamp-last.stamp)/1000)/.11);camera=camera.map((v,i)=>last.camera[i]+(v-last.camera[i])*mix);target=target.map((v,i)=>last.target[i]+(v-last.target[i])*mix);}
   ghost.cameraState={camera,target,mode:ghost.camera,time:st.play.e,stamp};
-  const project=ghostProjection(camera,target,w,h),polys=[];
-  function poly(vertices,color,alpha=1){const ps=vertices.map(project);if(ps.some(p=>!p))return;polys.push({ps,color,alpha,depth:ps.reduce((v,p)=>v+p.d,0)/ps.length});}
+  const project=ghostProjection(camera,target,w,h),polys=[],theme=S.profile;
+  const scenery=$('ghostScenery');if(scenery)scenery.textContent=theme.name+' · telemetriye dayalı plan / temsili çevre';
+  const viewDir=target.map((v,i)=>v-camera[i]),viewLen=Math.hypot(...viewDir)||1,viewNormal=viewDir.map(v=>v/viewLen);
+  const viewDepth=p=>(p[0]-camera[0])*viewNormal[0]+(p[1]-camera[1])*viewNormal[1]+(p[2]-camera[2])*viewNormal[2];
+  function poly(vertices,color,alpha=1){
+    // Clip against the camera near plane instead of dropping whole road tiles.
+    const clipped=[];
+    for(let i=0;i<vertices.length;i++){const a=vertices[i],b=vertices[(i+1)%vertices.length],da=viewDepth(a),db=viewDepth(b),inside=da>=1.02;
+      if(inside)clipped.push(a);
+      if(inside!==(db>=1.02)){const t=(1.02-da)/(db-da);clipped.push(a.map((v,j)=>v+(b[j]-v)*t));}
+    }
+    if(clipped.length<3)return;const ps=clipped.map(project);if(ps.some(p=>!p))return;
+    polys.push({ps,color,alpha,depth:ps.reduce((v,p)=>v+p.d,0)/ps.length});
+  }
   const edge=(e,offset,y=0)=>[e.p.x+e.rx*offset,y,e.p.z+e.rz*offset];
   for(let i=0;i<S.n-1;i++) {
     const a=S.edges[i],b=S.edges[i+1];
     if(ghost.camera!=='overview' && Math.min(Math.hypot(a.p.x-A.x,a.p.z-A.z),Math.hypot(a.p.x-B.x,a.p.z-B.z))>320)continue;
-    poly([edge(a,-35,-.16),edge(b,-35,-.16),edge(b,35,-.16),edge(a,35,-.16)],i%12<6?'#385441':'#3c5945');
-    poly([edge(a,-10,-.08),edge(b,-10,-.08),edge(b,10,-.08),edge(a,10,-.08)],'#6c756e');
+    poly([edge(a,-35,-.16),edge(b,-35,-.16),edge(b,35,-.16),edge(a,35,-.16)],theme.grass);
+    poly([edge(a,-10,-.08),edge(b,-10,-.08),edge(b,10,-.08),edge(a,10,-.08)],theme.runoff);
     poly([edge(a,-7),edge(b,-7),edge(b,7),edge(a,7)],'#353c42');
     for(const sign of [-1,1]) {
       poly([edge(a,sign*7,.02),edge(b,sign*7,.02),edge(b,sign*7.22,.02),edge(a,sign*7.22,.02)],'#c4ced0');
@@ -2332,8 +2355,18 @@ function ghostDraw(pos) {
     const dx=a.p.x-previous.x,dz=a.p.z-previous.z,ex=next.x-b.p.x,ez=next.z-b.p.z;
     const bend=(dx*ez-dz*ex)/(Math.hypot(dx,dz)*Math.hypot(ex,ez)||1);
     if(Math.abs(bend)>.045)for(const sign of [-1,1])poly([edge(a,sign*7.25,.035),edge(b,sign*7.25,.035),edge(b,sign*8.1,.035),edge(a,sign*8.1,.035)],i%2?'#d8dfda':'#c9464b');
+    // Environment materials are illustrative; no surveyed widths or kerb positions are implied.
+    if(Math.abs(bend)>.035&&theme.paint)for(const sign of [-1,1])for(let band=0;band<theme.paint.length;band++){
+      const inner=8.2+band*2.1,outer=inner+2.1;
+      poly([edge(a,sign*inner,.012),edge(b,sign*inner,.012),edge(b,sign*outer,.012),edge(a,sign*outer,.012)],theme.paint[band]);
+    }
+    for(const sign of [-1,1]){
+      const off=sign*theme.barrier;
+      poly([edge(a,off,0),edge(b,off,0),edge(b,off,1.05),edge(a,off,1.05)],'#a7afb1');
+      poly([edge(a,off,1.05),edge(b,off,1.05),edge(b,off,1.12),edge(a,off,1.12)],'#d9dedb');
+    }
     // Brake zones occupy separate schematic lanes, not claimed lateral racing lines.
-    for(const [L,side] of [[st.A,-1],[st.B,1]])if(!L.quality.brake.missing&&L.brk[i]>=.5)poly([edge(a,side*.8,.045),edge(b,side*.8,.045),edge(b,side*4.8,.045),edge(a,side*4.8,.045)],'#ff435f',.16);
+    for(const [L,side] of [[st.A,-1],[st.B,1]])if($('ghostZones')?.checked&&!L.quality.brake.missing&&L.brk[i]>=.5)poly([edge(a,side*.8,.045),edge(b,side*.8,.045),edge(b,side*4.8,.045),edge(a,side*4.8,.045)],'#ff435f',.16);
   }
   // Start/finish checkerboard anchored to the first recorded sample.
   const first=S.edges[0],forward={x:-first.rz,z:first.rx};
@@ -2342,7 +2375,7 @@ function ghostDraw(pos) {
     poly([[p[0]+forward.x*j,.04,p[2]+forward.z*j],[q[0]+forward.x*j,.04,q[2]+forward.z*j],[q[0]+forward.x*(j+1),.04,q[2]+forward.z*(j+1)],[p[0]+forward.x*(j+1),.04,p[2]+forward.z*(j+1)]],(i+j)%2?'#11181b':'#eff3ec');
   }
   // Approximate tracking traces; the feed does not establish driver-specific lateral lines.
-  for(let side=0;side<2;side++){
+  for(let side=0;side<2&&$('ghostTraces')?.checked;side++){
     const path=S.paths[side],col=side?COL.b:COL.a;
     for(let i=1;i<path.length;i++) {
       const p=path[i-1],q=path[i];if(ghost.camera!=='overview'&&Math.hypot(p.x-poses[side].x,p.z-poses[side].z)>220)continue;
@@ -2393,6 +2426,12 @@ function ghostDraw(pos) {
     const p=project([poses[i].x,2.7,poses[i].z]);if(!p||p.x<0||p.x>w||p.y<0||p.y>h)continue;
     const text=(i?'B · ':'A · ')+st.H.drivers[(i?st.B:st.A).meta.d].c;
     g.font='700 12px '+css('--mono');const tw=g.measureText(text).width;g.fillStyle='#081018dd';g.fillRect(p.x-tw/2-8,p.y-18,tw+16,25);g.fillStyle=i?COL.b:COL.a;g.textAlign='center';g.fillText(text,p.x,p.y);
+  }
+  if(!st.H.autoCorners)for(const c of st.H.corners||[]){
+    const idx=Math.round(c.r*(S.n-1)),e=S.edges[idx];if(!e)continue;
+    if(ghost.camera!=='overview'&&Math.min(Math.hypot(e.p.x-A.x,e.p.z-A.z),Math.hypot(e.p.x-B.x,e.p.z-B.z))>140)continue;
+    const p=project(edge(e,11,2));if(!p||p.x<15||p.x>w-15||p.y<20||p.y>h-20)continue;
+    g.fillStyle='#12202c';g.fillRect(p.x-15,p.y-12,30,23);g.fillStyle='#eff4f5';g.textAlign='center';g.font='bold 11px sans-serif';g.fillText('T'+c.n,p.x,p.y+4);
   }
   // Persistent course inset, including both cars at the same elapsed time.
   const mw=Math.min(150,w*.27),mh=100,mx=w-mw-16,my=h-mh-18,pad=10;
@@ -2493,6 +2532,7 @@ $('brakeEvents').addEventListener('click',e=>{const button=e.target.closest('[da
 $('nextBrake').onclick=()=>{if(!st.A)return;ghostBuildBrakes();const events=ghost.brakes.flatMap(b=>b.events).sort((a,b)=>a.start-b.start);const next=events.find(e=>e.start>st.play.e+.1)||events[0];if(next)ghostBrakeSeek(next.start);};
 $('brakeTimeline').addEventListener('pointerdown',e=>{if(!st.A)return;const r=e.currentTarget.getBoundingClientRect(),ratio=Math.max(0,Math.min(1,(e.clientX-r.left-36)/(r.width-48)));ghostBrakeSeek(ratio*Math.max(st.A.total,st.B.total));});
 
+for(const id of ['ghostTraces','ghostZones'])$(id).addEventListener('change',()=>drawAll());
 /* ───────── boot ───────── */
 (function boot() {
   if (TOUCH) $("hint").textContent = "Grafikte parmağını yatay kaydır: haritada A o noktada, B ise aynı saniyede bulunduğu yerde görünür. Sektör düğmeleri ve viraj satırları yakınlaştırır.";
