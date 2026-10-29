@@ -398,7 +398,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
       <section class="card ghost-panel" id="ghostPanel" hidden aria-label="Hayalet tur simülatörü">
   <div class="ghost-head"><div><span class="eyebrow">GHOST LAB / TELEMETRİ REPLAY</span><h2>İki tur. Tek başlangıç.</h2></div><button class="chip" id="ghostClose">Düelloya dön</button></div>
   <div class="ghost-cameras" id="ghostCameras" role="group" aria-label="Kamera seçimi"><button class="chip" data-camera="tv" aria-pressed="true">Yayın kamerası</button><button class="chip" data-camera="a" aria-pressed="false">A'yı takip et</button><button class="chip" data-camera="b" aria-pressed="false">B'yi takip et</button><button class="chip" data-camera="overview" aria-pressed="false">Tüm pist</button></div>
-  <div class="ghost-options"><span id="ghostScenery"></span><label title="Kaynak Z kanalından yumuşatılan profil; ölçülmüş pist modeli değildir"><input type="checkbox" id="ghostElevation"> Tahmini eğim</label><b id="ghostEngine" role="status">Standart görünüm</b><label><input type="checkbox" id="ghostEnvironment" checked> Çevre detayları</label><label class="ghost-zoom">Yakınlık <input id="ghostZoom" type="range" min="70" max="160" value="100" aria-label="Kamera yakınlığı"></label><label><input type="checkbox" id="ghostEstimatedLine" checked> Tahmini sürüş çizgisi</label><label><input type="checkbox" id="ghostGuides" checked> Giriş / Apeks / Çıkış</label><label><input type="checkbox" id="ghostTraces"> Konum izleri</label><label><input type="checkbox" id="ghostZones"> Fren bölgeleri</label></div>
+  <div class="ghost-options"><span id="ghostScenery"></span><label title="Kaynak Z kanalından yumuşatılan profil; ölçülmüş pist modeli değildir"><input type="checkbox" id="ghostElevation"> Tahmini eğim</label><b id="ghostEngine" role="status">Standart görünüm</b><label><input type="checkbox" id="ghostEnvironment" checked> Çevre detayları</label><label>Görüntü <select id="ghostRenderQuality" aria-label="3D görüntü kalitesi"><option value="balanced">Dengeli</option><option value="high">Detaylı</option></select></label><label class="ghost-zoom">Yakınlık <input id="ghostZoom" type="range" min="70" max="160" value="100" aria-label="Kamera yakınlığı"></label><label><input type="checkbox" id="ghostEstimatedLine" checked> Tahmini sürüş çizgisi</label><label><input type="checkbox" id="ghostGuides" checked> Giriş / Apeks / Çıkış</label><label><input type="checkbox" id="ghostTraces"> Konum izleri</label><label><input type="checkbox" id="ghostZones"> Fren bölgeleri</label></div>
   <p class="ghost-guide-note">Tahmini sürüş çizgisi açıkken iki araç aynı giriş–apeks–çıkış yolunu izler; ilerleme telemetriye bağlıdır. Bu yol pilotların ölçülmüş çizgisi değildir.<br>Viraj rehberi: <span style="color:#58bfff">● Giriş</span> · <span style="color:#ffd166">● Apeks</span> · <span style="color:#5ce0aa">● Çıkış</span> — pist geometrisinden yaklaşık işaretler; pilot çizgisi veya fren noktası değildir.</p><div class="ghost-stage"><canvas id="ghostCanvas" aria-label="Gerçek tur telemetrisinden hareket eden iki hayalet aracın perspektif görünümü"></canvas><div class="ghost-overlay"><span>TELEMETRİ REPLAY · GÖRSEL PİST MODELİ</span><b id="ghostDelta">+0.000 s</b><small>Aynı mesafedeki zaman farkı</small></div></div>
   <div class="ghost-drivers"><div class="ghost-driver ga"><strong id="ghostDriver0">A · Veri bekleniyor</strong><small id="ghostMetric0">Pilot ve turu yukarıdan seç</small></div><div class="ghost-driver gb"><strong id="ghostDriver1">B · Veri bekleniyor</strong><small id="ghostMetric1">Pilot ve turu yukarıdan seç</small></div></div>
   <div class="ghost-controls"><button class="btn primary" id="ghostPlay">▶ Oynat</button><button class="btn" id="ghostRestart" aria-label="Hayalet turu başa sar">↺</button><input id="ghostScrub" type="range" min="0" max="10000" step="1" value="0" aria-label="Hayalet tur zamanı"><label class="sel"><select id="ghostRate" aria-label="Hayalet oynatma hızı"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label><span id="ghostClock">0:00.000</span></div>
@@ -2324,11 +2324,11 @@ function ghostVisualPath(edges,guides){
     path.push({x:e.p.x+e.rx*offset,z:e.p.z+e.rz*offset});
   }
   const progress=path.map((_,i)=>i/(n-1));
-  return {path,x:ghostCurve(progress,path.map(p=>p.x)),z:ghostCurve(progress,path.map(p=>p.z))};
+  return {length:edges.slice(1).reduce((sum,e,i)=>sum+Math.hypot(e.p.x-edges[i].p.x,e.p.z-edges[i].p.z),0),path,x:ghostCurve(progress,path.map(p=>p.x)),z:ghostCurve(progress,path.map(p=>p.z))};
 }
 function ghostReplayPoses(S,time){
   if(!$('ghostEstimatedLine')?.checked||!S.visual)return S.native.map(L=>ghostMotionPose(L,time));
-  return S.native.map(L=>{const progress=Math.max(0,Math.min(1,ghostCurveAt(L.progress,time).v)),x=ghostCurveAt(S.visual.x,progress),z=ghostCurveAt(S.visual.z,progress),len=Math.hypot(x.d,z.d)||1;return {x:x.v,z:z.v,fx:x.d/len,fz:z.d/len};});
+  return S.native.map(L=>{const progress=Math.max(0,Math.min(1,ghostCurveAt(L.progress,time).v)),x=ghostCurveAt(S.visual.x,progress),z=ghostCurveAt(S.visual.z,progress),delta=8/(S.visual.length||5000),before=Math.max(0,progress-delta),after=Math.min(1,progress+delta),dx=ghostCurveAt(S.visual.x,after).v-ghostCurveAt(S.visual.x,before).v,dz=ghostCurveAt(S.visual.z,after).v-ghostCurveAt(S.visual.z,before).v,len=Math.hypot(dx,dz)||1;return {x:x.v,z:z.v,fx:dx/len,fz:dz/len};});
 }
 function ghostBuild() {
   if (!st.A || !st.B) return null;
@@ -2376,6 +2376,7 @@ function ghostDraw(pos) {
   const sky=g.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#6d9fbd');sky.addColorStop(.52,'#b7ccd4');sky.addColorStop(1,'#d9dfd4');g.fillStyle=sky;g.fillRect(0,0,w,h);
   const poses=ghostReplayPoses(S,st.play.e),A=poses[0],B=poses[1];
   if($('ghostEstimatedLine'))$('ghostEstimatedLine').disabled=!S.visual;
+  if($('ghostRenderQuality'))$('ghostRenderQuality').disabled=!/Azerbaijan/i.test(st.H.event);
   if($('ghostZoom'))$('ghostZoom').disabled=ghost.camera==='overview';
   let camera,target;
   if(ghost.camera==='overview') {
@@ -2654,20 +2655,33 @@ $('nextBrake').onclick=()=>{if(!st.A)return;ghostBuildBrakes();const events=ghos
 $('brakeTimeline').addEventListener('pointerdown',e=>{if(!st.A)return;const r=e.currentTarget.getBoundingClientRect(),ratio=Math.max(0,Math.min(1,(e.clientX-r.left-36)/(r.width-48)));ghostBrakeSeek(ratio*Math.max(st.A.total,st.B.total));});
 
 $('ghostZoom').addEventListener('input',()=>{ghost.cameraState=null;drawAll();});
-for(const id of ['ghostTraces','ghostZones','ghostEnvironment','ghostElevation','ghostGuides','ghostEstimatedLine'])$(id).addEventListener('change',()=>drawAll());
+for(const id of ['ghostTraces','ghostZones','ghostEnvironment','ghostElevation','ghostGuides','ghostEstimatedLine','ghostRenderQuality'])$(id).addEventListener('change',()=>drawAll());
 // Optional GPU renderer. The 2D renderer remains available if loading or context creation fails.
 const ghost3d={ready:false,loading:false,failed:false,source:null};
+function ghostMergeMeshes(root,T){
+  root.updateMatrixWorld(true);const inverse=new T.Matrix4().copy(root.matrixWorld).invert(),batches=new Map(),sources=[];
+  root.traverse(o=>{if(!o.isMesh||o.isInstancedMesh||Array.isArray(o.material))return;for(let p=o.parent;p&&p!==root;p=p.parent)if(p.userData.spins)return;
+    const key=o.material.uuid+'|'+o.castShadow+'|'+o.receiveShadow;if(!batches.has(key))batches.set(key,{material:o.material,cast:o.castShadow,receive:o.receiveShadow,items:[]});
+    let geometry=o.geometry.index?o.geometry.toNonIndexed():o.geometry.clone();geometry.applyMatrix4(new T.Matrix4().multiplyMatrices(inverse,o.matrixWorld));batches.get(key).items.push(geometry);sources.push(o);
+  });
+  for(const batch of batches.values()){
+    const geometry=new T.BufferGeometry();for(const attr of ['position','normal','uv']){if(!batch.items.every(g=>g.attributes[attr]))continue;const size=batch.items[0].attributes[attr].itemSize,length=batch.items.reduce((n,g)=>n+g.attributes[attr].array.length,0),values=new Float32Array(length);let offset=0;for(const g of batch.items){values.set(g.attributes[attr].array,offset);offset+=g.attributes[attr].array.length;}geometry.setAttribute(attr,new T.BufferAttribute(values,size));}
+    const mesh=new T.Mesh(geometry,batch.material);mesh.castShadow=batch.cast;mesh.receiveShadow=batch.receive;root.add(mesh);batch.items.forEach(g=>g.dispose());
+  }
+  const geometries=new Set();sources.forEach(o=>{o.removeFromParent();geometries.add(o.geometry);});geometries.forEach(g=>g.dispose());return {before:sources.length,after:batches.size};
+}
 function ghost3dStart(){
   if(ghost3d.loading||ghost3d.failed)return;ghost3d.loading=true;
   const badge=$('ghostEngine');badge.textContent='3D hazırlanıyor…';
   import('https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js').then(T=>{
     const canvas=document.createElement('canvas');canvas.id='ghostWebGL';canvas.setAttribute('aria-label','Işık ve gölgeli 3D tur görünümü');
     const renderer=new T.WebGLRenderer({canvas,antialias:true,alpha:false,powerPreference:'high-performance'});
-    renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.75));renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
-    renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
+    renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.25));renderer.shadowMap.enabled=true;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.type=T.PCFSoftShadowMap;
+    renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.02;
     const scene=new T.Scene();scene.background=new T.Color('#b9cdd9');scene.fog=new T.Fog('#b9cdd9',240,1050);
-    scene.add(new T.HemisphereLight('#d8edff','#807761',2));
-    const sun=new T.DirectionalLight('#fff0d5',3.1);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-75;sun.shadow.camera.right=75;sun.shadow.camera.top=75;sun.shadow.camera.bottom=-75;sun.shadow.camera.near=1;sun.shadow.camera.far=260;sun.shadow.normalBias=.04;sun.shadow.bias=-.00015;scene.add(sun,sun.target);
+    scene.add(new T.HemisphereLight('#d8edff','#807761',1.25));
+    const sun=new T.DirectionalLight('#fff0d5',2.8);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-75;sun.shadow.camera.right=75;sun.shadow.camera.top=75;sun.shadow.camera.bottom=-75;sun.shadow.camera.near=1;sun.shadow.camera.far=260;sun.shadow.normalBias=.04;sun.shadow.bias=-.00015;scene.add(sun,sun.target);
+    const lightCanvas=document.createElement('canvas');lightCanvas.width=512;lightCanvas.height=256;const lightCtx=lightCanvas.getContext('2d'),gradient=lightCtx.createLinearGradient(0,0,0,256);gradient.addColorStop(0,'#7399bb');gradient.addColorStop(.48,'#dce6e8');gradient.addColorStop(.53,'#a7a79b');gradient.addColorStop(1,'#60665f');lightCtx.fillStyle=gradient;lightCtx.fillRect(0,0,512,256);const glow=lightCtx.createRadialGradient(350,70,1,350,70,38);glow.addColorStop(0,'#ffffff');glow.addColorStop(.15,'#fff5dc');glow.addColorStop(1,'#ffffff00');lightCtx.fillStyle=glow;lightCtx.fillRect(300,20,100,100);const lightTexture=new T.CanvasTexture(lightCanvas);lightTexture.mapping=T.EquirectangularReflectionMapping;lightTexture.colorSpace=T.SRGBColorSpace;const pmrem=new T.PMREMGenerator(renderer),lightTarget=pmrem.fromEquirectangular(lightTexture);scene.environment=lightTarget.texture;scene.environmentIntensity=.65;lightTexture.dispose();pmrem.dispose();
     const camera=new T.PerspectiveCamera(48,1,.15,16000);
     $('ghostCanvas').parentElement.append(canvas);
     const mini=document.createElement('canvas');mini.id='ghostGLMini';mini.width=160;mini.height=100;$('ghostCanvas').parentElement.append(mini);
@@ -2685,8 +2699,8 @@ function ghost3dBuild(S){
   const material=(color,roughness=.8,metalness=0)=>new T.MeshStandardMaterial({color,roughness,metalness,side:T.DoubleSide});
   const roadMat=material('#686a6b',.96),white=material('#e2e1d5'),red=material('#ba3436'),concrete=material('#b8b9b3'),steel=material('#71838b',.43,.6);
   const texCanvas=document.createElement('canvas');texCanvas.width=texCanvas.height=256;const tx=texCanvas.getContext('2d'),pixels=tx.createImageData(256,256);let seed=1729;
-  for(let i=0;i<pixels.data.length;i+=4){seed=(Math.imul(seed,1664525)+1013904223)>>>0;const v=100+(seed>>>25);pixels.data[i]=pixels.data[i+1]=pixels.data[i+2]=v;pixels.data[i+3]=255;}tx.putImageData(pixels,0,0);
-  const asphalt=new T.CanvasTexture(texCanvas);asphalt.wrapS=asphalt.wrapT=T.RepeatWrapping;asphalt.repeat.set(4,4);asphalt.colorSpace=T.SRGBColorSpace;asphalt.anisotropy=Math.min(8,G.renderer.capabilities.getMaxAnisotropy());roadMat.map=asphalt;roadMat.bumpMap=asphalt;roadMat.bumpScale=.018;
+  for(let i=0;i<pixels.data.length;i+=4){seed=(Math.imul(seed,1664525)+1013904223)>>>0;const v=105+(seed>>>27);pixels.data[i]=pixels.data[i+1]=pixels.data[i+2]=v;pixels.data[i+3]=255;}tx.putImageData(pixels,0,0);
+  const asphalt=new T.CanvasTexture(texCanvas);asphalt.wrapS=asphalt.wrapT=T.RepeatWrapping;asphalt.repeat.set(4,4);asphalt.colorSpace=T.SRGBColorSpace;asphalt.anisotropy=Math.min(8,G.renderer.capabilities.getMaxAnisotropy());roadMat.map=asphalt;roadMat.bumpMap=asphalt;roadMat.bumpScale=.012;concrete.bumpMap=asphalt;concrete.bumpScale=.018;
   const mesh=(geometry,mat,parent=world)=>{const m=new T.Mesh(geometry,mat);m.castShadow=true;m.receiveShadow=true;parent.add(m);return m;};
   const heights=G.elevationOn?S.elevation:null;
   const heightAt=k=>heights?lerp(heights,Math.max(0,Math.min(S.n-1,k))):0;G.heightAt=heightAt;
@@ -2734,6 +2748,7 @@ function ghost3dBuild(S){
     const canvas=document.createElement('canvas');canvas.width=256;canvas.height=64;const ctx=canvas.getContext('2d');ctx.fillStyle='#10202bdb';ctx.fillRect(0,0,256,64);ctx.fillStyle=m.color;ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='bold 24px sans-serif';ctx.fillText('T'+m.n+' '+m.kind,128,32);
     const texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;const label=new T.Sprite(new T.SpriteMaterial({map:texture,transparent:true,depthTest:true}));label.position.y=1.65;label.scale.set(5.2,1.3,1);group.add(label);G.guideMarkers.push({group,label,marker:m});
   }
+  G.mergeStats=ghostMergeMeshes(environment,T);
   G.traces=new T.Group();G.zones=new T.Group();world.add(G.traces,G.zones);
   [st.A,st.B].forEach((L,index)=>{
     const curve=new T.CatmullRomCurve3(S.paths[index].map((p,i)=>new T.Vector3(p.x,heightAt(i)+.095,p.z)));
@@ -2752,17 +2767,19 @@ function ghost3dBuild(S){
     const body=mesh(new T.SphereGeometry(1,24,12),paint,group);body.scale.set(.43,.47,1.65);body.position.set(0,.56,-.6);
     const nose=mesh(new T.CylinderGeometry(.12,.3,2.2,16),paint,group);nose.rotation.x=Math.PI/2;nose.position.set(0,.43,1.2);
     for(const sign of [-1,1]){const pod=mesh(new T.SphereGeometry(1,16,10),paint,group);pod.scale.set(.28,.28,1.05);pod.position.set(sign*.57,.48,-.25);box(group,sign*.91,.31,2.17,.05,.3,.64,paint);box(group,sign*.82,.87,-2.2,.05,.6,.52,paint);}
+    for(const sign of [-1,1]){const inlet=mesh(new T.SphereGeometry(1,12,8),carbon,group);inlet.scale.set(.2,.12,.07);inlet.position.set(sign*.57,.64,.65);box(group,sign*.6,.7,-.35,.3,.045,1.1,paint);}
+    const finGeometry=new T.BufferGeometry();finGeometry.setAttribute('position',new T.Float32BufferAttribute([0,.56,-1.9,0,1.12,-1.1,0,.64,-.3],3));finGeometry.computeVertexNormals();mesh(finGeometry,paint,group);
     box(group,0,.71,-.17,.5,.18,.85,carbon);const helmet=mesh(new T.SphereGeometry(.18,16,10),material('#e6e2ce',.35),group);helmet.position.set(0,.91,-.1);
     for(let j=0;j<3;j++)box(group,0,.22+j*.055,2.37-j*.13,1.95,.045,.18,j?paint:carbon);
     box(group,0,.96,-2.2,1.68,.1,.5,paint);box(group,0,.56,-2.15,.12,.7,.14,carbon);
     const haloPoints=[[-.34,.97,-.53],[-.35,1.02,.15],[0,1.04,.42],[.35,1.02,.15],[.34,.97,-.53]].map(p=>new T.Vector3(...p));mesh(new T.TubeGeometry(new T.CatmullRomCurve3(haloPoints),20,.035,6,false),carbon,group);
     const wheels=[];
-    for(const x of [-.88,.88])for(const z of [-1.58,1.48]){const wheel=new T.Group();wheel.position.set(x,.39,z);group.add(wheel);const tyre=mesh(new T.CylinderGeometry(.37,.37,.36,24),rubber,wheel);tyre.rotation.z=Math.PI/2;const hub=mesh(new T.CylinderGeometry(.19,.19,.375,16),rim,wheel);hub.rotation.z=Math.PI/2;wheels.push(wheel);
+    for(const x of [-.88,.88])for(const z of [-1.58,1.48]){const wheel=new T.Group();wheel.position.set(x,.39,z);wheel.userData.spins=true;group.add(wheel);const tyre=mesh(new T.CylinderGeometry(.37,.37,.36,24),rubber,wheel);tyre.rotation.z=Math.PI/2;const hub=mesh(new T.CylinderGeometry(.19,.19,.375,16),rim,wheel);hub.rotation.z=Math.PI/2;wheels.push(wheel);
       const side=Math.sign(x),ring=mesh(new T.TorusGeometry(.29,.014,5,32),material(COMP_HEX[L.meta.c]||'#566174',.8),wheel);ring.rotation.y=Math.PI/2;ring.position.x=side*.187;
       for(let spoke=0;spoke<5;spoke++){const a=spoke/5*Math.PI*2,bar=box(wheel,side*.192,Math.cos(a)*.095,Math.sin(a)*.095,.018,.024,.18,carbon);bar.rotation.x=-a;}
       for(const anchor of [-.24,.24]){const start=new T.Vector3(Math.sign(x)*.25,.3,z+anchor),end=new T.Vector3(x,.39,z),dir=end.clone().sub(start),arm=mesh(new T.CylinderGeometry(.025,.025,dir.length(),5),carbon,group);arm.position.copy(start.clone().add(end).multiplyScalar(.5));arm.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),dir.normalize());}
     }
-    group.userData.wheels=wheels;return group;
+    group.userData.wheels=wheels;wheels.forEach(wheel=>ghostMergeMeshes(wheel,T));ghostMergeMeshes(group,T);return group;
   });
 }
 function ghost3dRender(S,poses,camera,target,w,h){
@@ -2778,9 +2795,14 @@ function ghost3dRender(S,poses,camera,target,w,h){
     G.guideMarkers.forEach(({group,label,marker:m})=>{const near=Math.min(Math.hypot(m.x-poses[0].x,m.z-poses[0].z),Math.hypot(m.x-poses[1].x,m.z-poses[1].z));group.visible=ghost.camera==='overview'?m.kind==='APEKS':near<110;label.visible=ghost.camera!=='overview';});
     G.environment.visible=$('ghostEnvironment').checked;G.traces.visible=$('ghostTraces').checked&&!($('ghostEstimatedLine').checked&&S.visual);G.estimatedTrace.visible=$('ghostTraces').checked&&!!($('ghostEstimatedLine').checked&&S.visual);G.zones.visible=$('ghostZones').checked;
     poses.forEach((p,i)=>{const car=G.cars[i];const k=kAtTime(i?st.B:st.A,st.play.e),y=G.heightAt(k),slope=(G.heightAt(k+1)-G.heightAt(k-1))/(2*st.H.L/(S.n-1));car.position.set(p.x,y,p.z);car.rotation.order='YXZ';car.rotation.y=Math.atan2(p.fx,p.fz);car.rotation.x=-Math.atan(slope);car.userData.wheels.forEach(wheel=>wheel.rotation.x=-st.play.e*lerp((i?st.B:st.A).v,kAtTime(i?st.B:st.A,st.play.e))/3.6/.37);});
-    const p=poses[0];G.sun.position.set(p.x-65,110+heightA,p.z-45);G.sun.target.position.set(p.x,heightA,p.z);G.sun.target.updateMatrixWorld();G.sun.shadow.camera.updateProjectionMatrix();G.sun.castShadow=ghost.camera!=='overview';
+    const p=poses[0],now=performance.now(),detail=$('ghostRenderQuality').value==='high',quality=detail?'high':'balanced';
+    if(G.quality!==quality){G.quality=quality;G.renderer.setPixelRatio(Math.min(devicePixelRatio||1,detail?1.75:1.25));G.renderer.setSize(w,h,false);const size=detail?2048:1024;if(G.sun.shadow.mapSize.x!==size){G.sun.shadow.map?.dispose();G.sun.shadow.map=null;G.sun.shadow.mapSize.set(size,size);}G.shadowStamp=0;}
+    if(!st.play.on||now-(G.shadowStamp||0)>(detail?33:66)||Math.abs(st.play.e-(G.shadowTime||0))>.25){G.sun.position.set(p.x-65,110+heightA,p.z-45);G.sun.target.position.set(p.x,heightA,p.z);G.sun.target.updateMatrixWorld();G.sun.shadow.camera.updateProjectionMatrix();G.renderer.shadowMap.needsUpdate=true;G.shadowStamp=now;G.shadowTime=st.play.e;}
+    G.sun.castShadow=ghost.camera!=='overview';
     G.scene.fog.near=ghost.camera==='overview'?5000:240;G.scene.fog.far=ghost.camera==='overview'?14000:1050;
     G.renderer.render(G.scene,G.camera);
+    if(st.play.on){if(!G.fpsStamp){G.fpsStamp=now;G.frames=0;}G.frames++;if(now-G.fpsStamp>1000){$('ghostEngine').textContent='3D · '+Math.round(G.frames*1000/(now-G.fpsStamp))+' FPS';G.frames=0;G.fpsStamp=now;}}else{G.fpsStamp=0;}
+    $('ghostEngine').title='Sabit çevre parçaları: '+G.mergeStats.before+' → '+G.mergeStats.after;
     $('ghostScenery').textContent='Bakü · 3D prototip / '+(G.elevationOn?'Z kanalından tahmini eğim':'düz zemin')+' / '+($('ghostEstimatedLine').checked&&S.visual?'tahmini ortak çizgi / ':'')+'temsili çevre';
     G.labels.forEach((label,i)=>{const v=new G.T.Vector3(poses[i].x,G.heightAt(kAtTime(i?st.B:st.A,st.play.e))+1.7,poses[i].z).project(G.camera);label.hidden=Math.abs(v.x)>1||Math.abs(v.y)>1||v.z>1;label.style.left=(v.x*.5+.5)*w+'px';label.style.top=(-v.y*.5+.5)*h+'px';label.style.color=i?COL.b:COL.a;label.textContent=(i?'B · ':'A · ')+st.H.drivers[(i?st.B:st.A).meta.d].c;});
     G.mini.hidden=false;const mg=G.mini.getContext('2d'),mw=160,mh=100,sc=Math.min(140/(S.maxX-S.minX||1),80/(S.maxZ-S.minZ||1)),map=p=>[80-(p.x-(S.minX+S.maxX)/2)*sc,50-(p.z-(S.minZ+S.maxZ)/2)*sc];mg.clearRect(0,0,mw,mh);mg.fillStyle='#101b26de';mg.fillRect(0,0,mw,mh);mg.strokeStyle='#a1b4bc';mg.lineWidth=2;mg.beginPath();S.edges.forEach((e,i)=>i?mg.lineTo(...map(e.p)):mg.moveTo(...map(e.p)));mg.stroke();poses.forEach((p,i)=>{mg.fillStyle=i?COL.b:COL.a;mg.beginPath();mg.arc(...map(p),3,0,Math.PI*2);mg.fill();});
