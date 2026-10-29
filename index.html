@@ -2278,11 +2278,11 @@ function ghostEnvironment(edges,profile) {
   // Deterministic decorative scenery, not geolocated buildings or vegetation.
   const objects=[];
   for(let i=5;i<edges.length;i+=profile.urban?12:17)for(const side of [-1,1]){
-    const e=edges[i],offset=(profile.urban?43:48)+(i%4)*3;
+    const e=edges[i],variant=Math.floor(i/(profile.urban?12:17))%4,offset=(profile.urban?43:48)+variant*3;
     const x=e.p.x+e.rx*side*offset,z=e.p.z+e.rz*side*offset;
     let clear=true;for(let j=0;j<edges.length;j++)if(Math.hypot(x-edges[j].p.x,z-edges[j].p.z)<32){clear=false;break;}
     if(!clear)continue;
-    objects.push({x,z,rx:e.rx,rz:e.rz,side,kind:profile.urban?'building':'tree',height:profile.urban?9+(i%5)*3:6+(i%3),variant:i%4});
+    objects.push({x,z,rx:e.rx,rz:e.rz,side,kind:profile.urban?'building':'tree',height:profile.urban?9+(i%5)*3:6+(i%3),variant});
   }
   return objects;
 }
@@ -2371,7 +2371,10 @@ function ghostDraw(pos) {
       sceneryBox(o,0,o.height/2,0,12,o.height,23,palette[o.variant]);
       sceneryBox(o,0,o.height+.15,0,12.6,.3,23.6,'#71777a');
       // Windows on both long facades, with low-cost horizontal bands at distance.
-      for(let level=2;level<o.height-1;level+=3)for(const sign of [-1,1])sceneryBox(o,sign*6.03,level,0,.05,1.25,20,'#4e6471');
+      const facade=(x,y,z)=>[o.x+o.rx*x-o.rz*z,y,o.z+o.rz*x+o.rx*z];
+      for(let level=2;level<o.height-1;level+=3)for(const sign of [-1,1])for(let z=-9;z<=9;z+=3){
+        const x=sign*6.03;poly([facade(x,level,z),facade(x,level,z+1.5),facade(x,level+1.3,z+1.5),facade(x,level+1.3,z)],'#4e6471');
+      }
       sceneryBox(o,0,.35,0,14,.7,25,'#939898');
     }else{
       sceneryBox(o,0,1.5,0,.65,3,.65,'#776247');
