@@ -394,7 +394,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
   <div class="ghost-stage"><canvas id="ghostCanvas" aria-label="Gerçek tur telemetrisinden hareket eden iki hayalet aracın perspektif görünümü"></canvas><div class="ghost-overlay"><span>GERÇEK TELEMETRİ · ŞEMATİK 3D PİST</span><b id="ghostDelta">+0.000 s</b><small>Aynı mesafedeki zaman farkı</small></div></div>
   <div class="ghost-drivers"><div class="ghost-driver ga"><strong id="ghostDriver0">A · Veri bekleniyor</strong><small id="ghostMetric0">Pilot ve turu yukarıdan seç</small></div><div class="ghost-driver gb"><strong id="ghostDriver1">B · Veri bekleniyor</strong><small id="ghostMetric1">Pilot ve turu yukarıdan seç</small></div></div>
   <div class="ghost-controls"><button class="btn primary" id="ghostPlay">▶ Oynat</button><button class="btn" id="ghostRestart" aria-label="Hayalet turu başa sar">↺</button><input id="ghostScrub" type="range" min="0" max="10000" step="1" value="0" aria-label="Hayalet tur zamanı"><label class="sel"><select id="ghostRate" aria-label="Hayalet oynatma hızı"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label><span id="ghostClock">0:00.000</span></div>
-  <p class="ghost-note">İki araç aynı anda başlar ve kendi tur süresinde bitirir. B aracı yarı saydamdır. Yol genişliği, araç modeli ve düz zemin görselleştirmedir; gerçek pist modeli veya santimetre hassasiyetinde yarış çizgisi değildir. Konumlar yaklaşık 4 Hz telemetriden ara değerlerle oynatılır. Boşluk: oynat / duraklat · ← / →: 1 saniye.</p>
+  <p class="ghost-note">İki araç aynı anda başlar ve kendi tur süresinde bitirir. B aracı yarı saydamdır. Yol genişliği, araç modeli ve düz zemin görselleştirmedir; gerçek pist modeli veya santimetre hassasiyetinde yarış çizgisi değildir. İlerleme hızdan türetilen mesafeye dayanır; konum çizgisi GPS sıçramalarını azaltmak için yumuşatılır. Bu işlem ek ölçüm hassasiyeti sağlamaz. Boşluk: oynat / duraklat · ← / →: 1 saniye.</p>
 </section>
 
 <section class="card rel" id="chartcard">
@@ -2198,6 +2198,56 @@ drawReadouts=function(pos){
 };
 /* Telemetry-driven perspective replay. Track surface and vehicle geometry are illustrative. */
 const ghost = { active:false, camera:'tv', scene:null, source:null };
+// Monotone cubic interpolation: continuous velocity without coordinate overshoot.
+function ghostCurve(keys,values) {
+  const n=keys.length,m=new Float64Array(n),d=new Float64Array(n-1);
+  for(let i=0;i<n-1;i++)d[i]=(values[i+1]-values[i])/(keys[i+1]-keys[i]||1);
+  m[0]=d[0];m[n-1]=d[n-2];
+  for(let i=1;i<n-1;i++){
+    if(d[i-1]*d[i]<=0){m[i]=0;continue;}
+    const h0=keys[i]-keys[i-1],h1=keys[i+1]-keys[i],w1=2*h1+h0,w2=h1+2*h0;
+    m[i]=(w1+w2)/(w1/d[i-1]+w2/d[i]);
+  }
+  return {keys,values,m};
+}
+function ghostCurveAt(C,value) {
+  const {keys:k,values:v,m}=C,n=k.length;
+  let lo=0,hi=n-1;
+  const at=Math.max(k[0],Math.min(k[n-1],value));
+  while(hi-lo>1){const mid=(lo+hi)>>1;if(k[mid]<=at)lo=mid;else hi=mid;}
+  const h=k[hi]-k[lo]||1,u=(at-k[lo])/h,u2=u*u,u3=u2*u;
+  return {v:(2*u3-3*u2+1)*v[lo]+(u3-2*u2+u)*h*m[lo]+(-2*u3+3*u2)*v[hi]+(u3-u2)*h*m[hi],
+    d:((6*u2-6*u)*v[lo]+(3*u2-4*u+1)*h*m[lo]+(-6*u2+6*u)*v[hi]+(3*u2-2*u)*h*m[hi])/h};
+}
+function ghostMotionBuild(p,L,ox,oz,scale) {
+  const count=p.t.length,t=[],progress=[],points=[];
+  for(let i=0;i<count;i++) {
+    if(t.length&&p.t[i]<=t[t.length-1])continue;
+    t.push(p.t[i]);progress.push(p.rel?p.rel[i]:i/(count-1));
+    // A short distance window suppresses GPS jitter; endpoints stay anchored.
+    let x=0,z=0,weight=0;
+    if(i===0||i===count-1){x=p.x[i];z=p.y[i];weight=1;}
+    else for(let j=Math.max(0,i-5);j<=Math.min(count-1,i+5);j++){
+      const distance=Math.abs((p.rel?p.rel[j]-p.rel[i]:(j-i)/(count-1))*st.H.L);
+      if(distance>18)continue;
+      const w=Math.exp(-distance*distance/72);x+=p.x[j]*w;z+=p.y[j]*w;weight+=w;
+    }
+    points.push({x:(x/weight-ox)*scale,z:(z/weight-oz)*scale});
+  }
+  const arc=[0],xs=[points[0].x],zs=[points[0].z];
+  for(let i=1;i<points.length;i++){
+    const length=Math.hypot(points[i].x-xs[xs.length-1],points[i].z-zs[zs.length-1]);
+    if(length<.001)continue;arc.push(arc[arc.length-1]+length);xs.push(points[i].x);zs.push(points[i].z);
+  }
+  const factor=L.total/t[t.length-1],times=t.map(v=>v*factor);
+  return {progress:ghostCurve(times,progress),x:ghostCurve(arc,xs),z:ghostCurve(arc,zs),length:arc[arc.length-1]};
+}
+function ghostMotionPose(L,time) {
+  const distance=ghostCurveAt(L.progress,time).v*L.length;
+  const x=ghostCurveAt(L.x,distance),z=ghostCurveAt(L.z,distance),len=Math.hypot(x.d,z.d)||1;
+  return {x:x.v,z:z.v,fx:x.d/len,fz:z.d/len};
+}
+
 function ghostBuild() {
   if (!st.A || !st.B) return null;
   if (ghost.source===st.A) return ghost.scene;
@@ -2213,7 +2263,7 @@ function ghostBuild() {
     return {p,rx:dz/len,rz:-dx/len};
   });
   const xs=center.map(p=>p.x), zs=center.map(p=>p.z);
-  const native=[A,B].map(L=>{const p=L.source||L;const length=p.t.length;const factor=L.total/p.t[length-1];return {t:Float64Array.from(p.t,v=>v*factor),path:Array.from(p.x,(x,i)=>({x:(x-ox)*scale,z:(p.y[i]-oz)*scale}))};});
+  const native=[A,B].map(L=>ghostMotionBuild(L.source||L,L,ox,oz,scale));
   ghost.scene={native,paths,edges,n,minX:Math.min(...xs),maxX:Math.max(...xs),minZ:Math.min(...zs),maxZ:Math.max(...zs)};
   ghost.source=A; return ghost.scene;
 }
@@ -2227,10 +2277,10 @@ function ghostPose(path,k) {
   return {...p,fx:(b.x-a.x)/len,fz:(b.z-a.z)/len};
 }
 function ghostProjection(camera,target,w,h) {
-  const sub=(a,b)=>a.map((v,i)=>v-b[i]),norm=a=>{const l=Math.hypot(...a)||1;return a.map(v=>v/l);};
-  const dot=(a,b)=>a.reduce((s,v,i)=>s+v*b[i],0),cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
-  const f=norm(sub(target,camera)),r=norm(cross(f,[0,1,0])),u=cross(r,f),focal=Math.min(w,h)*1.06;
-  return p=>{const d=sub(p,camera),z=dot(d,f);return z<1?null:{x:w*.5+dot(d,r)*focal/z,y:h*.51-dot(d,u)*focal/z,d:z};};
+  let fx=target[0]-camera[0],fy=target[1]-camera[1],fz=target[2]-camera[2];const fl=Math.hypot(fx,fy,fz)||1;fx/=fl;fy/=fl;fz/=fl;
+  let rx=-fz,rz=fx;const rl=Math.hypot(rx,rz)||1;rx/=rl;rz/=rl;
+  const ux=-rz*fy,uy=rz*fx-rx*fz,uz=rx*fy,focal=Math.min(w,h)*1.06;
+  return p=>{const dx=p[0]-camera[0],dy=p[1]-camera[1],dz=p[2]-camera[2],depth=dx*fx+dy*fy+dz*fz;return depth<1?null:{x:w*.5+(dx*rx+dz*rz)*focal/depth,y:h*.51-(dx*ux+dy*uy+dz*uz)*focal/depth,d:depth};};
 }
 function ghostDraw(pos) {
   if(!ghost.active || st.mode==='race' || !st.A || !st.B)return;
@@ -2238,7 +2288,7 @@ function ghostDraw(pos) {
   fitCanvas(cv);const g=cv.getContext('2d'),dpr=cv.width/cv.getBoundingClientRect().width,w=cv.width/dpr,h=cv.height/dpr;
   g.setTransform(dpr,0,0,dpr,0,0);
   const sky=g.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#142231');sky.addColorStop(.5,'#0a151c');sky.addColorStop(1,'#081113');g.fillStyle=sky;g.fillRect(0,0,w,h);
-  const poses=S.native.map(L=>ghostPose(L.path,kAtTime(L,st.play.e))),A=poses[0],B=poses[1];
+  const poses=S.native.map(L=>ghostMotionPose(L,st.play.e)),A=poses[0],B=poses[1];
   let camera,target;
   if(ghost.camera==='overview') {
     const span=Math.max(S.maxX-S.minX,S.maxZ-S.minZ),x=(S.maxX+S.minX)/2,z=(S.maxZ+S.minZ)/2;
@@ -2249,12 +2299,15 @@ function ghostDraw(pos) {
     camera=[x-p.fx*dist+(tv?p.fz*35:0),height,z-p.fz*dist-(tv?p.fx*35:0)];
     target=[x+p.fx*(tv?35:25),0,z+p.fz*(tv?35:25)];
   }
+  const stamp=performance.now(),last=ghost.cameraState;
+  if(last&&last.mode===ghost.camera&&st.play.on&&Math.abs(st.play.e-last.time)<.5){const mix=1-Math.exp(-Math.min(.1,(stamp-last.stamp)/1000)/.11);camera=camera.map((v,i)=>last.camera[i]+(v-last.camera[i])*mix);target=target.map((v,i)=>last.target[i]+(v-last.target[i])*mix);}
+  ghost.cameraState={camera,target,mode:ghost.camera,time:st.play.e,stamp};
   const project=ghostProjection(camera,target,w,h),polys=[];
   function poly(vertices,color,alpha=1){const ps=vertices.map(project);if(ps.some(p=>!p))return;polys.push({ps,color,alpha,depth:ps.reduce((v,p)=>v+p.d,0)/ps.length});}
   const edge=(e,offset,y=0)=>[e.p.x+e.rx*offset,y,e.p.z+e.rz*offset];
   for(let i=0;i<S.n-1;i++) {
     const a=S.edges[i],b=S.edges[i+1];
-    if(ghost.camera!=='overview' && Math.min(Math.hypot(a.p.x-A.x,a.p.z-A.z),Math.hypot(a.p.x-B.x,a.p.z-B.z))>700)continue;
+    if(ghost.camera!=='overview' && Math.min(Math.hypot(a.p.x-A.x,a.p.z-A.z),Math.hypot(a.p.x-B.x,a.p.z-B.z))>320)continue;
     poly([edge(a,-11,-.14),edge(b,-11,-.14),edge(b,11,-.14),edge(a,11,-.14)],'#18332d');
     poly([edge(a,-7),edge(b,-7),edge(b,7),edge(a,7)],i%8<4?'#343e46':'#323c44');
     for(const sign of [-1,1]) {
@@ -2271,7 +2324,7 @@ function ghostDraw(pos) {
   for(let side=0;side<2;side++){
     const path=S.paths[side],col=side?COL.b:COL.a;
     for(let i=1;i<path.length;i++) {
-      const p=path[i-1],q=path[i];if(ghost.camera!=='overview'&&Math.hypot(p.x-poses[side].x,p.z-poses[side].z)>350)continue;
+      const p=path[i-1],q=path[i];if(ghost.camera!=='overview'&&Math.hypot(p.x-poses[side].x,p.z-poses[side].z)>220)continue;
       const dx=q.x-p.x,dz=q.z-p.z,l=Math.hypot(dx,dz)||1,rx=dz/l*.13,rz=-dx/l*.13;
       poly([[p.x-rx,.07,p.z-rz],[q.x-rx,.07,q.z-rz],[q.x+rx,.07,q.z+rz],[p.x+rx,.07,p.z+rz]],col,.55);
     }
