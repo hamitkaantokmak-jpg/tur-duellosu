@@ -290,6 +290,9 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
 @media (prefers-reduced-motion: reduce) { .veil .spin { animation-duration: 3s; } }
 .rel { position: relative; }
 .filters {padding:12px 14px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;font-size:12px}.filters label{display:flex;align-items:center;gap:5px}.filters input{accent-color:var(--a)}.filters p{width:100%;margin:0;color:var(--muted)}.quality{padding:10px 14px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}.quality strong{color:var(--fg)}.detail{padding:12px 14px}.detail table{width:100%;border-collapse:collapse}.detail td,.detail th{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);font-size:12px}.detail p{font-size:12px;color:var(--muted)}#cornerDetail{grid-column:1/-1;order:4} .brk.missing{opacity:.4;border-style:dashed}
+
+.ghost-on .grid{display:flex;flex-direction:column}.ghost-on .rail{display:none}.ghost-on .main{display:contents}.ghost-on #chartcard,.ghost-on #cornercard,.ghost-on #cornerDetail{display:none}.ghost-on #duel{order:0}.ghost-on #ghostPanel{order:1}.ghost-on #insights{order:2}.ghost-on #duel{grid-template-columns:1fr 1fr;width:100%}.ghost-on #duel .filters{grid-column:1/-1}.ghost-on #duel .side.b{border-top:0;border-left:1px solid var(--line)}.ghost-panel{width:100%;overflow:hidden}.ghost-head{padding:20px 22px 8px;display:flex;justify-content:space-between;align-items:center;gap:12px}.ghost-head h2{font:800 clamp(25px,4vw,36px)/1 var(--display);margin:7px 0 0;text-transform:uppercase}.ghost-cameras{display:flex;flex-wrap:wrap;gap:6px;padding:8px 22px 16px}.ghost-stage{position:relative;background:#0b171e}.ghost-stage canvas{display:block;width:100%;height:clamp(360px,62vh,700px)}.ghost-overlay{position:absolute;top:20px;left:22px;pointer-events:none;display:grid;gap:5px;padding:12px 15px;border-left:2px solid var(--a);background:#071018bc;backdrop-filter:blur(8px)}.ghost-overlay span{font:600 10px var(--mono);letter-spacing:.08em;color:#a3b6c2}.ghost-overlay b{font:700 28px var(--mono);color:var(--fg)}.ghost-overlay small{font-size:10px;color:#94aab9}.ghost-drivers{display:grid;grid-template-columns:1fr 1fr;border-block:1px solid var(--line)}.ghost-driver{padding:14px 22px;display:grid;gap:5px}.ghost-driver strong{font:700 18px var(--mono)}.ghost-driver small{font:400 11px var(--mono);color:var(--muted)}.ghost-driver.ga{border-left:3px solid var(--a)}.ghost-driver.gb{border-left:3px solid var(--b)}.ghost-driver.ga strong{color:var(--a)}.ghost-driver.gb strong{color:var(--b)}.ghost-controls{display:flex;align-items:center;gap:12px;padding:16px 22px;flex-wrap:wrap}.ghost-controls input{flex:1;min-width:100px}.ghost-controls .primary{min-width:125px}.ghost-controls select{font:12px var(--mono)}#ghostClock{font:11px var(--mono);color:var(--muted);white-space:nowrap}.ghost-note{margin:0;padding:0 22px 18px;color:var(--muted);font-size:11px;line-height:1.7}@media(max-width:650px){.ghost-on #duel{grid-template-columns:1fr}.ghost-on #duel .side.b{border-left:0;border-top:1px solid var(--line)}.ghost-head{padding:16px 14px 8px}.ghost-cameras{padding:8px 14px 12px}.ghost-driver{padding:12px}.ghost-driver strong{font-size:14px}.ghost-driver small{font-size:10px;line-height:1.6}.ghost-overlay{top:12px;left:12px;padding:9px}.ghost-overlay span{font-size:8px}.ghost-overlay b{font-size:22px}.ghost-controls{padding:14px;gap:8px}.ghost-controls input{flex-basis:45%}.ghost-note{padding:0 14px 14px}#ghostClock{width:100%}}
+
 </style>
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -307,7 +310,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
         <label class="sel"><span hidden>Sezon</span><select id="year" aria-label="Sezon"></select></label>
         <label class="sel"><span hidden>Yarış haftası</span><select id="event" aria-label="Yarış haftası"></select></label>
         <div class="sessions" id="sessions" role="group" aria-label="Oturum"></div>
-        <div class="sessions" id="modes" role="group" aria-label="Görünüm"><button class="chip" data-mode="duel" aria-pressed="true">Tur düellosu</button><button class="chip" data-mode="race" aria-pressed="false">Yarış analizi</button></div>
+        <div class="sessions" id="modes" role="group" aria-label="Görünüm"><button class="chip" data-mode="duel" aria-pressed="true">Tur düellosu</button><button class="chip" data-mode="race" aria-pressed="false">Yarış analizi</button><button class="chip" id="ghostToggle" aria-pressed="false">◈ Hayalet tur</button></div>
       </div>
     </div>
   </header>
@@ -385,7 +388,16 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
         <div class="ins" id="insBody"></div><div class="quality" id="quality" role="status"></div>
       </section>
 
-      <section class="card rel" id="chartcard">
+      <section class="card ghost-panel" id="ghostPanel" hidden aria-label="Hayalet tur simülatörü">
+  <div class="ghost-head"><div><span class="eyebrow">GHOST LAB / TELEMETRİ REPLAY</span><h2>İki tur. Tek başlangıç.</h2></div><button class="chip" id="ghostClose">Düelloya dön</button></div>
+  <div class="ghost-cameras" id="ghostCameras" role="group" aria-label="Kamera seçimi"><button class="chip" data-camera="tv" aria-pressed="true">Yayın kamerası</button><button class="chip" data-camera="a" aria-pressed="false">A'yı takip et</button><button class="chip" data-camera="b" aria-pressed="false">B'yi takip et</button><button class="chip" data-camera="overview" aria-pressed="false">Tüm pist</button></div>
+  <div class="ghost-stage"><canvas id="ghostCanvas" aria-label="Gerçek tur telemetrisinden hareket eden iki hayalet aracın perspektif görünümü"></canvas><div class="ghost-overlay"><span>GERÇEK TELEMETRİ · ŞEMATİK 3D PİST</span><b id="ghostDelta">+0.000 s</b><small>Aynı mesafedeki zaman farkı</small></div></div>
+  <div class="ghost-drivers"><div class="ghost-driver ga"><strong id="ghostDriver0">A · Veri bekleniyor</strong><small id="ghostMetric0">Pilot ve turu yukarıdan seç</small></div><div class="ghost-driver gb"><strong id="ghostDriver1">B · Veri bekleniyor</strong><small id="ghostMetric1">Pilot ve turu yukarıdan seç</small></div></div>
+  <div class="ghost-controls"><button class="btn primary" id="ghostPlay">▶ Oynat</button><button class="btn" id="ghostRestart" aria-label="Hayalet turu başa sar">↺</button><input id="ghostScrub" type="range" min="0" max="10000" step="1" value="0" aria-label="Hayalet tur zamanı"><label class="sel"><select id="ghostRate" aria-label="Hayalet oynatma hızı"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label><span id="ghostClock">0:00.000</span></div>
+  <p class="ghost-note">İki araç aynı anda başlar ve kendi tur süresinde bitirir. B aracı yarı saydamdır. Yol genişliği, araç modeli ve düz zemin görselleştirmedir; gerçek pist modeli veya santimetre hassasiyetinde yarış çizgisi değildir. Konumlar yaklaşık 4 Hz telemetriden ara değerlerle oynatılır. Boşluk: oynat / duraklat · ← / →: 1 saniye.</p>
+</section>
+
+<section class="card rel" id="chartcard">
         <div class="charts-h">
           <span class="eyebrow">Telemetri · mesafeye göre</span>
           <div class="zoom" id="zoom" role="group" aria-label="Yakınlaştır">
@@ -652,7 +664,7 @@ function resampleTel(p, P, lapTime) {
   }
   if (lapTime && t[P - 1] > 0 && Math.abs(lapTime / t[P - 1] - 1) < 0.03) { const s = lapTime / t[P - 1]; for (let k = 0; k < P; k++) t[k] *= s; }
   for (const [key,arr] of [["throttle",thr],["rpm",rpm],["gear",gear],["brake",brk]]) if (p.quality[key].missing) arr.fill(NaN);
-  return { quality:p.quality, aligned:!!lapTime && Math.abs(lapTime-t[P-1])<.002, t, v, thr, rpm, gear, brk, x, y, total: t[P - 1] };
+  return { source:p, quality:p.quality, aligned:!!lapTime && Math.abs(lapTime-t[P-1])<.002, t, v, thr, rpm, gear, brk, x, y, total: t[P - 1] };
 }
 
 /* No corner map for this circuit: find braking zones on lap A
@@ -2182,6 +2194,142 @@ drawReadouts=function(pos){
   });
   $("readout").innerHTML=$("readout").innerHTML.replace(/NaN/g,'—');
 };
+/* Telemetry-driven perspective replay. Track surface and vehicle geometry are illustrative. */
+const ghost = { active:false, camera:'tv', scene:null, source:null };
+function ghostBuild() {
+  if (!st.A || !st.B) return null;
+  if (ghost.source===st.A) return ghost.scene;
+  const A=st.A, B=st.B, n=A.x.length;
+  let length=0;
+  for(let i=1;i<n;i++) length+=Math.hypot(A.x[i]-A.x[i-1],A.y[i]-A.y[i-1]);
+  const scale=st.H.L/Math.max(1,length), ox=A.x[0], oz=A.y[0];
+  const paths=[A,B].map(L=>Array.from(L.x,(x,i)=>({x:(x-ox)*scale,z:(L.y[i]-oz)*scale})));
+  const center=paths[0].map((p,i)=>({x:(p.x+paths[1][i].x)/2,z:(p.z+paths[1][i].z)/2}));
+  const edges=center.map((p,i)=>{
+    const a=center[Math.max(0,i-2)],b=center[Math.min(n-1,i+2)];
+    const dx=b.x-a.x,dz=b.z-a.z,len=Math.hypot(dx,dz)||1;
+    return {p,rx:dz/len,rz:-dx/len};
+  });
+  const xs=center.map(p=>p.x), zs=center.map(p=>p.z);
+  const native=[A,B].map(L=>{const p=L.source||L;const length=p.t.length;const factor=L.total/p.t[length-1];return {t:Float64Array.from(p.t,v=>v*factor),path:Array.from(p.x,(x,i)=>({x:(x-ox)*scale,z:(p.y[i]-oz)*scale}))};});
+  ghost.scene={native,paths,edges,n,minX:Math.min(...xs),maxX:Math.max(...xs),minZ:Math.min(...zs),maxZ:Math.max(...zs)};
+  ghost.source=A; return ghost.scene;
+}
+function ghostPoint(path,k) {
+  const i=Math.min(path.length-2,Math.max(0,Math.floor(k))),f=Math.min(1,k-i);
+  return {x:path[i].x+(path[i+1].x-path[i].x)*f,z:path[i].z+(path[i+1].z-path[i].z)*f};
+}
+function ghostPose(path,k) {
+  const p=ghostPoint(path,k),a=ghostPoint(path,Math.max(0,k-2)),b=ghostPoint(path,Math.min(path.length-1,k+2));
+  const len=Math.hypot(b.x-a.x,b.z-a.z)||1;
+  return {...p,fx:(b.x-a.x)/len,fz:(b.z-a.z)/len};
+}
+function ghostProjection(camera,target,w,h) {
+  const sub=(a,b)=>a.map((v,i)=>v-b[i]),norm=a=>{const l=Math.hypot(...a)||1;return a.map(v=>v/l);};
+  const dot=(a,b)=>a.reduce((s,v,i)=>s+v*b[i],0),cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+  const f=norm(sub(target,camera)),r=norm(cross(f,[0,1,0])),u=cross(r,f),focal=Math.min(w,h)*1.06;
+  return p=>{const d=sub(p,camera),z=dot(d,f);return z<1?null:{x:w*.5+dot(d,r)*focal/z,y:h*.51-dot(d,u)*focal/z,d:z};};
+}
+function ghostDraw(pos) {
+  if(!ghost.active || st.mode==='race' || !st.A || !st.B)return;
+  const S=ghostBuild(),cv=$('ghostCanvas');if(!cv.getClientRects().length)return;
+  fitCanvas(cv);const g=cv.getContext('2d'),dpr=cv.width/cv.getBoundingClientRect().width,w=cv.width/dpr,h=cv.height/dpr;
+  g.setTransform(dpr,0,0,dpr,0,0);
+  const sky=g.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#142231');sky.addColorStop(.5,'#0a151c');sky.addColorStop(1,'#081113');g.fillStyle=sky;g.fillRect(0,0,w,h);
+  const poses=S.native.map(L=>ghostPose(L.path,kAtTime(L,st.play.e))),A=poses[0],B=poses[1];
+  let camera,target;
+  if(ghost.camera==='overview') {
+    const span=Math.max(S.maxX-S.minX,S.maxZ-S.minZ),x=(S.maxX+S.minX)/2,z=(S.maxZ+S.minZ)/2;
+    camera=[x,span*1.12,z-span*.48];target=[x,0,z];
+  } else {
+    const p=ghost.camera==='b'?B:A, tv=ghost.camera==='tv',dist=tv?80:32,height=tv?65:14;
+    const x=tv?(A.x+B.x)/2:p.x,z=tv?(A.z+B.z)/2:p.z;
+    camera=[x-p.fx*dist+(tv?p.fz*35:0),height,z-p.fz*dist-(tv?p.fx*35:0)];
+    target=[x+p.fx*(tv?35:25),0,z+p.fz*(tv?35:25)];
+  }
+  const project=ghostProjection(camera,target,w,h),polys=[];
+  function poly(vertices,color,alpha=1){const ps=vertices.map(project);if(ps.some(p=>!p))return;polys.push({ps,color,alpha,depth:ps.reduce((v,p)=>v+p.d,0)/ps.length});}
+  const edge=(e,offset,y=0)=>[e.p.x+e.rx*offset,y,e.p.z+e.rz*offset];
+  for(let i=0;i<S.n-1;i++) {
+    const a=S.edges[i],b=S.edges[i+1];
+    if(ghost.camera!=='overview' && Math.min(Math.hypot(a.p.x-A.x,a.p.z-A.z),Math.hypot(a.p.x-B.x,a.p.z-B.z))>700)continue;
+    poly([edge(a,-11,-.14),edge(b,-11,-.14),edge(b,11,-.14),edge(a,11,-.14)],'#18332d');
+    poly([edge(a,-7),edge(b,-7),edge(b,7),edge(a,7)],i%8<4?'#343e46':'#323c44');
+    for(const sign of [-1,1]) {
+      poly([edge(a,sign*7,.02),edge(b,sign*7,.02),edge(b,sign*7.22,.02),edge(a,sign*7.22,.02)],'#c4ced0');
+    }
+  }
+  // Start/finish checkerboard anchored to the first recorded sample.
+  const first=S.edges[0],forward={x:-first.rz,z:first.rx};
+  for(let i=0;i<14;i++)for(let j=0;j<2;j++){
+    const p=edge(first,i-7,.04),q=edge(first,i-6,.04);
+    poly([[p[0]+forward.x*j,.04,p[2]+forward.z*j],[q[0]+forward.x*j,.04,q[2]+forward.z*j],[q[0]+forward.x*(j+1),.04,q[2]+forward.z*(j+1)],[p[0]+forward.x*(j+1),.04,p[2]+forward.z*(j+1)]],(i+j)%2?'#11181b':'#eff3ec');
+  }
+  // Actual A/B paths, independent of the illustrative road ribbon.
+  for(let side=0;side<2;side++){
+    const path=S.paths[side],col=side?COL.b:COL.a;
+    for(let i=1;i<path.length;i++) {
+      const p=path[i-1],q=path[i];if(ghost.camera!=='overview'&&Math.hypot(p.x-poses[side].x,p.z-poses[side].z)>350)continue;
+      const dx=q.x-p.x,dz=q.z-p.z,l=Math.hypot(dx,dz)||1,rx=dz/l*.13,rz=-dx/l*.13;
+      poly([[p.x-rx,.07,p.z-rz],[q.x-rx,.07,q.z-rz],[q.x+rx,.07,q.z+rz],[p.x+rx,.07,p.z+rz]],col,.55);
+    }
+  }
+  function car(p,col,alpha){
+    const transform=(x,y,z)=>[p.x+p.fz*x+p.fx*z,y,p.z-p.fx*x+p.fz*z];
+    function box(x,y,z,sx,sy,sz,c){
+      const v=[[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]].map(v=>transform(x+v[0]*sx/2,y+v[1]*sy/2,z+v[2]*sz/2));
+      for(const f of [[0,1,2,3],[4,7,6,5],[3,2,6,7],[0,4,5,1],[0,3,7,4],[1,5,6,2]])poly(f.map(i=>v[i]),c,alpha);
+    }
+    box(0,.18,0,1.7,.16,4.9,'#111b22');box(0,.48,-.3,1.25,.52,2.8,col);
+    box(0,.44,1.5,.48,.28,2.2,col);box(0,.25,2.65,1.95,.12,.5,col);
+    box(0,.9,-2.2,1.75,.15,.48,col);box(0,.5,-2.2,.18,.7,.15,'#1b252c');
+    box(0,.85,-.15,.65,.15,.8,'#061014');box(0,.96,.12,.28,.22,.28,'#e6ecf1');
+    for(const x of [-.87,.87])for(const z of [-1.65,1.55]){box(x,.42,z,.4,.76,.78,'#080e13');box(x+(x>0?.205:-.205),.42,z,.025,.36,.36,col);}
+  }
+  car(A,COL.a,1);car(B,COL.b,.62);
+  polys.sort((a,b)=>b.depth-a.depth);
+  for(const p of polys){g.globalAlpha=p.alpha;g.fillStyle=p.color;g.beginPath();p.ps.forEach((q,i)=>i?g.lineTo(q.x,q.y):g.moveTo(q.x,q.y));g.closePath();g.fill();}
+  g.globalAlpha=1;
+  for(let i=0;i<2;i++){
+    const p=project([poses[i].x,2.7,poses[i].z]);if(!p||p.x<0||p.x>w||p.y<0||p.y>h)continue;
+    const text=(i?'B · ':'A · ')+st.H.drivers[(i?st.B:st.A).meta.d].c;
+    g.font='700 12px '+css('--mono');const tw=g.measureText(text).width;g.fillStyle='#081018dd';g.fillRect(p.x-tw/2-8,p.y-18,tw+16,25);g.fillStyle=i?COL.b:COL.a;g.textAlign='center';g.fillText(text,p.x,p.y);
+  }
+  // Persistent course inset, including both cars at the same elapsed time.
+  const mw=Math.min(150,w*.27),mh=100,mx=w-mw-16,my=h-mh-18,pad=10;
+  g.fillStyle='#081119db';g.fillRect(mx,my,mw,mh);
+  const sc=Math.min((mw-pad*2)/(S.maxX-S.minX||1),(mh-pad*2)/(S.maxZ-S.minZ||1));
+  const map=p=>[mx+mw/2+(p.x-(S.maxX+S.minX)/2)*sc,my+mh/2+(p.z-(S.maxZ+S.minZ)/2)*sc];
+  g.strokeStyle='#607580';g.lineWidth=2;g.beginPath();S.edges.forEach((e,i)=>{const p=map(e.p);i?g.lineTo(...p):g.moveTo(...p);});g.stroke();
+  poses.forEach((p,i)=>{g.fillStyle=i?COL.b:COL.a;g.beginPath();g.arc(...map(p),3.5,0,Math.PI*2);g.fill();});
+  const end=Math.max(st.A.total,st.B.total),time=st.play.e;
+  $('ghostClock').textContent=fmtClock(time)+' / '+fmtClock(end);
+  $('ghostScrub').value=Math.round(time/end*10000);
+  $('ghostPlay').textContent=st.play.on?'Ⅱ Duraklat':'▶ Oynat';
+  const value=(arr,k)=>Number.isFinite(lerp(arr,k))?Math.round(lerp(arr,k)):'—';
+  [st.A,st.B].forEach((L,i)=>{const k=i?pos.kb:pos.ka,done=time>=L.total;
+    $('ghostDriver'+i).textContent=st.H.drivers[L.meta.d].c+' · '+(done?'BİTİŞ':value(L.v,k)+' km/sa');
+    $('ghostMetric'+i).textContent='Vites '+value(L.gear,k)+' · Gaz %'+value(L.thr,k)+' · Fren '+(L.quality.brake.missing?'—':near(L.brk,k)?'AÇIK':'KAPALI');
+  });
+  const delta=lerp(st.delta,pos.ka);$('ghostDelta').textContent=fmtGap(delta)+' s';
+}
+function ghostToggle(force){
+  ghost.active=typeof force==='boolean'?force:!ghost.active;
+  document.body.classList.toggle('ghost-on',ghost.active);$('ghostPanel').hidden=!ghost.active;
+  $('ghostToggle').setAttribute('aria-pressed',String(ghost.active));
+  if(ghost.active){st.hoverK=null;resetView();if(st.mode==='race')setMode('duel');drawAll();}
+}
+$('ghostToggle').onclick=()=>ghostToggle();$('ghostClose').onclick=()=>ghostToggle(false);
+$('ghostPlay').onclick=()=>{if(st.play.on)stopPlay();else startPlay();drawAll();};
+$('ghostRestart').onclick=()=>{stopPlay();st.play.e=0;st.hoverK=null;drawAll();};
+$('ghostScrub').oninput=e=>{stopPlay();if(!st.A)return;st.hoverK=null;st.play.e=+e.target.value/10000*Math.max(st.A.total,st.B.total);drawAll();};
+$('ghostRate').onchange=e=>{st.play.rate=+e.target.value;$('rate').value=e.target.value;};
+$('ghostCameras').onclick=e=>{const b=e.target.closest('[data-camera]');if(!b)return;ghost.camera=b.dataset.camera;document.querySelectorAll('[data-camera]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));drawAll();};
+const originalGhostDrawAll=drawAll;
+drawAll=function(){if(ghost.active&&st.A&&st.B&&st.mode!=='race')ghostDraw(positions());else originalGhostDrawAll();};
+document.addEventListener('keydown',e=>{if(!ghost.active||/INPUT|SELECT|TEXTAREA|BUTTON/.test(e.target.tagName))return;if(e.code==='Space'){e.preventDefault();$('ghostPlay').click();}if(e.code==='ArrowRight'||e.code==='ArrowLeft'){e.preventDefault();stopPlay();st.hoverK=null;st.play.e=Math.max(0,Math.min(Math.max(st.A?.total||0,st.B?.total||0),st.play.e+(e.code==='ArrowRight'?1:-1)));drawAll();}});
+window.addEventListener('resize',()=>{if(ghost.active)drawAll();});
+
 /* ───────── boot ───────── */
 (function boot() {
   if (TOUCH) $("hint").textContent = "Grafikte parmağını yatay kaydır: haritada A o noktada, B ise aynı saniyede bulunduğu yerde görünür. Sektör düğmeleri ve viraj satırları yakınlaştırır.";
