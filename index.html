@@ -2100,7 +2100,7 @@ function setMode(m) {
   stopPlay(); st.mode = m; applyMode();
   if (m === "race") renderRace();
   else if (st.duelStale) { st.duelStale = false; compare(); }
-  else { mapLayer = null; chartLayer = null; drawAll(); }
+  else { renderMeta(); mapLayer = null; chartLayer = null; drawAll(); }
 }
 $("modes").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b && !b.disabled) setMode(b.dataset.mode); });
 function writeHash() {
