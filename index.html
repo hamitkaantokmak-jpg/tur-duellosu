@@ -2663,6 +2663,14 @@ function ghost3dBuild(S){
     }else{box(group,0,1.5,0,.5,3,.5,material('#76654b'));const tree=mesh(new T.ConeGeometry(3,7,7),material('#46684b'),group);tree.position.y=5;}
   }
   if(windows.length){const panes=new T.InstancedMesh(new T.BoxGeometry(.04,1.4,1.5),glass,windows.length);windows.forEach((m,i)=>panes.setMatrixAt(i,m));panes.receiveShadow=true;environment.add(panes);}
+  G.traces=new T.Group();G.zones=new T.Group();world.add(G.traces,G.zones);
+  [st.A,st.B].forEach((L,index)=>{
+    const curve=new T.CatmullRomCurve3(S.paths[index].map(p=>new T.Vector3(p.x,.095,p.z)));
+    mesh(new T.TubeGeometry(curve,S.n,.075,3,false),new T.MeshBasicMaterial({color:index?COL.b:COL.a,transparent:true,opacity:.6}),G.traces).castShadow=false;
+    const verts=[],side=index?1:-1;
+    if(!L.quality.brake.missing)for(let i=0;i<S.n-1;i++)if(L.brk[i]>=.5){const a=S.edges[i],b=S.edges[i+1],p=point(a,side*.8,.07),q=point(b,side*.8,.07),r=point(b,side*4.8,.07),u=point(a,side*4.8,.07);verts.push(...p,...q,...r,...p,...r,...u);}
+    if(verts.length){const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(verts,3));geo.computeVertexNormals();mesh(geo,new T.MeshBasicMaterial({color:'#ff435f',transparent:true,opacity:.22,depthWrite:false,side:T.DoubleSide}),G.zones).castShadow=false;}
+  });
   // A generic open-wheel model built for this demo; no third-party model or official livery.
   G.cars=[st.A,st.B].map((L,index)=>{
     const group=new T.Group();world.add(group);const color=st.H.drivers[L.meta.d].col||[COL.a,COL.b][index],paint=material(color,.28,.33),carbon=material('#182027',.58,.15),rubber=material('#15191b',.94),rim=material('#89929b',.3,.75);
@@ -2689,7 +2697,7 @@ function ghost3dRender(S,poses,camera,target,w,h){
     G.canvas.hidden=false;$('ghostCanvas').style.visibility='hidden';
     if(G.width!==w||G.height!==h){G.renderer.setSize(w,h,false);G.camera.aspect=w/h;G.camera.updateProjectionMatrix();G.width=w;G.height=h;}
     G.camera.position.set(...camera);G.camera.lookAt(...target);
-    G.environment.visible=$('ghostEnvironment').checked;
+    G.environment.visible=$('ghostEnvironment').checked;G.traces.visible=$('ghostTraces').checked;G.zones.visible=$('ghostZones').checked;
     poses.forEach((p,i)=>{const car=G.cars[i];car.position.set(p.x,0,p.z);car.rotation.y=Math.atan2(p.fx,p.fz);car.userData.wheels.forEach(wheel=>wheel.rotation.x=-st.play.e*lerp((i?st.B:st.A).v,kAtTime(i?st.B:st.A,st.play.e))/3.6/.37);});
     const p=poses[0];G.sun.position.set(p.x-65,110,p.z-45);G.sun.target.position.set(p.x,0,p.z);G.sun.target.updateMatrixWorld();G.sun.shadow.camera.updateProjectionMatrix();G.sun.castShadow=ghost.camera!=='overview';
     G.scene.fog.near=ghost.camera==='overview'?5000:240;G.scene.fog.far=ghost.camera==='overview'?14000:1050;
