@@ -296,6 +296,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
 .brake-dashboard{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 22px 18px}.pedal-card{border:1px solid var(--line-2);border-radius:8px;background:#111c27;padding:13px 15px;transition:background .12s,border-color .12s}.pedal-card.braking{background:#261924;border-color:#a43b50}.pedal-title{display:flex;align-items:center;justify-content:space-between;gap:12px;font:600 10px var(--mono);color:var(--muted)}.pedal-title b{font-size:12px;color:var(--fg)}.braking .pedal-title b{color:#ff6b7e}.pedal-bars{display:grid;grid-template-columns:35px minmax(0,1fr) 48px;align-items:center;gap:8px;margin-top:14px;font:10px var(--mono)}.pedal-bars b{text-align:right;font-size:10px}.pedal-track{height:8px;background:#08121b;border-radius:3px;overflow:hidden}.pedal-track i{display:block;height:100%;background:#42d9a3;width:0}.pedal-track.brake i{background:#ff5268}.pedal-card p{margin:10px 0 0;font:10px/1.5 var(--mono);color:var(--muted)}.brake-analysis{margin:0 22px 18px;padding:16px;border:1px solid var(--line-2);border-radius:8px;background:#0c151e}.brake-analysis-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.brake-analysis-head p,.brake-caveat{font-size:11px;color:var(--muted);margin:5px 0 0}#brakeTimeline{display:block;width:100%;height:92px;margin-top:12px;cursor:pointer;touch-action:pan-y}.brake-event-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}.brake-event-cols h3{font:700 15px var(--display);margin:0 0 4px}.brake-event-cols p{font:10px var(--mono);color:var(--muted);margin:0 0 10px}.brake-event{display:block;width:100%;border:0;border-top:1px solid var(--line);padding:8px 0;background:none;color:var(--fg);font:10px/1.5 var(--mono);text-align:left;cursor:pointer}.brake-event:hover{color:#ff6b7e}.brake-caveat{margin-top:12px;line-height:1.6}@media(max-width:650px){.brake-dashboard{grid-template-columns:1fr;padding:0 14px 14px}.brake-analysis{margin:0 14px 14px;padding:12px}.brake-event-cols{grid-template-columns:1fr}.pedal-title{font-size:9px}}
 
 .ghost-options{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding:0 18px 12px;color:var(--muted);font-size:11px}.ghost-options>span{flex:1;min-width:200px}.ghost-options label{display:flex;align-items:center;gap:5px;cursor:pointer}.ghost-options input{accent-color:#69d9c6}
+.ghost-zoom input{width:90px}.ghost-stage canvas{height:clamp(400px,68vh,760px)}.ghost-overlay{padding:9px 12px;background:#0710189c}.ghost-overlay b{font-size:23px}
 </style>
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -394,7 +395,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
       <section class="card ghost-panel" id="ghostPanel" hidden aria-label="Hayalet tur simülatörü">
   <div class="ghost-head"><div><span class="eyebrow">GHOST LAB / TELEMETRİ REPLAY</span><h2>İki tur. Tek başlangıç.</h2></div><button class="chip" id="ghostClose">Düelloya dön</button></div>
   <div class="ghost-cameras" id="ghostCameras" role="group" aria-label="Kamera seçimi"><button class="chip" data-camera="tv" aria-pressed="true">Yayın kamerası</button><button class="chip" data-camera="a" aria-pressed="false">A'yı takip et</button><button class="chip" data-camera="b" aria-pressed="false">B'yi takip et</button><button class="chip" data-camera="overview" aria-pressed="false">Tüm pist</button></div>
-  <div class="ghost-options"><span id="ghostScenery"></span><label><input type="checkbox" id="ghostTraces"> Konum izleri</label><label><input type="checkbox" id="ghostZones"> Fren bölgeleri</label></div>
+  <div class="ghost-options"><span id="ghostScenery"></span><label class="ghost-zoom">Yakınlık <input id="ghostZoom" type="range" min="70" max="160" value="100" aria-label="Kamera yakınlığı"></label><label><input type="checkbox" id="ghostTraces"> Konum izleri</label><label><input type="checkbox" id="ghostZones"> Fren bölgeleri</label></div>
   <div class="ghost-stage"><canvas id="ghostCanvas" aria-label="Gerçek tur telemetrisinden hareket eden iki hayalet aracın perspektif görünümü"></canvas><div class="ghost-overlay"><span>TELEMETRİ REPLAY · GÖRSEL PİST MODELİ</span><b id="ghostDelta">+0.000 s</b><small>Aynı mesafedeki zaman farkı</small></div></div>
   <div class="ghost-drivers"><div class="ghost-driver ga"><strong id="ghostDriver0">A · Veri bekleniyor</strong><small id="ghostMetric0">Pilot ve turu yukarıdan seç</small></div><div class="ghost-driver gb"><strong id="ghostDriver1">B · Veri bekleniyor</strong><small id="ghostMetric1">Pilot ve turu yukarıdan seç</small></div></div>
   <div class="ghost-controls"><button class="btn primary" id="ghostPlay">▶ Oynat</button><button class="btn" id="ghostRestart" aria-label="Hayalet turu başa sar">↺</button><input id="ghostScrub" type="range" min="0" max="10000" step="1" value="0" aria-label="Hayalet tur zamanı"><label class="sel"><select id="ghostRate" aria-label="Hayalet oynatma hızı"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label><span id="ghostClock">0:00.000</span></div>
@@ -2312,17 +2313,17 @@ function ghostDraw(pos) {
   const S=ghostBuild(),cv=$('ghostCanvas');if(!cv.getClientRects().length)return;
   fitCanvas(cv);const g=cv.getContext('2d'),dpr=cv.width/cv.getBoundingClientRect().width,w=cv.width/dpr,h=cv.height/dpr;
   g.setTransform(dpr,0,0,dpr,0,0);
-  const sky=g.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#243e55');sky.addColorStop(.36,'#658092');sky.addColorStop(.52,'#5b705a');sky.addColorStop(1,'#253e32');g.fillStyle=sky;g.fillRect(0,0,w,h);
+  const sky=g.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#6d9fbd');sky.addColorStop(.52,'#b7ccd4');sky.addColorStop(1,'#d9dfd4');g.fillStyle=sky;g.fillRect(0,0,w,h);
   const poses=S.native.map(L=>ghostMotionPose(L,st.play.e)),A=poses[0],B=poses[1];
   let camera,target;
   if(ghost.camera==='overview') {
     const span=Math.max(S.maxX-S.minX,S.maxZ-S.minZ),x=(S.maxX+S.minX)/2,z=(S.maxZ+S.minZ)/2;
-    camera=[x,span*1.12,z-span*.48];target=[x,0,z];
+    camera=[x,span*1.25,z-span*.035];target=[x,0,z];
   } else {
-    const p=ghost.camera==='b'?B:A, tv=ghost.camera==='tv',dist=tv?80:32,height=tv?65:14;
+    const p=ghost.camera==='b'?B:A, tv=ghost.camera==='tv',separation=Math.hypot(A.x-B.x,A.z-B.z),zoom=Number($('ghostZoom')?.value||100)/100,dist=(tv?28+Math.min(40,separation*.35):12)/zoom,height=(tv?17+Math.min(20,separation*.15):4.8)/zoom;
     const x=tv?(A.x+B.x)/2:p.x,z=tv?(A.z+B.z)/2:p.z;
-    camera=[x-p.fx*dist+(tv?p.fz*35:0),height,z-p.fz*dist-(tv?p.fx*35:0)];
-    target=[x+p.fx*(tv?35:25),0,z+p.fz*(tv?35:25)];
+    camera=[x-p.fx*dist+(tv?p.fz*15:0),height,z-p.fz*dist-(tv?p.fx*15:0)];
+    target=[x+p.fx*(tv?5:5),.6,z+p.fz*(tv?5:5)];
   }
   const stamp=performance.now(),last=ghost.cameraState;
   if(last&&last.mode===ghost.camera&&st.play.on&&Math.abs(st.play.e-last.time)<.5){const mix=1-Math.exp(-Math.min(.1,(stamp-last.stamp)/1000)/.11);camera=camera.map((v,i)=>last.camera[i]+(v-last.camera[i])*mix);target=target.map((v,i)=>last.target[i]+(v-last.target[i])*mix);}
@@ -2339,8 +2340,10 @@ function ghostDraw(pos) {
       if(inside!==(db>=1.02)){const t=(1.02-da)/(db-da);clipped.push(a.map((v,j)=>v+(b[j]-v)*t));}
     }
     if(clipped.length<3)return;const ps=clipped.map(project);if(ps.some(p=>!p))return;
-    polys.push({ps,color,alpha,layer:vertices.some(p=>p[1]>.1)?1:0,depth:ps.reduce((v,p)=>v+p.d,0)/ps.length});
+    polys.push({ps,color,alpha,layer:vertices.every(p=>p[1]<-.18)?-1:vertices.some(p=>p[1]>.1)?1:0,depth:ps.reduce((v,p)=>v+p.d,0)/ps.length});
   }
+  const groundSpan=Math.max(S.maxX-S.minX,S.maxZ-S.minZ)+12000,cx=(S.minX+S.maxX)/2,cz=(S.minZ+S.maxZ)/2;
+  poly([[cx-groundSpan,-.2,cz-groundSpan],[cx+groundSpan,-.2,cz-groundSpan],[cx+groundSpan,-.2,cz+groundSpan],[cx-groundSpan,-.2,cz+groundSpan]],theme.grass);
   const edge=(e,offset,y=0)=>[e.p.x+e.rx*offset,y,e.p.z+e.rz*offset];
   for(let i=0;i<S.n-1;i++) {
     const a=S.edges[i],b=S.edges[i+1];
@@ -2397,6 +2400,10 @@ function ghostDraw(pos) {
     for(const x of [-.56,.56]){box(x,.43,-.25,.36,.42,2.1,col);box(x,.68,-.2,.26,.055,1.35,'#e0e8eb');}
     box(0,.75,-.18,.63,.12,.87,'#071118');
     body(-1.5,-.52,.12,.29,.61,1.03,col);box(0,1.04,-1.12,.14,.18,.35,'#111b20');
+    for(const sign of [-1,1])for(const z of [-1.58,1.48])for(const y of [.28,.46]){
+      poly([transform(sign*.27,y,z-.35),transform(sign*.9,y,z),transform(sign*.88,y+.035,z+.06),transform(sign*.27,y+.035,z-.29)],'#18232b',alpha);
+      poly([transform(sign*.27,y,z+.35),transform(sign*.9,y,z),transform(sign*.88,y+.035,z-.06),transform(sign*.27,y+.035,z+.29)],'#18232b',alpha);
+    }
     // Front wing with multiple elements; no brake lamp is invented.
     for(let j=0;j<3;j++)box(0,.22+j*.045,2.45-j*.15,1.97,.045,.16,j===0?'#202b32':col);
     for(const x of [-.97,.97])box(x,.33,2.28,.045,.26,.52,col);
@@ -2404,7 +2411,10 @@ function ghostDraw(pos) {
     for(const x of [-.82,.82])box(x,.75,-2.2,.045,.5,.48,col);
     box(0,.57,-2.15,.15,.58,.12,'#18232a');
     // Helmet and halo are illustrative geometry, not measured driver motion.
-    box(0,.83,-.08,.27,.27,.29,'#edf1dc');box(0,.86,.075,.24,.065,.025,'#17222b');
+    for(let row=0;row<4;row++)for(let j=0;j<10;j++){
+      const sphere=(r,k)=>{const a=r/4*Math.PI,b=k/10*Math.PI*2;return transform(Math.sin(a)*Math.cos(b)*.17,.84+Math.cos(a)*.17,-.08+Math.sin(a)*Math.sin(b)*.18);};
+      poly([sphere(row,j),sphere(row,j+1),sphere(row+1,j+1),sphere(row+1,j)],row===1?'#293b49':'#e6e7d9',alpha);
+    }
     for(const x of [-.35,.35])box(x,.95,-.12,.06,.06,.72,'#25343d');
     box(0,.95,.24,.71,.06,.06,'#25343d');box(0,.78,.47,.065,.38,.06,'#25343d');
     for(const x of [-.87,.87])for(const z of [-1.58,1.48]){
@@ -2418,14 +2428,14 @@ function ghostDraw(pos) {
     }
   }
 
-  car(A,COL.a,1,0);car(B,COL.b,.62,1);
+  car(A,st.H.drivers[st.A.meta.d].col||COL.a,1,0);car(B,st.H.drivers[st.B.meta.d].col||COL.b,.7,1);
   polys.sort((a,b)=>a.layer-b.layer||b.depth-a.depth);
-  for(const p of polys){g.globalAlpha=p.alpha;g.fillStyle=p.color;g.beginPath();p.ps.forEach((q,i)=>i?g.lineTo(q.x,q.y):g.moveTo(q.x,q.y));g.closePath();g.fill();}
+  for(const p of polys){g.globalAlpha=p.alpha;g.fillStyle=p.color;g.beginPath();p.ps.forEach((q,i)=>i?g.lineTo(q.x,q.y):g.moveTo(q.x,q.y));g.closePath();g.fill();if(p.alpha===1){g.strokeStyle=p.color;g.lineWidth=.55;g.stroke();}} 
   g.globalAlpha=1;
   for(let i=0;i<2;i++){
-    const p=project([poses[i].x,2.7,poses[i].z]);if(!p||p.x<0||p.x>w||p.y<0||p.y>h)continue;
+    const p=project([poses[i].x,1.8,poses[i].z]);if(!p||p.x<0||p.x>w||p.y<0||p.y>h)continue;
     const text=(i?'B · ':'A · ')+st.H.drivers[(i?st.B:st.A).meta.d].c;
-    g.font='700 12px '+css('--mono');const tw=g.measureText(text).width;g.fillStyle='#081018dd';g.fillRect(p.x-tw/2-8,p.y-18,tw+16,25);g.fillStyle=i?COL.b:COL.a;g.textAlign='center';g.fillText(text,p.x,p.y);
+    g.font='700 10px '+css('--mono');const tw=g.measureText(text).width;g.fillStyle='#081018dd';g.fillRect(p.x-tw/2-8,p.y-18,tw+16,25);g.fillStyle=i?COL.b:COL.a;g.textAlign='center';g.fillText(text,p.x,p.y);
   }
   if(!st.H.autoCorners)for(const c of st.H.corners||[]){
     const idx=Math.round(c.r*(S.n-1)),e=S.edges[idx];if(!e)continue;
@@ -2532,6 +2542,7 @@ $('brakeEvents').addEventListener('click',e=>{const button=e.target.closest('[da
 $('nextBrake').onclick=()=>{if(!st.A)return;ghostBuildBrakes();const events=ghost.brakes.flatMap(b=>b.events).sort((a,b)=>a.start-b.start);const next=events.find(e=>e.start>st.play.e+.1)||events[0];if(next)ghostBrakeSeek(next.start);};
 $('brakeTimeline').addEventListener('pointerdown',e=>{if(!st.A)return;const r=e.currentTarget.getBoundingClientRect(),ratio=Math.max(0,Math.min(1,(e.clientX-r.left-36)/(r.width-48)));ghostBrakeSeek(ratio*Math.max(st.A.total,st.B.total));});
 
+$('ghostZoom').addEventListener('input',()=>{ghost.cameraState=null;drawAll();});
 for(const id of ['ghostTraces','ghostZones'])$(id).addEventListener('change',()=>drawAll());
 /* ───────── boot ───────── */
 (function boot() {
