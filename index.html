@@ -297,6 +297,8 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
 
 .ghost-options{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding:0 18px 12px;color:var(--muted);font-size:11px}.ghost-options>span{flex:1;min-width:200px}.ghost-options label{display:flex;align-items:center;gap:5px;cursor:pointer}.ghost-options input{accent-color:#69d9c6}
 .ghost-zoom input{width:90px}.ghost-stage canvas{height:clamp(400px,68vh,760px)}.ghost-overlay{padding:9px 12px;background:#0710189c}.ghost-overlay b{font-size:23px}
+#ghostWebGL{position:absolute;inset:0;pointer-events:none;z-index:0}.ghost-overlay{z-index:2}#ghostEngine{font-size:10px;color:#89d3bb}#ghostWebGL[hidden]{display:none}
+#ghostGLMini{position:absolute;right:16px;bottom:16px;width:160px;height:100px;z-index:2}.ghost-gl-label{position:absolute;z-index:2;pointer-events:none;transform:translate(-50%,-100%);font:700 10px var(--mono);padding:4px 6px;background:#071018bc}.ghost-gl-label[hidden],#ghostGLMini[hidden]{display:none}
 </style>
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -395,7 +397,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
       <section class="card ghost-panel" id="ghostPanel" hidden aria-label="Hayalet tur simülatörü">
   <div class="ghost-head"><div><span class="eyebrow">GHOST LAB / TELEMETRİ REPLAY</span><h2>İki tur. Tek başlangıç.</h2></div><button class="chip" id="ghostClose">Düelloya dön</button></div>
   <div class="ghost-cameras" id="ghostCameras" role="group" aria-label="Kamera seçimi"><button class="chip" data-camera="tv" aria-pressed="true">Yayın kamerası</button><button class="chip" data-camera="a" aria-pressed="false">A'yı takip et</button><button class="chip" data-camera="b" aria-pressed="false">B'yi takip et</button><button class="chip" data-camera="overview" aria-pressed="false">Tüm pist</button></div>
-  <div class="ghost-options"><span id="ghostScenery"></span><label><input type="checkbox" id="ghostEnvironment" checked> Çevre detayları</label><label class="ghost-zoom">Yakınlık <input id="ghostZoom" type="range" min="70" max="160" value="100" aria-label="Kamera yakınlığı"></label><label><input type="checkbox" id="ghostTraces"> Konum izleri</label><label><input type="checkbox" id="ghostZones"> Fren bölgeleri</label></div>
+  <div class="ghost-options"><span id="ghostScenery"></span><b id="ghostEngine" role="status">Standart görünüm</b><label><input type="checkbox" id="ghostEnvironment" checked> Çevre detayları</label><label class="ghost-zoom">Yakınlık <input id="ghostZoom" type="range" min="70" max="160" value="100" aria-label="Kamera yakınlığı"></label><label><input type="checkbox" id="ghostTraces"> Konum izleri</label><label><input type="checkbox" id="ghostZones"> Fren bölgeleri</label></div>
   <div class="ghost-stage"><canvas id="ghostCanvas" aria-label="Gerçek tur telemetrisinden hareket eden iki hayalet aracın perspektif görünümü"></canvas><div class="ghost-overlay"><span>TELEMETRİ REPLAY · GÖRSEL PİST MODELİ</span><b id="ghostDelta">+0.000 s</b><small>Aynı mesafedeki zaman farkı</small></div></div>
   <div class="ghost-drivers"><div class="ghost-driver ga"><strong id="ghostDriver0">A · Veri bekleniyor</strong><small id="ghostMetric0">Pilot ve turu yukarıdan seç</small></div><div class="ghost-driver gb"><strong id="ghostDriver1">B · Veri bekleniyor</strong><small id="ghostMetric1">Pilot ve turu yukarıdan seç</small></div></div>
   <div class="ghost-controls"><button class="btn primary" id="ghostPlay">▶ Oynat</button><button class="btn" id="ghostRestart" aria-label="Hayalet turu başa sar">↺</button><input id="ghostScrub" type="range" min="0" max="10000" step="1" value="0" aria-label="Hayalet tur zamanı"><label class="sel"><select id="ghostRate" aria-label="Hayalet oynatma hızı"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label><span id="ghostClock">0:00.000</span></div>
@@ -2342,6 +2344,7 @@ function ghostDraw(pos) {
   const stamp=performance.now(),last=ghost.cameraState;
   if(last&&last.mode===ghost.camera&&st.play.on&&Math.abs(st.play.e-last.time)<.5){const mix=1-Math.exp(-Math.min(.1,(stamp-last.stamp)/1000)/.11);camera=camera.map((v,i)=>last.camera[i]+(v-last.camera[i])*mix);target=target.map((v,i)=>last.target[i]+(v-last.target[i])*mix);}
   ghost.cameraState={camera,target,mode:ghost.camera,time:st.play.e,stamp};
+  if(typeof ghost3d!=='undefined'&&/Azerbaijan/i.test(st.H.event)){if(ghost3d.ready&&ghost3dRender(S,poses,camera,target,w,h)){ghostReadouts(pos);return;}ghost3dStart();}else if(typeof ghost3d!=='undefined'){if(ghost3d.canvas)ghost3d.canvas.hidden=true;if(ghost3d.mini)ghost3d.mini.hidden=true;ghost3d.labels?.forEach(l=>l.hidden=true);$('ghostCanvas').style.visibility='visible';$('ghostEngine').textContent='Standart görünüm';}
   const project=ghostProjection(camera,target,w,h),polys=[],theme=S.profile;
   const scenery=$('ghostScenery');if(scenery)scenery.textContent=theme.name+' · telemetriye dayalı plan / temsili çevre';
   const viewDir=target.map((v,i)=>v-camera[i]),viewLen=Math.hypot(...viewDir)||1,viewNormal=viewDir.map(v=>v/viewLen);
@@ -2501,6 +2504,9 @@ function ghostDraw(pos) {
   const map=p=>[mx+mw/2-(p.x-(S.maxX+S.minX)/2)*sc,my+mh/2-(p.z-(S.maxZ+S.minZ)/2)*sc];
   g.strokeStyle='#607580';g.lineWidth=2;g.beginPath();S.edges.forEach((e,i)=>{const p=map(e.p);i?g.lineTo(...p):g.moveTo(...p);});g.stroke();
   poses.forEach((p,i)=>{g.fillStyle=i?COL.b:COL.a;g.beginPath();g.arc(...map(p),3.5,0,Math.PI*2);g.fill();});
+  ghostReadouts(pos);
+}
+function ghostReadouts(pos){
   const end=Math.max(st.A.total,st.B.total),time=st.play.e;
   $('ghostClock').textContent=fmtClock(time)+' / '+fmtClock(end);
   $('ghostScrub').value=Math.round(time/end*10000);
@@ -2595,6 +2601,106 @@ $('brakeTimeline').addEventListener('pointerdown',e=>{if(!st.A)return;const r=e.
 
 $('ghostZoom').addEventListener('input',()=>{ghost.cameraState=null;drawAll();});
 for(const id of ['ghostTraces','ghostZones','ghostEnvironment'])$(id).addEventListener('change',()=>drawAll());
+// Optional GPU renderer. The 2D renderer remains available if loading or context creation fails.
+const ghost3d={ready:false,loading:false,failed:false,source:null};
+function ghost3dStart(){
+  if(ghost3d.loading||ghost3d.failed)return;ghost3d.loading=true;
+  const badge=$('ghostEngine');badge.textContent='3D hazırlanıyor…';
+  import('https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js').then(T=>{
+    const canvas=document.createElement('canvas');canvas.id='ghostWebGL';canvas.setAttribute('aria-label','Işık ve gölgeli 3D tur görünümü');
+    const renderer=new T.WebGLRenderer({canvas,antialias:true,alpha:false,powerPreference:'high-performance'});
+    renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.75));renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
+    renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
+    const scene=new T.Scene();scene.background=new T.Color('#b9cdd9');scene.fog=new T.Fog('#b9cdd9',240,1050);
+    scene.add(new T.HemisphereLight('#d8edff','#807761',2));
+    const sun=new T.DirectionalLight('#fff0d5',3.1);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-75;sun.shadow.camera.right=75;sun.shadow.camera.top=75;sun.shadow.camera.bottom=-75;sun.shadow.camera.near=1;sun.shadow.camera.far=260;sun.shadow.normalBias=.04;sun.shadow.bias=-.00015;scene.add(sun,sun.target);
+    const camera=new T.PerspectiveCamera(48,1,.15,16000);
+    $('ghostCanvas').parentElement.append(canvas);
+    const mini=document.createElement('canvas');mini.id='ghostGLMini';mini.width=160;mini.height=100;$('ghostCanvas').parentElement.append(mini);
+    const labels=[0,1].map(i=>{const label=document.createElement('span');label.className='ghost-gl-label';$('ghostCanvas').parentElement.append(label);return label;});ghost3d.labels=labels;ghost3d.mini=mini;
+    Object.assign(ghost3d,{T,renderer,scene,camera,sun,canvas,ready:true});
+    canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();ghost3dFallback();});
+    badge.textContent='3D PROTOTİP · IŞIK / GÖLGE';drawAll();
+  }).catch(()=>ghost3dFallback());
+}
+function ghost3dFallback(){if(ghost3d.mini)ghost3d.mini.hidden=true;ghost3d.labels?.forEach(l=>l.hidden=true);ghost3d.ready=false;ghost3d.failed=true;if(ghost3d.canvas)ghost3d.canvas.hidden=true;$('ghostCanvas').style.visibility='visible';$('ghostEngine').textContent='Standart görünüm';if(st.A)drawAll();}
+function ghost3dBuild(S){
+  const G=ghost3d,T=G.T;
+  if(G.world){G.scene.remove(G.world);const geometries=new Set(),materials=new Set(),textures=new Set();G.world.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material]){materials.add(m);for(const v of Object.values(m))if(v?.isTexture)textures.add(v);}});geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose());}
+  const world=new T.Group();G.scene.add(world);G.world=world;G.source=st.A;
+  const material=(color,roughness=.8,metalness=0)=>new T.MeshStandardMaterial({color,roughness,metalness,side:T.DoubleSide});
+  const roadMat=material('#686a6b',.96),white=material('#e2e1d5'),red=material('#ba3436'),concrete=material('#b8b9b3'),steel=material('#71838b',.43,.6);
+  const texCanvas=document.createElement('canvas');texCanvas.width=texCanvas.height=256;const tx=texCanvas.getContext('2d'),pixels=tx.createImageData(256,256);let seed=1729;
+  for(let i=0;i<pixels.data.length;i+=4){seed=(Math.imul(seed,1664525)+1013904223)>>>0;const v=100+(seed>>>25);pixels.data[i]=pixels.data[i+1]=pixels.data[i+2]=v;pixels.data[i+3]=255;}tx.putImageData(pixels,0,0);
+  const asphalt=new T.CanvasTexture(texCanvas);asphalt.wrapS=asphalt.wrapT=T.RepeatWrapping;asphalt.repeat.set(4,4);asphalt.colorSpace=T.SRGBColorSpace;asphalt.anisotropy=Math.min(8,G.renderer.capabilities.getMaxAnisotropy());roadMat.map=asphalt;roadMat.bumpMap=asphalt;roadMat.bumpScale=.018;
+  const mesh=(geometry,mat,parent=world)=>{const m=new T.Mesh(geometry,mat);m.castShadow=true;m.receiveShadow=true;parent.add(m);return m;};
+  const point=(e,o,y)=>[e.p.x+e.rx*o,y,e.p.z+e.rz*o];
+  const batches=new Map();function quad(mat,a,b,c,d){if(!batches.has(mat))batches.set(mat,[]);batches.get(mat).push(...a,...b,...c,...a,...c,...d);}
+  let distance=0;const positions=[],uvs=[];
+  for(let i=0;i<S.n-1;i++){
+    const a=S.edges[i],b=S.edges[i+1],len=Math.hypot(a.p.x-b.p.x,a.p.z-b.p.z);
+    const l=point(a,-7,.02),r=point(a,7,.02),nl=point(b,-7,.02),nr=point(b,7,.02);
+    positions.push(...l,...nl,...r,...r,...nl,...nr);uvs.push(0,distance/14,0,(distance+len)/14,1,distance/14,1,distance/14,0,(distance+len)/14,1,(distance+len)/14);distance+=len;
+    for(const sign of [-1,1]){
+      quad(white,point(a,sign*6.94,.04),point(b,sign*6.94,.04),point(b,sign*7.1,.04),point(a,sign*7.1,.04));
+      const off=sign*S.profile.barrier;
+      quad(concrete,point(a,off,0),point(b,off,0),point(b,off,1.05),point(a,off,1.05));
+      quad(white,point(a,off,1.05),point(b,off,1.05),point(b,off+sign*.25,1.05),point(a,off+sign*.25,1.05));
+      const bend=Math.abs(a.rx*b.rz-a.rz*b.rx);
+      if(bend>.025){const pieces=Math.max(1,Math.ceil(len/1.5));for(let j=0;j<pieces;j++){const at=t=>({p:{x:a.p.x+(b.p.x-a.p.x)*t,z:a.p.z+(b.p.z-a.p.z)*t},rx:a.rx+(b.rx-a.rx)*t,rz:a.rz+(b.rz-a.rz)*t}),c=at(j/pieces),d=at((j+1)/pieces);quad((i+j)%2?red:white,point(c,sign*7.1,.045),point(d,sign*7.1,.045),point(d,sign*8,.045),point(c,sign*8,.045));}}
+    }
+  }
+  const roadGeometry=new T.BufferGeometry();roadGeometry.setAttribute('position',new T.Float32BufferAttribute(positions,3));roadGeometry.setAttribute('uv',new T.Float32BufferAttribute(uvs,2));roadGeometry.computeVertexNormals();mesh(roadGeometry,roadMat).castShadow=false;
+  for(const [mat,points] of batches){const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(points,3));geo.computeVertexNormals();mesh(geo,mat).castShadow=mat===concrete;}
+  const ground=mesh(new T.PlaneGeometry(18000,18000),material(S.profile.grass));ground.rotation.x=-Math.PI/2;ground.position.set((S.minX+S.maxX)/2,-.04,(S.minZ+S.maxZ)/2);ground.castShadow=false;
+  const box=(parent,x,y,z,w,h,d,mat)=>{const m=mesh(new T.BoxGeometry(w,h,d),mat,parent);m.position.set(x,y,z);return m;};
+  const environment=new T.Group();world.add(environment);G.environment=environment;
+  const windows=[],windowMatrix=new T.Matrix4();const glass=material('#526e7b',.25,.38),palettes=['#d1c3aa','#bbc3c5','#dbceb9','#acb3ba'].map(c=>material(c));
+  for(const o of S.environment){const group=new T.Group();group.position.set(o.x,0,o.z);group.rotation.y=Math.atan2(-o.rz,o.rx);environment.add(group);
+    if(o.kind==='building'){
+      box(group,0,o.height/2,0,12,o.height,23,palettes[o.variant]);box(group,0,o.height+.15,0,12.5,.3,23.5,concrete);
+      group.updateMatrixWorld();for(let level=2;level<o.height-1;level+=3)for(const sign of [-1,1])for(let z=-9;z<=9;z+=3){windowMatrix.makeTranslation(sign*6.025,level,z);windows.push(new T.Matrix4().multiplyMatrices(group.matrixWorld,windowMatrix));}
+    }else{box(group,0,1.5,0,.5,3,.5,material('#76654b'));const tree=mesh(new T.ConeGeometry(3,7,7),material('#46684b'),group);tree.position.y=5;}
+  }
+  if(windows.length){const panes=new T.InstancedMesh(new T.BoxGeometry(.04,1.4,1.5),glass,windows.length);windows.forEach((m,i)=>panes.setMatrixAt(i,m));panes.receiveShadow=true;environment.add(panes);}
+  // A generic open-wheel model built for this demo; no third-party model or official livery.
+  G.cars=[st.A,st.B].map((L,index)=>{
+    const group=new T.Group();world.add(group);const color=st.H.drivers[L.meta.d].col||[COL.a,COL.b][index],paint=material(color,.28,.33),carbon=material('#182027',.58,.15),rubber=material('#15191b',.94),rim=material('#89929b',.3,.75);
+    if(index)paint.transparent=true,paint.opacity=.78;
+    box(group,0,.16,0,1.8,.14,4.7,carbon);
+    const body=mesh(new T.SphereGeometry(1,24,12),paint,group);body.scale.set(.43,.47,1.65);body.position.set(0,.56,-.6);
+    const nose=mesh(new T.CylinderGeometry(.12,.3,2.2,16),paint,group);nose.rotation.x=Math.PI/2;nose.position.set(0,.43,1.2);
+    for(const sign of [-1,1]){const pod=mesh(new T.SphereGeometry(1,16,10),paint,group);pod.scale.set(.28,.28,1.05);pod.position.set(sign*.57,.48,-.25);box(group,sign*.91,.31,2.17,.05,.3,.64,paint);box(group,sign*.82,.87,-2.2,.05,.6,.52,paint);}
+    box(group,0,.71,-.17,.5,.18,.85,carbon);const helmet=mesh(new T.SphereGeometry(.18,16,10),material('#e6e2ce',.35),group);helmet.position.set(0,.91,-.1);
+    for(let j=0;j<3;j++)box(group,0,.22+j*.055,2.37-j*.13,1.95,.045,.18,j?paint:carbon);
+    box(group,0,.96,-2.2,1.68,.1,.5,paint);box(group,0,.56,-2.15,.12,.7,.14,carbon);
+    const haloPoints=[[-.34,.97,-.53],[-.35,1.02,.15],[0,1.04,.42],[.35,1.02,.15],[.34,.97,-.53]].map(p=>new T.Vector3(...p));mesh(new T.TubeGeometry(new T.CatmullRomCurve3(haloPoints),20,.035,6,false),carbon,group);
+    const wheels=[];
+    for(const x of [-.88,.88])for(const z of [-1.58,1.48]){const wheel=new T.Group();wheel.position.set(x,.39,z);group.add(wheel);const tyre=mesh(new T.CylinderGeometry(.37,.37,.36,24),rubber,wheel);tyre.rotation.z=Math.PI/2;const hub=mesh(new T.CylinderGeometry(.19,.19,.375,16),rim,wheel);hub.rotation.z=Math.PI/2;wheels.push(wheel);
+      for(const anchor of [-.24,.24]){const start=new T.Vector3(Math.sign(x)*.25,.3,z+anchor),end=new T.Vector3(x,.39,z),dir=end.clone().sub(start),arm=mesh(new T.CylinderGeometry(.025,.025,dir.length(),5),carbon,group);arm.position.copy(start.clone().add(end).multiplyScalar(.5));arm.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),dir.normalize());}
+    }
+    group.userData.wheels=wheels;return group;
+  });
+}
+function ghost3dRender(S,poses,camera,target,w,h){
+  const G=ghost3d;if(!G.ready)return false;
+  try{
+    if(G.source!==st.A)ghost3dBuild(S);
+    G.canvas.hidden=false;$('ghostCanvas').style.visibility='hidden';
+    if(G.width!==w||G.height!==h){G.renderer.setSize(w,h,false);G.camera.aspect=w/h;G.camera.updateProjectionMatrix();G.width=w;G.height=h;}
+    G.camera.position.set(...camera);G.camera.lookAt(...target);
+    G.environment.visible=$('ghostEnvironment').checked;
+    poses.forEach((p,i)=>{const car=G.cars[i];car.position.set(p.x,0,p.z);car.rotation.y=Math.atan2(p.fx,p.fz);car.userData.wheels.forEach(wheel=>wheel.rotation.x=-st.play.e*lerp((i?st.B:st.A).v,kAtTime(i?st.B:st.A,st.play.e))/3.6/.37);});
+    const p=poses[0];G.sun.position.set(p.x-65,110,p.z-45);G.sun.target.position.set(p.x,0,p.z);G.sun.target.updateMatrixWorld();G.sun.shadow.camera.updateProjectionMatrix();G.sun.castShadow=ghost.camera!=='overview';
+    G.scene.fog.near=ghost.camera==='overview'?5000:240;G.scene.fog.far=ghost.camera==='overview'?14000:1050;
+    G.renderer.render(G.scene,G.camera);
+    $('ghostScenery').textContent='Bakü · 3D prototip / telemetri planı, temsili çevre';
+    G.labels.forEach((label,i)=>{const v=new G.T.Vector3(poses[i].x,1.7,poses[i].z).project(G.camera);label.hidden=Math.abs(v.x)>1||Math.abs(v.y)>1||v.z>1;label.style.left=(v.x*.5+.5)*w+'px';label.style.top=(-v.y*.5+.5)*h+'px';label.style.color=i?COL.b:COL.a;label.textContent=(i?'B · ':'A · ')+st.H.drivers[(i?st.B:st.A).meta.d].c;});
+    G.mini.hidden=false;const mg=G.mini.getContext('2d'),mw=160,mh=100,sc=Math.min(140/(S.maxX-S.minX||1),80/(S.maxZ-S.minZ||1)),map=p=>[80-(p.x-(S.minX+S.maxX)/2)*sc,50-(p.z-(S.minZ+S.maxZ)/2)*sc];mg.clearRect(0,0,mw,mh);mg.fillStyle='#101b26de';mg.fillRect(0,0,mw,mh);mg.strokeStyle='#a1b4bc';mg.lineWidth=2;mg.beginPath();S.edges.forEach((e,i)=>i?mg.lineTo(...map(e.p)):mg.moveTo(...map(e.p)));mg.stroke();poses.forEach((p,i)=>{mg.fillStyle=i?COL.b:COL.a;mg.beginPath();mg.arc(...map(p),3,0,Math.PI*2);mg.fill();});
+    return true;
+  }catch{ghost3dFallback();return false;}
+}
+
 /* ───────── boot ───────── */
 (function boot() {
   if (TOUCH) $("hint").textContent = "Grafikte parmağını yatay kaydır: haritada A o noktada, B ise aynı saniyede bulunduğu yerde görünür. Sektör düğmeleri ve viraj satırları yakınlaştırır.";
