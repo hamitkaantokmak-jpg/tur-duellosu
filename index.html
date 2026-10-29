@@ -2198,6 +2198,12 @@ drawReadouts=function(pos){
 };
 /* Telemetry-driven perspective replay. Track surface and vehicle geometry are illustrative. */
 const ghost = { active:false, camera:'tv', scene:null, source:null };
+// Convert the same circuit rotation used by the 2D map into a Y-up world.
+// The overview camera looks along +Z, so screen-right is world -X.
+function ghostWorld(x,y,ox,oy,scale) {
+  const dx=x-ox,dy=y-oy;
+  return {x:-(st.H.rx?st.H.rx(dx,dy):dx)*scale,z:-(st.H.ry?st.H.ry(dx,dy):-dy)*scale};
+}
 // Monotone cubic interpolation: continuous velocity without coordinate overshoot.
 function ghostCurve(keys,values) {
   const n=keys.length,m=new Float64Array(n),d=new Float64Array(n-1);
@@ -2232,7 +2238,7 @@ function ghostMotionBuild(p,L,ox,oz,scale) {
       if(distance>18)continue;
       const w=Math.exp(-distance*distance/72);x+=p.x[j]*w;z+=p.y[j]*w;weight+=w;
     }
-    points.push({x:(x/weight-ox)*scale,z:(z/weight-oz)*scale});
+    points.push(ghostWorld(x/weight,z/weight,ox,oz,scale));
   }
   const arc=[0],xs=[points[0].x],zs=[points[0].z];
   for(let i=1;i<points.length;i++){
@@ -2255,7 +2261,7 @@ function ghostBuild() {
   let length=0;
   for(let i=1;i<n;i++) length+=Math.hypot(A.x[i]-A.x[i-1],A.y[i]-A.y[i-1]);
   const scale=st.H.L/Math.max(1,length), ox=A.x[0], oz=A.y[0];
-  const paths=[A,B].map(L=>Array.from(L.x,(x,i)=>({x:(x-ox)*scale,z:(L.y[i]-oz)*scale})));
+  const paths=[A,B].map(L=>Array.from(L.x,(x,i)=>ghostWorld(x,L.y[i],ox,oz,scale)));
   const center=paths[0].map((p,i)=>({x:(p.x+paths[1][i].x)/2,z:(p.z+paths[1][i].z)/2}));
   const edges=center.map((p,i)=>{
     const a=center[Math.max(0,i-2)],b=center[Math.min(n-1,i+2)];
@@ -2355,7 +2361,7 @@ function ghostDraw(pos) {
   const mw=Math.min(150,w*.27),mh=100,mx=w-mw-16,my=h-mh-18,pad=10;
   g.fillStyle='#081119db';g.fillRect(mx,my,mw,mh);
   const sc=Math.min((mw-pad*2)/(S.maxX-S.minX||1),(mh-pad*2)/(S.maxZ-S.minZ||1));
-  const map=p=>[mx+mw/2+(p.x-(S.maxX+S.minX)/2)*sc,my+mh/2+(p.z-(S.maxZ+S.minZ)/2)*sc];
+  const map=p=>[mx+mw/2-(p.x-(S.maxX+S.minX)/2)*sc,my+mh/2-(p.z-(S.maxZ+S.minZ)/2)*sc];
   g.strokeStyle='#607580';g.lineWidth=2;g.beginPath();S.edges.forEach((e,i)=>{const p=map(e.p);i?g.lineTo(...p):g.moveTo(...p);});g.stroke();
   poses.forEach((p,i)=>{g.fillStyle=i?COL.b:COL.a;g.beginPath();g.arc(...map(p),3.5,0,Math.PI*2);g.fill();});
   const end=Math.max(st.A.total,st.B.total),time=st.play.e;
