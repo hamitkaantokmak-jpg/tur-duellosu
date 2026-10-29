@@ -2315,6 +2315,7 @@ function ghostDraw(pos) {
   g.setTransform(dpr,0,0,dpr,0,0);
   const sky=g.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#6d9fbd');sky.addColorStop(.52,'#b7ccd4');sky.addColorStop(1,'#d9dfd4');g.fillStyle=sky;g.fillRect(0,0,w,h);
   const poses=S.native.map(L=>ghostMotionPose(L,st.play.e)),A=poses[0],B=poses[1];
+  if($('ghostZoom'))$('ghostZoom').disabled=ghost.camera==='overview';
   let camera,target;
   if(ghost.camera==='overview') {
     const span=Math.max(S.maxX-S.minX,S.maxZ-S.minZ),x=(S.maxX+S.minX)/2,z=(S.maxZ+S.minZ)/2;
@@ -2438,6 +2439,7 @@ function ghostDraw(pos) {
     g.font='700 10px '+css('--mono');const tw=g.measureText(text).width;g.fillStyle='#081018dd';g.fillRect(p.x-tw/2-8,p.y-18,tw+16,25);g.fillStyle=i?COL.b:COL.a;g.textAlign='center';g.fillText(text,p.x,p.y);
   }
   if(!st.H.autoCorners)for(const c of st.H.corners||[]){
+    if(ghost.camera==='overview'&&Number(c.n)!==1&&Number(c.n)%5!==0)continue;
     const idx=Math.round(c.r*(S.n-1)),e=S.edges[idx];if(!e)continue;
     if(ghost.camera!=='overview'&&Math.min(Math.hypot(e.p.x-A.x,e.p.z-A.z),Math.hypot(e.p.x-B.x,e.p.z-B.z))>140)continue;
     const p=project(edge(e,11,2));if(!p||p.x<15||p.x>w-15||p.y<20||p.y>h-20)continue;
