@@ -395,7 +395,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
       <section class="card ghost-panel" id="ghostPanel" hidden aria-label="Hayalet tur simülatörü">
   <div class="ghost-head"><div><span class="eyebrow">GHOST LAB / TELEMETRİ REPLAY</span><h2>İki tur. Tek başlangıç.</h2></div><button class="chip" id="ghostClose">Düelloya dön</button></div>
   <div class="ghost-cameras" id="ghostCameras" role="group" aria-label="Kamera seçimi"><button class="chip" data-camera="tv" aria-pressed="true">Yayın kamerası</button><button class="chip" data-camera="a" aria-pressed="false">A'yı takip et</button><button class="chip" data-camera="b" aria-pressed="false">B'yi takip et</button><button class="chip" data-camera="overview" aria-pressed="false">Tüm pist</button></div>
-  <div class="ghost-options"><span id="ghostScenery"></span><label class="ghost-zoom">Yakınlık <input id="ghostZoom" type="range" min="70" max="160" value="100" aria-label="Kamera yakınlığı"></label><label><input type="checkbox" id="ghostTraces"> Konum izleri</label><label><input type="checkbox" id="ghostZones"> Fren bölgeleri</label></div>
+  <div class="ghost-options"><span id="ghostScenery"></span><label><input type="checkbox" id="ghostEnvironment" checked> Çevre detayları</label><label class="ghost-zoom">Yakınlık <input id="ghostZoom" type="range" min="70" max="160" value="100" aria-label="Kamera yakınlığı"></label><label><input type="checkbox" id="ghostTraces"> Konum izleri</label><label><input type="checkbox" id="ghostZones"> Fren bölgeleri</label></div>
   <div class="ghost-stage"><canvas id="ghostCanvas" aria-label="Gerçek tur telemetrisinden hareket eden iki hayalet aracın perspektif görünümü"></canvas><div class="ghost-overlay"><span>TELEMETRİ REPLAY · GÖRSEL PİST MODELİ</span><b id="ghostDelta">+0.000 s</b><small>Aynı mesafedeki zaman farkı</small></div></div>
   <div class="ghost-drivers"><div class="ghost-driver ga"><strong id="ghostDriver0">A · Veri bekleniyor</strong><small id="ghostMetric0">Pilot ve turu yukarıdan seç</small></div><div class="ghost-driver gb"><strong id="ghostDriver1">B · Veri bekleniyor</strong><small id="ghostMetric1">Pilot ve turu yukarıdan seç</small></div></div>
   <div class="ghost-controls"><button class="btn primary" id="ghostPlay">▶ Oynat</button><button class="btn" id="ghostRestart" aria-label="Hayalet turu başa sar">↺</button><input id="ghostScrub" type="range" min="0" max="10000" step="1" value="0" aria-label="Hayalet tur zamanı"><label class="sel"><select id="ghostRate" aria-label="Hayalet oynatma hızı"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label><span id="ghostClock">0:00.000</span></div>
@@ -405,7 +405,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
 </div>
 <div class="brake-analysis"><div class="brake-analysis-head"><div><span class="eyebrow">FRENLEME BÖLGELERİ</span><p>Kırmızı bantlar fren sinyalini gösterir. Bölgeye dokunarak tekrarın o anına git.</p></div><button class="chip" id="nextBrake">Sonraki frenleme →</button></div><canvas id="brakeTimeline" aria-label="İki pilotun tur boyunca fren açık zamanları ve oynatma konumu"></canvas><div class="brake-event-cols" id="brakeEvents"></div><p class="brake-caveat">Fren başlangıcı kaynak örneklerde tespit edilir; tepki süresi ve kesin fren noktası ölçümü değildir. Her pilotun kendi tur zamanına göre gösterilir. Farklı lastik ve koşullar karşılaştırmayı etkiler.</p></div>
 
-  <p class="ghost-note">İki araç aynı anda başlar ve kendi tur süresinde bitirir. B aracı yarı saydamdır. Yol genişliği, kerbler, araç modeli ve düz zemin görselleştirmedir; gerçek pist modeli veya santimetre hassasiyetinde yarış çizgisi değildir. İlerleme hızdan türetilen mesafeye dayanır; konum çizgisi GPS sıçramalarını azaltmak için yumuşatılır. Bu işlem ek ölçüm hassasiyeti sağlamaz. Renkli konum izleri gerçek pilot yarış çizgisi olarak yorumlanmamalıdır. Boşluk: oynat / duraklat · ← / →: 1 saniye.</p>
+  <p class="ghost-note">İki araç aynı anda başlar ve kendi tur süresinde bitirir. B aracı yarı saydamdır. Binalar, bitkiler ve çit yerleşimleri temsili dekorlardır. Yol genişliği, kerbler, araç modeli ve düz zemin görselleştirmedir; gerçek pist modeli veya santimetre hassasiyetinde yarış çizgisi değildir. İlerleme hızdan türetilen mesafeye dayanır; konum çizgisi GPS sıçramalarını azaltmak için yumuşatılır. Bu işlem ek ölçüm hassasiyeti sağlamaz. Renkli konum izleri gerçek pilot yarış çizgisi olarak yorumlanmamalıdır. Boşluk: oynat / duraklat · ← / →: 1 saniye.</p>
 </section>
 
 <section class="card rel" id="chartcard">
@@ -2267,12 +2267,24 @@ function ghostMotionPose(L,time) {
 
 function ghostTrackProfile(event) {
   const name=String(event||'');
-  const base={name:'Kalıcı pist',grass:'#526444',runoff:'#a59c84',paint:null,barrier:24};
+  const base={name:'Kalıcı pist',urban:false,grass:'#526444',runoff:'#a59c84',paint:null,barrier:24};
   if(/United States/i.test(name))return {...base,name:'Austin · COTA',grass:'#77764d',runoff:'#676f70',paint:['#b94047','#e4e3d9','#416c9b']};
-  if(/Monaco|Singapore|Azerbaijan|Las Vegas/i.test(name))return {...base,name:'Sokak pisti',grass:'#777c7c',runoff:'#535b61',barrier:10};
+  if(/Monaco|Singapore|Azerbaijan|Las Vegas/i.test(name))return {...base,name:'Sokak pisti',urban:true,grass:'#777c7c',runoff:'#535b61',barrier:10};
   if(/Bahrain|Saudi|Abu Dhabi|Qatar/i.test(name))return {...base,name:'Çöl çevresi',grass:'#ae9b77',runoff:'#bcb097',paint:['#547f88','#ddddcd'],barrier:28};
   if(/French/i.test(name))return {...base,name:'Paul Ricard tarzı',grass:'#7a8062',runoff:'#687078',paint:['#4879a3','#b94b4d'],barrier:30};
   return base;
+}
+function ghostEnvironment(edges,profile) {
+  // Deterministic decorative scenery, not geolocated buildings or vegetation.
+  const objects=[];
+  for(let i=5;i<edges.length;i+=profile.urban?12:17)for(const side of [-1,1]){
+    const e=edges[i],offset=(profile.urban?43:48)+(i%4)*3;
+    const x=e.p.x+e.rx*side*offset,z=e.p.z+e.rz*side*offset;
+    let clear=true;for(let j=0;j<edges.length;j++)if(Math.hypot(x-edges[j].p.x,z-edges[j].p.z)<32){clear=false;break;}
+    if(!clear)continue;
+    objects.push({x,z,rx:e.rx,rz:e.rz,side,kind:profile.urban?'building':'tree',height:profile.urban?9+(i%5)*3:6+(i%3),variant:i%4});
+  }
+  return objects;
 }
 function ghostBuild() {
   if (!st.A || !st.B) return null;
@@ -2291,6 +2303,7 @@ function ghostBuild() {
   const xs=center.map(p=>p.x), zs=center.map(p=>p.z);
   const native=[A,B].map(L=>ghostMotionBuild(L.source||L,L,ox,oz,scale));
   ghost.scene={profile:ghostTrackProfile(st.H.event),native,paths,edges,n,minX:Math.min(...xs),maxX:Math.max(...xs),minZ:Math.min(...zs),maxZ:Math.max(...zs)};
+  ghost.scene.environment=ghostEnvironment(edges,ghost.scene.profile);
   ghost.source=A; return ghost.scene;
 }
 function ghostPoint(path,k) {
@@ -2345,6 +2358,30 @@ function ghostDraw(pos) {
   }
   const groundSpan=Math.max(S.maxX-S.minX,S.maxZ-S.minZ)+12000,cx=(S.minX+S.maxX)/2,cz=(S.minZ+S.maxZ)/2;
   poly([[cx-groundSpan,-.2,cz-groundSpan],[cx+groundSpan,-.2,cz-groundSpan],[cx+groundSpan,-.2,cz+groundSpan],[cx-groundSpan,-.2,cz+groundSpan]],theme.grass);
+  function sceneryBox(o,lx,y,lz,sx,sy,sz,color){
+    const point=(x,h,z)=>[o.x+o.rx*x-o.rz*z,h,o.z+o.rz*x+o.rx*z];
+    const v=[[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]].map(p=>point(lx+p[0]*sx/2,y+p[1]*sy/2,lz+p[2]*sz/2));
+    const rgb=color.replace('#',''),shade=k=>'rgb('+[0,2,4].map(i=>Math.round(parseInt(rgb.slice(i,i+2),16)*k)).join(',')+')';
+    [[0,1,2,3],[4,7,6,5],[3,2,6,7],[0,4,5,1],[0,3,7,4],[1,5,6,2]].forEach((f,i)=>poly(f.map(j=>v[j]),shade([.72,.9,1,.56,.68,.84][i])));
+  }
+  if($('ghostEnvironment')?.checked&&ghost.camera!=='overview')for(const o of S.environment){
+    if(Math.min(Math.hypot(o.x-A.x,o.z-A.z),Math.hypot(o.x-B.x,o.z-B.z))>240)continue;
+    if(o.kind==='building'){
+      const palette=['#c5b9a4','#b1b9bd','#d2c7b4','#aab0b3'];
+      sceneryBox(o,0,o.height/2,0,12,o.height,23,palette[o.variant]);
+      sceneryBox(o,0,o.height+.15,0,12.6,.3,23.6,'#71777a');
+      // Windows on both long facades, with low-cost horizontal bands at distance.
+      for(let level=2;level<o.height-1;level+=3)for(const sign of [-1,1])sceneryBox(o,sign*6.03,level,0,.05,1.25,20,'#4e6471');
+      sceneryBox(o,0,.35,0,14,.7,25,'#939898');
+    }else{
+      sceneryBox(o,0,1.5,0,.65,3,.65,'#776247');
+      for(let level=0;level<2;level++){
+        const y=2+level*2,r=3-level*.7,top=o.height-level;
+        const ring=Array.from({length:7},(_,j)=>[o.x+Math.cos(j/7*Math.PI*2)*r,y,o.z+Math.sin(j/7*Math.PI*2)*r]);
+        for(let j=0;j<7;j++)poly([ring[j],ring[(j+1)%7],[o.x,top,o.z]],j%2?'#425d45':'#536e4e');
+      }
+    }
+  }
   const edge=(e,offset,y=0)=>[e.p.x+e.rx*offset,y,e.p.z+e.rz*offset];
   for(let i=0;i<S.n-1;i++) {
     const a=S.edges[i],b=S.edges[i+1];
@@ -2358,7 +2395,11 @@ function ghostDraw(pos) {
     const previous=S.edges[Math.max(0,i-1)].p,next=S.edges[Math.min(S.n-1,i+2)].p;
     const dx=a.p.x-previous.x,dz=a.p.z-previous.z,ex=next.x-b.p.x,ez=next.z-b.p.z;
     const bend=(dx*ez-dz*ex)/(Math.hypot(dx,dz)*Math.hypot(ex,ez)||1);
-    if(Math.abs(bend)>.045)for(const sign of [-1,1])poly([edge(a,sign*7.25,.035),edge(b,sign*7.25,.035),edge(b,sign*8.1,.035),edge(a,sign*8.1,.035)],i%2?'#d8dfda':'#c9464b');
+    if(Math.abs(bend)>.045){
+      const pieces=Math.max(1,Math.ceil(Math.hypot(b.p.x-a.p.x,b.p.z-a.p.z)/2));
+      const between=t=>({p:{x:a.p.x+(b.p.x-a.p.x)*t,z:a.p.z+(b.p.z-a.p.z)*t},rx:a.rx+(b.rx-a.rx)*t,rz:a.rz+(b.rz-a.rz)*t});
+      for(let j=0;j<pieces;j++)for(const sign of [-1,1]){const c=between(j/pieces),d=between((j+1)/pieces);poly([edge(c,sign*7.25,.04),edge(d,sign*7.25,.04),edge(d,sign*8.1,.04),edge(c,sign*8.1,.04)],(i*4+j)%2?'#e5e4db':'#b94043');}
+    }
     // Environment materials are illustrative; no surveyed widths or kerb positions are implied.
     if(Math.abs(bend)>.035&&theme.paint)for(const sign of [-1,1])for(let band=0;band<theme.paint.length;band++){
       const inner=8.2+band*2.1,outer=inner+2.1;
@@ -2368,6 +2409,11 @@ function ghostDraw(pos) {
       const off=sign*theme.barrier;
       poly([edge(a,off,0),edge(b,off,0),edge(b,off,1.05),edge(a,off,1.05)],'#a7afb1');
       poly([edge(a,off,1.05),edge(b,off,1.05),edge(b,off,1.12),edge(a,off,1.12)],'#d9dedb');
+    }
+    if($('ghostEnvironment')?.checked&&ghost.camera!=='overview')for(const sign of [-1,1]){
+      const off=sign*(theme.barrier+.18);
+      for(const height of [1.6,2.4,3.2])poly([edge(a,off,height),edge(b,off,height),edge(b,off,height+.022),edge(a,off,height+.022)],'#647680',.6);
+      if(i%3===0)poly([edge(a,off-.045,1.1),edge(a,off+.045,1.1),edge(a,off+.045,3.4),edge(a,off-.045,3.4)],'#667983');
     }
     // Brake zones occupy separate schematic lanes, not claimed lateral racing lines.
     for(const [L,side] of [[st.A,-1],[st.B,1]])if($('ghostZones')?.checked&&!L.quality.brake.missing&&L.brk[i]>=.5)poly([edge(a,side*.8,.045),edge(b,side*.8,.045),edge(b,side*4.8,.045),edge(a,side*4.8,.045)],'#ff435f',.16);
@@ -2545,7 +2591,7 @@ $('nextBrake').onclick=()=>{if(!st.A)return;ghostBuildBrakes();const events=ghos
 $('brakeTimeline').addEventListener('pointerdown',e=>{if(!st.A)return;const r=e.currentTarget.getBoundingClientRect(),ratio=Math.max(0,Math.min(1,(e.clientX-r.left-36)/(r.width-48)));ghostBrakeSeek(ratio*Math.max(st.A.total,st.B.total));});
 
 $('ghostZoom').addEventListener('input',()=>{ghost.cameraState=null;drawAll();});
-for(const id of ['ghostTraces','ghostZones'])$(id).addEventListener('change',()=>drawAll());
+for(const id of ['ghostTraces','ghostZones','ghostEnvironment'])$(id).addEventListener('change',()=>drawAll());
 /* ───────── boot ───────── */
 (function boot() {
   if (TOUCH) $("hint").textContent = "Grafikte parmağını yatay kaydır: haritada A o noktada, B ise aynı saniyede bulunduğu yerde görünür. Sektör düğmeleri ve viraj satırları yakınlaştırır.";
