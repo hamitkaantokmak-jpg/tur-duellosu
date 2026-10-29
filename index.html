@@ -1,0 +1,2230 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="İki F1 pilotunun turunu gerçek telemetriyle karşılaştır.">
+<title>Tur Düellosu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=Saira:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: pit-wall timing screen. Narrow left rail (duel cards, track map, playback), wide right column (stacked telemetry traces). Stacks to one column on phones. */
+:root {
+  color-scheme: dark;
+  --bg: #0a0d12;
+  --panel: #10151d;
+  --panel-2: #161d28;
+  --line: #222b3a;
+  --line-2: #2d3849;
+  --fg: #e9edf4;
+  --muted: #8791a3;
+  --faint: #566174;
+  --a: #31c8ff;
+  --b: #ff8d2a;
+  --a-soft: rgba(49, 200, 255, .16);
+  --b-soft: rgba(255, 141, 42, .16);
+  --purple: #b45cff;
+  --green: #2fd36f;
+  --yellow: #f4c534;
+  --red: #ff4d5e;
+  --soft-c: #ff4d5e; --med-c: #f4c534; --hard-c: #e9edf4; --inter-c: #2fd36f; --wet-c: #31a0ff;
+  --display: "Saira Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --body: "Saira", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --r: 10px;
+}
+html, body { background: var(--bg); color: var(--fg); }
+body { font-family: var(--body); font-size: 14px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; }
+button, select, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--a); outline-offset: 2px; }
+
+.wrap { max-width: 1480px; margin: 0 auto; padding-inline: 16px; padding-block: 0 40px; }
+
+/* ── top bar ── */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); margin-inline: -16px; padding: 10px 16px; }
+.top-in { max-width: 1480px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg); margin-right: auto; }
+.mark { position: relative; width: 30px; height: 20px; flex: none; }
+.mark i { position: absolute; top: 0; width: 15px; height: 20px; transform: skewX(-18deg); border-radius: 2px; }
+.mark i:first-child { left: 2px; background: var(--a); }
+.mark i:last-child { left: 13px; background: var(--b); mix-blend-mode: screen; opacity: .95; }
+.wordmark { font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: .02em; text-transform: uppercase; line-height: 1; transform: skewX(-8deg); }
+.wordmark small { display: block; font-family: var(--body); font-weight: 500; font-size: 10.5px; letter-spacing: .14em; color: var(--muted); transform: skewX(8deg); margin-top: 3px; }
+.picks { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; min-width: 0; }
+.sel { position: relative; min-width: 0; }
+.sel select { appearance: none; -webkit-appearance: none; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 8px; padding: 7px 30px 7px 11px; font-weight: 500; font-size: 14px; max-width: 100%; cursor: pointer; }
+.sel::after { content: ""; position: absolute; right: 11px; top: 50%; width: 7px; height: 7px; border-right: 1.5px solid var(--muted); border-bottom: 1.5px solid var(--muted); transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+.sel select:hover { border-color: var(--faint); }
+
+.sessions { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { border: 1px solid var(--line-2); background: transparent; border-radius: 999px; padding: 5px 12px; font-size: 13px; font-weight: 500; cursor: pointer; color: var(--muted); white-space: nowrap; }
+.chip:hover { color: var(--fg); border-color: var(--faint); }
+.chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+/* ── session strip ── */
+.strip { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; padding-block: 16px 12px; }
+.strip h1 { font-family: var(--display); font-weight: 800; font-size: clamp(26px, 4vw, 38px); line-height: 1; margin: 0; text-transform: uppercase; letter-spacing: .01em; text-wrap: balance; }
+.strip .meta { color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.strip .meta b { color: var(--fg); font-weight: 500; font-family: var(--mono); font-size: 12.5px; }
+
+/* ── main grid ── */
+.grid { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 1059px) { .grid .rail, .grid .main { display: contents; } #duel { order: 0; } #mapcard { order: 1; } #insights { order: 2; } #chartcard { order: 3; } #cornercard { order: 4; } }
+@media (max-width: 760px) { .top { position: static; } .wordmark { font-size: 20px; } }
+@media (min-width: 1060px) { .grid { grid-template-columns: minmax(380px, 450px) minmax(0, 1fr); align-items: start; } .rail { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 66px); } }
+.rail, .main { display: grid; gap: 14px; min-width: 0; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); min-width: 0; }
+.card-h { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 10px; padding: 10px 14px 0; }
+.card-h .note { color: var(--faint); font-size: 12px; }
+.eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+/* ── duel cards ── */
+.duel { display: grid; gap: 0; }
+.side { padding: 12px 14px; display: grid; gap: 8px; position: relative; }
+.side + .side { border-top: 1px solid var(--line); }
+.side::before { content: ""; position: absolute; left: 0; top: 12px; bottom: 12px; width: 3px; border-radius: 0 3px 3px 0; background: var(--sc); }
+.side.a { --sc: var(--a); --ss: var(--a-soft); }
+.side.b { --sc: var(--b); --ss: var(--b-soft); }
+.side-top { display: flex; gap: 8px; align-items: center; min-width: 0; }
+.tag { font-family: var(--display); font-weight: 800; font-size: 13px; width: 22px; height: 22px; display: grid; place-items: center; border-radius: 5px; background: var(--sc); color: #071018; flex: none; }
+.side .sel { flex: 1 1 0; }
+.side .sel select { width: 100%; padding-block: 6px; font-size: 13.5px; }
+.side .sel.lap { flex: 1.25 1 0; }
+.side-main { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; min-width: 0; }
+.who { min-width: 0; }
+.who .code { font-family: var(--display); font-weight: 800; font-size: 30px; line-height: .95; letter-spacing: .02em; display: flex; align-items: center; gap: 8px; }
+.who .code .team-bar { width: 4px; height: 22px; border-radius: 2px; background: var(--tc, var(--faint)); }
+.who .name { color: var(--muted); font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.time { text-align: right; flex: none; }
+.time .lt { font-family: var(--mono); font-weight: 700; font-size: 26px; letter-spacing: -.02em; line-height: 1; font-variant-numeric: tabular-nums; }
+.time .gap { font-family: var(--mono); font-size: 12.5px; margin-top: 4px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.time .gap.lose { color: var(--red); }
+.time .gap.win { color: var(--green); }
+.sectors { display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 6px; align-items: stretch; }
+.sec { background: var(--panel-2); border-radius: 6px; padding: 4px 7px 5px; display: grid; gap: 1px; border-bottom: 2px solid var(--secc, var(--line-2)); }
+.sec span { font-size: 10.5px; color: var(--muted); letter-spacing: .08em; font-weight: 600; }
+.sec b { font-family: var(--mono); font-weight: 500; font-size: 13px; font-variant-numeric: tabular-nums; color: var(--secc, var(--fg)); }
+.sec.p { --secc: var(--purple); } .sec.g { --secc: var(--green); } .sec.y { --secc: var(--yellow); }
+.tyre { display: flex; align-items: center; gap: 6px; padding: 0 4px 0 2px; font-size: 12px; color: var(--muted); white-space: nowrap; }
+.tyre i { width: 22px; height: 22px; border-radius: 50%; border: 3px solid var(--tyc, var(--faint)); display: grid; place-items: center; font-style: normal; font-family: var(--display); font-weight: 800; font-size: 11px; color: var(--fg); background: #0b0f15; }
+.flags { display: flex; gap: 6px; flex-wrap: wrap; }
+.flag { font-size: 11px; font-weight: 600; letter-spacing: .06em; padding: 2px 7px; border-radius: 4px; background: var(--panel-2); color: var(--muted); text-transform: uppercase; }
+.flag.del { color: var(--red); background: rgba(255, 77, 94, .12); }
+.flag.best { color: var(--purple); background: rgba(180, 92, 255, .12); }
+.swap { position: absolute; right: 14px; top: -14px; z-index: 2; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line-2); background: var(--panel); cursor: pointer; display: grid; place-items: center; color: var(--muted); }
+.swap:hover { color: var(--fg); border-color: var(--faint); }
+.side.b { padding-top: 16px; }
+
+/* ── map ── */
+.map-wrap { position: relative; padding: 4px 8px 6px; }
+#map { display: block; width: 100%; height: 380px; touch-action: none; }
+@media (max-width: 600px) { #map { height: 290px; } }
+.score { display: flex; align-items: center; gap: 8px; white-space: nowrap; font-family: var(--mono); font-size: 12.5px; }
+.score .sa { color: var(--a); font-weight: 700; } .score .sb { color: var(--b); font-weight: 700; }
+.score .lbl { color: var(--muted); font-family: var(--body); font-size: 12px; }
+
+/* ── live dash ── */
+.dash { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; padding: 0 14px 12px; align-items: stretch; }
+.car { background: var(--panel-2); border-radius: 8px; padding: 8px 10px; display: grid; gap: 5px; border-top: 2px solid var(--sc); min-width: 0; }
+.car.a { --sc: var(--a); } .car.b { --sc: var(--b); }
+.car .row { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; }
+.car .spd { font-family: var(--mono); font-weight: 700; font-size: 22px; line-height: 1; font-variant-numeric: tabular-nums; }
+.car .spd small { font-size: 10.5px; color: var(--muted); font-weight: 400; margin-left: 2px; }
+.car .gr { font-family: var(--display); font-weight: 800; font-size: 22px; line-height: 1; color: var(--sc); }
+.bars { display: grid; grid-template-columns: 1fr 14px; gap: 6px; align-items: center; }
+.thr { height: 6px; border-radius: 3px; background: #0b0f15; overflow: hidden; }
+.thr i { display: block; height: 100%; width: 0; background: var(--green); }
+.brk { width: 14px; height: 14px; border-radius: 3px; background: #0b0f15; border: 1px solid var(--line-2); }
+.brk.on { background: var(--red); border-color: var(--red); box-shadow: 0 0 8px rgba(255, 77, 94, .6); }
+.car .et { font-family: var(--mono); font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.livegap { display: grid; place-items: center; text-align: center; padding: 0 2px; min-width: 74px; }
+.livegap b { font-family: var(--mono); font-size: 17px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.livegap span { font-size: 10.5px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+
+/* ── playback ── */
+.play { display: grid; grid-template-columns: auto auto 1fr auto; align-items: center; gap: 10px; padding: 10px 14px 12px; border-top: 1px solid var(--line); }
+.btn { border: 1px solid var(--line-2); background: var(--panel-2); border-radius: 8px; height: 34px; min-width: 34px; padding: 0 10px; cursor: pointer; display: inline-grid; place-items: center; }
+.btn:hover { border-color: var(--faint); }
+.btn.primary { background: var(--fg); color: var(--bg); border-color: var(--fg); min-width: 44px; }
+.btn svg { width: 16px; height: 16px; display: block; }
+input[type=range] { width: 100%; accent-color: var(--a); min-width: 0; }
+.speed select { padding: 6px 26px 6px 9px; font-family: var(--mono); font-size: 12.5px; }
+.clock { font-family: var(--mono); font-size: 12px; color: var(--muted); grid-column: 1 / -1; display: flex; justify-content: space-between; margin-top: -4px; font-variant-numeric: tabular-nums; }
+
+/* ── charts ── */
+.charts-h { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; padding: 10px 14px 6px; }
+.zoom { display: flex; gap: 4px; background: var(--panel-2); border-radius: 8px; padding: 3px; }
+.zoom button { border: 0; background: transparent; padding: 4px 10px; border-radius: 6px; font-size: 12.5px; font-weight: 600; color: var(--muted); cursor: pointer; font-family: var(--display); letter-spacing: .06em; }
+.zoom button[aria-pressed="true"] { background: var(--line-2); color: var(--fg); }
+.readout { display: flex; flex-wrap: wrap; gap: 4px 14px; font-family: var(--mono); font-size: 12px; color: var(--muted); padding: 0 14px 6px; min-height: 22px; font-variant-numeric: tabular-nums; }
+.readout b { font-weight: 500; }
+.readout .ka { color: var(--a); } .readout .kb { color: var(--b); }
+.chart-wrap { position: relative; padding: 0 6px 8px 4px; }
+#chart { display: block; width: 100%; height: 640px; touch-action: pan-y; cursor: crosshair; }
+@media (max-width: 600px) { #chart { height: 580px; } }
+.hint { color: var(--faint); font-size: 11.5px; padding: 0 14px 12px; }
+
+/* ── corners table ── */
+.corners { padding: 4px 6px 10px; overflow-x: auto; }
+table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.ct th { font-family: var(--display); font-weight: 700; font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+.ct td { padding: 6px 8px; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 12.5px; }
+.ct tr { cursor: pointer; }
+.ct tbody tr:hover td { background: var(--panel-2); }
+.ct tr.on td { background: var(--panel-2); }
+.ct .t { font-family: var(--display); font-weight: 800; font-size: 15px; }
+.ct .va { color: var(--a); } .ct .vb { color: var(--b); }
+.gainbar { position: relative; height: 10px; background: #0b0f15; border-radius: 3px; min-width: 56px; }
+@media (max-width: 600px) { .ct th, .ct td { padding: 6px 5px; } .ct th { font-size: 10.5px; letter-spacing: .08em; } }
+.gainbar::after { content: ""; position: absolute; left: 50%; top: -2px; bottom: -2px; width: 1px; background: var(--line-2); }
+.gainbar i { position: absolute; top: 0; bottom: 0; border-radius: 3px; }
+.gtxt { white-space: nowrap; }
+
+.ins { padding: 8px 14px 14px; display: grid; gap: 8px; }
+.ins .sum { margin: 0; font-size: 13.5px; color: var(--fg); }
+.ins .sum b { font-family: var(--mono); font-weight: 700; font-size: 13px; }
+.ins .sum small { color: var(--muted); }
+.ins .line { text-align: left; border: 0; border-left: 3px solid var(--lc, var(--line-2)); background: var(--panel-2); border-radius: 6px; padding: 8px 11px; cursor: pointer; font-size: 13px; line-height: 1.45; color: var(--fg); }
+.ins .line:hover { background: var(--line); }
+.ins .line .t { font-family: var(--display); font-weight: 800; font-size: 15px; margin-right: 6px; }
+.ins .line .g { font-family: var(--mono); font-weight: 700; color: var(--lc); white-space: nowrap; }
+.ins .line .why { color: var(--muted); }
+.ins .line.on { background: var(--line); box-shadow: inset 0 0 0 1px var(--lc); }
+.ins .none { color: var(--faint); font-size: 12.5px; margin: 0; }
+.share { margin-left: auto; font-size: 13px; font-weight: 500; }
+.chip:disabled { opacity: .4; cursor: not-allowed; }
+.race { display: grid; gap: 14px; min-width: 0; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; padding: 10px 14px; }
+.tile { background: var(--panel-2); border-radius: 8px; padding: 8px 11px; display: grid; gap: 2px; min-width: 0; }
+.tile span { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.tile b { font-family: var(--mono); font-size: 17px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tile small { color: var(--muted); font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rfacts { padding: 0 14px 14px; display: grid; gap: 6px; }
+.rfacts p { margin: 0; font-size: 13.5px; line-height: 1.5; padding-left: 14px; position: relative; }
+.rfacts p::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 50%; background: var(--muted); }
+.presets { display: flex; gap: 6px; flex-wrap: wrap; padding: 10px 14px 4px; }
+.dchips { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px 14px 14px; }
+.dchip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 8px; font-family: var(--display); font-weight: 700; letter-spacing: .04em; font-size: 14px; }
+.dchip i { width: 9px; height: 9px; border-radius: 50%; display: block; }
+.dchip.chip[aria-pressed="true"] { background: var(--panel-2); color: var(--fg); border-color: var(--fg); }
+.dchip.chip[aria-pressed="false"] { opacity: .55; }
+.rc { display: block; width: 100%; height: 340px; touch-action: pan-y; cursor: crosshair; }
+.rc-pos { height: 480px; }
+@media (max-width: 600px) { .rc { height: 290px; } .rc-pos { height: 420px; } }
+.race-cols { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); min-width: 0; }
+.st { padding: 8px 14px 14px; display: grid; gap: 4px; }
+.st-row { display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 8px; align-items: center; }
+.st-l { font-family: var(--display); font-weight: 800; font-size: 14px; display: flex; gap: 6px; align-items: center; }
+.st-l i { font-style: normal; color: var(--faint); font-family: var(--mono); font-size: 10.5px; width: 16px; text-align: right; font-weight: 500; }
+.st-track, .st-bands, .st-ticks { position: relative; height: 20px; background: var(--panel-2); border-radius: 4px; overflow: hidden; }
+.st-ticks { height: 14px; background: transparent; overflow: visible; }
+.st-ticks em { position: absolute; top: 0; font: 500 10px var(--mono); color: var(--muted); font-style: normal; transform: translateX(-2px); }
+.st-bands { height: 12px; background: transparent; border-bottom: 1px solid var(--line); border-radius: 0; }
+.band { position: absolute; top: 0; bottom: 0; display: block; font: 700 8.5px var(--mono); line-height: 12px; text-align: center; color: #201800; overflow: hidden; font-style: normal; }
+.band.SC { background: rgba(244, 197, 52, .8); } .band.VSC { background: rgba(244, 197, 52, .45); } .band.R { background: rgba(255, 77, 94, .8); color: #fff; }
+.seg { position: absolute; top: 0; bottom: 0; display: block; color: #071018; font: 700 10.5px/20px var(--mono); padding-left: 5px; overflow: hidden; white-space: nowrap; box-shadow: inset -2px 0 0 var(--panel); border-radius: 3px; }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; padding-top: 8px; font-size: 12px; color: var(--muted); }
+.cdot { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--tyc); font: 800 10px var(--display); font-style: normal; color: var(--fg); background: #0b0f15; vertical-align: middle; }
+.pr { padding: 8px 14px 14px; display: grid; gap: 5px; }
+.pr-row { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 8px; align-items: center; font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; }
+.pr-row b { font-family: var(--display); font-size: 14px; }
+.pr-row small { color: var(--muted); }
+.pr-bar { height: 8px; background: #0b0f15; border-radius: 4px; overflow: hidden; }
+.pr-bar i { display: block; height: 100%; border-radius: 4px; }
+.note2 { color: var(--faint); font-size: 11.5px; margin: 6px 0 0; line-height: 1.45; }
+.pad { padding: 4px 14px 14px; }
+.pad .none, .pr .none { color: var(--faint); font-size: 12.5px; margin: 0; }
+.ct.plain tr { cursor: default; }
+.ct.plain tbody tr:hover td { background: transparent; }
+.ct td.pb { color: var(--purple); font-weight: 700; }
+.up { color: var(--green); } .dn { color: var(--red); }
+.rc-sm { height: 250px; }
+.fcols { padding: 6px 14px 14px; align-items: start; }
+.lossbar { height: 8px; background: #0b0f15; border-radius: 4px; overflow: hidden; min-width: 50px; }
+.lossbar i { display: block; height: 100%; border-radius: 4px; }
+.ct.plain tr[data-focus] { cursor: pointer; }
+.ct.plain tbody tr[data-focus]:hover td { background: var(--panel-2); }
+.tms { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 10px; padding: 10px 14px 6px; }
+.tm { background: var(--panel-2); border-radius: 8px; border-top: 3px solid var(--tc); padding: 10px 12px 12px; display: grid; gap: 6px; cursor: pointer; min-width: 0; }
+.tm:hover { background: var(--line); }
+.tm-h b { font-family: var(--display); font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.tm-v { display: flex; align-items: baseline; justify-content: center; gap: 12px; font-family: var(--display); font-weight: 800; font-size: 26px; }
+.tm-v span { cursor: pointer; } .tm-v span:hover { text-decoration: underline; }
+.tm-v i { font: 500 12px var(--body); color: var(--faint); font-style: normal; }
+.tm-r { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: center; font-family: var(--mono); font-size: 12.5px; font-variant-numeric: tabular-nums; border-top: 1px solid var(--line); padding-top: 5px; }
+.tm-r em { font: 600 10.5px var(--body); letter-spacing: .08em; color: var(--muted); text-transform: uppercase; font-style: normal; text-align: center; }
+.tm-r span:first-child { text-align: right; } .tm-r span:last-child { text-align: left; }
+.tm-r .w { color: var(--green); font-weight: 700; } .tm-r .l { color: var(--muted); }
+.tm-sp { width: 100%; height: 46px; display: block; background: #0b0f15; border-radius: 6px; }
+.tm-sp line { stroke: var(--line-2); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.tm-sp polyline { fill: none; stroke: var(--fg); stroke-width: 1.6; vector-effect: non-scaling-stroke; }
+.tm-spl { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; }
+.tm-t { margin: 2px 0 0; font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+.rtabs { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0 4px; scrollbar-width: none; }
+.rtabs::-webkit-scrollbar { display: none; }
+.rtabs .chip { flex: 0 0 auto; padding: 7px 14px; }
+#raceview:not([data-t="sum"]) > [data-tab="sum"], #raceview:not([data-t="chart"]) > [data-tab="chart"], #raceview:not([data-t="strat"]) > [data-tab="strat"], #raceview:not([data-t="moves"]) > [data-tab="moves"], #raceview:not([data-t="drv"]) > [data-tab="drv"] { display: none; }
+.mvf { display: flex; gap: 6px; flex-wrap: wrap; padding: 10px 14px 0; }
+.mvs { padding: 8px 14px 4px; font-size: 13px; color: var(--muted); line-height: 1.5; }
+.mvs b { color: var(--fg); }
+.mvl { max-height: 430px; overflow-y: auto; padding: 4px 14px 12px; display: grid; gap: 2px; }
+.mv { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto auto; gap: 10px; align-items: center; font-size: 13px; padding: 5px 0; border-top: 1px solid var(--line); }
+.mv:first-child { border-top: 0; }
+.mv .n { font-family: var(--mono); color: var(--muted); font-size: 12px; }
+.mv .p { font-family: var(--mono); color: var(--muted); font-size: 12px; white-space: nowrap; }
+.mv .w { color: var(--muted); font-size: 12px; }
+.mt { font: 700 10.5px var(--body); letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--muted); white-space: nowrap; }
+.mt.track { color: var(--green); border-color: var(--green); } .mt.pit { color: var(--a); border-color: var(--a); } .mt.sc { color: var(--yellow); border-color: var(--yellow); }
+@media (max-width: 520px) { .mv { grid-template-columns: 30px minmax(0, 1fr) auto; } .mv .p { display: none; } }
+.uo-ok { color: var(--green); font-weight: 700; } .uo-no { color: var(--red); font-weight: 700; }
+.foot { color: var(--faint); font-size: 12px; padding-block: 20px 0; max-width: 70ch; }
+.foot a { color: var(--muted); }
+
+/* loading / error */
+.veil { position: absolute; inset: 0; display: grid; place-items: center; background: color-mix(in srgb, var(--panel) 70%, transparent); border-radius: var(--r); z-index: 3; font-size: 13px; color: var(--muted); text-align: center; padding: 16px; }
+.veil .spin { width: 22px; height: 22px; border: 2px solid var(--line-2); border-top-color: var(--a); border-radius: 50%; animation: sp 0.8s linear infinite; margin: 0 auto 8px; }
+@keyframes sp { to { transform: rotate(360deg); } }
+.err { display: grid; gap: 8px; justify-items: center; }
+@media (prefers-reduced-motion: reduce) { .veil .spin { animation-duration: 3s; } }
+.rel { position: relative; }
+.filters {padding:12px 14px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;font-size:12px}.filters label{display:flex;align-items:center;gap:5px}.filters input{accent-color:var(--a)}.filters p{width:100%;margin:0;color:var(--muted)}.quality{padding:10px 14px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}.quality strong{color:var(--fg)}.detail{padding:12px 14px}.detail table{width:100%;border-collapse:collapse}.detail td,.detail th{text-align:left;padding:7px 5px;border-bottom:1px solid var(--line);font-size:12px}.detail p{font-size:12px;color:var(--muted)}#cornerDetail{grid-column:1/-1;order:4} .brk.missing{opacity:.4;border-style:dashed}
+</style>
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="top">
+    <div class="top-in">
+      <a class="brand" href="#" aria-label="Tur Düellosu">
+        <span class="mark" aria-hidden="true"><i></i><i></i></span>
+        <span class="wordmark">Tur Düellosu<small>F1 TELEMETRİ KARŞILAŞTIRMA</small></span>
+      </a>
+      <div class="picks">
+        <label class="sel"><span hidden>Sezon</span><select id="year" aria-label="Sezon"></select></label>
+        <label class="sel"><span hidden>Yarış haftası</span><select id="event" aria-label="Yarış haftası"></select></label>
+        <div class="sessions" id="sessions" role="group" aria-label="Oturum"></div>
+        <div class="sessions" id="modes" role="group" aria-label="Görünüm"><button class="chip" data-mode="duel" aria-pressed="true">Tur düellosu</button><button class="chip" data-mode="race" aria-pressed="false">Yarış analizi</button></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="strip">
+    <h1 id="title">—</h1>
+    <div class="meta" id="meta"></div>
+    <button class="btn share" id="share" title="Bu karşılaştırmanın linkini kopyala">Linki kopyala</button>
+  </section>
+
+  <div class="grid" id="duelview">
+    <div class="rail">
+      <section class="card rel" id="mapcard">
+        <div class="card-h">
+          <span class="eyebrow">Pist</span>
+          <span class="score" id="score"></span>
+        </div>
+        <div class="map-wrap"><canvas id="map" aria-label="Pist haritası: her mini sektör, o bölümde daha hızlı olan pilotun rengiyle boyanır"></canvas></div>
+        <div class="dash">
+          <div class="car a"><div class="row"><span class="spd" id="spdA">—<small>km/sa</small></span><span class="gr" id="grA">–</span></div><div class="bars"><div class="thr"><i id="thrA"></i></div><div class="brk" id="brkA" title="Fren"></div></div><div class="et" id="etA">0.000</div></div>
+          <div class="livegap"><div><span>Fark</span><br><b id="liveGap">0.000</b></div></div>
+          <div class="car b"><div class="row"><span class="spd" id="spdB">—<small>km/sa</small></span><span class="gr" id="grB">–</span></div><div class="bars"><div class="thr"><i id="thrB"></i></div><div class="brk" id="brkB" title="Fren"></div></div><div class="et" id="etB">0.000</div></div>
+        </div>
+        <div class="play">
+          <button class="btn primary" id="playBtn" aria-label="Oynat"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg></button>
+          <button class="btn" id="restart" aria-label="Başa sar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 3v4h4"/><path d="M3.5 7A5 5 0 1 1 4 11"/></svg></button>
+          <input type="range" id="scrub" min="0" max="1000" value="0" step="1" aria-label="Tur zamanı">
+          <label class="sel speed"><select id="rate" aria-label="Oynatma hızı"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label>
+          <div class="clock"><span id="clockNow">0:00.000</span><span id="clockEnd">—</span></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="main">
+      <section class="card duel rel" id="duel">
+<div class="filters" role="group" aria-label="B turunu A ile eşleştir">
+<strong>A turuna uygun B turu</strong>
+<label><input type="checkbox" id="filterCompound">Aynı lastik</label>
+<label><input type="checkbox" id="filterAge">Lastik yaşı ±2 tur</label>
+<label><input type="checkbox" id="filterPhase">Aynı Q bölümü</label>
+<label><input type="checkbox" id="filterClean">Yalnız temiz turlar</label>
+<p id="filterStatus" role="status">Filtreler B turunu A turuna göre eşleştirir. Temiz tur filtresi iki tur için de geçerlidir.</p>
+</div>
+        <div class="side a" data-side="a">
+          <div class="side-top">
+            <span class="tag">A</span>
+            <label class="sel"><select id="drvA" aria-label="A pilotu"></select></label>
+            <label class="sel lap"><select id="lapA" aria-label="A turu"></select></label>
+          </div>
+          <div class="side-main">
+            <div class="who"><div class="code" id="codeA"><span class="team-bar"></span><span>—</span></div><div class="name" id="nameA"></div></div>
+            <div class="time"><div class="lt" id="ltA">—</div><div class="gap" id="gapA"></div></div>
+          </div>
+          <div class="sectors" id="secA"></div>
+          <div class="flags" id="flA"></div>
+        </div>
+        <div class="side b" data-side="b">
+          <button class="swap" id="swap" title="A ile B'yi değiştir" aria-label="A ile B'yi değiştir"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2v12M5 14l-3-3M5 14l3-3M11 14V2M11 2l-3 3M11 2l3 3"/></svg></button>
+          <div class="side-top">
+            <span class="tag">B</span>
+            <label class="sel"><select id="drvB" aria-label="B pilotu"></select></label>
+            <label class="sel lap"><select id="lapB" aria-label="B turu"></select></label>
+          </div>
+          <div class="side-main">
+            <div class="who"><div class="code" id="codeB"><span class="team-bar"></span><span>—</span></div><div class="name" id="nameB"></div></div>
+            <div class="time"><div class="lt" id="ltB">—</div><div class="gap" id="gapB"></div></div>
+          </div>
+          <div class="sectors" id="secB"></div>
+          <div class="flags" id="flB"></div>
+        </div>
+      </section>
+
+      <section class="card" id="insights">
+        <div class="card-h"><span class="eyebrow">Fark nerede oluşuyor</span><span class="note" id="insNote">Satıra dokun, o viraj yakınlaşsın</span><button class="chip" id="resetView" hidden>✕ Normale dön · Esc</button></div>
+        <div class="ins" id="insBody"></div><div class="quality" id="quality" role="status"></div>
+      </section>
+
+      <section class="card rel" id="chartcard">
+        <div class="charts-h">
+          <span class="eyebrow">Telemetri · mesafeye göre</span>
+          <div class="zoom" id="zoom" role="group" aria-label="Yakınlaştır">
+            <button data-z="all" aria-pressed="true">TUR</button><button data-z="0">S1</button><button data-z="1">S2</button><button data-z="2">S3</button>
+          </div>
+        </div>
+        <div class="readout" id="readout"></div>
+        <div class="chart-wrap"><canvas id="chart" aria-label="Hız, fark, gaz, fren, vites ve devir grafikleri"></canvas></div>
+        <div class="hint" id="hint">Grafikte bir noktaya gelince haritada A o noktada, B ise aynı saniyede bulunduğu yerde görünür. Farenle sürükleyerek bir bölgeyi yakınlaştır, çift tıkla sıfırla.</div>
+      </section>
+
+      <section class="card" id="cornerDetail" hidden><div class="card-h"><span class="eyebrow" id="detailTitle">Viraj detayı</span><button class="chip" id="closeDetail">Kapat</button></div><div class="detail" id="detailBody"></div></section>
+<section class="card" id="cornercard">
+        <div class="card-h"><span class="eyebrow" id="ctTitle">Viraj viraj</span><span class="note">Satıra dokun, o bölge yakınlaşsın</span></div>
+        <div class="corners"><table class="ct"><thead><tr><th id="ctHead">Viraj</th><th>Min A</th><th>Min B</th><th>Kazanç</th><th></th></tr></thead><tbody id="ctBody"></tbody></table></div>
+      </section>
+    </div>
+  </div>
+
+  <div class="race" id="raceview" data-t="sum" hidden>
+    <nav class="rtabs" id="rtabs" role="tablist" aria-label="Yarış analizi bölümleri"><button class="chip" data-tab="sum" aria-pressed="true">Özet</button><button class="chip" data-tab="chart" aria-pressed="false">Grafikler</button><button class="chip" data-tab="strat" aria-pressed="false">Strateji</button><button class="chip" data-tab="moves" aria-pressed="false">Geçişler</button><button class="chip" data-tab="drv" aria-pressed="false">Pilot</button></nav>
+    <section class="card" data-tab="sum" id="raceSummary">
+      <div class="card-h"><span class="eyebrow">Yarış özeti</span></div>
+      <p class="note2">Sıralama son tur kayıtlarından tahmin edilir. Resmî klasman ve DNF durumu doğrulanmamıştır.</p><div class="tiles" id="raceTiles"></div>
+      <div class="rfacts" id="raceFacts"></div>
+    </section>
+    <section class="card" data-tab="chart">
+      <div class="card-h"><span class="eyebrow">Pilot seçimi</span><span class="note">Sıralama vurgusu ile tempo ve fark grafikleri seçili pilotlara göre çizilir</span></div>
+      <div class="presets" id="racePresets"></div>
+      <div class="dchips" id="raceChips"></div>
+    </section>
+    <section class="card" data-tab="chart">
+      <div class="card-h"><span class="eyebrow">Sıralama · tur tur</span><span class="note">Sarı gölge: güvenlik aracı · soluk sarı: sanal SC</span></div>
+      <div class="readout" id="roPos"></div>
+      <div class="chart-wrap"><canvas id="cvPos" class="rc rc-pos" aria-label="Tur tur sıralama grafiği"></canvas></div>
+    </section>
+    <section class="card" data-tab="strat">
+      <div class="card-h"><span class="eyebrow">Lastik stratejisi</span><span class="note">Pilotlar bitiş sırasına göre</span></div>
+      <div class="st" id="stratBox"></div>
+    </section>
+    <section class="card" data-tab="chart">
+      <div class="card-h"><span class="eyebrow">Tur süreleri · temiz turlar</span><span class="note">Nokta rengi lastik bileşiği; pit ve SC turları gösterilmez</span></div>
+      <div class="readout" id="roPace"></div>
+      <div class="chart-wrap"><canvas id="cvPace" class="rc" aria-label="Seçili pilotların tur süreleri"></canvas></div>
+    </section>
+    <section class="card" data-tab="chart">
+      <div class="card-h"><span class="eyebrow">Lidere fark</span><span class="note">Aşağı doğru: lidere göre geride</span></div>
+      <div class="readout" id="roGap"></div>
+      <div class="chart-wrap"><canvas id="cvGap" class="rc" aria-label="Seçili pilotların lidere farkı"></canvas></div>
+    </section>
+    <div class="race-cols" data-tab="strat">
+      <section class="card"><div class="card-h"><span class="eyebrow">Tempo sıralaması</span></div><div class="pr" id="paceRank"></div></section>
+      <section class="card"><div class="card-h"><span class="eyebrow">Lastik yıpranması</span></div><div class="pad" id="degBox"></div></section>
+    </div>
+    <section class="card" data-tab="strat"><div class="card-h"><span class="eyebrow">Pit stop'lar</span></div><div class="corners" id="pitBox"></div></section>
+    <section class="card" data-tab="strat"><div class="card-h"><span class="eyebrow">Undercut / overcut</span><span class="note">Yan yana giden iki araçtan biri önce pite girince ne oldu</span></div><div id="uoBox"></div></section>
+    <section class="card" data-tab="moves"><div class="card-h"><span class="eyebrow">Pozisyon değişimleri</span><span class="note">Tur sonu sıralamasındaki her geçiş</span></div><div class="mvf" id="mvFilters"></div><div class="mvs" id="mvSum"></div><div class="mvl" id="mvList"></div></section>
+    <section class="card" data-tab="moves"><div class="card-h"><span class="eyebrow">Takım içi düellolar</span><span class="note">Karta dokun: grafikler bu iki pilota geçsin · pilot koduna dokun: odağa git</span></div><div class="tms" id="tmBox"></div><p class="note2 pad">Farklı strateji, lastik ve trafik tempoyu etkiler. Sıralama turu arşivde olmadığı için grid farkı gösterilmiyor.</p></section>
+    <section class="card" data-tab="drv" id="focusCard">
+      <div class="card-h"><span class="eyebrow">Pilot odağı</span><label class="sel"><select id="focusSel" aria-label="Pilot seç"></select></label></div>
+      <div class="tiles" id="focusTiles"></div>
+      <div class="readout" id="roFPace"></div>
+      <div class="chart-wrap"><canvas id="cvFPace" class="rc rc-sm" aria-label="Pilotun temiz tur süreleri"></canvas></div>
+      <div class="readout" id="roFPos"></div>
+      <div class="chart-wrap"><canvas id="cvFPos" class="rc rc-sm" aria-label="Pilot ve takım arkadaşının pozisyonu"></canvas></div>
+      <div class="race-cols fcols"><div id="focusStints"></div><div id="focusSectors"></div></div>
+    </section>
+    <section class="card" data-tab="sum"><div class="card-h"><span class="eyebrow">Sonuç ve istatistikler</span><span class="note">Satıra dokun: pilot odağına git</span></div><div class="corners" id="resBox"></div></section>
+  </div>
+
+  <p class="foot">Sonuç sıralaması son kayıtlı tur ve pozisyondan tahmin edilir; resmî klasman, ceza veya DNF bilgisi değildir. Pozisyon değişimleri tur sonu kayıtlarından çıkarılır; tur içindeki tüm geçişleri göstermez. Veri: <a href="https://github.com/TracingInsights" target="_blank" rel="noopener">TracingInsights</a> açık telemetri arşivi (FastF1 tabanlı). Sayfa veriyi açıldığı anda doğrudan bu arşivden indirir, bu yüzden internet bağlantısı gerekir; yeni yarış haftaları arşive eklendikçe listede görünür. Telemetri ~4 Hz örneklenir ve iki tur 8 metrelik ortak bir mesafe ızgarasına indirgenir; fren sinyali açık/kapalıdır. Resmî bir F1 ürünü değildir.</p>
+</div>
+
+<script>
+const CATALOG = {"2023":[{"e":"Bahrain Grand Prix","d":"2023-03-03","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Saudi Arabian Grand Prix","d":"2023-03-17","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Australian Grand Prix","d":"2023-03-31","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Azerbaijan Grand Prix","d":"2023-04-28","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"Miami Grand Prix","d":"2023-05-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Monaco Grand Prix","d":"2023-05-26","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Spanish Grand Prix","d":"2023-06-02","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Canadian Grand Prix","d":"2023-06-16","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Austrian Grand Prix","d":"2023-06-30","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"British Grand Prix","d":"2023-07-07","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Hungarian Grand Prix","d":"2023-07-21","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Belgian Grand Prix","d":"2023-07-28","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"Dutch Grand Prix","d":"2023-08-25","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Italian Grand Prix","d":"2023-09-01","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Singapore Grand Prix","d":"2023-09-15","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Japanese Grand Prix","d":"2023-09-22","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Qatar Grand Prix","d":"2023-10-06","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"United States Grand Prix","d":"2023-10-20","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"Mexico City Grand Prix","d":"2023-10-27","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"São Paulo Grand Prix","d":"2023-11-03","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"Las Vegas Grand Prix","d":"2023-11-17","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Abu Dhabi Grand Prix","d":"2023-11-24","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]}],"2024":[{"e":"Bahrain Grand Prix","d":"2024-02-29","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Saudi Arabian Grand Prix","d":"2024-03-07","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Australian Grand Prix","d":"2024-03-22","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Japanese Grand Prix","d":"2024-04-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Chinese Grand Prix","d":"2024-04-19","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Miami Grand Prix","d":"2024-05-03","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Emilia Romagna Grand Prix","d":"2024-05-17","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Monaco Grand Prix","d":"2024-05-24","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Canadian Grand Prix","d":"2024-06-07","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Spanish Grand Prix","d":"2024-06-21","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Austrian Grand Prix","d":"2024-06-28","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"British Grand Prix","d":"2024-07-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Hungarian Grand Prix","d":"2024-07-19","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Belgian Grand Prix","d":"2024-07-26","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Dutch Grand Prix","d":"2024-08-23","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Italian Grand Prix","d":"2024-08-30","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Azerbaijan Grand Prix","d":"2024-09-13","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Singapore Grand Prix","d":"2024-09-20","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"United States Grand Prix","d":"2024-10-18","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Mexico City Grand Prix","d":"2024-10-25","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"São Paulo Grand Prix","d":"2024-11-01","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Las Vegas Grand Prix","d":"2024-11-22","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Qatar Grand Prix","d":"2024-11-29","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Abu Dhabi Grand Prix","d":"2024-12-06","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]}],"2025":[{"e":"Australian Grand Prix","d":"2025-03-14","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Chinese Grand Prix","d":"2025-03-21","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Japanese Grand Prix","d":"2025-04-04","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Bahrain Grand Prix","d":"2025-04-11","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Saudi Arabian Grand Prix","d":"2025-04-18","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Miami Grand Prix","d":"2025-05-02","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Emilia Romagna Grand Prix","d":"2025-05-16","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Monaco Grand Prix","d":"2025-05-23","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Spanish Grand Prix","d":"2025-05-30","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Canadian Grand Prix","d":"2025-06-13","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Austrian Grand Prix","d":"2025-06-27","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"British Grand Prix","d":"2025-07-04","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Belgian Grand Prix","d":"2025-07-25","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Hungarian Grand Prix","d":"2025-08-01","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Dutch Grand Prix","d":"2025-08-29","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Italian Grand Prix","d":"2025-09-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Azerbaijan Grand Prix","d":"2025-09-19","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Singapore Grand Prix","d":"2025-10-03","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"United States Grand Prix","d":"2025-10-17","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Mexico City Grand Prix","d":"2025-10-24","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"São Paulo Grand Prix","d":"2025-11-07","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Las Vegas Grand Prix","d":"2025-11-21","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Qatar Grand Prix","d":"2025-11-28","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Abu Dhabi Grand Prix","d":"2025-12-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]}],"2026":[{"e":"Australian Grand Prix","d":"2026-03-06","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Chinese Grand Prix","d":"2026-03-13","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Japanese Grand Prix","d":"2026-03-27","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Miami Grand Prix","d":"2026-05-01","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Canadian Grand Prix","d":"2026-05-22","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Monaco Grand Prix","d":"2026-06-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Barcelona Grand Prix","d":"2026-06-12","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Austrian Grand Prix","d":"2026-06-26","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"British Grand Prix","d":"2026-07-03","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Belgian Grand Prix","d":"2026-07-17","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Hungarian Grand Prix","d":"2026-07-24","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Dutch Grand Prix","d":"2026-08-21","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Italian Grand Prix","d":"2026-09-04","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Spanish Grand Prix","d":"2026-09-11","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Azerbaijan Grand Prix","d":"2026-09-24","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Bahrain Grand Prix","d":"2026-10-02","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]}]};
+const NAMES = {"names":{"VER":["Max","Verstappen"],"SAR":["Logan","Sargeant"],"NOR":["Lando","Norris"],"GAS":["Pierre","Gasly"],"PER":["Sergio","Perez"],"ALO":["Fernando","Alonso"],"LEC":["Charles","Leclerc"],"STR":["Lance","Stroll"],"MAG":["Kevin","Magnussen"],"DEV":["Nyck","De Vries"],"TSU":["Yuki","Tsunoda"],"ALB":["Alexander","Albon"],"ZHO":["Guanyu","Zhou"],"HUL":["Nico","Hulkenberg"],"OCO":["Esteban","Ocon"],"HAM":["Lewis","Hamilton"],"SAI":["Carlos","Sainz"],"RUS":["George","Russell"],"BOT":["Valtteri","Bottas"],"PIA":["Oscar","Piastri"],"ARO":["Paul","Aron"],"BEG":["Dino","Beganovic"],"OSU":["Zak","O'Sullivan"],"FOR":["Leonardo","Fornaroli"],"FCO":["Pierre","Gasly"],"BOY":["Sergio","Perez"],"MON":["Fernando","Alonso"],"BRO":["Luke","Browning"],"VIL":["Lance","Stroll"],"GRA":["Kevin","Magnussen"],"COH":["Yuki","Tsunoda"],"MAR":["Nico","Hulkenberg"],"MAN":["Guanyu","Zhou"],"TBA":["Nico","Hulkenberg"],"SHI":["Cian","Shields"],"RIC":["Daniel","Ricciardo"],"SHW":["Robert","Shwartzman"],"LAW":["Liam","Lawson"],"DRU":["Felipe","Drugovich"],"HAD":["Isack","Hadjar"],"VES":["Frederik","Vesti"],"BEA":["Oliver","Bearman"],"DOO":["Jack","Doohan"],"POU":["Theo","Pourchaire"],"OWA":["Patricio","O'Ward"],"DEN":["Jake","Dennis"],"IWA":["Ayumu","Iwasa"],"COL":["Franco","Colapinto"],"ANT":["Kimi","Antonelli"],"HIR":["Ryo","Hirakawa"],"LEL":["Arthur","Leclerc"],"BOR":["Gabriel","Bortoleto"],"DUN":["Alexander","Dunne"],"LIN":["Arvid","Lindblad"],"BAD":["Max","Verstappen"],"VOI":["Alexander","Albon"],"CHO":["Esteban","Ocon"],"CAM":["Gabriel","Bortoleto"],"CRA":["Jak","Crawford"],"FUO":["Antonio","Fuoco"],"HER":["Colton","Herta"]},"teams":{"2023":{"Red Bull Racing":"3671C6","Williams":"37BEDD","McLaren":"F58020","Alpine":"2293D1","Aston Martin":"358C75","Ferrari":"F91536","Haas F1 Team":"B6BABD","AlphaTauri":"5E8FAA","Alfa Romeo":"C92D4B","Mercedes":"6CD3BF"},"2024":{"Red Bull Racing":"3671C6","Williams":"64C4FF","RB":"6692FF","McLaren":"FF8000","Alpine":"0093cc","Aston Martin":"229971","Ferrari":"E80020","Haas F1 Team":"B6BABD","Kick Sauber":"52e252","Mercedes":"27F4D2"},"2025":{"Red Bull Racing":"4781D7","McLaren":"F47600","Kick Sauber":"01C00E","Racing Bulls":"6C98FF","Alpine":"00A1E8","Mercedes":"00D7B6","Aston Martin":"229971","Ferrari":"ED1131","Williams":"1868DB","Haas F1 Team":"9C9FA2"},"2026":{"McLaren":"F47600","Red Bull Racing":"4781D7","Audi":"F50537","Alpine":"00A1E8","Cadillac":"909090","Mercedes":"00D7B6","Ferrari":"ED1131","Aston Martin":"229971","Williams":"1868DB","Racing Bulls":"6C98FF","Haas F1 Team":"9C9FA2"}}};
+
+/* ───────── helpers ───────── */
+const $ = (id) => document.getElementById(id);
+const EV_TR = {
+  "Australian": "Avustralya", "Chinese": "Çin", "Japanese": "Japonya", "Bahrain": "Bahreyn", "Saudi Arabian": "Suudi Arabistan",
+  "Miami": "Miami", "Emilia Romagna": "Emilia Romagna", "Monaco": "Monako", "Spanish": "İspanya", "Barcelona": "Barselona",
+  "Canadian": "Kanada", "Austrian": "Avusturya", "British": "Britanya", "Belgian": "Belçika", "Hungarian": "Macaristan",
+  "Dutch": "Hollanda", "Italian": "İtalya", "Azerbaijan": "Azerbaycan", "Singapore": "Singapur", "United States": "ABD",
+  "Mexico City": "Meksika", "São Paulo": "São Paulo", "Las Vegas": "Las Vegas", "Qatar": "Katar", "Abu Dhabi": "Abu Dabi", "Madrid": "Madrid"
+};
+const SES_TR = { FP1: "1. Antrenman", FP2: "2. Antrenman", FP3: "3. Antrenman", Q: "Sıralama", SQ: "Sprint Sıralama", S: "Sprint", R: "Yarış" };
+const SES_ORDER = { FP1: 0, FP2: 1, FP3: 2, SQ: 3, S: 4, Q: 5, R: 6 };
+const CMP = { S: ["Yumuşak", "var(--soft-c)"], M: ["Orta", "var(--med-c)"], H: ["Sert", "var(--hard-c)"], I: ["Ara", "var(--inter-c)"], W: ["Yağmur", "var(--wet-c)"], U: ["?", "var(--faint)"] };
+const evName = (e) => (EV_TR[e.replace(" Grand Prix", "")] || e.replace(" Grand Prix", "")) + " GP";
+const fmtLap = (ms) => { if (ms == null) return "—"; const m = Math.floor(ms / 60000), s = (ms % 60000) / 1000; return m + ":" + s.toFixed(3).padStart(6, "0"); };
+const fmtClock = (sec) => fmtLap(Math.max(0, Math.round(sec * 1000)));
+const fmtGap = (s, d = 3) => (s >= 0 ? "+" : "−") + Math.abs(s).toFixed(d);
+const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const store = { get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
+const COL = {};
+const TOUCH = matchMedia("(pointer: coarse)").matches;
+function readColors() { for (const k of ["bg", "panel", "panel-2", "line", "line-2", "fg", "muted", "faint", "a", "b", "green", "red", "purple", "yellow"]) COL[k] = css("--" + k); }
+readColors();
+
+// Seçilen iki pilotun renklerini kendi takımlarının renklerine bağla.
+// Böylece harita, mini-sektörler, grafikler, imleçler ve pilot kartları aynı renkleri kullanır.
+function applyPilotColors(driverA, driverB) {
+  const sameTeam = driverA && driverB && String(driverA.t || "").trim().toLowerCase() === String(driverB.t || "").trim().toLowerCase();
+  const a = driverA?.col || css("--a");
+  // Aynı takım seçilirse ikinci pilotu beyaz yap; böylece iki veri serisi net ayrışır.
+  const b = sameTeam ? "#ffffff" : (driverB?.col || css("--b"));
+  COL.a = a;
+  COL.b = b;
+  const root = document.documentElement;
+  root.style.setProperty("--a", a);
+  root.style.setProperty("--b", b);
+  root.style.setProperty("--a-soft", `color-mix(in srgb, ${a} 16%, transparent)`);
+  root.style.setProperty("--b-soft", `color-mix(in srgb, ${b} 16%, transparent)`);
+}
+
+/* ───────── data loading (live, straight from the public archive) ───────── */
+const RAW = (y, p) => `https://raw.githubusercontent.com/TracingInsights/${y}/main/` + p.split("/").map(encodeURIComponent).join("/");
+const KIND_OF = { "Practice 1": "FP1", "Practice 2": "FP2", "Practice 3": "FP3", "Qualifying": "Q", "Sprint Qualifying": "SQ", "Sprint Shootout": "SQ", "Sprint": "S", "Race": "R" };
+async function getJSON(url) {
+  const r = await fetch(url);
+  if (r.status === 404) return null;
+  if (!r.ok) throw new Error("HTTP " + r.status);
+  return JSON.parse((await r.text()).replace(/\bNaN\b|-?\bInfinity\b/g, "null"));
+}
+const numv = (v) => (v === null || v === undefined || v === "None" || v === "" ? NaN : +v);
+const okNum = (v) => { const n = numv(v); return Number.isFinite(n) ? n : null; };
+
+const sessCache = new Map();
+async function loadSession(y, ev, ses) {
+  const key = `${y}|${ev}|${ses}`;
+  if (sessCache.has(key)) return sessCache.get(key);
+  const base = `${ev}/${ses}`;
+  const [dj, cj, sj] = await Promise.all([
+    getJSON(RAW(y, base + "/drivers.json")),
+    getJSON(RAW(y, base + "/corners.json")).catch(() => null),
+    getJSON(RAW(y, base + "/session_laptimes.json")).catch(() => null),
+  ]);
+  if (!dj || !dj.drivers) throw new Error("Bu oturum için veri yok");
+  const clean = (v) => (v && v !== "None" ? String(v) : "");
+  const drivers = dj.drivers.map((d) => {
+    const nm = NAMES.names[d.driver] || [], team = clean(d.team);
+    const tc = clean(d.tc) || (NAMES.teams[y] || {})[team] || "888888";
+    return { c: d.driver, n: clean(d.dn), f: clean(d.fn) || nm[0] || "", l: clean(d.ln) || nm[1] || d.driver, t: team, col: "#" + tc };
+  });
+  const dIdx = new Map(drivers.map((d, i) => [d.c, i]));
+  // rows of every lap
+  let rows = [];
+  const pushCols = (lt) => { if (!lt || !lt.lap) return; for (let i = 0; i < lt.lap.length; i++) { const r = {}; for (const k in lt) r[k] = Array.isArray(lt[k]) ? lt[k][i] : undefined; rows.push(r); } };
+  if (sj && sj.drv) pushCols(sj);
+  else {
+    const all = await Promise.all(drivers.map((d) => getJSON(RAW(y, `${base}/${d.c}/laptimes.json`)).catch(() => null)));
+    all.forEach((lt, i) => { if (lt) { if (!lt.drv) lt.drv = lt.lap.map(() => drivers[i].c); pushCols(lt); } });
+  }
+  const kind = KIND_OF[ses];
+  const H = { year: y, event: ev, session: ses, kind, drivers, laps: [], cornersRaw: cj && cj.CornerNumber && cj.CornerNumber.length ? cj : null };
+  H.allRows = rows; H.dIdx = dIdx;
+  // date
+  const dates = rows.map((r) => r.lSD).filter((v) => v && v !== "None").sort();
+  H.date = dates.length ? String(dates[0]).slice(0, 10) : "";
+  // choose comparable laps per driver
+  const byCode = new Map();
+  for (const r of rows) { if (!dIdx.has(r.drv)) continue; if (!byCode.has(r.drv)) byCode.set(r.drv, []); byCode.get(r.drv).push(r); }
+  const lastPos = new Map();
+  for (const [c, rs] of byCode) {
+    const timed = rs.filter((r) => okNum(r.time) && !r.ff1G);
+    const withPos = rs.filter((r) => okNum(r.pos)).sort((a, b) => a.lap - b.lap);
+    if (withPos.length) { const l = withPos[withPos.length - 1]; lastPos.set(c, [-l.lap, okNum(l.pos)]); }
+    if (!timed.length) continue;
+    const best = Math.min(...timed.map((r) => okNum(r.time)));
+    const lim = kind === "Q" || kind === "SQ" ? 1.07 : kind === "R" || kind === "S" ? 1.6 : 1.15;
+    for (const r of timed) {
+      const t = okNum(r.time), pit = okNum(r.pin) != null || okNum(r.pout) != null;
+      if (pit || t > best * lim) continue;
+      const cmp = r.compound && r.compound !== "None" ? String(r.compound)[0] : "U";
+      H.laps.push({
+        d: dIdx.get(c), n: +r.lap, t: Math.round(t * 1000),
+        s: [okNum(r.s1), okNum(r.s2), okNum(r.s3)], c: "SMHIW".includes(cmp) ? cmp : "U", l: okNum(r.life) || 0,
+        q: r.qs && r.qs !== "None" ? r.qs : null, pb: !!r.pb, x: !!r.del, p: okNum(r.pos), st: String(r.status ?? ""), v: okNum(r.vst),
+        path: `${base}/${c}/${r.lap}_tel.json`,
+      });
+    }
+  }
+  H.laps.sort((a, b) => a.d - b.d || a.n - b.n);
+  H.nL = H.laps.length;
+  if (!H.nL) throw new Error("Bu oturumda karşılaştırılabilir tur yok");
+  H.byDrv = H.drivers.map(() => []);
+  H.laps.forEach((l, i) => { l.i = i; H.byDrv[l.d].push(l); });
+  H.bestLap = H.byDrv.map((ls) => { const ok = ls.filter((l) => !l.x); const pool = ok.length ? ok : ls; return pool.reduce((m, l) => (!m || l.t < m.t ? l : m), null); });
+  const sb = [Infinity, Infinity, Infinity];
+  H.pbSec = H.byDrv.map((ls) => { const p = [Infinity, Infinity, Infinity]; ls.forEach((l) => { if (l.x) return; l.s.forEach((v, k) => { if (v != null && v < p[k]) p[k] = v; if (v != null && v < sb[k]) sb[k] = v; }); }); return p; });
+  H.sbSec = sb;
+  H.order = H.drivers.map((_, i) => i).filter((i) => H.byDrv[i].length);
+  if (kind === "R" || kind === "S") H.order.sort((x, y2) => { const a = lastPos.get(H.drivers[x].c) || [0, 99], b = lastPos.get(H.drivers[y2].c) || [0, 99]; return a[0] - b[0] || a[1] - b[1]; });
+  else H.order.sort((x, y2) => H.bestLap[x].t - H.bestLap[y2].t);
+  H.rank = []; H.order.forEach((di, r) => (H.rank[di] = r + 1));
+  H.telCache = new Map();
+  sessCache.set(key, H);
+  return H;
+}
+
+/* telemetry for one lap: fetch once, clean, keep raw arrays */
+async function loadTel(H, i) {
+  const l = H.laps[i];
+  if (H.telCache.has(l.path)) return H.telCache.get(l.path);
+  const p = (async () => {
+    const j = await getJSON(RAW(H.year, l.path));
+    if (!j || !j.tel) throw new Error(`${H.drivers[l.d].c} ${l.n}. tur telemetrisi bulunamadı`);
+    return prepTel(j.tel);
+  })();
+  H.telCache.set(l.path, p);
+  p.catch(() => H.telCache.delete(l.path));
+  return p;
+}
+function col(arr, n) {
+  const out = new Float64Array(n);
+  for (let i = 0; i < n; i++) out[i] = numv(arr ? arr[i] : NaN);
+  // fill gaps linearly
+  let last = -1;
+  for (let i = 0; i < n; i++) {
+    if (Number.isFinite(out[i])) {
+      if (last === -1) for (let j = 0; j < i; j++) out[j] = out[i];
+      else if (i - last > 1) for (let j = last + 1; j < i; j++) out[j] = out[last] + (out[i] - out[last]) * (j - last) / (i - last);
+      last = i;
+    }
+  }
+  if (last === -1) out.fill(0); else for (let j = last + 1; j < n; j++) out[j] = out[last];
+  return out;
+}
+function prepTel(tel) {
+  if (!tel || !Array.isArray(tel.time)) throw new Error("Telemetri zaman kanalı yok");
+  const n = tel.time.length;
+  const quality = {};
+  for (const key of ["time","distance","speed","throttle","rpm","gear","brake","x","y"]) {
+    const arr = tel[key] || [];
+    const valid = Array.from({length:n}, (_,i) => Number.isFinite(numv(arr[i])));
+    let maxGap=0, run=0;
+    valid.forEach(v=>{run=v?0:run+1;maxGap=Math.max(maxGap,run);});
+    quality[key] = {missing:valid.every(v=>!v), filled:valid.filter(v=>!v).length, maxGap};
+  }
+  for (const key of ["time","distance","speed","x","y"]) if (quality[key].missing || quality[key].filled/n > .1) throw new Error(key+" kanalı eksik; güvenilir karşılaştırma yapılamıyor");
+  const t = col(tel.time, n), d = col(tel.distance, n), v = col(tel.speed, n), thr = col(tel.throttle, n), rpm = col(tel.rpm, n), gear = col(tel.gear, n), brk = col(tel.brake, n), x = col(tel.x, n), y = col(tel.y, n);
+  const keep = []; let lastD = -Infinity;
+  for (let i = 0; i < n; i++) if (d[i] > lastD + 1e-6) { keep.push(i); lastD = d[i]; }
+  const pick = (a) => Float64Array.from(keep, (i) => a[i]);
+  const D = pick(d), m = keep.length, d0 = D[0], span = D[m - 1] - d0, t0 = t[keep[0]];
+  const rel = Float64Array.from(D, (v2) => (span > 0 ? (v2 - d0) / span : 0));
+  const T = Float64Array.from(keep, (i) => t[i] - t0);
+  if (m < 30 || span < 500) throw new Error("Bu turun telemetrisi eksik");
+  return { quality, rel, t: T, v: pick(v), thr: pick(thr), rpm: pick(rpm), gear: pick(gear), brk: pick(brk), x: pick(x), y: pick(y), len: span };
+}
+function resampleTel(p, P, lapTime) {
+  const n = p.rel.length;
+  const t = new Float64Array(P), v = new Float32Array(P), thr = new Float32Array(P), rpm = new Float32Array(P), x = new Float32Array(P), y = new Float32Array(P), gear = new Float32Array(P), brk = new Float32Array(P);
+  let j = 0;
+  for (let k = 0; k < P; k++) {
+    const g = k / (P - 1);
+    while (j < n - 2 && p.rel[j + 1] <= g) j++;
+    const r0 = p.rel[j], r1 = p.rel[j + 1], f = r1 > r0 ? Math.min(1, Math.max(0, (g - r0) / (r1 - r0))) : 0;
+    const L = (a) => a[j] + (a[j + 1] - a[j]) * f;
+    t[k] = L(p.t); v[k] = L(p.v); thr[k] = Math.max(0, Math.min(100, L(p.thr))); rpm[k] = L(p.rpm); x[k] = L(p.x); y[k] = L(p.y);
+    brk[k] = L(p.brk) >= 0.5 ? 1 : 0;
+    gear[k] = Math.max(0, Math.min(8, Math.round(r1 <= g ? p.gear[j + 1] : p.gear[j])));
+  }
+  if (lapTime && t[P - 1] > 0 && Math.abs(lapTime / t[P - 1] - 1) < 0.03) { const s = lapTime / t[P - 1]; for (let k = 0; k < P; k++) t[k] *= s; }
+  for (const [key,arr] of [["throttle",thr],["rpm",rpm],["gear",gear],["brake",brk]]) if (p.quality[key].missing) arr.fill(NaN);
+  return { quality:p.quality, aligned:!!lapTime && Math.abs(lapTime-t[P-1])<.002, t, v, thr, rpm, gear, brk, x, y, total: t[P - 1] };
+}
+
+/* No corner map for this circuit: find braking zones on lap A
+   (speed minima after a real drop) and number them in order. */
+function autoCorners(H, A) {
+  const v = A.v, P = H.P, step = H.L / (P - 1);
+  const W = Math.max(3, Math.round(60 / step)), back = Math.round(300 / step);
+  const out = [];
+  for (let k = 1; k < P - 1; k++) {
+    let isMin = true;
+    for (let j = Math.max(0, k - W); j <= Math.min(P - 1, k + W); j++) if (v[j] < v[k] || (v[j] === v[k] && j < k)) { isMin = false; break; }
+    if (!isMin) continue;
+    let mx = 0; for (let j = Math.max(0, k - back); j < k; j++) mx = Math.max(mx, v[j]);
+    if (mx - v[k] < 12) continue;
+    const prev = out[out.length - 1];
+    if (prev != null && (k - prev) * step < 160) { if (v[k] < v[prev]) out[out.length - 1] = k; continue; }
+    out.push(k);
+  }
+  let cx = 0, cy = 0; for (let k = 0; k < P; k++) { cx += H.px[k]; cy += H.py[k]; } cx /= P; cy /= P;
+  let mn = Infinity, mxx = -Infinity; for (let k = 0; k < P; k++) { mn = Math.min(mn, H.px[k]); mxx = Math.max(mxx, H.px[k]); }
+  const span = mxx - mn;
+  return out.map((k, i) => {
+    const k1 = Math.max(0, k - 2), k2 = Math.min(P - 1, k + 2);
+    let nx = -(H.py[k2] - H.py[k1]), ny = H.px[k2] - H.px[k1]; const l = Math.hypot(nx, ny) || 1; nx /= l; ny /= l;
+    if ((H.px[k] - cx) * nx + (H.py[k] - cy) * ny < 0) { nx = -nx; ny = -ny; }
+    const off = span * 0.045;
+    return { n: i + 1, r: k / (P - 1), lx: H.px[k] + nx * off, ly: H.py[k] + ny * off };
+  });
+}
+
+/* geometry for a comparison comes from lap A: grid, outline, sectors, corners */
+function setGeometry(H, pA, A) {
+  H.L = pA.len; H.P = Math.round(H.L / 8) + 1;
+  const rotDeg = H.cornersRaw ? (+H.cornersRaw.Rotation || 0) : 0;
+  const rot = rotDeg * Math.PI / 180, c = Math.cos(rot), s = Math.sin(rot);
+  const rx = (x, y) => x * c - y * s, ry = (x, y) => -(x * s + y * c);
+  H.rx = rx; H.ry = ry;
+  H.px = Float32Array.from(A.x, (x, i) => rx(x, A.y[i]));
+  H.py = Float32Array.from(A.x, (x, i) => ry(x, A.y[i]));
+  // sector boundaries from lap A's sector times
+  H.sectors = null;
+  const [s1, s2] = A.meta.s;
+  if (s1 && s2) {
+    const at = (tt) => { const k = kAtTime(A, tt); return k / (H.P - 1); };
+    H.sectors = [at(s1), at(s1 + s2)];
+  }
+  H.autoCorners = false;
+  if (H.cornersRaw) {
+    const cr = H.cornersRaw;
+    H.corners = cr.CornerNumber.map((n, i) => {
+      const a = (+cr.Angle[i] || 0) * Math.PI / 180, x = +cr.X[i], y = +cr.Y[i], ox = x + 600 * Math.cos(a), oy = y + 600 * Math.sin(a);
+      return { n, r: Math.min(1, Math.max(0, (+cr.Distance[i] || 0) / H.L)), lx: rx(ox, oy), ly: ry(ox, oy) };
+    });
+  } else { H.corners = autoCorners(H, A); H.autoCorners = true; }
+}
+
+/* ───────── state ───────── */
+const st = { year: null, ev: null, kind: null, H: null, a: null, b: null, A: null, B: null, delta: null, ms: null, zoom: [0, 1], zoomKey: "all", hoverK: null, play: { on: false, e: 0, rate: 1, last: 0 }, cornerSel: null, tok: 0, mode: "duel", raceSel: null, raceSelKey: null, raceFocus: null, race: null, duelStale: false };
+
+/* ───────── catalog ───────── */
+const SEASONS = JSON.parse(JSON.stringify(CATALOG));
+function seasonList() { return Object.keys(SEASONS).sort().reverse(); }
+function eventsOf(y) { return SEASONS[y]; }
+function curEvent() { return eventsOf(st.year).find((x) => x.e === st.ev); }
+function sesName(kind) { return curEvent().s.find((s) => KIND_OF[s] === kind); }
+function buildYear() {
+  const sel = $("year"); sel.innerHTML = "";
+  seasonList().forEach((y) => sel.add(new Option(y + " sezonu", y)));
+  sel.value = st.year;
+}
+function buildEvents() {
+  const sel = $("event"); sel.innerHTML = "";
+  const evs = eventsOf(st.year);
+  evs.map((e, i) => [e, i]).reverse().forEach(([e, i]) => sel.add(new Option(`R${i + 1} · ${evName(e.e)}`, e.e)));
+  sel.value = st.ev;
+}
+function buildSessions() {
+  const box = $("sessions"); box.innerHTML = "";
+  curEvent().s.map((s) => KIND_OF[s]).sort((a, b) => SES_ORDER[a] - SES_ORDER[b]).forEach((k) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.textContent = SES_TR[k]; b.dataset.kind = k;
+    b.setAttribute("aria-pressed", k === st.kind ? "true" : "false");
+    b.onclick = () => { if (st.kind !== k) { st.kind = k; buildSessions(); openSession(); } };
+    box.appendChild(b);
+  });
+}
+/* the archive grows during a season: look for weekends and sessions newer than this file */
+async function discover() {
+  const now = new Date(), y = String(Math.max(...Object.keys(SEASONS).map(Number)));
+  const cached = store.get("td.disc");
+  let found = cached && Date.now() - cached.at < 30 * 60 * 1000 ? cached.data : null;
+  if (!found) {
+    found = {};
+    const years = [y]; if (now.getFullYear() > +y) years.push(String(now.getFullYear()));
+    for (const yy of years) {
+      try {
+        const r = await fetch(`https://api.github.com/repos/TracingInsights/${yy}/contents/`);
+        if (!r.ok) continue;
+        const dirs = (await r.json()).filter((d) => d.type === "dir" && /Grand Prix$/.test(d.name)).map((d) => d.name);
+        const known = new Set((SEASONS[yy] || []).map((e) => e.e));
+        const recent = (SEASONS[yy] || []).slice(-1).map((e) => e.e);
+        const check = dirs.filter((n) => !known.has(n)).concat(recent);
+        for (const ev of check) {
+          const r2 = await fetch(`https://api.github.com/repos/TracingInsights/${yy}/contents/${encodeURIComponent(ev)}`);
+          if (!r2.ok) continue;
+          const ses = (await r2.json()).filter((d) => d.type === "dir" && KIND_OF[d.name]).map((d) => d.name);
+          if (ses.length) (found[yy] = found[yy] || []).push({ e: ev, s: ses });
+        }
+      } catch (e) { /* offline or rate limited: keep the built-in list */ }
+    }
+    store.set("td.disc", { at: Date.now(), data: found });
+  }
+  let changed = false;
+  for (const yy in found) {
+    const list = SEASONS[yy] || (SEASONS[yy] = []);
+    for (const f of found[yy]) {
+      const ex = list.find((e) => e.e === f.e);
+      const order = Object.keys(KIND_OF);
+      if (ex) { const add = f.s.filter((s) => !ex.s.includes(s)); if (add.length) { ex.s = ex.s.concat(add).sort((a, b) => order.indexOf(a) - order.indexOf(b)); changed = true; } }
+      else { list.push({ e: f.e, d: "", s: f.s.sort((a, b) => order.indexOf(a) - order.indexOf(b)) }); changed = true; }
+    }
+  }
+  return changed;
+}
+
+function drvLabel(H, di) {
+  const d = H.drivers[di], bl = H.bestLap[di];
+  return `P${H.rank[di]} ${d.c} · ${d.l}${bl ? " · " + fmtLap(bl.t) : ""}`;
+}
+function lapLabel(H, l) {
+  const bl = H.bestLap[l.d];
+  const tags = [];
+  if (l.q) tags.push(l.q);
+  if (bl && bl.i === l.i) tags.push("★ en iyi");
+  if (l.x) tags.push("✕ silindi");
+  if (H.kind === "R" || H.kind === "S") { if (l.p) tags.push("P" + l.p); if (/[4]/.test(l.st)) tags.push("SC"); else if (/[67]/.test(l.st)) tags.push("VSC"); }
+  return `${l.n}. tur · ${fmtLap(l.t)} · ${l.c}${l.l ? "/" + l.l : ""}${tags.length ? " · " + tags.join(" · ") : ""}`;
+}
+function fillDriverSelect(sel, H, di) {
+  sel.innerHTML = "";
+  H.order.forEach((i) => sel.add(new Option(drvLabel(H, i), i)));
+  sel.value = di;
+}
+function fillLapSelect(sel, H, di, li) {
+  sel.innerHTML = "";
+  H.byDrv[di].slice().sort((a, b) => a.n - b.n).forEach((l) => sel.add(new Option(lapLabel(H, l), l.i)));
+  sel.value = li;
+}
+
+/* ───────── open session ───────── */
+async function openSession() {
+  stopPlay();
+  const tok = ++st.tok, y = st.year, ev = st.ev, ses = sesName(st.kind);
+  $("title").textContent = `${evName(ev)} · ${SES_TR[st.kind]}`;
+  const veils = showVeil("Oturum verisi indiriliyor…");
+  let H;
+  try { H = await loadSession(y, ev, ses); }
+  catch (err) { hideVeil(veils); if (tok === st.tok) showError(err, openSession); return; }
+  hideVeil(veils);
+  if (tok !== st.tok) return;
+  st.H = H;
+  const key = `${y}|${ev}|${ses}`;
+  const saved = store.get("td.pick2");
+  const find = (code, n) => { const di = H.drivers.findIndex((d) => d.c === code); if (di < 0 || !H.byDrv[di].length) return null; const l = H.byDrv[di].find((x) => x.n === n) || H.bestLap[di]; return { d: di, l: l.i }; };
+  let a = saved && saved.key === key ? find(saved.a, saved.la) : null, b = saved && saved.key === key ? find(saved.b, saved.lb) : null;
+  if (!a) a = { d: H.order[0], l: H.bestLap[H.order[0]].i };
+  if (!b) { const db = H.order.find((i) => i !== a.d) ?? a.d; b = { d: db, l: H.bestLap[db].i }; }
+  st.a = a; st.b = b;
+  st.zoom = [0, 1]; st.zoomKey = "all"; st.cornerSel = null; $("cornerDetail").hidden=true;
+  syncZoomButtons();
+  fillDriverSelect($("drvA"), H, st.a.d); fillDriverSelect($("drvB"), H, st.b.d);
+  fillLapSelect($("lapA"), H, st.a.d, st.a.l); fillLapSelect($("lapB"), H, st.b.d, st.b.l);
+  st.A = st.B = null;
+  if (st.mode === "race" && !(H.kind === "R" || H.kind === "S")) st.mode = "duel";
+  if (st.mode === "race") { st.duelStale = true; applyMode(); renderRace(); return; }
+  st.duelStale = false; applyMode();
+  await compare();
+}
+function renderMeta() {
+  const H = st.H;
+  const dt = H.date ? new Date(H.date + "T12:00:00") : null;
+  const meta = [];
+  if (dt) meta.push(`<span>${dt.toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}</span>`);
+  meta.push(`<span>Pist <b>${(H.L / 1000).toFixed(3)} km</b></span>`);
+  meta.push(H.autoCorners ? `<span title="Bu pist için resmî viraj haritası yok; numaralar A turundaki fren bölgelerinden çıkarıldı">Fren bölgesi <b>${H.corners.length}</b></span>` : `<span>Viraj <b>${H.corners.length}</b></span>`);
+  meta.push(`<span>Seçilebilir tur <b>${H.nL}</b></span>`);
+  $("meta").innerHTML = meta.join("");
+}
+function showVeil(msg, ids = ["duel", "mapcard", "chartcard"]) {
+  const out = [];
+  for (const id of ids) {
+    const v = document.createElement("div"); v.className = "veil"; v.innerHTML = `<div><div class="spin"></div>${msg}</div>`;
+    $(id).appendChild(v); out.push(v);
+  }
+  return out;
+}
+function hideVeil(vs) { vs.forEach((v) => v.remove()); }
+function showError(err, retry) {
+  document.querySelectorAll("#chartcard .veil.errv").forEach((v) => v.remove());
+  const v = document.createElement("div"); v.className = "veil errv";
+  const offline = err instanceof TypeError;
+  v.innerHTML = `<div class="err"><div>${offline ? "Veriye ulaşılamadı. İnternet bağlantını kontrol et." : "Veri yüklenemedi: " + String(err.message || err)}</div><button class="btn">Tekrar dene</button></div>`;
+  v.querySelector("button").onclick = () => { v.remove(); retry(); };
+  $("chartcard").appendChild(v);
+}
+
+/* ───────── comparison ───────── */
+async function compare() {
+  stopPlay(); const tok=++st.tok;
+  if (!applyComparisonFilters()) return;
+  st.cornerSel=null; $("cornerDetail").hidden=true;
+  const H = st.H, ia = st.a.l, ib = st.b.l;
+  document.querySelectorAll("#chartcard .veil.errv").forEach((v) => v.remove());
+  const veils = showVeil("Telemetri indiriliyor…", ["mapcard", "chartcard"]);
+  let pA, pB;
+  try { [pA, pB] = await Promise.all([loadTel(H, ia), loadTel(H, ib)]); }
+  catch (err) { hideVeil(veils); if (tok === st.tok) showError(err, compare); return; }
+  hideVeil(veils);
+  if (tok !== st.tok || st.H !== H) return;
+  const P = Math.round(pA.len / 8) + 1;
+  const A = Object.assign(resampleTel(pA, P, H.laps[ia].t / 1000), { meta: H.laps[ia] });
+  const B = Object.assign(resampleTel(pB, P, H.laps[ib].t / 1000), { meta: H.laps[ib] });
+  applyPilotColors(H.drivers[A.meta.d], H.drivers[B.meta.d]);
+  setGeometry(H, pA, A);
+  H.bx = Float32Array.from(B.x, (x, i) => H.rx(x, B.y[i]));
+  H.by = Float32Array.from(B.x, (x, i) => H.ry(x, B.y[i]));
+  st.A = A; st.B = B;
+  const d = new Float32Array(P);
+  for (let k = 0; k < P; k++) d[k] = st.B.t[k] - st.A.t[k];
+  st.delta = d;
+  // mini sectors
+  const n = Math.max(18, Math.min(40, Math.round(H.L / 200)));
+  const ms = [];
+  let wa = 0, wb = 0;
+  for (let j = 0; j < n; j++) {
+    const k0 = Math.round(j * (P - 1) / n), k1 = Math.round((j + 1) * (P - 1) / n);
+    const ga = st.A.t[k1] - st.A.t[k0], gb = st.B.t[k1] - st.B.t[k0];
+    const w = ga <= gb ? "a" : "b";
+    if (w === "a") wa++; else wb++;
+    ms.push({ k0, k1, w, diff: gb - ga });
+  }
+  st.ms = ms;
+  $("score").innerHTML = `<span class="lbl">Mini sektör</span><span class="sa">A ${wa}</span><span class="lbl">–</span><span class="sb">${wb} B</span>`;
+  store.set("td.pick2", { key: `${H.year}|${H.event}|${H.session}`, a: H.drivers[A.meta.d].c, la: A.meta.n, b: H.drivers[B.meta.d].c, lb: B.meta.n });
+  writeHash();
+  renderMeta();
+  renderDuel();
+  buildCorners();
+  buildInsights(wa, wb); renderQuality();
+  mapLayer = null; chartLayer = null;
+  st.play.e = 0; st.hoverK = null;
+  $("clockEnd").textContent = fmtClock(Math.max(st.A.total, st.B.total));
+  drawAll();
+}
+
+function renderDuel() {
+  const H = st.H;
+  for (const side of ["a", "b"]) {
+    const S = side === "a" ? st.A : st.B, O = side === "a" ? st.B : st.A, up = side.toUpperCase();
+    const m = S.meta, d = H.drivers[m.d];
+    const code = $("code" + up);
+    code.style.setProperty("--tc", d.col);
+    code.style.color = d.col;
+    code.lastElementChild.textContent = d.c;
+    $("name" + up).textContent = [`${d.f} ${d.l}`.trim(), d.t].filter(Boolean).join(" · ");
+    $("lt" + up).textContent = fmtLap(m.t);
+    const g = (m.t - O.meta.t) / 1000, gEl = $("gap" + up);
+    if (side === "b" || g !== 0) {
+      gEl.textContent = g === 0 ? "eşit" : fmtGap(g) + " s";
+      gEl.className = "gap " + (g > 0 ? "lose" : g < 0 ? "win" : "");
+    }
+    // sectors
+    const pb = H.pbSec[m.d], sb = H.sbSec;
+    const secs = m.s.map((v, k) => {
+      let cls = "y";
+      if (v == null) cls = "";
+      else if (m.x) cls = "";
+      else if (Math.abs(v - sb[k]) < 0.0005) cls = "p";
+      else if (Math.abs(v - pb[k]) < 0.0005) cls = "g";
+      return `<div class="sec ${cls}"><span>S${k + 1}</span><b>${v == null ? "—" : v.toFixed(3)}</b></div>`;
+    }).join("");
+    const c = CMP[m.c] || CMP.U;
+    $("sec" + up).innerHTML = secs + `<div class="tyre" title="${c[0]} lastik, ${m.l} turluk"><i style="--tyc:${c[1]}">${m.c === "U" ? "?" : m.c}</i>${m.l ? m.l + " tur" : ""}</div>`;
+    const fl = [];
+    fl.push(`<span class="flag">${m.n}. tur</span>`);
+    if (m.q) fl.push(`<span class="flag">${m.q}</span>`);
+    if (H.bestLap[m.d] && H.bestLap[m.d].i === m.i) fl.push(`<span class="flag best">Kişisel en iyi</span>`);
+    if (m.x) fl.push(`<span class="flag del">Silinen tur</span>`);
+    if (m.v) fl.push(`<span class="flag">Hız tuzağı ${m.v} km/sa</span>`);
+    if ((H.kind === "R" || H.kind === "S") && /4/.test(m.st)) fl.push(`<span class="flag">Güvenlik aracı</span>`);
+    $("fl" + up).innerHTML = fl.join("");
+  }
+  $("gapA").textContent = ""; $("gapA").className = "gap";
+  if (st.A.meta.t === st.B.meta.t) $("gapB").textContent = "eşit";
+}
+
+/* corner zones */
+function buildCorners() {
+  const H = st.H, P = H.P, cs = H.corners.slice().sort((x, y) => x.r - y.r);
+  const kOf = (r) => Math.max(0, Math.min(P - 1, Math.round(r * (P - 1))));
+  const rows = cs.map((c, i) => {
+    const prev = i ? cs[i - 1].r : 0, next = i < cs.length - 1 ? cs[i + 1].r : 1;
+    // apex search window: up to 150 m, but never past halfway to a neighbouring corner
+    const gapM = Math.min(i ? c.r - prev : 1, i < cs.length - 1 ? next - c.r : 1) * H.L;
+    const win = Math.max(3, Math.round(Math.min(150, gapM / 2) / (H.L / (P - 1))));
+    const z0 = kOf(i ? (prev + c.r) / 2 : 0), z1 = kOf(i < cs.length - 1 ? (c.r + next) / 2 : 1);
+    const kc = kOf(c.r);
+    let ma = Infinity, mb = Infinity;
+    for (let k = Math.max(0, kc - win); k <= Math.min(P - 1, kc + win); k++) { if (st.A.v[k] < ma) ma = st.A.v[k]; if (st.B.v[k] < mb) mb = st.B.v[k]; }
+    const gain = (st.B.t[z1] - st.B.t[z0]) - (st.A.t[z1] - st.A.t[z0]);
+    return { n: c.n, z0, z1, kc, ma, mb, gain };
+  });
+  st.corners = rows;
+  $("ctHead").textContent = H.autoCorners ? "Bölge" : "Viraj";
+  $("ctTitle").textContent = H.autoCorners ? "Fren bölgeleri" : "Viraj viraj";
+  const maxG = Math.max(0.05, ...rows.map((r) => Math.abs(r.gain)));
+  $("ctBody").innerHTML = rows.map((r, i) => {
+    const w = Math.min(50, Math.abs(r.gain) / maxG * 50);
+    const col = r.gain >= 0 ? "var(--a)" : "var(--b)";
+    const bar = r.gain >= 0 ? `left:${50 - w}%;width:${w}%` : `left:50%;width:${w}%`;
+    const who = Math.abs(r.gain) < 0.0005 ? "—" : (r.gain > 0 ? "A" : "B");
+    const vA = r.ma >= r.mb ? "va" : "", vB = r.mb > r.ma ? "vb" : "";
+    return `<tr data-i="${i}" class="${st.cornerSel === i ? "on" : ""}"><td class="t">${H.autoCorners ? "#" : "T"}${r.n}</td><td class="${vA}">${Math.round(r.ma)}</td><td class="${vB}">${Math.round(r.mb)}</td><td class="gtxt" style="color:${who === "—" ? "var(--muted)" : col}">${who} ${Math.abs(r.gain).toFixed(3)}</td><td style="width:34%"><div class="gainbar"><i style="${bar};background:${col}"></i></div></td></tr>`;
+  }).join("");
+}
+
+/* auto commentary: where is the gap made and why */
+function brakeStartK(L, z0, kc) {
+  let j = kc; while (j > z0 && !L.brk[j]) j--;
+  if (!L.brk[j]) return null;
+  while (j > z0 && L.brk[j - 1]) j--;
+  return j;
+}
+function throttleOnK(L, kc, z1) { for (let k = kc; k <= z1; k++) if (L.thr[k] >= 90) return k; return null; }
+function buildInsights(wa, wb) {
+  const H = st.H, A = st.A, B = st.B, step = H.L / (H.P - 1), box = $("insBody");
+  const ca = H.drivers[A.meta.d].c, cb = H.drivers[B.meta.d].c, same = ca === cb;
+  const na = same ? "A" : ca, nb = same ? "B" : cb;
+  const total = (B.meta.t - A.meta.t) / 1000;
+  const pre = H.autoCorners ? "#" : "T";
+  let html;
+  if (Math.abs(total) < 0.0005) html = `<p class="sum">İki tur <b>eşit</b> süreli. <small>Mini sektörler: ${na} ${wa} – ${wb} ${nb}</small></p>`;
+  else {
+    const fast = total > 0 ? na : nb, slow = total > 0 ? nb : na;
+    html = `<p class="sum"><b style="color:${total > 0 ? COL.a : COL.b}">${fast}</b> turda <b style="color:${total > 0 ? COL.b : COL.a}">${slow}</b>'dan <b>${Math.abs(total).toFixed(3)} s</b> hızlı. <small>Mini sektörler: ${na} ${wa} – ${wb} ${nb}</small></p>`;
+  }
+  const top = st.corners.map((r, i) => ({ r, i })).filter((o) => Math.abs(o.r.gain) >= 0.10).sort((x, y) => Math.abs(y.r.gain) - Math.abs(x.r.gain)).slice(0, 3);
+  if (!top.length) html += `<p class="none">Virajlarda 0.100 s'den büyük bir fark yok; fark düz bölümlerde veya genel tempoda birikiyor.</p>`;
+  for (const { r, i } of top) {
+    const aW = r.gain > 0, W = aW ? A : B, Z = aW ? B : A, wn = aW ? na : nb, col = aW ? COL.a : COL.b, parts = [];
+    const bw = brakeStartK(W, r.z0, r.kc), bl = brakeStartK(Z, r.z0, r.kc);
+    if (bw != null && bl != null) { const d = (bw - bl) * step; if (Math.abs(d) >= insightDistance(W,Z) && reliableChannel(W,"brake") && reliableChannel(Z,"brake")) parts.push(`${Math.round(Math.abs(d))} m daha ${d > 0 ? "geç" : "erken"} frene basıyor`); }
+    const ms = aW ? r.ma - r.mb : r.mb - r.ma;
+    if (Math.abs(ms) >= 3) parts.push(`minimum hızı ${Math.round(Math.abs(ms))} km/sa ${ms > 0 ? "yüksek" : "düşük"}`);
+    const tw = throttleOnK(W, r.kc, r.z1), tl = throttleOnK(Z, r.kc, r.z1);
+    if (tw != null && tl != null) { const d = (tl - tw) * step; if (Math.abs(d) >= insightDistance(W,Z) && reliableChannel(W,"throttle") && reliableChannel(Z,"throttle")) parts.push(`gaza ${Math.round(Math.abs(d))} m daha ${d > 0 ? "erken" : "geç"} basıyor`); }
+    const why = parts.length ? `${wn} ${parts.join(", ")}.` : "Belirgin bir fren/gaz farkı yok; eldeki kanallarla farkın nedeni belirlenemiyor.";
+    html += `<button class="line" style="--lc:${col}" data-i="${i}"><span class="t">${pre}${r.n}</span><span class="g">${wn} −${Math.abs(r.gain).toFixed(3)} s</span> <span class="why">· ${why}</span></button>`;
+  }
+  box.innerHTML = html;
+}
+$("insBody").addEventListener("click", (e) => { const b = e.target.closest("button.line"); if (b) focusCorner(+b.dataset.i); });
+
+/* ───────── playback ───────── */
+function kAtTime(L, e) {
+  const t = L.t, n = t.length;
+  if (e <= 0) return 0;
+  if (e >= t[n - 1]) return n - 1;
+  let lo = 0, hi = n - 1;
+  while (hi - lo > 1) { const m = (lo + hi) >> 1; if (t[m] <= e) lo = m; else hi = m; }
+  const span = t[hi] - t[lo];
+  return lo + (span > 0 ? (e - t[lo]) / span : 0);
+}
+const lerp = (arr, kf) => { const k = Math.floor(kf), f = kf - k; if (k >= arr.length - 1) return arr[arr.length - 1]; return arr[k] + (arr[k + 1] - arr[k]) * f; };
+const near = (arr, kf) => arr[Math.min(arr.length - 1, Math.round(kf))];
+function positions() {
+  // returns {ka, kb, ea, eb}
+  if (st.hoverK != null && !st.play.on) {
+    const ka = st.hoverK, ea = lerp(st.A.t, ka);
+    const kb = kAtTime(st.B, ea);
+    return { ka, kb, ea, eb: ea };
+  }
+  const e = st.play.e;
+  return { ka: kAtTime(st.A, e), kb: kAtTime(st.B, e), ea: Math.min(e, st.A.total), eb: Math.min(e, st.B.total) };
+}
+function setPlayIcon() {
+  $("playBtn").innerHTML = st.play.on ? '<svg viewBox="0 0 16 16" fill="currentColor"><rect x="3.5" y="2.5" width="3" height="11" rx=".6"/><rect x="9.5" y="2.5" width="3" height="11" rx=".6"/></svg>' : '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg>';
+  $("playBtn").setAttribute("aria-label", st.play.on ? "Duraklat" : "Oynat");
+}
+function startPlay() {
+  if (!st.A) return;
+  const end = Math.max(st.A.total, st.B.total);
+  if (st.play.e >= end - 1e-3) st.play.e = 0;
+  st.hoverK = null;
+  st.play.on = true; st.play.last = performance.now(); setPlayIcon();
+  requestAnimationFrame(tick);
+}
+function stopPlay() { st.play.on = false; setPlayIcon(); }
+function tick(now) {
+  if (!st.play.on) return;
+  const dt = Math.min(0.1, (now - st.play.last) / 1000); st.play.last = now;
+  st.play.e += dt * st.play.rate;
+  const end = Math.max(st.A.total, st.B.total);
+  if (st.play.e >= end) { st.play.e = end; stopPlay(); }
+  drawAll();
+  if (st.play.on) requestAnimationFrame(tick);
+}
+
+/* ───────── canvas utils ───────── */
+function fitCanvas(cv) {
+  const r = cv.getBoundingClientRect(), dpr = Math.min(2.5, window.devicePixelRatio || 1);
+  const w = Math.max(10, Math.round(r.width * dpr)), h = Math.max(10, Math.round(r.height * dpr));
+  if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; return true; }
+  return false;
+}
+let mapLayer = null, chartLayer = null, mapStatic = null;
+
+/* ───────── map ───────── */
+const mapZoomed = () => st.H && st.H.bx && (st.zoom[0] > 0 || st.zoom[1] < 1);
+const mapRangeK = () => [Math.max(0, Math.floor(st.zoom[0] * (st.H.P - 1))), Math.min(st.H.P - 1, Math.ceil(st.zoom[1] * (st.H.P - 1)))];
+function mapGeom() {
+  const H = st.H, cv = $("map"), dpr = cv.width / cv.getBoundingClientRect().width || 1;
+  let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+  if (mapZoomed()) {
+    const [k0, k1] = mapRangeK();
+    for (let i = k0; i <= k1; i++) {
+      x0 = Math.min(x0, H.px[i], H.bx[i]); x1 = Math.max(x1, H.px[i], H.bx[i]); y0 = Math.min(y0, H.py[i], H.by[i]); y1 = Math.max(y1, H.py[i], H.by[i]);
+    }
+    const MIN = 1800, px = Math.max(0, (MIN - (x1 - x0)) / 2), py = Math.max(0, (MIN - (y1 - y0)) / 2);
+    x0 -= px; x1 += px; y0 -= py; y1 += py;
+    const mx = (x1 - x0) * 0.06, my = (y1 - y0) * 0.06; x0 -= mx; x1 += mx; y0 -= my; y1 += my;
+  } else {
+    for (let i = 0; i < H.px.length; i++) { x0 = Math.min(x0, H.px[i]); x1 = Math.max(x1, H.px[i]); y0 = Math.min(y0, H.py[i]); y1 = Math.max(y1, H.py[i]); }
+    for (const c of H.corners) { x0 = Math.min(x0, c.lx); x1 = Math.max(x1, c.lx); y0 = Math.min(y0, c.ly); y1 = Math.max(y1, c.ly); }
+  }
+  const pad = 18 * dpr, W = cv.width - 2 * pad, Hh = cv.height - 2 * pad;
+  const s = Math.min(W / (x1 - x0), Hh / (y1 - y0));
+  const ox = pad + (W - (x1 - x0) * s) / 2, oy = pad + (Hh - (y1 - y0) * s) / 2;
+  return { dpr, X: (x) => ox + (x - x0) * s, Y: (y) => oy + (y - y0) * s };
+}
+function drawMapStatic() {
+  const H = st.H, cv = $("map");
+  const off = document.createElement("canvas"); off.width = cv.width; off.height = cv.height;
+  const g = off.getContext("2d"), G = mapGeom(), dpr = G.dpr;
+  const P = H.P, X = (k) => G.X(H.px[k]), Y = (k) => G.Y(H.py[k]);
+  g.lineJoin = "round"; g.lineCap = "round";
+  // base
+  g.strokeStyle = COL["panel-2"]; g.lineWidth = 15 * dpr;
+  g.beginPath(); for (let k = 0; k < P; k++) k ? g.lineTo(X(k), Y(k)) : g.moveTo(X(k), Y(k)); g.stroke();
+  g.strokeStyle = "#060809"; g.lineWidth = 9 * dpr; g.stroke();
+  // mini sectors
+  for (const m of st.ms) {
+    g.strokeStyle = m.w === "a" ? COL.a : COL.b;
+    g.globalAlpha = Math.min(1, 0.5 + Math.abs(m.diff) * 8);
+    g.lineWidth = 5.5 * dpr;
+    g.beginPath(); for (let k = m.k0; k <= m.k1; k++) k === m.k0 ? g.moveTo(X(k), Y(k)) : g.lineTo(X(k), Y(k)); g.stroke();
+  }
+  g.globalAlpha = 1;
+  // zoom highlight
+  if (st.zoom[0] > 0 || st.zoom[1] < 1) {
+    const k0 = Math.round(st.zoom[0] * (P - 1)), k1 = Math.round(st.zoom[1] * (P - 1));
+    g.strokeStyle = COL.fg; g.globalAlpha = .5; g.lineWidth = 15 * dpr;
+    g.beginPath(); for (let k = k0; k <= k1; k++) k === k0 ? g.moveTo(X(k), Y(k)) : g.lineTo(X(k), Y(k)); g.stroke();
+    g.globalAlpha = 1;
+    for (const m of st.ms) { if (m.k1 < k0 || m.k0 > k1) continue; g.strokeStyle = m.w === "a" ? COL.a : COL.b; g.lineWidth = 5.5 * dpr; g.beginPath(); for (let k = Math.max(k0, m.k0); k <= Math.min(k1, m.k1); k++) k === Math.max(k0, m.k0) ? g.moveTo(X(k), Y(k)) : g.lineTo(X(k), Y(k)); g.stroke(); }
+  }
+  // racing lines of both laps when a region is zoomed
+  if (mapZoomed()) {
+    const [k0, k1] = mapRangeK();
+    const path = (ax, ay) => { g.beginPath(); for (let k = k0; k <= k1; k++) k === k0 ? g.moveTo(G.X(ax[k]), G.Y(ay[k])) : g.lineTo(G.X(ax[k]), G.Y(ay[k])); };
+    for (const [ax, ay, c] of [[H.bx, H.by, COL.b], [H.px, H.py, COL.a]]) {
+      path(ax, ay); g.strokeStyle = "#05070a"; g.lineWidth = 4.5 * dpr; g.stroke();
+      path(ax, ay); g.strokeStyle = c; g.lineWidth = 2 * dpr; g.stroke();
+    }
+    g.font = `700 ${10.5 * dpr}px ${css("--display")}`; g.textAlign = "left"; g.textBaseline = "top"; g.fillStyle = COL.muted;
+    g.fillText("YARIŞ ÇİZGİSİ", 10 * dpr, 8 * dpr);
+  }
+  // sector ticks + start/finish
+  const tick = (k, label, col) => {
+    const k2 = Math.min(P - 1, k + 2), k1 = Math.max(0, k - 2);
+    const dx = X(k2) - X(k1), dy = Y(k2) - Y(k1), l = Math.hypot(dx, dy) || 1, nx = -dy / l, ny = dx / l;
+    g.strokeStyle = col; g.lineWidth = 2 * dpr;
+    g.beginPath(); g.moveTo(X(k) - nx * 11 * dpr, Y(k) - ny * 11 * dpr); g.lineTo(X(k) + nx * 11 * dpr, Y(k) + ny * 11 * dpr); g.stroke();
+    if (label) { g.fillStyle = col; g.font = `700 ${10 * dpr}px ${css("--display")}`; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText(label, X(k) + nx * 20 * dpr, Y(k) + ny * 20 * dpr); }
+  };
+  (H.sectors || []).forEach((r, i) => tick(Math.round(r * (P - 1)), "S" + (i + 2), COL.muted));
+  tick(0, "", COL.fg);
+  // checkered flag at start
+  // corners
+  g.font = `600 ${10.5 * dpr}px ${css("--mono")}`; g.textAlign = "center"; g.textBaseline = "middle";
+  for (const c of H.corners) { g.fillStyle = COL.faint; g.fillText(String(c.n), G.X(c.lx), G.Y(c.ly)); }
+  mapLayer = { canvas: off, G };
+}
+function dot(g, x, y, col, label, dpr, up) {
+  g.save();
+  g.shadowColor = col; g.shadowBlur = 14 * dpr;
+  g.fillStyle = col; g.beginPath(); g.arc(x, y, 6.5 * dpr, 0, Math.PI * 2); g.fill();
+  g.restore();
+  g.lineWidth = 2 * dpr; g.strokeStyle = "#05070a"; g.beginPath(); g.arc(x, y, 6.5 * dpr, 0, Math.PI * 2); g.stroke();
+  g.font = `800 ${11.5 * dpr}px ${css("--display")}`; g.textAlign = "center"; g.textBaseline = "middle";
+  const ty = y + (up ? -16 : 16) * dpr;
+  const w = g.measureText(label).width + 8 * dpr;
+  g.fillStyle = "rgba(5,7,10,.85)"; g.fillRect(x - w / 2, ty - 8 * dpr, w, 16 * dpr);
+  g.fillStyle = col; g.fillText(label, x, ty + .5 * dpr);
+}
+function drawMap(pos) {
+  const cv = $("map");
+  if (fitCanvas(cv) || !mapLayer) drawMapStatic();
+  const g = cv.getContext("2d"), H = st.H, G = mapLayer.G, dpr = G.dpr;
+  g.clearRect(0, 0, cv.width, cv.height);
+  g.drawImage(mapLayer.canvas, 0, 0);
+  const pxy = (kf) => ({ x: G.X(lerp(H.px, kf)), y: G.Y(lerp(H.py, kf)) });
+  const pa = pxy(pos.ka), pb = pxy(pos.kb);
+  const ca = H.drivers[st.A.meta.d].c, cb = H.drivers[st.B.meta.d].c;
+  const sameCode = ca === cb;
+  const aUp = pa.y <= pb.y;
+  dot(g, pb.x, pb.y, COL.b, sameCode ? "B" : cb, dpr, !aUp);
+  dot(g, pa.x, pa.y, COL.a, sameCode ? "A" : ca, dpr, aUp);
+}
+
+/* ───────── charts ───────── */
+const PANES = [
+  { id: "ms", h: 9, label: "" },
+  { id: "v", h: 0.34, label: "HIZ", unit: "km/sa" },
+  { id: "dt", h: 0.17, label: "FARK", unit: "s" },
+  { id: "thr", h: 0.13, label: "GAZ", unit: "%" },
+  { id: "brk", h: 30, label: "FREN" },
+  { id: "gear", h: 0.12, label: "VİTES" },
+  { id: "rpm", h: 0.12, label: "DEVİR", unit: "rpm" },
+];
+function chartGeom() {
+  const cv = $("chart"), r = cv.getBoundingClientRect(), dpr = cv.width / r.width || 1;
+  const L = 44 * dpr, R = 10 * dpr, T = 18 * dpr, B = 22 * dpr, gap = 12 * dpr;
+  const W = cv.width - L - R, Htot = cv.height - T - B - gap * (PANES.length - 1);
+  const fixed = PANES.filter((p) => p.h > 1).reduce((s, p) => s + p.h * dpr, 0);
+  const fracSum = PANES.filter((p) => p.h <= 1).reduce((s, p) => s + p.h, 0);
+  let y = T; const panes = {};
+  for (const p of PANES) {
+    const h = p.h > 1 ? p.h * dpr : (Htot - fixed) * p.h / fracSum;
+    panes[p.id] = { ...p, y, h };
+    y += h + gap;
+  }
+  const [z0, z1] = st.zoom, P = st.H.P;
+  const X = (k) => L + ((k / (P - 1)) - z0) / (z1 - z0) * W;
+  const K = (x) => ((x - L) / W * (z1 - z0) + z0) * (P - 1);
+  return { dpr, L, R, T, B, W, panes, X, K, k0: Math.max(0, Math.floor(z0 * (P - 1)) - 1), k1: Math.min(P - 1, Math.ceil(z1 * (P - 1)) + 1), bottom: cv.height - B };
+}
+function niceStep(range, target) {
+  const raw = range / target, p = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / p;
+  return (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p;
+}
+function drawChartStatic() {
+  const cv = $("chart"), H = st.H, A = st.A, B = st.B;
+  const off = document.createElement("canvas"); off.width = cv.width; off.height = cv.height;
+  const g = off.getContext("2d"), G = chartGeom(), dpr = G.dpr, P = H.P, { k0, k1, X } = G;
+  const mono = css("--mono"), disp = css("--display");
+  g.lineJoin = "round"; g.lineCap = "round";
+  // vertical corner + sector guides
+  g.save(); g.beginPath(); g.rect(G.L, 0, G.W, cv.height); g.clip();
+  g.font = `600 ${9.5 * dpr}px ${mono}`; g.textAlign = "center"; g.textBaseline = "top";
+  for (const c of H.corners) {
+    const x = X(c.r * (P - 1)); if (x < G.L - 2 || x > G.L + G.W + 2) continue;
+    g.strokeStyle = COL.line; g.lineWidth = 1 * dpr; g.beginPath(); g.moveTo(x, G.T - 2 * dpr); g.lineTo(x, G.bottom); g.stroke();
+    g.fillStyle = COL.faint; g.fillText(String(c.n), x, 3 * dpr);
+  }
+  (H.sectors || []).forEach((r, i) => {
+    const x = X(r * (P - 1)); g.strokeStyle = COL.muted; g.setLineDash([4 * dpr, 4 * dpr]); g.lineWidth = 1 * dpr;
+    g.beginPath(); g.moveTo(x, G.T); g.lineTo(x, G.bottom); g.stroke(); g.setLineDash([]);
+  });
+  g.restore();
+
+  const paneLabel = (p, text, unit) => {
+    g.save(); g.font = `700 ${10 * dpr}px ${disp}`; g.textAlign = "left"; g.textBaseline = "middle";
+    const s = text + (unit ? "  ·  " + unit : ""), w = g.measureText(s).width + 10 * dpr;
+    g.fillStyle = COL.panel; g.globalAlpha = .88; g.fillRect(G.L + 2 * dpr, p.y + 1 * dpr, w, 15 * dpr); g.globalAlpha = 1;
+    g.fillStyle = COL.muted; g.fillText(s, G.L + 7 * dpr, p.y + 8.5 * dpr); g.restore();
+  };
+  const yAxis = (p, lo, hi, step, fmt) => {
+    g.font = `${9.5 * dpr}px ${mono}`; g.textAlign = "right"; g.textBaseline = "middle";
+    for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) {
+      const y = p.y + p.h - (v - lo) / (hi - lo) * p.h;
+      g.strokeStyle = COL.line; g.lineWidth = 1; g.globalAlpha = .6; g.beginPath(); g.moveTo(G.L, y); g.lineTo(G.L + G.W, y); g.stroke(); g.globalAlpha = 1;
+      g.fillStyle = COL.faint; g.fillText(fmt ? fmt(v) : String(Math.round(v)), G.L - 6 * dpr, y);
+    }
+  };
+  const line = (p, arr, lo, hi, col, step) => {
+    g.save(); g.beginPath(); g.rect(G.L, p.y, G.W, p.h); g.clip();
+    g.strokeStyle = col; g.lineWidth = 1.6 * dpr; g.beginPath();
+    let prevY = null;
+    for (let k = k0; k <= k1; k++) {
+      const y = p.y + p.h - (arr[k] - lo) / (hi - lo) * p.h, x = X(k);
+      if (!Number.isFinite(arr[k])) { prevY=null; continue; }
+      if (prevY === null) g.moveTo(x, y); else if (step) { g.lineTo(x, prevY); g.lineTo(x, y); } else g.lineTo(x, y);
+      prevY = y;
+    }
+    g.stroke(); g.restore();
+  };
+  const range = (arrs, padFrac) => { let lo = Infinity, hi = -Infinity; for (const a of arrs) for (let k = k0; k <= k1; k++) { if (a[k] < lo) lo = a[k]; if (a[k] > hi) hi = a[k]; } if (!Number.isFinite(lo) || !Number.isFinite(hi)) return [0,1]; const pad = (hi - lo) * padFrac || 1; return [lo - pad, hi + pad]; };
+
+  // mini-sector strip
+  { const p = G.panes.ms; for (const m of st.ms) { const x0 = X(m.k0), x1 = X(m.k1); if (x1 < G.L || x0 > G.L + G.W) continue; g.fillStyle = m.w === "a" ? COL.a : COL.b; g.globalAlpha = Math.min(1, 0.5 + Math.abs(m.diff) * 8); g.fillRect(Math.max(G.L, x0), p.y, Math.min(G.L + G.W, x1) - Math.max(G.L, x0) - 1 * dpr, p.h); } g.globalAlpha = 1; }
+  // speed
+  { const p = G.panes.v; let [lo, hi] = range([A.v, B.v], .06); lo = Math.max(0, lo); const s = niceStep(hi - lo, 4); yAxis(p, lo, hi, s); line(p, B.v, lo, hi, COL.b); line(p, A.v, lo, hi, COL.a); paneLabel(p, "HIZ", "km/sa"); }
+  // delta
+  { const p = G.panes.dt; let [lo, hi] = range([st.delta], .12); lo = Math.min(lo, -0.02); hi = Math.max(hi, 0.02);
+    const s = niceStep(hi - lo, 3); yAxis(p, lo, hi, s, (v) => (Math.abs(v) < 1e-9 ? "0" : (v > 0 ? "+" : "") + v.toFixed(s < 0.1 ? 2 : 1)));
+    const y0 = p.y + p.h - (0 - lo) / (hi - lo) * p.h;
+    g.save(); g.beginPath(); g.rect(G.L, p.y, G.W, p.h); g.clip();
+    for (const [sign, col] of [[1, COL.a], [-1, COL.b]]) {
+      g.beginPath(); g.moveTo(X(k0), y0);
+      for (let k = k0; k <= k1; k++) { const v = sign > 0 ? Math.max(0, st.delta[k]) : Math.min(0, st.delta[k]); g.lineTo(X(k), p.y + p.h - (v - lo) / (hi - lo) * p.h); }
+      g.lineTo(X(k1), y0); g.closePath(); g.fillStyle = col; g.globalAlpha = .3; g.fill(); g.globalAlpha = 1;
+    }
+    g.strokeStyle = COL.line_2 || COL["line-2"]; g.lineWidth = 1 * dpr; g.beginPath(); g.moveTo(G.L, y0); g.lineTo(G.L + G.W, y0); g.stroke();
+    g.restore();
+    line(p, st.delta, lo, hi, COL.fg);
+    paneLabel(p, "FARK", "s · yukarı: A önde");
+  }
+  // throttle
+  { const p = G.panes.thr; yAxis(p, 0, 100, 50); line(p, B.thr, -2, 102, COL.b); line(p, A.thr, -2, 102, COL.a); paneLabel(p, "GAZ", "%"); }
+  // brake
+  { const p = G.panes.brk; const half = p.h / 2;
+    g.fillStyle = COL["panel-2"]; g.fillRect(G.L, p.y, G.W, p.h);
+    for (const [L, col, yy] of [[A, COL.a, p.y + 1 * dpr], [B, COL.b, p.y + half + 1 * dpr]]) {
+      g.fillStyle = col; let start = null;
+      for (let k = k0; k <= k1 + 1; k++) { const on = k <= k1 && Number.isFinite(L.brk[k]) && L.brk[k] > 0; if (on && start == null) start = k; if (!on && start != null) { const x0 = Math.max(G.L, X(start)), x1 = Math.min(G.L + G.W, X(k)); if (x1 > x0) g.fillRect(x0, yy, Math.max(1, x1 - x0), half - 2 * dpr); start = null; } }
+    }
+    g.fillStyle = COL.muted; g.font = `700 ${10 * dpr}px ${disp}`; g.textAlign = "right"; g.textBaseline = "middle"; g.fillText("FREN", G.L - 6 * dpr, p.y + p.h / 2);
+  }
+  // gear
+  { const p = G.panes.gear; yAxis(p, 0.5, 8.5, 2); line(p, B.gear, 0.5, 8.5, COL.b, true); line(p, A.gear, 0.5, 8.5, COL.a, true); paneLabel(p, "VİTES", ""); }
+  // rpm
+  { const p = G.panes.rpm; let [lo, hi] = range([A.rpm, B.rpm], .05); lo = Math.max(0, lo); const s = niceStep(hi - lo, 3); yAxis(p, lo, hi, s, (v) => (v / 1000).toFixed(s < 1000 ? 1 : 0) + "k"); line(p, B.rpm, lo, hi, COL.b); line(p, A.rpm, lo, hi, COL.a); paneLabel(p, "DEVİR", "rpm"); }
+  // x axis
+  { g.font = `${9.5 * dpr}px ${mono}`; g.fillStyle = COL.faint; g.textAlign = "center"; g.textBaseline = "top";
+    const m0 = st.zoom[0] * H.L, m1 = st.zoom[1] * H.L, s = niceStep(m1 - m0, 6);
+    for (let m = Math.ceil(m0 / s) * s; m <= m1 + 1e-6; m += s) { const x = G.L + (m - m0) / (m1 - m0) * G.W; g.fillText(m >= 1000 ? (m / 1000).toFixed(s < 1000 ? 1 : 0) + " km" : Math.round(m) + " m", x, G.bottom + 6 * dpr); }
+  }
+  chartLayer = { canvas: off, G };
+}
+function drawChart(pos) {
+  const cv = $("chart");
+  if (fitCanvas(cv) || !chartLayer) drawChartStatic();
+  const g = cv.getContext("2d"), G = chartLayer.G, dpr = G.dpr;
+  g.clearRect(0, 0, cv.width, cv.height);
+  g.drawImage(chartLayer.canvas, 0, 0);
+  const showA = st.play.on || st.play.e > 0 || st.hoverK != null;
+  if (showA) {
+    for (const [kf, col] of [[pos.kb, COL.b], [pos.ka, COL.a]]) {
+      const x = G.X(kf); if (x < G.L || x > G.L + G.W) continue;
+      g.strokeStyle = col; g.lineWidth = 1.4 * dpr; g.globalAlpha = .9;
+      g.beginPath(); g.moveTo(x, G.T); g.lineTo(x, G.bottom); g.stroke(); g.globalAlpha = 1;
+    }
+    // value dots on speed pane
+    const p = G.panes.v;
+  }
+  if (drag) {
+    g.fillStyle = COL.fg; g.globalAlpha = .08;
+    g.fillRect(Math.min(drag.x0, drag.x1), G.T, Math.abs(drag.x1 - drag.x0), G.bottom - G.T); g.globalAlpha = 1;
+  }
+}
+
+/* ───────── readouts ───────── */
+function drawReadouts(pos) {
+  const A = st.A, B = st.B, H = st.H;
+  const sa = Math.round(lerp(A.v, pos.ka)), sb = Math.round(lerp(B.v, pos.kb));
+  $("spdA").innerHTML = `${sa}<small>km/sa</small>`; $("spdB").innerHTML = `${sb}<small>km/sa</small>`;
+  $("grA").textContent = near(A.gear, pos.ka) || "N"; $("grB").textContent = near(B.gear, pos.kb) || "N";
+  $("thrA").style.width = lerp(A.thr, pos.ka) + "%"; $("thrB").style.width = lerp(B.thr, pos.kb) + "%";
+  $("brkA").classList.toggle("on", !!near(A.brk, pos.ka)); $("brkB").classList.toggle("on", !!near(B.brk, pos.kb));
+  $("etA").textContent = fmtClock(pos.ea) + (pos.ka >= H.P - 1 ? " ✓" : ""); $("etB").textContent = fmtClock(pos.eb) + (pos.kb >= H.P - 1 ? " ✓" : "");
+  const gap = lerp(st.delta, Math.min(pos.ka, H.P - 1));
+  const lg = $("liveGap"); lg.textContent = fmtGap(gap); lg.style.color = Math.abs(gap) < 0.0005 ? COL.fg : gap > 0 ? COL.a : COL.b;
+  // chart readout
+  const k = pos.ka, dist = k / (H.P - 1) * H.L;
+  const show = st.hoverK != null || st.play.e > 0;
+  $("readout").innerHTML = show ? `<span>${(dist / 1000).toFixed(3)} km</span><span>Hız <b class="ka">${Math.round(lerp(A.v, k))}</b> / <b class="kb">${Math.round(lerp(B.v, k))}</b></span><span>Gaz <b class="ka">${Math.round(lerp(A.thr, k))}</b> / <b class="kb">${Math.round(lerp(B.thr, k))}</b></span><span>Vites <b class="ka">${near(A.gear, k)}</b> / <b class="kb">${near(B.gear, k)}</b></span><span>Fark <b style="color:${gap >= 0 ? COL.a : COL.b}">${fmtGap(gap)} s</b></span>`
+    : `<span>${TOUCH ? "Grafikte parmağını kaydır" : "Grafiğin üstünde gezin"} ya da turu oynat: o noktadaki değerler burada</span>`;
+  // clock + scrub
+  const end = Math.max(A.total, B.total);
+  const e = st.hoverK != null && !st.play.on ? pos.ea : st.play.e;
+  $("clockNow").textContent = fmtClock(e);
+  if (document.activeElement !== $("scrub")) $("scrub").value = Math.round(e / end * 1000);
+}
+
+function drawAll() {
+  if (!st.H || !st.A || st.mode === "race") return;
+  const pos = positions();
+  drawMap(pos); drawChart(pos); drawReadouts(pos);
+}
+
+/* ───────── zoom ───────── */
+function syncZoomButtons() {
+  document.querySelectorAll("#zoom button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.z === st.zoomKey ? "true" : "false"));
+  const zoomed = st.zoomKey !== "all";
+  $("resetView").hidden = !zoomed; $("insNote").hidden = zoomed;
+}
+function setZoom(z0, z1, key) {
+  st.zoom = [Math.max(0, z0), Math.min(1, z1)]; st.zoomKey = key || "custom";
+  syncZoomButtons(); chartLayer = null; mapLayer = null; drawAll();
+}
+$("zoom").addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  const H = st.H; if (!H) return;
+  st.cornerSel = null; document.querySelectorAll("#ctBody tr.on").forEach((r) => r.classList.remove("on"));
+  if (b.dataset.z === "all") return setZoom(0, 1, "all");
+  const s = H.sectors || [1 / 3, 2 / 3], edges = [0, s[0], s[1], 1], i = +b.dataset.z;
+  setZoom(edges[i], edges[i + 1], b.dataset.z);
+});
+function markRow(i) {
+  document.querySelectorAll("#ctBody tr").forEach((x) => x.classList.toggle("on", +x.dataset.i === i));
+  document.querySelectorAll("#insBody .line").forEach((x) => x.classList.toggle("on", +x.dataset.i === i));
+}
+function resetView() {
+  $("cornerDetail").hidden=true;
+  if (!st.H || st.zoomKey === "all") return;
+  st.cornerSel = null; $("cornerDetail").hidden=true; markRow(-1); setZoom(0, 1, "all");
+}
+$("resetView").onclick = resetView;
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Escape" || e.target.closest("select")) return;
+  resetView();
+});
+function focusCorner(i) {
+  const r = st.corners[i], P = st.H.P;
+  if (st.cornerSel === i) { $("cornerDetail").hidden=true; st.cornerSel = null; markRow(-1); return setZoom(0, 1, "all"); }
+  st.cornerSel = i; markRow(i); renderCornerDetail(i);
+  const pad = Math.round(60 / (st.H.L / (P - 1)));
+  setZoom((r.z0 - pad) / (P - 1), (r.z1 + pad) / (P - 1), "custom");
+  $("chartcard").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
+}
+$("ctBody").addEventListener("click", (e) => { const tr = e.target.closest("tr"); if (tr) focusCorner(+tr.dataset.i); });
+
+/* ───────── chart pointer ───────── */
+let drag = null;
+const chart = $("chart");
+function chartK(ev) {
+  const r = chart.getBoundingClientRect(), G = chartLayer ? chartLayer.G : chartGeom();
+  const x = (ev.clientX - r.left) * G.dpr;
+  return { x, k: Math.max(0, Math.min(st.H.P - 1, G.K(x))) };
+}
+chart.addEventListener("pointermove", (ev) => {
+  if (!st.H) return;
+  const { x, k } = chartK(ev);
+  if (drag) { drag.x1 = x; }
+  if (st.play.on) stopPlay();
+  st.hoverK = k; drawAll();
+});
+chart.addEventListener("pointerdown", (ev) => {
+  if (!st.H) return;
+  const { x, k } = chartK(ev);
+  if (ev.pointerType === "mouse") { drag = { x0: x, x1: x }; chart.setPointerCapture(ev.pointerId); }
+  if (st.play.on) stopPlay();
+  st.hoverK = k; drawAll();
+});
+chart.addEventListener("pointerup", (ev) => {
+  if (drag) {
+    const G = chartLayer.G, P = st.H.P;
+    if (Math.abs(drag.x1 - drag.x0) > 12 * G.dpr) {
+      const ka = G.K(Math.min(drag.x0, drag.x1)), kb = G.K(Math.max(drag.x0, drag.x1));
+      drag = null; setZoom(ka / (P - 1), kb / (P - 1), "custom"); return;
+    }
+    drag = null; drawAll();
+  }
+});
+chart.addEventListener("pointerleave", (ev) => { if (ev.pointerType === "mouse" && !drag) { st.hoverK = null; if (st.A) { st.play.e = st.play.e; drawAll(); } } });
+chart.addEventListener("dblclick", () => setZoom(0, 1, "all"));
+
+/* map pointer: tap/drag along the track to scrub */
+$("map").addEventListener("pointermove", (ev) => { if (ev.buttons || ev.pointerType === "mouse") mapPick(ev); });
+$("map").addEventListener("pointerdown", mapPick);
+$("map").addEventListener("pointerleave", (ev) => { if (ev.pointerType === "mouse") { st.hoverK = null; drawAll(); } });
+function mapPick(ev) {
+  if (!st.H || !mapLayer) return;
+  const cv = $("map"), r = cv.getBoundingClientRect(), G = mapLayer.G, H = st.H;
+  const x = (ev.clientX - r.left) * G.dpr, y = (ev.clientY - r.top) * G.dpr;
+  let best = -1, bd = Infinity;
+  for (let k = 0; k < H.P; k += 1) { const dx = G.X(H.px[k]) - x, dy = G.Y(H.py[k]) - y, d = dx * dx + dy * dy; if (d < bd) { bd = d; best = k; } }
+  if (bd > (30 * G.dpr) ** 2) { if (ev.pointerType === "mouse") { st.hoverK = null; drawAll(); } return; }
+  if (st.play.on) stopPlay();
+  st.hoverK = best; drawAll();
+}
+
+/* ───────── controls ───────── */
+$("share").onclick = async () => {
+  const b = $("share"), url = location.href;
+  try { await navigator.clipboard.writeText(url); b.textContent = "Kopyalandı ✓"; }
+  catch (e) { window.prompt("Linki kopyala:", url); }
+  setTimeout(() => (b.textContent = "Linki kopyala"), 1600);
+};
+$("playBtn").onclick = () => (st.play.on ? stopPlay() : startPlay());
+$("restart").onclick = () => { st.play.e = 0; st.hoverK = null; drawAll(); };
+$("rate").onchange = (e) => { st.play.rate = +e.target.value; };
+$("scrub").addEventListener("input", (e) => {
+  if (!st.A) return;
+  if (st.play.on) stopPlay();
+  st.hoverK = null; st.play.e = (+e.target.value / 1000) * Math.max(st.A.total, st.B.total); drawAll();
+});
+$("swap").onclick = () => {
+  if (!st.H) return;
+  [st.a, st.b] = [st.b, st.a];
+  fillDriverSelect($("drvA"), st.H, st.a.d); fillDriverSelect($("drvB"), st.H, st.b.d);
+  fillLapSelect($("lapA"), st.H, st.a.d, st.a.l); fillLapSelect($("lapB"), st.H, st.b.d, st.b.l);
+  compare();
+};
+for (const side of ["a", "b"]) {
+  const up = side.toUpperCase();
+  $("drv" + up).onchange = (e) => {
+    const d = +e.target.value; st[side] = { d, l: st.H.bestLap[d].i };
+    fillLapSelect($("lap" + up), st.H, d, st[side].l); stopPlay(); compare();
+  };
+  $("lap" + up).onchange = (e) => { st[side].l = +e.target.value; stopPlay(); compare(); };
+}
+$("year").onchange = (e) => { st.year = e.target.value; const evs = eventsOf(st.year); st.ev = evs[evs.length - 1].e; pickDefaultKind(); buildEvents(); buildSessions(); openSession(); };
+$("event").onchange = (e) => { st.ev = e.target.value; pickDefaultKind(true); buildSessions(); openSession(); };
+function pickDefaultKind(keep) {
+  const kinds = curEvent().s.map((s) => KIND_OF[s]);
+  if (keep && kinds.includes(st.kind)) return;
+  st.kind = kinds.includes("Q") ? "Q" : kinds[kinds.length - 1];
+}
+document.addEventListener("keydown", (e) => {
+  if (e.target.closest("select, input, button")) return;
+  if (e.code === "Space") { e.preventDefault(); st.play.on ? stopPlay() : startPlay(); }
+});
+new ResizeObserver(() => { mapLayer = null; chartLayer = null; if (st.mode === "race") drawRaceCharts(); else drawAll(); }).observe(document.body);
+
+/* ───────── race analysis ───────── */
+const COMP_HEX = { S: "#ff4d5e", M: "#f4c534", H: "#e9edf4", I: "#2fd36f", W: "#31a0ff", U: "#566174" };
+const COMP_TR = { S: "Yumuşak", M: "Orta", H: "Sert", I: "Ara", W: "Yağmur", U: "Bilinmeyen" };
+const median = (a) => { if (!a.length) return null; const s = a.slice().sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+const mean = (a) => a.reduce((x, y) => x + y, 0) / a.length;
+const stdev = (a) => { if (a.length < 2) return null; const m = mean(a); return Math.sqrt(a.reduce((x, y) => x + (y - m) ** 2, 0) / (a.length - 1)); };
+const fmtSec = (v) => Math.floor(v / 60) + ":" + (v % 60).toFixed(1).padStart(4, "0");
+const cdot = (c) => `<i class="cdot" style="--tyc:${COMP_HEX[c] || COMP_HEX.U}">${c === "U" ? "?" : c}</i>`;
+function parseTs(v) {
+  if (v === null || v === undefined || v === "None" || v === "") return null;
+  if (typeof v === "number") return Number.isFinite(v) ? (v > 1e12 ? v / 1000 : v) : null;
+  const t = Date.parse(String(v).trim().replace(" ", "T").replace(/(\.\d{3})\d+/, "$1"));
+  return Number.isFinite(t) ? t / 1000 : null;
+}
+const rangeTxt = (b) => (b.a === b.b ? `${b.a}` : `${b.a}–${b.b}`);
+
+function buildRace(H) {
+  if (H.race) return H.race;
+  const per = H.drivers.map(() => []);
+  for (const r of H.allRows) {
+    const di = H.dIdx.get(r.drv); if (di == null) continue;
+    const n = +r.lap; if (!Number.isFinite(n) || n < 1) continue;
+    const cmp = r.compound && r.compound !== "None" ? String(r.compound)[0] : "U";
+    per[di].push({ n, t: okNum(r.time), s: [okNum(r.s1), okNum(r.s2), okNum(r.s3)], c: "SMHIW".includes(cmp) ? cmp : "U", life: okNum(r.life), pos: okNum(r.pos), st: String(r.status ?? ""), pin: okNum(r.pin), pout: okNum(r.pout), x: !!r.del, gen: !!r.ff1G, ts: parseTs(r.lSD) });
+  }
+  per.forEach((a) => a.sort((x, y) => x.n - y.n));
+  const maxLap = per.reduce((m, a) => Math.max(m, a.length ? a[a.length - 1].n : 0), 0);
+  if (!maxLap) throw new Error("Bu oturumda tur verisi yok");
+
+  // safety car / VSC / red flag laps
+  const cnt = Array.from({ length: maxLap + 2 }, () => ({ t: 0, sc: 0, vsc: 0, red: 0 }));
+  per.forEach((a) => a.forEach((l) => { const c = cnt[l.n]; if (!c) return; c.t++; if (/4/.test(l.st)) c.sc++; if (/[67]/.test(l.st)) c.vsc++; if (/5/.test(l.st)) c.red++; }));
+  const flag = cnt.map((c) => (!c.t ? null : c.red / c.t >= 0.5 ? "R" : c.sc / c.t >= 0.4 ? "SC" : c.vsc / c.t >= 0.4 ? "VSC" : null));
+  const bands = [];
+  for (let n = 1; n <= maxLap; n++) if (flag[n]) { const last = bands[bands.length - 1]; if (last && last.t === flag[n] && last.b === n - 1) last.b = n; else bands.push({ t: flag[n], a: n, b: n }); }
+
+  // stints and pit stops
+  const stints = per.map((a) => {
+    const out = []; let cur = null;
+    a.forEach((l, i) => {
+      const prev = a[i - 1];
+      const cut = prev && (prev.pin != null || l.pout != null || (l.c !== "U" && prev.c !== "U" && l.c !== prev.c));
+      if (!cur || cut) { cur = { c: l.c, from: l.n, to: l.n, laps: [l] }; out.push(cur); }
+      else { cur.to = l.n; cur.laps.push(l); if (cur.c === "U" && l.c !== "U") cur.c = l.c; }
+    });
+    return out;
+  });
+  const lapTimes = Array.from({ length: maxLap + 2 }, () => []);
+  per.forEach((a) => a.forEach((l) => { if (l.n > 1 && l.t != null && !l.gen && l.pin == null && l.pout == null) lapTimes[l.n].push(l.t); }));
+  const fieldMed = lapTimes.map((a) => (a.length >= 4 ? median(a) : null));
+  const stops = [];
+  stints.forEach((ss, di) => {
+    for (let i = 1; i < ss.length; i++) {
+      const a = ss[i - 1], b = ss[i], inLap = a.laps[a.laps.length - 1], outLap = b.laps[0];
+      let dur = null;
+      if (inLap.pin != null && outLap.pout != null) { const d = outLap.pout - inLap.pin; if (d > 5 && d < 180) dur = d; }
+      let loss = null;
+      if (inLap.t != null && outLap.t != null && !inLap.gen && !outLap.gen && fieldMed[inLap.n] != null && fieldMed[outLap.n] != null) { const v = inLap.t + outLap.t - fieldMed[inLap.n] - fieldMed[outLap.n]; if (v > -5 && v < 60) loss = v; }
+      stops.push({ di, lap: inLap.n, n: i, from: a.c, to: b.c, dur, loss, flag: flag[inLap.n] || flag[outLap.n] || null });
+    }
+  });
+
+  // clean-lap pace
+  const clean = per.map((a) => a.filter((l) => l.n > 1 && l.t != null && !l.gen && !l.x && l.pin == null && l.pout == null && !/[4567]/.test(l.st)));
+  const med = clean.map((c) => (c.length >= 5 ? median(c.map((l) => l.t)) : null));
+  const sd = clean.map((c, i) => (med[i] == null ? null : stdev(c.map((l) => l.t).filter((t) => t <= med[i] * 1.03))));
+
+  // tyre degradation (raw slope, no fuel correction)
+  const degBy = {};
+  stints.forEach((ss, di) => {
+    const cs = new Set(clean[di].map((l) => l.n));
+    ss.forEach((s) => {
+      const pts = s.laps.filter((l) => cs.has(l.n));
+      s.cmed = pts.length >= 3 ? median(pts.map((l) => l.t)) : null;
+      s.best = s.laps.reduce((m, l) => (l.t != null && !l.gen && !l.x && (m == null || l.t < m) ? l.t : m), null);
+      s.slope = null;
+      if (pts.length < 8) return;
+      const xs = pts.map((l) => l.n), ys = pts.map((l) => l.t), mx = mean(xs), my = mean(ys);
+      let num = 0, den = 0; for (let i = 0; i < xs.length; i++) { num += (xs[i] - mx) * (ys[i] - my); den += (xs[i] - mx) ** 2; }
+      if (!den) return;
+      const o = degBy[s.c] || (degBy[s.c] = { slopes: [], lens: [] });
+      s.slope = num / den; o.slopes.push(num / den); o.lens.push(s.to - s.from + 1);
+    });
+  });
+
+  // fastest laps, leaders, positions
+  let fastest = null; const best = per.map(() => null);
+  per.forEach((a, di) => a.forEach((l) => {
+    if (l.t == null || l.gen || l.x) return;
+    if (best[di] == null || l.t < best[di]) best[di] = l.t;
+    if (!fastest || l.t < fastest.t) fastest = { di, lap: l.n, t: l.t, c: l.c };
+  }));
+  const secBest = per.map((a) => [0, 1, 2].map((k) => { let m = null; a.forEach((l) => { if (l.gen || l.x) return; const v = l.s[k]; if (v != null && v > 0 && (m == null || v < m)) m = v; }); return m; }));
+  const fieldSec = [0, 1, 2].map((k) => { let b = null; secBest.forEach((sb, di) => { if (sb[k] != null && (!b || sb[k] < b.t)) b = { t: sb[k], di }; }); return b; });
+  const leaderAt = new Array(maxLap + 1).fill(null);
+  per.forEach((a, di) => a.forEach((l) => { if (l.pos === 1) leaderAt[l.n] = di; }));
+  const runs = []; let leadChanges = 0;
+  for (let n = 1; n <= maxLap; n++) {
+    const L = leaderAt[n]; if (L == null) continue;
+    const last = runs[runs.length - 1];
+    if (last && last.di === L) last.b = n; else { if (last) leadChanges++; runs.push({ di: L, a: n, b: n }); }
+  }
+  const pos1 = per.map((a) => { const l = a.find((x) => x.n === 1); return l && l.pos != null ? l.pos : null; });
+
+  // gap to the leader, from lap start timestamps
+  const minStart = new Array(maxLap + 2).fill(null);
+  per.forEach((a) => a.forEach((l) => { if (l.ts != null && (minStart[l.n] == null || l.ts < minStart[l.n])) minStart[l.n] = l.ts; }));
+  const gap = per.map((a) => { const m = new Map(); a.forEach((l) => { if (l.n >= 2 && l.ts != null && minStart[l.n] != null) m.set(l.n, l.ts - minStart[l.n]); }); return m; });
+
+  return (H.race = { per, maxLap, flag, bands, stints, stops, clean, med, sd, degBy, fastest, best, secBest, fieldSec, leaderAt, runs, leadChanges, pos1, gap });
+}
+
+/* ── chart helper ── */
+const rc = {};
+function ticksFor(lo, hi, step) { const out = []; for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) out.push(+v.toFixed(6)); return out; }
+function drawLines(cv, o, hover) {
+  fitCanvas(cv);
+  const g = cv.getContext("2d"), r = cv.getBoundingClientRect(), dpr = cv.width / r.width || 1;
+  const L = 46 * dpr, R = (o.endLabels ? 42 : 12) * dpr, T = 10 * dpr, B = 22 * dpr, W = cv.width - L - R, Hh = cv.height - T - B;
+  const ye0 = o.y0 - (o.yPad || 0), ye1 = o.y1 + (o.yPad || 0);
+  const X = (x) => L + (x - o.x0) / (o.x1 - o.x0 || 1) * W;
+  const Y = (y) => { const f = (y - ye0) / (ye1 - ye0 || 1); return o.yInv ? T + f * Hh : T + Hh - f * Hh; };
+  const mono = css("--mono"), disp = css("--display");
+  g.clearRect(0, 0, cv.width, cv.height);
+  for (const b of o.bands || []) { const x0 = Math.max(L, X(b.a - 0.5)), x1 = Math.min(L + W, X(b.b + 0.5)); g.fillStyle = b.col; g.fillRect(x0, T, x1 - x0, Hh); }
+  g.font = `${9.5 * dpr}px ${mono}`; g.textAlign = "right"; g.textBaseline = "middle";
+  for (const v of o.yTicks || []) {
+    const y = Y(v); g.strokeStyle = COL.line; g.globalAlpha = .7; g.lineWidth = 1; g.beginPath(); g.moveTo(L, y); g.lineTo(L + W, y); g.stroke(); g.globalAlpha = 1;
+    g.fillStyle = COL.faint; g.fillText(o.yFmt ? o.yFmt(v) : String(Math.round(v)), L - 6 * dpr, y);
+  }
+  g.textAlign = "center"; g.textBaseline = "top";
+  const xs = Math.max(1, Math.round(niceStep(o.x1 - o.x0, 9)));
+  for (let v = Math.ceil(o.x0 / xs) * xs; v <= o.x1; v += xs) { const x = X(v); g.fillStyle = COL.faint; g.fillText(String(v), x, T + Hh + 6 * dpr); }
+  g.save(); g.beginPath(); g.rect(L, T - 3 * dpr, W, Hh + 6 * dpr); g.clip();
+  g.lineJoin = "round"; g.lineCap = "round";
+  for (const s of o.series) {
+    g.globalAlpha = s.alpha ?? 1; g.strokeStyle = s.col; g.lineWidth = (s.w || 2) * dpr; g.setLineDash((s.dash || []).map((v) => v * dpr));
+    g.beginPath(); let pen = false;
+    for (const p of s.pts) { if (!p) { pen = false; continue; } const x = X(p[0]), y = Y(p[1]); if (!pen) { g.moveTo(x, y); pen = true; } else g.lineTo(x, y); }
+    g.stroke(); g.setLineDash([]);
+    if (s.dots) s.pts.forEach((p, i) => { if (!p || !s.dots[i]) return; g.fillStyle = s.dots[i]; g.beginPath(); g.arc(X(p[0]), Y(p[1]), 2.3 * dpr, 0, 6.2832); g.fill(); });
+  }
+  g.globalAlpha = 1; g.restore();
+  if (o.endLabels) {
+    g.textAlign = "left"; g.textBaseline = "middle"; g.font = `700 ${10.5 * dpr}px ${disp}`;
+    for (const s of o.series) {
+      if (!s.label) continue; let last = null;
+      for (let i = s.pts.length - 1; i >= 0; i--) if (s.pts[i]) { last = s.pts[i]; break; }
+      if (!last) continue; g.globalAlpha = s.alpha ?? 1; g.fillStyle = s.col; g.fillText(s.label, X(last[0]) + 5 * dpr, Y(last[1]));
+    }
+    g.globalAlpha = 1;
+  }
+  if (hover != null) {
+    const x = X(hover); g.strokeStyle = COL.fg; g.globalAlpha = .55; g.lineWidth = 1 * dpr; g.beginPath(); g.moveTo(x, T); g.lineTo(x, T + Hh); g.stroke(); g.globalAlpha = 1;
+    for (const s of o.series) { if ((s.alpha ?? 1) < 0.5) continue; const p = s.pts.find((q) => q && q[0] === hover); if (!p) continue; g.fillStyle = s.col; g.beginPath(); g.arc(x, Y(p[1]), 3.6 * dpr, 0, 6.2832); g.fill(); g.strokeStyle = "#05070a"; g.lineWidth = 1.5 * dpr; g.stroke(); }
+  }
+  cv._geo = { L, W, dpr, x0: o.x0, x1: o.x1 };
+}
+function lapAtX(cv, clientX) {
+  const g = cv._geo; if (!g) return null;
+  const x = (clientX - cv.getBoundingClientRect().left) * g.dpr;
+  return Math.max(g.x0, Math.min(g.x1, Math.round((x - g.L) / g.W * (g.x1 - g.x0) + g.x0)));
+}
+function rcDraw(c) { if (st.mode !== "race" || !st.race || !c.cv.getClientRects().length) return; drawLines(c.cv, c.opts(), c.hover); $(c.ro).innerHTML = c.read(c.hover); }
+function drawRaceCharts() { Object.values(rc).forEach(rcDraw); }
+function initRaceChart(id, cvId, roId, opts, read) {
+  const cv = $(cvId), c = (rc[id] = { cv, ro: roId, opts, read, hover: null });
+  const move = (ev) => { if (!st.race) return; const lap = lapAtX(cv, ev.clientX); if (lap !== c.hover) { c.hover = lap; rcDraw(c); } };
+  cv.addEventListener("pointermove", move); cv.addEventListener("pointerdown", move);
+  cv.addEventListener("pointerleave", () => { c.hover = null; rcDraw(c); });
+}
+const raceHint = () => `<span>${TOUCH ? "Grafikte parmağını kaydır" : "Grafiğin üstünde gezin"}: o turdaki değerler burada</span>`;
+const selList = () => st.H.order.filter((di) => st.raceSel.has(di) && st.race.per[di].length);
+function dashOf(di) {
+  const H = st.H; if (!H._dash) { H._dash = new Set(); const seen = new Set(); H.order.forEach((i) => { const t = (H.drivers[i].t || "").toLowerCase(); if (!t) return; if (seen.has(t)) H._dash.add(i); seen.add(t); }); }
+  return H._dash.has(di) ? [6, 3] : null;
+}
+const bandCol = { SC: "rgba(244,197,52,.17)", VSC: "rgba(244,197,52,.08)", R: "rgba(255,77,94,.16)" };
+const bandsOf = (R) => R.bands.map((b) => ({ a: b.a, b: b.b, col: bandCol[b.t] }));
+const emptyOpts = (R) => ({ x0: 1, x1: Math.max(2, R.maxLap), y0: 0, y1: 1, yTicks: [], bands: bandsOf(R), series: [] });
+
+initRaceChart("pos", "cvPos", "roPos", () => {
+  const H = st.H, R = st.race, sel = st.raceSel, act = H.order.filter((di) => R.per[di].length);
+  const all = !sel.size || act.every((di) => sel.has(di));
+  let maxPos = 2; act.forEach((di) => R.per[di].forEach((l) => { if (l.pos > maxPos) maxPos = l.pos; }));
+  const series = act.map((di) => { const on = all || sel.has(di); return { pts: R.per[di].map((l) => (l.pos != null ? [l.n, l.pos] : null)), col: H.drivers[di].col, dash: dashOf(di), w: on ? 2.4 : 1.1, alpha: on ? 1 : 0.22, label: H.drivers[di].c, on }; }).sort((a, b) => a.on - b.on);
+  const ticks = [1]; for (let v = 5; v <= maxPos; v += 5) ticks.push(v); if (ticks[ticks.length - 1] !== maxPos) ticks.push(maxPos);
+  return { x0: 1, x1: Math.max(2, R.maxLap), y0: 1, y1: maxPos, yPad: 0.6, yInv: true, yTicks: ticks, bands: bandsOf(R), series, endLabels: true };
+}, (h) => {
+  if (h == null) return raceHint();
+  const H = st.H, R = st.race, items = [];
+  H.order.forEach((di) => { const l = R.per[di].find((x) => x.n === h); if (l && l.pos != null) items.push([l.pos, di]); });
+  items.sort((a, b) => a[0] - b[0]);
+  return `<span>Tur <b>${h}</b>${R.flag[h] ? " · " + R.flag[h] : ""}</span>` + items.slice(0, 12).map(([p, di]) => `<span>P${p} <b style="color:${H.drivers[di].col}">${H.drivers[di].c}</b></span>`).join("");
+});
+
+initRaceChart("pace", "cvPace", "roPace", () => {
+  const H = st.H, R = st.race, series = [], vals = [];
+  selList().forEach((di) => {
+    const cm = new Map(R.clean[di].map((l) => [l.n, l])), pts = [], dots = [];
+    for (let n = 1; n <= R.maxLap; n++) { const l = cm.get(n); if (l) { pts.push([n, l.t]); dots.push(COMP_HEX[l.c] || COMP_HEX.U); vals.push(l.t); } else { pts.push(null); dots.push(null); } }
+    series.push({ pts, dots, col: H.drivers[di].col, dash: dashOf(di), w: 1.3, label: H.drivers[di].c });
+  });
+  if (!vals.length) return emptyOpts(R);
+  const lo0 = Math.min(...vals), hi0 = Math.min(Math.max(...vals), lo0 * 1.07), pad = (hi0 - lo0) * 0.06 || 0.2, lo = lo0 - pad, hi = hi0 + pad;
+  return { x0: 1, x1: Math.max(2, R.maxLap), y0: lo, y1: hi, yInv: false, yTicks: ticksFor(lo, hi, niceStep(hi - lo, 5)), yFmt: fmtSec, bands: bandsOf(R), series };
+}, (h) => {
+  if (h == null) return raceHint();
+  const H = st.H, R = st.race;
+  return `<span>Tur <b>${h}</b>${R.flag[h] ? " · " + R.flag[h] : ""}</span>` + selList().map((di) => {
+    const l = R.per[di].find((x) => x.n === h); const d = H.drivers[di];
+    const tag = l && (l.pin != null || l.pout != null) ? " (pit)" : "";
+    return `<span><b style="color:${d.col}">${d.c}</b> ${l && l.t != null ? fmtLap(Math.round(l.t * 1000)) : "—"}${tag}</span>`;
+  }).join("");
+});
+
+initRaceChart("gap", "cvGap", "roGap", () => {
+  const H = st.H, R = st.race, series = []; let mx = 0;
+  selList().forEach((di) => {
+    const pts = []; for (let n = 2; n <= R.maxLap; n++) { const v = R.gap[di].get(n); if (v != null) { pts.push([n, v]); if (v > mx) mx = v; } else pts.push(null); }
+    series.push({ pts, col: H.drivers[di].col, dash: dashOf(di), w: 2, label: H.drivers[di].c });
+  });
+  if (!series.length) return emptyOpts(R);
+  const y1 = Math.max(5, Math.min(mx, 180)) * 1.05;
+  return { x0: 1, x1: Math.max(2, R.maxLap), y0: 0, y1, yInv: true, yTicks: ticksFor(0, y1, niceStep(y1, 5)), yFmt: (v) => v + " s", bands: bandsOf(R), series };
+}, (h) => {
+  if (h == null) return raceHint();
+  const H = st.H, R = st.race;
+  const items = selList().map((di) => [di, R.gap[di].get(h)]).filter((x) => x[1] != null).sort((a, b) => a[1] - b[1]);
+  return `<span>Tur <b>${h}</b> başı · lidere fark</span>` + items.map(([di, v]) => `<span><b style="color:${H.drivers[di].col}">${H.drivers[di].c}</b> ${v < 0.0005 ? "lider" : "+" + v.toFixed(3)}</span>`).join("");
+});
+
+/* ── DOM sections ── */
+const nmOf = (H, di) => { const d = H.drivers[di]; return `${d.f} ${d.l}`.trim() || d.c; };
+const colB = (H, di, t) => `<b style="color:${H.drivers[di].col}">${t}</b>`;
+function renderRaceSummary(H, R) {
+  const w = H.order[0], f = R.fastest, classified = H.order.filter((di) => R.per[di].length >= 0.9 * R.maxLap);
+  const scL = R.flag.filter((x) => x === "SC").length, vscL = R.flag.filter((x) => x === "VSC").length, redL = R.flag.filter((x) => x === "R").length;
+  const tiles = [
+    ["Tur", R.maxLap, `${H.order.length} pilot`],
+    [H.kind === "S" ? "Sprint galibi" : "Kazanan", H.drivers[w].c, nmOf(H, w)],
+    ["En hızlı tur", f ? fmtLap(Math.round(f.t * 1000)) : "—", f ? `${H.drivers[f.di].c} · ${f.lap}. tur` : ""],
+    ["SC / VSC", `${scL} / ${vscL}`, `${scL} SC turu · ${vscL} VSC turu${redL ? " · " + redL + " tur kırmızı bayrak" : ""}`],
+    ["Pit stop", R.stops.length, ""],
+    ["Liderlik değişimi", R.leadChanges, `${R.runs.length ? new Set(R.runs.map((r) => r.di)).size : 0} farklı lider`],
+  ];
+  $("raceTiles").innerHTML = tiles.map(([a, b, c]) => `<div class="tile"><span>${a}</span><b>${b}</b><small>${c || "&nbsp;"}</small></div>`).join("");
+
+  const facts = [];
+  facts.push(`${colB(H, w, nmOf(H, w))} (${H.drivers[w].t || "—"}) ${H.kind === "S" ? "sprint yarışını" : "yarışı"} kazandı.`);
+  if (f) facts.push(`En hızlı tur: ${colB(H, f.di, H.drivers[f.di].c)} · <b>${fmtLap(Math.round(f.t * 1000))}</b> (${f.lap}. tur, ${COMP_TR[f.c]} lastik).`);
+  const paced = H.order.filter((di) => R.med[di] != null).sort((a, b) => R.med[a] - R.med[b]);
+  if (paced.length > 1) {
+    const p1 = paced[0], p2 = paced[1];
+    if (p1 !== w && R.med[w] != null) facts.push(`Temiz tur temposunda en hızlı ${colB(H, p1, H.drivers[p1].c)} (medyan ${fmtLap(Math.round(R.med[p1] * 1000))}); kazanan ${colB(H, w, H.drivers[w].c)} medyanda ${(R.med[w] - R.med[p1]).toFixed(3)} s geride.`);
+    else facts.push(`Kazanan aynı zamanda en hızlı tempoya sahipti (medyan ${fmtLap(Math.round(R.med[p1] * 1000))}); ikinci en hızlı tempo ${colB(H, p2, H.drivers[p2].c)}, ${(R.med[p2] - R.med[p1]).toFixed(3)} s geride.`);
+  }
+  const strat = (di) => R.stints[di].map((s) => COMP_TR[s.c]).join(" → ");
+  if (classified.length) {
+    const cnt = new Map(); classified.forEach((di) => { const k = strat(di); cnt.set(k, (cnt.get(k) || 0) + 1); });
+    const top = [...cnt.entries()].sort((a, b) => b[1] - a[1])[0];
+    facts.push(`Kazanan ${R.stints[w].length - 1} stop yaptı (${strat(w)}). En yaygın strateji: ${top[0]} (${top[1]} pilot).`);
+  }
+  const rangesOf = (t) => R.bands.filter((b) => b.t === t).map(rangeTxt).join(", ");
+  const neu = [];
+  if (scL) neu.push(`güvenlik aracı: ${rangesOf("SC")}. turlar`);
+  if (vscL) neu.push(`sanal güvenlik aracı: ${rangesOf("VSC")}. turlar`);
+  if (redL) neu.push(`kırmızı bayrak: ${rangesOf("R")}. turlar`);
+  facts.push(neu.length ? `Nötralizasyon — ${neu.join("; ")}.` : "Yarış boyunca güvenlik aracı ya da sanal güvenlik aracı çıkmadı.");
+  if (R.runs.length) {
+    const shown = R.runs.slice(0, 6).map((r) => `${colB(H, r.di, H.drivers[r.di].c)} ${rangeTxt(r)}`).join(", ");
+    facts.push(`Liderlik: ${shown}${R.runs.length > 6 ? ", …" : ""}.`);
+  }
+  const ch = classified.filter((di) => R.pos1[di] != null).map((di) => ({ di, g: R.pos1[di] - H.rank[di], p1: R.pos1[di] }));
+  if (ch.length) {
+    const up = ch.slice().sort((a, b) => b.g - a.g)[0], dn = ch.slice().sort((a, b) => a.g - b.g)[0], bits = [];
+    if (up.g >= 2) bits.push(`en çok yükselen ${colB(H, up.di, H.drivers[up.di].c)} (+${up.g}: P${up.p1} → P${H.rank[up.di]})`);
+    if (dn.g <= -2) bits.push(`en çok düşen ${colB(H, dn.di, H.drivers[dn.di].c)} (−${-dn.g}: P${dn.p1} → P${H.rank[dn.di]})`);
+    if (bits.length) facts.push(`1. tur sonrasına göre ${bits.join(", ")}.`);
+  }
+  const timed = R.stops.filter((s) => s.dur != null).sort((a, b) => a.dur - b.dur);
+  if (timed.length) facts.push(`En hızlı pit şeridi geçişi: ${colB(H, timed[0].di, H.drivers[timed[0].di].c)} · <b>${timed[0].dur.toFixed(1)} s</b> (${timed[0].lap}. tur).`);
+  const ps = pitStats(R);
+  if (ps.gAvg != null) {
+    let t = `Net pit kaybı: yeşil bayrak altında medyan <b>${ps.gAvg.toFixed(1)} s</b>`;
+    if (ps.nAvg != null) { const who = [...new Set(ps.n.map((x) => H.drivers[x.di].c))].slice(0, 5).join(", "); t += `; SC/VSC altında <b>${ps.nAvg.toFixed(1)} s</b> (${who} — ${ps.gAvg - ps.nAvg >= 1 ? (ps.gAvg - ps.nAvg).toFixed(1) + " s ucuza" : ps.nAvg - ps.gAvg >= 1 ? "ucuz olmadı, " + (ps.nAvg - ps.gAvg).toFixed(1) + " s daha pahalı" : "fark yok"})`; }
+    facts.push(t + ".");
+  }
+  const usage = {}; let totalL = 0;
+  R.stints.forEach((ss) => ss.forEach((s) => { const n = s.to - s.from + 1; usage[s.c] = (usage[s.c] || 0) + n; totalL += n; }));
+  const ut = Object.entries(usage).sort((a, b) => b[1] - a[1]).map(([c, n]) => `${COMP_TR[c]} %${Math.round(n / totalL * 100)}`).join(", ");
+  if (ut) facts.push(`Koşulan turların lastik dağılımı: ${ut}.`);
+  $("raceFacts").innerHTML = facts.map((t) => `<p>${t}</p>`).join("");
+}
+
+function renderRaceChips() {
+  const H = st.H;
+  $("racePresets").innerHTML = [["top3", "İlk 3"], ["top5", "İlk 5"], ["top10", "İlk 10"], ["all", "Hepsi"], ["duel", "Düellodaki A + B"], ["none", "Temizle"]].map(([k, t]) => `<button class="chip" data-preset="${k}">${t}</button>`).join("");
+  $("raceChips").innerHTML = H.order.filter((di) => st.race.per[di].length).map((di) => { const d = H.drivers[di]; return `<button class="chip dchip" data-di="${di}" aria-pressed="${st.raceSel.has(di)}"><i style="background:${d.col}"></i>${d.c}</button>`; }).join("");
+}
+function syncRaceChips() { document.querySelectorAll("#raceChips .dchip").forEach((b) => b.setAttribute("aria-pressed", st.raceSel.has(+b.dataset.di) ? "true" : "false")); }
+$("racePresets").addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b || !st.H) return;
+  const act = st.H.order.filter((di) => st.race.per[di].length), k = b.dataset.preset;
+  st.raceSel = new Set(k === "top3" ? act.slice(0, 3) : k === "top5" ? act.slice(0, 5) : k === "top10" ? act.slice(0, 10) : k === "all" ? act : k === "duel" ? [st.a.d, st.b.d] : []);
+  syncRaceChips(); drawRaceCharts();
+});
+$("raceChips").addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  const di = +b.dataset.di; st.raceSel.has(di) ? st.raceSel.delete(di) : st.raceSel.add(di);
+  syncRaceChips(); drawRaceCharts();
+});
+
+function renderStrategy(H, R) {
+  const mL = R.maxLap, pct = (n) => ((n - 1) / mL * 100).toFixed(3) + "%", wpct = (a, b) => ((b - a + 1) / mL * 100).toFixed(3) + "%";
+  let ticks = ""; for (let n = 1; n <= mL; n += n === 1 ? 9 : 10) ticks += `<em style="left:${pct(n)}">${n}</em>`;
+  const bandEls = R.bands.map((b) => `<i class="band ${b.t}" style="left:${pct(b.a)};width:${wpct(b.a, b.b)}" title="${b.t === "SC" ? "Güvenlik aracı" : b.t === "VSC" ? "Sanal güvenlik aracı" : "Kırmızı bayrak"} · ${rangeTxt(b)}. turlar">${b.b - b.a >= 1 ? b.t : ""}</i>`).join("");
+  let html = `<div class="st-row"><span></span><div class="st-ticks">${ticks}</div></div><div class="st-row"><span class="st-l" style="color:var(--faint);font-size:10.5px">SC</span><div class="st-bands">${bandEls}</div></div>`;
+  H.order.filter((di) => R.per[di].length).forEach((di) => {
+    const d = H.drivers[di];
+    const segs = R.stints[di].map((s) => { const len = s.to - s.from + 1; return `<b class="seg" style="left:${pct(s.from)};width:${wpct(s.from, s.to)};background:${COMP_HEX[s.c]}" title="${COMP_TR[s.c]} · ${s.from}–${s.to}. turlar (${len} tur)">${len >= 4 ? (s.c === "U" ? "?" : s.c) + " " + len : ""}</b>`; }).join("");
+    html += `<div class="st-row"><span class="st-l" style="color:${d.col}"><i>${H.rank[di]}</i>${d.c}</span><div class="st-track">${segs}</div></div>`;
+  });
+  html += `<div class="legend">${["S", "M", "H", "I", "W"].map((c) => `<span>${cdot(c)} ${COMP_TR[c]}</span>`).join("")}</div>`;
+  $("stratBox").innerHTML = html;
+}
+
+function renderPaceRank(H, R) {
+  const list = H.order.filter((di) => R.med[di] != null).sort((a, b) => R.med[a] - R.med[b]);
+  if (!list.length) { $("paceRank").innerHTML = `<p class="none">Temiz tur verisi yetersiz.</p>`; return; }
+  const base = R.med[list[0]], cap = Math.min(3, Math.max(0.5, R.med[list[list.length - 1]] - base));
+  $("paceRank").innerHTML = list.map((di) => {
+    const d = H.drivers[di], dl = R.med[di] - base, w = Math.max(1.5, Math.min(100, dl / cap * 100));
+    return `<div class="pr-row"><b style="color:${d.col}">${d.c}</b><div class="pr-bar" title="Medyan ${fmtLap(Math.round(R.med[di] * 1000))}"><i style="width:${w}%;background:${d.col}"></i></div><span>${dl < 0.0005 ? fmtLap(Math.round(base * 1000)) : "+" + dl.toFixed(3)}${R.sd[di] != null ? ` <small>±${R.sd[di].toFixed(2)}</small>` : ""}</span></div>`;
+  }).join("") + `<p class="note2">Medyan temiz tur: pit, güvenlik aracı ve ilk tur hariç. ± tutarlılığı (standart sapma) gösterir; çubuk lidere farkı ölçer.</p>`;
+}
+
+function renderDeg(H, R) {
+  const rows = Object.entries(R.degBy).sort((a, b) => "SMHIW".indexOf(a[0]) - "SMHIW".indexOf(b[0]));
+  if (!rows.length) { $("degBox").innerHTML = `<p class="none">Yıpranma için yeterince uzun (8+ temiz tur) stint yok.</p>`; return; }
+  $("degBox").innerHTML = `<table class="ct plain"><thead><tr><th>Lastik</th><th>Stint</th><th>Ort. uzunluk</th><th>Eğim</th></tr></thead><tbody>${rows.map(([c, o]) => { const sl = median(o.slopes); return `<tr><td>${cdot(c)} ${COMP_TR[c]}</td><td>${o.slopes.length}</td><td>${Math.round(mean(o.lens))} tur</td><td style="color:${sl > 0.01 ? "var(--red)" : "var(--green)"}">${sl >= 0 ? "+" : "−"}${Math.abs(sl).toFixed(3)} s/tur</td></tr>`; }).join("")}</tbody></table><p class="note2">Ham eğim: tur süresinin turla değişimi (medyan). Yakıt azalması ve pist gelişimi düzeltilmediği için gerçek yıpranma bundan yüksektir.</p>`;
+}
+
+function renderResults(H, R) {
+  const rows = H.order.filter((di) => R.per[di].length).map((di) => {
+    const d = H.drivers[di], laps = R.per[di].length, dnf = false, p1 = R.pos1[di], rk = H.rank[di], g = p1 != null ? p1 - rk : null;
+    const best = R.best[di], isF = R.fastest && best === R.fastest.t;
+    return `<tr data-focus="${di}"><td class="t">${rk}</td><td>${colB(H, di, d.c)}${dnf ? ' <span class="flag del">DNF</span>' : ""}</td><td>${d.t || "—"}</td><td>${p1 != null ? `P${p1} → ${dnf ? "DNF" : "P" + rk}` : "—"}${!dnf && g ? ` <span class="${g > 0 ? "up" : "dn"}">${g > 0 ? "▲" : "▼"}${Math.abs(g)}</span>` : ""}</td><td>${Math.max(0, R.stints[di].length - 1)}</td><td>${R.stints[di].map((s) => cdot(s.c)).join(" ")}</td><td${isF ? ' class="pb"' : ""}>${best != null ? fmtLap(Math.round(best * 1000)) : "—"}</td><td>${R.med[di] != null ? fmtLap(Math.round(R.med[di] * 1000)) : "—"}</td><td>${R.sd[di] != null ? "±" + R.sd[di].toFixed(2) : "—"}</td></tr>`;
+  });
+  $("resBox").innerHTML = `<table class="ct plain"><thead><tr><th>#</th><th>Pilot</th><th>Takım</th><th>1. tur → son kayıt</th><th>Stop</th><th>Strateji</th><th>En iyi tur</th><th>Medyan tempo</th><th>Tutarlılık</th></tr></thead><tbody>${rows.join("")}</tbody></table>`;
+}
+
+function renderRace() {
+  const H = st.H;
+  try {
+    const R = (st.race = buildRace(H));
+    const key = `${H.year}|${H.event}|${H.session}`;
+    if (st.raceSelKey !== key) { st.raceSelKey = key; st.raceSel = new Set(H.order.filter((di) => R.per[di].length).slice(0, 5)); st.raceFocus = H.order.find((di) => R.per[di].length); }
+    const dt = H.date ? new Date(H.date + "T12:00:00") : null;
+    $("meta").innerHTML = (dt ? `<span>${dt.toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}</span>` : "") + `<span>Tur <b>${R.maxLap}</b></span><span>Pilot <b>${H.order.length}</b></span>`;
+    renderRaceSummary(H, R); renderRaceChips(); renderStrategy(H, R); renderPaceRank(H, R); renderDeg(H, R); renderPits(H, R); renderUO(H, R); renderMoves(H, R); renderTeams(H, R); renderFocus(); renderResults(H, R); setRaceTab(st.raceTab || "sum", true);
+    Object.values(rc).forEach((c) => (c.hover = null));
+    drawRaceCharts();
+  } catch (err) {
+    st.race = null;
+    $("raceFacts").innerHTML = `<p>Yarış analizi oluşturulamadı: ${String(err.message || err)}</p>`;
+    $("raceTiles").innerHTML = "";
+  }
+}
+
+/* ───────── pit loss, teammates, driver focus ───────── */
+function pitStats(R) {
+  const ok = R.stops.filter((s) => s.loss != null), g = ok.filter((s) => !s.flag), n = ok.filter((s) => s.flag);
+  const avg = (a) => (a.length ? median(a.map((s) => s.loss)) : null);
+  return { ok, g, n, gAvg: avg(g), nAvg: avg(n) };
+}
+const mateOf = (H, R, di) => {
+  const t = (H.drivers[di].t || "").toLowerCase(); if (!t) return null;
+  const c = H.order.filter((x) => x !== di && R.per[x].length && (H.drivers[x].t || "").toLowerCase() === t).sort((a, b) => R.per[b].length - R.per[a].length);
+  return c.length ? c[0] : null;
+};
+const sgn = (v, d = 3) => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(d);
+
+function renderPits(H, R) {
+  if (!R.stops.length) { $("pitBox").innerHTML = `<p class="none" style="padding:6px 14px 14px">Pit stop verisi yok.</p>`; return; }
+  const ps = pitStats(R), rows = R.stops.slice().sort((a, b) => a.lap - b.lap || H.rank[a.di] - H.rank[b.di]);
+  const durs = rows.filter((s) => s.dur != null).map((s) => s.dur), bestD = durs.length ? Math.min(...durs) : null;
+  const byLoss = ps.ok.slice().sort((a, b) => a.loss - b.loss), bestL = byLoss[0], worstL = byLoss[byLoss.length - 1], maxL = worstL ? Math.max(1, worstL.loss) : 1;
+  const tile = (a, b, c) => `<div class="tile"><span>${a}</span><b>${b}</b><small>${c || "&nbsp;"}</small></div>`;
+  const tiles = [
+    tile("Net kayıp · yeşil", ps.gAvg != null ? ps.gAvg.toFixed(1) + " s" : "—", `${ps.g.length} stop · medyan`),
+    tile("Net kayıp · SC/VSC", ps.nAvg != null ? ps.nAvg.toFixed(1) + " s" : "—", `${ps.n.length} stop · medyan`),
+    tile("En az kayıp", bestL ? bestL.loss.toFixed(1) + " s" : "—", bestL ? `${H.drivers[bestL.di].c} · ${bestL.lap}. tur` : ""),
+    tile("En çok kayıp", worstL ? worstL.loss.toFixed(1) + " s" : "—", worstL ? `${H.drivers[worstL.di].c} · ${worstL.lap}. tur` : ""),
+  ].join("");
+  const body = rows.map((s) => {
+    const isB = s.dur != null && s.dur === bestD, isMin = bestL && s === bestL;
+    const bar = s.loss != null ? `<div class="lossbar"><i style="width:${Math.max(2, Math.min(100, Math.max(0, s.loss) / maxL * 100))}%;background:${s.flag ? "var(--yellow)" : "var(--a)"}"></i></div>` : "";
+    return `<tr><td class="t">${s.lap}</td><td>${colB(H, s.di, H.drivers[s.di].c)}</td><td>${s.n}.</td><td>${cdot(s.from)} → ${cdot(s.to)}</td><td${isB ? ' class="pb"' : ""}>${s.dur != null ? s.dur.toFixed(1) + " s" : "—"}${isB ? " ★" : ""}</td><td${isMin ? ' class="pb"' : ""}>${s.loss != null ? s.loss.toFixed(1) + " s" : "—"}${isMin ? " ★" : ""}</td><td style="width:22%">${bar}</td><td>${s.flag ? `<span class="flag">${s.flag === "R" ? "Kırmızı bayrak" : s.flag}</span>` : ""}</td></tr>`;
+  }).join("");
+  $("pitBox").innerHTML = `<div class="tiles">${tiles}</div><div class="corners"><table class="ct plain"><thead><tr><th>Tur</th><th>Pilot</th><th>Stop</th><th>Lastik</th><th>Pit şeridi</th><th>Net kayıp</th><th></th><th></th></tr></thead><tbody>${body}</tbody></table></div><p class="note2 pad">Net kayıp: giriş + çıkış turu süresi eksi aynı turlarda pit yapmayan pilotların medyanı. SC/VSC bayrağı tur bazlı işaretlendiği için bayrağın tur ortasında başlayıp bittiği stoplarda bu hesap kaba kalır; o satırlara temkinli bak.</p>`;
+}
+
+function teamDuels(H, R) {
+  const teams = new Map();
+  H.order.filter((di) => R.per[di].length).forEach((di) => { const t = H.drivers[di].t || ""; if (!t) return; if (!teams.has(t)) teams.set(t, []); teams.get(t).push(di); });
+  const out = [];
+  for (const [t, list] of teams) {
+    if (list.length < 2) continue;
+    const two = list.slice().sort((a, b) => R.per[b].length - R.per[a].length || H.rank[a] - H.rank[b]).slice(0, 2).sort((a, b) => H.rank[a] - H.rank[b]);
+    out.push({ t, a: two[0], b: two[1] });
+  }
+  return out.sort((x, y) => H.rank[x.a] - H.rank[y.a]);
+}
+function renderTeams(H, R) {
+  const duels = teamDuels(H, R);
+  if (!duels.length) { $("tmBox").innerHTML = `<p class="none">Takım bilgisi olan iki pilotlu takım bulunamadı.</p>`; return; }
+  const lossOf = (di) => { const v = R.stops.filter((s) => s.di === di && s.loss != null); return v.length ? mean(v.map((s) => s.loss)) : null; };
+  $("tmBox").innerHTML = duels.map(({ t, a, b }) => {
+    const A = H.drivers[a], B = H.drivers[b];
+    const rows = [];
+    const row = (label, va, vb, win, fa, fb) => rows.push(`<div class="tm-r"><span class="${win === "a" ? "w" : win === "b" ? "l" : ""}">${fa ?? va}</span><em>${label}</em><span class="${win === "b" ? "w" : win === "a" ? "l" : ""}">${fb ?? vb}</span></div>`);
+    const lower = (x, y) => (x == null || y == null || Math.abs(x - y) < 1e-9 ? null : x < y ? "a" : "b");
+    const dnfA = false, dnfB = false;
+    row("Tahmini sıra", H.rank[a], H.rank[b], lower(H.rank[a], H.rank[b]), dnfA ? "DNF" : "P" + H.rank[a], dnfB ? "DNF" : "P" + H.rank[b]);
+    const ma = R.med[a], mb = R.med[b];
+    row("Medyan tempo", ma, mb, lower(ma, mb), ma != null ? fmtLap(Math.round(ma * 1000)) : "—", mb != null ? fmtLap(Math.round(mb * 1000)) : "—");
+    row("En iyi tur", R.best[a], R.best[b], lower(R.best[a], R.best[b]), R.best[a] != null ? fmtLap(Math.round(R.best[a] * 1000)) : "—", R.best[b] != null ? fmtLap(Math.round(R.best[b] * 1000)) : "—");
+    row("Tutarlılık", R.sd[a], R.sd[b], lower(R.sd[a], R.sd[b]), R.sd[a] != null ? "±" + R.sd[a].toFixed(2) : "—", R.sd[b] != null ? "±" + R.sd[b].toFixed(2) : "—");
+    row("Strateji", 0, 0, null, R.stints[a].map((s) => cdot(s.c)).join(" "), R.stints[b].map((s) => cdot(s.c)).join(" "));
+    const la = lossOf(a), lb = lossOf(b);
+    row("Pit kaybı / stop", la, lb, lower(la, lb), la != null ? la.toFixed(1) + " s" : "—", lb != null ? lb.toFixed(1) + " s" : "—");
+    let ahA = 0, ahB = 0;
+    R.per[a].forEach((l) => { const m = R.per[b].find((x) => x.n === l.n); if (m && l.pos != null && m.pos != null) { if (l.pos < m.pos) ahA++; else if (m.pos < l.pos) ahB++; } });
+    row("Önde geçen tur", ahA, ahB, ahA === ahB ? null : ahA > ahB ? "a" : "b");
+    // lap-by-lap gap sparkline (up = A ahead)
+    const pts = []; let mx = 0;
+    R.per[a].forEach((l) => { const m = R.per[b].find((x) => x.n === l.n); if (l.n >= 2 && l.ts != null && m && m.ts != null) { const g = m.ts - l.ts; pts.push([l.n, g]); mx = Math.max(mx, Math.abs(g)); } });
+    const cap = Math.max(5, Math.min(90, mx)), W = 220, Hh = 46;
+    const poly = pts.map(([n, g]) => `${((n - 1) / Math.max(1, R.maxLap - 1) * W).toFixed(1)},${(Hh / 2 - Math.max(-cap, Math.min(cap, g)) / cap * (Hh / 2 - 3)).toFixed(1)}`).join(" ");
+    const spark = pts.length > 3 ? `<svg class="tm-sp" viewBox="0 0 ${W} ${Hh}" preserveAspectRatio="none" role="img" aria-label="Takım arkadaşları arası fark"><line x1="0" y1="${Hh / 2}" x2="${W}" y2="${Hh / 2}"/><polyline points="${poly}"/></svg><div class="tm-spl"><span style="color:${A.col}">↑ ${A.c} önde</span><span style="color:${B.col}">↓ ${B.c} önde</span></div>` : "";
+    // verdict
+    const v = [];
+    if (ma != null && mb != null) { const d = mb - ma; v.push(Math.abs(d) < 0.005 ? "Tempo birbirine çok yakın" : `${d > 0 ? A.c : B.c} medyan tempoda ${Math.abs(d).toFixed(3)} s/tur daha hızlı`); }
+    if (ahA + ahB > 0) v.push(`${ahA >= ahB ? A.c : B.c} yarışın %${Math.round(Math.max(ahA, ahB) / (ahA + ahB) * 100)}'ini önde geçirdi`);
+    return `<div class="tm" style="--tc:${A.col.length === 7 ? A.col : "#888"}" data-pair="${a},${b}"><div class="tm-h"><b>${t}</b></div><div class="tm-v"><span data-focus="${a}" style="color:${A.col}">${A.c}</span><i>vs</i><span data-focus="${b}" style="color:${B.col}">${B.c}</span></div>${rows.join("")}${spark}<p class="tm-t">${v.join(". ")}${v.length ? "." : ""}</p></div>`;
+  }).join("");
+}
+
+function setFocus(di, scroll) {
+  st.raceFocus = di; const sel = $("focusSel"); if (sel) sel.value = String(di);
+  if (scroll) setRaceTab("drv");
+  renderFocus(); drawRaceCharts();
+  if (scroll) $("focusCard").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+}
+function renderFocus() {
+  const H = st.H, R = st.race, di = st.raceFocus; if (di == null || !R || !R.per[di]) return;
+  const d = H.drivers[di], laps = R.per[di], rk = H.rank[di], w = H.order[0], dnf = false, p1 = R.pos1[di];
+  const sel = $("focusSel");
+  if (!sel.options.length || sel.dataset.key !== st.raceSelKey) {
+    sel.innerHTML = H.order.filter((x) => R.per[x].length).map((x) => `<option value="${x}">${H.rank[x]}. ${H.drivers[x].c} · ${nmOf(H, x)}</option>`).join(""); sel.dataset.key = st.raceSelKey;
+  }
+  sel.value = String(di);
+  const led = laps.filter((l) => l.pos === 1).length, pv = laps.map((l) => l.pos).filter((x) => x != null);
+  const bl = laps.find((l) => l.t === R.best[di] && !l.gen && !l.x), stp = R.stops.filter((s) => s.di === di), tl = stp.filter((s) => s.loss != null).reduce((x, s) => x + s.loss, 0);
+  const tile = (a, b, c) => `<div class="tile"><span>${a}</span><b>${b}</b><small>${c || "&nbsp;"}</small></div>`;
+  const tiles = [
+    tile("Tahmini sıra", dnf ? "DNF" : "P" + rk, `${d.t || "—"}`),
+    tile("1. tur → son kayıt", p1 != null ? `P${p1} → ${dnf ? "DNF" : "P" + rk}` : "—", p1 != null && !dnf ? (p1 - rk > 0 ? `▲${p1 - rk} pozisyon` : p1 - rk < 0 ? `▼${rk - p1} pozisyon` : "değişmedi") : ""),
+    tile("En iyi tur", R.best[di] != null ? fmtLap(Math.round(R.best[di] * 1000)) : "—", bl ? `${bl.n}. tur · ${COMP_TR[bl.c]}` : ""),
+    tile("Medyan tempo", R.med[di] != null ? fmtLap(Math.round(R.med[di] * 1000)) : "—", R.med[di] != null && R.med[w] != null ? (di === w ? "kazanan" : `kazanana ${sgn(R.med[di] - R.med[w])} s`) : ""),
+    tile("Tutarlılık", R.sd[di] != null ? "±" + R.sd[di].toFixed(2) : "—", "standart sapma"),
+    tile("Stop", Math.max(0, R.stints[di].length - 1), stp.some((s) => s.loss != null) ? `toplam net kayıp ${tl.toFixed(1)} s` : ""),
+    tile("Liderlik", led + " tur", ""),
+    tile("Pozisyon aralığı", pv.length ? `P${Math.min(...pv)} – P${Math.max(...pv)}` : "—", ""),
+  ].join("");
+  $("focusTiles").innerHTML = tiles;
+  // stints
+  $("focusStints").innerHTML = `<table class="ct plain"><thead><tr><th>Stint</th><th>Turlar</th><th>Medyan</th><th>En iyi</th><th>Eğim</th></tr></thead><tbody>${R.stints[di].map((s, i) => `<tr><td>${i + 1}. ${cdot(s.c)}</td><td>${s.from}–${s.to} <small style="color:var(--muted)">(${s.to - s.from + 1})</small></td><td>${s.cmed != null ? fmtLap(Math.round(s.cmed * 1000)) : "—"}</td><td>${s.best != null ? fmtLap(Math.round(s.best * 1000)) : "—"}</td><td>${s.slope != null ? sgn(s.slope) + " s/tur" : "—"}</td></tr>`).join("")}</tbody></table>`;
+  // sectors
+  const nSec = [0, 1, 2].map((k) => R.secBest.filter((s) => s[k] != null).length);
+  const secRows = [0, 1, 2].map((k) => {
+    const mine = R.secBest[di][k], fb = R.fieldSec[k]; if (mine == null || !fb) return `<tr><td>S${k + 1}</td><td colspan="4">—</td></tr>`;
+    const rank = 1 + R.secBest.filter((s) => s[k] != null && s[k] < mine - 1e-9).length;
+    return `<tr><td>S${k + 1}</td><td>${mine.toFixed(3)}</td><td>${fb.t.toFixed(3)} <small style="color:var(--muted)">${H.drivers[fb.di].c}</small></td><td style="color:${mine - fb.t < 0.0005 ? "var(--purple)" : "var(--muted)"}">${mine - fb.t < 0.0005 ? "en iyi" : sgn(mine - fb.t)}</td><td>${rank}/${nSec[k]}</td></tr>`;
+  }).join("");
+  const sb = R.secBest[di], ideal = sb.every((x) => x != null) ? sb[0] + sb[1] + sb[2] : null, idealTxt = ideal != null && R.best[di] != null ? `İdeal tur (en iyi 3 sektör): <b>${fmtLap(Math.round(ideal * 1000))}</b> · gerçek en iyi turdan ${(R.best[di] - ideal).toFixed(3)} s hızlı.` : "";
+  $("focusSectors").innerHTML = `<table class="ct plain"><thead><tr><th>Sektör</th><th>En iyi</th><th>Pistte en iyi</th><th>Fark</th><th>Sıra</th></tr></thead><tbody>${secRows}</tbody></table>${idealTxt ? `<p class="note2">${idealTxt}</p>` : ""}`;
+}
+
+initRaceChart("fpace", "cvFPace", "roFPace", () => {
+  const H = st.H, R = st.race, di = st.raceFocus; if (di == null || !R || !R.per[di]) return emptyOpts(R);
+  const cm = new Map(R.clean[di].map((l) => [l.n, l])), pts = [], dots = [], vals = [];
+  for (let n = 1; n <= R.maxLap; n++) { const l = cm.get(n); if (l) { pts.push([n, l.t]); dots.push(COMP_HEX[l.c] || COMP_HEX.U); vals.push(l.t); } else { pts.push(null); dots.push(null); } }
+  if (!vals.length) return emptyOpts(R);
+  const md = R.med[di], lo0 = Math.min(...vals), hi0 = Math.min(Math.max(...vals), lo0 * 1.07), pad = (hi0 - lo0) * 0.08 || 0.2, lo = lo0 - pad, hi = hi0 + pad;
+  const series = []; if (md != null) series.push({ pts: [[1, md], [R.maxLap, md]], col: COL.muted, dash: [4, 4], w: 1, alpha: 0.8 });
+  series.push({ pts, dots, col: H.drivers[di].col, w: 1.5 });
+  return { x0: 1, x1: Math.max(2, R.maxLap), y0: lo, y1: hi, yInv: false, yTicks: ticksFor(lo, hi, niceStep(hi - lo, 5)), yFmt: fmtSec, bands: bandsOf(R), series };
+}, (h) => {
+  if (h == null) return raceHint();
+  const R = st.race, di = st.raceFocus, l = R.per[di].find((x) => x.n === h);
+  if (!l) return `<span>Tur <b>${h}</b> · veri yok</span>`;
+  const tags = [l.pin != null || l.pout != null ? "pit" : "", R.flag[h] || ""].filter(Boolean).join(", ");
+  return `<span>Tur <b>${h}</b>${tags ? " · " + tags : ""}</span><span>Süre <b>${l.t != null ? fmtLap(Math.round(l.t * 1000)) : "—"}</b></span><span>${cdot(l.c)} ${l.life ? l.life + ". tur" : ""}</span><span>S1/S2/S3 ${l.s.map((v) => (v != null ? v.toFixed(3) : "—")).join(" · ")}</span>`;
+});
+
+initRaceChart("fpos", "cvFPos", "roFPos", () => {
+  const H = st.H, R = st.race, di = st.raceFocus; if (di == null || !R || !R.per[di]) return emptyOpts(R);
+  const mate = mateOf(H, R, di), ids = [di, mate].filter((x) => x != null); let maxPos = 2;
+  const series = ids.map((x, i) => { R.per[x].forEach((l) => { if (l.pos > maxPos) maxPos = l.pos; }); return { pts: R.per[x].map((l) => (l.pos != null ? [l.n, l.pos] : null)), col: H.drivers[x].col, dash: i ? [6, 3] : null, w: i ? 1.8 : 2.8, alpha: i ? 0.75 : 1, label: H.drivers[x].c }; }).reverse();
+  const ticks = [1]; for (let v = 5; v <= maxPos; v += 5) ticks.push(v); if (ticks[ticks.length - 1] !== maxPos) ticks.push(maxPos);
+  return { x0: 1, x1: Math.max(2, R.maxLap), y0: 1, y1: maxPos, yPad: 0.6, yInv: true, yTicks: ticks, bands: bandsOf(R), series, endLabels: true };
+}, (h) => {
+  if (h == null) return raceHint();
+  const H = st.H, R = st.race, di = st.raceFocus, mate = mateOf(H, R, di);
+  return `<span>Tur <b>${h}</b></span>` + [di, mate].filter((x) => x != null).map((x) => { const l = R.per[x].find((q) => q.n === h); return `<span><b style="color:${H.drivers[x].col}">${H.drivers[x].c}</b> ${l && l.pos != null ? "P" + l.pos : "—"}</span>`; }).join("");
+});
+
+$("focusSel").addEventListener("change", (e) => setFocus(+e.target.value, false));
+$("raceview").addEventListener("click", (e) => {
+  const f = e.target.closest("[data-focus]");
+  if (f) { setFocus(+f.dataset.focus, true); return; }
+  const tm = e.target.closest(".tm");
+  if (tm) { st.raceSel = new Set(tm.dataset.pair.split(",").map(Number)); syncRaceChips(); setRaceTab("chart"); window.scrollTo({ top: 0 }); }
+});
+
+/* ───────── position changes, undercut / overcut, tabs ───────── */
+const lapMaps = (R) => R.lm || (R.lm = R.per.map((a) => new Map(a.map((l) => [l.n, l]))));
+const pitIn = (l) => !!l && (l.pin != null || l.pout != null);
+function computeMoves(H, R) {
+  if (R.moves) return R.moves;
+  const lm = lapMaps(R), out = [];
+  for (let n = 2; n <= R.maxLap; n++) {
+    const ids = [];
+    H.order.forEach((di) => { const c = lm[di].get(n), p = lm[di].get(n - 1); if (c && p && c.pos != null && p.pos != null) ids.push([di, p.pos, c.pos]); });
+    for (const [x, px, cx] of ids) for (const [y, py, cy] of ids) {
+      if (x === y || !(py < px && cy > cx)) continue;
+      const xp = pitIn(lm[x].get(n)), yp = pitIn(lm[y].get(n));
+      const kind = xp || yp ? "pit" : R.flag[n] ? "sc" : "track";
+      const why = xp && yp ? "ikisi de pitte" : yp ? `${H.drivers[y].c} pit yaptı` : xp ? `${H.drivers[x].c} pit sonrası` : R.flag[n] ? R.flag[n] : "pistte";
+      out.push({ n, x, y, from: px, to: cx, kind, why });
+    }
+  }
+  return (R.moves = out);
+}
+function renderMoves(H, R) {
+  const mv = computeMoves(H, R), f = st.moveFilter || "all";
+  const cnt = { track: 0, pit: 0, sc: 0 }; mv.forEach((m) => cnt[m.kind]++);
+  const names = [["all", `Hepsi (${mv.length})`], ["track", `Pit/bayrak dışı (${cnt.track})`], ["pit", `Pit kaynaklı (${cnt.pit})`], ["sc", `SC/VSC (${cnt.sc})`]];
+  $("mvFilters").innerHTML = names.map(([k, t]) => `<button class="chip" data-mf="${k}" aria-pressed="${k === f}">${t}</button>`).join("");
+  const by = new Map(); mv.filter((m) => m.kind === "track").forEach((m) => by.set(m.x, (by.get(m.x) || 0) + 1));
+  const top = [...by.entries()].sort((a, b) => b[1] - a[1]).slice(0, 4).map(([di, n]) => `${colB(H, di, H.drivers[di].c)} ${n}`).join(", ");
+  $("mvSum").innerHTML = mv.length ? `<b>${mv.length}</b> pozisyon değişimi: ${cnt.track} pit/bayrak dışı, ${cnt.pit} pit kaynaklı, ${cnt.sc} güvenlik aracı altında.${top ? ` En çok tur bazlı pozisyon kazanımı: ${top}.` : ""}` : "Bu yarışta sıralama verisinden geçiş çıkarılamadı.";
+  const rows = mv.filter((m) => f === "all" || m.kind === f);
+  $("mvList").innerHTML = rows.length ? rows.map((m) => `<div class="mv"><span class="n">T${m.n}</span><span>${colB(H, m.x, H.drivers[m.x].c)} <span class="w">▸</span> ${colB(H, m.y, H.drivers[m.y].c)} karşısında sıra kazandı</span><span class="p">P${m.from} → P${m.to}</span><span class="mt ${m.kind}" title="${m.why}">${m.kind === "track" ? "pist" : m.kind === "pit" ? "pit" : m.why}</span></div>`).join("") : `<p class="none" style="margin:6px 0">Bu filtrede geçiş yok.</p>`;
+}
+$("mvFilters").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b || !st.H || !st.race) return; st.moveFilter = b.dataset.mf; renderMoves(st.H, st.race); });
+
+function computeUO(H, R) {
+  if (R.uo) return R.uo;
+  const lm = lapMaps(R), out = [];
+  const stopsBy = H.drivers.map((_, di) => R.stops.filter((s) => s.di === di).sort((a, b) => a.lap - b.lap));
+  R.stops.forEach((s) => {
+    const X = s.di, L = s.lap; if (L < 2) return;
+    const xp = lm[X].get(L - 1); if (!xp || xp.pos == null) return;
+    H.order.forEach((Y) => {
+      if (Y === X) return;
+      const yp = lm[Y].get(L - 1); if (!yp || yp.pos == null || Math.abs(yp.pos - xp.pos) !== 1) return;
+      const s2 = stopsBy[Y].find((q) => q.lap > L); if (!s2 || s2.lap > L + 8) return;
+      if (stopsBy[Y].some((q) => q.lap >= L - 8 && q.lap <= L)) return;
+      const E = s2.lap + 1, xe = lm[X].get(E), ye = lm[Y].get(E); if (!xe || !ye || xe.pos == null || ye.pos == null) return;
+      const xl = lm[X].get(L), yl = lm[Y].get(L); let gap = null;
+      if (xl && yl && xl.ts != null && yl.ts != null) gap = Math.abs(xl.ts - yl.ts);
+      if (gap == null || gap > 6) return;
+      const xBehind = xp.pos > yp.pos, flag = s.flag || s2.flag || null;
+      if (xBehind) out.push({ type: "under", att: X, def: Y, la: L, ld: s2.lap, gap, ok: xe.pos < ye.pos, from: xp.pos, to: xe.pos, flag });
+      else out.push({ type: "over", att: Y, def: X, la: s2.lap, ld: L, gap, ok: ye.pos < xe.pos, from: yp.pos, to: ye.pos, flag });
+    });
+  });
+  return (R.uo = out.sort((a, b) => Math.min(a.la, a.ld) - Math.min(b.la, b.ld)));
+}
+function renderUO(H, R) {
+  const uo = computeUO(H, R);
+  if (!uo.length) { $("uoBox").innerHTML = `<p class="none" style="padding:6px 14px 14px">Aralarında 6 saniyeden az fark olan, birbirini izleyen ve 8 tur içinde pite giren araç çifti bulunamadı.</p>`; return; }
+  const sum = (t) => { const a = uo.filter((u) => u.type === t && !u.flag), n = a.length; return { n, ok: a.filter((u) => u.ok).length }; };
+  const u = sum("under"), o = sum("over"), tile = (a, b, c) => `<div class="tile"><span>${a}</span><b>${b}</b><small>${c || "&nbsp;"}</small></div>`;
+  const tiles = [tile("Olası undercut", u.n ? `${u.ok} / ${u.n}` : "—", "sıra kazanımı · yeşil bayrak"), tile("Olası overcut", o.n ? `${o.ok} / ${o.n}` : "—", "sıra kazanımı · yeşil bayrak"), tile("Çift sayısı", uo.length, `${uo.filter((x) => x.flag).length} tanesi SC/VSC altında`)].join("");
+  const rows = uo.map((x) => `<tr><td>${x.type === "under" ? "Undercut" : "Overcut"}</td><td>${colB(H, x.att, H.drivers[x.att].c)}</td><td>${colB(H, x.def, H.drivers[x.def].c)}</td><td class="t">${x.type === "under" ? x.la + " → " + x.ld : x.ld + " → " + x.la}</td><td>${x.gap != null ? x.gap.toFixed(1) + " s" : "—"}</td><td class="${x.ok ? "uo-ok" : "uo-no"}">${x.ok ? "✓ göreli sıra kazandı" : "✗ " + (x.type === "under" ? "savunuldu" : "öndeki korudu")} <small style="color:var(--muted);font-weight:400">P${x.from} → P${x.to}</small></td><td>${x.flag ? `<span class="flag">${x.flag === "R" ? "Kırmızı bayrak" : x.flag}</span>` : ""}</td></tr>`).join("");
+  $("uoBox").innerHTML = `<div class="tiles">${tiles}</div><div class="corners"><table class="ct plain"><thead><tr><th>Tür</th><th>Saldıran</th><th>Savunan</th><th>Pit turları</th><th>Fark</th><th>Sonuç</th><th></th></tr></thead><tbody>${rows}</tbody></table></div><p class="note2 pad">Undercut: arkadaki araç önce pite girip öndekini pit sonrası geçmeye çalışır. Overcut: arkadaki araç pite girmeden uzun gidip, öndeki girdikten sonra öne geçmeye çalışır. Bunlar aday strateji eşleşmeleridir; sıra kazanımı pit stratejisinin etkisini tek başına kanıtlamaz. Sonuç, ikinci stoptan sonraki turda ölçülür; arada başka araçlar araya girdiyse çiftin göreli sırasına bakılır.</p>`;
+}
+
+const RTABS = ["sum", "chart", "strat", "moves", "drv"];
+function setRaceTab(t, quiet) {
+  if (!RTABS.includes(t)) t = "sum";
+  st.raceTab = t; $("raceview").dataset.t = t;
+  document.querySelectorAll("#rtabs button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.tab === t ? "true" : "false"));
+  if (!quiet) writeHash();
+  requestAnimationFrame(drawRaceCharts);
+}
+$("rtabs").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { setRaceTab(b.dataset.tab); window.scrollTo({ top: 0 }); } });
+
+/* ── mode switching ── */
+function syncModes() {
+  const can = !!st.H && (st.H.kind === "R" || st.H.kind === "S");
+  document.querySelectorAll("#modes button").forEach((b) => {
+    b.setAttribute("aria-pressed", b.dataset.mode === st.mode ? "true" : "false");
+    if (b.dataset.mode === "race") { b.disabled = !can; b.title = can ? "" : "Yarış analizi için Yarış veya Sprint oturumunu seç"; }
+  });
+}
+function applyMode() {
+  const race = st.mode === "race";
+  $("duelview").hidden = race; $("raceview").hidden = !race;
+  syncModes(); writeHash();
+}
+function setMode(m) {
+  if (m === st.mode || !st.H) return;
+  if (m === "race" && !(st.H.kind === "R" || st.H.kind === "S")) return;
+  stopPlay(); st.mode = m; applyMode();
+  if (m === "race") renderRace();
+  else if (st.duelStale) { st.duelStale = false; compare(); }
+  else { mapLayer = null; chartLayer = null; drawAll(); }
+}
+$("modes").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b && !b.disabled) setMode(b.dataset.mode); });
+function writeHash() {
+  const H = st.H; if (!H) return;
+  const q = { y: H.year, e: H.event, k: H.kind };
+  if (st.mode === "race") { q.m = "race"; if (st.raceTab && st.raceTab !== "sum") q.t = st.raceTab; }
+  try {
+    if (st.a && st.b && H.drivers[st.a.d] && H.drivers[st.b.d] && H.laps[st.a.l] && H.laps[st.b.l]) { q.a = H.drivers[st.a.d].c; q.la = H.laps[st.a.l].n; q.b = H.drivers[st.b.d].c; q.lb = H.laps[st.b.l].n; }
+    history.replaceState(null, "", "#" + new URLSearchParams(q));
+  } catch (e) {}
+}
+
+
+
+function reliableChannel(L,key) { const q=L.quality[key];return q && !q.missing && q.filled===0; }
+function insightDistance(A,B) { return Math.max(20, Math.max(...A.v,...B.v)/3.6*.25); }
+function renderQuality() {
+  const labels={time:"zaman",distance:"mesafe",speed:"hız",throttle:"gaz",rpm:"devir",gear:"vites",brake:"fren",x:"X",y:"Y"};
+  const rows=[st.A,st.B].map((L,i)=>{
+    const missing=Object.keys(L.quality).filter(k=>L.quality[k].missing).map(k=>labels[k]);
+    const filled=Object.keys(L.quality).filter(k=>!L.quality[k].missing && L.quality[k].filled).map(k=>labels[k]+" ("+L.quality[k].filled+" örnek)");
+    return '<div><strong>'+['A','B'][i]+'</strong> · '+(missing.length?'Veri yok: '+missing.join(', '):'Tüm kanallar mevcut')+(filled.length?' · Doldurulan boşluklar: '+filled.join(', '):'')+' · '+(L.aligned?'Tur süresine hizalı':'Tur süresine hizalama doğrulanamadı')+'</div>';
+  });
+  $("quality").innerHTML=rows.join('')+'<p>~4 Hz kaynak verisi; 8 m ara değerler yeni ölçüm değildir. Fren açık/kapalıdır. Viraj yorumları yaklaşık gözlemlerdir; farkın nedenini kanıtlamaz. Eksik kanallar çizilmez. Fren/gaz boşluğu varsa ilgili otomatik yorum üretilmez.</p>';
+}
+function cleanComparisonLap(l) {return !l.x && !!l.st && !/[24567]/.test(l.st);}
+function comparisonMatches(a,b) {
+  if ($("filterCompound").checked && (a.c==='U'||b.c==='U'||a.c!==b.c)) return false;
+  if ($("filterAge").checked && (!a.l||!b.l||Math.abs(a.l-b.l)>2)) return false;
+  if ($("filterPhase").checked && (!a.q||!b.q||a.q!==b.q)) return false;
+  if ($("filterClean").checked && (!cleanComparisonLap(a)||!cleanComparisonLap(b))) return false;
+  return true;
+}
+function applyComparisonFilters() {
+  const H=st.H;if(!H||!st.a||!st.b)return false;
+  const a=H.laps[st.a.l],pool=H.byDrv[st.b.d].filter(b=>comparisonMatches(a,b));
+  const active=['filterCompound','filterAge','filterPhase','filterClean'].some(id=>$(id).checked);
+  if(!pool.length) {
+    $("filterStatus").textContent='Uygun B turu yok. Filtreleri gevşetin veya A turunu değiştirin. Ekrandaki son başarılı karşılaştırma korunuyor.';
+    const select=$("lapB");select.replaceChildren(new Option('Uygun tur yok',''));select.disabled=true;
+    return false;
+  }
+  $("lapB").disabled=false;
+  if(!pool.some(l=>l.i===st.b.l)) st.b.l=pool.slice().sort((a,b)=>a.t-b.t)[0].i;
+  $("lapB").replaceChildren(...pool.slice().sort((a,b)=>a.n-b.n).map(l=>new Option(lapLabel(H,l),l.i)));
+  $("lapB").value=st.b.l;
+  $("filterStatus").textContent=active?pool.length+' uygun B turu. Seçim uygun değilse en hızlı eşleşme seçilir.':'Filtre kapalı · B pilotunun tüm karşılaştırılabilir turları gösteriliyor.';
+  return true;
+}
+for(const id of ['filterCompound','filterAge','filterPhase','filterClean']) $(id).addEventListener('change',()=>{if(st.H)compare();});
+function renderCornerDetail(i) {
+  const r=st.corners[i],H=st.H,step=H.L/(H.P-1),Ls=[st.A,st.B];
+  const show=v=>Number.isFinite(v)?Math.round(v):'Veri yok';
+  const data=Ls.map(L=>{
+    const brake=reliableChannel(L,'brake')?brakeStartK(L,r.z0,r.kc):null;
+    const throttle=reliableChannel(L,'throttle')?throttleOnK(L,r.kc,r.z1):null;
+    return {brake,throttle,min:L===st.A?r.ma:r.mb,exit:L.v[r.z1]};
+  });
+  const point=k=>k==null?'Belirlenemedi':'≈ '+Math.round(k*step)+' m';
+  const rows=[['Fren başlangıcı',...data.map(d=>point(d.brake))],['Minimum hız',...data.map(d=>show(d.min)+' km/sa')],['Bölge çıkış hızı',...data.map(d=>show(d.exit)+' km/sa')],['%90 gaza dönüş',...data.map(d=>point(d.throttle))]];
+  $("detailTitle").textContent=(H.autoCorners?'Fren bölgesi #':'Viraj T')+r.n+' · detay';
+  const table=document.createElement('table');
+  const header=table.createTHead().insertRow();for(const text of ['Ölçüm',...Ls.map((L,i)=>['A','B'][i]+' · '+H.drivers[L.meta.d].c)]) {const th=document.createElement('th');th.textContent=text;header.append(th);}
+  const body=table.createTBody();for(const row of rows){const tr=body.insertRow();row.forEach(t=>{tr.insertCell().textContent=t;});}
+  const note=document.createElement('p');note.textContent='Bölge: ≈ '+Math.round(r.z0*step)+'–'+Math.round(r.z1*step)+' m. Konumlar tur başlangıcından ölçülür. Çıkış, analiz bölgesinin sonudur; resmî viraj çıkışı değildir. Fren ve gaz noktaları örnekleme nedeniyle yaklaşıktır. Bölge kazancı: '+(r.gain>=0?'A':'B')+' ≈ '+Math.abs(r.gain).toFixed(3)+' s.';
+  $("detailBody").replaceChildren(table,note);$("cornerDetail").hidden=false;
+}
+$("closeDetail").onclick=resetView;
+// Ensure missing channels are explicitly unavailable in live values too.
+const originalReadouts=drawReadouts;
+drawReadouts=function(pos){
+  originalReadouts(pos);
+  [st.A,st.B].forEach((L,i)=>{
+    const id=['A','B'][i];
+    if(L.quality.gear.missing)$("gr"+id).textContent='—';
+    if(L.quality.throttle.missing){$("thr"+id).style.width='0%';$("thr"+id).parentElement.title='Gaz verisi yok';}else $("thr"+id).parentElement.title='Gaz';
+    const el=$("brk"+id);el.classList.toggle('missing',L.quality.brake.missing);el.title=L.quality.brake.missing?'Fren verisi yok':'Fren';
+    if(L.quality.brake.missing)el.classList.remove('on');
+  });
+  $("readout").innerHTML=$("readout").innerHTML.replace(/NaN/g,'—');
+};
+/* ───────── boot ───────── */
+(function boot() {
+  if (TOUCH) $("hint").textContent = "Grafikte parmağını yatay kaydır: haritada A o noktada, B ise aynı saniyede bulunduğu yerde görünür. Sektör düğmeleri ve viraj satırları yakınlaştırır.";
+  const yrs = seasonList();
+  const hp = new URLSearchParams(location.hash.slice(1));
+  let hashWhere = null;
+  if (hp.get("y") && SEASONS[hp.get("y")] && eventsOf(hp.get("y")).some((e) => e.e === hp.get("e"))) {
+    const kd = hp.get("k");
+    hashWhere = { year: hp.get("y"), ev: hp.get("e"), kind: SES_ORDER[kd] != null ? kd : null };
+  }
+  st.mode = hp.get("m") === "race" ? "race" : "duel";
+  st.raceTab = RTABS.includes(hp.get("t")) ? hp.get("t") : "sum";
+  const saved = hashWhere || store.get("td.where");
+  st.year = saved && SEASONS[saved.year] ? saved.year : yrs[0];
+  const evs = eventsOf(st.year);
+  st.ev = saved && evs.find((e) => e.e === saved.ev) ? saved.ev : evs[evs.length - 1].e;
+  st.kind = saved && saved.kind ? saved.kind : null;
+  pickDefaultKind(!!st.kind);
+  if (hashWhere && hp.get("a") && hp.get("b")) store.set("td.pick2", { key: `${st.year}|${st.ev}|${sesName(st.kind)}`, a: hp.get("a"), la: +hp.get("la"), b: hp.get("b"), lb: +hp.get("lb") });
+  const hashPending = !hashWhere && hp.get("y") && hp.get("e") ? { year: hp.get("y"), ev: hp.get("e"), kind: hp.get("k") } : null;
+  buildYear(); buildEvents(); buildSessions();
+  openSession();
+  const remember = () => store.set("td.where", { year: st.year, ev: st.ev, kind: st.kind });
+  ["year", "event"].forEach((id) => $(id).addEventListener("change", remember));
+  $("sessions").addEventListener("click", () => setTimeout(remember));
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { mapLayer = null; chartLayer = null; drawAll(); });
+  // newer weekends than this file knows about
+  discover().then((changed) => {
+    if (!changed) return;
+    if (hashPending && SEASONS[hashPending.year] && eventsOf(hashPending.year).some((e) => e.e === hashPending.ev)) {
+      st.year = hashPending.year; st.ev = hashPending.ev; st.kind = SES_ORDER[hashPending.kind] != null ? hashPending.kind : null;
+      st.mode = hp.get("m") === "race" ? "race" : "duel"; st.raceTab = RTABS.includes(hp.get("t")) ? hp.get("t") : "sum";
+      pickDefaultKind(!!st.kind);
+      if (hp.get("a") && hp.get("b")) store.set("td.pick2", { key: `${st.year}|${st.ev}|${sesName(st.kind)}`, a: hp.get("a"), la: +hp.get("la"), b: hp.get("b"), lb: +hp.get("lb") });
+      buildYear(); buildEvents(); buildSessions(); openSession(); return;
+    }
+    const latestY = seasonList()[0], wasLatest = !saved && st.year === latestY;
+    buildYear();
+    if (wasLatest) { const e = eventsOf(st.year); const last = e[e.length - 1].e; if (last !== st.ev) { st.ev = last; pickDefaultKind(); buildEvents(); buildSessions(); openSession(); return; } }
+    buildEvents(); buildSessions();
+  });
+})();
+</script>
+
+</body>
+</html>
