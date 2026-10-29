@@ -2339,7 +2339,7 @@ function ghostDraw(pos) {
       if(inside!==(db>=1.02)){const t=(1.02-da)/(db-da);clipped.push(a.map((v,j)=>v+(b[j]-v)*t));}
     }
     if(clipped.length<3)return;const ps=clipped.map(project);if(ps.some(p=>!p))return;
-    polys.push({ps,color,alpha,depth:ps.reduce((v,p)=>v+p.d,0)/ps.length});
+    polys.push({ps,color,alpha,layer:vertices.some(p=>p[1]>.1)?1:0,depth:ps.reduce((v,p)=>v+p.d,0)/ps.length});
   }
   const edge=(e,offset,y=0)=>[e.p.x+e.rx*offset,y,e.p.z+e.rz*offset];
   for(let i=0;i<S.n-1;i++) {
@@ -2419,7 +2419,7 @@ function ghostDraw(pos) {
   }
 
   car(A,COL.a,1,0);car(B,COL.b,.62,1);
-  polys.sort((a,b)=>b.depth-a.depth);
+  polys.sort((a,b)=>a.layer-b.layer||b.depth-a.depth);
   for(const p of polys){g.globalAlpha=p.alpha;g.fillStyle=p.color;g.beginPath();p.ps.forEach((q,i)=>i?g.lineTo(q.x,q.y):g.moveTo(q.x,q.y));g.closePath();g.fill();}
   g.globalAlpha=1;
   for(let i=0;i<2;i++){
