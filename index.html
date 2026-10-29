@@ -293,6 +293,8 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
 
 .ghost-on .grid{display:flex;flex-direction:column}.ghost-on .rail{display:none}.ghost-on .main{display:contents}.ghost-on #chartcard,.ghost-on #cornercard,.ghost-on #cornerDetail{display:none}.ghost-on #duel{order:0}.ghost-on #ghostPanel{order:1}.ghost-on #insights{order:2}.ghost-on #duel{grid-template-columns:1fr 1fr;width:100%}.ghost-on #duel .filters{grid-column:1/-1}.ghost-on #duel .side.b{border-top:0;border-left:1px solid var(--line)}.ghost-panel{width:100%;overflow:hidden;scroll-margin-top:70px}.ghost-head{padding:20px 22px 8px;display:flex;justify-content:space-between;align-items:center;gap:12px}.ghost-head h2{font:800 clamp(25px,4vw,36px)/1 var(--display);margin:7px 0 0;text-transform:uppercase}.ghost-cameras{display:flex;flex-wrap:wrap;gap:6px;padding:8px 22px 16px}.ghost-stage{position:relative;background:#0b171e}.ghost-stage canvas{display:block;width:100%;height:clamp(360px,62vh,700px)}.ghost-overlay{position:absolute;top:20px;left:22px;pointer-events:none;display:grid;gap:5px;padding:12px 15px;border-left:2px solid var(--a);background:#071018bc;backdrop-filter:blur(8px)}.ghost-overlay span{font:600 10px var(--mono);letter-spacing:.08em;color:#a3b6c2}.ghost-overlay b{font:700 28px var(--mono);color:var(--fg)}.ghost-overlay small{font-size:10px;color:#94aab9}.ghost-drivers{display:grid;grid-template-columns:1fr 1fr;border-block:1px solid var(--line)}.ghost-driver{padding:14px 22px;display:grid;gap:5px}.ghost-driver strong{font:700 18px var(--mono)}.ghost-driver small{font:400 11px var(--mono);color:var(--muted)}.ghost-driver.ga{border-left:3px solid var(--a)}.ghost-driver.gb{border-left:3px solid var(--b)}.ghost-driver.ga strong{color:var(--a)}.ghost-driver.gb strong{color:var(--b)}.ghost-controls{display:flex;align-items:center;gap:12px;padding:16px 22px;flex-wrap:wrap}.ghost-controls input{flex:1;min-width:100px}.ghost-controls .primary{min-width:125px}.ghost-controls select{font:12px var(--mono)}#ghostClock{font:11px var(--mono);color:var(--muted);white-space:nowrap}.ghost-note{margin:0;padding:0 22px 18px;color:var(--muted);font-size:11px;line-height:1.7}@media(max-width:650px){.ghost-on #duel{grid-template-columns:1fr}.ghost-on #duel .side.b{border-left:0;border-top:1px solid var(--line)}.ghost-head{padding:16px 14px 8px}.ghost-cameras{padding:8px 14px 12px}.ghost-driver{padding:12px}.ghost-driver strong{font-size:14px}.ghost-driver small{font-size:10px;line-height:1.6}.ghost-overlay{top:12px;left:12px;padding:9px}.ghost-overlay span{font-size:8px}.ghost-overlay b{font-size:22px}.ghost-controls{padding:14px;gap:8px}.ghost-controls input{flex-basis:45%}.ghost-note{padding:0 14px 14px}#ghostClock{width:100%}}
 
+.brake-dashboard{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 22px 18px}.pedal-card{border:1px solid var(--line-2);border-radius:8px;background:#111c27;padding:13px 15px;transition:background .12s,border-color .12s}.pedal-card.braking{background:#261924;border-color:#a43b50}.pedal-title{display:flex;align-items:center;justify-content:space-between;gap:12px;font:600 10px var(--mono);color:var(--muted)}.pedal-title b{font-size:12px;color:var(--fg)}.braking .pedal-title b{color:#ff6b7e}.pedal-bars{display:grid;grid-template-columns:35px minmax(0,1fr) 48px;align-items:center;gap:8px;margin-top:14px;font:10px var(--mono)}.pedal-bars b{text-align:right;font-size:10px}.pedal-track{height:8px;background:#08121b;border-radius:3px;overflow:hidden}.pedal-track i{display:block;height:100%;background:#42d9a3;width:0}.pedal-track.brake i{background:#ff5268}.pedal-card p{margin:10px 0 0;font:10px/1.5 var(--mono);color:var(--muted)}.brake-analysis{margin:0 22px 18px;padding:16px;border:1px solid var(--line-2);border-radius:8px;background:#0c151e}.brake-analysis-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.brake-analysis-head p,.brake-caveat{font-size:11px;color:var(--muted);margin:5px 0 0}#brakeTimeline{display:block;width:100%;height:92px;margin-top:12px;cursor:pointer;touch-action:pan-y}.brake-event-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}.brake-event-cols h3{font:700 15px var(--display);margin:0 0 4px}.brake-event-cols p{font:10px var(--mono);color:var(--muted);margin:0 0 10px}.brake-event{display:block;width:100%;border:0;border-top:1px solid var(--line);padding:8px 0;background:none;color:var(--fg);font:10px/1.5 var(--mono);text-align:left;cursor:pointer}.brake-event:hover{color:#ff6b7e}.brake-caveat{margin-top:12px;line-height:1.6}@media(max-width:650px){.brake-dashboard{grid-template-columns:1fr;padding:0 14px 14px}.brake-analysis{margin:0 14px 14px;padding:12px}.brake-event-cols{grid-template-columns:1fr}.pedal-title{font-size:9px}}
+
 </style>
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -391,10 +393,16 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
       <section class="card ghost-panel" id="ghostPanel" hidden aria-label="Hayalet tur simülatörü">
   <div class="ghost-head"><div><span class="eyebrow">GHOST LAB / TELEMETRİ REPLAY</span><h2>İki tur. Tek başlangıç.</h2></div><button class="chip" id="ghostClose">Düelloya dön</button></div>
   <div class="ghost-cameras" id="ghostCameras" role="group" aria-label="Kamera seçimi"><button class="chip" data-camera="tv" aria-pressed="true">Yayın kamerası</button><button class="chip" data-camera="a" aria-pressed="false">A'yı takip et</button><button class="chip" data-camera="b" aria-pressed="false">B'yi takip et</button><button class="chip" data-camera="overview" aria-pressed="false">Tüm pist</button></div>
-  <div class="ghost-stage"><canvas id="ghostCanvas" aria-label="Gerçek tur telemetrisinden hareket eden iki hayalet aracın perspektif görünümü"></canvas><div class="ghost-overlay"><span>GERÇEK TELEMETRİ · ŞEMATİK 3D PİST</span><b id="ghostDelta">+0.000 s</b><small>Aynı mesafedeki zaman farkı</small></div></div>
+  <div class="ghost-stage"><canvas id="ghostCanvas" aria-label="Gerçek tur telemetrisinden hareket eden iki hayalet aracın perspektif görünümü"></canvas><div class="ghost-overlay"><span>TELEMETRİ REPLAY · GÖRSEL PİST MODELİ</span><b id="ghostDelta">+0.000 s</b><small>Aynı mesafedeki zaman farkı</small></div></div>
   <div class="ghost-drivers"><div class="ghost-driver ga"><strong id="ghostDriver0">A · Veri bekleniyor</strong><small id="ghostMetric0">Pilot ve turu yukarıdan seç</small></div><div class="ghost-driver gb"><strong id="ghostDriver1">B · Veri bekleniyor</strong><small id="ghostMetric1">Pilot ve turu yukarıdan seç</small></div></div>
   <div class="ghost-controls"><button class="btn primary" id="ghostPlay">▶ Oynat</button><button class="btn" id="ghostRestart" aria-label="Hayalet turu başa sar">↺</button><input id="ghostScrub" type="range" min="0" max="10000" step="1" value="0" aria-label="Hayalet tur zamanı"><label class="sel"><select id="ghostRate" aria-label="Hayalet oynatma hızı"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label><span id="ghostClock">0:00.000</span></div>
-  <p class="ghost-note">İki araç aynı anda başlar ve kendi tur süresinde bitirir. B aracı yarı saydamdır. Yol genişliği, araç modeli ve düz zemin görselleştirmedir; gerçek pist modeli veya santimetre hassasiyetinde yarış çizgisi değildir. İlerleme hızdan türetilen mesafeye dayanır; konum çizgisi GPS sıçramalarını azaltmak için yumuşatılır. Bu işlem ek ölçüm hassasiyeti sağlamaz. Boşluk: oynat / duraklat · ← / →: 1 saniye.</p>
+<div class="brake-dashboard">
+  <div class="pedal-card" id="pedalCard0"><div class="pedal-title"><span>A / FREN TELEMETRİSİ</span><b id="brakeState0">Veri bekleniyor</b></div><div class="pedal-bars"><span>GAZ</span><div class="pedal-track"><i id="pedalGas0"></i></div><b id="pedalGasText0">—</b><span>FREN</span><div class="pedal-track brake"><i id="pedalBrake0"></i></div><b id="pedalBrakeText0">—</b></div><p id="brakeNow0">Fren basıncı sağlanmıyor; sinyal yalnızca açık / kapalı.</p></div>
+  <div class="pedal-card" id="pedalCard1"><div class="pedal-title"><span>B / FREN TELEMETRİSİ</span><b id="brakeState1">Veri bekleniyor</b></div><div class="pedal-bars"><span>GAZ</span><div class="pedal-track"><i id="pedalGas1"></i></div><b id="pedalGasText1">—</b><span>FREN</span><div class="pedal-track brake"><i id="pedalBrake1"></i></div><b id="pedalBrakeText1">—</b></div><p id="brakeNow1">Fren basıncı sağlanmıyor; sinyal yalnızca açık / kapalı.</p></div>
+</div>
+<div class="brake-analysis"><div class="brake-analysis-head"><div><span class="eyebrow">FRENLEME BÖLGELERİ</span><p>Kırmızı bantlar fren sinyalini gösterir. Bölgeye dokunarak tekrarın o anına git.</p></div><button class="chip" id="nextBrake">Sonraki frenleme →</button></div><canvas id="brakeTimeline" aria-label="İki pilotun tur boyunca fren açık zamanları ve oynatma konumu"></canvas><div class="brake-event-cols" id="brakeEvents"></div><p class="brake-caveat">Fren başlangıcı kaynak örneklerde tespit edilir; tepki süresi ve kesin fren noktası ölçümü değildir. Her pilotun kendi tur zamanına göre gösterilir. Farklı lastik ve koşullar karşılaştırmayı etkiler.</p></div>
+
+  <p class="ghost-note">İki araç aynı anda başlar ve kendi tur süresinde bitirir. B aracı yarı saydamdır. Yol genişliği, kerbler, araç modeli ve düz zemin görselleştirmedir; gerçek pist modeli veya santimetre hassasiyetinde yarış çizgisi değildir. İlerleme hızdan türetilen mesafeye dayanır; konum çizgisi GPS sıçramalarını azaltmak için yumuşatılır. Bu işlem ek ölçüm hassasiyeti sağlamaz. Renkli konum izleri gerçek pilot yarış çizgisi olarak yorumlanmamalıdır. Boşluk: oynat / duraklat · ← / →: 1 saniye.</p>
 </section>
 
 <section class="card rel" id="chartcard">
@@ -2293,7 +2301,7 @@ function ghostDraw(pos) {
   const S=ghostBuild(),cv=$('ghostCanvas');if(!cv.getClientRects().length)return;
   fitCanvas(cv);const g=cv.getContext('2d'),dpr=cv.width/cv.getBoundingClientRect().width,w=cv.width/dpr,h=cv.height/dpr;
   g.setTransform(dpr,0,0,dpr,0,0);
-  const sky=g.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#142231');sky.addColorStop(.5,'#0a151c');sky.addColorStop(1,'#081113');g.fillStyle=sky;g.fillRect(0,0,w,h);
+  const sky=g.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#243e55');sky.addColorStop(.36,'#658092');sky.addColorStop(.52,'#5b705a');sky.addColorStop(1,'#253e32');g.fillStyle=sky;g.fillRect(0,0,w,h);
   const poses=S.native.map(L=>ghostMotionPose(L,st.play.e)),A=poses[0],B=poses[1];
   let camera,target;
   if(ghost.camera==='overview') {
@@ -2314,11 +2322,18 @@ function ghostDraw(pos) {
   for(let i=0;i<S.n-1;i++) {
     const a=S.edges[i],b=S.edges[i+1];
     if(ghost.camera!=='overview' && Math.min(Math.hypot(a.p.x-A.x,a.p.z-A.z),Math.hypot(a.p.x-B.x,a.p.z-B.z))>320)continue;
-    poly([edge(a,-11,-.14),edge(b,-11,-.14),edge(b,11,-.14),edge(a,11,-.14)],'#18332d');
-    poly([edge(a,-7),edge(b,-7),edge(b,7),edge(a,7)],i%8<4?'#343e46':'#323c44');
+    poly([edge(a,-35,-.16),edge(b,-35,-.16),edge(b,35,-.16),edge(a,35,-.16)],i%12<6?'#385441':'#3c5945');
+    poly([edge(a,-10,-.08),edge(b,-10,-.08),edge(b,10,-.08),edge(a,10,-.08)],'#6c756e');
+    poly([edge(a,-7),edge(b,-7),edge(b,7),edge(a,7)],'#353c42');
     for(const sign of [-1,1]) {
       poly([edge(a,sign*7,.02),edge(b,sign*7,.02),edge(b,sign*7.22,.02),edge(a,sign*7.22,.02)],'#c4ced0');
     }
+    const previous=S.edges[Math.max(0,i-1)].p,next=S.edges[Math.min(S.n-1,i+2)].p;
+    const dx=a.p.x-previous.x,dz=a.p.z-previous.z,ex=next.x-b.p.x,ez=next.z-b.p.z;
+    const bend=(dx*ez-dz*ex)/(Math.hypot(dx,dz)*Math.hypot(ex,ez)||1);
+    if(Math.abs(bend)>.045)for(const sign of [-1,1])poly([edge(a,sign*7.25,.035),edge(b,sign*7.25,.035),edge(b,sign*8.1,.035),edge(a,sign*8.1,.035)],i%2?'#d8dfda':'#c9464b');
+    // Brake zones occupy separate schematic lanes, not claimed lateral racing lines.
+    for(const [L,side] of [[st.A,-1],[st.B,1]])if(!L.quality.brake.missing&&L.brk[i]>=.5)poly([edge(a,side*.8,.045),edge(b,side*.8,.045),edge(b,side*4.8,.045),edge(a,side*4.8,.045)],'#ff435f',.16);
   }
   // Start/finish checkerboard anchored to the first recorded sample.
   const first=S.edges[0],forward={x:-first.rz,z:first.rx};
@@ -2326,7 +2341,7 @@ function ghostDraw(pos) {
     const p=edge(first,i-7,.04),q=edge(first,i-6,.04);
     poly([[p[0]+forward.x*j,.04,p[2]+forward.z*j],[q[0]+forward.x*j,.04,q[2]+forward.z*j],[q[0]+forward.x*(j+1),.04,q[2]+forward.z*(j+1)],[p[0]+forward.x*(j+1),.04,p[2]+forward.z*(j+1)]],(i+j)%2?'#11181b':'#eff3ec');
   }
-  // Actual A/B paths, independent of the illustrative road ribbon.
+  // Approximate tracking traces; the feed does not establish driver-specific lateral lines.
   for(let side=0;side<2;side++){
     const path=S.paths[side],col=side?COL.b:COL.a;
     for(let i=1;i<path.length;i++) {
@@ -2335,20 +2350,42 @@ function ghostDraw(pos) {
       poly([[p.x-rx,.07,p.z-rz],[q.x-rx,.07,q.z-rz],[q.x+rx,.07,q.z+rz],[p.x+rx,.07,p.z+rz]],col,.55);
     }
   }
-  function car(p,col,alpha){
+  function car(p,col,alpha,side){
     const transform=(x,y,z)=>[p.x+p.fz*x+p.fx*z,y,p.z-p.fx*x+p.fz*z];
-    function box(x,y,z,sx,sy,sz,c){
-      const v=[[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]].map(v=>transform(x+v[0]*sx/2,y+v[1]*sy/2,z+v[2]*sz/2));
-      const faces=[[0,1,2,3],[4,7,6,5],[3,2,6,7],[0,4,5,1],[0,3,7,4],[1,5,6,2]];
-      faces.forEach((f,i)=>{const light=[.7,.82,1,.5,.65,.86][i],hex=c.replace('#',''),rgb=[0,2,4].map(k=>Math.round(parseInt(hex.slice(k,k+2),16)*light));poly(f.map(i=>v[i]),'rgb('+rgb.join(',')+')',alpha);});
+    const shade=(c,k)=>{const h=c.replace('#','');return 'rgb('+[0,2,4].map(i=>Math.round(parseInt(h.slice(i,i+2),16)*k)).join(',')+')';};
+    const shadow=Array.from({length:16},(_,i)=>transform(Math.cos(i*Math.PI/8)*1.18,.035,Math.sin(i*Math.PI/8)*3));
+    poly(shadow,'#02080b',.4*alpha);
+    function mesh(v,c){const faces=[[0,1,2,3],[4,7,6,5],[3,2,6,7],[0,4,5,1],[0,3,7,4],[1,5,6,2]];faces.forEach((f,i)=>poly(f.map(k=>v[k]),shade(c,[.65,.82,1,.45,.61,.86][i]),alpha));}
+    function box(x,y,z,sx,sy,sz,c){mesh([[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]].map(v=>transform(x+v[0]*sx/2,y+v[1]*sy/2,z+v[2]*sz/2)),c);}
+    function body(z0,z1,w0,w1,y0,y1,c){mesh([[-w0,y0,z0],[w0,y0,z0],[w0,y1,z0],[-w0,y1,z0],[-w1,y0,z1],[w1,y0,z1],[w1,y1,z1],[-w1,y1,z1]].map(v=>transform(...v)),c);}
+    // Generic open-wheel car: shaped bodywork, sidepods, slick tyres, halo and wings.
+    box(0,.14,0,1.82,.14,4.75,'#131c23');
+    body(-2.1,.6,.36,.48,.22,.64,col);body(.6,2.55,.29,.12,.27,.49,col);
+    for(const x of [-.56,.56]){box(x,.43,-.25,.36,.42,2.1,col);box(x,.68,-.2,.26,.055,1.35,'#e0e8eb');}
+    box(0,.75,-.18,.63,.12,.87,'#071118');
+    body(-1.5,-.52,.12,.29,.61,1.03,col);box(0,1.04,-1.12,.14,.18,.35,'#111b20');
+    // Front wing with multiple elements; no brake lamp is invented.
+    for(let j=0;j<3;j++)box(0,.22+j*.045,2.45-j*.15,1.97,.045,.16,j===0?'#202b32':col);
+    for(const x of [-.97,.97])box(x,.33,2.28,.045,.26,.52,col);
+    box(0,.88,-2.2,1.65,.12,.42,col);box(0,.99,-2.25,1.65,.06,.24,'#e5eced');
+    for(const x of [-.82,.82])box(x,.75,-2.2,.045,.5,.48,col);
+    box(0,.57,-2.15,.15,.58,.12,'#18232a');
+    // Helmet and halo are illustrative geometry, not measured driver motion.
+    box(0,.83,-.08,.27,.27,.29,'#edf1dc');box(0,.86,.075,.24,.065,.025,'#17222b');
+    for(const x of [-.35,.35])box(x,.95,-.12,.06,.06,.72,'#25343d');
+    box(0,.95,.24,.71,.06,.06,'#25343d');box(0,.78,.47,.065,.38,.06,'#25343d');
+    for(const x of [-.87,.87])for(const z of [-1.58,1.48]){
+      const radius=.37,width=.36,segments=12;
+      const rings=[-1,1].map(sign=>Array.from({length:segments},(_,j)=>{const a=j/segments*Math.PI*2;return transform(x+sign*width/2,.39+Math.cos(a)*radius,z+Math.sin(a)*radius);}));
+      for(let j=0;j<segments;j++){const next=(j+1)%segments;poly([rings[0][j],rings[0][next],rings[1][next],rings[1][j]],shade('#20252b',.48+.38*Math.max(0,Math.cos(j/segments*Math.PI*2))),alpha);}
+      const outward=x>0?1:-1;poly(rings[outward>0?1:0],'#0b1117',alpha);
+      const face=x+outward*(width/2+.004),disc=Array.from({length:12},(_,j)=>{const a=j/12*Math.PI*2;return transform(face,.39+Math.cos(a)*.19,z+Math.sin(a)*.19);});
+      poly(disc,'#89959d',alpha);
+      const hub=Array.from({length:8},(_,j)=>{const a=j/8*Math.PI*2;return transform(face+outward*.003,.39+Math.cos(a)*.095,z+Math.sin(a)*.095);});poly(hub,col,alpha);
     }
-    box(0,.18,0,1.7,.16,4.9,'#111b22');box(0,.48,-.3,1.25,.52,2.8,col);
-    box(0,.44,1.5,.48,.28,2.2,col);box(0,.25,2.65,1.95,.12,.5,col);
-    box(0,.9,-2.2,1.75,.15,.48,col);box(0,.5,-2.2,.18,.7,.15,'#1b252c');
-    box(0,.85,-.15,.65,.15,.8,'#061014');box(0,.96,.12,.28,.22,.28,'#e6ecf1');
-    for(const x of [-.87,.87])for(const z of [-1.65,1.55]){box(x,.42,z,.4,.76,.78,'#080e13');box(x+(x>0?.205:-.205),.42,z,.025,.36,.36,col);}
   }
-  car(A,COL.a,1);car(B,COL.b,.62);
+
+  car(A,COL.a,1,0);car(B,COL.b,.62,1);
   polys.sort((a,b)=>b.depth-a.depth);
   for(const p of polys){g.globalAlpha=p.alpha;g.fillStyle=p.color;g.beginPath();p.ps.forEach((q,i)=>i?g.lineTo(q.x,q.y):g.moveTo(q.x,q.y));g.closePath();g.fill();}
   g.globalAlpha=1;
@@ -2374,6 +2411,7 @@ function ghostDraw(pos) {
     $('ghostMetric'+i).textContent='Vites '+value(L.gear,k)+' · Gaz %'+value(L.thr,k)+' · Fren '+(L.quality.brake.missing?'—':near(L.brk,k)?'AÇIK':'KAPALI');
   });
   const delta=lerp(st.delta,pos.ka);$('ghostDelta').textContent=fmtGap(delta)+' s';
+  ghostBrakeDraw(pos);
 }
 function ghostToggle(force){
   ghost.active=typeof force==='boolean'?force:!ghost.active;
@@ -2392,6 +2430,67 @@ const originalGhostDrawAll=drawAll;
 drawAll=function(){if(ghost.active&&st.A&&st.B&&st.mode!=='race')ghostDraw(positions());else originalGhostDrawAll();};
 document.addEventListener('keydown',e=>{if(!ghost.active||/INPUT|SELECT|TEXTAREA|BUTTON/.test(e.target.tagName))return;if(e.code==='Space'){e.preventDefault();$('ghostPlay').click();}if(e.code==='ArrowRight'||e.code==='ArrowLeft'){e.preventDefault();stopPlay();st.hoverK=null;st.play.e=Math.max(0,Math.min(Math.max(st.A?.total||0,st.B?.total||0),st.play.e+(e.code==='ArrowRight'?1:-1)));drawAll();}});
 window.addEventListener('resize',()=>{if(ghost.active)drawAll();});
+
+function ghostBrakeData(L) {
+  const p=L.source||L,missing=L.quality.brake.missing;
+  if(missing)return {events:[],total:0,missing:true};
+  const factor=L.total/p.t[p.t.length-1],events=[];
+  let current=null;
+  for(let i=0;i<p.t.length;i++) {
+    const on=Number.isFinite(p.brk[i])&&p.brk[i]>=.5;
+    if(on&&!current)current={start:p.t[i]*factor,entry:p.v[i],from:i};
+    if(current&&(!on||i===p.t.length-1)){
+      current.end=p.t[i]*factor;current.exit=p.v[i];current.duration=current.end-current.start;
+      if(current.duration>=.08)events.push(current);current=null;
+    }
+  }
+  return {events,total:events.reduce((sum,e)=>sum+e.duration,0),missing:false};
+}
+function ghostBuildBrakes() {
+  if(ghost.brakeSource===st.A)return;
+  ghost.brakeSource=st.A;ghost.brakes=[st.A,st.B].map(ghostBrakeData);
+  const cols=ghost.brakes.map((b,i)=>{
+    const col=document.createElement('div'),h=document.createElement('h3');
+    h.textContent=['A · ','B · '][i]+st.H.drivers[(i?st.B:st.A).meta.d].c;col.append(h);
+    const summary=document.createElement('p');summary.textContent=b.missing?'Fren verisi yok':b.events.length+' frenleme · toplam ≈ '+b.total.toFixed(1)+' s fren açık';col.append(summary);
+    for(const [j,e] of b.events.entries()){
+      const button=document.createElement('button');button.className='brake-event';button.dataset.brakeTime=e.start;
+      button.textContent=(j+1)+'. fren · '+fmtClock(e.start)+' · '+Math.round(e.entry)+' → '+Math.round(e.exit)+' km/sa · ≈ '+e.duration.toFixed(1)+' s';
+      col.append(button);
+    }
+    return col;
+  });
+  $('brakeEvents').replaceChildren(...cols);
+}
+function ghostBrakeDraw(pos) {
+  if(!st.A||!st.B)return;
+  ghostBuildBrakes();const end=Math.max(st.A.total,st.B.total),time=st.play.e;
+  [st.A,st.B].forEach((L,i)=>{
+    const b=ghost.brakes[i],p=L.source||L,k=kAtTime(p,time*(p.t[p.t.length-1]/L.total));
+    const finished=time>=L.total,on=!finished&&!b.missing&&near(p.brk,k)>=.5;
+    const thr=finished?0:lerp(L.thr,i?pos.kb:pos.ka),gas=Number.isFinite(thr)?Math.round(thr):null;
+    $('brakeState'+i).textContent=finished?'TUR TAMAMLANDI':b.missing?'FREN VERİSİ YOK':on?'FRENDE':'FREN SERBEST';
+    $('pedalCard'+i).classList.toggle('braking',on);
+    $('pedalGas'+i).style.width=(gas??0)+'%';$('pedalGasText'+i).textContent=gas==null?'—':gas+'%';
+    $('pedalBrake'+i).style.width=on?'100%':'0%';$('pedalBrakeText'+i).textContent=b.missing?'—':on?'AÇIK':'KAPALI';
+    const active=b.events.find(e=>time>=e.start&&time<e.end),next=b.events.find(e=>e.start>time);
+    $('brakeNow'+i).textContent=b.missing?'Bu turda fren kanalı bulunamadı.':active?'Frenleme ≈ '+(time-active.start).toFixed(1)+' s · giriş '+Math.round(active.entry)+' km/sa':next?'Sonraki frenlemeye ≈ '+(next.start-time).toFixed(1)+' s':'Fren basıncı sağlanmıyor; sinyal açık / kapalıdır.';
+  });
+  const cv=$('brakeTimeline');fitCanvas(cv);const g=cv.getContext('2d'),dpr=cv.width/cv.getBoundingClientRect().width,w=cv.width/dpr,h=cv.height/dpr;
+  g.setTransform(dpr,0,0,dpr,0,0);g.clearRect(0,0,w,h);
+  const left=36,right=w-12,width=right-left;
+  ghost.brakes.forEach((b,i)=>{
+    const y=12+i*30;g.fillStyle=i?COL.b:COL.a;g.font='700 11px '+css('--mono');g.fillText(i?'B':'A',8,y+12);
+    g.fillStyle='#1c2732';g.fillRect(left,y,width,17);
+    if(b.missing){g.fillStyle='#92a5b6';g.fillText('Veri yok',left+8,y+12);}else {g.fillStyle='#ff5268';for(const e of b.events)g.fillRect(left+e.start/end*width,y,Math.max(2,e.duration/end*width),17);}
+  });
+  const x=left+time/end*width;g.strokeStyle='#f4f7ff';g.lineWidth=1.5;g.beginPath();g.moveTo(x,6);g.lineTo(x,65);g.stroke();
+  g.fillStyle='#889caf';g.font='10px '+css('--mono');g.textAlign='left';g.fillText('0 s',left,83);g.textAlign='right';g.fillText(end.toFixed(1)+' s',right,83);
+}
+function ghostBrakeSeek(time) {if(!st.A)return;stopPlay();st.hoverK=null;st.play.e=Math.min(time,Math.max(st.A.total,st.B.total));drawAll();$('ghostPanel').scrollIntoView({behavior:'auto',block:'start'});}
+$('brakeEvents').addEventListener('click',e=>{const button=e.target.closest('[data-brake-time]');if(button)ghostBrakeSeek(+button.dataset.brakeTime);});
+$('nextBrake').onclick=()=>{if(!st.A)return;ghostBuildBrakes();const events=ghost.brakes.flatMap(b=>b.events).sort((a,b)=>a.start-b.start);const next=events.find(e=>e.start>st.play.e+.1)||events[0];if(next)ghostBrakeSeek(next.start);};
+$('brakeTimeline').addEventListener('pointerdown',e=>{if(!st.A)return;const r=e.currentTarget.getBoundingClientRect(),ratio=Math.max(0,Math.min(1,(e.clientX-r.left-36)/(r.width-48)));ghostBrakeSeek(ratio*Math.max(st.A.total,st.B.total));});
 
 /* ───────── boot ───────── */
 (function boot() {
