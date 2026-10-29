@@ -2668,11 +2668,14 @@ function ghost3dBuild(S){
   }
   const roadGeometry=new T.BufferGeometry();roadGeometry.setAttribute('position',new T.Float32BufferAttribute(positions,3));roadGeometry.setAttribute('uv',new T.Float32BufferAttribute(uvs,2));roadGeometry.computeVertexNormals();mesh(roadGeometry,roadMat).castShadow=false;
   for(const [mat,points] of batches){const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(points,3));geo.computeVertexNormals();mesh(geo,mat).castShadow=mat===concrete;}
-  const ground=mesh(new T.PlaneGeometry(18000,18000),material(S.profile.grass));ground.rotation.x=-Math.PI/2;ground.position.set((S.minX+S.maxX)/2,heights?-1:-.04,(S.minZ+S.maxZ)/2);ground.castShadow=false;
+  const terrainHeight=(x,z)=>{if(!heights)return -.04;let best=Infinity,second=Infinity,one=0,two=0;for(const e of S.edges){const d=(x-e.p.x)**2+(z-e.p.z)**2;if(d<best){second=best;two=one;best=d;one=e.height;}else if(d<second){second=d;two=e.height;}}const a=1/(best+4),b=1/(second+4);return (one*a+two*b)/(a+b)-.55;};
+  const groundMat=material(S.profile.grass),ground=mesh(new T.PlaneGeometry(18000,18000),groundMat);ground.rotation.x=-Math.PI/2;ground.position.set((S.minX+S.maxX)/2,heights?-2:-.04,(S.minZ+S.maxZ)/2);ground.castShadow=false;
+  if(heights){const width=S.maxX-S.minX+700,depth=S.maxZ-S.minZ+700,cx=(S.minX+S.maxX)/2,cz=(S.minZ+S.maxZ)/2,geo=new T.PlaneGeometry(width,depth,Math.min(128,Math.ceil(width/20)),Math.min(128,Math.ceil(depth/20)));geo.rotateX(-Math.PI/2);const points=geo.attributes.position;for(let i=0;i<points.count;i++){const x=points.getX(i)+cx,z=points.getZ(i)+cz;points.setXYZ(i,x,terrainHeight(x,z),z);}geo.computeVertexNormals();mesh(geo,groundMat).castShadow=false;}
+
   const box=(parent,x,y,z,w,h,d,mat)=>{const m=mesh(new T.BoxGeometry(w,h,d),mat,parent);m.position.set(x,y,z);return m;};
   const environment=new T.Group();world.add(environment);G.environment=environment;
   const windows=[],windowMatrix=new T.Matrix4();const glass=material('#526e7b',.25,.38),palettes=['#d1c3aa','#bbc3c5','#dbceb9','#acb3ba'].map(c=>material(c));
-  for(const o of S.environment){const group=new T.Group();group.position.set(o.x,heightAt(o.index||0),o.z);group.rotation.y=Math.atan2(-o.rz,o.rx);environment.add(group);
+  for(const o of S.environment){const group=new T.Group();group.position.set(o.x,heights?terrainHeight(o.x,o.z):0,o.z);group.rotation.y=Math.atan2(-o.rz,o.rx);environment.add(group);
     if(o.kind==='building'){
       box(group,0,o.height/2,0,12,o.height,23,palettes[o.variant]);box(group,0,o.height+.15,0,12.5,.3,23.5,concrete);
       group.updateMatrixWorld();for(let level=2;level<o.height-1;level+=3)for(const sign of [-1,1])for(let z=-9;z<=9;z+=3){windowMatrix.makeTranslation(sign*6.025,level,z);windows.push(new T.Matrix4().multiplyMatrices(group.matrixWorld,windowMatrix));}
