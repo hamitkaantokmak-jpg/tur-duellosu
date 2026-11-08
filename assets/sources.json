@@ -1,27 +1,34 @@
 [
   {
     "file": "materials/asphalt-color.jpg",
-    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/aerial_asphalt_01/aerial_asphalt_01_diff_1k.jpg",
-    "sha256": "28bfd71288b364f825e0feb750e487410422d80bf3c31d32da01cae3bf085b58",
-    "bytes": 635143,
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_02/asphalt_02_diff_1k.jpg",
+    "sha256": "47c434c444df88e63f5eb40e0ff0512ce90ed8adf00686a57857c317b6d29784",
+    "bytes": 339404,
     "license": "CC0-1.0",
-    "source": "Poly Haven"
+    "source": "Poly Haven",
+    "author": "Rob Tuytel / Poly Haven",
+    "scale_m": 3,
+    "modification": "Resurfaced artistic derivative: high-frequency aggregate retained, large weathered cracks suppressed; not a photograph of the Mexico GP surface."
   },
   {
     "file": "materials/asphalt-roughness.jpg",
-    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/aerial_asphalt_01/aerial_asphalt_01_rough_1k.jpg",
-    "sha256": "19ca745417e36a1cd1114411801933b3144a351d1409d0d9caa1046b9a20c0ec",
-    "bytes": 312445,
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_02/asphalt_02_rough_1k.jpg",
+    "sha256": "70ba3edc65525eb4dc366cf010ca7ae0bd34e0251ff0225c2dad627a873d0712",
+    "bytes": 544032,
     "license": "CC0-1.0",
-    "source": "Poly Haven"
+    "source": "Poly Haven",
+    "author": "Rob Tuytel / Poly Haven",
+    "scale_m": 3
   },
   {
     "file": "materials/asphalt-normal.jpg",
-    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/aerial_asphalt_01/aerial_asphalt_01_nor_gl_1k.jpg",
-    "sha256": "7a58cb4460f75b66359b8e19bc92585554a79c2b0009e2b9e21eccac0a58d3f6",
-    "bytes": 560227,
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_02/asphalt_02_nor_gl_1k.jpg",
+    "sha256": "42a1c381b53204e83a982db2864479a30bc127bbdeebb1006f8ee51bff099df3",
+    "bytes": 1240122,
     "license": "CC0-1.0",
-    "source": "Poly Haven"
+    "source": "Poly Haven",
+    "author": "Rob Tuytel / Poly Haven",
+    "scale_m": 3
   },
   {
     "file": "environment/spruit-sunrise.hdr",
@@ -37,30 +44,46 @@
     "url": "https://github.com/bacinger/f1-circuits/blob/master/circuits/mx-1962.geojson",
     "license": "MIT",
     "license_file": "tracks/LICENSE-MIT.txt",
-    "notes": "Approximate geographic line only. Width, elevations and structures are not provided; declared length 4304 m."
+    "notes": "Approximate geographic line only. Width, elevations and structures are not provided; declared length 4304 m.",
+    "sha256": "766760118f0e39e46162c52b5e832eef70d75ea58fe1b5337409bcc29f5ad49b",
+    "bytes": 3209
   },
   {
     "file": "materials/asphalt-roughness.ktx2",
     "derived_from": "materials/asphalt-roughness.jpg",
     "license": "CC0-1.0",
     "encoder": "Basis Universal v1.15 (basisu npm distribution 1.16.3), UASTC with mipmaps",
-    "sha256": "fb4612754af1bf788ff3c3af695a00c11401cf84f463a2318d6332b0aa56c00c",
-    "bytes": 1025530
+    "sha256": "e67cf41cd8c3e9375a11e93558cf0b53ed6765f4b5df57c91c458861fa946d5c",
+    "bytes": 1152338
   },
   {
     "file": "materials/asphalt-color.ktx2",
     "derived_from": "materials/asphalt-color.jpg",
     "license": "CC0-1.0",
     "encoder": "Basis Universal v1.15 (basisu npm distribution 1.16.3), UASTC with mipmaps",
-    "sha256": "c4aa712400fd757d2cceeb246cdcdfe31d9d4f16def8ab64ef41ae5a245b50f6",
-    "bytes": 1242531
+    "sha256": "bfc7a97343c07f38eb70d5d8c29c30e886bc955a49670be8685d5325c70d3931",
+    "bytes": 965481
   },
   {
     "file": "materials/asphalt-normal.ktx2",
     "derived_from": "materials/asphalt-normal.jpg",
     "license": "CC0-1.0",
     "encoder": "Basis Universal v1.15 (basisu npm distribution 1.16.3), UASTC with mipmaps",
-    "sha256": "b66c1d868a10e7ca8bc0b5fc61d12d75f652a386c54c913a6171f299219a8d6b",
-    "bytes": 1200932
+    "sha256": "18fcb70d2660918fa1004f1121f3b19240330c15e175fbf7145db0426fa2bcf6",
+    "bytes": 1328188
+  },
+  {
+    "file": "tracks/v3/venue-osm.json",
+    "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-99.098,19.3965,-99.082,19.4075",
+    "source": "© OpenStreetMap contributors",
+    "license": "ODbL-1.0",
+    "license_file": "licenses/ODbL-1.0.txt",
+    "notes": "Filtered public venue geometry. Reproduce with scripts/prepare-venue.py. Extracted 2026-11-08; current map is not a frozen 2024 race-week survey."
+  },
+  {
+    "file": "tracks/v3/render-path.js",
+    "derived_from": "tracks/mexico.geojson",
+    "license": "MIT",
+    "notes": "Centripetal interpolation for display only; original station registration and timing source retained."
   }
 ]

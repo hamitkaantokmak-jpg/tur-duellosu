@@ -18,10 +18,10 @@ function ghost3dStart(){
     const canvas=document.createElement('canvas');canvas.id='ghostWebGL';canvas.tabIndex=0;canvas.setAttribute('aria-label','Işık ve gölgeli 3D tur görünümü');
     const renderer=new T.WebGLRenderer({canvas,antialias:true,alpha:false,powerPreference:'high-performance'});
     renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.25));renderer.shadowMap.enabled=true;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.type=T.PCFSoftShadowMap;
-    renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.02;
+    renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=.95;
     const scene=new T.Scene();scene.background=new T.Color('#b9cdd9');scene.fog=new T.Fog('#b9cdd9',240,1050);
-    scene.add(new T.HemisphereLight('#d8edff','#807761',.9));
-    const sun=new T.DirectionalLight('#fff0d5',2.2);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-75;sun.shadow.camera.right=75;sun.shadow.camera.top=75;sun.shadow.camera.bottom=-75;sun.shadow.camera.near=1;sun.shadow.camera.far=260;sun.shadow.normalBias=.12;sun.shadow.bias=-.0005;scene.add(sun,sun.target);
+    scene.add(new T.HemisphereLight('#d9e8ee','#77765c',.55));
+    const sun=new T.DirectionalLight('#fff2dd',2.8);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-75;sun.shadow.camera.right=75;sun.shadow.camera.top=75;sun.shadow.camera.bottom=-75;sun.shadow.camera.near=1;sun.shadow.camera.far=260;sun.shadow.normalBias=.12;sun.shadow.bias=-.0005;scene.add(sun,sun.target);
     const lightCanvas=document.createElement('canvas');lightCanvas.width=512;lightCanvas.height=256;const lightCtx=lightCanvas.getContext('2d'),gradient=lightCtx.createLinearGradient(0,0,0,256);gradient.addColorStop(0,'#7399bb');gradient.addColorStop(.48,'#dce6e8');gradient.addColorStop(.53,'#a7a79b');gradient.addColorStop(1,'#60665f');lightCtx.fillStyle=gradient;lightCtx.fillRect(0,0,512,256);const glow=lightCtx.createRadialGradient(350,70,1,350,70,38);glow.addColorStop(0,'#ffffff');glow.addColorStop(.15,'#fff5dc');glow.addColorStop(1,'#ffffff00');lightCtx.fillStyle=glow;lightCtx.fillRect(300,20,100,100);const lightTexture=new T.CanvasTexture(lightCanvas);lightTexture.mapping=T.EquirectangularReflectionMapping;lightTexture.colorSpace=T.SRGBColorSpace;const pmrem=new T.PMREMGenerator(renderer),lightTarget=pmrem.fromEquirectangular(lightTexture);scene.environment=lightTarget.texture;scene.environmentIntensity=.65;lightTexture.dispose();pmrem.dispose();
     const camera=new T.PerspectiveCamera(48,1,.5,10000);
     $('ghostCanvas').parentElement.append(canvas);
@@ -53,7 +53,7 @@ function ghostDisposeWorld(){
 function ghost3dBuild(S){
   const G=ghost3d,T=G.T;
   ghostDisposeWorld();
-  const world=new T.Group();G.scene.add(world);G.world=world;G.source=st.A;G.transparent=null;G.assetApplied=-1;G.carShadows=null;
+  const world=new T.Group();G.scene.add(world);G.world=world;G.source=st.A;G.transparent=null;G.assetApplied=-1;G.carShadows=null;G.v3Instances=null;G.v3Obstacles=null;G.v3Stats=null;
   const material=(color,roughness=.8,metalness=0)=>new T.MeshStandardMaterial({color,roughness,metalness,side:T.DoubleSide});
   const roadMat=material('#b3b4b5',.96),white=material('#e2e1d5'),red=material('#ba3436'),concrete=material('#b8b9b3'),steel=material('#71838b',.43,.6);
   G.roadMaterial=roadMat;const barrierMat=concrete.clone();
@@ -66,6 +66,9 @@ function ghost3dBuild(S){
   S.edges.forEach((e,i)=>e.height=heightAt(i));
   const roadEdges=S.canonicalEdges||S.edges;
   if(S.canonicalEdges)roadEdges.forEach((e,i)=>{const u=((i/(S.n-1)-S.registration.phase)*S.registration.dir%1+1)%1;e.height=heightAt(u*(S.n-1));});
+  const point=(e,o,y)=>[e.p.x+e.rx*o,y+(e.height||0),e.p.z+e.rz*o];
+  const box=(parent,x,y,z,w,h,d,mat)=>{const m=mesh(new T.BoxGeometry(w,h,d),mat,parent);m.position.set(x,y,z);return m;};
+  if(S.track&&typeof MexicoV3!=='undefined'){MexicoV3.build(T,G,S);}else{
   const point=(e,o,y)=>[e.p.x+e.rx*o,y+(e.height||0),e.p.z+e.rz*o];
   const batches=new Map();function quad(mat,a,b,c,d){if(!batches.has(mat))batches.set(mat,[]);batches.get(mat).push(...a,...b,...c,...a,...c,...d);}
   let distance=0;const positions=[],uvs=[];
@@ -103,6 +106,12 @@ function ghost3dBuild(S){
   const fenceVertices=[];
   for(let i=0;i<S.n-1;i++)for(const sign of [-1,1]){const a=S.edges[i],b=S.edges[i+1],off=sign*(S.profile.barrier+.15);for(const y of [1.7,2.5,3.3])fenceVertices.push(...point(a,off,y),...point(b,off,y));if(i%2===0)fenceVertices.push(...point(a,off,1),...point(a,off,3.45));}
   const fenceGeo=new T.BufferGeometry();fenceGeo.setAttribute('position',new T.Float32BufferAttribute(fenceVertices,3));environment.add(new T.LineSegments(fenceGeo,new T.LineBasicMaterial({color:'#72838c',transparent:true,opacity:.55})));
+  ghostCircuitDetails(S,environment,box,mesh,material,heightAt,T);
+  ghostLandmarks(S,environment,box,mesh,material,heightAt,T);
+  G.mergeStats=ghostMergeMeshes(environment,T,180);
+  G.tiles=[];environment.traverse(o=>{if(o.userData.environmentTile)G.tiles.push(o);});
+  G.detailStats=ghostMergeMeshes(G.detailEnvironment,T);
+  }
   G.guideGroup=new T.Group();world.add(G.guideGroup);G.guideMarkers=[];
   for(const m of S.guides){
     const group=new T.Group();group.position.set(m.x,heightAt(m.k)+.09,m.z);G.guideGroup.add(group);
@@ -110,11 +119,6 @@ function ghost3dBuild(S){
     const canvas=document.createElement('canvas');canvas.width=256;canvas.height=64;const ctx=canvas.getContext('2d');ctx.fillStyle='#10202bdb';ctx.fillRect(0,0,256,64);ctx.fillStyle=m.color;ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='bold 24px sans-serif';ctx.fillText('T'+m.n+' '+m.kind,128,32);
     const texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;const label=new T.Sprite(new T.SpriteMaterial({map:texture,transparent:true,depthTest:true}));label.position.y=1.65;label.scale.set(5.2,1.3,1);group.add(label);G.guideMarkers.push({group,label,marker:m});
   }
-  ghostCircuitDetails(S,environment,box,mesh,material,heightAt,T);
-  ghostLandmarks(S,environment,box,mesh,material,heightAt,T);
-  G.mergeStats=ghostMergeMeshes(environment,T,180);
-  G.tiles=[];environment.traverse(o=>{if(o.userData.environmentTile)G.tiles.push(o);});
-  G.detailStats=ghostMergeMeshes(G.detailEnvironment,T);
   G.traces=new T.Group();G.zones=new T.Group();world.add(G.traces,G.zones);
   [st.A,st.B].forEach((L,index)=>{
     const curve=new T.CatmullRomCurve3(S.paths[index].map((p,i)=>new T.Vector3(p.x,heightAt(i)+.095,p.z)));
@@ -153,12 +157,13 @@ function ghost3dBuild(S){
 function ghost3dRender(S,poses,camera,target,w,h){
   const G=ghost3d;if(!G.ready)return false;
   try{
-    const elevationOn=!!(S.elevation&&$('ghostElevation').checked);$('ghostElevation').disabled=!S.elevation;
+    const elevationOn=!!(!S.track&&S.elevation&&$('ghostElevation').checked);$('ghostElevation').disabled=!!S.track||!S.elevation;
     if(G.source!==st.A||G.elevationOn!==elevationOn){G.elevationOn=elevationOn;ghost3dBuild(S);}
     G.canvas.hidden=false;$('ghostCanvas').style.visibility='hidden';
     if(G.width!==w||G.height!==h){G.renderer.setSize(w,h,false);G.camera.aspect=w/h;G.camera.updateProjectionMatrix();G.width=w;G.height=h;}
     ghostApplyAssets(S);
     const heightA=G.heightAt(kAtTime(st.A,st.play.e)),heightB=G.heightAt(kAtTime(st.B,st.play.e)),focusHeight=ghost.camera==='b'?heightB:ghost.camera==='tv'?(heightA+heightB)/2:ghost.camera==='overview'?0:heightA;
+    const nextNear=ghost.camera==='overview'?Math.max(.5,camera[1]/200):ghost.camera==='free'?Math.max(.5,camera[1]/300):.5;if(Math.abs(G.camera.near-nextNear)>.1){G.camera.near=nextNear;G.camera.updateProjectionMatrix();}
     G.camera.position.set(camera[0],camera[1]+focusHeight,camera[2]);G.camera.lookAt(target[0],target[1]+focusHeight,target[2]);
     G.guideGroup.visible=$('ghostGuides').checked;
     G.guideMarkers.forEach(({group,label,marker:m})=>{const near=Math.min(Math.hypot(m.x-poses[0].x,m.z-poses[0].z),Math.hypot(m.x-poses[1].x,m.z-poses[1].z));group.visible=ghost.camera==='overview'?m.kind==='APEKS':near<110;label.visible=ghost.camera!=='overview';});
@@ -171,7 +176,7 @@ function ghost3dRender(S,poses,camera,target,w,h){
     if(G.quality!==quality){G.quality=quality;G.adaptiveScale=profile.ratio;G.renderer.setPixelRatio(Math.min(devicePixelRatio||1,profile.ratio));G.renderer.setSize(w,h,false);const size=profile.shadow;if(G.sun.shadow.mapSize.x!==size){G.sun.shadow.map?.dispose();G.sun.shadow.map=null;G.sun.shadow.mapSize.set(size,size);}G.pendingRatio=null;G.roadMaterial.normalMap=quality==='performance'?null:(VisualAssets.textures.normal||null);G.roadMaterial.roughnessMap=quality==='performance'?null:(VisualAssets.textures.roughness||null);G.roadMaterial.needsUpdate=true;G.shadowStamp=0;G.fpsStamp=0;if(quality==='ultra')VisualAssets.high();}
     $('ghostAO').disabled=quality!=='ultra';
     for(const tile of G.tiles||[]){const center=tile.geometry.boundingSphere.center,limit=profile.far;tile.visible=ghost.camera==='overview'||Math.hypot(center.x-p.x,center.z-p.z)<limit+180;}
-    G.detailEnvironment.visible=$('ghostEnvironment').checked&&quality!=='performance';
+    G.detailEnvironment.visible=$('ghostEnvironment').checked&&quality!=='performance';if(S.track&&typeof MexicoV3!=='undefined')MexicoV3.update(G);
     const transparent=$('ghostTransparent').checked;
     if(G.transparent!==transparent){G.transparent=transparent;G.cars[1].traverse(o=>{if(o.material){o.material.transparent=transparent;o.material.opacity=transparent?.42:1;o.material.depthWrite=!transparent;o.material.forceSinglePass=transparent;o.material.needsUpdate=true;}if(o.isMesh)o.castShadow=!transparent;});}
     if(!st.play.on||now-(G.shadowStamp||0)>(detail?33:66)||Math.abs(st.play.e-(G.shadowTime||0))>.25){G.sun.position.set(p.x-100,65+heightA,p.z-70);G.sun.target.position.set(p.x,heightA,p.z);G.sun.target.updateMatrixWorld();G.sun.shadow.camera.updateProjectionMatrix();G.renderer.shadowMap.needsUpdate=true;G.shadowStamp=now;G.shadowTime=st.play.e;}
@@ -191,8 +196,9 @@ function ghost3dRender(S,poses,camera,target,w,h){
 const GHOST_QUALITY={performance:{ratio:.85,shadow:512,shadows:false,far:320},balanced:{ratio:1.25,shadow:1024,shadows:true,far:600},ultra:{ratio:2,shadow:2048,shadows:true,far:1000}};
 const ghostOrbit={yaw:0,pitch:.55,distance:65,target:null,drag:null};
 function ghostCameraPose(S,poses,aspect){
-  const [A,B]=poses,zoom=Number($('ghostZoom').value)/100;
   $('ghostCanvas').parentElement.classList.toggle('free-camera',ghost.camera==='free');
+  const [A,B]=poses,zoom=Number($('ghostZoom').value)/100;
+  if(ghost.camera==='cinematic'||ghost.camera==='compare'){const p=ghost.camera==='compare'?{x:(A.x+B.x)/2,z:(A.z+B.z)/2,fx:A.fx,fz:A.fz}:A,separation=Math.hypot(A.x-B.x,A.z-B.z),compare=ghost.camera==='compare',distance=(compare?16+separation*.9:6.4)/zoom,height=(compare?7+separation*.28:1.3)/zoom,side=compare?distance*.55:3.2;return {camera:[p.x-p.fx*distance+p.fz*side,height,p.z-p.fz*distance-p.fx*side],target:[p.x,.65,p.z]};}
   if(ghost.camera==='free'){
     if(!ghostOrbit.target){const state=ghost.cameraState;ghostOrbit.target=state?state.target.slice():[A.x,.6,A.z];if(state){const dx=state.camera[0]-state.target[0],dz=state.camera[2]-state.target[2],dy=state.camera[1]-state.target[1];ghostOrbit.distance=Math.max(5,Math.hypot(dx,dz,dy));ghostOrbit.yaw=Math.atan2(dx,dz);ghostOrbit.pitch=Math.asin(dy/ghostOrbit.distance);}}
     const r=ghostOrbit.distance/zoom,c=Math.cos(ghostOrbit.pitch),t=ghostOrbit.target;
@@ -201,7 +207,7 @@ function ghostCameraPose(S,poses,aspect){
   ghostOrbit.target=null;
   if(ghost.camera==='overview'){
     const x=(S.minX+S.maxX)/2,z=(S.minZ+S.maxZ)/2;
-    const height=Math.max(S.maxZ-S.minZ,(S.maxX-S.minX)/aspect)/(.8*Math.tan(24*Math.PI/180));
+    const height=Math.max(S.maxZ-S.minZ,(S.maxX-S.minX)/aspect)/(2*Math.tan(24*Math.PI/180))*1.25;
     return {camera:[x,height,z-1],target:[x,0,z]};
   }
   if(ghost.camera==='tv'){

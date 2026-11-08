@@ -59,8 +59,8 @@ function ghostApplyAssets(S) {
       bumpMap: null,
       roughness: 0.94,
     });
-    G.roadMaterial.color.set("#d2d2d2");
-    G.roadMaterial.normalScale.set(0.25, 0.25);
+    G.roadMaterial.color.set("#9a9ea0");
+    G.roadMaterial.normalScale.set(0.035, 0.035);
     G.roadMaterial.needsUpdate = true;
   }
   if (
@@ -68,7 +68,7 @@ function ghostApplyAssets(S) {
     G.scene.environment !== VisualAssets.environment.texture
   ) {
     G.scene.environment = VisualAssets.environment.texture;
-    G.scene.environmentIntensity = 0.55;
+    G.scene.environmentIntensity = 0.85;
     G.lightTarget?.dispose();
     G.lightTarget = null;
   }
@@ -249,7 +249,8 @@ function ghostAvoidObstacles(camera, target) {
     if (o.userData.cameraObstacle) objects.push(o);
   });
   const hit = G.cameraRay.intersectObjects(objects, false)[0];
-  if (!hit || hit.distance < 4) return camera;
-  const d = Math.max(4, hit.distance - 0.7);
+  if (!hit) return camera;
+  // Keep the lens on the target side of a wall, including close obstructions.
+  const d = Math.max(0.6, hit.distance - 0.7);
   return [origin.x + dir.x * d, origin.y + dir.y * d, origin.z + dir.z * d];
 }

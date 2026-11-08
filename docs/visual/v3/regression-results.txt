@@ -1,0 +1,30 @@
+✔ whole-lap display mesh and buffered race boundaries are closed, finite and simple (139.704956ms)
+✔ all rates keep wall-clock time across sparse, irregular and dropped frames (0.838053ms)
+✔ clock clamps end and negative timestamps without losing a positive stall (1.344028ms)
+✔ fixed geographic circuit is closed and has declared station length (0.762383ms)
+✔ registration recovers independent units, handedness and start station (28.771183ms)
+✔ bad registration falls back explicitly instead of manufacturing a racing line (19.456155ms)
+✔ wheel distance uses original telemetry distance rather than current speed times elapsed (0.182178ms)
+✔ changing speed accounts for the elapsed interval at the previous rate (0.149591ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 344.267163
+RUNTIME {
+  fps: 0.9103322712790168,
+  ms: 1098.5,
+  calls: 144,
+  memory: { geometries: 135, textures: 12 },
+  totals: [ 76.651, 76.356 ]
+  ✓  1 tests/simulator.spec.js:3:1 › real Mexico telemetry, playback, cameras, profiles, analysis and resource stability (2.1m)
+  ✓  2 tests/simulator.spec.js:47:1 › WebGL failure keeps the standard replay available (3.7s)
+SOAK_120_SECONDS {"fps":2.082032063295928,"ms":480.2999999995033,"ready":true,"geometries":446,"textures":14,"calls":255,"renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)","resolution":[747,294],"frames":182,"p50":581,"p95":1110.7999999970198,"cpu":2.8000000044703484,"gpu":422.135399}
+  ✓  3 tests/simulator.spec.js:53:1 › 120-second software-renderer replay soak and resource budget (2.2m)
+  ✓  4 tests/simulator.spec.js:64:1 › Ultra effects, diagnostics export and missing asset fallback (28.5s)
+  ✓  5 tests/simulator.spec.js:70:1 › asset load failure retains working procedural cars and JPEG materials (7.4s)
+  ✓  6 tests/simulator.spec.js:75:1 › alignment falls back for both laps when one projection is rejected (17.1s)
+  6 passed (5.3m)

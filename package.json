@@ -4,9 +4,9 @@
   "scripts": {
     "test": "npm run test:unit && npm run test:browser",
     "serve": "python3 -m http.server 4173",
-    "test:unit": "node --test tests/replay-core.test.cjs",
+    "test:unit": "node --test tests/*.test.cjs",
     "test:browser": "playwright test",
-    "assets:build": "node scripts/prepare-track.cjs && node scripts/build-car.mjs"
+    "assets:build": "node scripts/prepare-track.cjs && node scripts/prepare-mexico-v3.mjs && python3 scripts/prepare-boundaries.py && node scripts/build-car.mjs"
   },
   "devDependencies": {
     "@gltf-transform/core": "4.2.1",
