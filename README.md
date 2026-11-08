@@ -20,14 +20,16 @@ Meksika çevre tabanları ve ağaç konumları © OpenStreetMap contributors (OD
 ```sh
 npm ci
 npm test
-python3 -m pip install shapely==2.1.2 # yalnız varlık üretimi
-npm run assets:build
+npm run assets:build # yalnız Blender 4.3+ ile yeni araç/çevre üretimi
 ```
 
 `npm test`: saf çekirdek testleri + gerçek arşiv verisi kullanan Playwright senaryoları. Chromium gerekir; `CHROMIUM_PATH` ile yol seçilebilir. Test çizimi SwiftShader kullanır, fiziksel GPU performansı sayılmaz. Proxy CA'sı için gerekirse `CHROMIUM_PROXY_SPKI` tanımlanabilir; genel TLS denetimi kapatılmaz. Encoder uygulamayı çalıştırmak için gerekmez; varlık yeniden üretimi ve lisanslar aşağıdadır.
 
+- [V4 Blender kaynakları ve görsel/performance raporu](docs/GELISTIRME-V4.md)
 - [V3 görsel karşılaştırma ve teknik rapor](docs/GELISTIRME-V3.md)
 - [V2 kapsamı ve sınırlar](docs/GELISTIRME-V2.md)
 - [Teknik yapı](docs/TEKNIK-INCELEME.md)
 - [Varlıklar ve lisanslar](docs/VARLIKLAR.md)
 - [Test/ölçüm raporu](docs/TEST-RAPORU.md)
+
+V4 hazır Blender GLB varlıklarını kullanır. Yeniden üretim ve CC0 kaynak ağaç hazırlığı: [art/blender](art/blender/README.md). Tam pist geometrisini tekrar üretmek için önceki iş akışı `npm run assets:build:v3` içinde korunur (Shapely gerekir); ardından V4 üretimi çalıştırılabilir.

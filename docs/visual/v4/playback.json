@@ -1,0 +1,158 @@
+{
+  "date": "2026-11-08T14:33:34.829Z",
+  "duration": 103.146,
+  "profile": "balanced",
+  "adaptive": true,
+  "renderer": "SwiftShader",
+  "note": "Four actual wall-clock playback chapters, each restarted at telemetry t=10s with a different camera. Timeline resets are intentional test setup, not continuous lap footage. Video timing preserves software-renderer stalls. Not a smooth/physical-GPU performance claim. Loading was trimmed approximately; a short paused tail may remain. No timing interpolation or speedup.",
+  "errors": [],
+  "samples": [
+    {
+      "time": 12.775999999998508,
+      "playing": true,
+      "chapterStart": 10,
+      "mode": "a",
+      "ready": true,
+      "render": [
+        1246,
+        612
+      ],
+      "camera": [
+        1078.2091833205616,
+        3.3,
+        145.0107654920161
+      ],
+      "target": [
+        1092.48838826697,
+        0.65,
+        147.71426202939566
+      ],
+      "gpu": 4294.433279,
+      "summary": {
+        "frames": 0,
+        "p50": null,
+        "p95": null
+      },
+      "memory": {
+        "geometries": 230,
+        "textures": 31
+      },
+      "visibleLabels": [
+        true,
+        true
+      ],
+      "wallSeconds": 5.074
+    },
+    {
+      "time": 14.151899999998511,
+      "playing": true,
+      "chapterStart": 10,
+      "mode": "cinematic",
+      "ready": true,
+      "render": [
+        747,
+        367
+      ],
+      "camera": [
+        1141.1299793349199,
+        1.3,
+        162.83608359642415
+      ],
+      "target": [
+        1140.7219480464937,
+        0.65,
+        169.97079598653767
+      ],
+      "fps": 0.54617947457579,
+      "gpu": 1814.77642,
+      "summary": {
+        "frames": 12,
+        "p50": 1953.1000000014901,
+        "p95": 5762.5
+      },
+      "memory": {
+        "geometries": 374,
+        "textures": 31
+      },
+      "visibleLabels": [
+        true,
+        true
+      ],
+      "wallSeconds": 34.661
+    },
+    {
+      "time": 13.317199999998513,
+      "playing": true,
+      "chapterStart": 10,
+      "mode": "tv",
+      "ready": true,
+      "render": [
+        747,
+        367
+      ],
+      "camera": [
+        1043.1043487244835,
+        11,
+        107.88440959001817
+      ],
+      "target": [
+        1112.296939191919,
+        0.75,
+        153.2810645315654
+      ],
+      "fps": 1.3860974426516497,
+      "gpu": 1306.573768,
+      "summary": {
+        "frames": 21,
+        "p50": 1972.3000000044703,
+        "p95": 5114.5
+      },
+      "memory": {
+        "geometries": 378,
+        "textures": 31
+      },
+      "visibleLabels": [
+        true,
+        true
+      ],
+      "wallSeconds": 61.084
+    },
+    {
+      "time": 13.722700000004464,
+      "playing": true,
+      "chapterStart": 10,
+      "mode": "compare",
+      "ready": true,
+      "render": [
+        747,
+        367
+      ],
+      "camera": [
+        1114.4936481663665,
+        7.022265587618231,
+        144.32398913227306
+      ],
+      "target": [
+        1126.2790031337322,
+        0.65,
+        158.37870479087388
+      ],
+      "fps": 0.24540479520933944,
+      "gpu": 842.78316,
+      "summary": {
+        "frames": 31,
+        "p50": 1953.1000000014901,
+        "p95": 5114.5
+      },
+      "memory": {
+        "geometries": 429,
+        "textures": 31
+      },
+      "visibleLabels": [
+        true,
+        true
+      ],
+      "wallSeconds": 83.279
+    }
+  ]
+}

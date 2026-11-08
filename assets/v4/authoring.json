@@ -1,0 +1,32 @@
+{
+  "blender": "4.3.2",
+  "units": "metres",
+  "exportForward": "+Z",
+  "exportUp": "+Y",
+  "original": true,
+  "teamGeometry": false,
+  "carWidth_m": 2.0,
+  "wheelbase_m": 3.32,
+  "tyreRadius_m": 0.36,
+  "export": {
+    "format": "GLB",
+    "applyModifiers": true,
+    "yUp": true,
+    "selection": true,
+    "materials": "EXPORT"
+  },
+  "car": [
+    {
+      "lod": "high",
+      "objects": 35
+    },
+    {
+      "lod": "medium",
+      "objects": 35
+    },
+    {
+      "lod": "low",
+      "objects": 35
+    }
+  ]
+}

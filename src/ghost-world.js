@@ -22,6 +22,7 @@ function ghostDisposeCar(root) {
   materials.forEach((m) => m.dispose());
 }
 function ghostApplyAssets(S) {
+  if(typeof MexicoV4!=="undefined")MexicoV4.apply(ghost3d,S);
   const G = ghost3d,
     T = G.T;
   if (VisualAssets.state === "idle" || VisualAssets.state === "loading") return;
@@ -59,8 +60,8 @@ function ghostApplyAssets(S) {
       bumpMap: null,
       roughness: 0.94,
     });
-    G.roadMaterial.color.set("#9a9ea0");
-    G.roadMaterial.normalScale.set(0.035, 0.035);
+    G.roadMaterial.color.set("#c2c7cb");
+    G.roadMaterial.normalScale.set(0.09, 0.09);
     G.roadMaterial.needsUpdate = true;
   }
   if (
@@ -68,11 +69,12 @@ function ghostApplyAssets(S) {
     G.scene.environment !== VisualAssets.environment.texture
   ) {
     G.scene.environment = VisualAssets.environment.texture;
-    G.scene.environmentIntensity = 0.85;
+    G.scene.environmentIntensity = 0.6;
     G.lightTarget?.dispose();
     G.lightTarget = null;
   }
-  if (VisualAssets.Sky && !G.sky) {
+  if(VisualAssets.background){G.scene.background=VisualAssets.background;G.scene.backgroundIntensity=.65;G.scene.backgroundBlurriness=.025;if(G.sky)G.sky.visible=false;}
+  if (!VisualAssets.background && VisualAssets.Sky && !G.sky) {
     G.sky = new VisualAssets.Sky();
     G.sky.scale.setScalar(7000);
     G.sky.material.depthWrite = false;
@@ -231,7 +233,7 @@ document.addEventListener("keydown", (e) => {
 
 function ghostAvoidObstacles(camera, target) {
   const G = ghost3d;
-  if (!G.ready || !G.world) return camera;
+  if (!G.ready || !G.world || G.source!==st.A) return camera;
   const T = G.T;
   if (!G.cameraRay) G.cameraRay = new T.Raycaster();
   if (!G.cameraOrigin) G.cameraOrigin = new T.Vector3();
@@ -248,9 +250,22 @@ function ghostAvoidObstacles(camera, target) {
   G.world.children.forEach((o) => {
     if (o.userData.cameraObstacle) objects.push(o);
   });
+  objects.push(...(G.v4Obstacles||[]).filter(o=>o.visible));
   const hit = G.cameraRay.intersectObjects(objects, false)[0];
   if (!hit) return camera;
   // Keep the lens on the target side of a wall, including close obstructions.
   const d = Math.max(0.6, hit.distance - 0.7);
   return [origin.x + dir.x * d, origin.y + dir.y * d, origin.z + dir.z * d];
+}
+
+// Sweep the free camera lens along its actual movement, so pan/orbit/zoom cannot tunnel through visible walls.
+// Its look target may be anywhere; collision is tested from the previous safe lens, not from that target.
+function ghostConstrainFree(camera, previous) {
+  const G=ghost3d;if(!G.ready||!G.world||G.source!==st.A||!previous)return camera;
+  const T=G.T,from=new T.Vector3(...previous),to=new T.Vector3(...camera);to.y=Math.max(.65,to.y);
+  const direction=to.clone().sub(from),distance=direction.length();if(distance<1e-5)return to.toArray();
+  const objects=(G.environment.visible?G.tiles||[]:[]).filter(o=>o.visible&&o.material.name!=='Vegetation');
+  G.world.children.forEach(o=>{if(o.userData.cameraObstacle)objects.push(o);});objects.push(...(G.v4Obstacles||[]).filter(o=>o.visible));
+  const ray=G.movementRay||(G.movementRay=new T.Raycaster());ray.set(from,direction.normalize());ray.near=.02;ray.far=distance+.3;
+  const hit=ray.intersectObjects(objects,false)[0];return hit?from.addScaledVector(direction,Math.max(0,Math.min(distance,hit.distance-.3))).toArray():to.toArray();
 }

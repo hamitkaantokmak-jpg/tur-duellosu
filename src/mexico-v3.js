@@ -448,7 +448,7 @@ const MexicoV3 = {
         near = this.nearest(center);
       if (near.distance > 410) continue;
       if (f.kind === "pit") {
-        ribbon(poly, 7.6, m.darkConcrete, 0.027);
+        ribbon(poly, 7.6, typeof MexicoV4!=="undefined"?m.road:m.darkConcrete, typeof MexicoV4!=="undefined"?.015:.027);
         G.v3Stats.pitWays++;
         continue;
       }
