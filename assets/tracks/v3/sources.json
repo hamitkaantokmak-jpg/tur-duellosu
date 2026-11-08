@@ -1,0 +1,27 @@
+[
+  {
+    "file": "assets/materials/asphalt-color.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_02/asphalt_02_diff_1k.jpg",
+    "license": "CC0-1.0",
+    "author": "Rob Tuytel / Poly Haven",
+    "scale_m": 3,
+    "sha256": "47c434c444df88e63f5eb40e0ff0512ce90ed8adf00686a57857c317b6d29784",
+    "modification": "Resurfaced artistic derivative: high-frequency aggregate retained, large weathered cracks suppressed; not a photograph of the Mexico GP surface."
+  },
+  {
+    "file": "assets/materials/asphalt-normal.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_02/asphalt_02_nor_gl_1k.jpg",
+    "license": "CC0-1.0",
+    "author": "Rob Tuytel / Poly Haven",
+    "scale_m": 3,
+    "sha256": "42a1c381b53204e83a982db2864479a30bc127bbdeebb1006f8ee51bff099df3"
+  },
+  {
+    "file": "assets/materials/asphalt-roughness.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_02/asphalt_02_rough_1k.jpg",
+    "license": "CC0-1.0",
+    "author": "Rob Tuytel / Poly Haven",
+    "scale_m": 3,
+    "sha256": "70ba3edc65525eb4dc366cf010ca7ae0bd34e0251ff0225c2dad627a873d0712"
+  }
+]
