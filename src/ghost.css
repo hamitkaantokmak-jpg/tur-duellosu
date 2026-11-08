@@ -1,0 +1,3 @@
+#ghostStats{position:absolute;right:14px;top:14px;z-index:3;background:#071018e8;border:1px solid #344c59;border-radius:5px;padding:10px 12px;color:#b8d6df;font:11px/1.7 var(--mono);white-space:pre;pointer-events:none}
+#ghostStats[hidden]{display:none}.ghost-stage.free-camera{touch-action:none;cursor:grab}.ghost-stage.free-camera:active{cursor:grabbing}.ghost-stage.free-camera #ghostWebGL{pointer-events:auto}.ghost-overlay{max-width:55%}
+@media(max-width:650px){#ghostStats{top:auto;bottom:126px;font-size:9px;right:8px}.ghost-overlay{max-width:62%}.ghost-cameras{gap:5px}.ghost-cameras .chip{font-size:11px}}
