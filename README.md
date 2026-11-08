@@ -1,6 +1,6 @@
 # Tur Düellosu
 
-HTML/CSS/JavaScript, Canvas ve Three.js ile gerçek F1 telemetri analizi ve 3D ghost lap karşılaştırması. Framework veya uygulama derlemesi gerekmez.
+HTML/CSS/JavaScript ile gerçek F1 telemetrisi, veri stüdyosu, yarış analizi ve Three.js ghost lap karşılaştırması. Framework veya uygulama derlemesi gerekmez.
 
 ```sh
 python3 -m http.server 4173
@@ -8,6 +8,7 @@ python3 -m http.server 4173
 
 `http://localhost:4173` adresini açın. İnternet; telemetri arşivi, Three.js ve decoder modülleri için gereklidir. Yerel görsel varlıklar depoya dahildir. Kayıtlı tercih yoksa 2024 Meksika sıralama HAM/RUS seçilir. **Hayalet tur** 3D görünümü, **Düelloya dön** ayrıntılı analizi açar.
 
+- **Veri stüdyosu:** düello hikâyeleri, sürüş profilleri, yarış dosyası, arşiv, analiz laboratuvarı ve paylaşılabilir notlar. Oyun içermez; 3D açılmadan çalışır.
 - Oynatma: boşluk; ← / → ile zaman; zaman çizelgesi; 0.25×–4×. Gizlenen sekmede duraklar, otomatik devam etmez.
 - Kameralar: A/B takip, yayın, alçak açı, iki araç, üstten, serbest. Serbest kamerada sürükle/tekerlek; Shift+sürükle veya sağ tuşla pan; WASD; R ile sıfırla.
 - Görsel: Performans/Dengeli/Ultra; isteğe bağlı Ultra AO; dinamik çözünürlük; B saydamlığı ve tam ekran.
@@ -25,6 +26,7 @@ npm run assets:build # yalnız Blender 4.3+ ile yeni araç/çevre üretimi
 
 `npm test`: saf çekirdek testleri + gerçek arşiv verisi kullanan Playwright senaryoları. Chromium gerekir; `CHROMIUM_PATH` ile yol seçilebilir. Test çizimi SwiftShader kullanır, fiziksel GPU performansı sayılmaz. Proxy CA'sı için gerekirse `CHROMIUM_PROXY_SPKI` tanımlanabilir; genel TLS denetimi kapatılmaz. Encoder uygulamayı çalıştırmak için gerekmez; varlık yeniden üretimi ve lisanslar aşağıdadır.
 
+- [Veri stüdyosu: 25 fikir, yöntemler ve testler](docs/VERI-STUDYOSU.md)
 - [Main entegrasyonu ve son regresyon](docs/MAIN-ENTEGRASYON.md)
 - [V4 Blender kaynakları ve görsel/performance raporu](docs/GELISTIRME-V4.md)
 - [V3 görsel karşılaştırma ve teknik rapor](docs/GELISTIRME-V3.md)

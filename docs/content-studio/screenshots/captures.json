@@ -1,0 +1,116 @@
+{
+  "dpr": 1,
+  "shots": [
+    {
+      "id": "01-overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "tab": "overview",
+      "event": "Mexico City Grand Prix",
+      "year": "2024",
+      "a": "HAM",
+      "b": "RUS",
+      "laps": [
+        15,
+        18
+      ],
+      "gain": -0.2950000000000017,
+      "webgl": false
+    },
+    {
+      "id": "02-duel-story",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "tab": "duel",
+      "event": "Mexico City Grand Prix",
+      "year": "2024",
+      "a": "HAM",
+      "b": "RUS",
+      "laps": [
+        15,
+        18
+      ],
+      "gain": -0.2950000000000017,
+      "webgl": false
+    },
+    {
+      "id": "03-driving-profile",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "tab": "drivers",
+      "event": "Mexico City Grand Prix",
+      "year": "2024",
+      "a": "HAM",
+      "b": "RUS",
+      "laps": [
+        15,
+        18
+      ],
+      "gain": -0.2950000000000017,
+      "webgl": false
+    },
+    {
+      "id": "04-race-dossier",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "tab": "race",
+      "event": "Mexico City Grand Prix",
+      "year": "2024",
+      "a": "HAM",
+      "b": "RUS",
+      "laps": [
+        15,
+        18
+      ],
+      "gain": -0.2950000000000017,
+      "webgl": false
+    },
+    {
+      "id": "05-study-notes",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "tab": "notes",
+      "event": "Mexico City Grand Prix",
+      "year": "2024",
+      "a": "HAM",
+      "b": "RUS",
+      "laps": [
+        15,
+        18
+      ],
+      "gain": -0.2950000000000017,
+      "webgl": false
+    },
+    {
+      "id": "06-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "tab": "overview",
+      "event": "Mexico City Grand Prix",
+      "year": "2024",
+      "a": "HAM",
+      "b": "RUS",
+      "laps": [
+        15,
+        18
+      ],
+      "gain": -0.2950000000000017,
+      "webgl": false
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "note": "Real Chromium UI screenshots. Content mode never initialized the 3D renderer. Not an FPS benchmark."
+}
