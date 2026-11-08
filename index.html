@@ -302,6 +302,8 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
 .ghost-guide-note{font-size:10px;color:var(--muted);padding:0 18px 10px;margin:0;line-height:1.6}
 </style>
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="stylesheet" href="src/ghost.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
 </head>
 <body>
 
@@ -396,10 +398,10 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
       </section>
 
       <section class="card ghost-panel" id="ghostPanel" hidden aria-label="Hayalet tur simülatörü">
-  <div class="ghost-head"><div><span class="eyebrow">GHOST LAB / TELEMETRİ REPLAY</span><h2>İki tur. Tek başlangıç.</h2></div><button class="chip" id="ghostClose">Düelloya dön</button></div>
-  <div class="ghost-cameras" id="ghostCameras" role="group" aria-label="Kamera seçimi"><button class="chip" data-camera="tv" aria-pressed="true">Yayın kamerası</button><button class="chip" data-camera="a" aria-pressed="false">A'yı takip et</button><button class="chip" data-camera="b" aria-pressed="false">B'yi takip et</button><button class="chip" data-camera="overview" aria-pressed="false">Tüm pist</button></div>
-  <div class="ghost-options"><span id="ghostScenery"></span><label title="Kaynak Z kanalından yumuşatılan profil; ölçülmüş pist modeli değildir"><input type="checkbox" id="ghostElevation"> Tahmini eğim</label><b id="ghostEngine" role="status">Standart görünüm</b><label><input type="checkbox" id="ghostEnvironment" checked> Çevre detayları</label><label>Görüntü <select id="ghostRenderQuality" aria-label="3D görüntü kalitesi"><option value="balanced">Dengeli</option><option value="high">Detaylı</option></select></label><label class="ghost-zoom">Yakınlık <input id="ghostZoom" type="range" min="70" max="160" value="100" aria-label="Kamera yakınlığı"></label><label><input type="checkbox" id="ghostEstimatedLine" checked> Tahmini sürüş çizgisi</label><label><input type="checkbox" id="ghostGuides" checked> Giriş / Apeks / Çıkış</label><label><input type="checkbox" id="ghostTraces"> Konum izleri</label><label><input type="checkbox" id="ghostZones"> Fren bölgeleri</label></div>
-  <p class="ghost-guide-note">Tahmini sürüş çizgisi açıkken iki araç aynı giriş–apeks–çıkış yolunu izler; ilerleme telemetriye bağlıdır. Bu yol pilotların ölçülmüş çizgisi değildir.<br>Viraj rehberi: <span style="color:#58bfff">● Giriş</span> · <span style="color:#ffd166">● Apeks</span> · <span style="color:#5ce0aa">● Çıkış</span> — pist geometrisinden yaklaşık işaretler; pilot çizgisi veya fren noktası değildir.</p><div class="ghost-stage"><canvas id="ghostCanvas" aria-label="Gerçek tur telemetrisinden hareket eden iki hayalet aracın perspektif görünümü"></canvas><div class="ghost-overlay"><span>TELEMETRİ REPLAY · GÖRSEL PİST MODELİ</span><b id="ghostDelta">+0.000 s</b><small>Aynı mesafedeki zaman farkı</small></div></div>
+  <div class="ghost-head"><div><span class="eyebrow">GHOST LAB / TELEMETRİ REPLAY</span><h2>İki tur. Tek başlangıç.</h2></div><button class="chip" id="ghostFullscreen">Tam ekran</button><button class="chip" id="ghostClose">Düelloya dön</button></div>
+  <div class="ghost-cameras" id="ghostCameras" role="group" aria-label="Kamera seçimi"><button class="chip" data-camera="tv" aria-pressed="true">Yayın kamerası</button><button class="chip" data-camera="a" aria-pressed="false">A'yı takip et</button><button class="chip" data-camera="b" aria-pressed="false">B'yi takip et</button><button class="chip" data-camera="overview" aria-pressed="false">Üstten</button><button class="chip" data-camera="free" aria-pressed="false">Serbest kamera</button></div>
+  <div class="ghost-options"><span id="ghostScenery"></span><label title="Kaynak Z kanalından yumuşatılan profil; ölçülmüş pist modeli değildir"><input type="checkbox" id="ghostElevation"> Tahmini eğim</label><b id="ghostEngine" role="status">Standart görünüm</b><label><input type="checkbox" id="ghostEnvironment" checked> Çevre detayları</label><label>Görüntü <select id="ghostRenderQuality" aria-label="3D görüntü kalitesi"><option value="performance">Performans</option><option value="balanced" selected>Dengeli</option><option value="ultra">Ultra</option></select></label><label><input type="checkbox" id="ghostTransparent" checked> B yarı saydam</label><label><input type="checkbox" id="ghostStatsToggle"> Performans paneli</label><label><input id="ghostAdaptive" type="checkbox" checked> Dinamik çözünürlük</label><label title="Yalnız Ultra profilinde"><input id="ghostAO" type="checkbox"> Temas gölgesi (AO)</label><label class="ghost-zoom">Yakınlık <input id="ghostZoom" type="range" min="70" max="160" value="100" aria-label="Kamera yakınlığı"></label><label><input type="checkbox" id="ghostEstimatedLine" checked> Tahmini sürüş çizgisi</label><label><input type="checkbox" id="ghostGuides" checked> Giriş / Apeks / Çıkış</label><label><input type="checkbox" id="ghostTraces"> Konum izleri</label><label><input type="checkbox" id="ghostZones"> Fren bölgeleri</label></div>
+  <p class="ghost-guide-note">Tahmini sürüş çizgisi açıkken iki araç aynı giriş–apeks–çıkış yolunu izler; ilerleme telemetriye bağlıdır. Bu yol pilotların ölçülmüş çizgisi değildir.<br>Viraj rehberi: <span style="color:#58bfff">● Giriş</span> · <span style="color:#ffd166">● Apeks</span> · <span style="color:#5ce0aa">● Çıkış</span> — pist geometrisinden yaklaşık işaretler; pilot çizgisi veya fren noktası değildir.</p><div class="ghost-stage"><output id="ghostStats" hidden aria-live="off"></output><div class="ghost-hud" id="ghostHUD"><div id="ghostHUD0" class="hud-driver"></div><div id="ghostHUD1" class="hud-driver"></div></div><button id="ghostExport" class="chip ghost-export" hidden>Ölçümü indir</button><canvas id="ghostCanvas" aria-label="Gerçek tur telemetrisinden hareket eden iki hayalet aracın perspektif görünümü"></canvas><div class="ghost-overlay"><span>TELEMETRİ REPLAY · GÖRSEL PİST MODELİ</span><b id="ghostDelta">+0.000 s</b><small>Pist ilerlemesine göre yaklaşık zaman farkı</small></div></div>
   <div class="ghost-drivers"><div class="ghost-driver ga"><strong id="ghostDriver0">A · Veri bekleniyor</strong><small id="ghostMetric0">Pilot ve turu yukarıdan seç</small></div><div class="ghost-driver gb"><strong id="ghostDriver1">B · Veri bekleniyor</strong><small id="ghostMetric1">Pilot ve turu yukarıdan seç</small></div></div>
   <div class="ghost-controls"><button class="btn primary" id="ghostPlay">▶ Oynat</button><button class="btn" id="ghostRestart" aria-label="Hayalet turu başa sar">↺</button><input id="ghostScrub" type="range" min="0" max="10000" step="1" value="0" aria-label="Hayalet tur zamanı"><label class="sel"><select id="ghostRate" aria-label="Hayalet oynatma hızı"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label><span id="ghostClock">0:00.000</span></div>
 <div class="brake-dashboard">
@@ -408,7 +410,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
 </div>
 <div class="brake-analysis"><div class="brake-analysis-head"><div><span class="eyebrow">FRENLEME BÖLGELERİ</span><p>Kırmızı bantlar fren sinyalini gösterir. Bölgeye dokunarak tekrarın o anına git.</p></div><button class="chip" id="nextBrake">Sonraki frenleme →</button></div><canvas id="brakeTimeline" aria-label="İki pilotun tur boyunca fren açık zamanları ve oynatma konumu"></canvas><div class="brake-event-cols" id="brakeEvents"></div><p class="brake-caveat">Fren başlangıcı kaynak örneklerde tespit edilir; tepki süresi ve kesin fren noktası ölçümü değildir. Her pilotun kendi tur zamanına göre gösterilir. Farklı lastik ve koşullar karşılaştırmayı etkiler.</p></div>
 
-  <p class="ghost-note">İki araç aynı anda başlar ve kendi tur süresinde bitirir. B aracı yarı saydamdır. Tahmini eğim seçeneği, varsa kaynak Z kanalının yumuşatılmış profilidir; hassas arazi ölçümü değildir. Binalar, bitkiler ve çit yerleşimleri temsili dekorlardır. Yol genişliği, kerbler, araç modeli ve düz zemin görselleştirmedir; gerçek pist modeli veya santimetre hassasiyetinde yarış çizgisi değildir. İlerleme hızdan türetilen mesafeye dayanır; konum çizgisi GPS sıçramalarını azaltmak için yumuşatılır. Bu işlem ek ölçüm hassasiyeti sağlamaz. Renkli konum izleri gerçek pilot yarış çizgisi olarak yorumlanmamalıdır. Boşluk: oynat / duraklat · ← / →: 1 saniye.</p>
+  <p class="ghost-note">İki araç aynı anda başlar ve kendi tur süresinde bitirir. B aracının saydamlığı seçilebilir. Serbest kamera: sürükle ile döndür, tekerlek ile yakınlaştır; Shift+sürükle veya sağ tuşla taşı; WASD ile gezin, R ile sıfırla. Fren tabelaları ve tribünler temsili yerleşimlerdir. Tahmini eğim seçeneği, varsa kaynak Z kanalının yumuşatılmış profilidir; hassas arazi ölçümü değildir. Binalar, bitkiler ve çit yerleşimleri temsili dekorlardır. Coğrafi çizgi pist sınırı ölçümü değildir; yol genişliği, kerbler, özgün GLB araç modeli, stadyum ve pit yapıları temsili görselleştirmedir; gerçek pist modeli veya santimetre hassasiyetinde yarış çizgisi değildir. Meksika’da coğrafi referansa hizalama yaklaşık pist ilerlemesi sağlar; diğer pistlerde normalize kaynak mesafesi kullanılır; konum çizgisi GPS sıçramalarını azaltmak için yumuşatılır. Bu işlem ek ölçüm hassasiyeti sağlamaz. Renkli konum izleri gerçek pilot yarış çizgisi olarak yorumlanmamalıdır. Boşluk: oynat / duraklat · ← / →: 1 saniye.</p>
 </section>
 
 <section class="card rel" id="chartcard">
@@ -482,9 +484,11 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
     <section class="card" data-tab="sum"><div class="card-h"><span class="eyebrow">Sonuç ve istatistikler</span><span class="note">Satıra dokun: pilot odağına git</span></div><div class="corners" id="resBox"></div></section>
   </div>
 
-  <p class="foot">Sonuç sıralaması son kayıtlı tur ve pozisyondan tahmin edilir; resmî klasman, ceza veya DNF bilgisi değildir. Pozisyon değişimleri tur sonu kayıtlarından çıkarılır; tur içindeki tüm geçişleri göstermez. Veri: <a href="https://github.com/TracingInsights" target="_blank" rel="noopener">TracingInsights</a> açık telemetri arşivi (FastF1 tabanlı). Sayfa veriyi açıldığı anda doğrudan bu arşivden indirir, bu yüzden internet bağlantısı gerekir; yeni yarış haftaları arşive eklendikçe listede görünür. Telemetri ~4 Hz örneklenir ve iki tur 8 metrelik ortak bir mesafe ızgarasına indirgenir; fren sinyali açık/kapalıdır. Resmî bir F1 ürünü değildir.</p>
+  <p class="foot">Sonuç sıralaması son kayıtlı tur ve pozisyondan tahmin edilir; resmî klasman, ceza veya DNF bilgisi değildir. Pozisyon değişimleri tur sonu kayıtlarından çıkarılır; tur içindeki tüm geçişleri göstermez. Veri: <a href="https://github.com/TracingInsights" target="_blank" rel="noopener">TracingInsights</a> açık telemetri arşivi (FastF1 tabanlı). Sayfa veriyi açıldığı anda doğrudan bu arşivden indirir, bu yüzden internet bağlantısı gerekir; yeni yarış haftaları arşive eklendikçe listede görünür. Telemetri yaklaşık 4 Hz örneklenir; Meksika’da uygun hizalamada coğrafi pist ilerlemesine, diğer durumlarda normalize tur mesafesine göre yaklaşık 8 m ızgaraya örneklenir; fren sinyali açık/kapalıdır. Resmî bir F1 ürünü değildir.</p>
 </div>
 
+<script src="src/replay-core.js"></script>
+<script src="assets/tracks/mexico.js"></script>
 <script>
 const CATALOG = {"2023":[{"e":"Bahrain Grand Prix","d":"2023-03-03","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Saudi Arabian Grand Prix","d":"2023-03-17","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Australian Grand Prix","d":"2023-03-31","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Azerbaijan Grand Prix","d":"2023-04-28","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"Miami Grand Prix","d":"2023-05-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Monaco Grand Prix","d":"2023-05-26","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Spanish Grand Prix","d":"2023-06-02","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Canadian Grand Prix","d":"2023-06-16","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Austrian Grand Prix","d":"2023-06-30","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"British Grand Prix","d":"2023-07-07","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Hungarian Grand Prix","d":"2023-07-21","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Belgian Grand Prix","d":"2023-07-28","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"Dutch Grand Prix","d":"2023-08-25","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Italian Grand Prix","d":"2023-09-01","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Singapore Grand Prix","d":"2023-09-15","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Japanese Grand Prix","d":"2023-09-22","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Qatar Grand Prix","d":"2023-10-06","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"United States Grand Prix","d":"2023-10-20","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"Mexico City Grand Prix","d":"2023-10-27","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"São Paulo Grand Prix","d":"2023-11-03","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"Las Vegas Grand Prix","d":"2023-11-17","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Abu Dhabi Grand Prix","d":"2023-11-24","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]}],"2024":[{"e":"Bahrain Grand Prix","d":"2024-02-29","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Saudi Arabian Grand Prix","d":"2024-03-07","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Australian Grand Prix","d":"2024-03-22","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Japanese Grand Prix","d":"2024-04-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Chinese Grand Prix","d":"2024-04-19","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Miami Grand Prix","d":"2024-05-03","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Emilia Romagna Grand Prix","d":"2024-05-17","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Monaco Grand Prix","d":"2024-05-24","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Canadian Grand Prix","d":"2024-06-07","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Spanish Grand Prix","d":"2024-06-21","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Austrian Grand Prix","d":"2024-06-28","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"British Grand Prix","d":"2024-07-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Hungarian Grand Prix","d":"2024-07-19","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Belgian Grand Prix","d":"2024-07-26","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Dutch Grand Prix","d":"2024-08-23","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Italian Grand Prix","d":"2024-08-30","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Azerbaijan Grand Prix","d":"2024-09-13","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Singapore Grand Prix","d":"2024-09-20","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"United States Grand Prix","d":"2024-10-18","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Mexico City Grand Prix","d":"2024-10-25","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"São Paulo Grand Prix","d":"2024-11-01","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Las Vegas Grand Prix","d":"2024-11-22","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Qatar Grand Prix","d":"2024-11-29","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Abu Dhabi Grand Prix","d":"2024-12-06","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]}],"2025":[{"e":"Australian Grand Prix","d":"2025-03-14","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Chinese Grand Prix","d":"2025-03-21","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Japanese Grand Prix","d":"2025-04-04","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Bahrain Grand Prix","d":"2025-04-11","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Saudi Arabian Grand Prix","d":"2025-04-18","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Miami Grand Prix","d":"2025-05-02","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Emilia Romagna Grand Prix","d":"2025-05-16","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Monaco Grand Prix","d":"2025-05-23","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Spanish Grand Prix","d":"2025-05-30","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Canadian Grand Prix","d":"2025-06-13","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Austrian Grand Prix","d":"2025-06-27","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"British Grand Prix","d":"2025-07-04","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Belgian Grand Prix","d":"2025-07-25","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Hungarian Grand Prix","d":"2025-08-01","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Dutch Grand Prix","d":"2025-08-29","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Italian Grand Prix","d":"2025-09-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Azerbaijan Grand Prix","d":"2025-09-19","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Singapore Grand Prix","d":"2025-10-03","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"United States Grand Prix","d":"2025-10-17","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Mexico City Grand Prix","d":"2025-10-24","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"São Paulo Grand Prix","d":"2025-11-07","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Las Vegas Grand Prix","d":"2025-11-21","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Qatar Grand Prix","d":"2025-11-28","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Abu Dhabi Grand Prix","d":"2025-12-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]}],"2026":[{"e":"Australian Grand Prix","d":"2026-03-06","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Chinese Grand Prix","d":"2026-03-13","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Japanese Grand Prix","d":"2026-03-27","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Miami Grand Prix","d":"2026-05-01","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Canadian Grand Prix","d":"2026-05-22","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Monaco Grand Prix","d":"2026-06-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Barcelona Grand Prix","d":"2026-06-12","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Austrian Grand Prix","d":"2026-06-26","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"British Grand Prix","d":"2026-07-03","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Belgian Grand Prix","d":"2026-07-17","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Hungarian Grand Prix","d":"2026-07-24","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Dutch Grand Prix","d":"2026-08-21","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Italian Grand Prix","d":"2026-09-04","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Spanish Grand Prix","d":"2026-09-11","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Azerbaijan Grand Prix","d":"2026-09-24","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Bahrain Grand Prix","d":"2026-10-02","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]}]};
 const NAMES = {"names":{"VER":["Max","Verstappen"],"SAR":["Logan","Sargeant"],"NOR":["Lando","Norris"],"GAS":["Pierre","Gasly"],"PER":["Sergio","Perez"],"ALO":["Fernando","Alonso"],"LEC":["Charles","Leclerc"],"STR":["Lance","Stroll"],"MAG":["Kevin","Magnussen"],"DEV":["Nyck","De Vries"],"TSU":["Yuki","Tsunoda"],"ALB":["Alexander","Albon"],"ZHO":["Guanyu","Zhou"],"HUL":["Nico","Hulkenberg"],"OCO":["Esteban","Ocon"],"HAM":["Lewis","Hamilton"],"SAI":["Carlos","Sainz"],"RUS":["George","Russell"],"BOT":["Valtteri","Bottas"],"PIA":["Oscar","Piastri"],"ARO":["Paul","Aron"],"BEG":["Dino","Beganovic"],"OSU":["Zak","O'Sullivan"],"FOR":["Leonardo","Fornaroli"],"FCO":["Pierre","Gasly"],"BOY":["Sergio","Perez"],"MON":["Fernando","Alonso"],"BRO":["Luke","Browning"],"VIL":["Lance","Stroll"],"GRA":["Kevin","Magnussen"],"COH":["Yuki","Tsunoda"],"MAR":["Nico","Hulkenberg"],"MAN":["Guanyu","Zhou"],"TBA":["Nico","Hulkenberg"],"SHI":["Cian","Shields"],"RIC":["Daniel","Ricciardo"],"SHW":["Robert","Shwartzman"],"LAW":["Liam","Lawson"],"DRU":["Felipe","Drugovich"],"HAD":["Isack","Hadjar"],"VES":["Frederik","Vesti"],"BEA":["Oliver","Bearman"],"DOO":["Jack","Doohan"],"POU":["Theo","Pourchaire"],"OWA":["Patricio","O'Ward"],"DEN":["Jake","Dennis"],"IWA":["Ayumu","Iwasa"],"COL":["Franco","Colapinto"],"ANT":["Kimi","Antonelli"],"HIR":["Ryo","Hirakawa"],"LEL":["Arthur","Leclerc"],"BOR":["Gabriel","Bortoleto"],"DUN":["Alexander","Dunne"],"LIN":["Arvid","Lindblad"],"BAD":["Max","Verstappen"],"VOI":["Alexander","Albon"],"CHO":["Esteban","Ocon"],"CAM":["Gabriel","Bortoleto"],"CRA":["Jak","Crawford"],"FUO":["Antonio","Fuoco"],"HER":["Colton","Herta"]},"teams":{"2023":{"Red Bull Racing":"3671C6","Williams":"37BEDD","McLaren":"F58020","Alpine":"2293D1","Aston Martin":"358C75","Ferrari":"F91536","Haas F1 Team":"B6BABD","AlphaTauri":"5E8FAA","Alfa Romeo":"C92D4B","Mercedes":"6CD3BF"},"2024":{"Red Bull Racing":"3671C6","Williams":"64C4FF","RB":"6692FF","McLaren":"FF8000","Alpine":"0093cc","Aston Martin":"229971","Ferrari":"E80020","Haas F1 Team":"B6BABD","Kick Sauber":"52e252","Mercedes":"27F4D2"},"2025":{"Red Bull Racing":"4781D7","McLaren":"F47600","Kick Sauber":"01C00E","Racing Bulls":"6C98FF","Alpine":"00A1E8","Mercedes":"00D7B6","Aston Martin":"229971","Ferrari":"ED1131","Williams":"1868DB","Haas F1 Team":"9C9FA2"},"2026":{"McLaren":"F47600","Red Bull Racing":"4781D7","Audi":"F50537","Alpine":"00A1E8","Cadillac":"909090","Mercedes":"00D7B6","Ferrari":"ED1131","Aston Martin":"229971","Williams":"1868DB","Racing Bulls":"6C98FF","Haas F1 Team":"9C9FA2"}}};
@@ -664,13 +668,13 @@ function prepTel(tel) {
   return { quality, rel, t: T, v: pick(v), thr: pick(thr), rpm: pick(rpm), gear: pick(gear), brk: pick(brk), x: pick(x), y: pick(y), elevation:Array.isArray(tel.z)&&tel.z.length===n&&tel.z.filter(v=>Number.isFinite(numv(v))).length/n>.98?pick(col(tel.z,n)):null, len: span };
 }
 function resampleTel(p, P, lapTime) {
-  const n = p.rel.length;
+  const rel=p.station||p.rel, n = rel.length;
   const t = new Float64Array(P), v = new Float32Array(P), thr = new Float32Array(P), rpm = new Float32Array(P), x = new Float32Array(P), y = new Float32Array(P), gear = new Float32Array(P), brk = new Float32Array(P);
   let j = 0;
   for (let k = 0; k < P; k++) {
     const g = k / (P - 1);
-    while (j < n - 2 && p.rel[j + 1] <= g) j++;
-    const r0 = p.rel[j], r1 = p.rel[j + 1], f = r1 > r0 ? Math.min(1, Math.max(0, (g - r0) / (r1 - r0))) : 0;
+    while (j < n - 2 && rel[j + 1] <= g) j++;
+    const r0 = rel[j], r1 = rel[j + 1], f = r1 > r0 ? Math.min(1, Math.max(0, (g - r0) / (r1 - r0))) : 0;
     const L = (a) => a[j] + (a[j + 1] - a[j]) * f;
     t[k] = L(p.t); v[k] = L(p.v); thr[k] = Math.max(0, Math.min(100, L(p.thr))); rpm[k] = L(p.rpm); x[k] = L(p.x); y[k] = L(p.y);
     brk[k] = L(p.brk) >= 0.5 ? 1 : 0;
@@ -711,7 +715,7 @@ function autoCorners(H, A) {
 
 /* geometry for a comparison comes from lap A: grid, outline, sectors, corners */
 function setGeometry(H, pA, A) {
-  H.L = pA.len; H.P = Math.round(H.L / 8) + 1;
+  H.L = H.trackTransform?H.track.length:pA.len; H.P = A.t.length;
   const rotDeg = H.cornersRaw ? (+H.cornersRaw.Rotation || 0) : 0;
   const rot = rotDeg * Math.PI / 180, c = Math.cos(rot), s = Math.sin(rot);
   const rx = (x, y) => x * c - y * s, ry = (x, y) => -(x * s + y * c);
@@ -844,8 +848,8 @@ async function openSession() {
   const saved = store.get("td.pick2");
   const find = (code, n) => { const di = H.drivers.findIndex((d) => d.c === code); if (di < 0 || !H.byDrv[di].length) return null; const l = H.byDrv[di].find((x) => x.n === n) || H.bestLap[di]; return { d: di, l: l.i }; };
   let a = saved && saved.key === key ? find(saved.a, saved.la) : null, b = saved && saved.key === key ? find(saved.b, saved.lb) : null;
-  if (!a) a = { d: H.order[0], l: H.bestLap[H.order[0]].i };
-  if (!b) { const db = H.order.find((i) => i !== a.d) ?? a.d; b = { d: db, l: H.bestLap[db].i }; }
+  if (!a) { const di=/Mexico/.test(ev)?H.order.find(i=>H.drivers[i].c==='HAM'):null;const d=di??H.order[0];a={d,l:H.bestLap[d].i}; }
+  if (!b) { const db = (/Mexico/.test(ev)?H.order.find(i=>H.drivers[i].c==='RUS'&&i!==a.d):null) ?? H.order.find((i) => i !== a.d) ?? a.d; b = { d: db, l: H.bestLap[db].i }; }
   st.a = a; st.b = b;
   st.zoom = [0, 1]; st.zoomKey = "all"; st.cornerSel = null; $("cornerDetail").hidden=true;
   syncZoomButtons();
@@ -898,7 +902,15 @@ async function compare() {
   catch (err) { hideVeil(veils); if (tok === st.tok) showError(err, compare); return; }
   hideVeil(veils);
   if (tok !== st.tok || st.H !== H) return;
-  const P = Math.round(pA.len / 8) + 1;
+  H.track=null;H.trackTransform=null;
+  if(/Mexico/.test(H.event)&&typeof MEXICO_TRACK!=='undefined'){
+    H.track=ReplayCore.circuit(MEXICO_TRACK.coordinates,MEXICO_TRACK.length);
+    for(const p of [pA,pB]){if(!p.registration){p.registration=ReplayCore.register(p,H.track);p.stationInfo=ReplayCore.stations(p,H.track,p.registration);p.station=p.stationInfo.valid?p.stationInfo.rel:null;}}
+    const aligned=pA.stationInfo.valid&&pB.stationInfo.valid;
+    if(aligned)H.trackTransform=pA.registration;
+    for(const p of [pA,pB])p.station=aligned?p.stationInfo.rel:null;
+  }
+  const P = Math.round((H.trackTransform?H.track.length:pA.len) / 8) + 1;
   const A = Object.assign(resampleTel(pA, P, H.laps[ia].t / 1000), { meta: H.laps[ia] });
   const B = Object.assign(resampleTel(pB, P, H.laps[ib].t / 1000), { meta: H.laps[ib] });
   applyPilotColors(H.drivers[A.meta.d], H.drivers[B.meta.d]);
@@ -1068,23 +1080,26 @@ function setPlayIcon() {
   $("playBtn").innerHTML = st.play.on ? '<svg viewBox="0 0 16 16" fill="currentColor"><rect x="3.5" y="2.5" width="3" height="11" rx=".6"/><rect x="9.5" y="2.5" width="3" height="11" rx=".6"/></svg>' : '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg>';
   $("playBtn").setAttribute("aria-label", st.play.on ? "Duraklat" : "Oynat");
 }
+function setPlaybackRate(rate,now=performance.now()) {
+  if(st.play.on&&st.A&&st.B){const next=ReplayCore.changeRate({elapsed:st.play.e,last:st.play.last,rate:st.play.rate},rate,now,Math.max(st.A.total,st.B.total));st.play.e=next.elapsed;st.play.last=next.last;}
+  st.play.rate=rate;$('rate').value=String(rate);$('ghostRate').value=String(rate);ghost.hudStamp=0;if(st.A)drawAll();
+}
 function startPlay() {
-  if (!st.A) return;
+  if (!st.A || st.play.on) return;
   const end = Math.max(st.A.total, st.B.total);
   if (st.play.e >= end - 1e-3) st.play.e = 0;
   st.hoverK = null;
   st.play.on = true; st.play.last = performance.now(); setPlayIcon();
-  requestAnimationFrame(tick);
+  st.play.raf=requestAnimationFrame(tick);
 }
-function stopPlay() { st.play.on = false; setPlayIcon(); }
+function stopPlay() { st.play.on = false; cancelAnimationFrame(st.play.raf); setPlayIcon(); }
 function tick(now) {
   if (!st.play.on) return;
-  const dt = Math.min(0.1, (now - st.play.last) / 1000); st.play.last = now;
-  st.play.e += dt * st.play.rate;
   const end = Math.max(st.A.total, st.B.total);
+  st.play.e=ReplayCore.advance(st.play.e,st.play.last,now,st.play.rate,end);st.play.last=now;
   if (st.play.e >= end) { st.play.e = end; stopPlay(); }
   drawAll();
-  if (st.play.on) requestAnimationFrame(tick);
+  if (st.play.on) st.play.raf=requestAnimationFrame(tick);
 }
 
 /* ───────── canvas utils ───────── */
@@ -1472,7 +1487,7 @@ $("share").onclick = async () => {
 };
 $("playBtn").onclick = () => (st.play.on ? stopPlay() : startPlay());
 $("restart").onclick = () => { st.play.e = 0; st.hoverK = null; drawAll(); };
-$("rate").onchange = (e) => { st.play.rate = +e.target.value; };
+$("rate").onchange = e=>setPlaybackRate(+e.target.value);
 $("scrub").addEventListener("input", (e) => {
   if (!st.A) return;
   if (st.play.on) stopPlay();
@@ -2215,6 +2230,7 @@ const ghost = { active:false, camera:'tv', scene:null, source:null };
 // Convert the same circuit rotation used by the 2D map into a Y-up world.
 // The overview camera looks along +Z, so screen-right is world -X.
 function ghostWorld(x,y,ox,oy,scale) {
+  if(st.H.trackTransform)return ReplayCore.transform(st.H.trackTransform,x,y);
   const dx=x-ox,dy=y-oy;
   return {x:-(st.H.rx?st.H.rx(dx,dy):dx)*scale,z:-(st.H.ry?st.H.ry(dx,dy):-dy)*scale};
 }
@@ -2240,10 +2256,10 @@ function ghostCurveAt(C,value) {
     d:((6*u2-6*u)*v[lo]+(3*u2-4*u+1)*h*m[lo]+(-6*u2+6*u)*v[hi]+(3*u2-2*u)*h*m[hi])/h};
 }
 function ghostMotionBuild(p,L,ox,oz,scale) {
-  const count=p.t.length,t=[],progress=[],points=[];
+  const count=p.t.length,t=[],progress=[],nativeProgress=[],points=[];
   for(let i=0;i<count;i++) {
     if(t.length&&p.t[i]<=t[t.length-1])continue;
-    t.push(p.t[i]);progress.push(p.rel?p.rel[i]:i/(count-1));
+    t.push(p.t[i]);nativeProgress.push(p.rel?p.rel[i]:i/(count-1));progress.push((p.station||p.rel)?(p.station||p.rel)[i]:i/(count-1));
     // A short distance window suppresses GPS jitter; endpoints stay anchored.
     let x=0,z=0,weight=0;
     if(i===0||i===count-1){x=p.x[i];z=p.y[i];weight=1;}
@@ -2260,10 +2276,10 @@ function ghostMotionBuild(p,L,ox,oz,scale) {
     if(length<.001)continue;arc.push(arc[arc.length-1]+length);xs.push(points[i].x);zs.push(points[i].z);
   }
   const factor=L.total/t[t.length-1],times=t.map(v=>v*factor);
-  return {progress:ghostCurve(times,progress),x:ghostCurve(arc,xs),z:ghostCurve(arc,zs),length:arc[arc.length-1]};
+  return {progress:ghostCurve(times,progress),nativeProgress:ghostCurve(times,nativeProgress),x:ghostCurve(arc,xs),z:ghostCurve(arc,zs),length:arc[arc.length-1]};
 }
 function ghostMotionPose(L,time) {
-  const distance=ghostCurveAt(L.progress,time).v*L.length;
+  const distance=ghostCurveAt(L.nativeProgress||L.progress,time).v*L.length;
   const x=ghostCurveAt(L.x,distance),z=ghostCurveAt(L.z,distance),len=Math.hypot(x.d,z.d)||1;
   return {x:x.v,z:z.v,fx:x.d/len,fz:z.d/len};
 }
@@ -2271,6 +2287,7 @@ function ghostMotionPose(L,time) {
 function ghostTrackProfile(event) {
   const name=String(event||'');
   const base={name:'Kalıcı pist',urban:false,grass:'#526444',runoff:'#a59c84',paint:null,barrier:24};
+  if(/Mexico/i.test(name))return {...base,name:'Autódromo Hermanos Rodríguez · Meksika',mexico:true,grass:'#67754c',runoff:'#8c9688',barrier:23};
   if(/United States/i.test(name))return {...base,name:'Austin · COTA',grass:'#77764d',runoff:'#676f70',paint:['#b94047','#e4e3d9','#416c9b']};
   if(/Monaco|Singapore|Azerbaijan|Las Vegas/i.test(name))return {...base,name:'Sokak pisti',urban:true,grass:'#777c7c',runoff:'#535b61',barrier:10};
   if(/Bahrain|Saudi|Abu Dhabi|Qatar/i.test(name))return {...base,name:'Çöl çevresi',grass:'#ae9b77',runoff:'#bcb097',paint:['#547f88','#ddddcd'],barrier:28};
@@ -2333,12 +2350,14 @@ function ghostReplayPoses(S,time){
 function ghostBuild() {
   if (!st.A || !st.B) return null;
   if (ghost.source===st.A) return ghost.scene;
+  ghost.cameraState=null;ghostOrbit.target=null;
   const A=st.A, B=st.B, n=A.x.length;
   let length=0;
   for(let i=1;i<n;i++) length+=Math.hypot(A.x[i]-A.x[i-1],A.y[i]-A.y[i-1]);
   const scale=st.H.L/Math.max(1,length), ox=A.x[0], oz=A.y[0];
   const paths=[A,B].map(L=>Array.from(L.x,(x,i)=>ghostWorld(x,L.y[i],ox,oz,scale)));
-  const center=paths[0].map((p,i)=>({x:(p.x+paths[1][i].x)/2,z:(p.z+paths[1][i].z)/2}));
+  const fixed=st.H.trackTransform&&st.H.track;
+  const center=fixed?Array.from({length:n},(_,i)=>fixed.sample(st.H.trackTransform.phase+st.H.trackTransform.dir*i/(n-1))):paths[0].map((p,i)=>({x:(p.x+paths[1][i].x)/2,z:(p.z+paths[1][i].z)/2}));
   const edges=center.map((p,i)=>{
     const a=center[Math.max(0,i-2)],b=center[Math.min(n-1,i+2)];
     const dx=b.x-a.x,dz=b.z-a.z,len=Math.hypot(dx,dz)||1;
@@ -2346,11 +2365,12 @@ function ghostBuild() {
   });
   const xs=center.map(p=>p.x), zs=center.map(p=>p.z);
   const native=[A,B].map(L=>ghostMotionBuild(L.source||L,L,ox,oz,scale));
-  ghost.scene={profile:ghostTrackProfile(st.H.event),native,paths,edges,n,minX:Math.min(...xs),maxX:Math.max(...xs),minZ:Math.min(...zs),maxZ:Math.max(...zs)};
+  ghost.scene={track:fixed,registration:st.H.trackTransform,profile:ghostTrackProfile(st.H.event),native,paths,edges,n,minX:Math.min(...xs),maxX:Math.max(...xs),minZ:Math.min(...zs),maxZ:Math.max(...zs)};
+  if(fixed){const points=Array.from({length:n},(_,i)=>fixed.sample(i/(n-1)));ghost.scene.canonicalEdges=points.map((p,i)=>{const a=points[Math.max(0,i-2)],b=points[Math.min(n-1,i+2)],len=Math.hypot(b.x-a.x,b.z-a.z)||1;return {p,rx:(b.z-a.z)/len,rz:-(b.x-a.x)/len};});}
   ghost.scene.guides=ghostCornerGuides(edges,st.H.corners,st.H.L,st.H.autoCorners);
   ghost.scene.visual=ghostVisualPath(edges,ghost.scene.guides);
   ghost.scene.elevation=ghostElevation(A.source,n,scale,st.H.L);
-  ghost.scene.environment=ghostEnvironment(edges,ghost.scene.profile);
+  ghost.scene.environment=ghostEnvironment(ghost.scene.canonicalEdges||edges,ghost.scene.profile);
   ghost.source=A; return ghost.scene;
 }
 function ghostPoint(path,k) {
@@ -2372,27 +2392,21 @@ function ghostDraw(pos) {
   if(!ghost.active || st.mode==='race' || !st.A || !st.B)return;
   const S=ghostBuild(),cv=$('ghostCanvas');if(!cv.getClientRects().length)return;
   fitCanvas(cv);const g=cv.getContext('2d'),dpr=cv.width/cv.getBoundingClientRect().width,w=cv.width/dpr,h=cv.height/dpr;
-  g.setTransform(dpr,0,0,dpr,0,0);
-  const sky=g.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#6d9fbd');sky.addColorStop(.52,'#b7ccd4');sky.addColorStop(1,'#d9dfd4');g.fillStyle=sky;g.fillRect(0,0,w,h);
   const poses=ghostReplayPoses(S,st.play.e),A=poses[0],B=poses[1];
   if($('ghostEstimatedLine'))$('ghostEstimatedLine').disabled=!S.visual;
-  if($('ghostRenderQuality'))$('ghostRenderQuality').disabled=!/Azerbaijan/i.test(st.H.event);
+  if($('ghostRenderQuality'))$('ghostRenderQuality').disabled=false;
   if($('ghostZoom'))$('ghostZoom').disabled=ghost.camera==='overview';
   let camera,target;
-  if(ghost.camera==='overview') {
-    const span=Math.max(S.maxX-S.minX,S.maxZ-S.minZ),x=(S.maxX+S.minX)/2,z=(S.maxZ+S.minZ)/2;
-    camera=[x,span*1.25,z-span*.035];target=[x,0,z];
-  } else {
-    const p=ghost.camera==='b'?B:A, tv=ghost.camera==='tv',separation=Math.hypot(A.x-B.x,A.z-B.z),zoom=Number($('ghostZoom')?.value||100)/100,dist=(tv?28+Math.min(40,separation*.35):12)/zoom,height=(tv?17+Math.min(20,separation*.15):4.8)/zoom;
-    const x=tv?(A.x+B.x)/2:p.x,z=tv?(A.z+B.z)/2:p.z;
-    camera=[x-p.fx*dist+(tv?p.fz*15:0),height,z-p.fz*dist-(tv?p.fx*15:0)];
-    target=[x+p.fx*(tv?5:5),.6,z+p.fz*(tv?5:5)];
-  }
+  ({camera,target}=ghostCameraPose(S,poses,w/h));
   const stamp=performance.now(),last=ghost.cameraState;
-  if(last&&last.mode===ghost.camera&&st.play.on&&Math.abs(st.play.e-last.time)<.5){const mix=1-Math.exp(-Math.min(.1,(stamp-last.stamp)/1000)/.11);camera=camera.map((v,i)=>last.camera[i]+(v-last.camera[i])*mix);target=target.map((v,i)=>last.target[i]+(v-last.target[i])*mix);}
+  if(last&&ghost.camera!=='free'&&st.play.on&&Math.abs(st.play.e-last.time)<.5){const mix=1-Math.exp(-Math.min(.1,(stamp-last.stamp)/1000)/.11);camera=camera.map((v,i)=>last.camera[i]+(v-last.camera[i])*mix);target=target.map((v,i)=>last.target[i]+(v-last.target[i])*mix);}
+  if(ghost.camera!=='overview'&&ghost.camera!=='free')camera=ghostAvoidObstacles(camera,target);
+  ({camera,target}=GhostDirector.blend(camera,target));
   ghost.cameraState={camera,target,mode:ghost.camera,time:st.play.e,stamp};
-  if($('ghostElevation'))$('ghostElevation').disabled=!/Azerbaijan/i.test(st.H.event)||!S.elevation;
-  if(typeof ghost3d!=='undefined'&&/Azerbaijan/i.test(st.H.event)){if(ghost3d.ready&&ghost3dRender(S,poses,camera,target,w,h)){ghostReadouts(pos);return;}ghost3dStart();}else if(typeof ghost3d!=='undefined'){if(ghost3d.canvas)ghost3d.canvas.hidden=true;if(ghost3d.mini)ghost3d.mini.hidden=true;ghost3d.labels?.forEach(l=>l.hidden=true);$('ghostCanvas').style.visibility='visible';$('ghostEngine').textContent='Standart görünüm';}
+  if($('ghostElevation'))$('ghostElevation').disabled=!S.elevation;
+  if(ghost3d.ready&&ghost3dRender(S,poses,camera,target,w,h)){ghostReadouts(pos);return;}ghost3dStart();
+  g.setTransform(dpr,0,0,dpr,0,0);
+  const sky=g.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#6d9fbd');sky.addColorStop(.52,'#b7ccd4');sky.addColorStop(1,'#d9dfd4');g.fillStyle=sky;g.fillRect(0,0,w,h);
   const project=ghostProjection(camera,target,w,h),polys=[],theme=S.profile;
   const scenery=$('ghostScenery');if(scenery)scenery.textContent=theme.name+' · telemetriye dayalı plan / temsili çevre';
   const viewDir=target.map((v,i)=>v-camera[i]),viewLen=Math.hypot(...viewDir)||1,viewNormal=viewDir.map(v=>v/viewLen);
@@ -2530,7 +2544,7 @@ function ghostDraw(pos) {
     }
   }
 
-  car(A,st.H.drivers[st.A.meta.d].col||COL.a,1,0);car(B,st.H.drivers[st.B.meta.d].col||COL.b,.7,1);
+  car(A,st.H.drivers[st.A.meta.d].col||COL.a,1,0);car(B,COL.b,$('ghostTransparent').checked?.42:1,1);
   polys.sort((a,b)=>a.layer-b.layer||b.depth-a.depth);
   for(const p of polys){g.globalAlpha=p.alpha;g.fillStyle=p.color;g.beginPath();p.ps.forEach((q,i)=>i?g.lineTo(q.x,q.y):g.moveTo(q.x,q.y));g.closePath();g.fill();if(p.alpha===1){g.strokeStyle=p.color;g.lineWidth=.55;g.stroke();}} 
   g.globalAlpha=1;
@@ -2562,6 +2576,7 @@ function ghostDraw(pos) {
   ghostReadouts(pos);
 }
 function ghostReadouts(pos){
+  const now=performance.now();if(st.play.on&&now-(ghost.hudStamp||0)<50)return;ghost.hudStamp=now;
   const end=Math.max(st.A.total,st.B.total),time=st.play.e;
   $('ghostClock').textContent=fmtClock(time)+' / '+fmtClock(end);
   $('ghostScrub').value=Math.round(time/end*10000);
@@ -2570,6 +2585,8 @@ function ghostReadouts(pos){
   [st.A,st.B].forEach((L,i)=>{const k=i?pos.kb:pos.ka,done=time>=L.total;
     $('ghostDriver'+i).textContent=st.H.drivers[L.meta.d].c+' · '+(done?'BİTİŞ':value(L.v,k)+' km/sa');
     const bp=L.source||L,bk=kAtTime(bp,time*(bp.t[bp.t.length-1]/L.total)),braking=!done&&!L.quality.brake.missing&&near(bp.brk,bk)>=.5;
+    const code=st.H.drivers[L.meta.d].c,speed=value(L.v,k),gear=value(L.gear,k),throttle=value(L.thr,k);
+    $('ghostHUD'+i).innerHTML='<header>'+String(i?'B':'A')+' · '+code+'<time>'+fmtClock(Math.min(time,L.total))+'</time></header><strong>'+speed+'<small> km/sa</small><b>'+gear+'</b></strong><div class="hud-pedals"><span>GAZ '+throttle+'%</span><i style="--pedal:'+ (Number.isFinite(lerp(L.thr,k))?lerp(L.thr,k):0)+'%"></i><span>FREN '+(L.quality.brake.missing?'—':braking?'AÇIK':'KAPALI')+'</span><i class="brake" style="--pedal:'+(braking?100:0)+'%"></i></div>';
     $('ghostMetric'+i).textContent='Vites '+value(L.gear,k)+' · Gaz %'+value(L.thr,k)+' · Fren '+(L.quality.brake.missing?'—':braking?'AÇIK':'KAPALI');
   });
   const delta=lerp(st.delta,pos.ka);$('ghostDelta').textContent=fmtGap(delta)+' s';
@@ -2583,11 +2600,13 @@ function ghostToggle(force){
   writeHash();
 }
 $('ghostToggle').onclick=()=>ghostToggle();$('ghostClose').onclick=()=>ghostToggle(false);
+$('ghostFullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await $('ghostPanel').requestFullscreen();}catch(e){$('ghostEngine').textContent='Tam ekran bu tarayıcıda kullanılamıyor';}};
+$('ghostExport').onclick=()=>GhostMetrics.export();
 $('ghostPlay').onclick=()=>{if(st.play.on)stopPlay();else startPlay();drawAll();};
-$('ghostRestart').onclick=()=>{stopPlay();st.play.e=0;st.hoverK=null;drawAll();};
-$('ghostScrub').oninput=e=>{stopPlay();if(!st.A)return;st.hoverK=null;st.play.e=+e.target.value/10000*Math.max(st.A.total,st.B.total);drawAll();};
-$('ghostRate').onchange=e=>{st.play.rate=+e.target.value;$('rate').value=e.target.value;};
-$('ghostCameras').onclick=e=>{const b=e.target.closest('[data-camera]');if(!b)return;ghost.camera=b.dataset.camera;document.querySelectorAll('[data-camera]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));drawAll();};
+$('ghostRestart').onclick=()=>{stopPlay();GhostDirector.transition=null;ghost.cameraState=null;st.play.e=0;st.hoverK=null;drawAll();};
+$('ghostScrub').oninput=e=>{stopPlay();GhostDirector.transition=null;ghost.cameraState=null;if(!st.A)return;st.hoverK=null;st.play.e=+e.target.value/10000*Math.max(st.A.total,st.B.total);drawAll();};
+$('ghostRate').onchange=e=>setPlaybackRate(+e.target.value);
+$('ghostCameras').onclick=e=>{const b=e.target.closest('[data-camera]');if(!b)return;GhostDirector.switch(b.dataset.camera);document.querySelectorAll('[data-camera]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));drawAll();};
 const originalGhostDrawAll=drawAll;
 drawAll=function(){if(ghost.active&&st.A&&st.B&&st.mode!=='race')ghostDraw(positions());else originalGhostDrawAll();};
 document.addEventListener('keydown',e=>{if(!ghost.active||/INPUT|SELECT|TEXTAREA|BUTTON/.test(e.target.tagName))return;if(e.code==='Space'){e.preventDefault();$('ghostPlay').click();}if(e.code==='ArrowRight'||e.code==='ArrowLeft'){e.preventDefault();stopPlay();st.hoverK=null;st.play.e=Math.max(0,Math.min(Math.max(st.A?.total||0,st.B?.total||0),st.play.e+(e.code==='ArrowRight'?1:-1)));drawAll();}});
@@ -2655,161 +2674,15 @@ $('nextBrake').onclick=()=>{if(!st.A)return;ghostBuildBrakes();const events=ghos
 $('brakeTimeline').addEventListener('pointerdown',e=>{if(!st.A)return;const r=e.currentTarget.getBoundingClientRect(),ratio=Math.max(0,Math.min(1,(e.clientX-r.left-36)/(r.width-48)));ghostBrakeSeek(ratio*Math.max(st.A.total,st.B.total));});
 
 $('ghostZoom').addEventListener('input',()=>{ghost.cameraState=null;drawAll();});
-for(const id of ['ghostTraces','ghostZones','ghostEnvironment','ghostElevation','ghostGuides','ghostEstimatedLine','ghostRenderQuality'])$(id).addEventListener('change',()=>drawAll());
+for(const id of ['ghostAO','ghostAdaptive','ghostTransparent','ghostStatsToggle','ghostTraces','ghostZones','ghostEnvironment','ghostElevation','ghostGuides','ghostEstimatedLine','ghostRenderQuality'])$(id).addEventListener('change',()=>drawAll());
 // Optional GPU renderer. The 2D renderer remains available if loading or context creation fails.
-const ghost3d={ready:false,loading:false,failed:false,source:null};
-function ghostMergeMeshes(root,T){
-  root.updateMatrixWorld(true);const inverse=new T.Matrix4().copy(root.matrixWorld).invert(),batches=new Map(),sources=[];
-  root.traverse(o=>{if(!o.isMesh||o.isInstancedMesh||Array.isArray(o.material))return;for(let p=o.parent;p&&p!==root;p=p.parent)if(p.userData.spins)return;
-    const key=o.material.uuid+'|'+o.castShadow+'|'+o.receiveShadow;if(!batches.has(key))batches.set(key,{material:o.material,cast:o.castShadow,receive:o.receiveShadow,items:[]});
-    let geometry=o.geometry.index?o.geometry.toNonIndexed():o.geometry.clone();geometry.applyMatrix4(new T.Matrix4().multiplyMatrices(inverse,o.matrixWorld));batches.get(key).items.push(geometry);sources.push(o);
-  });
-  for(const batch of batches.values()){
-    const geometry=new T.BufferGeometry();for(const attr of ['position','normal','uv']){if(!batch.items.every(g=>g.attributes[attr]))continue;const size=batch.items[0].attributes[attr].itemSize,length=batch.items.reduce((n,g)=>n+g.attributes[attr].array.length,0),values=new Float32Array(length);let offset=0;for(const g of batch.items){values.set(g.attributes[attr].array,offset);offset+=g.attributes[attr].array.length;}geometry.setAttribute(attr,new T.BufferAttribute(values,size));}
-    const mesh=new T.Mesh(geometry,batch.material);mesh.castShadow=batch.cast;mesh.receiveShadow=batch.receive;root.add(mesh);batch.items.forEach(g=>g.dispose());
-  }
-  const geometries=new Set();sources.forEach(o=>{o.removeFromParent();geometries.add(o.geometry);});geometries.forEach(g=>g.dispose());return {before:sources.length,after:batches.size};
-}
-function ghost3dStart(){
-  if(ghost3d.loading||ghost3d.failed)return;ghost3d.loading=true;
-  const badge=$('ghostEngine');badge.textContent='3D hazırlanıyor…';
-  import('https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js').then(T=>{
-    const canvas=document.createElement('canvas');canvas.id='ghostWebGL';canvas.setAttribute('aria-label','Işık ve gölgeli 3D tur görünümü');
-    const renderer=new T.WebGLRenderer({canvas,antialias:true,alpha:false,powerPreference:'high-performance'});
-    renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.25));renderer.shadowMap.enabled=true;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.type=T.PCFSoftShadowMap;
-    renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.02;
-    const scene=new T.Scene();scene.background=new T.Color('#b9cdd9');scene.fog=new T.Fog('#b9cdd9',240,1050);
-    scene.add(new T.HemisphereLight('#d8edff','#807761',1.25));
-    const sun=new T.DirectionalLight('#fff0d5',2.8);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-75;sun.shadow.camera.right=75;sun.shadow.camera.top=75;sun.shadow.camera.bottom=-75;sun.shadow.camera.near=1;sun.shadow.camera.far=260;sun.shadow.normalBias=.04;sun.shadow.bias=-.00015;scene.add(sun,sun.target);
-    const lightCanvas=document.createElement('canvas');lightCanvas.width=512;lightCanvas.height=256;const lightCtx=lightCanvas.getContext('2d'),gradient=lightCtx.createLinearGradient(0,0,0,256);gradient.addColorStop(0,'#7399bb');gradient.addColorStop(.48,'#dce6e8');gradient.addColorStop(.53,'#a7a79b');gradient.addColorStop(1,'#60665f');lightCtx.fillStyle=gradient;lightCtx.fillRect(0,0,512,256);const glow=lightCtx.createRadialGradient(350,70,1,350,70,38);glow.addColorStop(0,'#ffffff');glow.addColorStop(.15,'#fff5dc');glow.addColorStop(1,'#ffffff00');lightCtx.fillStyle=glow;lightCtx.fillRect(300,20,100,100);const lightTexture=new T.CanvasTexture(lightCanvas);lightTexture.mapping=T.EquirectangularReflectionMapping;lightTexture.colorSpace=T.SRGBColorSpace;const pmrem=new T.PMREMGenerator(renderer),lightTarget=pmrem.fromEquirectangular(lightTexture);scene.environment=lightTarget.texture;scene.environmentIntensity=.65;lightTexture.dispose();pmrem.dispose();
-    const camera=new T.PerspectiveCamera(48,1,.15,16000);
-    $('ghostCanvas').parentElement.append(canvas);
-    const mini=document.createElement('canvas');mini.id='ghostGLMini';mini.width=160;mini.height=100;$('ghostCanvas').parentElement.append(mini);
-    const labels=[0,1].map(i=>{const label=document.createElement('span');label.className='ghost-gl-label';$('ghostCanvas').parentElement.append(label);return label;});ghost3d.labels=labels;ghost3d.mini=mini;
-    Object.assign(ghost3d,{T,renderer,scene,camera,sun,canvas,ready:true});
-    canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();ghost3dFallback();});
-    badge.textContent='3D PROTOTİP · IŞIK / GÖLGE';drawAll();
-  }).catch(()=>ghost3dFallback());
-}
-function ghost3dFallback(){if(ghost3d.mini)ghost3d.mini.hidden=true;ghost3d.labels?.forEach(l=>l.hidden=true);ghost3d.ready=false;ghost3d.failed=true;if(ghost3d.canvas)ghost3d.canvas.hidden=true;$('ghostCanvas').style.visibility='visible';$('ghostEngine').textContent='Standart görünüm';if(st.A)drawAll();}
-function ghost3dBuild(S){
-  const G=ghost3d,T=G.T;
-  if(G.world){G.scene.remove(G.world);const geometries=new Set(),materials=new Set(),textures=new Set();G.world.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material]){materials.add(m);for(const v of Object.values(m))if(v?.isTexture)textures.add(v);}});geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose());}
-  const world=new T.Group();G.scene.add(world);G.world=world;G.source=st.A;
-  const material=(color,roughness=.8,metalness=0)=>new T.MeshStandardMaterial({color,roughness,metalness,side:T.DoubleSide});
-  const roadMat=material('#686a6b',.96),white=material('#e2e1d5'),red=material('#ba3436'),concrete=material('#b8b9b3'),steel=material('#71838b',.43,.6);
-  const texCanvas=document.createElement('canvas');texCanvas.width=texCanvas.height=256;const tx=texCanvas.getContext('2d'),pixels=tx.createImageData(256,256);let seed=1729;
-  for(let i=0;i<pixels.data.length;i+=4){seed=(Math.imul(seed,1664525)+1013904223)>>>0;const v=105+(seed>>>27);pixels.data[i]=pixels.data[i+1]=pixels.data[i+2]=v;pixels.data[i+3]=255;}tx.putImageData(pixels,0,0);
-  const asphalt=new T.CanvasTexture(texCanvas);asphalt.wrapS=asphalt.wrapT=T.RepeatWrapping;asphalt.repeat.set(4,4);asphalt.colorSpace=T.SRGBColorSpace;asphalt.anisotropy=Math.min(8,G.renderer.capabilities.getMaxAnisotropy());roadMat.map=asphalt;roadMat.bumpMap=asphalt;roadMat.bumpScale=.012;concrete.bumpMap=asphalt;concrete.bumpScale=.018;
-  const mesh=(geometry,mat,parent=world)=>{const m=new T.Mesh(geometry,mat);m.castShadow=true;m.receiveShadow=true;parent.add(m);return m;};
-  const heights=G.elevationOn?S.elevation:null;
-  const heightAt=k=>heights?lerp(heights,Math.max(0,Math.min(S.n-1,k))):0;G.heightAt=heightAt;
-  S.edges.forEach((e,i)=>e.height=heightAt(i));
-  const point=(e,o,y)=>[e.p.x+e.rx*o,y+(e.height||0),e.p.z+e.rz*o];
-  const batches=new Map();function quad(mat,a,b,c,d){if(!batches.has(mat))batches.set(mat,[]);batches.get(mat).push(...a,...b,...c,...a,...c,...d);}
-  let distance=0;const positions=[],uvs=[];
-  for(let i=0;i<S.n-1;i++){
-    const a=S.edges[i],b=S.edges[i+1],len=Math.hypot(a.p.x-b.p.x,a.p.z-b.p.z);
-    const l=point(a,-7,.02),r=point(a,7,.02),nl=point(b,-7,.02),nr=point(b,7,.02);
-    positions.push(...l,...nl,...r,...r,...nl,...nr);uvs.push(0,distance/14,0,(distance+len)/14,1,distance/14,1,distance/14,0,(distance+len)/14,1,(distance+len)/14);distance+=len;
-    for(const sign of [-1,1]){
-      quad(concrete,point(a,sign*7.2,-.02),point(b,sign*7.2,-.02),point(b,sign*(S.profile.barrier+6),-.02),point(a,sign*(S.profile.barrier+6),-.02));
-      quad(white,point(a,sign*6.94,.04),point(b,sign*6.94,.04),point(b,sign*7.1,.04),point(a,sign*7.1,.04));
-      const off=sign*S.profile.barrier;
-      quad(concrete,point(a,off,0),point(b,off,0),point(b,off,1.05),point(a,off,1.05));
-      quad(white,point(a,off,1.05),point(b,off,1.05),point(b,off+sign*.25,1.05),point(a,off+sign*.25,1.05));
-      const bend=Math.abs(a.rx*b.rz-a.rz*b.rx);
-      if(bend>.025){const pieces=Math.max(1,Math.ceil(len/1.5));for(let j=0;j<pieces;j++){const at=t=>({p:{x:a.p.x+(b.p.x-a.p.x)*t,z:a.p.z+(b.p.z-a.p.z)*t},rx:a.rx+(b.rx-a.rx)*t,rz:a.rz+(b.rz-a.rz)*t,height:a.height+(b.height-a.height)*t}),c=at(j/pieces),d=at((j+1)/pieces);quad((i+j)%2?red:white,point(c,sign*7.1,.045),point(d,sign*7.1,.045),point(d,sign*8,.045),point(c,sign*8,.045));}}
-    }
-  }
-  const roadGeometry=new T.BufferGeometry();roadGeometry.setAttribute('position',new T.Float32BufferAttribute(positions,3));roadGeometry.setAttribute('uv',new T.Float32BufferAttribute(uvs,2));roadGeometry.computeVertexNormals();mesh(roadGeometry,roadMat).castShadow=false;
-  for(const [mat,points] of batches){const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(points,3));geo.computeVertexNormals();mesh(geo,mat).castShadow=mat===concrete;}
-  const terrainHeight=(x,z)=>{if(!heights)return -.04;let best=Infinity,second=Infinity,one=0,two=0;for(const e of S.edges){const d=(x-e.p.x)**2+(z-e.p.z)**2;if(d<best){second=best;two=one;best=d;one=e.height;}else if(d<second){second=d;two=e.height;}}const a=1/(best+4),b=1/(second+4);return (one*a+two*b)/(a+b)-.55;};
-  const groundMat=material(S.profile.grass),ground=mesh(new T.PlaneGeometry(18000,18000),groundMat);ground.rotation.x=-Math.PI/2;ground.position.set((S.minX+S.maxX)/2,heights?-2:-.04,(S.minZ+S.maxZ)/2);ground.castShadow=false;
-  if(heights){const width=S.maxX-S.minX+700,depth=S.maxZ-S.minZ+700,cx=(S.minX+S.maxX)/2,cz=(S.minZ+S.maxZ)/2,geo=new T.PlaneGeometry(width,depth,Math.min(128,Math.ceil(width/20)),Math.min(128,Math.ceil(depth/20)));geo.rotateX(-Math.PI/2);const points=geo.attributes.position;for(let i=0;i<points.count;i++){const x=points.getX(i)+cx,z=points.getZ(i)+cz;points.setXYZ(i,x,terrainHeight(x,z),z);}geo.computeVertexNormals();mesh(geo,groundMat).castShadow=false;}
-
-  const box=(parent,x,y,z,w,h,d,mat)=>{const m=mesh(new T.BoxGeometry(w,h,d),mat,parent);m.position.set(x,y,z);return m;};
-  const environment=new T.Group();world.add(environment);G.environment=environment;
-  const windows=[],windowMatrix=new T.Matrix4();const glass=material('#526e7b',.25,.38),palettes=['#d1c3aa','#bbc3c5','#dbceb9','#acb3ba'].map(c=>material(c));
-  for(const o of S.environment){const group=new T.Group();group.position.set(o.x,heights?terrainHeight(o.x,o.z):0,o.z);group.rotation.y=Math.atan2(-o.rz,o.rx);environment.add(group);
-    if(o.kind==='building'){
-      box(group,0,o.height/2,0,12,o.height,23,palettes[o.variant]);box(group,0,o.height+.15,0,12.5,.3,23.5,concrete);
-      group.updateMatrixWorld();for(let level=2;level<o.height-1;level+=3)for(const sign of [-1,1])for(let z=-9;z<=9;z+=3){windowMatrix.makeTranslation(sign*6.025,level,z);windows.push(new T.Matrix4().multiplyMatrices(group.matrixWorld,windowMatrix));}
-    }else{box(group,0,1.5,0,.5,3,.5,material('#76654b'));const tree=mesh(new T.ConeGeometry(3,7,7),material('#46684b'),group);tree.position.y=5;}
-  }
-  if(windows.length){const panes=new T.InstancedMesh(new T.BoxGeometry(.04,1.4,1.5),glass,windows.length);windows.forEach((m,i)=>panes.setMatrixAt(i,m));panes.receiveShadow=true;environment.add(panes);}
-  const fenceVertices=[];
-  for(let i=0;i<S.n-1;i++)for(const sign of [-1,1]){const a=S.edges[i],b=S.edges[i+1],off=sign*(S.profile.barrier+.15);for(const y of [1.7,2.5,3.3])fenceVertices.push(...point(a,off,y),...point(b,off,y));if(i%2===0)fenceVertices.push(...point(a,off,1),...point(a,off,3.45));}
-  const fenceGeo=new T.BufferGeometry();fenceGeo.setAttribute('position',new T.Float32BufferAttribute(fenceVertices,3));environment.add(new T.LineSegments(fenceGeo,new T.LineBasicMaterial({color:'#72838c',transparent:true,opacity:.55})));
-  G.guideGroup=new T.Group();world.add(G.guideGroup);G.guideMarkers=[];
-  for(const m of S.guides){
-    const group=new T.Group();group.position.set(m.x,heightAt(m.k)+.09,m.z);G.guideGroup.add(group);
-    const ring=mesh(new T.TorusGeometry(.65,.055,5,24),new T.MeshBasicMaterial({color:m.color}),group);ring.rotation.x=Math.PI/2;ring.castShadow=false;
-    const canvas=document.createElement('canvas');canvas.width=256;canvas.height=64;const ctx=canvas.getContext('2d');ctx.fillStyle='#10202bdb';ctx.fillRect(0,0,256,64);ctx.fillStyle=m.color;ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='bold 24px sans-serif';ctx.fillText('T'+m.n+' '+m.kind,128,32);
-    const texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;const label=new T.Sprite(new T.SpriteMaterial({map:texture,transparent:true,depthTest:true}));label.position.y=1.65;label.scale.set(5.2,1.3,1);group.add(label);G.guideMarkers.push({group,label,marker:m});
-  }
-  G.mergeStats=ghostMergeMeshes(environment,T);
-  G.traces=new T.Group();G.zones=new T.Group();world.add(G.traces,G.zones);
-  [st.A,st.B].forEach((L,index)=>{
-    const curve=new T.CatmullRomCurve3(S.paths[index].map((p,i)=>new T.Vector3(p.x,heightAt(i)+.095,p.z)));
-    mesh(new T.TubeGeometry(curve,S.n,.075,3,false),new T.MeshBasicMaterial({color:index?COL.b:COL.a,transparent:true,opacity:.6}),G.traces).castShadow=false;
-    const verts=[],side=index?1:-1;
-    if(!L.quality.brake.missing)for(let i=0;i<S.n-1;i++)if(L.brk[i]>=.5){const a=S.edges[i],b=S.edges[i+1],p=point(a,side*.8,.07),q=point(b,side*.8,.07),r=point(b,side*4.8,.07),u=point(a,side*4.8,.07);verts.push(...p,...q,...r,...p,...r,...u);}
-    if(verts.length){const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(verts,3));geo.computeVertexNormals();mesh(geo,new T.MeshBasicMaterial({color:'#ff435f',transparent:true,opacity:.22,depthWrite:false,side:T.DoubleSide}),G.zones).castShadow=false;}
-  });
-  G.estimatedTrace=new T.Group();world.add(G.estimatedTrace);
-  if(S.visual){const curve=new T.CatmullRomCurve3(S.visual.path.map((p,i)=>new T.Vector3(p.x,heightAt(i)+.11,p.z)));mesh(new T.TubeGeometry(curve,S.n,.085,3,false),new T.MeshBasicMaterial({color:'#ffd166',transparent:true,opacity:.62}),G.estimatedTrace).castShadow=false;}
-  // A generic open-wheel model built for this demo; no third-party model or official livery.
-  G.cars=[st.A,st.B].map((L,index)=>{
-    const group=new T.Group();world.add(group);const color=st.H.drivers[L.meta.d].col||[COL.a,COL.b][index],paint=material(color,.28,.33),carbon=material('#182027',.58,.15),rubber=material('#15191b',.94),rim=material('#89929b',.3,.75);
-    if(index)paint.transparent=true,paint.opacity=.78;
-    box(group,0,.16,0,1.8,.14,4.7,carbon);
-    const body=mesh(new T.SphereGeometry(1,24,12),paint,group);body.scale.set(.43,.47,1.65);body.position.set(0,.56,-.6);
-    const nose=mesh(new T.CylinderGeometry(.12,.3,2.2,16),paint,group);nose.rotation.x=Math.PI/2;nose.position.set(0,.43,1.2);
-    for(const sign of [-1,1]){const pod=mesh(new T.SphereGeometry(1,16,10),paint,group);pod.scale.set(.28,.28,1.05);pod.position.set(sign*.57,.48,-.25);box(group,sign*.91,.31,2.17,.05,.3,.64,paint);box(group,sign*.82,.87,-2.2,.05,.6,.52,paint);}
-    for(const sign of [-1,1]){const inlet=mesh(new T.SphereGeometry(1,12,8),carbon,group);inlet.scale.set(.2,.12,.07);inlet.position.set(sign*.57,.64,.65);box(group,sign*.6,.7,-.35,.3,.045,1.1,paint);}
-    const finGeometry=new T.BufferGeometry();finGeometry.setAttribute('position',new T.Float32BufferAttribute([0,.56,-1.9,0,1.12,-1.1,0,.64,-.3],3));finGeometry.computeVertexNormals();mesh(finGeometry,paint,group);
-    box(group,0,.71,-.17,.5,.18,.85,carbon);const helmet=mesh(new T.SphereGeometry(.18,16,10),material('#e6e2ce',.35),group);helmet.position.set(0,.91,-.1);
-    for(let j=0;j<3;j++)box(group,0,.22+j*.055,2.37-j*.13,1.95,.045,.18,j?paint:carbon);
-    box(group,0,.96,-2.2,1.68,.1,.5,paint);box(group,0,.56,-2.15,.12,.7,.14,carbon);
-    const haloPoints=[[-.34,.97,-.53],[-.35,1.02,.15],[0,1.04,.42],[.35,1.02,.15],[.34,.97,-.53]].map(p=>new T.Vector3(...p));mesh(new T.TubeGeometry(new T.CatmullRomCurve3(haloPoints),20,.035,6,false),carbon,group);
-    const wheels=[];
-    for(const x of [-.88,.88])for(const z of [-1.58,1.48]){const wheel=new T.Group();wheel.position.set(x,.39,z);wheel.userData.spins=true;group.add(wheel);const tyre=mesh(new T.CylinderGeometry(.37,.37,.36,24),rubber,wheel);tyre.rotation.z=Math.PI/2;const hub=mesh(new T.CylinderGeometry(.19,.19,.375,16),rim,wheel);hub.rotation.z=Math.PI/2;wheels.push(wheel);
-      const side=Math.sign(x),ring=mesh(new T.TorusGeometry(.29,.014,5,32),material(COMP_HEX[L.meta.c]||'#566174',.8),wheel);ring.rotation.y=Math.PI/2;ring.position.x=side*.187;
-      for(let spoke=0;spoke<5;spoke++){const a=spoke/5*Math.PI*2,bar=box(wheel,side*.192,Math.cos(a)*.095,Math.sin(a)*.095,.018,.024,.18,carbon);bar.rotation.x=-a;}
-      for(const anchor of [-.24,.24]){const start=new T.Vector3(Math.sign(x)*.25,.3,z+anchor),end=new T.Vector3(x,.39,z),dir=end.clone().sub(start),arm=mesh(new T.CylinderGeometry(.025,.025,dir.length(),5),carbon,group);arm.position.copy(start.clone().add(end).multiplyScalar(.5));arm.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),dir.normalize());}
-    }
-    group.userData.wheels=wheels;wheels.forEach(wheel=>ghostMergeMeshes(wheel,T));ghostMergeMeshes(group,T);return group;
-  });
-}
-function ghost3dRender(S,poses,camera,target,w,h){
-  const G=ghost3d;if(!G.ready)return false;
-  try{
-    const elevationOn=!!(S.elevation&&$('ghostElevation').checked);$('ghostElevation').disabled=!S.elevation;
-    if(G.source!==st.A||G.elevationOn!==elevationOn){G.elevationOn=elevationOn;ghost3dBuild(S);}
-    G.canvas.hidden=false;$('ghostCanvas').style.visibility='hidden';
-    if(G.width!==w||G.height!==h){G.renderer.setSize(w,h,false);G.camera.aspect=w/h;G.camera.updateProjectionMatrix();G.width=w;G.height=h;}
-    const heightA=G.heightAt(kAtTime(st.A,st.play.e)),heightB=G.heightAt(kAtTime(st.B,st.play.e)),focusHeight=ghost.camera==='b'?heightB:ghost.camera==='tv'?(heightA+heightB)/2:ghost.camera==='overview'?0:heightA;
-    G.camera.position.set(camera[0],camera[1]+focusHeight,camera[2]);G.camera.lookAt(target[0],target[1]+focusHeight,target[2]);
-    G.guideGroup.visible=$('ghostGuides').checked;
-    G.guideMarkers.forEach(({group,label,marker:m})=>{const near=Math.min(Math.hypot(m.x-poses[0].x,m.z-poses[0].z),Math.hypot(m.x-poses[1].x,m.z-poses[1].z));group.visible=ghost.camera==='overview'?m.kind==='APEKS':near<110;label.visible=ghost.camera!=='overview';});
-    G.environment.visible=$('ghostEnvironment').checked;G.traces.visible=$('ghostTraces').checked&&!($('ghostEstimatedLine').checked&&S.visual);G.estimatedTrace.visible=$('ghostTraces').checked&&!!($('ghostEstimatedLine').checked&&S.visual);G.zones.visible=$('ghostZones').checked;
-    poses.forEach((p,i)=>{const car=G.cars[i];const k=kAtTime(i?st.B:st.A,st.play.e),y=G.heightAt(k),slope=(G.heightAt(k+1)-G.heightAt(k-1))/(2*st.H.L/(S.n-1));car.position.set(p.x,y,p.z);car.rotation.order='YXZ';car.rotation.y=Math.atan2(p.fx,p.fz);car.rotation.x=-Math.atan(slope);car.userData.wheels.forEach(wheel=>wheel.rotation.x=-st.play.e*lerp((i?st.B:st.A).v,kAtTime(i?st.B:st.A,st.play.e))/3.6/.37);});
-    const p=poses[0],now=performance.now(),detail=$('ghostRenderQuality').value==='high',quality=detail?'high':'balanced';
-    if(G.quality!==quality){G.quality=quality;G.renderer.setPixelRatio(Math.min(devicePixelRatio||1,detail?1.75:1.25));G.renderer.setSize(w,h,false);const size=detail?2048:1024;if(G.sun.shadow.mapSize.x!==size){G.sun.shadow.map?.dispose();G.sun.shadow.map=null;G.sun.shadow.mapSize.set(size,size);}G.shadowStamp=0;}
-    if(!st.play.on||now-(G.shadowStamp||0)>(detail?33:66)||Math.abs(st.play.e-(G.shadowTime||0))>.25){G.sun.position.set(p.x-65,110+heightA,p.z-45);G.sun.target.position.set(p.x,heightA,p.z);G.sun.target.updateMatrixWorld();G.sun.shadow.camera.updateProjectionMatrix();G.renderer.shadowMap.needsUpdate=true;G.shadowStamp=now;G.shadowTime=st.play.e;}
-    G.sun.castShadow=ghost.camera!=='overview';
-    G.scene.fog.near=ghost.camera==='overview'?5000:240;G.scene.fog.far=ghost.camera==='overview'?14000:1050;
-    G.renderer.render(G.scene,G.camera);
-    if(st.play.on){if(!G.fpsStamp){G.fpsStamp=now;G.frames=0;}G.frames++;if(now-G.fpsStamp>1000){$('ghostEngine').textContent='3D · '+Math.round(G.frames*1000/(now-G.fpsStamp))+' FPS';G.frames=0;G.fpsStamp=now;}}else{G.fpsStamp=0;}
-    $('ghostEngine').title='Sabit çevre parçaları: '+G.mergeStats.before+' → '+G.mergeStats.after;
-    $('ghostScenery').textContent='Bakü · 3D prototip / '+(G.elevationOn?'Z kanalından tahmini eğim':'düz zemin')+' / '+($('ghostEstimatedLine').checked&&S.visual?'tahmini ortak çizgi / ':'')+'temsili çevre';
-    G.labels.forEach((label,i)=>{const v=new G.T.Vector3(poses[i].x,G.heightAt(kAtTime(i?st.B:st.A,st.play.e))+1.7,poses[i].z).project(G.camera);label.hidden=Math.abs(v.x)>1||Math.abs(v.y)>1||v.z>1;label.style.left=(v.x*.5+.5)*w+'px';label.style.top=(-v.y*.5+.5)*h+'px';label.style.color=i?COL.b:COL.a;label.textContent=(i?'B · ':'A · ')+st.H.drivers[(i?st.B:st.A).meta.d].c;});
-    G.mini.hidden=false;const mg=G.mini.getContext('2d'),mw=160,mh=100,sc=Math.min(140/(S.maxX-S.minX||1),80/(S.maxZ-S.minZ||1)),map=p=>[80-(p.x-(S.minX+S.maxX)/2)*sc,50-(p.z-(S.minZ+S.maxZ)/2)*sc];mg.clearRect(0,0,mw,mh);mg.fillStyle='#101b26de';mg.fillRect(0,0,mw,mh);mg.strokeStyle='#a1b4bc';mg.lineWidth=2;mg.beginPath();S.edges.forEach((e,i)=>i?mg.lineTo(...map(e.p)):mg.moveTo(...map(e.p)));mg.stroke();poses.forEach((p,i)=>{mg.fillStyle=i?COL.b:COL.a;mg.beginPath();mg.arc(...map(p),3,0,Math.PI*2);mg.fill();});
-    return true;
-  }catch{ghost3dFallback();return false;}
-}
-
+</script>
+<script src="src/visual-assets.js"></script>
+<script src="src/ghost-director.js"></script>
+<script src="src/ghost-world.js"></script>
+<script src="src/ghost-webgl.js"></script>
+<script>
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&st.play.on){stopPlay();ghost.hudStamp=0;drawAll();$('ghostEngine').textContent='Sekme gizlendi · oynatma duraklatıldı';}});
 /* ───────── boot ───────── */
 (function boot() {
   if (TOUCH) $("hint").textContent = "Grafikte parmağını yatay kaydır: haritada A o noktada, B ise aynı saniyede bulunduğu yerde görünür. Sektör düğmeleri ve viraj satırları yakınlaştırır.";
@@ -2823,10 +2696,10 @@ function ghost3dRender(S,poses,camera,target,w,h){
   st.mode = hp.get("m") === "race" ? "race" : "duel";
   st.raceTab = RTABS.includes(hp.get("t")) ? hp.get("t") : "sum";
   const saved = hashWhere || store.get("td.where");
-  st.year = saved && SEASONS[saved.year] ? saved.year : yrs[0];
+  st.year = saved && SEASONS[saved.year] ? saved.year : '2024';
   const evs = eventsOf(st.year);
-  st.ev = saved && evs.find((e) => e.e === saved.ev) ? saved.ev : evs[evs.length - 1].e;
-  st.kind = saved && saved.kind ? saved.kind : null;
+  st.ev = saved && evs.find((e) => e.e === saved.ev) ? saved.ev : (evs.find(e=>/Mexico/.test(e.e)) || evs[evs.length - 1]).e;
+  st.kind = saved && saved.kind ? saved.kind : 'Q';
   pickDefaultKind(!!st.kind);
   if (hashWhere && hp.get("a") && hp.get("b")) store.set("td.pick2", { key: `${st.year}|${st.ev}|${sesName(st.kind)}`, a: hp.get("a"), la: +hp.get("la"), b: hp.get("b"), lb: +hp.get("lb") });
   const hashPending = !hashWhere && hp.get("y") && hp.get("e") ? { year: hp.get("y"), ev: hp.get("e"), kind: hp.get("k") } : null;

@@ -1,0 +1,66 @@
+[
+  {
+    "file": "materials/asphalt-color.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/aerial_asphalt_01/aerial_asphalt_01_diff_1k.jpg",
+    "sha256": "28bfd71288b364f825e0feb750e487410422d80bf3c31d32da01cae3bf085b58",
+    "bytes": 635143,
+    "license": "CC0-1.0",
+    "source": "Poly Haven"
+  },
+  {
+    "file": "materials/asphalt-roughness.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/aerial_asphalt_01/aerial_asphalt_01_rough_1k.jpg",
+    "sha256": "19ca745417e36a1cd1114411801933b3144a351d1409d0d9caa1046b9a20c0ec",
+    "bytes": 312445,
+    "license": "CC0-1.0",
+    "source": "Poly Haven"
+  },
+  {
+    "file": "materials/asphalt-normal.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/aerial_asphalt_01/aerial_asphalt_01_nor_gl_1k.jpg",
+    "sha256": "7a58cb4460f75b66359b8e19bc92585554a79c2b0009e2b9e21eccac0a58d3f6",
+    "bytes": 560227,
+    "license": "CC0-1.0",
+    "source": "Poly Haven"
+  },
+  {
+    "file": "environment/spruit-sunrise.hdr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/spruit_sunrise_1k.hdr",
+    "sha256": "38199a31e945906f6778431e989256a92d9d78b0cfc0f902accad9f5244bf50f",
+    "bytes": 1500948,
+    "license": "CC0-1.0",
+    "source": "Poly Haven"
+  },
+  {
+    "file": "tracks/mexico.geojson",
+    "source": "Tomislav Bacinger / f1-circuits",
+    "url": "https://github.com/bacinger/f1-circuits/blob/master/circuits/mx-1962.geojson",
+    "license": "MIT",
+    "license_file": "tracks/LICENSE-MIT.txt",
+    "notes": "Approximate geographic line only. Width, elevations and structures are not provided; declared length 4304 m."
+  },
+  {
+    "file": "materials/asphalt-roughness.ktx2",
+    "derived_from": "materials/asphalt-roughness.jpg",
+    "license": "CC0-1.0",
+    "encoder": "Basis Universal v1.15 (basisu npm distribution 1.16.3), UASTC with mipmaps",
+    "sha256": "fb4612754af1bf788ff3c3af695a00c11401cf84f463a2318d6332b0aa56c00c",
+    "bytes": 1025530
+  },
+  {
+    "file": "materials/asphalt-color.ktx2",
+    "derived_from": "materials/asphalt-color.jpg",
+    "license": "CC0-1.0",
+    "encoder": "Basis Universal v1.15 (basisu npm distribution 1.16.3), UASTC with mipmaps",
+    "sha256": "c4aa712400fd757d2cceeb246cdcdfe31d9d4f16def8ab64ef41ae5a245b50f6",
+    "bytes": 1242531
+  },
+  {
+    "file": "materials/asphalt-normal.ktx2",
+    "derived_from": "materials/asphalt-normal.jpg",
+    "license": "CC0-1.0",
+    "encoder": "Basis Universal v1.15 (basisu npm distribution 1.16.3), UASTC with mipmaps",
+    "sha256": "b66c1d868a10e7ca8bc0b5fc61d12d75f652a386c54c913a6171f299219a8d6b",
+    "bytes": 1200932
+  }
+]
