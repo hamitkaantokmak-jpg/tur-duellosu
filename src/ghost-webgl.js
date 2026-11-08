@@ -53,7 +53,7 @@ function ghostDisposeWorld(){
 function ghost3dBuild(S){
   const G=ghost3d,T=G.T;
   ghostDisposeWorld();
-  const world=new T.Group();G.scene.add(world);G.world=world;G.source=st.A;G.transparent=null;G.assetApplied=-1;G.carShadows=null;G.v3Instances=null;G.v3Obstacles=null;G.v3Stats=null;
+  const world=new T.Group();G.scene.add(world);G.world=world;G.source=st.A;G.transparent=null;G.assetApplied=-1;G.carShadows=null;G.v3Instances=null;G.v3Obstacles=null;G.v3Stats=null;G.v4World=null;G.v4Batches=null;G.v4Obstacles=null;G.v4Stats=null;
   const material=(color,roughness=.8,metalness=0)=>new T.MeshStandardMaterial({color,roughness,metalness,side:T.DoubleSide});
   const roadMat=material('#b3b4b5',.96),white=material('#e2e1d5'),red=material('#ba3436'),concrete=material('#b8b9b3'),steel=material('#71838b',.43,.6);
   G.roadMaterial=roadMat;const barrierMat=concrete.clone();
@@ -176,12 +176,12 @@ function ghost3dRender(S,poses,camera,target,w,h){
     if(G.quality!==quality){G.quality=quality;G.adaptiveScale=profile.ratio;G.renderer.setPixelRatio(Math.min(devicePixelRatio||1,profile.ratio));G.renderer.setSize(w,h,false);const size=profile.shadow;if(G.sun.shadow.mapSize.x!==size){G.sun.shadow.map?.dispose();G.sun.shadow.map=null;G.sun.shadow.mapSize.set(size,size);}G.pendingRatio=null;G.roadMaterial.normalMap=quality==='performance'?null:(VisualAssets.textures.normal||null);G.roadMaterial.roughnessMap=quality==='performance'?null:(VisualAssets.textures.roughness||null);G.roadMaterial.needsUpdate=true;G.shadowStamp=0;G.fpsStamp=0;if(quality==='ultra')VisualAssets.high();}
     $('ghostAO').disabled=quality!=='ultra';
     for(const tile of G.tiles||[]){const center=tile.geometry.boundingSphere.center,limit=profile.far;tile.visible=ghost.camera==='overview'||Math.hypot(center.x-p.x,center.z-p.z)<limit+180;}
-    G.detailEnvironment.visible=$('ghostEnvironment').checked&&quality!=='performance';if(S.track&&typeof MexicoV3!=='undefined')MexicoV3.update(G);
+    G.detailEnvironment.visible=$('ghostEnvironment').checked&&quality!=='performance';if(S.track&&typeof MexicoV3!=='undefined')MexicoV3.update(G);if(S.track&&typeof MexicoV4!=='undefined')MexicoV4.update(G);
     const transparent=$('ghostTransparent').checked;
     if(G.transparent!==transparent){G.transparent=transparent;G.cars[1].traverse(o=>{if(o.material){o.material.transparent=transparent;o.material.opacity=transparent?.42:1;o.material.depthWrite=!transparent;o.material.forceSinglePass=transparent;o.material.needsUpdate=true;}if(o.isMesh)o.castShadow=!transparent;});}
     if(!st.play.on||now-(G.shadowStamp||0)>(detail?33:66)||Math.abs(st.play.e-(G.shadowTime||0))>.25){G.sun.position.set(p.x-100,65+heightA,p.z-70);G.sun.target.position.set(p.x,heightA,p.z);G.sun.target.updateMatrixWorld();G.sun.shadow.camera.updateProjectionMatrix();G.renderer.shadowMap.needsUpdate=true;G.shadowStamp=now;G.shadowTime=st.play.e;}
     G.sun.castShadow=profile.shadows&&ghost.camera!=='overview';
-    G.scene.fog.near=ghost.camera==='overview'?5000:240;G.scene.fog.far=ghost.camera==='overview'?14000:1050;
+    G.scene.fog.near=ghost.camera==='overview'?5000:300;G.scene.fog.far=ghost.camera==='overview'?14000:1450;
     ghostResolution(w,h,profile);G.renderer.info.reset();GhostMetrics.poll();GhostMetrics.begin();const cpuStart=performance.now();GhostDirector.render();GhostMetrics.cpuMs=performance.now()-cpuStart;GhostMetrics.end();
     ghostPerformance(now);
     $('ghostEngine').title='Sabit çevre parçaları: '+G.mergeStats.before+' → '+G.mergeStats.after;

@@ -1,0 +1,109 @@
+FINAL UNIT / ASSET CHECKS
+
+> test:unit
+> node --test tests/*.test.cjs
+
+✔ whole-lap display mesh and buffered race boundaries are closed, finite and simple (162.674456ms)
+✔ all rates keep wall-clock time across sparse, irregular and dropped frames (0.812819ms)
+✔ clock clamps end and negative timestamps without losing a positive stall (0.880186ms)
+✔ fixed geographic circuit is closed and has declared station length (0.99554ms)
+✔ registration recovers independent units, handedness and start station (26.753748ms)
+✔ bad registration falls back explicitly instead of manufacturing a racing line (23.857738ms)
+✔ wheel distance uses original telemetry distance rather than current speed times elapsed (0.184219ms)
+✔ changing speed accounts for the elapsed interval at the previous rate (0.147608ms)
+✔ Blender GLBs retain four wheel pivots, two steering pivots, authored UVs and bounded LOD budgets (110.068656ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 514.079811
+
+FULL BROWSER RUN
+✔ whole-lap display mesh and buffered race boundaries are closed, finite and simple (131.971145ms)
+✔ all rates keep wall-clock time across sparse, irregular and dropped frames (0.846518ms)
+✔ clock clamps end and negative timestamps without losing a positive stall (1.057543ms)
+✔ fixed geographic circuit is closed and has declared station length (1.024107ms)
+✔ registration recovers independent units, handedness and start station (24.024414ms)
+✔ bad registration falls back explicitly instead of manufacturing a racing line (21.612344ms)
+✔ wheel distance uses original telemetry distance rather than current speed times elapsed (0.245679ms)
+✔ changing speed accounts for the elapsed interval at the previous rate (0.395476ms)
+✔ Blender GLBs retain four wheel pivots, two steering pivots, authored UVs and bounded LOD budgets (101.17306ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 476.926184
+  ✓  1 tests/simulator.spec.js:3:1 › real Mexico telemetry, playback, cameras, profiles, analysis and resource stability (2.9m)
+  ✓  2 tests/simulator.spec.js:48:1 › WebGL failure keeps the standard replay available (3.8s)
+SOAK_120_SECONDS {"fps":1.903432523315249,"ms":525.3666666671634,"ready":true,"geometries":485,"textures":26,"calls":122,"renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)","resolution":[747,294],"frames":93,"p50":1030.2999999970198,"p95":1814.5,"cpu":5.799999997019768,"gpu":703.204736}
+  ✓  3 tests/simulator.spec.js:54:1 › 120-second software-renderer replay soak and resource budget (2.5m)
+  ✓  4 tests/simulator.spec.js:65:1 › Ultra effects, diagnostics export and missing asset fallback (42.4s)
+  ✓  5 tests/simulator.spec.js:71:1 › asset load failure retains working procedural cars and JPEG materials (14.7s)
+  ✓  6 tests/simulator.spec.js:76:1 › alignment falls back for both laps when one projection is rejected (20.4s)
+  ✓  7 tests/simulator.spec.js:82:1 › missing Blender venue assets retain cars and working telemetry (12.4s)
+  ✓  8 tests/simulator.spec.js:84:1 › free camera movement stops before the actual circuit barrier (11.1s)
+  8 passed (7.2m)
+
+FINAL REGISTRATION / V4 STATE-CLEAR CHECK
+  ✓  1 tests/simulator.spec.js:76:1 › alignment falls back for both laps when one projection is rejected (19.5s)
+  1 passed (24.9s)
+
+FINAL MATERIAL ASSIGNMENT CHECK
+
+Running 1 test using 1 worker
+
+(node:25994) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:25994) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:25] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:25] "GET /src/ghost.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:25] "GET /assets/tracks/mexico.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:25] "GET /src/replay-core.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:25] "GET /assets/tracks/v3/render-path.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:25] "GET /assets/tracks/v3/boundaries.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:25] "GET /assets/tracks/v3/venue-osm.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:25] "GET /src/visual-assets.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:25] "GET /src/ghost-director.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:25] "GET /src/ghost-world.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:25] "GET /src/mexico-v3.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:25] "GET /src/ghost-webgl.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:25] "GET /src/mexico-v4.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:25] code 404, message File not found
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:25] "GET /favicon.ico HTTP/1.1" 404 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:32] "GET /assets/v4/tree.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:32] "GET /assets/v4/car-low.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:32] "GET /assets/v4/venue.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:32] "GET /assets/v4/car-medium.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:32] "GET /assets/v4/road-color.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:32] "GET /assets/v4/road-normal.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:32] "GET /assets/v4/road-roughness.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:32] "GET /assets/v4/daylight.hdr HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:32] "GET /assets/v4/concrete-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:32] "GET /assets/v4/concrete-roughness.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:32] "GET /assets/v4/concrete-normal.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:32] "GET /assets/v4/turf-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:24:32] "GET /assets/v4/tree-atlas.png HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 14:26:11] "GET /assets/v4/car-high.glb HTTP/1.1" 200 -
+RUNTIME {
+  fps: 0.581682808365103,
+  ms: 1719.1499999985099,
+  calls: 154,
+  memory: { geometries: 150, textures: 26 },
+  gpu: 'WebKit WebGL',
+  totals: [ 76.651, 76.356 ]
+}
+  ✓  1 tests/simulator.spec.js:3:1 › real Mexico telemetry, playback, cameras, profiles, analysis and resource stability (3.0m)
+
+  1 passed (3.0m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

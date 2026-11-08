@@ -37,3 +37,14 @@ BASISU=/path/to/basisu node scripts/compress-textures.cjs
 Hazır GLB/KTX2 dosyaları depoda bulunduğu için uygulamayı açmak için encoder veya uygulama build'i gerekmez. JPEG yedekler sıkıştırılmış dokunun desteklenmediği/yüklenemediği durumda kullanılır. KTX2'nin indirme boyutu JPEG'den büyük olabilir; amacı uygun GPU formatında doku belleği ve örnekleme maliyetini azaltmaktır.
 
 V3 coğrafi sahne yeniden üretimi: `node scripts/prepare-mexico-v3.mjs`; kaynak URL’den indirilen OSM XML için `python3 scripts/prepare-venue.py mexico.osm`. V3 araç yüzeyleri `scripts/car-v3.mjs` içindedir. OSM adres/iletişim etiketleri türev dosyalara alınmaz.
+
+## V4 varlık hattı
+
+V4, hazır `assets/v4/car-{low,medium,high}.glb` ve `venue.glb` dosyalarını yükler. Bunlar Blender 4.3.2 ile üretilmiş özgün varlıklardır; kaynaklar `art/blender/*.blend`, üretim/dışa aktarma adımları [Blender README](../art/blender/README.md) içindedir. Önceki V3 araçları tarihsel/yeniden üretim amacıyla korunur. V4 mikro-asfalt haritaları özgün üretimdir. Tüm projeye yeni bir lisans atanmadı.
+
+- [Tree Small 02](https://polyhaven.com/a/tree_small_02), Rico Cilliers, CC0 1.0: 7 m temsili ölçek, yakın LOD sadeleştirme, 512 px haritalar ve Cycles CPU atlası türevleri. Tür Meksika için doğrulanmadı; kaynak Geometry Nodes varlığıdır, pist taraması değildir.
+- [Concrete Floor 02](https://polyhaven.com/a/concrete_floor_02), Rob Tuytel, CC0: beton yüzeyleri.
+- [Brown Mud Leaves 01](https://polyhaven.com/a/brown_mud_leaves_01), Rob Tuytel, CC0: özgün temsili turf paletinin mikro yüzey girdisi.
+- [Kloofendal 48d Partly Cloudy PureSky](https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky), Greg Zaal / Jarod Guest, CC0: nötr gün ışığı ve gökyüzü; Meksika yarış günü görüntüsü değildir.
+
+URL, değişiklik, lisans, SHA-256 ve boyutlar [V4 kaynak manifestinde](../assets/v4/sources.json); kaynak ağacın indirme MD5 doğrulamaları `art/blender/tree-source.json` içindedir. CC0 metni `assets/licenses/CC0-1.0.txt`. Orijinal ~95 MB kaynak ağaç buffer'ı yerine hazırlanmış GLB ve düzenlenebilir Blender türevi dağıtılır; betik doğrulanmış orijinali tekrar indirebilir. OSM/Bacinger lisansları ve veri/ölçüm sınırları değişmez.

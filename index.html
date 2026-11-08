@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="İki F1 pilotunun turunu gerçek telemetriyle karşılaştır.">
 <title>Tur Düellosu</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%230b141c%27/%3E%3Cpath d=%27M6 8h20v5h-7v13h-6V13H6z%27 fill=%27%235ce0aa%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=Saira:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -410,7 +411,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
 </div>
 <div class="brake-analysis"><div class="brake-analysis-head"><div><span class="eyebrow">FRENLEME BÖLGELERİ</span><p>Kırmızı bantlar fren sinyalini gösterir. Bölgeye dokunarak tekrarın o anına git.</p></div><button class="chip" id="nextBrake">Sonraki frenleme →</button></div><canvas id="brakeTimeline" aria-label="İki pilotun tur boyunca fren açık zamanları ve oynatma konumu"></canvas><div class="brake-event-cols" id="brakeEvents"></div><p class="brake-caveat">Fren başlangıcı kaynak örneklerde tespit edilir; tepki süresi ve kesin fren noktası ölçümü değildir. Her pilotun kendi tur zamanına göre gösterilir. Farklı lastik ve koşullar karşılaştırmayı etkiler.</p></div>
 
-  <p class="ghost-note">İki araç aynı anda başlar ve kendi tur süresinde bitirir. B aracının saydamlığı seçilebilir. Serbest kamera: sürükle ile döndür, tekerlek ile yakınlaştır; Shift+sürükle veya sağ tuşla taşı; WASD ile gezin, R ile sıfırla. Yerleşim kaynağı: © OpenStreetMap contributors (ODbL) ve Bacinger (MIT). OSM bina/tribün ayak izleri, pit yolu ve ağaç konumları kullanılır; etiketsiz yükseklikler, cepheler, geçici tribünler, bariyer konumları ve pist genişlikleri temsili, zemin düzdür. Tahmini eğim seçeneği, varsa kaynak Z kanalının yumuşatılmış profilidir; hassas arazi ölçümü değildir. Binalar, bitkiler ve çit yerleşimleri temsili dekorlardır. Coğrafi çizgi pist sınırı ölçümü değildir; yol genişliği, kerbler, özgün GLB araç modeli, stadyum ve pit yapıları temsili görselleştirmedir; gerçek pist modeli veya santimetre hassasiyetinde yarış çizgisi değildir. Meksika’da coğrafi referansa hizalama yaklaşık pist ilerlemesi sağlar; diğer pistlerde normalize kaynak mesafesi kullanılır; konum çizgisi GPS sıçramalarını azaltmak için yumuşatılır. Bu işlem ek ölçüm hassasiyeti sağlamaz. Renkli konum izleri gerçek pilot yarış çizgisi olarak yorumlanmamalıdır. Boşluk: oynat / duraklat · ← / →: 1 saniye.</p>
+  <p class="ghost-note">İki araç aynı anda başlar ve kendi tur süresinde bitirir. B aracının saydamlığı seçilebilir. Serbest kamera: sürükle ile döndür, tekerlek ile yakınlaştır; Shift+sürükle veya sağ tuşla taşı; WASD ile gezin, R ile sıfırla. Yerleşim kaynağı: © OpenStreetMap contributors (ODbL) ve Bacinger (MIT). V4 genel araç/çevre varlıkları özgün Blender üretimidir; ağaç ve yüzey kaynakları Poly Haven (CC0). Ağaç türü, köprü, kule ve uzak şehir yerleşimi temsili görselleştirmedir. OSM bina/tribün ayak izleri, pit yolu ve ağaç konumları kullanılır; etiketsiz yükseklikler, cepheler, geçici tribünler, bariyer konumları ve pist genişlikleri temsili, zemin düzdür. Tahmini eğim seçeneği, varsa kaynak Z kanalının yumuşatılmış profilidir; hassas arazi ölçümü değildir. Binalar, bitkiler ve çit yerleşimleri temsili dekorlardır. Coğrafi çizgi pist sınırı ölçümü değildir; yol genişliği, kerbler, özgün GLB araç modeli, stadyum ve pit yapıları temsili görselleştirmedir; gerçek pist modeli veya santimetre hassasiyetinde yarış çizgisi değildir. Meksika’da coğrafi referansa hizalama yaklaşık pist ilerlemesi sağlar; diğer pistlerde normalize kaynak mesafesi kullanılır; konum çizgisi GPS sıçramalarını azaltmak için yumuşatılır. Bu işlem ek ölçüm hassasiyeti sağlamaz. Renkli konum izleri gerçek pilot yarış çizgisi olarak yorumlanmamalıdır. Boşluk: oynat / duraklat · ← / →: 1 saniye.</p>
 </section>
 
 <section class="card rel" id="chartcard">
@@ -2403,8 +2404,9 @@ function ghostDraw(pos) {
   ({camera,target}=ghostCameraPose(S,poses,w/h));
   const stamp=performance.now(),last=ghost.cameraState;
   if(last&&ghost.camera!=='free'&&st.play.on&&Math.abs(st.play.e-last.time)<.5){const mix=1-Math.exp(-Math.min(.1,(stamp-last.stamp)/1000)/.11);camera=camera.map((v,i)=>last.camera[i]+(v-last.camera[i])*mix);target=target.map((v,i)=>last.target[i]+(v-last.target[i])*mix);}
-  if(ghost.camera!=='overview'&&ghost.camera!=='free')camera=ghostAvoidObstacles(camera,target);
   ({camera,target}=GhostDirector.blend(camera,target));
+  if(ghost.camera!=='overview'&&ghost.camera!=='free')camera=ghostAvoidObstacles(camera,target);
+  if(S.track&&ghost.camera==='free'&&last?.mode==='free')camera=ghostConstrainFree(camera,last.camera);
   ghost.cameraState={camera,target,mode:ghost.camera,time:st.play.e,stamp};
   if($('ghostElevation'))$('ghostElevation').disabled=!S.elevation;
   if(ghost3d.ready&&ghost3dRender(S,poses,camera,target,w,h)){ghostReadouts(pos);return;}ghost3dStart();
@@ -2684,6 +2686,7 @@ for(const id of ['ghostAO','ghostAdaptive','ghostTransparent','ghostStatsToggle'
 <script src="src/ghost-director.js"></script>
 <script src="src/ghost-world.js"></script>
 <script src="src/mexico-v3.js"></script>
+<script src="src/mexico-v4.js"></script>
 <script src="src/ghost-webgl.js"></script>
 <script>
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&st.play.on){stopPlay();ghost.hudStamp=0;drawAll();$('ghostEngine').textContent='Sekme gizlendi · oynatma duraklatıldı';}});

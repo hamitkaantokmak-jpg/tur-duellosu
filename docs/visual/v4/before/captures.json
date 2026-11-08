@@ -1,0 +1,348 @@
+{
+  "date": "2026-11-08T10:19:21.776Z",
+  "renderer": "SwiftShader",
+  "profile": "ultra",
+  "adaptive": false,
+  "ao": false,
+  "errors": [],
+  "shots": [
+    {
+      "id": "01-start-finish",
+      "title": "Start / finish ve pit yolu",
+      "time": 1.1,
+      "view": "chase",
+      "pose": {
+        "x": 40.58478638001363,
+        "z": 5.7752195182501405,
+        "fx": 0.9901531653544446,
+        "fz": 0.1399882464300986
+      },
+      "delta": -0.013655082837047212,
+      "render": [
+        1920,
+        1080
+      ],
+      "camera": [
+        29.93401864694816,
+        3.3,
+        4.269409760471518
+      ],
+      "target": [
+        45.04047562410863,
+        0.65,
+        6.405166627185584
+      ],
+      "stats": {
+        "buildings": 182,
+        "stands": 26,
+        "trees": 673,
+        "seats": 28027,
+        "pitWays": 2,
+        "trackSegments": 2152,
+        "boundaryPoints": [
+          2543,
+          2744
+        ],
+        "omittedRaceCorridor": 1
+      }
+    },
+    {
+      "id": "02-turns-1-3",
+      "title": "1–3 viraj kompleksi",
+      "corner": 2,
+      "distance": 135,
+      "yaw": 2.5,
+      "pitch": 0.65,
+      "time": 16.548243436162647,
+      "pose": {
+        "x": 1138.4621046868224,
+        "z": 239.36106999272505,
+        "fx": 0.09628429151663612,
+        "fz": 0.9953538743618471
+      },
+      "delta": -0.13551023135216672,
+      "render": [
+        1920,
+        1080
+      ],
+      "camera": [
+        1202.7806916903726,
+        81.70016477436533,
+        153.26111388525484
+      ],
+      "target": [
+        1138.4621046868224,
+        0,
+        239.36106999272505
+      ],
+      "stats": {
+        "buildings": 182,
+        "stands": 26,
+        "trees": 673,
+        "seats": 28027,
+        "pitWays": 2,
+        "trackSegments": 2152,
+        "boundaryPoints": [
+          2543,
+          2744
+        ],
+        "omittedRaceCorridor": 1
+      }
+    },
+    {
+      "id": "03-turns-4-6",
+      "title": "4–6 viraj kompleksi",
+      "corner": 5,
+      "distance": 125,
+      "yaw": 1.1,
+      "pitch": 0.65,
+      "time": 31.755154828672065,
+      "pose": {
+        "x": 899.3841484049394,
+        "z": 929.5796515431499,
+        "fx": 0.7987171859738439,
+        "fz": 0.6017066202311753
+      },
+      "delta": -0.14125499725857696,
+      "render": [
+        1920,
+        1080
+      ],
+      "camera": [
+        988.0686159665124,
+        75.64830071700494,
+        974.717216962099
+      ],
+      "target": [
+        899.3841484049394,
+        0,
+        929.5796515431499
+      ],
+      "stats": {
+        "buildings": 182,
+        "stands": 26,
+        "trees": 673,
+        "seats": 28027,
+        "pitWays": 2,
+        "trackSegments": 2152,
+        "boundaryPoints": [
+          2543,
+          2744
+        ],
+        "omittedRaceCorridor": 1
+      }
+    },
+    {
+      "id": "04-turns-7-11",
+      "title": "7–11 hızlı bölüm",
+      "corner": 9,
+      "distance": 150,
+      "yaw": 2.1,
+      "pitch": 0.7,
+      "time": 46.95787796740698,
+      "pose": {
+        "x": 710.8885778858464,
+        "z": 575.5102219195967,
+        "fx": -0.5515797315645028,
+        "fz": -0.834122173142059
+      },
+      "delta": -0.23209975570694505,
+      "render": [
+        1920,
+        1080
+      ],
+      "camera": [
+        809.9214188966738,
+        96.63265308565366,
+        517.5910820869653
+      ],
+      "target": [
+        710.8885778858464,
+        0,
+        575.5102219195967
+      ],
+      "stats": {
+        "buildings": 182,
+        "stands": 26,
+        "trees": 673,
+        "seats": 28027,
+        "pitWays": 2,
+        "trackSegments": 2152,
+        "boundaryPoints": [
+          2543,
+          2744
+        ],
+        "omittedRaceCorridor": 1
+      }
+    },
+    {
+      "id": "05-stadium",
+      "title": "T12 yaklaşımı ve T13–16 stadyum",
+      "corner": 14,
+      "distance": 185,
+      "yaw": 0.9,
+      "pitch": 0.8,
+      "time": 64.97573572370169,
+      "pose": {
+        "x": -109.39351944515052,
+        "z": 99.89263965407964,
+        "fx": -0.9396427022726535,
+        "fz": 0.34215726218472364
+      },
+      "delta": -0.2731299135692522,
+      "render": [
+        1920,
+        1080
+      ],
+      "camera": [
+        -8.429933438465568,
+        132.7108768164117,
+        180.01240921996097
+      ],
+      "target": [
+        -109.39351944515052,
+        0,
+        99.89263965407964
+      ],
+      "stats": {
+        "buildings": 182,
+        "stands": 26,
+        "trees": 673,
+        "seats": 28027,
+        "pitWays": 2,
+        "trackSegments": 2152,
+        "boundaryPoints": [
+          2543,
+          2744
+        ],
+        "omittedRaceCorridor": 1
+      }
+    },
+    {
+      "id": "06-car-closeup",
+      "title": "Araç yakın çekimi",
+      "time": 56,
+      "distance": 5.4,
+      "yaw": 1.8,
+      "pitch": 0.22,
+      "offset": 0.45,
+      "pose": {
+        "x": 236.46576321122026,
+        "z": 318.93101880239567,
+        "fx": -0.988865471273942,
+        "fz": -0.14881222974663247
+      },
+      "delta": -0.28617253973620016,
+      "render": [
+        1920,
+        1080
+      ],
+      "camera": [
+        241.59779047387795,
+        1.6284399646366943,
+        317.73369870105046
+      ],
+      "target": [
+        236.46576321122026,
+        0.45,
+        318.93101880239567
+      ],
+      "stats": {
+        "buildings": 182,
+        "stands": 26,
+        "trees": 673,
+        "seats": 28027,
+        "pitWays": 2,
+        "trackSegments": 2152,
+        "boundaryPoints": [
+          2543,
+          2744
+        ],
+        "omittedRaceCorridor": 1
+      }
+    },
+    {
+      "id": "07-ghost-comparison",
+      "title": "İki araç karşılaştırması",
+      "time": 54,
+      "distance": 38,
+      "yaw": 2.8,
+      "pitch": 0.5,
+      "pair": true,
+      "pose": {
+        "x": 367.7032987688934,
+        "z": 359.20932796916924,
+        "fx": -0.8850010863273837,
+        "fz": -0.4655889573425796
+      },
+      "delta": -0.3693827873434618,
+      "render": [
+        1920,
+        1080
+      ],
+      "camera": [
+        369.6293013097897,
+        18.218170466959712,
+        323.03155156671903
+      ],
+      "target": [
+        358.45807046715373,
+        0,
+        354.4529115993041
+      ],
+      "stats": {
+        "buildings": 182,
+        "stands": 26,
+        "trees": 673,
+        "seats": 28027,
+        "pitWays": 2,
+        "trackSegments": 2152,
+        "boundaryPoints": [
+          2543,
+          2744
+        ],
+        "omittedRaceCorridor": 1
+      }
+    },
+    {
+      "id": "08-overview",
+      "title": "Tam pist genel görünümü",
+      "view": "overview",
+      "time": 30,
+      "pose": {
+        "x": 864.0125761741099,
+        "z": 901.8228395392149,
+        "fx": 0.3622988004200987,
+        "fz": 0.9320620039536842
+      },
+      "delta": -0.1507353712422021,
+      "render": [
+        1920,
+        1080
+      ],
+      "camera": [
+        458.06101171875,
+        1462.8122646544712,
+        499.32078515625
+      ],
+      "target": [
+        458.06101171875,
+        0,
+        500.32078515625
+      ],
+      "stats": {
+        "buildings": 182,
+        "stands": 26,
+        "trees": 673,
+        "seats": 28027,
+        "pitWays": 2,
+        "trackSegments": 2152,
+        "boundaryPoints": [
+          2543,
+          2744
+        ],
+        "omittedRaceCorridor": 1
+      }
+    }
+  ]
+}

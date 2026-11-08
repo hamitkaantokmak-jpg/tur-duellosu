@@ -1,0 +1,31 @@
+
+Running 1 test using 1 worker
+
+(node:28486) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28486) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:37] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:37] "GET /src/ghost.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:37] "GET /assets/tracks/v3/venue-osm.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:37] "GET /assets/tracks/v3/boundaries.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:37] "GET /src/visual-assets.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:37] "GET /assets/tracks/mexico.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:37] "GET /src/replay-core.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:37] "GET /assets/tracks/v3/render-path.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:37] "GET /src/ghost-director.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:37] "GET /src/ghost-webgl.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:37] "GET /src/ghost-world.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:37] "GET /src/mexico-v3.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:44] "GET /assets/environment/spruit-sunrise.hdr HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:44] "GET /assets/materials/asphalt-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:44] "GET /assets/materials/asphalt-normal.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:04:44] "GET /assets/materials/asphalt-roughness.jpg HTTP/1.1" 200 -
+  ✓  1 tests/simulator.spec.js:70:1 › asset load failure retains working procedural cars and JPEG materials (8.8s)
+
+  1 passed (12.1s)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

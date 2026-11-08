@@ -1,0 +1,19 @@
+
+> test:unit
+> node --test tests/replay-core.test.cjs
+
+✔ all rates keep wall-clock time across sparse, irregular and dropped frames (0.851493ms)
+✔ clock clamps end and negative timestamps without losing a positive stall (1.16945ms)
+✔ fixed geographic circuit is closed and has declared station length (0.756674ms)
+✔ registration recovers independent units, handedness and start station (28.726906ms)
+✔ bad registration falls back explicitly instead of manufacturing a racing line (22.853551ms)
+✔ wheel distance uses original telemetry distance rather than current speed times elapsed (0.239695ms)
+✔ changing speed accounts for the elapsed interval at the previous rate (0.439772ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 126.825512
