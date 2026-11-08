@@ -1,0 +1,23 @@
+{
+  "main": "93843b5c922cea1d757b45a34360e156b15ed533",
+  "prs": [
+    {
+      "number": 1,
+      "head": "codex/mexico-ghost-simulator",
+      "sha": "2d20f9fab968bdb1f02ebd681dec6066003e998d",
+      "base": "main"
+    },
+    {
+      "number": 2,
+      "head": "codex/mexico-v3-visual-quality",
+      "sha": "4e1ed68e23e2f0c852b2a0b3d632339dd4a76b62",
+      "base": "codex/mexico-ghost-simulator"
+    },
+    {
+      "number": 3,
+      "head": "codex/mexico-v4-blender",
+      "sha": "cc2286fd8e173753a8f68586533c7bb40dad980d",
+      "base": "codex/mexico-v3-visual-quality"
+    }
+  ]
+}

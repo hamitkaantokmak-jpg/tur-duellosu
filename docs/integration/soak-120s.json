@@ -1,0 +1,18 @@
+{
+  "fps": 0.9665571235246083,
+  "ms": 1034.6000000014901,
+  "ready": true,
+  "geometries": 484,
+  "textures": 30,
+  "calls": 230,
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "resolution": [
+    747,
+    294
+  ],
+  "frames": 86,
+  "p50": 1047.6000000014901,
+  "p95": 1984.2000000029802,
+  "cpu": 3.5,
+  "gpu": 800.781005
+}

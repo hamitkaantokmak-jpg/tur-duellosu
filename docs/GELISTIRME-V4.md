@@ -1,6 +1,6 @@
 # V4 — Blender varlık hattı ve gerçek tarayıcı görsel incelemesi
 
-8 Kasım 2026. V4, henüz main'e birleştirilmemiş V3 üzerine kurulmuştur. HTML/CSS/JavaScript, Three.js ve gerçek telemetri hesaplamaları korunur. Main birleştirmesi yapılmaz.
+8 Kasım 2026. Bu rapor V4 geliştirme tesliminin tarihsel kaydıdır; V4, V3 üzerine kurulmuştur. HTML/CSS/JavaScript, Three.js ve gerçek telemetri hesaplamaları korunur. Daha sonra yetkilendirilen V2 → V3 → V4 main entegrasyonu ve son tam regresyon sonuçları [Main entegrasyon raporundadır](MAIN-ENTEGRASYON.md).
 
 ## Sonuç ve tamamlanma sınırı
 

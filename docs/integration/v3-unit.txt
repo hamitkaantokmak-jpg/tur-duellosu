@@ -1,0 +1,20 @@
+
+> test:unit
+> node --test tests/*.test.cjs
+
+✔ whole-lap display mesh and buffered race boundaries are closed, finite and simple (133.566858ms)
+✔ all rates keep wall-clock time across sparse, irregular and dropped frames (0.992772ms)
+✔ clock clamps end and negative timestamps without losing a positive stall (4.152273ms)
+✔ fixed geographic circuit is closed and has declared station length (0.809799ms)
+✔ registration recovers independent units, handedness and start station (22.632544ms)
+✔ bad registration falls back explicitly instead of manufacturing a racing line (20.84611ms)
+✔ wheel distance uses original telemetry distance rather than current speed times elapsed (0.189947ms)
+✔ changing speed accounts for the elapsed interval at the previous rate (0.135926ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 302.575029

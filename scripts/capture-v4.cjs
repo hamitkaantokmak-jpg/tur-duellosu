@@ -140,7 +140,7 @@ fs.mkdirSync(out, { recursive: true });
     },
   ];
   const metadata = [];
-  for (const shot of shots.filter((s) => !args.only || s.id === args.only)) {
+  for (const shot of shots.filter((s) => !args.only || args.only.split(",").includes(s.id))) {
     const info = await page.evaluate((s) => {
       stopPlay();
       GhostDirector.transition = null;

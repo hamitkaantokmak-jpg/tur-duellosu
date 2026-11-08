@@ -1,0 +1,260 @@
+{
+  "staticPaths": [
+    "src/ghost.css",
+    "src/replay-core.js",
+    "assets/tracks/mexico.js",
+    "assets/tracks/v3/render-path.js",
+    "assets/tracks/v3/boundaries.js",
+    "assets/tracks/v3/venue-osm.js",
+    "src/visual-assets.js",
+    "src/ghost-director.js",
+    "src/ghost-world.js",
+    "src/mexico-v3.js",
+    "src/mexico-v4.js",
+    "src/ghost-webgl.js"
+  ],
+  "v4SourceHashesChecked": 21,
+  "errors": [],
+  "groups": {
+    "historical V2/V3 assets retained for legacy build scripts and provenance": [
+      {
+        "path": "assets/cars/manifest.json",
+        "bytes": 586
+      },
+      {
+        "path": "assets/cars/open-wheel-high.glb",
+        "bytes": 1262020
+      },
+      {
+        "path": "assets/cars/open-wheel-low.glb",
+        "bytes": 531520
+      },
+      {
+        "path": "assets/cars/open-wheel-medium.glb",
+        "bytes": 722700
+      },
+      {
+        "path": "assets/environment/spruit-sunrise.hdr",
+        "bytes": 1500948
+      },
+      {
+        "path": "assets/materials/asphalt-color.jpg",
+        "bytes": 339404
+      },
+      {
+        "path": "assets/materials/asphalt-color.ktx2",
+        "bytes": 965481
+      },
+      {
+        "path": "assets/materials/asphalt-normal.jpg",
+        "bytes": 1240122
+      },
+      {
+        "path": "assets/materials/asphalt-normal.ktx2",
+        "bytes": 1328188
+      },
+      {
+        "path": "assets/materials/asphalt-roughness.jpg",
+        "bytes": 544032
+      },
+      {
+        "path": "assets/materials/asphalt-roughness.ktx2",
+        "bytes": 1152338
+      }
+    ],
+    "other": [
+      {
+        "path": "assets/licenses/CC0-1.0.txt",
+        "bytes": 7048
+      },
+      {
+        "path": "assets/licenses/MESHOPT-MIT.txt",
+        "bytes": 1079
+      },
+      {
+        "path": "assets/licenses/ODbL-1.0.txt",
+        "bytes": 26606
+      },
+      {
+        "path": "assets/licenses/THREE-MIT.txt",
+        "bytes": 1081
+      },
+      {
+        "path": "assets/sources.json",
+        "bytes": 3715
+      }
+    ],
+    "geographic track, OSM sources, runtime data or licenses": [
+      {
+        "path": "assets/tracks/LICENSE-MIT.txt",
+        "bytes": 1067
+      },
+      {
+        "path": "assets/tracks/mexico.geojson",
+        "bytes": 3209
+      },
+      {
+        "path": "assets/tracks/mexico.js",
+        "bytes": 2622
+      },
+      {
+        "path": "assets/tracks/v3/boundaries.js",
+        "bytes": 94329
+      },
+      {
+        "path": "assets/tracks/v3/geographic-check.json",
+        "bytes": 26879
+      },
+      {
+        "path": "assets/tracks/v3/render-path.js",
+        "bytes": 38554
+      },
+      {
+        "path": "assets/tracks/v3/sources.json",
+        "bytes": 1166
+      },
+      {
+        "path": "assets/tracks/v3/venue-osm.js",
+        "bytes": 134675
+      },
+      {
+        "path": "assets/tracks/v3/venue-osm.json",
+        "bytes": 134550
+      }
+    ],
+    "active V4 payload or provenance/manifest": [
+      {
+        "path": "assets/v4/authoring.json",
+        "bytes": 516
+      },
+      {
+        "path": "assets/v4/car-high.glb",
+        "bytes": 492552
+      },
+      {
+        "path": "assets/v4/car-low.glb",
+        "bytes": 151832
+      },
+      {
+        "path": "assets/v4/car-medium.glb",
+        "bytes": 359992
+      },
+      {
+        "path": "assets/v4/concrete-color.jpg",
+        "bytes": 776097
+      },
+      {
+        "path": "assets/v4/concrete-normal.jpg",
+        "bytes": 192757
+      },
+      {
+        "path": "assets/v4/concrete-roughness.jpg",
+        "bytes": 318550
+      },
+      {
+        "path": "assets/v4/daylight.hdr",
+        "bytes": 1435119
+      },
+      {
+        "path": "assets/v4/manifest.json",
+        "bytes": 730
+      },
+      {
+        "path": "assets/v4/road-color.ktx2",
+        "bytes": 966737
+      },
+      {
+        "path": "assets/v4/road-normal.ktx2",
+        "bytes": 1167605
+      },
+      {
+        "path": "assets/v4/road-roughness.ktx2",
+        "bytes": 1037408
+      },
+      {
+        "path": "assets/v4/sources.json",
+        "bytes": 8318
+      },
+      {
+        "path": "assets/v4/tree-atlas.png",
+        "bytes": 652595
+      },
+      {
+        "path": "assets/v4/tree.glb",
+        "bytes": 1822316
+      },
+      {
+        "path": "assets/v4/turf-color.jpg",
+        "bytes": 156672
+      },
+      {
+        "path": "assets/v4/venue.glb",
+        "bytes": 804144
+      }
+    ],
+    "active V4 JPEG fallback": [
+      {
+        "path": "assets/v4/road-color.jpg",
+        "bytes": 301516
+      },
+      {
+        "path": "assets/v4/road-normal.jpg",
+        "bytes": 305322
+      },
+      {
+        "path": "assets/v4/road-roughness.jpg",
+        "bytes": 338631
+      }
+    ],
+    "V4 rebuild input; not fetched by runtime": [
+      {
+        "path": "assets/v4/soil-color.jpg",
+        "bytes": 1206953
+      },
+      {
+        "path": "assets/v4/tree-view-0.png",
+        "bytes": 278657
+      },
+      {
+        "path": "assets/v4/tree-view-1.png",
+        "bytes": 343064
+      },
+      {
+        "path": "assets/v4/tree-view-2.png",
+        "bytes": 326790
+      }
+    ],
+    "editable Blender source and authoring scripts": [
+      {
+        "path": "art/blender/README.md",
+        "bytes": 4887
+      },
+      {
+        "path": "art/blender/build_v4.py",
+        "bytes": 18434
+      },
+      {
+        "path": "art/blender/prepare_tree.py",
+        "bytes": 3380
+      },
+      {
+        "path": "art/blender/tree-source.json",
+        "bytes": 2928
+      },
+      {
+        "path": "art/blender/tree-v4.blend",
+        "bytes": 8832628
+      },
+      {
+        "path": "art/blender/vehicle-v4.blend",
+        "bytes": 759269
+      },
+      {
+        "path": "art/blender/venue-v4.blend",
+        "bytes": 440169
+      }
+    ]
+  },
+  "deletedFiles": [],
+  "decision": "Historical assets and procedural fallbacks are retained; no destructive cleanup. Runtime loads and missing-asset fallbacks are separately checked in Chromium."
+}
