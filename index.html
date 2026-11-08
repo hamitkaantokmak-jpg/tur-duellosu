@@ -303,6 +303,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
 </style>
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="stylesheet" href="src/ghost.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
 </head>
 <body>
 
@@ -397,10 +398,10 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
       </section>
 
       <section class="card ghost-panel" id="ghostPanel" hidden aria-label="Hayalet tur simülatörü">
-  <div class="ghost-head"><div><span class="eyebrow">GHOST LAB / TELEMETRİ REPLAY</span><h2>İki tur. Tek başlangıç.</h2></div><button class="chip" id="ghostClose">Düelloya dön</button></div>
+  <div class="ghost-head"><div><span class="eyebrow">GHOST LAB / TELEMETRİ REPLAY</span><h2>İki tur. Tek başlangıç.</h2></div><button class="chip" id="ghostFullscreen">Tam ekran</button><button class="chip" id="ghostClose">Düelloya dön</button></div>
   <div class="ghost-cameras" id="ghostCameras" role="group" aria-label="Kamera seçimi"><button class="chip" data-camera="tv" aria-pressed="true">Yayın kamerası</button><button class="chip" data-camera="a" aria-pressed="false">A'yı takip et</button><button class="chip" data-camera="b" aria-pressed="false">B'yi takip et</button><button class="chip" data-camera="overview" aria-pressed="false">Üstten</button><button class="chip" data-camera="free" aria-pressed="false">Serbest kamera</button></div>
-  <div class="ghost-options"><span id="ghostScenery"></span><label title="Kaynak Z kanalından yumuşatılan profil; ölçülmüş pist modeli değildir"><input type="checkbox" id="ghostElevation"> Tahmini eğim</label><b id="ghostEngine" role="status">Standart görünüm</b><label><input type="checkbox" id="ghostEnvironment" checked> Çevre detayları</label><label>Görüntü <select id="ghostRenderQuality" aria-label="3D görüntü kalitesi"><option value="performance">Performans</option><option value="balanced" selected>Dengeli</option><option value="ultra">Ultra</option></select></label><label><input type="checkbox" id="ghostTransparent" checked> B yarı saydam</label><label><input type="checkbox" id="ghostStatsToggle"> Performans paneli</label><label class="ghost-zoom">Yakınlık <input id="ghostZoom" type="range" min="70" max="160" value="100" aria-label="Kamera yakınlığı"></label><label><input type="checkbox" id="ghostEstimatedLine" checked> Tahmini sürüş çizgisi</label><label><input type="checkbox" id="ghostGuides" checked> Giriş / Apeks / Çıkış</label><label><input type="checkbox" id="ghostTraces"> Konum izleri</label><label><input type="checkbox" id="ghostZones"> Fren bölgeleri</label></div>
-  <p class="ghost-guide-note">Tahmini sürüş çizgisi açıkken iki araç aynı giriş–apeks–çıkış yolunu izler; ilerleme telemetriye bağlıdır. Bu yol pilotların ölçülmüş çizgisi değildir.<br>Viraj rehberi: <span style="color:#58bfff">● Giriş</span> · <span style="color:#ffd166">● Apeks</span> · <span style="color:#5ce0aa">● Çıkış</span> — pist geometrisinden yaklaşık işaretler; pilot çizgisi veya fren noktası değildir.</p><div class="ghost-stage"><output id="ghostStats" hidden aria-live="off"></output><canvas id="ghostCanvas" aria-label="Gerçek tur telemetrisinden hareket eden iki hayalet aracın perspektif görünümü"></canvas><div class="ghost-overlay"><span>TELEMETRİ REPLAY · GÖRSEL PİST MODELİ</span><b id="ghostDelta">+0.000 s</b><small>Aynı mesafedeki zaman farkı</small></div></div>
+  <div class="ghost-options"><span id="ghostScenery"></span><label title="Kaynak Z kanalından yumuşatılan profil; ölçülmüş pist modeli değildir"><input type="checkbox" id="ghostElevation"> Tahmini eğim</label><b id="ghostEngine" role="status">Standart görünüm</b><label><input type="checkbox" id="ghostEnvironment" checked> Çevre detayları</label><label>Görüntü <select id="ghostRenderQuality" aria-label="3D görüntü kalitesi"><option value="performance">Performans</option><option value="balanced" selected>Dengeli</option><option value="ultra">Ultra</option></select></label><label><input type="checkbox" id="ghostTransparent" checked> B yarı saydam</label><label><input type="checkbox" id="ghostStatsToggle"> Performans paneli</label><label><input id="ghostAdaptive" type="checkbox" checked> Dinamik çözünürlük</label><label title="Yalnız Ultra profilinde"><input id="ghostAO" type="checkbox"> Temas gölgesi (AO)</label><label class="ghost-zoom">Yakınlık <input id="ghostZoom" type="range" min="70" max="160" value="100" aria-label="Kamera yakınlığı"></label><label><input type="checkbox" id="ghostEstimatedLine" checked> Tahmini sürüş çizgisi</label><label><input type="checkbox" id="ghostGuides" checked> Giriş / Apeks / Çıkış</label><label><input type="checkbox" id="ghostTraces"> Konum izleri</label><label><input type="checkbox" id="ghostZones"> Fren bölgeleri</label></div>
+  <p class="ghost-guide-note">Tahmini sürüş çizgisi açıkken iki araç aynı giriş–apeks–çıkış yolunu izler; ilerleme telemetriye bağlıdır. Bu yol pilotların ölçülmüş çizgisi değildir.<br>Viraj rehberi: <span style="color:#58bfff">● Giriş</span> · <span style="color:#ffd166">● Apeks</span> · <span style="color:#5ce0aa">● Çıkış</span> — pist geometrisinden yaklaşık işaretler; pilot çizgisi veya fren noktası değildir.</p><div class="ghost-stage"><output id="ghostStats" hidden aria-live="off"></output><div class="ghost-hud" id="ghostHUD"><div id="ghostHUD0" class="hud-driver"></div><div id="ghostHUD1" class="hud-driver"></div></div><button id="ghostExport" class="chip ghost-export" hidden>Ölçümü indir</button><canvas id="ghostCanvas" aria-label="Gerçek tur telemetrisinden hareket eden iki hayalet aracın perspektif görünümü"></canvas><div class="ghost-overlay"><span>TELEMETRİ REPLAY · GÖRSEL PİST MODELİ</span><b id="ghostDelta">+0.000 s</b><small>Pist ilerlemesine göre yaklaşık zaman farkı</small></div></div>
   <div class="ghost-drivers"><div class="ghost-driver ga"><strong id="ghostDriver0">A · Veri bekleniyor</strong><small id="ghostMetric0">Pilot ve turu yukarıdan seç</small></div><div class="ghost-driver gb"><strong id="ghostDriver1">B · Veri bekleniyor</strong><small id="ghostMetric1">Pilot ve turu yukarıdan seç</small></div></div>
   <div class="ghost-controls"><button class="btn primary" id="ghostPlay">▶ Oynat</button><button class="btn" id="ghostRestart" aria-label="Hayalet turu başa sar">↺</button><input id="ghostScrub" type="range" min="0" max="10000" step="1" value="0" aria-label="Hayalet tur zamanı"><label class="sel"><select id="ghostRate" aria-label="Hayalet oynatma hızı"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label><span id="ghostClock">0:00.000</span></div>
 <div class="brake-dashboard">
@@ -409,7 +410,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
 </div>
 <div class="brake-analysis"><div class="brake-analysis-head"><div><span class="eyebrow">FRENLEME BÖLGELERİ</span><p>Kırmızı bantlar fren sinyalini gösterir. Bölgeye dokunarak tekrarın o anına git.</p></div><button class="chip" id="nextBrake">Sonraki frenleme →</button></div><canvas id="brakeTimeline" aria-label="İki pilotun tur boyunca fren açık zamanları ve oynatma konumu"></canvas><div class="brake-event-cols" id="brakeEvents"></div><p class="brake-caveat">Fren başlangıcı kaynak örneklerde tespit edilir; tepki süresi ve kesin fren noktası ölçümü değildir. Her pilotun kendi tur zamanına göre gösterilir. Farklı lastik ve koşullar karşılaştırmayı etkiler.</p></div>
 
-  <p class="ghost-note">İki araç aynı anda başlar ve kendi tur süresinde bitirir. B aracının saydamlığı seçilebilir. Serbest kamera: sürükle / tekerlek ile yakınlaştır. Fren tabelaları ve tribünler temsili yerleşimlerdir. Tahmini eğim seçeneği, varsa kaynak Z kanalının yumuşatılmış profilidir; hassas arazi ölçümü değildir. Binalar, bitkiler ve çit yerleşimleri temsili dekorlardır. Yol genişliği, kerbler, araç modeli ve düz zemin görselleştirmedir; gerçek pist modeli veya santimetre hassasiyetinde yarış çizgisi değildir. İlerleme hızdan türetilen mesafeye dayanır; konum çizgisi GPS sıçramalarını azaltmak için yumuşatılır. Bu işlem ek ölçüm hassasiyeti sağlamaz. Renkli konum izleri gerçek pilot yarış çizgisi olarak yorumlanmamalıdır. Boşluk: oynat / duraklat · ← / →: 1 saniye.</p>
+  <p class="ghost-note">İki araç aynı anda başlar ve kendi tur süresinde bitirir. B aracının saydamlığı seçilebilir. Serbest kamera: sürükle ile döndür, tekerlek ile yakınlaştır; Shift+sürükle veya sağ tuşla taşı; WASD ile gezin, R ile sıfırla. Fren tabelaları ve tribünler temsili yerleşimlerdir. Tahmini eğim seçeneği, varsa kaynak Z kanalının yumuşatılmış profilidir; hassas arazi ölçümü değildir. Binalar, bitkiler ve çit yerleşimleri temsili dekorlardır. Coğrafi çizgi pist sınırı ölçümü değildir; yol genişliği, kerbler, özgün GLB araç modeli, stadyum ve pit yapıları temsili görselleştirmedir; gerçek pist modeli veya santimetre hassasiyetinde yarış çizgisi değildir. Meksika’da coğrafi referansa hizalama yaklaşık pist ilerlemesi sağlar; diğer pistlerde normalize kaynak mesafesi kullanılır; konum çizgisi GPS sıçramalarını azaltmak için yumuşatılır. Bu işlem ek ölçüm hassasiyeti sağlamaz. Renkli konum izleri gerçek pilot yarış çizgisi olarak yorumlanmamalıdır. Boşluk: oynat / duraklat · ← / →: 1 saniye.</p>
 </section>
 
 <section class="card rel" id="chartcard">
@@ -483,9 +484,11 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
     <section class="card" data-tab="sum"><div class="card-h"><span class="eyebrow">Sonuç ve istatistikler</span><span class="note">Satıra dokun: pilot odağına git</span></div><div class="corners" id="resBox"></div></section>
   </div>
 
-  <p class="foot">Sonuç sıralaması son kayıtlı tur ve pozisyondan tahmin edilir; resmî klasman, ceza veya DNF bilgisi değildir. Pozisyon değişimleri tur sonu kayıtlarından çıkarılır; tur içindeki tüm geçişleri göstermez. Veri: <a href="https://github.com/TracingInsights" target="_blank" rel="noopener">TracingInsights</a> açık telemetri arşivi (FastF1 tabanlı). Sayfa veriyi açıldığı anda doğrudan bu arşivden indirir, bu yüzden internet bağlantısı gerekir; yeni yarış haftaları arşive eklendikçe listede görünür. Telemetri ~4 Hz örneklenir ve iki tur 8 metrelik ortak bir mesafe ızgarasına indirgenir; fren sinyali açık/kapalıdır. Resmî bir F1 ürünü değildir.</p>
+  <p class="foot">Sonuç sıralaması son kayıtlı tur ve pozisyondan tahmin edilir; resmî klasman, ceza veya DNF bilgisi değildir. Pozisyon değişimleri tur sonu kayıtlarından çıkarılır; tur içindeki tüm geçişleri göstermez. Veri: <a href="https://github.com/TracingInsights" target="_blank" rel="noopener">TracingInsights</a> açık telemetri arşivi (FastF1 tabanlı). Sayfa veriyi açıldığı anda doğrudan bu arşivden indirir, bu yüzden internet bağlantısı gerekir; yeni yarış haftaları arşive eklendikçe listede görünür. Telemetri yaklaşık 4 Hz örneklenir; Meksika’da uygun hizalamada coğrafi pist ilerlemesine, diğer durumlarda normalize tur mesafesine göre yaklaşık 8 m ızgaraya örneklenir; fren sinyali açık/kapalıdır. Resmî bir F1 ürünü değildir.</p>
 </div>
 
+<script src="src/replay-core.js"></script>
+<script src="assets/tracks/mexico.js"></script>
 <script>
 const CATALOG = {"2023":[{"e":"Bahrain Grand Prix","d":"2023-03-03","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Saudi Arabian Grand Prix","d":"2023-03-17","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Australian Grand Prix","d":"2023-03-31","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Azerbaijan Grand Prix","d":"2023-04-28","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"Miami Grand Prix","d":"2023-05-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Monaco Grand Prix","d":"2023-05-26","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Spanish Grand Prix","d":"2023-06-02","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Canadian Grand Prix","d":"2023-06-16","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Austrian Grand Prix","d":"2023-06-30","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"British Grand Prix","d":"2023-07-07","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Hungarian Grand Prix","d":"2023-07-21","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Belgian Grand Prix","d":"2023-07-28","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"Dutch Grand Prix","d":"2023-08-25","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Italian Grand Prix","d":"2023-09-01","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Singapore Grand Prix","d":"2023-09-15","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Japanese Grand Prix","d":"2023-09-22","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Qatar Grand Prix","d":"2023-10-06","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"United States Grand Prix","d":"2023-10-20","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"Mexico City Grand Prix","d":"2023-10-27","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"São Paulo Grand Prix","d":"2023-11-03","s":["Practice 1","Qualifying","Sprint Shootout","Sprint","Race"]},{"e":"Las Vegas Grand Prix","d":"2023-11-17","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Abu Dhabi Grand Prix","d":"2023-11-24","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]}],"2024":[{"e":"Bahrain Grand Prix","d":"2024-02-29","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Saudi Arabian Grand Prix","d":"2024-03-07","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Australian Grand Prix","d":"2024-03-22","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Japanese Grand Prix","d":"2024-04-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Chinese Grand Prix","d":"2024-04-19","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Miami Grand Prix","d":"2024-05-03","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Emilia Romagna Grand Prix","d":"2024-05-17","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Monaco Grand Prix","d":"2024-05-24","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Canadian Grand Prix","d":"2024-06-07","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Spanish Grand Prix","d":"2024-06-21","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Austrian Grand Prix","d":"2024-06-28","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"British Grand Prix","d":"2024-07-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Hungarian Grand Prix","d":"2024-07-19","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Belgian Grand Prix","d":"2024-07-26","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Dutch Grand Prix","d":"2024-08-23","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Italian Grand Prix","d":"2024-08-30","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Azerbaijan Grand Prix","d":"2024-09-13","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Singapore Grand Prix","d":"2024-09-20","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"United States Grand Prix","d":"2024-10-18","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Mexico City Grand Prix","d":"2024-10-25","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"São Paulo Grand Prix","d":"2024-11-01","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Las Vegas Grand Prix","d":"2024-11-22","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Qatar Grand Prix","d":"2024-11-29","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Abu Dhabi Grand Prix","d":"2024-12-06","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]}],"2025":[{"e":"Australian Grand Prix","d":"2025-03-14","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Chinese Grand Prix","d":"2025-03-21","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Japanese Grand Prix","d":"2025-04-04","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Bahrain Grand Prix","d":"2025-04-11","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Saudi Arabian Grand Prix","d":"2025-04-18","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Miami Grand Prix","d":"2025-05-02","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Emilia Romagna Grand Prix","d":"2025-05-16","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Monaco Grand Prix","d":"2025-05-23","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Spanish Grand Prix","d":"2025-05-30","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Canadian Grand Prix","d":"2025-06-13","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Austrian Grand Prix","d":"2025-06-27","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"British Grand Prix","d":"2025-07-04","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Belgian Grand Prix","d":"2025-07-25","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Hungarian Grand Prix","d":"2025-08-01","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Dutch Grand Prix","d":"2025-08-29","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Italian Grand Prix","d":"2025-09-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Azerbaijan Grand Prix","d":"2025-09-19","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Singapore Grand Prix","d":"2025-10-03","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"United States Grand Prix","d":"2025-10-17","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Mexico City Grand Prix","d":"2025-10-24","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"São Paulo Grand Prix","d":"2025-11-07","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Las Vegas Grand Prix","d":"2025-11-21","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Qatar Grand Prix","d":"2025-11-28","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Abu Dhabi Grand Prix","d":"2025-12-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]}],"2026":[{"e":"Australian Grand Prix","d":"2026-03-06","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Chinese Grand Prix","d":"2026-03-13","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Japanese Grand Prix","d":"2026-03-27","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Miami Grand Prix","d":"2026-05-01","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Canadian Grand Prix","d":"2026-05-22","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Monaco Grand Prix","d":"2026-06-05","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Barcelona Grand Prix","d":"2026-06-12","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Austrian Grand Prix","d":"2026-06-26","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"British Grand Prix","d":"2026-07-03","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Belgian Grand Prix","d":"2026-07-17","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Hungarian Grand Prix","d":"2026-07-24","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Dutch Grand Prix","d":"2026-08-21","s":["Practice 1","Qualifying","Sprint Qualifying","Sprint","Race"]},{"e":"Italian Grand Prix","d":"2026-09-04","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Spanish Grand Prix","d":"2026-09-11","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Azerbaijan Grand Prix","d":"2026-09-24","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]},{"e":"Bahrain Grand Prix","d":"2026-10-02","s":["Practice 1","Practice 2","Practice 3","Qualifying","Race"]}]};
 const NAMES = {"names":{"VER":["Max","Verstappen"],"SAR":["Logan","Sargeant"],"NOR":["Lando","Norris"],"GAS":["Pierre","Gasly"],"PER":["Sergio","Perez"],"ALO":["Fernando","Alonso"],"LEC":["Charles","Leclerc"],"STR":["Lance","Stroll"],"MAG":["Kevin","Magnussen"],"DEV":["Nyck","De Vries"],"TSU":["Yuki","Tsunoda"],"ALB":["Alexander","Albon"],"ZHO":["Guanyu","Zhou"],"HUL":["Nico","Hulkenberg"],"OCO":["Esteban","Ocon"],"HAM":["Lewis","Hamilton"],"SAI":["Carlos","Sainz"],"RUS":["George","Russell"],"BOT":["Valtteri","Bottas"],"PIA":["Oscar","Piastri"],"ARO":["Paul","Aron"],"BEG":["Dino","Beganovic"],"OSU":["Zak","O'Sullivan"],"FOR":["Leonardo","Fornaroli"],"FCO":["Pierre","Gasly"],"BOY":["Sergio","Perez"],"MON":["Fernando","Alonso"],"BRO":["Luke","Browning"],"VIL":["Lance","Stroll"],"GRA":["Kevin","Magnussen"],"COH":["Yuki","Tsunoda"],"MAR":["Nico","Hulkenberg"],"MAN":["Guanyu","Zhou"],"TBA":["Nico","Hulkenberg"],"SHI":["Cian","Shields"],"RIC":["Daniel","Ricciardo"],"SHW":["Robert","Shwartzman"],"LAW":["Liam","Lawson"],"DRU":["Felipe","Drugovich"],"HAD":["Isack","Hadjar"],"VES":["Frederik","Vesti"],"BEA":["Oliver","Bearman"],"DOO":["Jack","Doohan"],"POU":["Theo","Pourchaire"],"OWA":["Patricio","O'Ward"],"DEN":["Jake","Dennis"],"IWA":["Ayumu","Iwasa"],"COL":["Franco","Colapinto"],"ANT":["Kimi","Antonelli"],"HIR":["Ryo","Hirakawa"],"LEL":["Arthur","Leclerc"],"BOR":["Gabriel","Bortoleto"],"DUN":["Alexander","Dunne"],"LIN":["Arvid","Lindblad"],"BAD":["Max","Verstappen"],"VOI":["Alexander","Albon"],"CHO":["Esteban","Ocon"],"CAM":["Gabriel","Bortoleto"],"CRA":["Jak","Crawford"],"FUO":["Antonio","Fuoco"],"HER":["Colton","Herta"]},"teams":{"2023":{"Red Bull Racing":"3671C6","Williams":"37BEDD","McLaren":"F58020","Alpine":"2293D1","Aston Martin":"358C75","Ferrari":"F91536","Haas F1 Team":"B6BABD","AlphaTauri":"5E8FAA","Alfa Romeo":"C92D4B","Mercedes":"6CD3BF"},"2024":{"Red Bull Racing":"3671C6","Williams":"64C4FF","RB":"6692FF","McLaren":"FF8000","Alpine":"0093cc","Aston Martin":"229971","Ferrari":"E80020","Haas F1 Team":"B6BABD","Kick Sauber":"52e252","Mercedes":"27F4D2"},"2025":{"Red Bull Racing":"4781D7","McLaren":"F47600","Kick Sauber":"01C00E","Racing Bulls":"6C98FF","Alpine":"00A1E8","Mercedes":"00D7B6","Aston Martin":"229971","Ferrari":"ED1131","Williams":"1868DB","Haas F1 Team":"9C9FA2"},"2026":{"McLaren":"F47600","Red Bull Racing":"4781D7","Audi":"F50537","Alpine":"00A1E8","Cadillac":"909090","Mercedes":"00D7B6","Ferrari":"ED1131","Aston Martin":"229971","Williams":"1868DB","Racing Bulls":"6C98FF","Haas F1 Team":"9C9FA2"}}};
@@ -665,13 +668,13 @@ function prepTel(tel) {
   return { quality, rel, t: T, v: pick(v), thr: pick(thr), rpm: pick(rpm), gear: pick(gear), brk: pick(brk), x: pick(x), y: pick(y), elevation:Array.isArray(tel.z)&&tel.z.length===n&&tel.z.filter(v=>Number.isFinite(numv(v))).length/n>.98?pick(col(tel.z,n)):null, len: span };
 }
 function resampleTel(p, P, lapTime) {
-  const n = p.rel.length;
+  const rel=p.station||p.rel, n = rel.length;
   const t = new Float64Array(P), v = new Float32Array(P), thr = new Float32Array(P), rpm = new Float32Array(P), x = new Float32Array(P), y = new Float32Array(P), gear = new Float32Array(P), brk = new Float32Array(P);
   let j = 0;
   for (let k = 0; k < P; k++) {
     const g = k / (P - 1);
-    while (j < n - 2 && p.rel[j + 1] <= g) j++;
-    const r0 = p.rel[j], r1 = p.rel[j + 1], f = r1 > r0 ? Math.min(1, Math.max(0, (g - r0) / (r1 - r0))) : 0;
+    while (j < n - 2 && rel[j + 1] <= g) j++;
+    const r0 = rel[j], r1 = rel[j + 1], f = r1 > r0 ? Math.min(1, Math.max(0, (g - r0) / (r1 - r0))) : 0;
     const L = (a) => a[j] + (a[j + 1] - a[j]) * f;
     t[k] = L(p.t); v[k] = L(p.v); thr[k] = Math.max(0, Math.min(100, L(p.thr))); rpm[k] = L(p.rpm); x[k] = L(p.x); y[k] = L(p.y);
     brk[k] = L(p.brk) >= 0.5 ? 1 : 0;
@@ -712,7 +715,7 @@ function autoCorners(H, A) {
 
 /* geometry for a comparison comes from lap A: grid, outline, sectors, corners */
 function setGeometry(H, pA, A) {
-  H.L = pA.len; H.P = Math.round(H.L / 8) + 1;
+  H.L = H.trackTransform?H.track.length:pA.len; H.P = A.t.length;
   const rotDeg = H.cornersRaw ? (+H.cornersRaw.Rotation || 0) : 0;
   const rot = rotDeg * Math.PI / 180, c = Math.cos(rot), s = Math.sin(rot);
   const rx = (x, y) => x * c - y * s, ry = (x, y) => -(x * s + y * c);
@@ -899,7 +902,15 @@ async function compare() {
   catch (err) { hideVeil(veils); if (tok === st.tok) showError(err, compare); return; }
   hideVeil(veils);
   if (tok !== st.tok || st.H !== H) return;
-  const P = Math.round(pA.len / 8) + 1;
+  H.track=null;H.trackTransform=null;
+  if(/Mexico/.test(H.event)&&typeof MEXICO_TRACK!=='undefined'){
+    H.track=ReplayCore.circuit(MEXICO_TRACK.coordinates,MEXICO_TRACK.length);
+    for(const p of [pA,pB]){if(!p.registration){p.registration=ReplayCore.register(p,H.track);p.stationInfo=ReplayCore.stations(p,H.track,p.registration);p.station=p.stationInfo.valid?p.stationInfo.rel:null;}}
+    const aligned=pA.stationInfo.valid&&pB.stationInfo.valid;
+    if(aligned)H.trackTransform=pA.registration;
+    for(const p of [pA,pB])p.station=aligned?p.stationInfo.rel:null;
+  }
+  const P = Math.round((H.trackTransform?H.track.length:pA.len) / 8) + 1;
   const A = Object.assign(resampleTel(pA, P, H.laps[ia].t / 1000), { meta: H.laps[ia] });
   const B = Object.assign(resampleTel(pB, P, H.laps[ib].t / 1000), { meta: H.laps[ib] });
   applyPilotColors(H.drivers[A.meta.d], H.drivers[B.meta.d]);
@@ -1069,6 +1080,10 @@ function setPlayIcon() {
   $("playBtn").innerHTML = st.play.on ? '<svg viewBox="0 0 16 16" fill="currentColor"><rect x="3.5" y="2.5" width="3" height="11" rx=".6"/><rect x="9.5" y="2.5" width="3" height="11" rx=".6"/></svg>' : '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg>';
   $("playBtn").setAttribute("aria-label", st.play.on ? "Duraklat" : "Oynat");
 }
+function setPlaybackRate(rate,now=performance.now()) {
+  if(st.play.on&&st.A&&st.B){const next=ReplayCore.changeRate({elapsed:st.play.e,last:st.play.last,rate:st.play.rate},rate,now,Math.max(st.A.total,st.B.total));st.play.e=next.elapsed;st.play.last=next.last;}
+  st.play.rate=rate;$('rate').value=String(rate);$('ghostRate').value=String(rate);ghost.hudStamp=0;if(st.A)drawAll();
+}
 function startPlay() {
   if (!st.A || st.play.on) return;
   const end = Math.max(st.A.total, st.B.total);
@@ -1080,9 +1095,8 @@ function startPlay() {
 function stopPlay() { st.play.on = false; cancelAnimationFrame(st.play.raf); setPlayIcon(); }
 function tick(now) {
   if (!st.play.on) return;
-  const dt = Math.min(0.1, (now - st.play.last) / 1000); st.play.last = now;
-  st.play.e += dt * st.play.rate;
   const end = Math.max(st.A.total, st.B.total);
+  st.play.e=ReplayCore.advance(st.play.e,st.play.last,now,st.play.rate,end);st.play.last=now;
   if (st.play.e >= end) { st.play.e = end; stopPlay(); }
   drawAll();
   if (st.play.on) st.play.raf=requestAnimationFrame(tick);
@@ -1473,7 +1487,7 @@ $("share").onclick = async () => {
 };
 $("playBtn").onclick = () => (st.play.on ? stopPlay() : startPlay());
 $("restart").onclick = () => { st.play.e = 0; st.hoverK = null; drawAll(); };
-$("rate").onchange = (e) => { st.play.rate = +e.target.value; };
+$("rate").onchange = e=>setPlaybackRate(+e.target.value);
 $("scrub").addEventListener("input", (e) => {
   if (!st.A) return;
   if (st.play.on) stopPlay();
@@ -2216,6 +2230,7 @@ const ghost = { active:false, camera:'tv', scene:null, source:null };
 // Convert the same circuit rotation used by the 2D map into a Y-up world.
 // The overview camera looks along +Z, so screen-right is world -X.
 function ghostWorld(x,y,ox,oy,scale) {
+  if(st.H.trackTransform)return ReplayCore.transform(st.H.trackTransform,x,y);
   const dx=x-ox,dy=y-oy;
   return {x:-(st.H.rx?st.H.rx(dx,dy):dx)*scale,z:-(st.H.ry?st.H.ry(dx,dy):-dy)*scale};
 }
@@ -2241,10 +2256,10 @@ function ghostCurveAt(C,value) {
     d:((6*u2-6*u)*v[lo]+(3*u2-4*u+1)*h*m[lo]+(-6*u2+6*u)*v[hi]+(3*u2-2*u)*h*m[hi])/h};
 }
 function ghostMotionBuild(p,L,ox,oz,scale) {
-  const count=p.t.length,t=[],progress=[],points=[];
+  const count=p.t.length,t=[],progress=[],nativeProgress=[],points=[];
   for(let i=0;i<count;i++) {
     if(t.length&&p.t[i]<=t[t.length-1])continue;
-    t.push(p.t[i]);progress.push(p.rel?p.rel[i]:i/(count-1));
+    t.push(p.t[i]);nativeProgress.push(p.rel?p.rel[i]:i/(count-1));progress.push((p.station||p.rel)?(p.station||p.rel)[i]:i/(count-1));
     // A short distance window suppresses GPS jitter; endpoints stay anchored.
     let x=0,z=0,weight=0;
     if(i===0||i===count-1){x=p.x[i];z=p.y[i];weight=1;}
@@ -2261,10 +2276,10 @@ function ghostMotionBuild(p,L,ox,oz,scale) {
     if(length<.001)continue;arc.push(arc[arc.length-1]+length);xs.push(points[i].x);zs.push(points[i].z);
   }
   const factor=L.total/t[t.length-1],times=t.map(v=>v*factor);
-  return {progress:ghostCurve(times,progress),x:ghostCurve(arc,xs),z:ghostCurve(arc,zs),length:arc[arc.length-1]};
+  return {progress:ghostCurve(times,progress),nativeProgress:ghostCurve(times,nativeProgress),x:ghostCurve(arc,xs),z:ghostCurve(arc,zs),length:arc[arc.length-1]};
 }
 function ghostMotionPose(L,time) {
-  const distance=ghostCurveAt(L.progress,time).v*L.length;
+  const distance=ghostCurveAt(L.nativeProgress||L.progress,time).v*L.length;
   const x=ghostCurveAt(L.x,distance),z=ghostCurveAt(L.z,distance),len=Math.hypot(x.d,z.d)||1;
   return {x:x.v,z:z.v,fx:x.d/len,fz:z.d/len};
 }
@@ -2341,7 +2356,8 @@ function ghostBuild() {
   for(let i=1;i<n;i++) length+=Math.hypot(A.x[i]-A.x[i-1],A.y[i]-A.y[i-1]);
   const scale=st.H.L/Math.max(1,length), ox=A.x[0], oz=A.y[0];
   const paths=[A,B].map(L=>Array.from(L.x,(x,i)=>ghostWorld(x,L.y[i],ox,oz,scale)));
-  const center=paths[0].map((p,i)=>({x:(p.x+paths[1][i].x)/2,z:(p.z+paths[1][i].z)/2}));
+  const fixed=st.H.trackTransform&&st.H.track;
+  const center=fixed?Array.from({length:n},(_,i)=>fixed.sample(st.H.trackTransform.phase+st.H.trackTransform.dir*i/(n-1))):paths[0].map((p,i)=>({x:(p.x+paths[1][i].x)/2,z:(p.z+paths[1][i].z)/2}));
   const edges=center.map((p,i)=>{
     const a=center[Math.max(0,i-2)],b=center[Math.min(n-1,i+2)];
     const dx=b.x-a.x,dz=b.z-a.z,len=Math.hypot(dx,dz)||1;
@@ -2349,11 +2365,12 @@ function ghostBuild() {
   });
   const xs=center.map(p=>p.x), zs=center.map(p=>p.z);
   const native=[A,B].map(L=>ghostMotionBuild(L.source||L,L,ox,oz,scale));
-  ghost.scene={profile:ghostTrackProfile(st.H.event),native,paths,edges,n,minX:Math.min(...xs),maxX:Math.max(...xs),minZ:Math.min(...zs),maxZ:Math.max(...zs)};
+  ghost.scene={track:fixed,registration:st.H.trackTransform,profile:ghostTrackProfile(st.H.event),native,paths,edges,n,minX:Math.min(...xs),maxX:Math.max(...xs),minZ:Math.min(...zs),maxZ:Math.max(...zs)};
+  if(fixed){const points=Array.from({length:n},(_,i)=>fixed.sample(i/(n-1)));ghost.scene.canonicalEdges=points.map((p,i)=>{const a=points[Math.max(0,i-2)],b=points[Math.min(n-1,i+2)],len=Math.hypot(b.x-a.x,b.z-a.z)||1;return {p,rx:(b.z-a.z)/len,rz:-(b.x-a.x)/len};});}
   ghost.scene.guides=ghostCornerGuides(edges,st.H.corners,st.H.L,st.H.autoCorners);
   ghost.scene.visual=ghostVisualPath(edges,ghost.scene.guides);
   ghost.scene.elevation=ghostElevation(A.source,n,scale,st.H.L);
-  ghost.scene.environment=ghostEnvironment(edges,ghost.scene.profile);
+  ghost.scene.environment=ghostEnvironment(ghost.scene.canonicalEdges||edges,ghost.scene.profile);
   ghost.source=A; return ghost.scene;
 }
 function ghostPoint(path,k) {
@@ -2383,6 +2400,8 @@ function ghostDraw(pos) {
   ({camera,target}=ghostCameraPose(S,poses,w/h));
   const stamp=performance.now(),last=ghost.cameraState;
   if(last&&ghost.camera!=='free'&&st.play.on&&Math.abs(st.play.e-last.time)<.5){const mix=1-Math.exp(-Math.min(.1,(stamp-last.stamp)/1000)/.11);camera=camera.map((v,i)=>last.camera[i]+(v-last.camera[i])*mix);target=target.map((v,i)=>last.target[i]+(v-last.target[i])*mix);}
+  if(ghost.camera!=='overview'&&ghost.camera!=='free')camera=ghostAvoidObstacles(camera,target);
+  ({camera,target}=GhostDirector.blend(camera,target));
   ghost.cameraState={camera,target,mode:ghost.camera,time:st.play.e,stamp};
   if($('ghostElevation'))$('ghostElevation').disabled=!S.elevation;
   if(ghost3d.ready&&ghost3dRender(S,poses,camera,target,w,h)){ghostReadouts(pos);return;}ghost3dStart();
@@ -2557,6 +2576,7 @@ function ghostDraw(pos) {
   ghostReadouts(pos);
 }
 function ghostReadouts(pos){
+  const now=performance.now();if(st.play.on&&now-(ghost.hudStamp||0)<50)return;ghost.hudStamp=now;
   const end=Math.max(st.A.total,st.B.total),time=st.play.e;
   $('ghostClock').textContent=fmtClock(time)+' / '+fmtClock(end);
   $('ghostScrub').value=Math.round(time/end*10000);
@@ -2565,6 +2585,8 @@ function ghostReadouts(pos){
   [st.A,st.B].forEach((L,i)=>{const k=i?pos.kb:pos.ka,done=time>=L.total;
     $('ghostDriver'+i).textContent=st.H.drivers[L.meta.d].c+' · '+(done?'BİTİŞ':value(L.v,k)+' km/sa');
     const bp=L.source||L,bk=kAtTime(bp,time*(bp.t[bp.t.length-1]/L.total)),braking=!done&&!L.quality.brake.missing&&near(bp.brk,bk)>=.5;
+    const code=st.H.drivers[L.meta.d].c,speed=value(L.v,k),gear=value(L.gear,k),throttle=value(L.thr,k);
+    $('ghostHUD'+i).innerHTML='<header>'+String(i?'B':'A')+' · '+code+'<time>'+fmtClock(Math.min(time,L.total))+'</time></header><strong>'+speed+'<small> km/sa</small><b>'+gear+'</b></strong><div class="hud-pedals"><span>GAZ '+throttle+'%</span><i style="--pedal:'+ (Number.isFinite(lerp(L.thr,k))?lerp(L.thr,k):0)+'%"></i><span>FREN '+(L.quality.brake.missing?'—':braking?'AÇIK':'KAPALI')+'</span><i class="brake" style="--pedal:'+(braking?100:0)+'%"></i></div>';
     $('ghostMetric'+i).textContent='Vites '+value(L.gear,k)+' · Gaz %'+value(L.thr,k)+' · Fren '+(L.quality.brake.missing?'—':braking?'AÇIK':'KAPALI');
   });
   const delta=lerp(st.delta,pos.ka);$('ghostDelta').textContent=fmtGap(delta)+' s';
@@ -2578,11 +2600,13 @@ function ghostToggle(force){
   writeHash();
 }
 $('ghostToggle').onclick=()=>ghostToggle();$('ghostClose').onclick=()=>ghostToggle(false);
+$('ghostFullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await $('ghostPanel').requestFullscreen();}catch(e){$('ghostEngine').textContent='Tam ekran bu tarayıcıda kullanılamıyor';}};
+$('ghostExport').onclick=()=>GhostMetrics.export();
 $('ghostPlay').onclick=()=>{if(st.play.on)stopPlay();else startPlay();drawAll();};
-$('ghostRestart').onclick=()=>{stopPlay();st.play.e=0;st.hoverK=null;drawAll();};
-$('ghostScrub').oninput=e=>{stopPlay();if(!st.A)return;st.hoverK=null;st.play.e=+e.target.value/10000*Math.max(st.A.total,st.B.total);drawAll();};
-$('ghostRate').onchange=e=>{st.play.rate=+e.target.value;$('rate').value=e.target.value;};
-$('ghostCameras').onclick=e=>{const b=e.target.closest('[data-camera]');if(!b)return;ghost.camera=b.dataset.camera;document.querySelectorAll('[data-camera]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));drawAll();};
+$('ghostRestart').onclick=()=>{stopPlay();GhostDirector.transition=null;ghost.cameraState=null;st.play.e=0;st.hoverK=null;drawAll();};
+$('ghostScrub').oninput=e=>{stopPlay();GhostDirector.transition=null;ghost.cameraState=null;if(!st.A)return;st.hoverK=null;st.play.e=+e.target.value/10000*Math.max(st.A.total,st.B.total);drawAll();};
+$('ghostRate').onchange=e=>setPlaybackRate(+e.target.value);
+$('ghostCameras').onclick=e=>{const b=e.target.closest('[data-camera]');if(!b)return;GhostDirector.switch(b.dataset.camera);document.querySelectorAll('[data-camera]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));drawAll();};
 const originalGhostDrawAll=drawAll;
 drawAll=function(){if(ghost.active&&st.A&&st.B&&st.mode!=='race')ghostDraw(positions());else originalGhostDrawAll();};
 document.addEventListener('keydown',e=>{if(!ghost.active||/INPUT|SELECT|TEXTAREA|BUTTON/.test(e.target.tagName))return;if(e.code==='Space'){e.preventDefault();$('ghostPlay').click();}if(e.code==='ArrowRight'||e.code==='ArrowLeft'){e.preventDefault();stopPlay();st.hoverK=null;st.play.e=Math.max(0,Math.min(Math.max(st.A?.total||0,st.B?.total||0),st.play.e+(e.code==='ArrowRight'?1:-1)));drawAll();}});
@@ -2650,11 +2674,15 @@ $('nextBrake').onclick=()=>{if(!st.A)return;ghostBuildBrakes();const events=ghos
 $('brakeTimeline').addEventListener('pointerdown',e=>{if(!st.A)return;const r=e.currentTarget.getBoundingClientRect(),ratio=Math.max(0,Math.min(1,(e.clientX-r.left-36)/(r.width-48)));ghostBrakeSeek(ratio*Math.max(st.A.total,st.B.total));});
 
 $('ghostZoom').addEventListener('input',()=>{ghost.cameraState=null;drawAll();});
-for(const id of ['ghostTransparent','ghostStatsToggle','ghostTraces','ghostZones','ghostEnvironment','ghostElevation','ghostGuides','ghostEstimatedLine','ghostRenderQuality'])$(id).addEventListener('change',()=>drawAll());
+for(const id of ['ghostAO','ghostAdaptive','ghostTransparent','ghostStatsToggle','ghostTraces','ghostZones','ghostEnvironment','ghostElevation','ghostGuides','ghostEstimatedLine','ghostRenderQuality'])$(id).addEventListener('change',()=>drawAll());
 // Optional GPU renderer. The 2D renderer remains available if loading or context creation fails.
 </script>
+<script src="src/visual-assets.js"></script>
+<script src="src/ghost-director.js"></script>
+<script src="src/ghost-world.js"></script>
 <script src="src/ghost-webgl.js"></script>
 <script>
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&st.play.on){stopPlay();ghost.hudStamp=0;drawAll();$('ghostEngine').textContent='Sekme gizlendi · oynatma duraklatıldı';}});
 /* ───────── boot ───────── */
 (function boot() {
   if (TOUCH) $("hint").textContent = "Grafikte parmağını yatay kaydır: haritada A o noktada, B ise aynı saniyede bulunduğu yerde görünür. Sektör düğmeleri ve viraj satırları yakınlaştırır.";

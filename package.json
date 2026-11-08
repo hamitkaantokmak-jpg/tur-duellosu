@@ -1,1 +1,19 @@
-{"name":"tur-duellosu","private":true,"scripts":{"test":"playwright test","serve":"python3 -m http.server 4173"},"devDependencies":{"@playwright/test":"1.56.1"}}
+{
+  "name": "tur-duellosu",
+  "private": true,
+  "scripts": {
+    "test": "npm run test:unit && npm run test:browser",
+    "serve": "python3 -m http.server 4173",
+    "test:unit": "node --test tests/replay-core.test.cjs",
+    "test:browser": "playwright test",
+    "assets:build": "node scripts/prepare-track.cjs && node scripts/build-car.mjs"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "4.2.1",
+    "@gltf-transform/extensions": "4.2.1",
+    "@gltf-transform/functions": "4.2.1",
+    "@playwright/test": "1.56.1",
+    "meshoptimizer": "0.25.0",
+    "three": "0.180.0"
+  }
+}

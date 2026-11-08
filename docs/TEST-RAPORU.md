@@ -1,38 +1,69 @@
-# Test ve ölçüm raporu
+# V2 test ve ölçüm raporu
 
-Test tarihi: 8 Kasım 2026 (Europe/Istanbul).
+Tarih: 8 Kasım 2026 (Europe/Istanbul). Önceki V1 raporu bu dosyanın git geçmişindedir; aşağıdaki sonuçlar V2 içindir.
 
-## Ortam
+## Ortam ve veri
 
-Linux x86_64 bulut çalışma ortamı; 3 görünür vCPU, Intel Xeon Platinum 8573C; sistem Chromium, Playwright 1.56.1. GPU: ANGLE / Vulkan SwiftShader Device (Subzero), yazılımsal çizim. Fiziksel bir orta seviye ekran kartı kullanılmadı. Testlerde gerçek TracingInsights 2024 Meksika sıralama verileri internetten yüklendi; sahte tur sonucu veya telemetri fixture'ı kullanılmadı.
+Linux x86_64, 3 görünür vCPU, Intel Xeon Platinum 8573C; Chromium ve Playwright 1.56.1. Çizici: **ANGLE / Vulkan / SwiftShader Device (Subzero)**. Fiziksel GPU kullanılmadı; ortamda /dev/dri, /proc/driver/nvidia/gpus veya /sys/class/drm aygıtları bulunmadı.
 
-## Otomatik kapsam
+Gerçek TracingInsights 2024 Meksika sıralama verileri internetten yüklendi. HAM **1:16.651**, RUS **1:16.356**; tam tur B − A farkı **−0.295 s** korunur. Kaynak örnek sayıları 585/584, kaynak mesafeleri 4244.56/4250.11 m. Kaynak koordinatları sabit coğrafi referansa hizalandığında RMS konum sapması yaklaşık **6.59 / 5.77 m**, azami sapma yaklaşık **9.46 / 9.55 m** görüldü. Bu sapmalar referans/örneklerin hassasiyet sınırıdır; gerçek pilot çizgisinin doğrulanması değildir.
 
-`npm test` üç Playwright senaryosu içerir:
+## Çekirdek testleri
 
-1. Gerçek Hamilton/Russell tur yüklemesi; bağımsız ilerleme ve başlangıç/bitiş sınırları; zaman çizelgesine gitme; beş kamera düğmesi; fareyle serbest kamera; üç kalite profili değiştirilirken zamanın korunması; B saydamlığı; performans paneli; beş oynatma hızında mevcut saat motorunun deterministik adımları; dört sahne kurulumu arasında aynı noktada sabit geometri/doku sayacı; başa sarma, oynat/duraklat; analize ve haritaya dönüş; pilot/tur değiştirme; 390 px mobil görünüm; yakalanmamış JavaScript hata kontrolü.
-2. Three.js ağ yüklemesi engellendiğinde açık WebGL hata mesajı ve çalışan standart Canvas oynatıcı/zaman çizelgesi.
-3. 30 saniyelik gerçek tarayıcı oynatma kontrolü, Performans profili, 4× seçimi, kaynak sayacı bütçesi ve ekran görüntüsü. Bu test çok saatlik kullanımda sızıntı olmadığının kanıtı değildir.
+`npm run test:unit` — 7 senaryo:
 
-Ek kontrol: `loadTel`, `prepTel`, `resampleTel`, `setGeometry`, `compare`, `kAtTime`, `positions`, `buildRace`, `ghostMotionBuild`, `ghostReplayPoses` fonksiyonları başlangıç commit'i ile metinsel karşılaştırmada aynı kalmıştır. `node --check src/ghost-webgl.js` ve `git diff --check` uygulanır.
+- 0.25×, 0.5×, 1×, 2×, 4× hızlarda düzensiz, seyrek ve atlanan karelerde geçen sürenin korunması.
+- Negatif zaman aralığı ve turun sonunda sınırlandırma.
+- Sabit coğrafi hattın kapanışı ve istasyon uzunluğu.
+- Birim/eksen yansıması/başlangıç konumunun geri kazanılması ve kaynak dizilerin değişmemesi.
+- Bozuk hizalamada açık yedek davranış.
+- Tekerlek mesafesinin anlık hız × süre yerine özgün mesafeden alınması.
+- Hız değişikliğinde önceki hızda geçen aralığın korunması.
 
-## Ölçümler
+Geometri testlerindeki sentetik örnekler yalnız algoritma birim testidir; uygulamada pilot telemetrisi veya tur sonucu olarak kullanılmaz.
 
-Gerçek kaynak turları: HAM **1:16.651**, RUS **1:16.356**. Aynı mesafede bitiş delta B − A: **−0.295 s**.
+## Tarayıcı testleri
 
-Son tam çalıştırmada 3/3 senaryo geçti (yaklaşık 1 dakika 30 saniye). Performans profili, 1280 × 720 viewport ve 30 saniyelik oynatmanın son ölçüm penceresinde **3.40 FPS / 294.25 ms**, 83 draw call, 90 geometri / 36 doku görüldü; adaptif gerçek canvas boyutu **747 × 294** idi. Bunlar yazılımsal SwiftShader ölçümleridir; 1080p fiziksel GPU sonucu değildir. Dengeli profilde kısa kontrol pencereleri yaklaşık 0.4–2.2 FPS arasında değişmiştir. Otomasyonun etkileşim/derleme yükü de bu kısa ölçümleri etkiler.
+`tests/simulator.spec.js` gerçek veriyle şu senaryoları kapsar:
 
-**60 FPS veya düşük güçlü cihazlarda 30 FPS hedefinin sağlandığı doğrulanmadı.** Fiziksel GPU ile 1080p ölçüm ve daha uzun bellek testi gerekir. Geometri/doku sayacı JS heap veya GPU bellek baytını ölçmez. FPS ve kare aralığı CPU, tarayıcı planlaması ve çizimi birlikte içerir.
+1. Pilot/tur yüklemesi, coğrafi istasyon hizalaması, GLB/KTX2 yükleme, başlangıç/bitiş ilerlemesi, zaman çizelgesi, beş kamera, serbest sürükleme ve klavye pan, üç profil sırasında zamanın korunması, saydamlık, panel, seyrek karede saat, beş hız, sahne yenilemesinde kaynak sayacı kararlılığı, yeniden başlatma/oynat/duraklat, analize dönüş, pilot/tur değiştirmede sabit yol geometrisi, 390 px mobil genişlik, gizlenen sekmede duraklama ve yakalanmamış JS hataları.
+2. Three.js yüklemesi engellendiğinde standart Canvas oynatıcısının çalışması.
+3. **120 saniyelik** gerçek tarayıcı oynatması ve kaynak bütçesi kontrolü.
+4. Ultra AO yüklenmesi/çizimi ve ölçüm JSON'unun indirilebilmesi.
+5. GLB/KTX2 yüklemeleri engellendiğinde çalışan prosedürel araç + JPEG yedeği.
+6. Tek tur projeksiyonu reddedildiğinde iki turun birlikte normalize mesafe yedeğine geçmesi ve geçerli durumda hizalamanın geri gelmesi.
 
-## Test edilmemiş veya sınırlı kapsam
+Tam tarayıcı çalıştırması **5/5** geçti. Son hız değişimi ve iki taraflı hizalama yedeği düzeltmelerinden sonra ilgili ana senaryo ve yeni hizalama senaryosu ayrıca çalıştırıldı: **2/2 geçti**. Böylece altı farklı tarayıcı senaryosu doğrulandı; son değişikliklerden sonra 120 saniyelik test tekrar çalıştırılmadı, çünkü değişiklikler hız geçişi ve hizalama yedeğiyle sınırlıydı. Çekirdek testleri son durumda **7/7** geçti. Test çıktıları Playwright test-results dizininde tutulur. Testler, beyan edilen 60 FPS/1080p hedefini veya tüm eski analiz kombinasyonlarını doğrulamaz.
 
-- Tüm sezon, yarış ve oturum kombinasyonları tek tek denenmedi.
-- Yarış analizinin tüm sekmeleri ve tüm eski filtre kombinasyonları için tam E2E regresyon yapılmadı; ilgili hesaplama kodu korunmuştur.
-- Oturumun gerçek ağ kesintisi, donanım WebGL bağlam kaybı/geri kazanımı, düşük GPU belleği ve saatler süren kullanım test edilmedi. Başlatma hatası için ağ engelleme senaryosu test edildi.
-- Referans video ile fotogerçekçilik eşdeğerliği veya doğrulanmış pist geometrisi sağlanmış sayılmaz.
+## 120 saniyelik yazılımsal çizim ölçümü
 
-## Değişen dosyalar
+Performans profili, 1280×720 viewport; dinamik çözünürlük açık. Son ölçüm penceresi:
 
-`index.html`, `src/ghost-webgl.js`, `src/ghost.css`, `README.md`, `.gitignore`, `package.json`, `package-lock.json`, `playwright.config.js`, `tests/simulator.spec.js`, `docs/TEKNIK-INCELEME.md`, `docs/VARLIKLAR.md`, `docs/TEST-RAPORU.md`.
+| Ölçüm | Sonuç |
+|---|---|
+| Gerçek canvas | **747×294** |
+| FPS / kare aralığı | **3.95 FPS / 253.38 ms** |
+| Örneklenen kareler | **431** |
+| Kare aralığı p50 / p95 | **265.0 / 516.6 ms** |
+| Son CPU çizim çağrısı | **0.9 ms** |
+| Son GPU sorgusu | **240.82 ms** — SwiftShader bağlamı |
+| Draw calls | **103** |
+| Geometri / doku sayacı | **239 / 77** |
 
-GitHub aktarımı: İlk dal oluşturma isteği entegrasyondan 403 döndürdü. Kullanıcı bağlantı yetkisini güncelledikten sonra dal oluşturma başarıyla doğrulandı.
+FPS son pencereye aittir; 120 saniyenin ortalaması değildir. CPU çizim çağrısı, GPU tamamlanmasını ve tüm DOM/kare planlamasını kapsamaz. GPU sorgusu da bu ortamda yazılımsal çizim bağlamını ölçer. Geometri/doku sayacı GPU bellek baytını ölçmez. V1 ölçümüyle aynı kadraj/yük koşulları olmadığından yüzde performans kazancı çıkarılmamalıdır.
+
+**1080p/60 FPS ve düşük güçlü fiziksel donanımda 30 FPS doğrulanmadı.** Gerçek cihazda dinamik çözünürlük kapatılarak render boyutu, GPU modeli, profil, kamera ve yavaş kare dağılımı kaydedilmelidir. Uygulama bunun için indirilebilir ölçüm JSON'u sunar.
+
+## Sınırlar
+
+- 120 saniye ve tekrarlanan sahne kurulumları, saatler boyunca sızıntı olmadığını kanıtlamaz.
+- Tüm sezon/pist/oturumlar, yarış analizinin tüm sekmeleri ve tüm filtre birleşimleri uçtan uca denenmedi.
+- Gerçek donanım bağlam kaybı, düşük VRAM ve tüm mobil GPU'lar denenmedi.
+- GLB araçlar ve çevre görsel temsildir; fotogerçekçi referans eşdeğerliği veya resmî pist ölçümü iddiası yoktur.
+- KTX2'nin GPU formatı/bellek kazancı cihaz desteğine bağlıdır; JPEG dosyasından daha küçük indirme garantisi yoktur.
+
+`node --check` ile yeni JavaScript dosyaları ve `git diff --check` kontrol edilir. Kaynak/lisans bilgileri `docs/VARLIKLAR.md`, teknik kapsam ve kalan ölçüm hedefleri `docs/GELISTIRME-V2.md` içindedir.
+
+## Son görsel kontrol
+
+Uzak ve üstten bakışta asfalt dışı zeminlerin yakın derinlikleri çizgilenme oluşturdu. Zemin ayrımı ve kamera near/far aralığı düzeltildi; son takip ve serbest kamera görüntülerinde görsel olarak doğrulandı. Bu son derinlik/clip ayarı için 120 saniyelik ölçüm tekrarlanmadı. Kaynak görüntüler `docs/screenshots/mexico-follow.png` ve `mexico-circuit.png` içindedir.
