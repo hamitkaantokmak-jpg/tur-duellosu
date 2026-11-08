@@ -25,6 +25,7 @@ npm run assets:build # yalnız Blender 4.3+ ile yeni araç/çevre üretimi
 
 `npm test`: saf çekirdek testleri + gerçek arşiv verisi kullanan Playwright senaryoları. Chromium gerekir; `CHROMIUM_PATH` ile yol seçilebilir. Test çizimi SwiftShader kullanır, fiziksel GPU performansı sayılmaz. Proxy CA'sı için gerekirse `CHROMIUM_PROXY_SPKI` tanımlanabilir; genel TLS denetimi kapatılmaz. Encoder uygulamayı çalıştırmak için gerekmez; varlık yeniden üretimi ve lisanslar aşağıdadır.
 
+- [Takılma ve Brave grafik hızlandırma kontrolü](docs/TAKILMA-DUZELTMESI.md)
 - [Main entegrasyonu ve son regresyon](docs/MAIN-ENTEGRASYON.md)
 - [V4 Blender kaynakları ve görsel/performance raporu](docs/GELISTIRME-V4.md)
 - [V3 görsel karşılaştırma ve teknik rapor](docs/GELISTIRME-V3.md)

@@ -52,7 +52,7 @@ function ghostDisposeWorld(){
 }
 function ghost3dBuild(S){
   const G=ghost3d,T=G.T;
-  ghostDisposeWorld();
+  ghostDisposeWorld();CameraCollision.clear();
   const world=new T.Group();G.scene.add(world);G.world=world;G.source=st.A;G.transparent=null;G.assetApplied=-1;G.carShadows=null;G.v3Instances=null;G.v3Obstacles=null;G.v3Stats=null;G.v4World=null;G.v4Batches=null;G.v4Obstacles=null;G.v4Stats=null;
   const material=(color,roughness=.8,metalness=0)=>new T.MeshStandardMaterial({color,roughness,metalness,side:T.DoubleSide});
   const roadMat=material('#b3b4b5',.96),white=material('#e2e1d5'),red=material('#ba3436'),concrete=material('#b8b9b3'),steel=material('#71838b',.43,.6);
@@ -193,7 +193,7 @@ function ghost3dRender(S,poses,camera,target,w,h){
 }
 
 // Profiles change GPU cost without rebuilding telemetry, cars, or the circuit.
-const GHOST_QUALITY={performance:{ratio:.85,shadow:512,shadows:false,far:320},balanced:{ratio:1.25,shadow:1024,shadows:true,far:600},ultra:{ratio:2,shadow:2048,shadows:true,far:1000}};
+const GHOST_QUALITY={performance:{ratio:.85,shadow:512,shadows:false,far:320},balanced:{ratio:1.25,shadow:1024,shadows:true,far:600},ultra:{ratio:1.5,shadow:2048,shadows:true,far:1000}};
 const ghostOrbit={yaw:0,pitch:.55,distance:65,target:null,drag:null};
 function ghostCameraPose(S,poses,aspect){
   $('ghostCanvas').parentElement.classList.toggle('free-camera',ghost.camera==='free');
