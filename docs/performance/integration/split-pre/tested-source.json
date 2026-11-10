@@ -1,0 +1,15 @@
+{
+  "commit": "40acef5c789fe0e9740c9323b514982269a5910b",
+  "tree": "5be1544aae7679351339cd69c42de3f853e540b6",
+  "sourceEntries": [
+    "040000 tree 325a36abe11680d31dc5573c92bb8b03c64b39ce\tart",
+    "040000 tree 9feda2f360ff0585d782ab3ed7ed60dc98bbee9f\tassets",
+    "100644 blob 021fef605a57ff10b3fdb5e5470d8667bb1adc69\tindex.html",
+    "100644 blob 9befacde2240465e8b1295d247e7890eae178f47\tpackage-lock.json",
+    "100644 blob c291da189f69e02c9205d641774b0fe3000ef7b5\tpackage.json",
+    "100644 blob 5acc4c1d04ff925ac1e3bdd070fbfca22bb218ec\tplaywright.config.js",
+    "040000 tree 6d97c569ced5e236b294cfebb592e3ad5b84c4dd\tscripts",
+    "040000 tree e951df62409e6e35b82dfe966d3f2b7dd0a6537f\tsrc",
+    "040000 tree 0e375e5813d313b9790b06f44284d193b1d04dab\ttests"
+  ]
+}

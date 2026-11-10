@@ -1,0 +1,23 @@
+
+Running 1 test using 1 worker
+
+(node:55115) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55115) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+RUNTIME {
+  fps: 0.4549590536851683,
+  ms: 2198,
+  calls: 285,
+  memory: { geometries: 475, textures: 30 },
+  gpu: 'WebKit WebGL',
+  totals: [ 76.651, 76.356 ]
+}
+  ✓  1 tests/simulator.spec.js:34:1 › real Mexico clock, playback and repeated world disposal (1.9m)
+
+  1 passed (1.9m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

@@ -1,0 +1,16 @@
+{
+  "commit": "9c8caf43ae737ae69b0175fa78274d9525aed102",
+  "tree": "d770a1613353fd7cbceb3a09a06565ce3dd2bc79",
+  "sourceEntries": [
+    "040000 tree 325a36abe11680d31dc5573c92bb8b03c64b39ce\tart",
+    "040000 tree 9feda2f360ff0585d782ab3ed7ed60dc98bbee9f\tassets",
+    "100644 blob 021fef605a57ff10b3fdb5e5470d8667bb1adc69\tindex.html",
+    "100644 blob 9befacde2240465e8b1295d247e7890eae178f47\tpackage-lock.json",
+    "100644 blob c291da189f69e02c9205d641774b0fe3000ef7b5\tpackage.json",
+    "100644 blob 5acc4c1d04ff925ac1e3bdd070fbfca22bb218ec\tplaywright.config.js",
+    "040000 tree 6d97c569ced5e236b294cfebb592e3ad5b84c4dd\tscripts",
+    "040000 tree e951df62409e6e35b82dfe966d3f2b7dd0a6537f\tsrc",
+    "040000 tree 65ba5a3ca669e68107eeccd2e11238445ff4132c\ttests"
+  ],
+  "note": "Second clean main run; 240-second timeout. Stopped manually to isolate the long workflow and rerun all tests."
+}

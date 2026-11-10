@@ -1,0 +1,50 @@
+
+Running 3 tests using 1 worker
+
+(node:54457) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54457) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/simulator.spec.js:4:1 › real Mexico telemetry, cameras, profiles and Blender assets (2.1m)
+  ✘  2 tests/simulator.spec.js:34:1 › real Mexico clock, playback and repeated world disposal (2.2m)
+(node:54831) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54831) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 tests/simulator.spec.js:50:1 › real Mexico pilot/lap changes, analysis, mobile and visibility (41.9s)
+
+
+  1) tests/simulator.spec.js:34:1 › real Mexico clock, playback and repeated world disposal ────────
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      44 |   const resource=await page.evaluate(()=>{const a=[];for(let i=0;i<4;i++){ghost3dBuild(ghostBuild());drawAll();a.push({...ghost3d.renderer.info.memory});}return a;});expect(resource[3]).toEqual(resource[1]);
+      45 |   await page.locator('#ghostRestart').click();expect(await page.evaluate(()=>st.play.e)).toBe(0);
+    > 46 |   await page.locator('#ghostPlay').click();await expect(page.locator('#ghostPlay')).toContainText('Duraklat');await page.waitForTimeout(1500);await page.locator('#ghostPlay').click();expect(await page.evaluate(()=>st.play.e)).toBeGreaterThan(0);
+         |                                                                                                                                                                                                                                   ^
+      47 |   console.log('RUNTIME',await page.evaluate(()=>({fps:ghost3d.measuredFps,ms:ghost3d.measuredMs,calls:ghost3d.renderer.info.render.calls,memory:ghost3d.renderer.info.memory,gpu:ghost3d.renderer.getContext().getParameter(ghost3d.renderer.getContext().RENDERER),totals:[st.A.total,st.B.total]})));
+      48 |   expect(errors).toEqual([]);
+      49 | });
+        at /workspace/work/tur-duellosu-main-perf-final/tests/simulator.spec.js:46:227
+
+    Error Context: test-results/simulator-real-Mexico-cloc-2c347-and-repeated-world-disposal/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/simulator-real-Mexico-cloc-2c347-and-repeated-world-disposal/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/simulator-real-Mexico-cloc-2c347-and-repeated-world-disposal/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests/simulator.spec.js:34:1 › real Mexico clock, playback and repeated world disposal ─────────
+  2 passed (5.2m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
