@@ -1,0 +1,221 @@
+
+> test
+> npm run test:unit && npm run test:browser
+
+
+> test:unit
+> node --test tests/*.test.cjs
+
+✔ camera collision matches Three.js for transformed instances, inside origins, finite rays and layers (52.1097ms)
+✔ camera cache refreshes when a world, instance buffer, geometry or count changes (0.9003ms)
+✔ off-ray camera instances skip triangle intersection while retaining a real close wall (4.739ms)
+✔ mini-sector and corner gains telescope to the measured whole-lap difference (3.6276ms)
+✔ brake, minimum speed, gear and sustained full throttle are derived from real windows (0.3472ms)
+✔ missing or interpolated pedal channels do not become event points or zero statistics (0.5671ms)
+✔ matching rejects missing metadata and separates sessions, compound, age, phase and time (0.2106ms)
+✔ ideal sectors retain source laps and exclude deleted or incomplete sector sums (1.3812ms)
+✔ unusual lap catalog finds lower speed trap combined with faster lap, never the inverse (0.3512ms)
+✔ race pace excludes pit/flags and close-follow indicator uses finish timestamps only (0.8632ms)
+✔ pit scenario reports missing coverage rather than filling nonexistent drivers (0.2554ms)
+✔ raw series does not invent unavailable channels or scale wildly mismatched lap times (0.3448ms)
+✔ study import enforces bounds and strips arbitrary untrusted fields (0.5073ms)
+✔ near-finish exclusion changes pace samples without claiming full-lap traffic detection (0.2567ms)
+✔ stable runs require five consecutive valid laps and position-change leadups retain actual sectors (0.3209ms)
+✔ corner similarity rankings expose the selected metric and omit missing channels (0.6326ms)
+✔ a brake block already active at the window boundary is not invented as a new onset (0.2267ms)
+✔ whole-lap display mesh and buffered race boundaries are closed, finite and simple (97.7695ms)
+✔ all rates keep wall-clock time across sparse, irregular and dropped frames (1.8064ms)
+✔ clock clamps end and negative timestamps without losing a positive stall (0.1875ms)
+✔ fixed geographic circuit is closed and has declared station length (1.2877ms)
+✔ registration recovers independent units, handedness and start station (20.879ms)
+✔ bad registration falls back explicitly instead of manufacturing a racing line (16.293ms)
+✔ wheel distance uses original telemetry distance rather than current speed times elapsed (0.171ms)
+✔ changing speed accounts for the elapsed interval at the previous rate (0.105ms)
+✔ flat surface preserves horizontal positions, yaw and zero root height (36.2086ms)
+✔ ascending and descending normals give correct quaternion pitch and bank roll (1.4762ms)
+✔ closed loop has continuous elevation, derivative, banking, normals and quaternion hemispheres (1.4745ms)
+✔ sampled elevations remain finite, bounded and stable over negative and multi-lap queries (14.9219ms)
+✔ provenance, finite samples, monotone distances and seam are validated (0.4648ms)
+✔ independent station length does not rescale XY or reinterpret telemetry metres (0.7337ms)
+✔ surface ribbons and kerb offsets have finite nonzero upward triangles (15.7464ms)
+✔ station-hinted projection stays on the requested branch at crossings (0.8869ms)
+✔ Blender GLBs retain four wheel pivots, two steering pivots, authored UVs and bounded LOD budgets (83.8652ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 215.7075
+
+> test:browser
+> playwright test
+
+
+Running 23 tests using 1 worker
+
+(node:3288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 tests\high-dpi.spec.js:3:1 › Ultra on a high-DPI display uses the reduced real drawing buffer and preserves Blender assets (21.3s)
+  ok  2 tests\insight-lab.spec.js:16:1 › real telemetry powers the studio, exact region sums, theories, filtering and chart navigation (8.7s)
+  ok  3 tests\insight-lab.spec.js:90:1 › notes preserve spaces, safe imports, downloadable context and round-trip shared URLs (3.8s)
+  ok  4 tests\insight-lab.spec.js:160:1 › real race metadata powers tempo, pit coverage, position leadups, phases and weekend dossier (4.5s)
+  ok  5 tests\insight-lab.spec.js:209:1 › multi-lap signatures, third driver and another year load actual archive telemetry (9.7s)
+  ok  6 tests\insight-lab.spec.js:240:1 › missing secondary archive files produce recoverable state rather than invented results (3.7s)
+  ok  7 tests\insight-lab.spec.js:253:1 › initial archive failure can be retried inside the studio without hidden old results (3.1s)
+  ok  8 tests\insight-lab.spec.js:271:1 › late secondary data cannot replace a newly selected session (5.2s)
+  x   9 tests\main-integration.spec.js:5:1 › integrated main candidate uses V4 assets and all LODs through a complete real telemetry lap (52.5s)
+(node:24564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 10 tests\main-integration.spec.js:43:1 › real Mexico race analysis retains summary, charts, strategy, moves and driver tabs (6.6s)
+  ok 11 tests\simulator.spec.js:4:1 › real Mexico telemetry, cameras, profiles and Blender assets (1.3m)
+RUNTIME {
+  fps: 0.926869960165074,
+  ms: 1078.8999999761581,
+  calls: 229,
+  memory: { geometries: 444, textures: 30 },
+  gpu: 'WebKit WebGL',
+  totals: [ 76.651, 76.356 ]
+}
+  ok 12 tests\simulator.spec.js:34:1 › real Mexico clock, playback and repeated world disposal (1.2m)
+  ok 13 tests\simulator.spec.js:54:1 › real Mexico pilot/lap changes, analysis, mobile and visibility (26.3s)
+  ok 14 tests\simulator.spec.js:67:1 › WebGL failure keeps the standard replay available (5.1s)
+  x  15 tests\simulator.spec.js:73:1 › 120-second software-renderer replay soak and resource budget (2.7m)
+(node:12880) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:12880) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 16 tests\simulator.spec.js:86:1 › Ultra effects, diagnostics export and missing asset fallback (33.5s)
+  ok 17 tests\simulator.spec.js:92:1 › asset load failure retains working procedural cars and JPEG materials (9.8s)
+  ok 18 tests\simulator.spec.js:97:1 › alignment falls back for both laps when one projection is rejected (20.7s)
+  ok 19 tests\simulator.spec.js:103:1 › missing Blender venue assets retain cars and working telemetry (13.5s)
+  ok 20 tests\simulator.spec.js:105:1 › free camera movement stops before the actual circuit barrier (12.9s)
+  x  21 tests\studio-simulator.spec.js:4:1 › studio and simulator reuse one renderer across repeated camera, pilot and lap changes (1.5m)
+(node:29268) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:29268) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  22 tests\topography.spec.js:4:1 › synthetic surface: tyre support, real telemetry, mesh, cameras and seven application screenshots (2.0m)
+(node:32572) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32572) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  23 tests\topography.spec.js:62:1 › profile changes rebuild collision cache and 120-second playback keeps bounded GPU resources (2.0m)
+
+
+  1) tests\main-integration.spec.js:5:1 › integrated main candidate uses V4 assets and all LODs through a complete real telemetry lap
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "Failed to load resource: the server responded with a status of 403 ()",
+    + ]
+
+      36 |   expect(await chart.evaluate(c=>c.toDataURL())).not.toBe(chartBefore);
+      37 |   for(const p of ['/assets/v4/car-low.glb','/assets/v4/car-medium.glb','/assets/v4/car-high.glb','/assets/v4/venue.glb','/assets/v4/tree.glb','/assets/v4/tree-atlas.png','/assets/v4/daylight.hdr','/assets/v4/road-color.ktx2','/assets/v4/road-normal.ktx2','/assets/v4/road-roughness.ktx2','/assets/v4/concrete-color.jpg','/assets/v4/concrete-normal.jpg','/assets/v4/concrete-roughness.jpg','/assets/v4/turf-color.jpg'])expect(loaded.has(p),p).toBe(true);
+    > 38 |   expect(errors).toEqual([]);expect(failed).toEqual([]);expect(consoleErrors).toEqual([]);
+         |                                                                               ^
+      39 |   const result={data,lods,finish,wallSeconds:(Date.now()-started)/1000,loaded:[...loaded].sort(),errors,failed,consoleErrors};
+      40 |   fs.writeFileSync(info.outputPath('integration-lap.json'),JSON.stringify(result,null,2));console.log('INTEGRATION_LAP',JSON.stringify(result));
+      41 | });
+        at <checkout>\tests\main-integration.spec.js:38:79
+
+    Error Context: test-results\main-integration-integrate-6c403-complete-real-telemetry-lap\error-context.md
+
+  2) tests\simulator.spec.js:73:1 › 120-second software-renderer replay soak and resource budget ───
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "Failed to load resource: the server responded with a status of 403 ()",
+    + ]
+
+      78 |   const started=Date.now(),snapshots=[];
+      79 |   for(let i=0;i<12;i++){await page.waitForTimeout(10000);snapshots.push(await page.evaluate(()=>{const result={time:st.play.e,ready:ghost3d.ready,memory:{...ghost3d.renderer.info.memory}};if(!st.play.on)startPlay();return result;}));}
+    > 80 |   const wallMs=Date.now()-started;expect(wallMs).toBeGreaterThanOrEqual(120000);for(const s of snapshots){expect(s.ready).toBe(true);expect(s.memory.geometries).toBeLessThan(500);expect(s.memory.textures).toBeLessThan(100);}expect(new Set(snapshots.map(s=>s.time)).size).toBeGreaterThan(1);expect(errors).toEqual([]);expect(consoleErrors).toEqual([]);
+         |                                                                                                                                                                                                                                                                                                                                                    ^
+      81 |   const result=await page.evaluate(()=>{stopPlay();const gl=ghost3d.renderer.getContext(),debug=gl.getExtension('WEBGL_debug_renderer_info');return {fps:ghost3d.measuredFps,ms:ghost3d.measuredMs,ready:ghost3d.ready,geometries:ghost3d.renderer.info.memory.geometries,textures:ghost3d.renderer.info.memory.textures,calls:ghost3d.renderer.info.render.calls,renderer:debug?gl.getParameter(debug.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),resolution:[ghost3d.canvas.width,ghost3d.canvas.height],...GhostMetrics.summary(),cpu:GhostMetrics.cpuMs,gpu:GhostMetrics.gpuMs};});
+      82 |   Object.assign(result,{wallMs,snapshots,errors,consoleErrors});console.log('SOAK_120_SECONDS',JSON.stringify(result));require('node:fs').writeFileSync(testInfo.outputPath('measurement.json'),JSON.stringify(result,null,2));expect(result.ready).toBe(true);expect(result.geometries).toBeLessThan(500);expect(result.textures).toBeLessThan(100);
+      83 |   await page.locator('#ghostScrub').fill('2800');await page.locator('.ghost-stage').screenshot({path:testInfo.outputPath('mexico-preview.png')});
+        at <checkout>\tests\simulator.spec.js:80:340
+
+    Error Context: test-results\simulator-120-second-softw-1837a-ay-soak-and-resource-budget\error-context.md
+
+  3) tests\studio-simulator.spec.js:4:1 › studio and simulator reuse one renderer across repeated camera, pilot and lap changes
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "Failed to load resource: the server responded with a status of 403 ()",
+    + ]
+
+      45 |  expect(Math.max(...cycles.map(c=>c.memory.geometries))-Math.min(...cycles.map(c=>c.memory.geometries))).toBeLessThan(10);
+      46 |  expect(Math.max(...cycles.map(c=>c.memory.textures))-Math.min(...cycles.map(c=>c.memory.textures))).toBeLessThan(5);
+    > 47 |  expect(errors).toEqual([]);expect(consoleErrors).toEqual([]);
+         |                                                   ^
+      48 |  fs.writeFileSync(info.outputPath('studio-simulator.json'),JSON.stringify({cycles,errors,consoleErrors},null,2));
+      49 |  console.log('STUDIO_SIMULATOR',JSON.stringify({cycles,errors,consoleErrors}));
+      50 | });
+        at <checkout>\tests\studio-simulator.spec.js:47:51
+
+    Error Context: test-results\studio-simulator-studio-an-fa167-amera-pilot-and-lap-changes\error-context.md
+
+  4) tests\topography.spec.js:4:1 › synthetic surface: tyre support, real telemetry, mesh, cameras and seven application screenshots
+
+    TimeoutError: page.waitForFunction: Timeout 120000ms exceeded.
+
+       6 |  await page.addInitScript(p=>{window.TOPOGRAPHY_TEST_PROFILE=p;},fixture);
+       7 |  await page.goto(url);
+    >  8 |  await page.waitForFunction(()=>typeof ghost3d!=='undefined'&&ghost3d.ready&&ghost3d.v4Stats&&VisualAssets.state==='ready'&&ghost3d.cars[0].userData.asset,null,{timeout:120000});
+         |             ^
+       9 |  await page.locator('#ghostRenderQuality').selectOption('performance');await page.locator('#ghostAdaptive').uncheck();
+      10 |  await expect(page.locator('#ghostScenery')).toContainText('SENTETİK TEST');
+      11 |  const checks=await page.evaluate(()=>{
+        at <checkout>\tests\topography.spec.js:8:13
+
+    Error Context: test-results\topography-synthetic-surfa-03b00-ven-application-screenshots\error-context.md
+
+  5) tests\topography.spec.js:62:1 › profile changes rebuild collision cache and 120-second playback keeps bounded GPU resources
+
+    TimeoutError: page.waitForFunction: Timeout 120000ms exceeded.
+
+      62 | test('profile changes rebuild collision cache and 120-second playback keeps bounded GPU resources',async({page},info)=>{
+      63 |  test.setTimeout(240000);await page.addInitScript(p=>{window.TOPOGRAPHY_TEST_PROFILE=p;},fixture);await page.goto(url);
+    > 64 |  await page.waitForFunction(()=>typeof ghost3d!=='undefined'&&ghost3d.ready&&ghost3d.v4Stats&&VisualAssets.state==='ready',null,{timeout:120000});
+         |             ^
+      65 |  await page.locator('#ghostRenderQuality').selectOption('performance');await page.locator('#ghostAdaptive').uncheck();
+      66 |  const before=await page.evaluate(()=>{
+      67 |   stopPlay();st.play.e=10;drawAll();const old=CameraCollision.cache,world=ghost3d.world;
+        at <checkout>\tests\topography.spec.js:64:13
+
+    Error Context: test-results\topography-profile-changes-6906a-keeps-bounded-GPU-resources\error-context.md
+
+  5 failed
+    tests\main-integration.spec.js:5:1 › integrated main candidate uses V4 assets and all LODs through a complete real telemetry lap
+    tests\simulator.spec.js:73:1 › 120-second software-renderer replay soak and resource budget ────
+    tests\studio-simulator.spec.js:4:1 › studio and simulator reuse one renderer across repeated camera, pilot and lap changes
+    tests\topography.spec.js:4:1 › synthetic surface: tyre support, real telemetry, mesh, cameras and seven application screenshots
+    tests\topography.spec.js:62:1 › profile changes rebuild collision cache and 120-second playback keeps bounded GPU resources
+  18 passed (15.1m)
+npm notice
+npm notice New major version of npm available! 11.19.1 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

@@ -262,10 +262,13 @@ function ghostAvoidObstacles(camera, target) {
 // Its look target may be anywhere; collision is tested from the previous safe lens, not from that target.
 function ghostConstrainFree(camera, previous) {
   const G=ghost3d;if(!G.ready||!G.world||G.source!==st.A||!previous)return camera;
-  const T=G.T,from=new T.Vector3(...previous),to=new T.Vector3(...camera);to.y=Math.max(.65,to.y);
+  const T=G.T,from=new T.Vector3(...previous),to=new T.Vector3(...camera);to.y=Math.max(.65+(G.surface?.heightAt(to.x,to.z)||0),to.y);
   const direction=to.clone().sub(from),distance=direction.length();if(distance<1e-5)return to.toArray();
   const objects=(G.environment.visible?G.tiles||[]:[]).filter(o=>o.visible&&o.material.name!=='Vegetation');
-  G.world.children.forEach(o=>{if(o.userData.cameraObstacle)objects.push(o);});objects.push(...(G.v4Obstacles||[]).filter(o=>o.visible));
+  G.world.children.forEach(o=>{if(o.userData.cameraObstacle||o.userData.cameraTerrain)objects.push(o);});objects.push(...(G.v4Obstacles||[]).filter(o=>o.visible));
   const ray=G.movementRay||(G.movementRay=new T.Raycaster());ray.set(from,direction.normalize());ray.near=.02;ray.far=distance+.3;
-  const hit=CameraCollision.closest(T,ray,objects);return hit?from.addScaledVector(direction,Math.max(0,Math.min(distance,hit.distance-.3))).toArray():to.toArray();
+  const hit=CameraCollision.closest(T,ray,objects);
+  const safe=hit?from.addScaledVector(direction,Math.max(0,Math.min(distance,hit.distance-.3))):to;
+  safe.y=Math.max(safe.y,.65+(G.surface?.heightAt(safe.x,safe.z)||0));
+  return safe.toArray();
 }

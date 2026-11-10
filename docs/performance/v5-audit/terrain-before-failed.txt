@@ -1,0 +1,37 @@
+
+Running 1 test using 1 worker
+
+
+
+(node:36312) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:36312) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/1] tests\v5-audit.spec.js:3:1 › free camera sweep cannot cross an elevated road between safe endpoints
+  1) tests\v5-audit.spec.js:3:1 › free camera sweep cannot cross an elevated road between safe endpoints
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: undefined
+
+      15 |  });
+      16 |  fs.writeFileSync(info.outputPath('terrain-collision.json'),JSON.stringify(result,null,2));
+    > 17 |  expect(result.roadCollider).toBe(true);expect(result.moved).toBeGreaterThan(0);expect(result.moved).toBeLessThan(result.requested*.75);expect(result.safe[1]).toBeGreaterThanOrEqual(result.terrain+.64);
+         |                              ^
+      18 | });
+      19 |
+        at <checkout>\tests\v5-audit.spec.js:17:30
+
+    Error Context: work\audit-collision-before\v5-audit-free-camera-sweep-e9e52-road-between-safe-endpoints\error-context.md
+
+
+  1 failed
+    tests\v5-audit.spec.js:3:1 › free camera sweep cannot cross an elevated road between safe endpoints
+npm notice
+npm notice New major version of npm available! 11.19.1 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

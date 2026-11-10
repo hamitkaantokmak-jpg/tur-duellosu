@@ -1,0 +1,51 @@
+{
+  "source": "e63f970abac2603c29980f015aa6dc0397a6d754",
+  "conditions": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "dpr": 1,
+    "quality": "performance",
+    "adaptive": false,
+    "camera": "a",
+    "rate": 1,
+    "topography": "synthetic",
+    "requestedHardware": true,
+    "physicalGPU": true
+  },
+  "fixed": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "calls": 197,
+    "triangles": 387344,
+    "memory": {
+      "geometries": 200,
+      "textures": 30
+    },
+    "resolution": [
+      1059,
+      416
+    ],
+    "totals": [
+      76.651,
+      76.356
+    ]
+  },
+  "runtime": {
+    "windowFrames": 1802,
+    "windowMeanFps": 60.05325477312453,
+    "windowIntervalMs": 30006.69999998808,
+    "frames": 600,
+    "p50": 16.600000023841858,
+    "p95": 19.19999998807907,
+    "fps": 60.09852216748769,
+    "time": 40.0091,
+    "cpuMs": 4.099999964237213,
+    "memory": {
+      "geometries": 342,
+      "textures": 30
+    }
+  },
+  "wallMs": 30021,
+  "errors": []
+}

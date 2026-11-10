@@ -1,0 +1,15 @@
+{
+  "prOriginal": "5170f68a27848ed45b86485ca98b588c0f20a8ae",
+  "mainBaseline": "e91e27c7ecde7801541773788a47b4354c47176b",
+  "testedApplication": "53b19b7d274365419f474fbec3f68791693bebb5",
+  "equivalentRemoteApplication": "91ce92b5df28b5d2a4c239a1d05a4b59995a8305",
+  "applicationTree": "b0395481edf1ba1d330a485175c7140f7f2cafdb",
+  "units": 39,
+  "browser": 24,
+  "skipped": 0,
+  "retries": 0,
+  "performanceCells": 47,
+  "physicalGPU": "NVIDIA GeForce RTX 5060 Laptop GPU / D3D11",
+  "node": "v24.22.1",
+  "playwright": "1.56.1"
+}

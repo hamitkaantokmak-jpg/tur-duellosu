@@ -1,0 +1,16 @@
+{
+  "base": "e91e27c7ecde7801541773788a47b4354c47176b",
+  "localTestedCommit": "e63f970abac2603c29980f015aa6dc0397a6d754",
+  "remoteEquivalentCommit": "112ced004a068c9e11f530b8cc6901ebef32be75",
+  "functionalTree": "250966e31934c1fb0bf2bbeca8f100e0ddff9bca",
+  "node": "v24.22.1",
+  "playwright": "1.56.1",
+  "testGPU": "hardware",
+  "discovery": "Existing built-in catalog, warm td.disc cache; telemetry fetched from real archive",
+  "unit": 34,
+  "browser": 23,
+  "skipped": 0,
+  "chrome": "157.0.8103.39",
+  "benchmark": "hardware-summary.json",
+  "syntheticBenchmark": "hardware-synthetic.json"
+}

@@ -1,0 +1,63 @@
+{
+  "notice": "SENTETİK TEST · gerçek Meksika/COTA yüksekliği değildir",
+  "source": "Actual application screenshots; synthetic geometry, original HAM/RUS telemetry",
+  "manifest": [
+    {
+      "name": "01-flat-to-climb",
+      "station": 100,
+      "mode": "cinematic",
+      "time": 1.699999999999998,
+      "stationError": 0.2611789858128759,
+      "category": "illustrative"
+    },
+    {
+      "name": "02-uphill",
+      "station": 320,
+      "mode": "cinematic",
+      "time": 4.274999999999993,
+      "stationError": 0.7461391915057902,
+      "category": "illustrative"
+    },
+    {
+      "name": "03-crest",
+      "station": 550,
+      "mode": "cinematic",
+      "time": 6.750000000000028,
+      "stationError": 1.0535858636840203,
+      "category": "illustrative"
+    },
+    {
+      "name": "04-descent",
+      "station": 720,
+      "mode": "cinematic",
+      "time": 8.500000000000053,
+      "stationError": 0.026046107378533634,
+      "category": "illustrative"
+    },
+    {
+      "name": "05-banked-corner",
+      "station": 1154,
+      "mode": "cinematic",
+      "time": 13.95000000000013,
+      "stationError": 1.2410337503779374,
+      "category": "illustrative"
+    },
+    {
+      "name": "06-kerbs",
+      "station": 1154,
+      "mode": "free",
+      "time": 13.95000000000013,
+      "stationError": 1.2410337503779374,
+      "category": "illustrative"
+    },
+    {
+      "name": "07-follow-uphill",
+      "station": 320,
+      "mode": "a",
+      "time": 4.274999999999993,
+      "stationError": 0.7461391915057902,
+      "category": "illustrative"
+    }
+  ],
+  "errors": []
+}

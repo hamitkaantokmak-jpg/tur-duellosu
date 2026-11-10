@@ -7,8 +7,8 @@ test('integrated main candidate uses V4 assets and all LODs through a complete r
   const errors=[], consoleErrors=[], failed=[], loaded=new Set();
   page.on('pageerror', e=>errors.push(e.message));
   page.on('console', e=>{if(e.type()==='error')consoleErrors.push(e.text());});
-  page.on('response', r=>{const u=new URL(r.url());if(u.origin==='http://127.0.0.1:4173'){if(r.status()>=400)failed.push([u.pathname,r.status()]);else loaded.add(u.pathname);}});
-  page.on('requestfailed', r=>{if(r.url().startsWith('http://127.0.0.1:4173/'))failed.push([r.url(),r.failure()?.errorText]);});
+  page.on('response', r=>{const u=new URL(r.url());if(u.origin===new URL(info.project.use.baseURL).origin){if(r.status()>=400)failed.push([u.pathname,r.status()]);else loaded.add(u.pathname);}});
+  page.on('requestfailed', r=>{if(r.url().startsWith(info.project.use.baseURL+'/'))failed.push([r.url(),r.failure()?.errorText]);});
   await page.goto(url);
   await page.waitForFunction(()=>typeof ghost3d!=='undefined'&&ghost3d.ready&&ghost3d.source===st.A&&VisualAssets.state==='ready'&&ghost3d.v4Stats&&ghost3d.cars.every(c=>c.userData.asset),null,{timeout:90000});
   const data=await page.evaluate(()=>({totals:[st.A.total,st.B.total],channels:[st.A,st.B].map(L=>Object.fromEntries(['v','thr','brk','gear','rpm'].map(k=>[k,{count:L[k].length,finite:Array.from(L[k]).every(Number.isFinite),varied:new Set(L[k]).size>1}]))),assetErrors:VisualAssets.errors.slice()}));
