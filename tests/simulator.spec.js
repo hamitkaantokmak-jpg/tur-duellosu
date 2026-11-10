@@ -43,7 +43,11 @@ test('real Mexico clock, playback and repeated world disposal',async({page},test
   for(const rate of [.25,.5,1,2,4]){await page.locator('#ghostRate').selectOption(String(rate));const moved=await page.evaluate(()=>{stopPlay();st.play.e=10;st.play.on=true;st.play.last=1000;tick(1050);stopPlay();return st.play.e-10;});expect(moved).toBeCloseTo(.05*rate,6);}
   const resource=await page.evaluate(()=>{const a=[];for(let i=0;i<4;i++){ghost3dBuild(ghostBuild());drawAll();a.push({...ghost3d.renderer.info.memory});}return a;});expect(resource[3]).toEqual(resource[1]);
   await page.locator('#ghostRestart').click();expect(await page.evaluate(()=>st.play.e)).toBe(0);
-  await page.locator('#ghostPlay').click();await expect(page.locator('#ghostPlay')).toContainText('Duraklat');await page.waitForTimeout(1500);await page.locator('#ghostPlay').click();expect(await page.evaluate(()=>st.play.e)).toBeGreaterThan(0);
+  // Wait for actual progress. At4x a slow software-renderer click can land after the lap ends and restart it.
+  await page.locator('#ghostRate').selectOption('1');
+  await page.locator('#ghostPlay').click({timeout:30000});await expect(page.locator('#ghostPlay')).toContainText('Duraklat');
+  await page.waitForFunction(()=>st.play.on&&st.play.e>0,null,{timeout:30000});
+  await page.locator('#ghostPlay').click({timeout:30000});expect(await page.evaluate(()=>st.play.on)).toBe(false);expect(await page.evaluate(()=>st.play.e)).toBeGreaterThan(0);
   console.log('RUNTIME',await page.evaluate(()=>({fps:ghost3d.measuredFps,ms:ghost3d.measuredMs,calls:ghost3d.renderer.info.render.calls,memory:ghost3d.renderer.info.memory,gpu:ghost3d.renderer.getContext().getParameter(ghost3d.renderer.getContext().RENDERER),totals:[st.A.total,st.B.total]})));
   expect(errors).toEqual([]);
 });
