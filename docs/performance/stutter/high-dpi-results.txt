@@ -1,0 +1,43 @@
+
+Running 1 test using 1 worker
+
+(node:33539) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33539) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:29] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:29] "GET /src/ghost.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:30] "GET /src/visual-assets.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:30] "GET /assets/tracks/v3/boundaries.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:30] "GET /assets/tracks/mexico.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:30] "GET /assets/tracks/v3/render-path.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:30] "GET /src/replay-core.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:30] "GET /assets/tracks/v3/venue-osm.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:30] "GET /src/camera-collision.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:30] "GET /src/ghost-world.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:30] "GET /src/mexico-v4.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:30] "GET /src/mexico-v3.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:30] "GET /src/ghost-director.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:30] "GET /src/ghost-webgl.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:36] "GET /assets/v4/tree.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:36] "GET /assets/v4/venue.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:36] "GET /assets/v4/car-low.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:36] "GET /assets/v4/car-medium.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:36] "GET /assets/v4/road-normal.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:36] "GET /assets/v4/road-color.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:36] "GET /assets/v4/road-roughness.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:36] "GET /assets/v4/daylight.hdr HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:36] "GET /assets/v4/concrete-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:36] "GET /assets/v4/concrete-normal.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:36] "GET /assets/v4/concrete-roughness.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:36] "GET /assets/v4/turf-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:36] "GET /assets/v4/tree-atlas.png HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:45] "GET /assets/v4/car-high.glb HTTP/1.1" 200 -
+  ✓  1 tests/high-dpi.spec.js:3:1 › Ultra on a high-DPI display uses the reduced real drawing buffer and preserves Blender assets (20.1s)
+
+  1 passed (25.0s)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

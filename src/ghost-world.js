@@ -251,7 +251,7 @@ function ghostAvoidObstacles(camera, target) {
     if (o.userData.cameraObstacle) objects.push(o);
   });
   objects.push(...(G.v4Obstacles||[]).filter(o=>o.visible));
-  const hit = G.cameraRay.intersectObjects(objects, false)[0];
+  const hit = CameraCollision.closest(T, G.cameraRay, objects);
   if (!hit) return camera;
   // Keep the lens on the target side of a wall, including close obstructions.
   const d = Math.max(0.6, hit.distance - 0.7);
@@ -267,5 +267,5 @@ function ghostConstrainFree(camera, previous) {
   const objects=(G.environment.visible?G.tiles||[]:[]).filter(o=>o.visible&&o.material.name!=='Vegetation');
   G.world.children.forEach(o=>{if(o.userData.cameraObstacle)objects.push(o);});objects.push(...(G.v4Obstacles||[]).filter(o=>o.visible));
   const ray=G.movementRay||(G.movementRay=new T.Raycaster());ray.set(from,direction.normalize());ray.near=.02;ray.far=distance+.3;
-  const hit=ray.intersectObjects(objects,false)[0];return hit?from.addScaledVector(direction,Math.max(0,Math.min(distance,hit.distance-.3))).toArray():to.toArray();
+  const hit=CameraCollision.closest(T,ray,objects);return hit?from.addScaledVector(direction,Math.max(0,Math.min(distance,hit.distance-.3))).toArray():to.toArray();
 }

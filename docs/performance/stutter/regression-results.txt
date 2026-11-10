@@ -1,0 +1,317 @@
+
+> test
+> npm run test:unit && npm run test:browser
+
+
+> test:unit
+> node --test tests/*.test.cjs
+
+✔ camera collision matches Three.js for transformed instances, inside origins, finite rays and layers (66.411454ms)
+✔ camera cache refreshes when a world, instance buffer, geometry or count changes (1.385219ms)
+✔ off-ray camera instances skip triangle intersection while retaining a real close wall (9.694708ms)
+✔ whole-lap display mesh and buffered race boundaries are closed, finite and simple (123.781379ms)
+✔ all rates keep wall-clock time across sparse, irregular and dropped frames (0.811866ms)
+✔ clock clamps end and negative timestamps without losing a positive stall (0.81964ms)
+✔ fixed geographic circuit is closed and has declared station length (0.778166ms)
+✔ registration recovers independent units, handedness and start station (23.902212ms)
+✔ bad registration falls back explicitly instead of manufacturing a racing line (18.022559ms)
+✔ wheel distance uses original telemetry distance rather than current speed times elapsed (0.186297ms)
+✔ changing speed accounts for the elapsed interval at the previous rate (0.15109ms)
+✔ Blender GLBs retain four wheel pivots, two steering pivots, authored UVs and bounded LOD budgets (96.178174ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 556.956297
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> test:browser
+> playwright test
+
+
+Running 10 tests using 1 worker
+
+(node:32478) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32478) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:11] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:11] "GET /src/replay-core.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:11] "GET /assets/tracks/mexico.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:11] "GET /assets/tracks/v3/boundaries.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:11] "GET /src/ghost.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:11] "GET /assets/tracks/v3/render-path.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:11] "GET /assets/tracks/v3/venue-osm.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:12] "GET /src/visual-assets.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:12] "GET /src/ghost-director.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:12] "GET /src/camera-collision.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:12] "GET /src/ghost-world.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:12] "GET /src/mexico-v3.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:12] "GET /src/mexico-v4.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:12] "GET /src/ghost-webgl.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:18] "GET /assets/v4/venue.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:18] "GET /assets/v4/tree.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:18] "GET /assets/v4/car-low.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:18] "GET /assets/v4/car-medium.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:18] "GET /assets/v4/road-normal.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:18] "GET /assets/v4/road-color.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:18] "GET /assets/v4/road-roughness.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:18] "GET /assets/v4/daylight.hdr HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:18] "GET /assets/v4/concrete-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:18] "GET /assets/v4/concrete-normal.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:18] "GET /assets/v4/concrete-roughness.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:18] "GET /assets/v4/turf-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:19] "GET /assets/v4/tree-atlas.png HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:45:22] "GET /assets/v4/car-high.glb HTTP/1.1" 200 -
+INTEGRATION_LAP {"data":{"totals":[76.651,76.356],"channels":[{"v":{"count":539,"finite":true,"varied":true},"thr":{"count":539,"finite":true,"varied":true},"brk":{"count":539,"finite":true,"varied":true},"gear":{"count":539,"finite":true,"varied":true},"rpm":{"count":539,"finite":true,"varied":true}},{"v":{"count":539,"finite":true,"varied":true},"thr":{"count":539,"finite":true,"varied":true},"brk":{"count":539,"finite":true,"varied":true},"gear":{"count":539,"finite":true,"varied":true},"rpm":{"count":539,"finite":true,"varied":true}}],"assetErrors":[]},"lods":[{"distance":15,"visible":["high"]},{"distance":55,"visible":["medium"]},{"distance":150,"visible":["low"]}],"finish":{"time":76.651,"playing":false,"progress":[1,1],"delta":-0.29499998688697815,"ready":true,"cars":2,"memory":{"geometries":423,"textures":30},"assetErrors":[]},"wallSeconds":27.614,"loaded":["/","/assets/tracks/mexico.js","/assets/tracks/v3/boundaries.js","/assets/tracks/v3/render-path.js","/assets/tracks/v3/venue-osm.js","/assets/v4/car-high.glb","/assets/v4/car-low.glb","/assets/v4/car-medium.glb","/assets/v4/concrete-color.jpg","/assets/v4/concrete-normal.jpg","/assets/v4/concrete-roughness.jpg","/assets/v4/daylight.hdr","/assets/v4/road-color.ktx2","/assets/v4/road-normal.ktx2","/assets/v4/road-roughness.ktx2","/assets/v4/tree-atlas.png","/assets/v4/tree.glb","/assets/v4/turf-color.jpg","/assets/v4/venue.glb","/src/camera-collision.js","/src/ghost-director.js","/src/ghost-webgl.js","/src/ghost-world.js","/src/ghost.css","/src/mexico-v3.js","/src/mexico-v4.js","/src/replay-core.js","/src/visual-assets.js","http://127.0.0.1:4173/0e36275b-d76b-40d9-9b30-837283b091be","http://127.0.0.1:4173/512c71d1-a94a-4cee-854e-7518bb62c3e2","http://127.0.0.1:4173/696105eb-1c85-4e29-bb7b-5552c298e8b0","http://127.0.0.1:4173/7a16403d-ced3-4580-9c45-146f7e242646","http://127.0.0.1:4173/c6d220bb-3730-494d-a0c9-94eeab27e70b","http://127.0.0.1:4173/d4088581-701a-4719-b1bc-d63728a1335e","http://127.0.0.1:4173/d5fa897f-e8c0-476c-b287-a6ffc96246cf","http://127.0.0.1:4173/e4628a64-98f4-4e1d-b13a-7ceb61488b18","http://127.0.0.1:4173/f6991564-768e-4cd7-9a41-1500270b3f47","http://127.0.0.1:4173/fca246d4-18f8-4f99-ada7-a2207a150caa"],"errors":[],"failed":[],"consoleErrors":[]}
+  ✓   1 tests/main-integration.spec.js:5:1 › integrated main candidate uses V4 assets and all LODs through a complete real telemetry lap (1.1m)
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:17] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:17] "GET /src/ghost.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:17] "GET /assets/tracks/v3/boundaries.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:17] "GET /src/replay-core.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:17] "GET /assets/tracks/v3/render-path.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:17] "GET /assets/tracks/mexico.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:17] "GET /assets/tracks/v3/venue-osm.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:17] "GET /src/visual-assets.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:17] "GET /src/ghost-director.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:17] "GET /src/camera-collision.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:17] "GET /src/ghost-world.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:17] "GET /src/mexico-v3.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:17] "GET /src/mexico-v4.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:17] "GET /src/ghost-webgl.js HTTP/1.1" 200 -
+  ✓   2 tests/main-integration.spec.js:43:1 › real Mexico race analysis retains summary, charts, strategy, moves and driver tabs (2.5s)
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:20] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:20] "GET /src/ghost.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:20] "GET /src/replay-core.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:20] "GET /assets/tracks/v3/render-path.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:20] "GET /assets/tracks/mexico.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:20] "GET /assets/tracks/v3/boundaries.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:20] "GET /assets/tracks/v3/venue-osm.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:20] "GET /src/visual-assets.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:20] "GET /src/ghost-world.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:20] "GET /src/ghost-director.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:20] "GET /src/mexico-v3.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:20] "GET /src/mexico-v4.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:20] "GET /src/camera-collision.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:20] "GET /src/ghost-webgl.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:25] "GET /assets/v4/tree.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:25] "GET /assets/v4/venue.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:25] "GET /assets/v4/road-normal.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:25] "GET /assets/v4/car-medium.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:25] "GET /assets/v4/road-color.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:25] "GET /assets/v4/car-low.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:25] "GET /assets/v4/road-roughness.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:25] "GET /assets/v4/daylight.hdr HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:25] "GET /assets/v4/concrete-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:25] "GET /assets/v4/concrete-normal.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:25] "GET /assets/v4/concrete-roughness.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:25] "GET /assets/v4/turf-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:46:25] "GET /assets/v4/tree-atlas.png HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:47:58] "GET /assets/v4/car-high.glb HTTP/1.1" 200 -
+RUNTIME {
+  fps: 0.635687496026351,
+  ms: 1573.1000000014901,
+  calls: 152,
+  memory: { geometries: 147, textures: 26 },
+  gpu: 'WebKit WebGL',
+  totals: [ 76.651, 76.356 ]
+}
+  ✓   3 tests/simulator.spec.js:3:1 › real Mexico telemetry, playback, cameras, profiles, analysis and resource stability (2.7m)
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:06] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:06] "GET /src/ghost.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:06] "GET /src/replay-core.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:06] "GET /assets/tracks/mexico.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:06] "GET /assets/tracks/v3/render-path.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:06] "GET /assets/tracks/v3/boundaries.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:06] "GET /assets/tracks/v3/venue-osm.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:06] "GET /src/visual-assets.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:07] "GET /src/ghost-director.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:07] "GET /src/camera-collision.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:07] "GET /src/ghost-world.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:07] "GET /src/mexico-v3.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:07] "GET /src/mexico-v4.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:07] "GET /src/ghost-webgl.js HTTP/1.1" 200 -
+  ✓   4 tests/simulator.spec.js:49:1 › WebGL failure keeps the standard replay available (3.9s)
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:09] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:09] "GET /src/ghost.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:09] "GET /src/replay-core.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:09] "GET /assets/tracks/mexico.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:09] "GET /assets/tracks/v3/boundaries.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:09] "GET /src/visual-assets.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:09] "GET /src/ghost-director.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:09] "GET /assets/tracks/v3/render-path.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:09] "GET /assets/tracks/v3/venue-osm.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:09] "GET /src/camera-collision.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:09] "GET /src/ghost-world.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:09] "GET /src/mexico-v3.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:09] "GET /src/mexico-v4.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:09] "GET /src/ghost-webgl.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:14] "GET /assets/v4/tree.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:14] "GET /assets/v4/car-low.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:14] "GET /assets/v4/venue.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:14] "GET /assets/v4/car-medium.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:14] "GET /assets/v4/road-color.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:14] "GET /assets/v4/road-normal.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:14] "GET /assets/v4/road-roughness.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:14] "GET /assets/v4/daylight.hdr HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:14] "GET /assets/v4/concrete-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:14] "GET /assets/v4/concrete-normal.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:14] "GET /assets/v4/concrete-roughness.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:14] "GET /assets/v4/turf-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:49:14] "GET /assets/v4/tree-atlas.png HTTP/1.1" 200 -
+SOAK_120_SECONDS {"fps":1.1839924224516296,"ms":844.5999999977648,"ready":true,"geometries":485,"textures":30,"calls":223,"renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)","resolution":[747,294],"frames":99,"p50":1009.7999999970198,"p95":1783.1000000014901,"cpu":5.399999998509884,"gpu":703.29157}
+  ✓   5 tests/simulator.spec.js:55:1 › 120-second software-renderer replay soak and resource budget (2.5m)
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:37] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:37] "GET /assets/tracks/v3/boundaries.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:37] "GET /src/replay-core.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:37] "GET /assets/tracks/mexico.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:37] "GET /assets/tracks/v3/render-path.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:37] "GET /assets/tracks/v3/venue-osm.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:37] "GET /src/visual-assets.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:37] "GET /src/ghost-director.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:37] "GET /src/ghost.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:37] "GET /src/camera-collision.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:37] "GET /src/ghost-world.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:37] "GET /src/ghost-webgl.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:37] "GET /src/mexico-v3.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:37] "GET /src/mexico-v4.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:43] "GET /assets/v4/tree.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:43] "GET /assets/v4/venue.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:43] "GET /assets/v4/car-low.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:43] "GET /assets/v4/car-medium.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:43] "GET /assets/v4/road-normal.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:43] "GET /assets/v4/road-color.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:43] "GET /assets/v4/road-roughness.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:43] "GET /assets/v4/daylight.hdr HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:43] "GET /assets/v4/concrete-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:43] "GET /assets/v4/concrete-normal.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:43] "GET /assets/v4/concrete-roughness.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:43] "GET /assets/v4/turf-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:43] "GET /assets/v4/tree-atlas.png HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:51:45] "GET /assets/v4/car-high.glb HTTP/1.1" 200 -
+  ✓   6 tests/simulator.spec.js:66:1 › Ultra effects, diagnostics export and missing asset fallback (40.7s)
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:18] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:18] "GET /assets/tracks/v3/boundaries.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:18] "GET /assets/tracks/v3/venue-osm.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:18] "GET /src/ghost.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:18] "GET /src/replay-core.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:18] "GET /assets/tracks/v3/render-path.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:18] "GET /assets/tracks/mexico.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:18] "GET /src/visual-assets.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:18] "GET /src/camera-collision.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:18] "GET /src/mexico-v4.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:18] "GET /src/ghost-world.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:18] "GET /src/ghost-webgl.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:18] "GET /src/mexico-v3.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:18] "GET /src/ghost-director.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:23] "GET /assets/v4/daylight.hdr HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:23] "GET /assets/v4/concrete-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:23] "GET /assets/v4/concrete-normal.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:23] "GET /assets/v4/concrete-roughness.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:23] "GET /assets/v4/turf-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:23] "GET /assets/v4/road-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:23] "GET /assets/v4/road-normal.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:23] "GET /assets/v4/road-roughness.jpg HTTP/1.1" 200 -
+  ✓   7 tests/simulator.spec.js:72:1 › asset load failure retains working procedural cars and JPEG materials (7.3s)
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:27] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:27] "GET /src/ghost.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:27] "GET /src/replay-core.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:27] "GET /assets/tracks/v3/venue-osm.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:27] "GET /assets/tracks/mexico.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:27] "GET /assets/tracks/v3/boundaries.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:27] "GET /assets/tracks/v3/render-path.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:27] "GET /src/ghost-director.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:27] "GET /src/visual-assets.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:27] "GET /src/camera-collision.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:27] "GET /src/ghost-webgl.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:27] "GET /src/ghost-world.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:27] "GET /src/mexico-v3.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:27] "GET /src/mexico-v4.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:32] "GET /assets/v4/tree.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:32] "GET /assets/v4/venue.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:32] "GET /assets/v4/car-low.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:32] "GET /assets/v4/car-medium.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:32] "GET /assets/v4/road-color.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:32] "GET /assets/v4/road-normal.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:32] "GET /assets/v4/road-roughness.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:32] "GET /assets/v4/daylight.hdr HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:32] "GET /assets/v4/concrete-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:32] "GET /assets/v4/concrete-normal.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:32] "GET /assets/v4/concrete-roughness.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:32] "GET /assets/v4/turf-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:33] "GET /assets/v4/tree-atlas.png HTTP/1.1" 200 -
+  ✓   8 tests/simulator.spec.js:77:1 › alignment falls back for both laps when one projection is rejected (18.9s)
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:48] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:48] "GET /src/ghost.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:48] "GET /src/replay-core.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:48] "GET /assets/tracks/mexico.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:48] "GET /assets/tracks/v3/render-path.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:48] "GET /assets/tracks/v3/boundaries.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:48] "GET /assets/tracks/v3/venue-osm.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:48] "GET /src/ghost-director.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:48] "GET /src/visual-assets.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:48] "GET /src/camera-collision.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:48] "GET /src/ghost-world.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:48] "GET /src/mexico-v3.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:48] "GET /src/mexico-v4.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:48] "GET /src/ghost-webgl.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:53] "GET /assets/v4/car-low.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:53] "GET /assets/v4/car-medium.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:53] "GET /assets/v4/road-color.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:53] "GET /assets/v4/daylight.hdr HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:53] "GET /assets/v4/road-normal.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:53] "GET /assets/v4/road-roughness.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:53] "GET /assets/v4/concrete-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:53] "GET /assets/v4/concrete-roughness.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:53] "GET /assets/v4/concrete-normal.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:53] "GET /assets/v4/turf-color.jpg HTTP/1.1" 200 -
+  ✓   9 tests/simulator.spec.js:83:1 › missing Blender venue assets retain cars and working telemetry (11.7s)
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:58] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:58] "GET /src/ghost.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:58] "GET /src/replay-core.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:58] "GET /assets/tracks/mexico.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:58] "GET /assets/tracks/v3/venue-osm.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:58] "GET /assets/tracks/v3/boundaries.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:58] "GET /assets/tracks/v3/render-path.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:58] "GET /src/visual-assets.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:58] "GET /src/ghost-director.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:58] "GET /src/camera-collision.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:58] "GET /src/ghost-world.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:58] "GET /src/mexico-v3.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:58] "GET /src/mexico-v4.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:52:58] "GET /src/ghost-webgl.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:03] "GET /assets/v4/tree.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:03] "GET /assets/v4/road-color.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:03] "GET /assets/v4/car-low.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:03] "GET /assets/v4/car-medium.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:03] "GET /assets/v4/venue.glb HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:03] "GET /assets/v4/road-normal.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:03] "GET /assets/v4/road-roughness.ktx2 HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:03] "GET /assets/v4/daylight.hdr HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:03] "GET /assets/v4/concrete-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:03] "GET /assets/v4/concrete-normal.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:03] "GET /assets/v4/concrete-roughness.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:03] "GET /assets/v4/turf-color.jpg HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [08/Nov/2026 15:53:03] "GET /assets/v4/tree-atlas.png HTTP/1.1" 200 -
+  ✓  10 tests/simulator.spec.js:85:1 › free camera movement stops before the actual circuit barrier (10.0s)
+
+  Slow test file: tests/simulator.spec.js (6.8m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  10 passed (8.0m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

@@ -1,0 +1,19 @@
+{
+  "staticPaths": [
+    "src/ghost.css",
+    "src/replay-core.js",
+    "assets/tracks/mexico.js",
+    "assets/tracks/v3/render-path.js",
+    "assets/tracks/v3/boundaries.js",
+    "assets/tracks/v3/venue-osm.js",
+    "src/visual-assets.js",
+    "src/ghost-director.js",
+    "src/camera-collision.js",
+    "src/ghost-world.js",
+    "src/mexico-v3.js",
+    "src/mexico-v4.js",
+    "src/ghost-webgl.js"
+  ],
+  "v4SourceHashesChecked": 21,
+  "errors": []
+}

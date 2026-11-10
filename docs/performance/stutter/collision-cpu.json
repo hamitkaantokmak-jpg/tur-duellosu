@@ -1,0 +1,22 @@
+{
+  "note": "Single CPU diagnostic run per version, 400 rays with initial-view visibility held fixed; 12 warmup rays. GPU drawing is excluded from the timed loop. Not an FPS benchmark or evidence of performance on the user device.",
+  "beforeMs": {
+    "total": 767.8999999985099,
+    "p50": 1.1000000014901161,
+    "p95": 5.5,
+    "max": 41.5
+  },
+  "afterMs": {
+    "total": 635.7999999895692,
+    "p50": 1.1000000014901161,
+    "p95": 1.8999999985098839,
+    "max": 32.600000001490116
+  },
+  "maxCameraPositionDifference": 0.0,
+  "sourceSha256": {
+    "index.html": "4c638b9480d0577b68fb20572c66ee12c59f1dcca0f4264ad7392c3a8e71587b",
+    "src/camera-collision.js": "8ecb29c4292e5399f2a582441278e316adbd2552b6703683bc944b7575544a7a",
+    "src/ghost-world.js": "35396c93c901929fb6abf1625949937a03caf0d2838eaafd48d818ac7095324c",
+    "src/ghost-webgl.js": "61d60bdbc12b27a9d1b43a2a71a5f7cfbd90e110376f7bedb3a9dbada3f483c5"
+  }
+}
