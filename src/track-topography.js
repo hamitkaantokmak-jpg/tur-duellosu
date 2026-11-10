@@ -101,7 +101,7 @@
       if(!best)throw Error('No nondegenerate track segment');best.distance=wrap(best.distance,length);return best;
     }
     const flat=!samples.length||samples.every(p=>p.elevation===0&&!(p.banking||0));
-    return {length,metadata,flat,points,step,sampleAtDistance,project,heightAt(x,z,hint){if(flat)return 0;const p=project(x,z,hint);const w=widthAt(p.distance).value/2+24;return elevation(p.distance).value+Math.max(-w,Math.min(w,p.offset))*Math.tan(bank(p.distance).value);}};
+    return {length,metadata,flat,points,step,sampleAtDistance,project,heightAt(x,z,hint){if(!Number.isFinite(x)||!Number.isFinite(z))throw Error('Nonfinite height query');if(flat)return 0;const p=project(x,z,hint);const w=widthAt(p.distance).value/2+24;return elevation(p.distance).value+Math.max(-w,Math.min(w,p.offset))*Math.tan(bank(p.distance).value);}};
   }
   const orientationScratch=new WeakMap();
   function orientation(T,normal,fx,fz,target=new T.Quaternion()){
@@ -110,7 +110,9 @@
     let scratch=orientationScratch.get(T);
     if(!scratch){scratch={up:new T.Vector3(),forward:new T.Vector3(),right:new T.Vector3(),matrix:new T.Matrix4()};orientationScratch.set(T,scratch);}
     const {up,forward,right,matrix}=scratch;up.set(n.x,n.y,n.z);forward.set(fx,0,fz);
-    forward.addScaledVector(up,-forward.dot(up)).normalize();
+    forward.addScaledVector(up,-forward.dot(up));
+    if(forward.lengthSq()<1e-12)throw Error('Heading is parallel to surface normal');
+    forward.normalize();
     right.crossVectors(up,forward).normalize();
     up.crossVectors(forward,right).normalize();
     const previous={x:target.x,y:target.y,z:target.z,w:target.w};

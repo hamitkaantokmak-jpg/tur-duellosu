@@ -62,6 +62,7 @@ test('station-hinted projection stays on the requested branch at crossings',()=>
 test('normal and heading validation reject nonfinite and degenerate orientations',async()=>{
  const T=await import('three');
  for(const v of [{x:NaN,y:1,z:0},{x:Infinity,y:1,z:0},{x:0,y:0,z:0}])assert.throws(()=>api.unit(v));
+ assert.throws(()=>api.orientation(T,{x:0,y:0,z:1},0,1));
  for(const [x,z]of [[0,0],[NaN,1],[1,Infinity]])assert.throws(()=>api.orientation(T,{x:0,y:1,z:0},x,z));
 });
 test('banking limit, negative elevation and nonzero periodic seam remain finite',()=>{
@@ -72,7 +73,7 @@ test('banking limit, negative elevation and nonzero periodic seam remain finite'
  profile.samples[1].banking=-.350001;assert.throws(()=>surface(profile));
 });
 test('scalar height query agrees with the full surface without evaluating a normal',()=>{
- const s=surface(fixture);
+ const s=surface(fixture);assert.throws(()=>surface().heightAt(NaN,0));assert.throws(()=>s.heightAt(0,Infinity));
  for(let d=0;d<4304;d+=17){const p=s.sampleAtDistance(d,2).position,q=s.project(p.x,p.z,d);near(s.heightAt(p.x,p.z,d),s.sampleAtDistance(q.distance,q.offset).position.y);}
 });
 test('profile input is snapshotted so later caller mutation cannot corrupt a cached surface',()=>{

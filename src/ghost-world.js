@@ -267,5 +267,8 @@ function ghostConstrainFree(camera, previous) {
   const objects=(G.environment.visible?G.tiles||[]:[]).filter(o=>o.visible&&o.material.name!=='Vegetation');
   G.world.children.forEach(o=>{if(o.userData.cameraObstacle)objects.push(o);});objects.push(...(G.v4Obstacles||[]).filter(o=>o.visible));
   const ray=G.movementRay||(G.movementRay=new T.Raycaster());ray.set(from,direction.normalize());ray.near=.02;ray.far=distance+.3;
-  const hit=CameraCollision.closest(T,ray,objects);return hit?from.addScaledVector(direction,Math.max(0,Math.min(distance,hit.distance-.3))).toArray():to.toArray();
+  const hit=CameraCollision.closest(T,ray,objects);
+  const safe=hit?from.addScaledVector(direction,Math.max(0,Math.min(distance,hit.distance-.3))):to;
+  safe.y=Math.max(safe.y,.65+(G.surface?.heightAt(safe.x,safe.z)||0));
+  return safe.toArray();
 }
