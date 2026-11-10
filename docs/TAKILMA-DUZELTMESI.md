@@ -1,5 +1,7 @@
 # Takılma: kamera maliyeti, yüksek DPI ve yazılımsal WebGL
 
+> Bu dosyadaki ölçümler PR #4 ilk sürümünün tarihsel kaydıdır. Güncel main + Veri Stüdyosu entegrasyonunun yeniden ölçülen sonuçları ve tam regresyon kayıtları için [PERFORMANS-ENTEGRASYON.md](PERFORMANS-ENTEGRASYON.md) dosyasına bakın.
+
 ## Tarayıcı kontrolü
 
 Brave’de `brave://gpu` sayfasındaki WebGL satırı **Software only** ise çizim ekran kartı yerine CPU üzerinden yapılıyor olabilir. Önce `brave://settings/system` altında kullanılabilir olduğunda grafik hızlandırmayı kullan seçeneğini açıp Brave’i yeniden başlatın; WebGL satırını tekrar kontrol edin. Zaten açıksa Brave ve ekran kartı sürücüsünü güncelleyin; aynı uygulamayı Chrome/Edge ile karşılaştırın. Engellenmiş sürücüleri deneysel bayraklarla zorla açmak bu düzeltmenin parçası değildir. Hardware accelerated görülmesi tek başına her cihazda 60 FPS garantisi vermez.

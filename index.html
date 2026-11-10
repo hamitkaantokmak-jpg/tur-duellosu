@@ -304,6 +304,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
 </style>
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="stylesheet" href="src/ghost.css">
+<link rel="stylesheet" href="src/insight-lab.css">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
 </head>
 <body>
@@ -320,7 +321,7 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
         <label class="sel"><span hidden>Sezon</span><select id="year" aria-label="Sezon"></select></label>
         <label class="sel"><span hidden>Yarış haftası</span><select id="event" aria-label="Yarış haftası"></select></label>
         <div class="sessions" id="sessions" role="group" aria-label="Oturum"></div>
-        <div class="sessions" id="modes" role="group" aria-label="Görünüm"><button class="chip" data-mode="duel" aria-pressed="true">Tur düellosu</button><button class="chip" data-mode="race" aria-pressed="false">Yarış analizi</button><button class="chip" id="ghostToggle" aria-pressed="false">◈ Hayalet tur</button></div>
+        <div class="sessions" id="modes" role="group" aria-label="Görünüm"><button class="chip" data-mode="duel" aria-pressed="true">Tur düellosu</button><button class="chip" data-mode="race" aria-pressed="false">Yarış analizi</button><button class="chip" id="studioToggle" aria-pressed="false">Veri stüdyosu</button><button class="chip" id="ghostToggle" aria-pressed="false">◈ Hayalet tur</button></div>
       </div>
     </div>
   </header>
@@ -329,6 +330,13 @@ table.ct { width: 100%; border-collapse: collapse; font-variant-numeric: tabular
     <h1 id="title">—</h1>
     <div class="meta" id="meta"></div>
     <button class="btn share" id="share" title="Bu karşılaştırmanın linkini kopyala">Linki kopyala</button>
+  </section>
+
+  <section id="insightStudio" class="insight-studio" hidden aria-label="Veri stüdyosu">
+    <header class="studio-hero"><div><span class="studio-kicker">TUR DÜELLOSU / VERİ STÜDYOSU</span><h2>Her farkın bir hikâyesi var.</h2><p>İki turun kırılma noktalarından bir yarışın dönüm anlarına. Gerçek kayıtları incele, kendi sorunu sor ve gözlemini kaydet.</p><div id="studioMeta" class="studio-meta"></div></div><button class="btn" data-studio="close">Grafiklere dön</button></header>
+    <nav id="studioTabs" class="studio-tabs" role="tablist" aria-label="Veri stüdyosu bölümleri"></nav>
+    <p id="studioStatus" class="studio-status" role="status"></p>
+    <div id="studioBody" class="studio-body" role="tabpanel"></div>
   </section>
 
   <div class="grid" id="duelview">
@@ -838,16 +846,18 @@ function fillLapSelect(sel, H, di, li) {
 
 /* ───────── open session ───────── */
 async function openSession() {
+  st.sessionLoading=true; st.sessionError=null;
+  document.dispatchEvent(new Event("td:session-loading"));
   stopPlay();
   const tok = ++st.tok, y = st.year, ev = st.ev, ses = sesName(st.kind);
   $("title").textContent = `${evName(ev)} · ${SES_TR[st.kind]}`;
   const veils = showVeil("Oturum verisi indiriliyor…");
   let H;
   try { H = await loadSession(y, ev, ses); }
-  catch (err) { hideVeil(veils); if (tok === st.tok) showError(err, openSession); return; }
+  catch (err) { hideVeil(veils); if (tok === st.tok) { st.sessionLoading=false; st.sessionError=String(err.message||err); document.dispatchEvent(new Event("td:session-error")); showError(err, openSession); } return; }
   hideVeil(veils);
   if (tok !== st.tok) return;
-  st.H = H;
+  st.H = H; st.sessionLoading=false; st.sessionError=null;
   const key = `${y}|${ev}|${ses}`;
   const saved = store.get("td.pick2");
   const find = (code, n) => { const di = H.drivers.findIndex((d) => d.c === code); if (di < 0 || !H.byDrv[di].length) return null; const l = H.byDrv[di].find((x) => x.n === n) || H.bestLap[di]; return { d: di, l: l.i }; };
@@ -860,6 +870,7 @@ async function openSession() {
   fillDriverSelect($("drvA"), H, st.a.d); fillDriverSelect($("drvB"), H, st.b.d);
   fillLapSelect($("lapA"), H, st.a.d, st.a.l); fillLapSelect($("lapB"), H, st.b.d, st.b.l);
   st.A = st.B = null;
+  document.dispatchEvent(new Event("td:session-ready"));
   if (st.mode === "race" && !(H.kind === "R" || H.kind === "S")) st.mode = "duel";
   if (st.mode === "race") { st.duelStale = true; applyMode(); renderRace(); return; }
   st.duelStale = false; applyMode();
@@ -894,9 +905,10 @@ function showError(err, retry) {
 }
 
 /* ───────── comparison ───────── */
-async function compare() {
+async function compare(options = {}) {
   stopPlay(); const tok=++st.tok;
-  if (!applyComparisonFilters()) return;
+  if (options.studioSelection !== true && !applyComparisonFilters()) return;
+  if (options.studioSelection === true) { $("lapB").disabled=false; $("filterStatus").textContent="Veri stüdyosunda seçilen tam tur çifti. Ana filtreler bir sonraki normal seçimde uygulanır."; }
   st.cornerSel=null; $("cornerDetail").hidden=true;
   const H = st.H, ia = st.a.l, ib = st.b.l;
   document.querySelectorAll("#chartcard .veil.errv").forEach((v) => v.remove());
@@ -948,6 +960,7 @@ async function compare() {
   st.play.e = 0; st.hoverK = null;
   $("clockEnd").textContent = fmtClock(Math.max(st.A.total, st.B.total));
   drawAll();
+  document.dispatchEvent(new Event("td:comparison-ready"));
 }
 
 function renderDuel() {
@@ -1520,7 +1533,7 @@ function pickDefaultKind(keep) {
   st.kind = kinds.includes("Q") ? "Q" : kinds[kinds.length - 1];
 }
 document.addEventListener("keydown", (e) => {
-  if (e.target.closest("select, input, button")) return;
+  if (e.target.closest("select, input, button, textarea, [contenteditable=true]")) return;
   if (e.code === "Space") { e.preventDefault(); st.play.on ? stopPlay() : startPlay(); }
 });
 new ResizeObserver(() => { mapLayer = null; chartLayer = null; if (st.mode === "race") drawRaceCharts(); else drawAll(); }).observe(document.body);
@@ -2152,6 +2165,7 @@ $("modes").addEventListener("click", (e) => { const b = e.target.closest("button
 function writeHash() {
   const H = st.H; if (!H) return;
   const q = { y: H.year, e: H.event, k: H.kind };
+  window.InsightStudio?.hash(q);
   if (ghost.active && st.mode !== "race") q.g = "1";
   if (st.mode === "race") { q.m = "race"; if (st.raceTab && st.raceTab !== "sum") q.t = st.raceTab; }
   try {
@@ -2736,5 +2750,7 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden&&st.play.on
 })();
 </script>
 
+<script src="src/insight-core.js"></script>
+<script src="src/insight-lab.js"></script>
 </body>
 </html>

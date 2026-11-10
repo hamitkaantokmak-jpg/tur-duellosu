@@ -53,13 +53,15 @@ test('WebGL failure keeps the standard replay available',async({page},testInfo)=
   await page.locator('#ghostScrub').fill('6500');expect(await page.evaluate(()=>st.play.e)).toBeGreaterThan(0);
 });
 test('120-second software-renderer replay soak and resource budget',async({page},testInfo)=>{
-  test.setTimeout(240000);await page.setViewportSize({width:1280,height:720});await page.goto(url);
+  test.setTimeout(240000);const errors=[],consoleErrors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',e=>{if(e.type()==='error')consoleErrors.push(e.text());});await page.setViewportSize({width:1280,height:720});await page.goto(url);
   await page.waitForFunction(()=>typeof ghost3d!=='undefined'&&ghost3d.ready&&ghost3d.source===st.A&&!!st.A&&VisualAssets.state==='ready'&&ghost3d.cars[0].userData.asset);
   await page.locator('#ghostRenderQuality').selectOption('performance');await page.locator('[data-camera="a"]').click();
   await page.locator('#ghostRate').selectOption('4');await page.locator('#ghostPlay').click();
-  for(let i=0;i<12;i++){await page.waitForTimeout(10000);await page.evaluate(()=>{if(!st.play.on)startPlay();});}
+  const started=Date.now(),snapshots=[];
+  for(let i=0;i<12;i++){await page.waitForTimeout(10000);snapshots.push(await page.evaluate(()=>{const result={time:st.play.e,ready:ghost3d.ready,memory:{...ghost3d.renderer.info.memory}};if(!st.play.on)startPlay();return result;}));}
+  const wallMs=Date.now()-started;expect(wallMs).toBeGreaterThanOrEqual(120000);for(const s of snapshots){expect(s.ready).toBe(true);expect(s.memory.geometries).toBeLessThan(500);expect(s.memory.textures).toBeLessThan(100);}expect(new Set(snapshots.map(s=>s.time)).size).toBeGreaterThan(1);expect(errors).toEqual([]);expect(consoleErrors).toEqual([]);
   const result=await page.evaluate(()=>{stopPlay();const gl=ghost3d.renderer.getContext(),debug=gl.getExtension('WEBGL_debug_renderer_info');return {fps:ghost3d.measuredFps,ms:ghost3d.measuredMs,ready:ghost3d.ready,geometries:ghost3d.renderer.info.memory.geometries,textures:ghost3d.renderer.info.memory.textures,calls:ghost3d.renderer.info.render.calls,renderer:debug?gl.getParameter(debug.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),resolution:[ghost3d.canvas.width,ghost3d.canvas.height],...GhostMetrics.summary(),cpu:GhostMetrics.cpuMs,gpu:GhostMetrics.gpuMs};});
-  console.log('SOAK_120_SECONDS',JSON.stringify(result));require('node:fs').writeFileSync(testInfo.outputPath('measurement.json'),JSON.stringify(result,null,2));expect(result.ready).toBe(true);expect(result.geometries).toBeLessThan(500);expect(result.textures).toBeLessThan(100);
+  Object.assign(result,{wallMs,snapshots,errors,consoleErrors});console.log('SOAK_120_SECONDS',JSON.stringify(result));require('node:fs').writeFileSync(testInfo.outputPath('measurement.json'),JSON.stringify(result,null,2));expect(result.ready).toBe(true);expect(result.geometries).toBeLessThan(500);expect(result.textures).toBeLessThan(100);
   await page.locator('#ghostScrub').fill('2800');await page.locator('.ghost-stage').screenshot({path:testInfo.outputPath('mexico-preview.png')});
 });
 
