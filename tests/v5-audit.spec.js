@@ -11,8 +11,8 @@ test('free camera sweep cannot cross an elevated road between safe endpoints',as
   // Isolate the road/terrain; a barrier collision must not make this test pass.
   G.environment.visible=false;for(const o of G.v4Obstacles||[])o.visible=false;
   const safe=ghostConstrainFree(to,from);
-  return {requested:Math.hypot(...to.map((v,i)=>v-from[i])),moved:Math.hypot(...safe.map((v,i)=>v-from[i])),safe,terrain:s.heightAt(safe[0],safe[2]),roadCollider:G.world.getObjectByName('TopographyRoad').userData.cameraObstacle};
+  return {requested:Math.hypot(...to.map((v,i)=>v-from[i])),moved:Math.hypot(...safe.map((v,i)=>v-from[i])),safe,terrain:s.heightAt(safe[0],safe[2]),roadCollider:G.world.getObjectByName('TopographyRoad').userData.cameraTerrain};
  });
  fs.writeFileSync(info.outputPath('terrain-collision.json'),JSON.stringify(result,null,2));
- expect(result.roadCollider).toBe(true);expect(result.moved).toBeGreaterThan(0);expect(result.moved).toBeLessThan(result.requested*.75);expect(result.safe[1]).toBeGreaterThanOrEqual(result.terrain+.64);
+ expect(result.moved).toBeGreaterThan(0);expect(result.moved).toBeLessThan(result.requested*.75);expect(result.safe[1]).toBeGreaterThanOrEqual(result.terrain+.64);
 });

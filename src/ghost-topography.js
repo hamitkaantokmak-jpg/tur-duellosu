@@ -67,9 +67,10 @@ function ghostDrapeWorld(S,root) {
     }
     if(!o.isMesh&&!o.isLine)return;
     o.userData.topographyApplied=true;
-    // Reuse the existing ray and broad phase. Endpoint height clamping alone
+    // Used only by free-camera movement, not every following-camera ray.
+    // Endpoint height clamping alone
     // cannot stop a lens from travelling through a crest between two low points.
-    if(o.name==='TopographyRoad'||o.name==='TopographyGround')o.userData.cameraObstacle=true;
+    if(o.name==='TopographyRoad'||o.name==='TopographyGround')o.userData.cameraTerrain=true;
     // Existing environment meshes are owned by this world; imported shared
     // templates are never passed here. Geometry is deformed once at build time.
     if(o.name==='TopographyGround'){
