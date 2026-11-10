@@ -5,6 +5,7 @@ const {chromium}=require('@playwright/test'),fs=require('node:fs'),path=require(
 const fixture=require('../tests/fixtures/synthetic-topography.cjs');
 const out=process.argv[2]||'docs/performance/v5-audit/matrix.json';
 const seconds=Number(process.env.AUDIT_SECONDS||12),uncapped=process.env.AUDIT_UNCAPPED!=='0',filter=process.env.AUDIT_FILTER?new RegExp(process.env.AUDIT_FILTER):null;
+const order=(process.env.AUDIT_VERSION_ORDER||'main,v5').split(','),warmupSeconds=Number(process.env.AUDIT_WARMUP_SECONDS||0);
 const baseline=process.env.AUDIT_BASELINE||'http://127.0.0.1:4202',candidate=process.env.AUDIT_CANDIDATE||'http://127.0.0.1:4201';
 async function metrics(page){return page.evaluate(()=>{
  const G=ghost3d,geometries=new Set(),textures=new Set(),arrays=new Set();
@@ -21,12 +22,18 @@ async function metrics(page){return page.evaluate(()=>{
  return {renderer:ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),buffer:[G.canvas.width,G.canvas.height],drawCalls:G.renderer.info.render.calls,triangles:G.renderer.info.render.triangles,residentCounts:{...G.renderer.info.memory},sceneGeometryBytes:[...arrays].reduce((n,a)=>n+a.byteLength,0),sceneTextureBytesEstimate:Math.round(textureBytes),totals:[st.A.total,st.B.total]};
 });}
 (async()=>{
+ const visual=path.join(path.dirname(out),'visual');
+ if(!fs.existsSync(path.join(visual,'manifest.json'))){
+  const capture=require('node:child_process').spawnSync(process.execPath,['scripts/capture-topography.cjs',candidate,visual],{stdio:'inherit',env:{...process.env,CAPTURE_QUALITY:'ultra'}});
+  if(capture.status!==0)throw Error('Ultra visual/tyre-mesh audit failed; matrix not started');
+ }
  const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||undefined,args:uncapped?['--disable-frame-rate-limit','--disable-gpu-vsync']:[]});
  const rows=[];fs.mkdirSync(path.dirname(out),{recursive:true});
- const save=()=>fs.writeFileSync(out,JSON.stringify({conditions:{seconds,uncappedRequested:uncapped,deviceScaleFactor:1,renderRatio:1,adaptive:false,AO:false,rate:1,viewports:[[1920,1080],[2560,1440]],note:'Byte fields estimate unique scene buffers/texture payloads, not measured VRAM. Main synthetic: unsupported. Main cockpit: view-only benchmark shim.'},rows},null,2));
+ const save=()=>fs.writeFileSync(out,JSON.stringify({conditions:{seconds,warmupSeconds,versionOrder:order,uncappedRequested:uncapped,deviceScaleFactor:1,renderRatio:1,adaptive:false,AO:false,rate:1,viewports:[[1920,1080],[2560,1440]],note:'Byte fields estimate unique scene buffers/texture payloads, not measured VRAM. Main synthetic: unsupported. Main cockpit: view-only benchmark shim.'},rows},null,2));
  try{
   // One page per version/surface/resolution avoids repeated archive requests.
-  for(const viewport of [{width:1920,height:1080},{width:2560,height:1440}])for(const surface of ['flat','synthetic'])for(const version of surface==='flat'?['main','v5']:['v5']){
+  for(const viewport of [{width:1920,height:1080},{width:2560,height:1440}])for(const surface of ['flat','synthetic'])for(const version of surface==='flat'?order:['v5']){
+   if(filter&&!['performance','balanced','ultra'].some(q=>['a','cockpit'].some(c=>filter.test(viewport.width+'x'+viewport.height+'/'+surface+'/'+q+'/'+c))))continue;
    const page=await browser.newPage({viewport,deviceScaleFactor:1}),errors=[];
    page.on('pageerror',e=>errors.push(e.message));
    await page.addInitScript(({synthetic,fixture})=>{localStorage.setItem('td.disc',JSON.stringify({at:Date.now(),data:{}}));if(synthetic)window.TOPOGRAPHY_TEST_PROFILE=fixture;},{synthetic:surface==='synthetic',fixture});
@@ -43,6 +50,7 @@ async function metrics(page){return page.evaluate(()=>{
      if(filter&&!filter.test(viewport.width+'x'+viewport.height+'/'+surface+'/'+quality+'/'+camera))continue;
      await page.evaluate(mode=>{stopPlay();st.play.e=10;ghost.camera=mode;ghost.cameraState=null;GhostDirector.transition=null;drawAll();},camera);
      for(let i=0;i<3;i++){await page.waitForTimeout(100);await page.evaluate(()=>drawAll());}
+     if(warmupSeconds){await page.evaluate(()=>{st.play.rate=1;startPlay();});await page.waitForTimeout(warmupSeconds*1000);await page.evaluate(()=>{stopPlay();st.play.e=10;ghost.cameraState=null;drawAll();});}
      const fixed=await metrics(page);
      if(!/NVIDIA/.test(fixed.renderer))throw Error('Physical NVIDIA GPU not verified: '+fixed.renderer);
      if(fixed.buffer[0]!==viewport.width||fixed.buffer[1]!==viewport.height)throw Error('Render buffer does not match requested resolution: '+JSON.stringify(fixed));

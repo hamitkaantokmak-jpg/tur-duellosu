@@ -1,0 +1,185 @@
+{
+  "conditions": {
+    "seconds": 12,
+    "warmupSeconds": 20,
+    "versionOrder": [
+      "main",
+      "v5"
+    ],
+    "uncappedRequested": true,
+    "deviceScaleFactor": 1,
+    "renderRatio": 1,
+    "adaptive": false,
+    "AO": false,
+    "rate": 1,
+    "viewports": [
+      [
+        1920,
+        1080
+      ],
+      [
+        2560,
+        1440
+      ]
+    ],
+    "note": "Byte fields estimate unique scene buffers/texture payloads, not measured VRAM. Main synthetic: unsupported. Main cockpit: view-only benchmark shim."
+  },
+  "rows": [
+    {
+      "version": "main",
+      "surface": "flat",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "baselineCameraShim": false,
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1482,
+        "meanFps": 123.47633370258434,
+        "p95Ms": 11.099999964237213,
+        "p50Ms": 7.800000011920929,
+        "time": 21.99700000000018
+      },
+      "wallMs": 12015,
+      "errors": []
+    },
+    {
+      "version": "main",
+      "surface": "flat",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "baselineCameraShim": true,
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1419,
+        "meanFps": 118.18598259276226,
+        "p95Ms": 12,
+        "p50Ms": 8.100000023841858,
+        "time": 22.003200000000138
+      },
+      "wallMs": 12015,
+      "errors": []
+    },
+    {
+      "version": "v5",
+      "surface": "flat",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "baselineCameraShim": false,
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1404,
+        "meanFps": 116.92886827226567,
+        "p95Ms": 12.200000047683716,
+        "p50Ms": 8.199999988079071,
+        "time": 22.00420000000012
+      },
+      "wallMs": 12018,
+      "errors": []
+    },
+    {
+      "version": "v5",
+      "surface": "flat",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "baselineCameraShim": false,
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1422,
+        "meanFps": 118.41414974096726,
+        "p95Ms": 12.100000023841858,
+        "p50Ms": 8.100000023841858,
+        "time": 22.004400000000114
+      },
+      "wallMs": 12019,
+      "errors": []
+    }
+  ]
+}

@@ -40,3 +40,5 @@ npm run assets:build # yalnız Blender 4.3+ ile yeni araç/çevre üretimi
 V4 hazır Blender GLB varlıklarını kullanır. Yeniden üretim ve CC0 kaynak ağaç hazırlığı: [art/blender](art/blender/README.md). Tam pist geometrisini tekrar üretmek için önceki iş akışı `npm run assets:build:v3` içinde korunur (Shapely gerekir); ardından V4 üretimi çalıştırılabilir.
 
 Güncel main, Veri Stüdyosu ve kamera optimizasyonu doğrulaması: [Performans entegrasyon raporu](docs/PERFORMANS-ENTEGRASYON.md).
+
+V5 son denetim, Ultra/1080p/1440p ölçümleri ve entegrasyon kanıtları: [V5 son denetim](docs/V5-SON-DENETIM.md).

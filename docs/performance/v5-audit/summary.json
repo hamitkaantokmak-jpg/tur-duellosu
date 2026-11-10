@@ -1,0 +1,299 @@
+{
+  "candidateApplication": "53b19b7d274365419f474fbec3f68791693bebb5",
+  "baseline": "e91e27c7ecde7801541773788a47b4354c47176b",
+  "fullMatrixCells": 36,
+  "recheckCells": 11,
+  "physicalGpuVerified": true,
+  "correctBuffers": true,
+  "errors": [],
+  "acceptedComparisons": [
+    {
+      "resolution": "1920x1080",
+      "quality": "performance",
+      "camera": "a",
+      "mainFps": 124.3050783934037,
+      "v5Fps": 116.08146944895664,
+      "lossPercent": 6.615666110133322,
+      "mainP95": [
+        11.300000011920929,
+        11.099999964237213
+      ],
+      "v5P95": [
+        12.5,
+        12.200000047683716
+      ],
+      "method": "20s warmup, two opposite version orders",
+      "drawCalls": 178,
+      "triangles": 331874,
+      "residentCounts": {
+        "geometries": 306,
+        "textures": 30
+      },
+      "sceneGeometryBytes": 22293438,
+      "sceneTextureBytesEstimate": 62892741
+    },
+    {
+      "resolution": "1920x1080",
+      "quality": "performance",
+      "camera": "cockpit",
+      "mainFps": 123.62751795252555,
+      "v5Fps": 120.46888338265713,
+      "lossPercent": 2.5549607580744094,
+      "mainP95": [
+        11.600000023841858,
+        12
+      ],
+      "v5P95": [
+        11.400000035762787,
+        12.100000023841858
+      ],
+      "method": "20s warmup, two opposite version orders",
+      "drawCalls": 165,
+      "triangles": 327482,
+      "residentCounts": {
+        "geometries": 306,
+        "textures": 30
+      },
+      "sceneGeometryBytes": 22293438,
+      "sceneTextureBytesEstimate": 62892741
+    },
+    {
+      "resolution": "1920x1080",
+      "quality": "balanced",
+      "camera": "a",
+      "mainFps": 104.33333333333333,
+      "v5Fps": 107.07297781108197,
+      "lossPercent": -2.625857326915626,
+      "mainP95": [
+        13.5
+      ],
+      "v5P95": [
+        12.699999988079071
+      ],
+      "method": "exploratory full matrix",
+      "drawCalls": 248,
+      "triangles": 739980,
+      "residentCounts": {
+        "geometries": 323,
+        "textures": 31
+      },
+      "sceneGeometryBytes": 22293438,
+      "sceneTextureBytesEstimate": 69883301
+    },
+    {
+      "resolution": "1920x1080",
+      "quality": "balanced",
+      "camera": "cockpit",
+      "mainFps": 106.53107156253907,
+      "v5Fps": 107.88699774218038,
+      "lossPercent": -1.2727987804434404,
+      "mainP95": [
+        13.199999988079071
+      ],
+      "v5P95": [
+        12.399999976158142
+      ],
+      "method": "exploratory full matrix",
+      "drawCalls": 233,
+      "triangles": 726424,
+      "residentCounts": {
+        "geometries": 328,
+        "textures": 31
+      },
+      "sceneGeometryBytes": 22293438,
+      "sceneTextureBytesEstimate": 69883301
+    },
+    {
+      "resolution": "1920x1080",
+      "quality": "ultra",
+      "camera": "a",
+      "mainFps": 103.53465997509556,
+      "v5Fps": 97.92482706892241,
+      "lossPercent": 5.4183139322836915,
+      "mainP95": [
+        13.399999976158142
+      ],
+      "v5P95": [
+        14.200000047683716
+      ],
+      "method": "exploratory full matrix",
+      "drawCalls": 254,
+      "triangles": 1357536,
+      "residentCounts": {
+        "geometries": 353,
+        "textures": 31
+      },
+      "sceneGeometryBytes": 23214042,
+      "sceneTextureBytesEstimate": 82466213
+    },
+    {
+      "resolution": "1920x1080",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "mainFps": 99.28474966228318,
+      "v5Fps": 94.44726694271748,
+      "lossPercent": 4.8723320913034325,
+      "mainP95": [
+        15.399999976158142
+      ],
+      "v5P95": [
+        15.300000011920929
+      ],
+      "method": "exploratory full matrix",
+      "drawCalls": 239,
+      "triangles": 1171672,
+      "residentCounts": {
+        "geometries": 353,
+        "textures": 31
+      },
+      "sceneGeometryBytes": 23214042,
+      "sceneTextureBytesEstimate": 82466213
+    },
+    {
+      "resolution": "2560x1440",
+      "quality": "performance",
+      "camera": "a",
+      "mainFps": 121.01475830350779,
+      "v5Fps": 122.06298950174971,
+      "lossPercent": -0.8662011253312896,
+      "mainP95": [
+        11.400000035762787
+      ],
+      "v5P95": [
+        11.300000011920929
+      ],
+      "method": "exploratory full matrix",
+      "drawCalls": 178,
+      "triangles": 331874,
+      "residentCounts": {
+        "geometries": 186,
+        "textures": 30
+      },
+      "sceneGeometryBytes": 22293438,
+      "sceneTextureBytesEstimate": 62892741
+    },
+    {
+      "resolution": "2560x1440",
+      "quality": "performance",
+      "camera": "cockpit",
+      "mainFps": 126.81310263272397,
+      "v5Fps": 120.01432509664122,
+      "lossPercent": 5.361257941754937,
+      "mainP95": [
+        11.199999988079071
+      ],
+      "v5P95": [
+        12
+      ],
+      "method": "20s warmup recheck",
+      "drawCalls": 165,
+      "triangles": 327482,
+      "residentCounts": {
+        "geometries": 305,
+        "textures": 30
+      },
+      "sceneGeometryBytes": 22293438,
+      "sceneTextureBytesEstimate": 62892741
+    },
+    {
+      "resolution": "2560x1440",
+      "quality": "balanced",
+      "camera": "a",
+      "mainFps": 105.75665975511593,
+      "v5Fps": 115.22139683004647,
+      "lossPercent": -8.94954237099257,
+      "mainP95": [
+        13.5
+      ],
+      "v5P95": [
+        12
+      ],
+      "method": "exploratory full matrix",
+      "drawCalls": 248,
+      "triangles": 739980,
+      "residentCounts": {
+        "geometries": 323,
+        "textures": 31
+      },
+      "sceneGeometryBytes": 22293438,
+      "sceneTextureBytesEstimate": 69883301
+    },
+    {
+      "resolution": "2560x1440",
+      "quality": "balanced",
+      "camera": "cockpit",
+      "mainFps": 108.95732504779785,
+      "v5Fps": 113.97340620510559,
+      "lossPercent": -4.603711733109517,
+      "mainP95": [
+        12.899999976158142
+      ],
+      "v5P95": [
+        12.599999964237213
+      ],
+      "method": "exploratory full matrix",
+      "drawCalls": 233,
+      "triangles": 726424,
+      "residentCounts": {
+        "geometries": 328,
+        "textures": 31
+      },
+      "sceneGeometryBytes": 22293438,
+      "sceneTextureBytesEstimate": 69883301
+    },
+    {
+      "resolution": "2560x1440",
+      "quality": "ultra",
+      "camera": "a",
+      "mainFps": 100.72649715056481,
+      "v5Fps": 101.88694963968842,
+      "lossPercent": -1.1520826415605256,
+      "mainP95": [
+        13.399999976158142
+      ],
+      "v5P95": [
+        14.199999988079071
+      ],
+      "method": "exploratory full matrix",
+      "drawCalls": 254,
+      "triangles": 1357536,
+      "residentCounts": {
+        "geometries": 353,
+        "textures": 31
+      },
+      "sceneGeometryBytes": 23214042,
+      "sceneTextureBytesEstimate": 82466213
+    },
+    {
+      "resolution": "2560x1440",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "mainFps": 101.1573939053577,
+      "v5Fps": 98.38305245737027,
+      "lossPercent": 2.742598776895222,
+      "mainP95": [
+        13.699999988079071
+      ],
+      "v5P95": [
+        14.700000047683716
+      ],
+      "method": "exploratory full matrix",
+      "drawCalls": 239,
+      "triangles": 1171672,
+      "residentCounts": {
+        "geometries": 353,
+        "textures": 31
+      },
+      "sceneGeometryBytes": 23214042,
+      "sceneTextureBytesEstimate": 82466213
+    }
+  ],
+  "maxAcceptedFpsLossPercent": 6.615666110133322,
+  "unresolvedFpsRegressions": [],
+  "notes": [
+    "Cold first 1080p Performance windows and one fast 1440p cockpit window were not reproduced after 20s warmup/order reversal; raw matrix is retained, no hardware cause claimed.",
+    "P95 values are per-window values; they are not averaged into a fictitious pooled percentile.",
+    "Main synthetic is unsupported. Main cockpit uses only the disclosed flat view shim.",
+    "Bytes are scene estimates, not measured VRAM."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "original": "5170f68a27848ed45b86485ca98b588c0f20a8ae",
+  "fixedApplication": "53b19b7d274365419f474fbec3f68791693bebb5",
+  "nonfiniteVector": {
+    "originalReturnsFinite": false,
+    "fixedThrows": true
+  },
+  "nearestSegment": {
+    "originalSquaredDistance": 14602.319999999996,
+    "fixedSquaredDistance": 12200,
+    "bruteForceExpected": 12200
+  }
+}
