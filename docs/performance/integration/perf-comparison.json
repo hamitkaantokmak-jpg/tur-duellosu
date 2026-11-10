@@ -1,0 +1,93 @@
+{
+  "conditions": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "dpr": 1,
+    "quality": "performance",
+    "adaptive": false,
+    "camera": "a",
+    "rate": 1,
+    "requestedObservationMs": 30000,
+    "physicalGPU": false
+  },
+  "runtime": [
+    {
+      "label": "before",
+      "wallMs": 30573,
+      "observation": {
+        "frames": 19,
+        "p50": 1304.5,
+        "p95": 4382,
+        "fps": 0.6635700066357001,
+        "frameMs": 1507,
+        "cpuMs": 4.299999982118607,
+        "gpuMs": 926.004017,
+        "time": 39.19440000000001,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "fixed": {
+        "calls": 106,
+        "memory": {
+          "geometries": 323,
+          "textures": 30
+        },
+        "buffer": [
+          1059,
+          416
+        ],
+        "ratio": 0.85
+      },
+      "errors": []
+    },
+    {
+      "label": "after",
+      "wallMs": 30164,
+      "observation": {
+        "frames": 23,
+        "p50": 1090,
+        "p95": 2884.7999999821186,
+        "fps": 0.9899029894895062,
+        "frameMs": 1010.2000000178814,
+        "cpuMs": 3.300000011920929,
+        "gpuMs": 964.805835,
+        "time": 39.1024,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      "fixed": {
+        "calls": 106,
+        "memory": {
+          "geometries": 325,
+          "textures": 30
+        },
+        "buffer": [
+          1059,
+          416
+        ],
+        "ratio": 0.85
+      },
+      "errors": []
+    }
+  ],
+  "camera": {
+    "note": "Same real scene, 400 rays over full lap, 3 repeats; alternating order; 400 warmup rays; region visibility refreshed outside timed calls. Camera CPU only, excludes rendering and setup.",
+    "coldOptimizedFirstRayMs": 7.699999988079071,
+    "old": {
+      "n": 1200,
+      "totalMs": 2113.199999809265,
+      "p50Ms": 1.0999999940395355,
+      "p95Ms": 2.0999999940395355,
+      "maxMs": 38.80000001192093
+    },
+    "optimized": {
+      "n": 1200,
+      "totalMs": 1864.0000003278255,
+      "p50Ms": 1.0999999940395355,
+      "p95Ms": 1.9000000059604645,
+      "maxMs": 36.5
+    },
+    "mismatch": 0,
+    "maxCameraError": 0
+  }
+}

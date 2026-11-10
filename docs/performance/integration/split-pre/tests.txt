@@ -1,0 +1,104 @@
+
+> test
+> npm run test:unit && npm run test:browser
+
+
+> test:unit
+> node --test tests/*.test.cjs
+
+✔ camera collision matches Three.js for transformed instances, inside origins, finite rays and layers (73.715193ms)
+✔ camera cache refreshes when a world, instance buffer, geometry or count changes (1.931413ms)
+✔ off-ray camera instances skip triangle intersection while retaining a real close wall (7.200591ms)
+✔ mini-sector and corner gains telescope to the measured whole-lap difference (3.283119ms)
+✔ brake, minimum speed, gear and sustained full throttle are derived from real windows (0.387677ms)
+✔ missing or interpolated pedal channels do not become event points or zero statistics (0.70037ms)
+✔ matching rejects missing metadata and separates sessions, compound, age, phase and time (0.25021ms)
+✔ ideal sectors retain source laps and exclude deleted or incomplete sector sums (1.045228ms)
+✔ unusual lap catalog finds lower speed trap combined with faster lap, never the inverse (0.425042ms)
+✔ race pace excludes pit/flags and close-follow indicator uses finish timestamps only (2.210556ms)
+✔ pit scenario reports missing coverage rather than filling nonexistent drivers (0.375796ms)
+✔ raw series does not invent unavailable channels or scale wildly mismatched lap times (0.599006ms)
+✔ study import enforces bounds and strips arbitrary untrusted fields (0.863113ms)
+✔ near-finish exclusion changes pace samples without claiming full-lap traffic detection (3.710705ms)
+✔ stable runs require five consecutive valid laps and position-change leadups retain actual sectors (0.516831ms)
+✔ corner similarity rankings expose the selected metric and omit missing channels (0.77437ms)
+✔ a brake block already active at the window boundary is not invented as a new onset (0.438728ms)
+✔ whole-lap display mesh and buffered race boundaries are closed, finite and simple (129.54635ms)
+✔ all rates keep wall-clock time across sparse, irregular and dropped frames (0.920422ms)
+✔ clock clamps end and negative timestamps without losing a positive stall (0.968258ms)
+✔ fixed geographic circuit is closed and has declared station length (0.915447ms)
+✔ registration recovers independent units, handedness and start station (27.049902ms)
+✔ bad registration falls back explicitly instead of manufacturing a racing line (24.471152ms)
+✔ wheel distance uses original telemetry distance rather than current speed times elapsed (0.181587ms)
+✔ changing speed accounts for the elapsed interval at the previous rate (0.248773ms)
+✔ Blender GLBs retain four wheel pivots, two steering pivots, authored UVs and bounded LOD budgets (101.554368ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 688.663767
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> test:browser
+> playwright test
+
+
+Running 21 tests using 1 worker
+
+(node:55492) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55492) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/high-dpi.spec.js:3:1 › Ultra on a high-DPI display uses the reduced real drawing buffer and preserves Blender assets (20.2s)
+  ✓   2 tests/insight-lab.spec.js:16:1 › real telemetry powers the studio, exact region sums, theories, filtering and chart navigation (8.4s)
+  ✓   3 tests/insight-lab.spec.js:90:1 › notes preserve spaces, safe imports, downloadable context and round-trip shared URLs (2.2s)
+  ✓   4 tests/insight-lab.spec.js:160:1 › real race metadata powers tempo, pit coverage, position leadups, phases and weekend dossier (2.6s)
+  ✓   5 tests/insight-lab.spec.js:209:1 › multi-lap signatures, third driver and another year load actual archive telemetry (3.4s)
+  ✓   6 tests/insight-lab.spec.js:240:1 › missing secondary archive files produce recoverable state rather than invented results (1.7s)
+  ✓   7 tests/insight-lab.spec.js:253:1 › initial archive failure can be retried inside the studio without hidden old results (1.4s)
+  ✓   8 tests/insight-lab.spec.js:271:1 › late secondary data cannot replace a newly selected session (2.4s)
+INTEGRATION_LAP {"data":{"totals":[76.651,76.356],"channels":[{"v":{"count":539,"finite":true,"varied":true},"thr":{"count":539,"finite":true,"varied":true},"brk":{"count":539,"finite":true,"varied":true},"gear":{"count":539,"finite":true,"varied":true},"rpm":{"count":539,"finite":true,"varied":true}},{"v":{"count":539,"finite":true,"varied":true},"thr":{"count":539,"finite":true,"varied":true},"brk":{"count":539,"finite":true,"varied":true},"gear":{"count":539,"finite":true,"varied":true},"rpm":{"count":539,"finite":true,"varied":true}}],"assetErrors":[]},"lods":[{"distance":15,"visible":["high"]},{"distance":55,"visible":["medium"]},{"distance":150,"visible":["low"]}],"finish":{"time":76.651,"playing":false,"progress":[1,1],"delta":-0.29499998688697815,"ready":true,"cars":2,"memory":{"geometries":454,"textures":30},"assetErrors":[]},"wallSeconds":29.589,"loaded":["/","/assets/tracks/mexico.js","/assets/tracks/v3/boundaries.js","/assets/tracks/v3/render-path.js","/assets/tracks/v3/venue-osm.js","/assets/v4/car-high.glb","/assets/v4/car-low.glb","/assets/v4/car-medium.glb","/assets/v4/concrete-color.jpg","/assets/v4/concrete-normal.jpg","/assets/v4/concrete-roughness.jpg","/assets/v4/daylight.hdr","/assets/v4/road-color.ktx2","/assets/v4/road-normal.ktx2","/assets/v4/road-roughness.ktx2","/assets/v4/tree-atlas.png","/assets/v4/tree.glb","/assets/v4/turf-color.jpg","/assets/v4/venue.glb","/src/camera-collision.js","/src/ghost-director.js","/src/ghost-webgl.js","/src/ghost-world.js","/src/ghost.css","/src/insight-core.js","/src/insight-lab.css","/src/insight-lab.js","/src/mexico-v3.js","/src/mexico-v4.js","/src/replay-core.js","/src/visual-assets.js","http://127.0.0.1:4173/337324b3-35c3-4e53-86d2-7406b2e4bb34","http://127.0.0.1:4173/3aa3eac1-4aac-403f-920f-5962daf6df12","http://127.0.0.1:4173/4c2df606-13d9-442f-b834-b7dedd24abf7","http://127.0.0.1:4173/65b40de9-da52-4955-a480-aa327d91baf7","http://127.0.0.1:4173/76b40bc0-fb0b-4e8c-bd67-bb13883699ec","http://127.0.0.1:4173/877d77c8-0103-474c-9c5a-1245b44cde17","http://127.0.0.1:4173/a0bb9044-30bf-493e-8cb6-dbb175d384cc","http://127.0.0.1:4173/b1631265-d61d-4089-8f22-08e19465b7c7","http://127.0.0.1:4173/cca869d3-c179-4411-bcf9-c01f6b4fc3f3","http://127.0.0.1:4173/fe7ec1df-58b3-4ee3-959e-9b5dce64a0c6"],"errors":[],"failed":[],"consoleErrors":[]}
+  ✓   9 tests/main-integration.spec.js:5:1 › integrated main candidate uses V4 assets and all LODs through a complete real telemetry lap (1.1m)
+  ✓  10 tests/main-integration.spec.js:43:1 › real Mexico race analysis retains summary, charts, strategy, moves and driver tabs (3.5s)
+  ✓  11 tests/simulator.spec.js:4:1 › real Mexico telemetry, cameras, profiles and Blender assets (2.0m)
+RUNTIME {
+  fps: 0.444958618847267,
+  ms: 2247.4000000059605,
+  calls: 307,
+  memory: { geometries: 466, textures: 30 },
+  gpu: 'WebKit WebGL',
+  totals: [ 76.651, 76.356 ]
+}
+  ✓  12 tests/simulator.spec.js:34:1 › real Mexico clock, playback and repeated world disposal (1.9m)
+  ✓  13 tests/simulator.spec.js:54:1 › real Mexico pilot/lap changes, analysis, mobile and visibility (27.7s)
+  ✓  14 tests/simulator.spec.js:67:1 › WebGL failure keeps the standard replay available (6.9s)
+SOAK_120_SECONDS {"fps":1.9845207382182404,"ms":503.90000000596046,"ready":true,"geometries":485,"textures":30,"calls":221,"renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)","resolution":[747,294],"frames":96,"p50":1025,"p95":2074.699999988079,"cpu":6,"gpu":627.021843,"wallMs":120724,"snapshots":[{"time":38.62320000002385,"ready":true,"memory":{"geometries":358,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":424,"textures":30}},{"time":37.20319999997614,"ready":true,"memory":{"geometries":474,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":475,"textures":30}},{"time":38.38839999997616,"ready":true,"memory":{"geometries":482,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":39.40839999997616,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":38.99440000002383,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":76.19280000002385,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":39.19826399999996,"ready":true,"memory":{"geometries":485,"textures":30}}],"errors":[],"consoleErrors":[]}
+  ✓  15 tests/simulator.spec.js:73:1 › 120-second software-renderer replay soak and resource budget (2.5m)
+  ✓  16 tests/simulator.spec.js:86:1 › Ultra effects, diagnostics export and missing asset fallback (41.4s)
+  ✓  17 tests/simulator.spec.js:92:1 › asset load failure retains working procedural cars and JPEG materials (7.9s)
+  ✓  18 tests/simulator.spec.js:97:1 › alignment falls back for both laps when one projection is rejected (19.4s)
+  ✓  19 tests/simulator.spec.js:103:1 › missing Blender venue assets retain cars and working telemetry (12.8s)
+  ✓  20 tests/simulator.spec.js:105:1 › free camera movement stops before the actual circuit barrier (11.1s)
+STUDIO_SIMULATOR {"cycles":[{"sameRenderer":true,"requests":1,"initialRequests":1,"cacheReplaced":true,"memory":{"geometries":130,"textures":28},"time":0,"drivers":["ALO","STR"],"laps":[2,11],"assets":[]},{"sameRenderer":true,"requests":1,"initialRequests":1,"cacheReplaced":true,"memory":{"geometries":132,"textures":29},"time":0,"drivers":["TSU","LAW"],"laps":[2,8],"assets":[]},{"sameRenderer":true,"requests":1,"initialRequests":1,"cacheReplaced":true,"memory":{"geometries":130,"textures":28},"time":0,"drivers":["ALO","STR"],"laps":[2,11],"assets":[]}],"errors":[],"consoleErrors":[]}
+  ✓  21 tests/studio-simulator.spec.js:4:1 › studio and simulator reuse one renderer across repeated camera, pilot and lap changes (2.2m)
+
+  Slow test file: tests/simulator.spec.js (8.5m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  21 passed (12.6m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

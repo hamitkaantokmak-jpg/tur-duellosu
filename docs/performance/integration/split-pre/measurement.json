@@ -1,0 +1,119 @@
+{
+  "fps": 1.9845207382182404,
+  "ms": 503.90000000596046,
+  "ready": true,
+  "geometries": 485,
+  "textures": 30,
+  "calls": 221,
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "resolution": [
+    747,
+    294
+  ],
+  "frames": 96,
+  "p50": 1025,
+  "p95": 2074.699999988079,
+  "cpu": 6,
+  "gpu": 627.021843,
+  "wallMs": 120724,
+  "snapshots": [
+    {
+      "time": 38.62320000002385,
+      "ready": true,
+      "memory": {
+        "geometries": 358,
+        "textures": 30
+      }
+    },
+    {
+      "time": 76.651,
+      "ready": true,
+      "memory": {
+        "geometries": 424,
+        "textures": 30
+      }
+    },
+    {
+      "time": 37.20319999997614,
+      "ready": true,
+      "memory": {
+        "geometries": 474,
+        "textures": 30
+      }
+    },
+    {
+      "time": 76.651,
+      "ready": true,
+      "memory": {
+        "geometries": 475,
+        "textures": 30
+      }
+    },
+    {
+      "time": 38.38839999997616,
+      "ready": true,
+      "memory": {
+        "geometries": 482,
+        "textures": 30
+      }
+    },
+    {
+      "time": 76.651,
+      "ready": true,
+      "memory": {
+        "geometries": 485,
+        "textures": 30
+      }
+    },
+    {
+      "time": 39.40839999997616,
+      "ready": true,
+      "memory": {
+        "geometries": 485,
+        "textures": 30
+      }
+    },
+    {
+      "time": 76.651,
+      "ready": true,
+      "memory": {
+        "geometries": 485,
+        "textures": 30
+      }
+    },
+    {
+      "time": 38.99440000002383,
+      "ready": true,
+      "memory": {
+        "geometries": 485,
+        "textures": 30
+      }
+    },
+    {
+      "time": 76.19280000002385,
+      "ready": true,
+      "memory": {
+        "geometries": 485,
+        "textures": 30
+      }
+    },
+    {
+      "time": 76.651,
+      "ready": true,
+      "memory": {
+        "geometries": 485,
+        "textures": 30
+      }
+    },
+    {
+      "time": 39.19826399999996,
+      "ready": true,
+      "memory": {
+        "geometries": 485,
+        "textures": 30
+      }
+    }
+  ],
+  "errors": [],
+  "consoleErrors": []
+}

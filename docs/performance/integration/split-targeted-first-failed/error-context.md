@@ -1,0 +1,373 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Tur Düellosu" [ref=e5] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e9]:
+          - text: Tur Düellosu
+          - generic [ref=e10]: F1 TELEMETRİ KARŞILAŞTIRMA
+      - generic [ref=e11]:
+        - combobox "Sezon" [ref=e13] [cursor=pointer]:
+          - option "2026 sezonu"
+          - option "2025 sezonu"
+          - option "2024 sezonu" [selected]
+          - option "2023 sezonu"
+        - combobox "Yarış haftası" [ref=e15] [cursor=pointer]:
+          - option "R24 · Abu Dabi GP"
+          - option "R23 · Katar GP"
+          - option "R22 · Las Vegas GP"
+          - option "R21 · São Paulo GP"
+          - option "R20 · Meksika GP" [selected]
+          - option "R19 · ABD GP"
+          - option "R18 · Singapur GP"
+          - option "R17 · Azerbaycan GP"
+          - option "R16 · İtalya GP"
+          - option "R15 · Hollanda GP"
+          - option "R14 · Belçika GP"
+          - option "R13 · Macaristan GP"
+          - option "R12 · Britanya GP"
+          - option "R11 · Avusturya GP"
+          - option "R10 · İspanya GP"
+          - option "R9 · Kanada GP"
+          - option "R8 · Monako GP"
+          - option "R7 · Emilia Romagna GP"
+          - option "R6 · Miami GP"
+          - option "R5 · Çin GP"
+          - option "R4 · Japonya GP"
+          - option "R3 · Avustralya GP"
+          - option "R2 · Suudi Arabistan GP"
+          - option "R1 · Bahreyn GP"
+        - group "Oturum" [ref=e16]:
+          - button "1. Antrenman" [ref=e17] [cursor=pointer]
+          - button "2. Antrenman" [ref=e18] [cursor=pointer]
+          - button "3. Antrenman" [ref=e19] [cursor=pointer]
+          - button "Sıralama" [pressed] [ref=e20] [cursor=pointer]
+          - button "Yarış" [ref=e21] [cursor=pointer]
+        - group "Görünüm" [ref=e22]:
+          - button "Tur düellosu" [pressed] [ref=e23] [cursor=pointer]
+          - button "Yarış analizi" [disabled] [ref=e24]
+          - button "Veri stüdyosu" [ref=e25] [cursor=pointer]
+          - button "◈ Hayalet tur" [pressed] [ref=e26] [cursor=pointer]
+  - generic [ref=e27]:
+    - heading "Meksika GP · Sıralama" [level=1] [ref=e28]
+    - generic [ref=e29]:
+      - generic [ref=e30]: 26 Ekim 2024
+      - generic [ref=e31]: Pist 4.304 km
+      - generic [ref=e32]: Viraj 17
+      - generic [ref=e33]: Seçilebilir tur 89
+    - button "Linki kopyala" [ref=e34] [cursor=pointer]
+  - generic [ref=e36]:
+    - generic [ref=e37]:
+      - group "B turunu A ile eşleştir" [ref=e38]:
+        - strong [ref=e39]: A turuna uygun B turu
+        - generic [ref=e40]:
+          - checkbox "Aynı lastik" [ref=e41]
+          - text: Aynı lastik
+        - generic [ref=e42]:
+          - checkbox "Lastik yaşı ±2 tur" [ref=e43]
+          - text: Lastik yaşı ±2 tur
+        - generic [ref=e44]:
+          - checkbox "Aynı Q bölümü" [ref=e45]
+          - text: Aynı Q bölümü
+        - generic [ref=e46]:
+          - checkbox "Yalnız temiz turlar" [ref=e47]
+          - text: Yalnız temiz turlar
+        - status [ref=e48]: Filtre kapalı · B pilotunun tüm karşılaştırılabilir turları gösteriliyor.
+      - generic [ref=e49]:
+        - generic [ref=e50]:
+          - generic [ref=e51]: A
+          - combobox "A pilotu" [ref=e53] [cursor=pointer]:
+            - option "P1 SAI · Sainz · 1:15.946"
+            - option "P2 VER · Verstappen · 1:16.171"
+            - option "P3 NOR · Norris · 1:16.260"
+            - option "P4 LEC · Leclerc · 1:16.265"
+            - option "P5 RUS · Russell · 1:16.356"
+            - option "P6 HAM · Hamilton · 1:16.651" [selected]
+            - option "P7 MAG · Magnussen · 1:16.886"
+            - option "P8 GAS · Gasly · 1:16.892"
+            - option "P9 ALB · Albon · 1:16.988"
+            - option "P10 HUL · Hulkenberg · 1:16.995"
+            - option "P11 TSU · Tsunoda · 1:17.129"
+            - option "P12 LAW · Lawson · 1:17.162"
+            - option "P13 ALO · Alonso · 1:17.168"
+            - option "P14 STR · Stroll · 1:17.294"
+            - option "P15 BOT · Bottas · 1:17.393"
+            - option "P16 COL · Colapinto · 1:17.558"
+            - option "P17 PIA · Piastri · 1:17.597"
+            - option "P18 PER · Perez · 1:17.611"
+            - option "P19 OCO · Ocon · 1:17.617"
+            - option "P20 ZHO · Zhou · 1:18.072"
+          - combobox "A turu" [ref=e55] [cursor=pointer]:
+            - option "2. tur · 1:17.848 · M/2"
+            - option "5. tur · 1:17.306 · M/6"
+            - option "10. tur · 1:16.973 · S/2"
+            - option "15. tur · 1:16.651 · S/2 · ★ en iyi" [selected]
+            - option "18. tur · 1:16.712 · S/2"
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic [ref=e60]: HAM
+            - generic [ref=e61]: Lewis Hamilton · Mercedes
+          - generic [ref=e63]: 1:16.651
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - generic [ref=e66]: S1
+            - generic [ref=e67]: "27.295"
+          - generic [ref=e68]:
+            - generic [ref=e69]: S2
+            - generic [ref=e70]: "29.602"
+          - generic [ref=e71]:
+            - generic [ref=e72]: S3
+            - generic [ref=e73]: "19.754"
+          - generic "Yumuşak lastik, 2 turluk" [ref=e74]:
+            - generic [ref=e75]: S
+            - text: 2 tur
+        - generic [ref=e76]:
+          - generic [ref=e77]: 15. tur
+          - generic [ref=e78]: Kişisel en iyi
+          - generic [ref=e79]: Hız tuzağı 349 km/sa
+      - generic [ref=e80]:
+        - button "A ile B'yi değiştir" [ref=e81] [cursor=pointer]:
+          - img [ref=e82]
+        - generic [ref=e84]:
+          - generic [ref=e85]: B
+          - combobox "B pilotu" [ref=e87] [cursor=pointer]:
+            - option "P1 SAI · Sainz · 1:15.946"
+            - option "P2 VER · Verstappen · 1:16.171"
+            - option "P3 NOR · Norris · 1:16.260"
+            - option "P4 LEC · Leclerc · 1:16.265"
+            - option "P5 RUS · Russell · 1:16.356" [selected]
+            - option "P6 HAM · Hamilton · 1:16.651"
+            - option "P7 MAG · Magnussen · 1:16.886"
+            - option "P8 GAS · Gasly · 1:16.892"
+            - option "P9 ALB · Albon · 1:16.988"
+            - option "P10 HUL · Hulkenberg · 1:16.995"
+            - option "P11 TSU · Tsunoda · 1:17.129"
+            - option "P12 LAW · Lawson · 1:17.162"
+            - option "P13 ALO · Alonso · 1:17.168"
+            - option "P14 STR · Stroll · 1:17.294"
+            - option "P15 BOT · Bottas · 1:17.393"
+            - option "P16 COL · Colapinto · 1:17.558"
+            - option "P17 PIA · Piastri · 1:17.597"
+            - option "P18 PER · Perez · 1:17.611"
+            - option "P19 OCO · Ocon · 1:17.617"
+            - option "P20 ZHO · Zhou · 1:18.072"
+          - combobox "B turu" [ref=e89] [cursor=pointer]:
+            - option "2. tur · 1:17.900 · M/3"
+            - option "5. tur · 1:17.194 · M/2"
+            - option "10. tur · 1:16.937 · S/2"
+            - option "15. tur · 1:16.509 · S/2"
+            - option "18. tur · 1:16.356 · S/2 · ★ en iyi" [selected]
+        - generic [ref=e90]:
+          - generic [ref=e91]:
+            - generic [ref=e94]: RUS
+            - generic [ref=e95]: George Russell · Mercedes
+          - generic [ref=e96]:
+            - generic [ref=e97]: 1:16.356
+            - generic [ref=e98]: −0.295 s
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - generic [ref=e101]: S1
+            - generic [ref=e102]: "27.380"
+          - generic [ref=e103]:
+            - generic [ref=e104]: S2
+            - generic [ref=e105]: "29.263"
+          - generic [ref=e106]:
+            - generic [ref=e107]: S3
+            - generic [ref=e108]: "19.713"
+          - generic "Yumuşak lastik, 2 turluk" [ref=e109]:
+            - generic [ref=e110]: S
+            - text: 2 tur
+        - generic [ref=e111]:
+          - generic [ref=e112]: 18. tur
+          - generic [ref=e113]: Kişisel en iyi
+          - generic [ref=e114]: Hız tuzağı 345 km/sa
+    - generic [ref=e115]:
+      - generic [ref=e116]:
+        - generic [ref=e117]: Fark nerede oluşuyor
+        - generic [ref=e118]: Satıra dokun, o viraj yakınlaşsın
+      - generic [ref=e119]:
+        - paragraph [ref=e120]: "RUS turda HAM'dan 0.295 s hızlı. Mini sektörler: HAM 8 – 14 RUS"
+        - button "T3HAM −0.405 s · HAM minimum hızı 3 km/sa düşük." [ref=e121] [cursor=pointer]
+        - button "T4RUS −0.403 s · RUS minimum hızı 7 km/sa yüksek." [ref=e122] [cursor=pointer]
+        - button "T1RUS −0.302 s · Belirgin bir fren/gaz farkı yok; eldeki kanallarla farkın nedeni belirlenemiyor." [ref=e123] [cursor=pointer]
+      - status [ref=e124]:
+        - generic [ref=e125]:
+          - strong [ref=e126]: A
+          - text: · Tüm kanallar mevcut · Tur süresine hizalı
+        - generic [ref=e127]:
+          - strong [ref=e128]: B
+          - text: · Tüm kanallar mevcut · Tur süresine hizalı
+        - paragraph [ref=e129]: ~4 Hz kaynak verisi; 8 m ara değerler yeni ölçüm değildir. Fren açık/kapalıdır. Viraj yorumları yaklaşık gözlemlerdir; farkın nedenini kanıtlamaz. Eksik kanallar çizilmez. Fren/gaz boşluğu varsa ilgili otomatik yorum üretilmez.
+    - region "Hayalet tur simülatörü" [ref=e130]:
+      - generic [ref=e131]:
+        - generic [ref=e132]:
+          - text: GHOST LAB / TELEMETRİ REPLAY
+          - heading "İki tur. Tek başlangıç." [level=2] [ref=e133]
+        - button "Tam ekran" [ref=e134] [cursor=pointer]
+        - button "Düelloya dön" [ref=e135] [cursor=pointer]
+      - group "Kamera seçimi" [ref=e136]:
+        - button "Yayın kamerası" [pressed] [ref=e137] [cursor=pointer]
+        - button "A'yı takip et" [ref=e138] [cursor=pointer]
+        - button "B'yi takip et" [ref=e139] [cursor=pointer]
+        - button "Üstten" [ref=e140] [cursor=pointer]
+        - button "Serbest kamera" [ref=e141] [cursor=pointer]
+        - button "Alçak açı" [ref=e142] [cursor=pointer]
+        - button "İki araç" [ref=e143] [cursor=pointer]
+      - generic [ref=e144]:
+        - generic [ref=e145]: Autódromo Hermanos Rodríguez · Meksika · coğrafi referans / düz zemin / temsili çevre
+        - generic "Kaynak Z kanalından yumuşatılan profil; ölçülmüş pist modeli değildir" [ref=e146] [cursor=pointer]:
+          - checkbox "Tahmini eğim" [disabled] [ref=e147]
+          - text: Tahmini eğim
+        - 'status "Sabit çevre parçaları: 9686 → 412" [ref=e148]': WebGL · 0 FPS
+        - generic [ref=e149] [cursor=pointer]:
+          - checkbox "Çevre detayları" [checked] [ref=e150]
+          - text: Çevre detayları
+        - generic [ref=e151] [cursor=pointer]:
+          - text: Görüntü
+          - combobox "3D görüntü kalitesi" [ref=e152]:
+            - option "Performans"
+            - option "Dengeli" [selected]
+            - option "Ultra"
+        - generic [ref=e153] [cursor=pointer]:
+          - checkbox "B yarı saydam" [checked] [ref=e154]
+          - text: B yarı saydam
+        - generic [ref=e155] [cursor=pointer]:
+          - checkbox "Performans paneli" [ref=e156]
+          - text: Performans paneli
+        - generic [ref=e157] [cursor=pointer]:
+          - checkbox "Dinamik çözünürlük" [checked] [ref=e158]
+          - text: Dinamik çözünürlük
+        - generic "Yalnız Ultra profilinde" [ref=e159] [cursor=pointer]:
+          - checkbox "Temas gölgesi (AO)" [disabled] [ref=e160]
+          - text: Temas gölgesi (AO)
+        - generic [ref=e161] [cursor=pointer]:
+          - text: Yakınlık
+          - slider "Kamera yakınlığı" [ref=e162]: "100"
+        - generic [ref=e163] [cursor=pointer]:
+          - checkbox "Tahmini sürüş çizgisi" [checked] [ref=e164]
+          - text: Tahmini sürüş çizgisi
+        - generic [ref=e165] [cursor=pointer]:
+          - checkbox "Giriş / Apeks / Çıkış" [ref=e166]
+          - text: Giriş / Apeks / Çıkış
+        - generic [ref=e167] [cursor=pointer]:
+          - checkbox "Konum izleri" [ref=e168]
+          - text: Konum izleri
+        - generic [ref=e169] [cursor=pointer]:
+          - checkbox "Fren bölgeleri" [ref=e170]
+          - text: Fren bölgeleri
+      - paragraph [ref=e171]:
+        - text: Tahmini sürüş çizgisi açıkken iki araç aynı giriş–apeks–çıkış yolunu izler; ilerleme telemetriye bağlıdır. Bu yol pilotların ölçülmüş çizgisi değildir.
+        - text: "Viraj rehberi: ● Giriş · ● Apeks · ● Çıkış — pist geometrisinden yaklaşık işaretler; pilot çizgisi veya fren noktası değildir."
+      - generic [ref=e172]:
+        - generic:
+          - generic:
+            - generic:
+              - text: A · HAM
+              - time: 1:16.651
+            - strong:
+              - text: 262 km/sa
+              - generic: "7"
+            - generic:
+              - generic: GAZ 100%
+              - generic: FREN KAPALI
+          - generic:
+            - generic:
+              - text: B · RUS
+              - time: 1:16.356
+            - strong:
+              - text: 259 km/sa
+              - generic: "6"
+            - generic:
+              - generic: GAZ 99%
+              - generic: FREN KAPALI
+        - generic:
+          - generic: TELEMETRİ REPLAY · GÖRSEL PİST MODELİ
+          - generic: −0.295 s
+          - generic: Pist ilerlemesine göre yaklaşık zaman farkı
+        - generic "Işık ve gölgeli 3D tur görünümü"
+        - generic: A · HAM
+        - generic: B · RUS
+      - generic [ref=e174]:
+        - generic [ref=e175]:
+          - strong [ref=e176]: HAM · BİTİŞ
+          - generic [ref=e177]: Vites 7 · Gaz %100 · Fren KAPALI
+        - generic [ref=e178]:
+          - strong [ref=e179]: RUS · BİTİŞ
+          - generic [ref=e180]: Vites 6 · Gaz %99 · Fren KAPALI
+      - generic [ref=e181]:
+        - button "▶ Oynat" [active] [ref=e182] [cursor=pointer]
+        - button "Hayalet turu başa sar" [ref=e183] [cursor=pointer]: ↺
+        - slider "Hayalet tur zamanı" [ref=e184]: "10000"
+        - combobox "Hayalet oynatma hızı" [ref=e186] [cursor=pointer]:
+          - option "0.25×"
+          - option "0.5×"
+          - option "1×"
+          - option "2×"
+          - option "4×" [selected]
+        - generic [ref=e187]: 1:16.651 / 1:16.651
+      - generic [ref=e188]:
+        - generic [ref=e189]:
+          - generic [ref=e190]:
+            - generic [ref=e191]: A / FREN TELEMETRİSİ
+            - generic [ref=e192]: TUR TAMAMLANDI
+          - generic [ref=e193]:
+            - generic [ref=e194]: GAZ
+            - generic [ref=e196]: 0%
+            - generic [ref=e197]: FREN
+            - generic [ref=e199]: KAPALI
+          - paragraph [ref=e200]: Fren basıncı sağlanmıyor; sinyal açık / kapalıdır.
+        - generic [ref=e201]:
+          - generic [ref=e202]:
+            - generic [ref=e203]: B / FREN TELEMETRİSİ
+            - generic [ref=e204]: TUR TAMAMLANDI
+          - generic [ref=e205]:
+            - generic [ref=e206]: GAZ
+            - generic [ref=e208]: 0%
+            - generic [ref=e209]: FREN
+            - generic [ref=e211]: KAPALI
+          - paragraph [ref=e212]: Fren basıncı sağlanmıyor; sinyal açık / kapalıdır.
+      - generic [ref=e213]:
+        - generic [ref=e214]:
+          - generic [ref=e215]:
+            - text: FRENLEME BÖLGELERİ
+            - paragraph [ref=e216]: Kırmızı bantlar fren sinyalini gösterir. Bölgeye dokunarak tekrarın o anına git.
+          - button "Sonraki frenleme →" [ref=e217] [cursor=pointer]
+        - generic "İki pilotun tur boyunca fren açık zamanları ve oynatma konumu" [ref=e218] [cursor=pointer]
+        - generic [ref=e219]:
+          - generic [ref=e220]:
+            - heading "A · HAM" [level=3] [ref=e221]
+            - paragraph [ref=e222]: 10 frenleme · toplam ≈ 17.4 s fren açık
+            - button "1. fren · 0:11.706 · 349 → 108 km/sa · ≈ 2.8 s" [ref=e223] [cursor=pointer]
+            - button "2. fren · 0:16.227 · 117 → 102 km/sa · ≈ 0.6 s" [ref=e224] [cursor=pointer]
+            - button "3. fren · 0:27.346 · 287 → 91 km/sa · ≈ 2.7 s" [ref=e225] [cursor=pointer]
+            - button "4. fren · 0:31.626 · 96 → 78 km/sa · ≈ 1.0 s" [ref=e226] [cursor=pointer]
+            - button "5. fren · 0:35.426 · 161 → 85 km/sa · ≈ 2.0 s" [ref=e227] [cursor=pointer]
+            - button "6. fren · 0:43.506 · 228 → 194 km/sa · ≈ 0.7 s" [ref=e228] [cursor=pointer]
+            - button "7. fren · 0:49.067 · 252 → 182 km/sa · ≈ 1.4 s" [ref=e229] [cursor=pointer]
+            - button "8. fren · 0:58.466 · 269 → 140 km/sa · ≈ 1.7 s" [ref=e230] [cursor=pointer]
+            - button "9. fren · 1:02.507 · 194 → 65 km/sa · ≈ 3.1 s" [ref=e231] [cursor=pointer]
+            - button "10. fren · 1:09.307 · 159 → 107 km/sa · ≈ 1.6 s" [ref=e232] [cursor=pointer]
+          - generic [ref=e233]:
+            - heading "B · RUS" [level=3] [ref=e234]
+            - paragraph [ref=e235]: 10 frenleme · toplam ≈ 16.8 s fren açık
+            - button "1. fren · 0:12.069 · 327 → 111 km/sa · ≈ 2.5 s" [ref=e236] [cursor=pointer]
+            - button "2. fren · 0:16.428 · 121 → 112 km/sa · ≈ 0.6 s" [ref=e237] [cursor=pointer]
+            - button "3. fren · 0:27.389 · 319 → 92 km/sa · ≈ 2.8 s" [ref=e238] [cursor=pointer]
+            - button "4. fren · 0:31.709 · 99 → 87 km/sa · ≈ 0.6 s" [ref=e239] [cursor=pointer]
+            - button "5. fren · 0:35.589 · 162 → 89 km/sa · ≈ 1.9 s" [ref=e240] [cursor=pointer]
+            - button "6. fren · 0:43.228 · 252 → 196 km/sa · ≈ 1.2 s" [ref=e241] [cursor=pointer]
+            - button "7. fren · 0:49.268 · 241 → 190 km/sa · ≈ 0.8 s" [ref=e242] [cursor=pointer]
+            - button "8. fren · 0:58.149 · 317 → 138 km/sa · ≈ 2.0 s" [ref=e243] [cursor=pointer]
+            - button "9. fren · 1:02.349 · 196 → 73 km/sa · ≈ 2.6 s" [ref=e244] [cursor=pointer]
+            - button "10. fren · 1:09.029 · 162 → 106 km/sa · ≈ 1.8 s" [ref=e245] [cursor=pointer]
+        - paragraph [ref=e246]: Fren başlangıcı kaynak örneklerde tespit edilir; tepki süresi ve kesin fren noktası ölçümü değildir. Her pilotun kendi tur zamanına göre gösterilir. Farklı lastik ve koşullar karşılaştırmayı etkiler.
+      - paragraph [ref=e247]: "İki araç aynı anda başlar ve kendi tur süresinde bitirir. B aracının saydamlığı seçilebilir. Serbest kamera: sürükle ile döndür, tekerlek ile yakınlaştır; Shift+sürükle veya sağ tuşla taşı; WASD ile gezin, R ile sıfırla. Yerleşim kaynağı: © OpenStreetMap contributors (ODbL) ve Bacinger (MIT). V4 genel araç/çevre varlıkları özgün Blender üretimidir; ağaç ve yüzey kaynakları Poly Haven (CC0). Ağaç türü, köprü, kule ve uzak şehir yerleşimi temsili görselleştirmedir. OSM bina/tribün ayak izleri, pit yolu ve ağaç konumları kullanılır; etiketsiz yükseklikler, cepheler, geçici tribünler, bariyer konumları ve pist genişlikleri temsili, zemin düzdür. Tahmini eğim seçeneği, varsa kaynak Z kanalının yumuşatılmış profilidir; hassas arazi ölçümü değildir. Binalar, bitkiler ve çit yerleşimleri temsili dekorlardır. Coğrafi çizgi pist sınırı ölçümü değildir; yol genişliği, kerbler, özgün GLB araç modeli, stadyum ve pit yapıları temsili görselleştirmedir; gerçek pist modeli veya santimetre hassasiyetinde yarış çizgisi değildir. Meksika’da coğrafi referansa hizalama yaklaşık pist ilerlemesi sağlar; diğer pistlerde normalize kaynak mesafesi kullanılır; konum çizgisi GPS sıçramalarını azaltmak için yumuşatılır. Bu işlem ek ölçüm hassasiyeti sağlamaz. Renkli konum izleri gerçek pilot yarış çizgisi olarak yorumlanmamalıdır. Boşluk: oynat / duraklat · ← / →: 1 saniye."
+  - paragraph [ref=e248]:
+    - text: "Sonuç sıralaması son kayıtlı tur ve pozisyondan tahmin edilir; resmî klasman, ceza veya DNF bilgisi değildir. Pozisyon değişimleri tur sonu kayıtlarından çıkarılır; tur içindeki tüm geçişleri göstermez. Veri:"
+    - link "TracingInsights" [ref=e249] [cursor=pointer]:
+      - /url: https://github.com/TracingInsights
+    - text: açık telemetri arşivi (FastF1 tabanlı). Sayfa veriyi açıldığı anda doğrudan bu arşivden indirir, bu yüzden internet bağlantısı gerekir; yeni yarış haftaları arşive eklendikçe listede görünür. Telemetri yaklaşık 4 Hz örneklenir; Meksika’da uygun hizalamada coğrafi pist ilerlemesine, diğer durumlarda normalize tur mesafesine göre yaklaşık 8 m ızgaraya örneklenir; fren sinyali açık/kapalıdır. Resmî bir F1 ürünü değildir.
+```
