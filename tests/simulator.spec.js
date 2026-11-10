@@ -1,8 +1,7 @@
 const {test,expect}=require('@playwright/test');
 const url='/#y=2024&e=Mexico%20City%20Grand%20Prix&k=Q&a=HAM&b=RUS&g=1';
-test('real Mexico telemetry, playback, cameras, profiles, analysis and resource stability',async({page},testInfo)=>{
-  // Full camera/profile/rebuild workflow can exceed 180s under software WebGL. Assertions and playback rates are unchanged.
-  test.setTimeout(240000);
+// Isolate camera/asset, disposal/clock and pilot/mobile workflows; keep every assertion.
+test('real Mexico telemetry, cameras, profiles and Blender assets',async({page},testInfo)=>{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(url);
   await page.waitForFunction(()=>typeof ghost3d!=='undefined'&&ghost3d.ready&&ghost3d.source===st.A&&!!st.A&&VisualAssets.state==='ready'&&ghost3d.cars[0].userData.asset,null,{timeout:60000});
@@ -14,7 +13,6 @@ test('real Mexico telemetry, playback, cameras, profiles, analysis and resource 
   expect(Math.max(...framing)).toBeLessThan(.95);
   const blender=await page.evaluate(()=>({wheels:ghost3d.cars.map(c=>c.userData.wheels.length),steers:ghost3d.cars.map(c=>c.userData.steers.length),prefabs:ghost3d.v4Stats?.prefabs}));expect(blender.wheels).toEqual([12,12]);expect(blender.steers).toEqual([6,6]);expect(blender.prefabs).toMatchObject({KIT_PhotoTree:673,KIT_ControlTower:1,KIT_Bridge:1});expect(blender.prefabs.KIT_Barrier).toBeGreaterThan(2000);expect(blender.prefabs.KIT_StadiumAisle).toBeGreaterThan(5);
   const materials=await page.evaluate(()=>{let car=true;for(const c of ghost3d.cars)for(const level of Object.values(c.userData.levels)){let paint=false,carbon=false;level.traverse(o=>{if(o.material?.name==='Paint')paint=true;if(o.material?.name==='Carbon'&&o.material.map===VisualAssets.textures.carbon)carbon=true;});car&&=paint&&carbon;}return {car,concrete:ghost3d.v4Batches.some(o=>o.name==='KIT_Barrier'&&o.material.normalMap===VisualAssets.textures['concrete-normal']&&o.material.map===VisualAssets.textures['concrete-color'])};});expect(materials).toEqual({car:true,concrete:true});
-  const roadSignature=await page.evaluate(()=>JSON.stringify(ghostBuild().canonicalEdges.map(e=>e.p)));
   await expect(page.locator('#ghostDriver0')).toContainText('HAM');await expect(page.locator('#ghostDriver1')).toContainText('RUS');
   expect(await page.evaluate(()=>({event:st.H.event,samples:st.A.t.length,a:st.A.total,b:st.B.total}))).toMatchObject({event:'Mexico City Grand Prix'});
   await page.locator('#ghostScrub').fill('5000');
@@ -31,6 +29,13 @@ test('real Mexico telemetry, playback, cameras, profiles, analysis and resource 
   await page.evaluate(()=>drawAll());
   await page.locator('#ghostTransparent').uncheck();expect(await page.evaluate(()=>ghost3d.cars[1].children.filter(o=>o.isMesh).every(o=>!o.material.transparent))).toBe(true);
   await page.locator('#ghostStatsToggle').check();await expect(page.locator('#ghostStats')).toContainText('Draw calls');
+  expect(errors).toEqual([]);
+});
+test('real Mexico clock, playback and repeated world disposal',async({page},testInfo)=>{
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto(url);
+  await page.waitForFunction(()=>typeof ghost3d!=='undefined'&&ghost3d.ready&&ghost3d.source===st.A&&!!st.A&&VisualAssets.state==='ready'&&ghost3d.cars[0].userData.asset,null,{timeout:60000});
+  await page.locator('#ghostRenderQuality').selectOption('ultra');await page.waitForFunction(()=>!!VisualAssets.templates.high&&!VisualAssets.highPending);await page.locator('#ghostRenderQuality').selectOption('balanced');
   // Verify integrated clock across a one-second stall as well as short frames.
   const stall=await page.evaluate(()=>{stopPlay();st.play.e=10;st.play.rate=1;st.play.on=true;st.play.last=1000;tick(2000);stopPlay();return st.play.e;});expect(stall).toBe(11);
   const changed=await page.evaluate(()=>{stopPlay();st.play.on=true;st.play.e=0;st.play.last=0;st.play.rate=1;setPlaybackRate(4,500);st.play.e=ReplayCore.advance(st.play.e,st.play.last,1000,st.play.rate,st.A.total);stopPlay();return st.play.e;});expect(changed).toBe(2.5);
@@ -40,6 +45,13 @@ test('real Mexico telemetry, playback, cameras, profiles, analysis and resource 
   await page.locator('#ghostRestart').click();expect(await page.evaluate(()=>st.play.e)).toBe(0);
   await page.locator('#ghostPlay').click();await expect(page.locator('#ghostPlay')).toContainText('Duraklat');await page.waitForTimeout(1500);await page.locator('#ghostPlay').click();expect(await page.evaluate(()=>st.play.e)).toBeGreaterThan(0);
   console.log('RUNTIME',await page.evaluate(()=>({fps:ghost3d.measuredFps,ms:ghost3d.measuredMs,calls:ghost3d.renderer.info.render.calls,memory:ghost3d.renderer.info.memory,gpu:ghost3d.renderer.getContext().getParameter(ghost3d.renderer.getContext().RENDERER),totals:[st.A.total,st.B.total]})));
+  expect(errors).toEqual([]);
+});
+test('real Mexico pilot/lap changes, analysis, mobile and visibility',async({page},testInfo)=>{
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto(url);
+  await page.waitForFunction(()=>typeof ghost3d!=='undefined'&&ghost3d.ready&&ghost3d.source===st.A&&!!st.A&&VisualAssets.state==='ready'&&ghost3d.cars[0].userData.asset,null,{timeout:60000});
+  const roadSignature=await page.evaluate(()=>JSON.stringify(ghostBuild().canonicalEdges.map(e=>e.p)));
   await page.locator('#ghostClose').click();await expect(page.locator('#chartcard')).toBeVisible();await expect(page.locator('#mapcard')).toBeVisible();
   await page.locator('#drvA').selectOption(await page.locator('#drvA option').evaluateAll(options=>options.find(o=>o.textContent.includes('VER')).value));
   await page.waitForFunction(()=>st.A&&st.H.drivers[st.A.meta.d].c==='VER');
