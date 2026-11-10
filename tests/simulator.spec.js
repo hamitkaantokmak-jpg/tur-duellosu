@@ -1,6 +1,8 @@
 const {test,expect}=require('@playwright/test');
 const url='/#y=2024&e=Mexico%20City%20Grand%20Prix&k=Q&a=HAM&b=RUS&g=1';
 test('real Mexico telemetry, playback, cameras, profiles, analysis and resource stability',async({page},testInfo)=>{
+  // Full camera/profile/rebuild workflow can exceed 180s under software WebGL. Assertions and playback rates are unchanged.
+  test.setTimeout(240000);
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(url);
   await page.waitForFunction(()=>typeof ghost3d!=='undefined'&&ghost3d.ready&&ghost3d.source===st.A&&!!st.A&&VisualAssets.state==='ready'&&ghost3d.cars[0].userData.asset,null,{timeout:60000});
