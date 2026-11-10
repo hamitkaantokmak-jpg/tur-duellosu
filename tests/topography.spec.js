@@ -1,7 +1,7 @@
 const {test,expect}=require('@playwright/test'),fs=require('node:fs');
 const fixture=require('./fixtures/synthetic-topography.cjs');
 const url='/?topographyTest=synthetic#y=2024&e=Mexico%20City%20Grand%20Prix&k=Q&a=HAM&b=RUS&g=1';
-test('synthetic surface: tyre support, real telemetry, mesh, cameras and seven application screenshots',async({page},info)=>{
+test('synthetic surface: tyre support, real telemetry, mesh, cameras and eight application screenshots',async({page},info)=>{
  test.setTimeout(240000);const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.addInitScript(p=>{window.TOPOGRAPHY_TEST_PROFILE=p;},fixture);
  await page.goto(url);
@@ -46,7 +46,7 @@ test('synthetic surface: tyre support, real telemetry, mesh, cameras and seven a
  expect(checks.degenerate).toBe(0);expect(checks.down).toBe(0);expect(checks.kerbBelow).toBe(0);expect(checks.kerbDetached).toBe(0);
  for(const step of Object.values(checks.cameraContinuity))expect(step).toBeLessThan(.005);
  // Select frames by canonical surface station; keep real source positions and time mapping.
- for(const [name,station,mode] of [['01-flat-to-climb',100,'cinematic'],['02-uphill',320,'cinematic'],['03-crest',550,'cinematic'],['04-descent',720,'cinematic'],['05-banked-corner',1154,'cinematic'],['06-kerbs',1154,'free'],['07-follow-uphill',320,'a']]){
+ for(const [name,station,mode] of [['01-flat-to-climb',100,'cinematic'],['02-uphill',320,'cinematic'],['03-crest',550,'cinematic'],['04-descent',720,'cinematic'],['05-banked-corner',1154,'cinematic'],['06-kerbs',1154,'free'],['07-follow-uphill',320,'a'],['08-cockpit',320,'cockpit']]){
   await page.evaluate(({station,mode})=>{
    stopPlay();const S=ghostBuild(),surface=ghostTopography(S);let best=0,error=Infinity;
    for(let t=0;t<st.A.total;t+=.025){const p=ghostReplayPoses(S,t)[0],s=ghostSurfacePose(S,p,0,t),d=Math.abs(s.station-station);if(d<error){error=d;best=t;}}

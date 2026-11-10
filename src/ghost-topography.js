@@ -1,10 +1,10 @@
 /* Rendering adapter only. Never writes lap channels, station registration or clocks. */
 const TrackTopographyProfiles = Object.create(null);
+const GHOST_TOPOGRAPHY_TEST_ENABLED=/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)&&new URLSearchParams(location.search).get('topographyTest')==='synthetic';
+const GHOST_FLAT_SUPPORT=Object.freeze({y:0,normal:Object.freeze({x:0,y:1,z:0}),station:0});
 function ghostTopography(S) {
   // A test profile must be explicitly injected, requested AND run on loopback.
-  const test = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) &&
-    new URLSearchParams(location.search).get('topographyTest') === 'synthetic' &&
-    window.TOPOGRAPHY_TEST_PROFILE;
+  const test=GHOST_TOPOGRAPHY_TEST_ENABLED&&window.TOPOGRAPHY_TEST_PROFILE;
   let profile = test || TrackTopographyProfiles[st.H.event] || null;
   // Preserve the former opt-in telemetry-height rendering outside Mexico, but
   // identify it as illustrative: telemetry Z units/datum were not surveyed.
@@ -26,7 +26,7 @@ function ghostTopography(S) {
 const GHOST_FALLBACK_CONTACTS=[-.88,.88].flatMap(x=>[-1.58,1.48].map(z=>({x,y:.02,z})));
 function ghostSurfacePose(S,p,index,time) {
   const surface=ghostTopography(S);
-  if(surface.flat)return {y:0,normal:{x:0,y:1,z:0},station:0};
+  if(surface.flat)return GHOST_FLAT_SUPPORT;
   const tyres=ghost3d.cars?.[index]?.userData.contacts||GHOST_FALLBACK_CONTACTS;
   const cached=S.surfacePoses?.[index];
   if(cached&&cached.hasThree===!!ghost3d.T&&cached.surface===surface&&cached.tyres===tyres&&cached.time===time&&cached.x===p.x&&cached.z===p.z&&cached.fx===p.fx&&cached.fz===p.fz)return cached.result;
@@ -88,7 +88,6 @@ function ghostDrapeWorld(S,root) {
 }
 function ghostTopographyCamera(S,poses,view) {
   const surface=ghostTopography(S);if(surface.flat)return view;
-  const supports=poses.map((p,i)=>ghostSurfacePose(S,p,i,st.play.e));
   const mode=ghost.camera,focus=mode==='b'?1:0;
   if(mode==='free')return view; // Free orbit already uses absolute world coordinates.
   const camera=view.camera.slice(),target=view.target.slice();
@@ -96,10 +95,11 @@ function ghostTopographyCamera(S,poses,view) {
     const max=surface.maxElevation;
     camera[1]+=Math.max(0,max);target[1]=max/2;
   }else{
+    const supports=poses.map((p,i)=>ghostSurfacePose(S,p,i,st.play.e));
     const mean=(supports[0].y+supports[1].y)/2;
     target[1]+=mode==='compare'||mode==='tv'?mean:surface.heightAt(target[0],target[2],supports[focus].station);
-    camera[1]+=surface.heightAt(camera[0],camera[2],mode==='tv'?undefined:supports[focus].station);
-    camera[1]=Math.max(camera[1],surface.heightAt(camera[0],camera[2],mode==='tv'?undefined:supports[focus].station)+.65);
+    const ground=surface.heightAt(camera[0],camera[2],mode==='tv'?undefined:supports[focus].station);
+    camera[1]+=ground;camera[1]=Math.max(camera[1],ground+.65);
   }
   return {camera,target};
 }

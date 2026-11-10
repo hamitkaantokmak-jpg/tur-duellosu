@@ -58,3 +58,32 @@ test('station-hinted projection stays on the requested branch at crossings',()=>
  const s=api.create({length:1000,centerline:u=>({x:100*Math.sin(u*2*Math.PI),z:100*Math.sin(u*4*Math.PI)})});
  assert.ok(s.project(0,0,0).distance<5);assert.ok(Math.abs(s.project(0,0,500).distance-500)<5);
 });
+
+test('normal and heading validation reject nonfinite and degenerate orientations',async()=>{
+ const T=await import('three');
+ for(const v of [{x:NaN,y:1,z:0},{x:Infinity,y:1,z:0},{x:0,y:0,z:0}])assert.throws(()=>api.unit(v));
+ for(const [x,z]of [[0,0],[NaN,1],[1,Infinity]])assert.throws(()=>api.orientation(T,{x:0,y:1,z:0},x,z));
+});
+test('banking limit, negative elevation and nonzero periodic seam remain finite',()=>{
+ const profile={metadata:{...fixture.metadata},samples:[{distance:0,elevation:-20,banking:.35},{distance:100,elevation:25,banking:-.35},{distance:300,elevation:0,banking:.35},{distance:4304,elevation:-20,banking:.35}]};
+ const s=surface(profile);
+ for(let d=-50;d<4400;d+=.77){const f=s.sampleAtDistance(d,3);assert.ok(Math.abs(f.banking)<=.35000001);assert.ok(f.elevation>=-20.00001&&f.elevation<=25.00001);assert.ok(Object.values(f.surfaceNormal).every(Number.isFinite));}
+ const a=s.sampleAtDistance(-1e-6),b=s.sampleAtDistance(1e-6);near(a.position.y,b.position.y,1e-5);near(a.gradient,b.gradient,1e-5);
+ profile.samples[1].banking=-.350001;assert.throws(()=>surface(profile));
+});
+test('scalar height query agrees with the full surface without evaluating a normal',()=>{
+ const s=surface(fixture);
+ for(let d=0;d<4304;d+=17){const p=s.sampleAtDistance(d,2).position,q=s.project(p.x,p.z,d);near(s.heightAt(p.x,p.z,d),s.sampleAtDistance(q.distance,q.offset).position.y);}
+});
+test('profile input is snapshotted so later caller mutation cannot corrupt a cached surface',()=>{
+ const p=structuredClone(fixture),s=surface(p),before=s.sampleAtDistance(300);
+ p.samples[2].distance=0;p.samples[2].elevation=1e6;p.metadata.category='verified';
+ assert.deepEqual(s.sampleAtDistance(300),before);assert.equal(s.metadata.category,'illustrative');
+});
+test('spatial grid proves the nearest segment even beyond its first occupied ring',()=>{
+ const p=[[90,90],[200,200],[110,-10],[200,-200],[90,90]];
+ const s=api.create({length:400,centerline:u=>{const k=u*4,i=Math.min(3,Math.floor(k)),f=k-i;return{x:p[i][0]+(p[i+1][0]-p[i][0])*f,z:p[i][1]+(p[i+1][1]-p[i][1])*f};}});
+ let brute=Infinity;
+ for(let i=0;i<s.points.length;i++){const a=s.points[i],b=s.points[(i+1)%s.points.length],dx=b.x-a.x,dz=b.z-a.z,t=Math.max(0,Math.min(1,-(a.x*dx+a.z*dz)/(dx*dx+dz*dz)));brute=Math.min(brute,(a.x+t*dx)**2+(a.z+t*dz)**2);}
+ near(s.project(0,0).error,brute);
+});

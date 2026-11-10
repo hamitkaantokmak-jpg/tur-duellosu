@@ -14,7 +14,7 @@ const fixture=require('../tests/fixtures/synthetic-topography.cjs');
   await page.waitForFunction(()=>typeof ghost3d!=='undefined'&&ghost3d.ready&&ghost3d.v4Stats&&VisualAssets.state==='ready'&&ghost3d.cars[0].userData.asset,null,{timeout:120000});
   await page.locator('#ghostRenderQuality').selectOption('performance');await page.locator('#ghostAdaptive').uncheck();
   const manifest=[];
-  for(const [name,station,mode] of [['01-flat-to-climb',100,'cinematic'],['02-uphill',320,'cinematic'],['03-crest',550,'cinematic'],['04-descent',720,'cinematic'],['05-banked-corner',1154,'cinematic'],['06-kerbs',1154,'free'],['07-follow-uphill',320,'a']]){
+  for(const [name,station,mode] of [['01-flat-to-climb',100,'cinematic'],['02-uphill',320,'cinematic'],['03-crest',550,'cinematic'],['04-descent',720,'cinematic'],['05-banked-corner',1154,'cinematic'],['06-kerbs',1154,'free'],['07-follow-uphill',320,'a'],['08-cockpit',320,'cockpit']]){
    const data=await page.evaluate(({station,mode})=>{
     stopPlay();const S=ghostBuild();let best=0,error=Infinity;
     for(let t=0;t<st.A.total;t+=.025){const p=ghostReplayPoses(S,t)[0],s=ghostSurfacePose(S,p,0,t),d=Math.abs(s.station-station);if(d<error){error=d;best=t;}}
