@@ -18,6 +18,8 @@ for(const [id,data]of Object.entries(profiles)){
   const smooth=i=>(raw.rows[(i+n-1)%n].elevation+2*raw.rows[i].elevation+raw.rows[(i+1)%n].elevation)/4,origin=smooth(0);
   profile.samples.slice(0,-1).forEach((p,i)=>{assert.ok(Math.abs(p.elevation-(smooth(i)-origin))<1e-10);assert.equal(p.kind,'filtered-dem');assert.equal(p.sourceIndex,i);});
   const min=Math.min(...profile.samples.map(p=>p.elevation)),max=Math.max(...profile.samples.map(p=>p.elevation));
+  const original=core.circuit(data.coordinates,data.length);
+  for(let d=0;d<data.length;d+=2){const a=original.sample(d/data.length),b=track.sample(d/data.length);assert.ok(Math.hypot(a.x-b.x,a.z-b.z)<1.5);}
   for(let d=-1;d<data.length+1;d+=.71){const f=s.sampleAtDistance(d);assert.ok(f.elevation>=min-1e-8&&f.elevation<=max+1e-8);assert.ok(Math.abs(f.gradient)<.30);assert.equal(f.banking,0);}
   const a=s.sampleAtDistance(-1e-6),b=s.sampleAtDistance(1e-6);assert.ok(Math.abs(a.elevation-b.elevation)<1e-5);assert.ok(Math.abs(a.gradient-b.gradient)<1e-5);
   assert.equal(s.length,data.length);assert.deepEqual(s.sampleAtDistance(0),s.sampleAtDistance(data.length));

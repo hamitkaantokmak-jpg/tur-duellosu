@@ -9,7 +9,11 @@
   return data;
  }
  function reference(data,ReplayCore,TrackTopography){
-  validate(data);const track=ReplayCore.circuit(data.coordinates,data.length);
+  validate(data);const raw=ReplayCore.circuit(data.coordinates,data.length);
+  // Map centerlines are piecewise linear, not engineering road joins. A fixed
+  // symmetric 12 m neighborhood removes their artificial yaw/grade corners.
+  // Station parameter and elevation samples remain unchanged.
+  const track={...raw,sample(u){let x=0,z=0;for(const [d,w]of [[-6,1],[-3,2],[0,3],[3,2],[6,1]]){const p=raw.sample(u+d/data.length);x+=p.x*w/9;z+=p.z*w/9;}return{x,z};}};
   // Validate the full periodic interpolant once, not inside the render loop.
   const surface=TrackTopography.create({length:data.length,centerline:u=>track.sample(u),profile:data.profile});
   for(let d=0;d<data.length;d+=2)if(Math.abs(surface.sampleAtDistance(d).gradient)>.30)throw Error('Terrain grade exceeds acceptance bound');

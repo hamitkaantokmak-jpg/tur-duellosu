@@ -709,6 +709,7 @@
         "rawSha256": "c76fc5a7d6c4c0b756ed6435896da0a57aaeb71e135e333b501c0da753a39f2a",
         "originElevationMeters": 155.00193786625,
         "processing": "One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime",
+        "horizontalProcessing": "Symmetric station offsets [-6,-3,0,3,6] m, weights [1,2,3,2,1]/9; preserve station parameter",
         "maxFilterResidualMeters": 0.29974746675000574
       },
       "samples": [
@@ -2646,6 +2647,1890 @@
         },
         {
           "distance": 5514,
+          "elevation": 0,
+          "banking": 0,
+          "kind": "periodic-closure",
+          "sourceIndex": 0
+        }
+      ]
+    }
+  },
+  "spa": {
+    "id": "spa",
+    "length": 7004,
+    "productionEnabled": true,
+    "coordinates": [
+      [
+        5.96502,
+        50.444251
+      ],
+      [
+        5.963419,
+        50.446033
+      ],
+      [
+        5.963402,
+        50.446113
+      ],
+      [
+        5.963473,
+        50.446184
+      ],
+      [
+        5.963621,
+        50.446217
+      ],
+      [
+        5.963786,
+        50.446188
+      ],
+      [
+        5.964313,
+        50.446019
+      ],
+      [
+        5.965592,
+        50.445628
+      ],
+      [
+        5.966207,
+        50.445387
+      ],
+      [
+        5.966847,
+        50.445085
+      ],
+      [
+        5.967421,
+        50.444779
+      ],
+      [
+        5.967876,
+        50.444463
+      ],
+      [
+        5.970321,
+        50.442606
+      ],
+      [
+        5.970493,
+        50.442502
+      ],
+      [
+        5.970788,
+        50.442385
+      ],
+      [
+        5.971315,
+        50.442168
+      ],
+      [
+        5.971546,
+        50.442022
+      ],
+      [
+        5.971741,
+        50.441824
+      ],
+      [
+        5.971866,
+        50.441644
+      ],
+      [
+        5.971949,
+        50.441442
+      ],
+      [
+        5.97202,
+        50.441069
+      ],
+      [
+        5.972061,
+        50.440937
+      ],
+      [
+        5.972132,
+        50.440815
+      ],
+      [
+        5.972268,
+        50.440655
+      ],
+      [
+        5.973476,
+        50.439424
+      ],
+      [
+        5.974245,
+        50.438642
+      ],
+      [
+        5.974458,
+        50.43835
+      ],
+      [
+        5.974594,
+        50.438133
+      ],
+      [
+        5.974754,
+        50.437784
+      ],
+      [
+        5.975719,
+        50.435639
+      ],
+      [
+        5.977199,
+        50.432382
+      ],
+      [
+        5.977542,
+        50.431599
+      ],
+      [
+        5.97756,
+        50.431472
+      ],
+      [
+        5.977524,
+        50.431331
+      ],
+      [
+        5.977406,
+        50.431218
+      ],
+      [
+        5.977234,
+        50.431123
+      ],
+      [
+        5.977015,
+        50.431048
+      ],
+      [
+        5.976885,
+        50.430968
+      ],
+      [
+        5.976796,
+        50.430874
+      ],
+      [
+        5.976725,
+        50.430732
+      ],
+      [
+        5.976737,
+        50.430591
+      ],
+      [
+        5.977033,
+        50.429747
+      ],
+      [
+        5.977027,
+        50.429601
+      ],
+      [
+        5.97698,
+        50.429469
+      ],
+      [
+        5.97682,
+        50.429323
+      ],
+      [
+        5.97663,
+        50.429224
+      ],
+      [
+        5.973257,
+        50.427739
+      ],
+      [
+        5.973044,
+        50.427682
+      ],
+      [
+        5.972831,
+        50.427678
+      ],
+      [
+        5.972606,
+        50.42772
+      ],
+      [
+        5.972422,
+        50.427805
+      ],
+      [
+        5.972292,
+        50.427927
+      ],
+      [
+        5.972239,
+        50.42805
+      ],
+      [
+        5.972227,
+        50.428182
+      ],
+      [
+        5.972292,
+        50.428305
+      ],
+      [
+        5.97241,
+        50.428432
+      ],
+      [
+        5.972582,
+        50.428521
+      ],
+      [
+        5.974056,
+        50.429101
+      ],
+      [
+        5.974216,
+        50.429205
+      ],
+      [
+        5.974304,
+        50.429309
+      ],
+      [
+        5.97434,
+        50.429431
+      ],
+      [
+        5.974322,
+        50.429582
+      ],
+      [
+        5.973712,
+        50.430723
+      ],
+      [
+        5.973523,
+        50.431189
+      ],
+      [
+        5.973091,
+        50.432627
+      ],
+      [
+        5.972878,
+        50.433452
+      ],
+      [
+        5.972831,
+        50.433593
+      ],
+      [
+        5.972724,
+        50.433744
+      ],
+      [
+        5.972582,
+        50.433867
+      ],
+      [
+        5.972369,
+        50.433999
+      ],
+      [
+        5.972132,
+        50.434098
+      ],
+      [
+        5.971872,
+        50.434164
+      ],
+      [
+        5.971599,
+        50.434192
+      ],
+      [
+        5.970717,
+        50.43423
+      ],
+      [
+        5.97038,
+        50.434206
+      ],
+      [
+        5.970072,
+        50.43415
+      ],
+      [
+        5.969759,
+        50.434065
+      ],
+      [
+        5.969504,
+        50.433956
+      ],
+      [
+        5.969208,
+        50.433782
+      ],
+      [
+        5.969019,
+        50.433608
+      ],
+      [
+        5.968812,
+        50.433358
+      ],
+      [
+        5.967977,
+        50.432028
+      ],
+      [
+        5.967231,
+        50.430845
+      ],
+      [
+        5.967071,
+        50.430661
+      ],
+      [
+        5.966882,
+        50.430534
+      ],
+      [
+        5.966622,
+        50.43044
+      ],
+      [
+        5.966361,
+        50.430393
+      ],
+      [
+        5.966119,
+        50.430388
+      ],
+      [
+        5.965876,
+        50.430421
+      ],
+      [
+        5.965669,
+        50.430482
+      ],
+      [
+        5.965325,
+        50.430624
+      ],
+      [
+        5.9651,
+        50.430685
+      ],
+      [
+        5.964828,
+        50.430713
+      ],
+      [
+        5.964556,
+        50.430694
+      ],
+      [
+        5.964307,
+        50.430643
+      ],
+      [
+        5.964094,
+        50.430548
+      ],
+      [
+        5.963958,
+        50.43044
+      ],
+      [
+        5.963792,
+        50.430294
+      ],
+      [
+        5.962425,
+        50.428927
+      ],
+      [
+        5.962289,
+        50.428847
+      ],
+      [
+        5.962123,
+        50.42879
+      ],
+      [
+        5.961922,
+        50.428762
+      ],
+      [
+        5.961697,
+        50.428771
+      ],
+      [
+        5.961502,
+        50.428828
+      ],
+      [
+        5.960578,
+        50.429257
+      ],
+      [
+        5.960034,
+        50.429511
+      ],
+      [
+        5.959898,
+        50.429624
+      ],
+      [
+        5.959756,
+        50.429761
+      ],
+      [
+        5.959673,
+        50.429893
+      ],
+      [
+        5.959614,
+        50.430049
+      ],
+      [
+        5.959602,
+        50.430209
+      ],
+      [
+        5.959643,
+        50.430402
+      ],
+      [
+        5.959738,
+        50.430567
+      ],
+      [
+        5.959862,
+        50.430779
+      ],
+      [
+        5.960046,
+        50.4311
+      ],
+      [
+        5.960365,
+        50.431463
+      ],
+      [
+        5.960715,
+        50.431779
+      ],
+      [
+        5.961247,
+        50.43216
+      ],
+      [
+        5.962135,
+        50.432712
+      ],
+      [
+        5.962656,
+        50.432971
+      ],
+      [
+        5.9631,
+        50.433136
+      ],
+      [
+        5.965385,
+        50.433895
+      ],
+      [
+        5.965716,
+        50.434027
+      ],
+      [
+        5.96603,
+        50.434183
+      ],
+      [
+        5.96632,
+        50.434357
+      ],
+      [
+        5.966568,
+        50.434546
+      ],
+      [
+        5.966799,
+        50.434744
+      ],
+      [
+        5.967107,
+        50.435106
+      ],
+      [
+        5.967356,
+        50.435455
+      ],
+      [
+        5.967924,
+        50.436261
+      ],
+      [
+        5.968024,
+        50.436436
+      ],
+      [
+        5.968084,
+        50.436624
+      ],
+      [
+        5.968095,
+        50.43686
+      ],
+      [
+        5.968036,
+        50.437072
+      ],
+      [
+        5.967699,
+        50.437624
+      ],
+      [
+        5.967332,
+        50.438232
+      ],
+      [
+        5.966888,
+        50.438991
+      ],
+      [
+        5.966775,
+        50.439273
+      ],
+      [
+        5.966669,
+        50.439608
+      ],
+      [
+        5.966604,
+        50.439919
+      ],
+      [
+        5.966562,
+        50.440183
+      ],
+      [
+        5.966432,
+        50.441404
+      ],
+      [
+        5.966456,
+        50.441484
+      ],
+      [
+        5.966533,
+        50.441541
+      ],
+      [
+        5.966651,
+        50.44156
+      ],
+      [
+        5.966852,
+        50.441541
+      ],
+      [
+        5.96706,
+        50.441541
+      ],
+      [
+        5.967202,
+        50.44156
+      ],
+      [
+        5.967296,
+        50.441626
+      ],
+      [
+        5.96732,
+        50.441701
+      ],
+      [
+        5.967261,
+        50.4418
+      ],
+      [
+        5.966533,
+        50.442559
+      ],
+      [
+        5.96502,
+        50.444251
+      ]
+    ],
+    "profile": {
+      "metadata": {
+        "category": "derived",
+        "owner": "Service public de Wallonie (SPW)",
+        "license": "CC-BY-4.0; centerline MIT",
+        "source": "https://geoportail.wallonie.be/catalogue/a004e570-99d6-4fe5-b83d-49b774409278.html",
+        "horizontalCRS": "Source EPSG:3812; query EPSG:4326 (server conversion)",
+        "verticalDatum": "DNG / EPSG:5710",
+        "resolutionMeters": 0.5,
+        "uncertainty": "Published regional absolute vertical accuracy ~0.12 m; approximate centerline, bridge exclusion and 2021-2022 acquisition add unquantified asphalt error.",
+        "label": "TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi",
+        "verticalUnit": "m",
+        "bankingStatus": "unmeasured",
+        "surface": "bare-earth DEM, not surveyed asphalt",
+        "retrievedAt": "2026-11-10T18:53:20.388Z",
+        "sourceSpacingMeters": 39.79545454545455,
+        "centerlineSha256": "b867de9cc8364cc9b545a044377a56a697b8db77823c849c1a1c03760a943381",
+        "rawSha256": "9ec5b514d7f3c5aaf31748402b1b3daafbe47a575c5c2abea4bb57463a006a76",
+        "originElevationMeters": 416.9878235,
+        "processing": "One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime",
+        "horizontalProcessing": "Symmetric station offsets [-6,-3,0,3,6] m, weights [1,2,3,2,1]/9; preserve station parameter",
+        "maxFilterResidualMeters": 0.8401567500000056
+      },
+      "samples": [
+        {
+          "distance": 0,
+          "elevation": 0,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 0
+        },
+        {
+          "distance": 39.79545454545455,
+          "elevation": 0.7426527500000475,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 1
+        },
+        {
+          "distance": 79.5909090909091,
+          "elevation": 1.5034254999999916,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 2
+        },
+        {
+          "distance": 119.38636363636364,
+          "elevation": 2.441246250000006,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 3
+        },
+        {
+          "distance": 159.1818181818182,
+          "elevation": 3.7515642500000013,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 4
+        },
+        {
+          "distance": 198.97727272727272,
+          "elevation": 5.213592500000004,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 5
+        },
+        {
+          "distance": 238.77272727272728,
+          "elevation": 5.861091500000043,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 6
+        },
+        {
+          "distance": 278.5681818181818,
+          "elevation": 4.887649500000009,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 7
+        },
+        {
+          "distance": 318.3636363636364,
+          "elevation": 2.7606124999999793,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 8
+        },
+        {
+          "distance": 358.15909090909093,
+          "elevation": 0.313423250000028,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 9
+        },
+        {
+          "distance": 397.95454545454544,
+          "elevation": -2.1995467499999677,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 10
+        },
+        {
+          "distance": 437.75,
+          "elevation": -4.734855750000008,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 11
+        },
+        {
+          "distance": 477.54545454545456,
+          "elevation": -7.229537999999991,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 12
+        },
+        {
+          "distance": 517.3409090909091,
+          "elevation": -9.583602749999955,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 13
+        },
+        {
+          "distance": 557.1363636363636,
+          "elevation": -11.68470000000002,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 14
+        },
+        {
+          "distance": 596.9318181818181,
+          "elevation": -13.612671000000034,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 15
+        },
+        {
+          "distance": 636.7272727272727,
+          "elevation": -15.561576749999972,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 16
+        },
+        {
+          "distance": 676.5227272727273,
+          "elevation": -17.589233250000007,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 17
+        },
+        {
+          "distance": 716.3181818181819,
+          "elevation": -19.65002425,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 18
+        },
+        {
+          "distance": 756.1136363636364,
+          "elevation": -21.64205899999996,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 19
+        },
+        {
+          "distance": 795.9090909090909,
+          "elevation": -23.464080499999966,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 20
+        },
+        {
+          "distance": 835.7045454545455,
+          "elevation": -25.12985225,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 21
+        },
+        {
+          "distance": 875.5,
+          "elevation": -26.48140724999996,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 22
+        },
+        {
+          "distance": 915.2954545454545,
+          "elevation": -26.847030749999988,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 23
+        },
+        {
+          "distance": 955.0909090909091,
+          "elevation": -25.160789749999992,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 24
+        },
+        {
+          "distance": 994.8863636363636,
+          "elevation": -20.980171499999983,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 25
+        },
+        {
+          "distance": 1034.6818181818182,
+          "elevation": -15.440170499999965,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 26
+        },
+        {
+          "distance": 1074.4772727272727,
+          "elevation": -10.188453749999951,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 27
+        },
+        {
+          "distance": 1114.2727272727273,
+          "elevation": -6.080642749999981,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 28
+        },
+        {
+          "distance": 1154.0681818181818,
+          "elevation": -3.2122042500000134,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 29
+        },
+        {
+          "distance": 1193.8636363636363,
+          "elevation": -1.1564182500000015,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 30
+        },
+        {
+          "distance": 1233.659090909091,
+          "elevation": 0.6567227499999717,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 31
+        },
+        {
+          "distance": 1273.4545454545455,
+          "elevation": 2.4721984999999904,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 32
+        },
+        {
+          "distance": 1313.25,
+          "elevation": 4.295624000000032,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 33
+        },
+        {
+          "distance": 1353.0454545454545,
+          "elevation": 6.109833000000037,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 34
+        },
+        {
+          "distance": 1392.840909090909,
+          "elevation": 7.9223329999999805,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 35
+        },
+        {
+          "distance": 1432.6363636363637,
+          "elevation": 9.734985499999993,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 36
+        },
+        {
+          "distance": 1472.4318181818182,
+          "elevation": 11.544044500000041,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 37
+        },
+        {
+          "distance": 1512.2272727272727,
+          "elevation": 13.37795275000002,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 38
+        },
+        {
+          "distance": 1552.0227272727273,
+          "elevation": 15.207954749999999,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 39
+        },
+        {
+          "distance": 1591.8181818181818,
+          "elevation": 16.991554500000007,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 40
+        },
+        {
+          "distance": 1631.6136363636363,
+          "elevation": 18.7573395,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 41
+        },
+        {
+          "distance": 1671.409090909091,
+          "elevation": 20.552963000000034,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 42
+        },
+        {
+          "distance": 1711.2045454545455,
+          "elevation": 22.36218224999999,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 43
+        },
+        {
+          "distance": 1751,
+          "elevation": 24.143897750000065,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 44
+        },
+        {
+          "distance": 1790.7954545454545,
+          "elevation": 25.92967200000004,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 45
+        },
+        {
+          "distance": 1830.590909090909,
+          "elevation": 27.755927750000012,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 46
+        },
+        {
+          "distance": 1870.3863636363637,
+          "elevation": 29.581405500000017,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 47
+        },
+        {
+          "distance": 1910.1818181818182,
+          "elevation": 31.390152,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 48
+        },
+        {
+          "distance": 1949.9772727272727,
+          "elevation": 33.20608525,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 49
+        },
+        {
+          "distance": 1989.7727272727273,
+          "elevation": 35.00874325000001,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 50
+        },
+        {
+          "distance": 2029.5681818181818,
+          "elevation": 36.81265250000001,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 51
+        },
+        {
+          "distance": 2069.3636363636365,
+          "elevation": 38.654060500000014,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 52
+        },
+        {
+          "distance": 2109.159090909091,
+          "elevation": 40.505310250000036,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 53
+        },
+        {
+          "distance": 2148.9545454545455,
+          "elevation": 42.339530999999965,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 54
+        },
+        {
+          "distance": 2188.75,
+          "elevation": 44.13437675,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 55
+        },
+        {
+          "distance": 2228.5454545454545,
+          "elevation": 45.88233975000003,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 56
+        },
+        {
+          "distance": 2268.340909090909,
+          "elevation": 47.50342575000002,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 57
+        },
+        {
+          "distance": 2308.1363636363635,
+          "elevation": 48.84436049999999,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 58
+        },
+        {
+          "distance": 2347.931818181818,
+          "elevation": 49.91249099999999,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 59
+        },
+        {
+          "distance": 2387.7272727272725,
+          "elevation": 50.779998999999975,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 60
+        },
+        {
+          "distance": 2427.5227272727275,
+          "elevation": 51.42250075000004,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 61
+        },
+        {
+          "distance": 2467.318181818182,
+          "elevation": 51.74797050000001,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 62
+        },
+        {
+          "distance": 2507.1136363636365,
+          "elevation": 51.701408249999986,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 63
+        },
+        {
+          "distance": 2546.909090909091,
+          "elevation": 51.31812275000004,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 64
+        },
+        {
+          "distance": 2586.7045454545455,
+          "elevation": 50.6346815,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 65
+        },
+        {
+          "distance": 2626.5,
+          "elevation": 49.65874450000001,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 66
+        },
+        {
+          "distance": 2666.2954545454545,
+          "elevation": 48.39062475000003,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 67
+        },
+        {
+          "distance": 2706.090909090909,
+          "elevation": 46.831253000000004,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 68
+        },
+        {
+          "distance": 2745.8863636363635,
+          "elevation": 44.98796850000008,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 69
+        },
+        {
+          "distance": 2785.681818181818,
+          "elevation": 42.85030375000002,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 70
+        },
+        {
+          "distance": 2825.4772727272725,
+          "elevation": 40.40873725,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 71
+        },
+        {
+          "distance": 2865.2727272727275,
+          "elevation": 37.70201850000001,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 72
+        },
+        {
+          "distance": 2905.068181818182,
+          "elevation": 34.81795475000001,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 73
+        },
+        {
+          "distance": 2944.8636363636365,
+          "elevation": 31.901710500000036,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 74
+        },
+        {
+          "distance": 2984.659090909091,
+          "elevation": 29.06498725,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 75
+        },
+        {
+          "distance": 3024.4545454545455,
+          "elevation": 26.28966525000004,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 76
+        },
+        {
+          "distance": 3064.25,
+          "elevation": 23.510764999999992,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 77
+        },
+        {
+          "distance": 3104.0454545454545,
+          "elevation": 20.74030300000004,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 78
+        },
+        {
+          "distance": 3143.840909090909,
+          "elevation": 18.042335500000036,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 79
+        },
+        {
+          "distance": 3183.6363636363635,
+          "elevation": 15.366081250000036,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 80
+        },
+        {
+          "distance": 3223.431818181818,
+          "elevation": 12.589202999999998,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 81
+        },
+        {
+          "distance": 3263.2272727272725,
+          "elevation": 9.74561325000002,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 82
+        },
+        {
+          "distance": 3303.0227272727275,
+          "elevation": 6.940299999999979,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 83
+        },
+        {
+          "distance": 3342.818181818182,
+          "elevation": 4.1676405000000045,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 84
+        },
+        {
+          "distance": 3382.6136363636365,
+          "elevation": 1.3834227500000225,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 85
+        },
+        {
+          "distance": 3422.409090909091,
+          "elevation": -1.3928222499999947,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 86
+        },
+        {
+          "distance": 3462.2045454545455,
+          "elevation": -4.147354250000035,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 87
+        },
+        {
+          "distance": 3502,
+          "elevation": -6.915649749999943,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 88
+        },
+        {
+          "distance": 3541.7954545454545,
+          "elevation": -9.692680749999965,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 89
+        },
+        {
+          "distance": 3581.590909090909,
+          "elevation": -12.452667499999961,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 90
+        },
+        {
+          "distance": 3621.3863636363635,
+          "elevation": -15.188759000000005,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 91
+        },
+        {
+          "distance": 3661.181818181818,
+          "elevation": -17.92329424999997,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 92
+        },
+        {
+          "distance": 3700.9772727272725,
+          "elevation": -20.701576499999987,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 93
+        },
+        {
+          "distance": 3740.7727272727275,
+          "elevation": -23.519699249999974,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 94
+        },
+        {
+          "distance": 3780.568181818182,
+          "elevation": -26.325950499999976,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 95
+        },
+        {
+          "distance": 3820.3636363636365,
+          "elevation": -29.074073499999997,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 96
+        },
+        {
+          "distance": 3860.159090909091,
+          "elevation": -31.682349999999985,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 97
+        },
+        {
+          "distance": 3899.9545454545455,
+          "elevation": -34.03328725,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 98
+        },
+        {
+          "distance": 3939.75,
+          "elevation": -36.08157375000002,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 99
+        },
+        {
+          "distance": 3979.5454545454545,
+          "elevation": -37.79891974999998,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 100
+        },
+        {
+          "distance": 4019.340909090909,
+          "elevation": -39.162353499999995,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 101
+        },
+        {
+          "distance": 4059.1363636363635,
+          "elevation": -40.20157624999996,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 102
+        },
+        {
+          "distance": 4098.931818181818,
+          "elevation": -40.90766924999997,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 103
+        },
+        {
+          "distance": 4138.727272727273,
+          "elevation": -41.28625499999998,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 104
+        },
+        {
+          "distance": 4178.522727272727,
+          "elevation": -41.37906650000002,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 105
+        },
+        {
+          "distance": 4218.318181818182,
+          "elevation": -41.20250725,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 106
+        },
+        {
+          "distance": 4258.113636363636,
+          "elevation": -40.84329249999996,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 107
+        },
+        {
+          "distance": 4297.909090909091,
+          "elevation": -40.45891574999996,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 108
+        },
+        {
+          "distance": 4337.704545454545,
+          "elevation": -40.121253749999994,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 109
+        },
+        {
+          "distance": 4377.5,
+          "elevation": -39.816566249999994,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 110
+        },
+        {
+          "distance": 4417.295454545455,
+          "elevation": -39.56360625000002,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 111
+        },
+        {
+          "distance": 4457.090909090909,
+          "elevation": -39.435798750000004,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 112
+        },
+        {
+          "distance": 4496.886363636364,
+          "elevation": -39.50579074999996,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 113
+        },
+        {
+          "distance": 4536.681818181818,
+          "elevation": -39.783439499999986,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 114
+        },
+        {
+          "distance": 4576.477272727273,
+          "elevation": -40.187820250000016,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 115
+        },
+        {
+          "distance": 4616.272727272727,
+          "elevation": -40.683295999999984,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 116
+        },
+        {
+          "distance": 4656.068181818182,
+          "elevation": -41.34767125000002,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 117
+        },
+        {
+          "distance": 4695.863636363636,
+          "elevation": -42.18267049999997,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 118
+        },
+        {
+          "distance": 4735.659090909091,
+          "elevation": -43.16563425000004,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 119
+        },
+        {
+          "distance": 4775.454545454545,
+          "elevation": -44.35953525000002,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 120
+        },
+        {
+          "distance": 4815.25,
+          "elevation": -45.77188100000001,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 121
+        },
+        {
+          "distance": 4855.045454545455,
+          "elevation": -47.25891849999999,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 122
+        },
+        {
+          "distance": 4894.840909090909,
+          "elevation": -48.577674499999944,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 123
+        },
+        {
+          "distance": 4934.636363636364,
+          "elevation": -49.56173675000002,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 124
+        },
+        {
+          "distance": 4974.431818181818,
+          "elevation": -50.151572999999985,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 125
+        },
+        {
+          "distance": 5014.227272727273,
+          "elevation": -50.303451499999994,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 126
+        },
+        {
+          "distance": 5054.022727272727,
+          "elevation": -49.98814399999998,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 127
+        },
+        {
+          "distance": 5093.818181818182,
+          "elevation": -49.227355999999986,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 128
+        },
+        {
+          "distance": 5133.613636363636,
+          "elevation": -48.14454649999993,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 129
+        },
+        {
+          "distance": 5173.409090909091,
+          "elevation": -46.91111774999996,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 130
+        },
+        {
+          "distance": 5213.204545454545,
+          "elevation": -45.64814775000002,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 131
+        },
+        {
+          "distance": 5253,
+          "elevation": -44.39266950000001,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 132
+        },
+        {
+          "distance": 5292.795454545455,
+          "elevation": -43.12094099999996,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 133
+        },
+        {
+          "distance": 5332.590909090909,
+          "elevation": -41.85140999999999,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 134
+        },
+        {
+          "distance": 5372.386363636364,
+          "elevation": -40.61625674999999,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 135
+        },
+        {
+          "distance": 5412.181818181818,
+          "elevation": -39.410003500000016,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 136
+        },
+        {
+          "distance": 5451.977272727273,
+          "elevation": -38.31359850000001,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 137
+        },
+        {
+          "distance": 5491.772727272727,
+          "elevation": -37.382667500000025,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 138
+        },
+        {
+          "distance": 5531.568181818182,
+          "elevation": -36.529075499999976,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 139
+        },
+        {
+          "distance": 5571.363636363636,
+          "elevation": -35.68641649999995,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 140
+        },
+        {
+          "distance": 5611.159090909091,
+          "elevation": -34.83937849999995,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 141
+        },
+        {
+          "distance": 5650.954545454545,
+          "elevation": -33.983749750000015,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 142
+        },
+        {
+          "distance": 5690.75,
+          "elevation": -33.13626125000002,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 143
+        },
+        {
+          "distance": 5730.545454545455,
+          "elevation": -32.290336749999994,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 144
+        },
+        {
+          "distance": 5770.340909090909,
+          "elevation": -31.405021750000003,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 145
+        },
+        {
+          "distance": 5810.136363636364,
+          "elevation": -30.45063775,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 146
+        },
+        {
+          "distance": 5849.931818181818,
+          "elevation": -29.41344449999997,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 147
+        },
+        {
+          "distance": 5889.727272727273,
+          "elevation": -28.308288749999974,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 148
+        },
+        {
+          "distance": 5929.522727272727,
+          "elevation": -27.19782275,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 149
+        },
+        {
+          "distance": 5969.318181818182,
+          "elevation": -26.100479249999978,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 150
+        },
+        {
+          "distance": 6009.113636363636,
+          "elevation": -25.00157949999999,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 151
+        },
+        {
+          "distance": 6048.909090909091,
+          "elevation": -23.96002225000001,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 152
+        },
+        {
+          "distance": 6088.704545454545,
+          "elevation": -23.082832499999995,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 153
+        },
+        {
+          "distance": 6128.5,
+          "elevation": -22.408607500000016,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 154
+        },
+        {
+          "distance": 6168.295454545455,
+          "elevation": -21.870323249999956,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 155
+        },
+        {
+          "distance": 6208.090909090909,
+          "elevation": -21.372825750000004,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 156
+        },
+        {
+          "distance": 6247.886363636364,
+          "elevation": -20.796569750000003,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 157
+        },
+        {
+          "distance": 6287.681818181818,
+          "elevation": -20.03375225000002,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 158
+        },
+        {
+          "distance": 6327.477272727273,
+          "elevation": -19.061721750000004,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 159
+        },
+        {
+          "distance": 6367.272727272727,
+          "elevation": -17.893287750000013,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 160
+        },
+        {
+          "distance": 6407.068181818182,
+          "elevation": -16.561889749999978,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 161
+        },
+        {
+          "distance": 6446.863636363636,
+          "elevation": -15.1475145,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 162
+        },
+        {
+          "distance": 6486.659090909091,
+          "elevation": -13.731102249999992,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 163
+        },
+        {
+          "distance": 6526.454545454545,
+          "elevation": -12.339073499999984,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 164
+        },
+        {
+          "distance": 6566.25,
+          "elevation": -10.92626224999998,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 165
+        },
+        {
+          "distance": 6606.045454545455,
+          "elevation": -9.512352249999992,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 166
+        },
+        {
+          "distance": 6645.840909090909,
+          "elevation": -8.141731249999964,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 167
+        },
+        {
+          "distance": 6685.636363636364,
+          "elevation": -6.823302999999953,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 168
+        },
+        {
+          "distance": 6725.431818181818,
+          "elevation": -5.6479872499999715,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 169
+        },
+        {
+          "distance": 6765.227272727273,
+          "elevation": -4.6489104999999995,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 170
+        },
+        {
+          "distance": 6805.022727272727,
+          "elevation": -3.7796934999999507,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 171
+        },
+        {
+          "distance": 6844.818181818182,
+          "elevation": -2.99610899999999,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 172
+        },
+        {
+          "distance": 6884.613636363636,
+          "elevation": -2.2407915000000003,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 173
+        },
+        {
+          "distance": 6924.409090909091,
+          "elevation": -1.4928209999999922,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 174
+        },
+        {
+          "distance": 6964.204545454545,
+          "elevation": -0.7473527500000046,
+          "banking": 0,
+          "kind": "filtered-dem",
+          "sourceIndex": 175
+        },
+        {
+          "distance": 7004,
           "elevation": 0,
           "banking": 0,
           "kind": "periodic-closure",
