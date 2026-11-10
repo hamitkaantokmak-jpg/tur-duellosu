@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "test": "npm run test:unit && npm run test:browser",
-    "serve": "python3 -m http.server 4173",
+    "serve": "node scripts/serve.cjs 4173",
     "test:unit": "node --test tests/*.test.cjs",
     "test:browser": "playwright test",
     "assets:build": "blender -b --threads 2 --python art/blender/build_v4.py && node scripts/optimize-v4.mjs",

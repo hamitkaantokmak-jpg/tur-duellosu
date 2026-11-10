@@ -29,7 +29,7 @@ function ghostSurfacePose(S,p,index,time) {
   if(surface.flat)return {y:0,normal:{x:0,y:1,z:0},station:0};
   const tyres=ghost3d.cars?.[index]?.userData.contacts||GHOST_FALLBACK_CONTACTS;
   const cached=S.surfacePoses?.[index];
-  if(cached&&cached.surface===surface&&cached.tyres===tyres&&cached.time===time&&cached.x===p.x&&cached.z===p.z&&cached.fx===p.fx&&cached.fz===p.fz)return cached.result;
+  if(cached&&cached.hasThree===!!ghost3d.T&&cached.surface===surface&&cached.tyres===tyres&&cached.time===time&&cached.x===p.x&&cached.z===p.z&&cached.fx===p.fx&&cached.fz===p.fz)return cached.result;
   const progress=ghostCurveAt(S.native[index].progress,time).v;
   const hint=(S.track?S.registration.phase+S.registration.dir*progress:progress)*surface.length;
   const at=surface.project(p.x,p.z,hint),s=surface.sampleAtDistance(at.distance,at.offset);
@@ -41,10 +41,12 @@ function ghostSurfacePose(S,p,index,time) {
   const mean=(axis,value)=>{const row=contacts.filter(c=>Math.abs(c[axis]-value)<.03);return row.reduce((sum,c)=>sum+c.ground,0)/row.length;};
   const longitudinal=(mean('z',maxZ)-mean('z',minZ))/(maxZ-minZ),lateral=(mean('x',maxX)-mean('x',minX))/(maxX-minX);
   const normal=TrackTopography.unit({x:-p.fx*longitudinal-right.x*lateral,y:1,z:-p.fz*longitudinal-right.z*lateral});
-  const T=ghost3d.T,q=TrackTopography.orientation(T,normal,p.fx,p.fz);
-  const y=Math.max(...tyres.map(c=>{const v=new T.Vector3(c.x,c.y,c.z).applyQuaternion(q);return surface.heightAt(p.x+v.x,p.z+v.z,at.distance)+.02-v.y;}));
+  const T=ghost3d.T;
+  const q=T?TrackTopography.orientation(T,normal,p.fx,p.fz):null;
+  const y=T?Math.max(...tyres.map(c=>{const v=new T.Vector3(c.x,c.y,c.z).applyQuaternion(q);return surface.heightAt(p.x+v.x,p.z+v.z,at.distance)+.02-v.y;})):
+    Math.max(...contacts.map(c=>c.ground-longitudinal*c.z-lateral*c.x-c.y));
   const result={y,normal,station:at.distance,banking:s.banking,gradient:s.gradient};
-  (S.surfacePoses||(S.surfacePoses=[]))[index]={surface,tyres,time,x:p.x,z:p.z,fx:p.fx,fz:p.fz,result};return result;
+  (S.surfacePoses||(S.surfacePoses=[]))[index]={surface,tyres,hasThree:!!ghost3d.T,time,x:p.x,z:p.z,fx:p.fx,fz:p.fz,result};return result;
 }
 function ghostDrapeWorld(S,root) {
   const surface=ghostTopography(S);if(surface.flat)return;

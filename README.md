@@ -3,7 +3,7 @@
 HTML/CSS/JavaScript ile gerçek F1 telemetrisi, veri stüdyosu, yarış analizi ve Three.js ghost lap karşılaştırması. Framework veya uygulama derlemesi gerekmez.
 
 ```sh
-python3 -m http.server 4173
+npm run serve
 ```
 
 `http://localhost:4173` adresini açın. İnternet; telemetri arşivi, Three.js ve decoder modülleri için gereklidir. Yerel görsel varlıklar depoya dahildir. Kayıtlı tercih yoksa 2024 Meksika sıralama HAM/RUS seçilir. **Hayalet tur** 3D görünümü, **Düelloya dön** ayrıntılı analizi açar.
@@ -26,6 +26,7 @@ npm run assets:build # yalnız Blender 4.3+ ile yeni araç/çevre üretimi
 
 `npm test`: saf çekirdek testleri + gerçek arşiv verisi kullanan Playwright senaryoları. Chromium gerekir; `CHROMIUM_PATH` ile yol seçilebilir. Test çizimi SwiftShader kullanır, fiziksel GPU performansı sayılmaz. Proxy CA'sı için gerekirse `CHROMIUM_PROXY_SPKI` tanımlanabilir; genel TLS denetimi kapatılmaz. Encoder uygulamayı çalıştırmak için gerekmez; varlık yeniden üretimi ve lisanslar aşağıdadır.
 
+- [V5 pist topografyası, veri doğruluğu ve doğrulama](docs/PIST-TOPOGRAFYASI.md)
 - [Takılma ve Brave grafik hızlandırma kontrolü](docs/TAKILMA-DUZELTMESI.md)
 - [Veri stüdyosu: 25 fikir, yöntemler ve testler](docs/VERI-STUDYOSU.md)
 - [Main entegrasyonu ve son regresyon](docs/MAIN-ENTEGRASYON.md)
