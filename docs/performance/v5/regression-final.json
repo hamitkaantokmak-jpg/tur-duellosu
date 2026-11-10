@@ -1,0 +1,956 @@
+{
+  "config": {
+    "configFile": "<checkout>\\playwright.config.js",
+    "rootDir": "C:/Users/Hamit Kaan Tokmak/Documents/Codex/2026-11-10/tur/work/tur-duellosu/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/Users/Hamit Kaan Tokmak/Documents/Codex/2026-11-10/tur/work/tur-duellosu/work/final-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/Hamit Kaan Tokmak/Documents/Codex/2026-11-10/tur/work/tur-duellosu/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.js"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node scripts/serve.cjs 4191",
+      "port": 4191,
+      "reuseExistingServer": true
+    }
+  },
+  "suites": [
+    {
+      "title": "high-dpi.spec.js",
+      "file": "high-dpi.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Ultra on a high-DPI display uses the reduced real drawing buffer and preserves Blender assets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14738,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T16:58:59.758Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "15adeb081e7f7f6f9af1-f4f2805064dc230fbd39",
+          "file": "high-dpi.spec.js",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "insight-lab.spec.js",
+      "file": "insight-lab.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "real telemetry powers the studio, exact region sums, theories, filtering and chart navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4857,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T16:59:14.947Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "322c3f8306601b6dcec0-4b2d0f69fdd45885fb9f",
+          "file": "insight-lab.spec.js",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "notes preserve spaces, safe imports, downloadable context and round-trip shared URLs",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3203,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T16:59:19.836Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "322c3f8306601b6dcec0-f47883abd5d91a3c674c",
+          "file": "insight-lab.spec.js",
+          "line": 90,
+          "column": 1
+        },
+        {
+          "title": "real race metadata powers tempo, pit coverage, position leadups, phases and weekend dossier",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3603,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T16:59:23.088Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "322c3f8306601b6dcec0-ed8fd2f62e144aa2ef98",
+          "file": "insight-lab.spec.js",
+          "line": 160,
+          "column": 1
+        },
+        {
+          "title": "multi-lap signatures, third driver and another year load actual archive telemetry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6346,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T16:59:26.718Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "322c3f8306601b6dcec0-bab1b53c1fb8553fc04b",
+          "file": "insight-lab.spec.js",
+          "line": 209,
+          "column": 1
+        },
+        {
+          "title": "missing secondary archive files produce recoverable state rather than invented results",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2926,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T16:59:33.095Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "322c3f8306601b6dcec0-fbb2130fca0e7493908e",
+          "file": "insight-lab.spec.js",
+          "line": 240,
+          "column": 1
+        },
+        {
+          "title": "initial archive failure can be retried inside the studio without hidden old results",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3019,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T16:59:36.046Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "322c3f8306601b6dcec0-aa8803e957747e5e99c2",
+          "file": "insight-lab.spec.js",
+          "line": 253,
+          "column": 1
+        },
+        {
+          "title": "late secondary data cannot replace a newly selected session",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4029,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T16:59:39.087Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "322c3f8306601b6dcec0-7f2b82239bc5ca963c15",
+          "file": "insight-lab.spec.js",
+          "line": 271,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "main-integration.spec.js",
+      "file": "main-integration.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "integrated main candidate uses V4 assets and all LODs through a complete real telemetry lap",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31068,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "INTEGRATION_LAP {\"data\":{\"totals\":[76.651,76.356],\"channels\":[{\"v\":{\"count\":539,\"finite\":true,\"varied\":true},\"thr\":{\"count\":539,\"finite\":true,\"varied\":true},\"brk\":{\"count\":539,\"finite\":true,\"varied\":true},\"gear\":{\"count\":539,\"finite\":true,\"varied\":true},\"rpm\":{\"count\":539,\"finite\":true,\"varied\":true}},{\"v\":{\"count\":539,\"finite\":true,\"varied\":true},\"thr\":{\"count\":539,\"finite\":true,\"varied\":true},\"brk\":{\"count\":539,\"finite\":true,\"varied\":true},\"gear\":{\"count\":539,\"finite\":true,\"varied\":true},\"rpm\":{\"count\":539,\"finite\":true,\"varied\":true}}],\"assetErrors\":[]},\"lods\":[{\"distance\":15,\"visible\":[\"high\"]},{\"distance\":55,\"visible\":[\"medium\"]},{\"distance\":150,\"visible\":[\"low\"]}],\"finish\":{\"time\":76.651,\"playing\":false,\"progress\":[1,1],\"delta\":-0.29499998688697815,\"ready\":true,\"cars\":2,\"memory\":{\"geometries\":502,\"textures\":30},\"assetErrors\":[]},\"wallSeconds\":19.513,\"loaded\":[\"/\",\"/assets/tracks/mexico.js\",\"/assets/tracks/v3/boundaries.js\",\"/assets/tracks/v3/render-path.js\",\"/assets/tracks/v3/venue-osm.js\",\"/assets/v4/car-high.glb\",\"/assets/v4/car-low.glb\",\"/assets/v4/car-medium.glb\",\"/assets/v4/concrete-color.jpg\",\"/assets/v4/concrete-normal.jpg\",\"/assets/v4/concrete-roughness.jpg\",\"/assets/v4/daylight.hdr\",\"/assets/v4/road-color.ktx2\",\"/assets/v4/road-normal.ktx2\",\"/assets/v4/road-roughness.ktx2\",\"/assets/v4/tree-atlas.png\",\"/assets/v4/tree.glb\",\"/assets/v4/turf-color.jpg\",\"/assets/v4/venue.glb\",\"/src/camera-collision.js\",\"/src/ghost-director.js\",\"/src/ghost-topography.js\",\"/src/ghost-webgl.js\",\"/src/ghost-world.js\",\"/src/ghost.css\",\"/src/insight-core.js\",\"/src/insight-lab.css\",\"/src/insight-lab.js\",\"/src/mexico-v3.js\",\"/src/mexico-v4.js\",\"/src/replay-core.js\",\"/src/track-topography.js\",\"/src/visual-assets.js\",\"http://127.0.0.1:4191/014de79b-4df2-4db3-8fc5-dadfdcb26822\",\"http://127.0.0.1:4191/0545529b-1faf-4717-ae2f-e170221ddce9\",\"http://127.0.0.1:4191/1961a7f3-855c-44dd-a81f-8c3267877b3c\",\"http://127.0.0.1:4191/1dbaf55b-7962-49be-a97a-17fc2cfe9a31\",\"http://127.0.0.1:4191/2acc3adb-e54b-40c6-9c99-80194d3f0728\",\"http://127.0.0.1:4191/58122619-1595-4539-aabc-1869e19e8283\",\"http://127.0.0.1:4191/77a26ca8-53c3-4329-96a2-63ee515471af\",\"http://127.0.0.1:4191/94b607d5-1b15-49f8-9ad7-cb1fbce2053b\",\"http://127.0.0.1:4191/afca7c50-68c5-40b9-b8a1-a1fd486a7701\",\"http://127.0.0.1:4191/ccd8ba2d-4b66-4445-a995-12b62e5a080c\"],\"errors\":[],\"failed\":[],\"consoleErrors\":[]}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T16:59:43.166Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "744d3fd6064f981e2940-3ccc8a5fe6d0898ef0da",
+          "file": "main-integration.spec.js",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "real Mexico race analysis retains summary, charts, strategy, moves and driver tabs",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3098,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T17:00:14.256Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "744d3fd6064f981e2940-749ed52d93e9cdf36739",
+          "file": "main-integration.spec.js",
+          "line": 43,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "simulator.spec.js",
+      "file": "simulator.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "real Mexico telemetry, cameras, profiles and Blender assets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18832,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T17:00:17.400Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e38d445b425d0b3d0846-ce9623f65f97b11591cf",
+          "file": "simulator.spec.js",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "real Mexico clock, playback and repeated world disposal",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20931,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "RUNTIME {\n  fps: \u001b[90mundefined\u001b[39m,\n  ms: \u001b[90mundefined\u001b[39m,\n  calls: \u001b[33m301\u001b[39m,\n  memory: { geometries: \u001b[33m250\u001b[39m, textures: \u001b[33m30\u001b[39m },\n  gpu: \u001b[32m'WebKit WebGL'\u001b[39m,\n  totals: [ \u001b[33m76.651\u001b[39m, \u001b[33m76.356\u001b[39m ]\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T17:00:36.251Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e38d445b425d0b3d0846-bff33bd4e7465404c916",
+          "file": "simulator.spec.js",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "real Mexico pilot/lap changes, analysis, mobile and visibility",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13665,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T17:00:57.202Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e38d445b425d0b3d0846-c02a8c33f9a3cae5b731",
+          "file": "simulator.spec.js",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "WebGL failure keeps the standard replay available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3525,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T17:01:10.901Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e38d445b425d0b3d0846-ff55c9684bf124d59b02",
+          "file": "simulator.spec.js",
+          "line": 67,
+          "column": 1
+        },
+        {
+          "title": "120-second software-renderer replay soak and resource budget",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 129864,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "SOAK_120_SECONDS {\"fps\":59.91611743701669,\"ms\":16.689999999602637,\"ready\":true,\"geometries\":485,\"textures\":30,\"calls\":229,\"renderer\":\"ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)\",\"resolution\":[1059,416],\"frames\":600,\"p50\":16.69999998807907,\"p95\":18.899999976158142,\"cpu\":5.199999988079071,\"gpu\":6.628192,\"wallMs\":120200,\"snapshots\":[{\"time\":40.19080000000002,\"ready\":true,\"memory\":{\"geometries\":469,\"textures\":30}},{\"time\":76.651,\"ready\":true,\"memory\":{\"geometries\":485,\"textures\":30}},{\"time\":40.055344000000076,\"ready\":true,\"memory\":{\"geometries\":485,\"textures\":30}},{\"time\":76.651,\"ready\":true,\"memory\":{\"geometries\":485,\"textures\":30}},{\"time\":40.05813600000008,\"ready\":true,\"memory\":{\"geometries\":485,\"textures\":30}},{\"time\":76.651,\"ready\":true,\"memory\":{\"geometries\":485,\"textures\":30}},{\"time\":40.056272,\"ready\":true,\"memory\":{\"geometries\":485,\"textures\":30}},{\"time\":76.651,\"ready\":true,\"memory\":{\"geometries\":485,\"textures\":30}},{\"time\":40.05613599999997,\"ready\":true,\"memory\":{\"geometries\":485,\"textures\":30}},{\"time\":76.651,\"ready\":true,\"memory\":{\"geometries\":485,\"textures\":30}},{\"time\":40.12320000000006,\"ready\":true,\"memory\":{\"geometries\":485,\"textures\":30}},{\"time\":76.651,\"ready\":true,\"memory\":{\"geometries\":485,\"textures\":30}}],\"errors\":[],\"consoleErrors\":[]}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T17:01:14.448Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e38d445b425d0b3d0846-74059acd0da1535c901e",
+          "file": "simulator.spec.js",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "Ultra effects, diagnostics export and missing asset fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14256,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T17:03:24.333Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e38d445b425d0b3d0846-e403ef4b16301ef396ca",
+          "file": "simulator.spec.js",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "asset load failure retains working procedural cars and JPEG materials",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8366,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T17:03:38.609Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e38d445b425d0b3d0846-6112f314b12692ffbf74",
+          "file": "simulator.spec.js",
+          "line": 92,
+          "column": 1
+        },
+        {
+          "title": "alignment falls back for both laps when one projection is rejected",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11318,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T17:03:46.997Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e38d445b425d0b3d0846-2d0b13282875f23dca60",
+          "file": "simulator.spec.js",
+          "line": 97,
+          "column": 1
+        },
+        {
+          "title": "missing Blender venue assets retain cars and working telemetry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5273,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T17:03:58.338Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e38d445b425d0b3d0846-c755d561fcd63e6f3eac",
+          "file": "simulator.spec.js",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "free camera movement stops before the actual circuit barrier",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8255,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T17:04:03.624Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e38d445b425d0b3d0846-c4e04454f769fc71a714",
+          "file": "simulator.spec.js",
+          "line": 105,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "studio-simulator.spec.js",
+      "file": "studio-simulator.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "studio and simulator reuse one renderer across repeated camera, pilot and lap changes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 29411,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "STUDIO_SIMULATOR {\"cycles\":[{\"sameRenderer\":true,\"requests\":1,\"initialRequests\":1,\"cacheReplaced\":true,\"memory\":{\"geometries\":130,\"textures\":28},\"time\":0,\"drivers\":[\"ALO\",\"STR\"],\"laps\":[2,11],\"assets\":[]},{\"sameRenderer\":true,\"requests\":1,\"initialRequests\":1,\"cacheReplaced\":true,\"memory\":{\"geometries\":132,\"textures\":29},\"time\":0,\"drivers\":[\"TSU\",\"LAW\"],\"laps\":[2,8],\"assets\":[]},{\"sameRenderer\":true,\"requests\":1,\"initialRequests\":1,\"cacheReplaced\":true,\"memory\":{\"geometries\":130,\"textures\":28},\"time\":0,\"drivers\":[\"ALO\",\"STR\"],\"laps\":[2,11],\"assets\":[]}],\"errors\":[],\"consoleErrors\":[]}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T17:04:11.916Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "47a5bb3f7029eb4980b3-e0bb554bc1f9e3ab908a",
+          "file": "studio-simulator.spec.js",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "topography.spec.js",
+      "file": "topography.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic surface: tyre support, real telemetry, mesh, cameras and seven application screenshots",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19005,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "SURFACE_CHECKS {\"maxPenetration\":8.881784197001252e-16,\"maxGap\":0.007454342845072404,\"maxUpError\":2.230452372859658e-16,\"triangles\":4304,\"degenerate\":0,\"down\":0,\"kerbBelow\":0,\"kerbDetached\":0,\"cameraSteps\":{\"a\":0.6923510209196984,\"b\":0.5835724490554526,\"cockpit\":0.6867087962144858,\"cinematic\":0.6845338615979664,\"compare\":1.0477349742187698},\"cameraContinuity\":{\"a\":0.00027220182897025325,\"b\":0.0002329602251478491,\"cockpit\":0.00026946608076627854,\"cinematic\":0.0002681412928957627,\"compare\":0.00048034359281246},\"totals\":[76.651,76.356],\"finish\":[1,1],\"category\":\"illustrative\",\"records\":[{\"mode\":\"a\",\"worst\":{\"time\":8.525000000000054,\"from\":[702.2042837132859,30.778021531056055,89.70382479723962],\"to\":[706.7642756976968,30.085670510136357,90.3436807360044]}},{\"mode\":\"b\",\"worst\":{\"time\":8.400000000000052,\"from\":[685.1215353970669,33.34746266742972,87.32788854464762],\"to\":[689.0452925345974,32.763890218374264,87.87126454624591]}},{\"mode\":\"cockpit\",\"worst\":{\"time\":8.525000000000054,\"from\":[713.4374010005312,26.75432228661625,91.28604223204238],\"to\":[717.9968784375393,26.067613490401765,91.92954696267135]}},{\"mode\":\"cinematic\",\"worst\":{\"time\":8.525000000000054,\"from\":[707.4472593771421,28.42061309983777,87.21072588459857],\"to\":[712.0080609231139,27.736079238239803,87.85228504087735]}},{\"mode\":\"compare\",\"worst\":{\"time\":8.500000000000053,\"from\":[693.6975263175519,37.66424080484488,78.52316475658426],\"to\":[698.3512575857446,36.61650583062611,79.7074143895015]}}]}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T17:04:41.363Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "01-flat-to-climb",
+                      "contentType": "image/png",
+                      "path": "<checkout>\\work\\final-results\\topography-synthetic-surfa-03b00-ven-application-screenshots\\attachments\\01-flat-to-climb-6944ddd4390fbcce8ca5913a1cfe0fc8d88f8893.png"
+                    },
+                    {
+                      "name": "02-uphill",
+                      "contentType": "image/png",
+                      "path": "<checkout>\\work\\final-results\\topography-synthetic-surfa-03b00-ven-application-screenshots\\attachments\\02-uphill-06844f8cb472adb47c58935477c40da91ea30714.png"
+                    },
+                    {
+                      "name": "03-crest",
+                      "contentType": "image/png",
+                      "path": "<checkout>\\work\\final-results\\topography-synthetic-surfa-03b00-ven-application-screenshots\\attachments\\03-crest-362526eac7991b11874506de8707573bb449726e.png"
+                    },
+                    {
+                      "name": "04-descent",
+                      "contentType": "image/png",
+                      "path": "<checkout>\\work\\final-results\\topography-synthetic-surfa-03b00-ven-application-screenshots\\attachments\\04-descent-10aa88a08a6daf51f604ce4f9ddb0f211e1c6aa1.png"
+                    },
+                    {
+                      "name": "05-banked-corner",
+                      "contentType": "image/png",
+                      "path": "<checkout>\\work\\final-results\\topography-synthetic-surfa-03b00-ven-application-screenshots\\attachments\\05-banked-corner-eec94cbbc074f5fd572ed4c943575d502f80cd3f.png"
+                    },
+                    {
+                      "name": "06-kerbs",
+                      "contentType": "image/png",
+                      "path": "<checkout>\\work\\final-results\\topography-synthetic-surfa-03b00-ven-application-screenshots\\attachments\\06-kerbs-bf616c91f04fca7facd5d732ff64334b88d20503.png"
+                    },
+                    {
+                      "name": "07-follow-uphill",
+                      "contentType": "image/png",
+                      "path": "<checkout>\\work\\final-results\\topography-synthetic-surfa-03b00-ven-application-screenshots\\attachments\\07-follow-uphill-fec3b4c381bffe59ca595c1481d71d077b875e1a.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d6b0bc1e371e95b63382-de5ca9b4be1f40528a9d",
+          "file": "topography.spec.js",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "profile changes rebuild collision cache and 120-second playback keeps bounded GPU resources",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 133846,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T17:05:00.391Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d6b0bc1e371e95b63382-8cb557e934685cd6e7c9",
+          "file": "topography.spec.js",
+          "line": 62,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-10T16:58:58.871Z",
+    "duration": 496712.576,
+    "expected": 23,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

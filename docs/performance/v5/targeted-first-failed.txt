@@ -1,0 +1,259 @@
+
+Running 2 tests using 1 worker
+
+
+
+(node:15240) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:15240) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/2] tests\topography.spec.js:4:1 › synthetic surface: tyre support, real telemetry, mesh, cameras and seven application screenshots
+tests\topography.spec.js:4:1 › synthetic surface: tyre support, real telemetry, mesh, cameras and seven application screenshots
+SURFACE_CHECKS {"maxPenetration":2.7319410515064257e-8,"maxGap":0.00823780048296463,"maxUpError":2.264528516818639e-16,"triangles":4304,"degenerate":0,"down":0,"kerbBelow":0,"kerbDetached":0,"cameraSteps":{"a":0.6923510209196984,"b":0.5835724490554526,"cockpit":0.6867087962144858,"cinematic":0.6845338615979664,"compare":1.0477349742187698},"cameraContinuity":{"a":0.00027220182897025325,"b":0.0002329602251478491,"cockpit":0.00026946608076627854,"cinematic":0.0002681412928957627,"compare":0.00048034359281246},"totals":[76.651,76.356],"finish":[1,1],"category":"illustrative","records":[{"mode":"a","worst":{"time":8.525000000000054,"from":[702.2042837132859,30.778021531056055,89.70382479723962],"to":[706.7642756976968,30.085670510136357,90.3436807360044]}},{"mode":"b","worst":{"time":8.400000000000052,"from":[685.1215353970669,33.34746266742972,87.32788854464762],"to":[689.0452925345974,32.763890218374264,87.87126454624591]}},{"mode":"cockpit","worst":{"time":8.525000000000054,"from":[713.4374010005312,26.75432228661625,91.28604223204238],"to":[717.9968784375393,26.067613490401765,91.92954696267135]}},{"mode":"cinematic","worst":{"time":8.525000000000054,"from":[707.4472593771421,28.42061309983777,87.21072588459857],"to":[712.0080609231139,27.736079238239803,87.85228504087735]}},{"mode":"compare","worst":{"time":8.500000000000053,"from":[693.6975263175519,37.66424080484488,78.52316475658426],"to":[698.3512575857446,36.61650583062611,79.7074143895015]}}]}
+
+[2/2] tests\topography.spec.js:62:1 › profile changes rebuild collision cache and 120-second playback keeps bounded GPU resources
+  1) tests\topography.spec.js:62:1 › profile changes rebuild collision cache and 120-second playback keeps bounded GPU resources
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 12
+    Received:   366
+
+      73 |  const after=await page.evaluate(()=>{stopPlay();return {time:st.play.e,memory:{...ghost3d.renderer.info.memory},ready:ghost3d.ready,cache:!!CameraCollision.cache};});
+      74 |  expect(before.rebuilt).toBe(true);expect(after.ready).toBe(true);expect(after.time).toBeGreaterThan(29);expect(after.time).toBeLessThan(40);
+    > 75 |  expect(after.memory.geometries-before.memory.geometries).toBeLessThan(12);expect(after.memory.textures-before.memory.textures).toBeLessThan(5);
+         |                                                           ^
+      76 |  fs.writeFileSync(info.outputPath('synthetic-soak.json'),JSON.stringify({before,after},null,2));
+      77 | });
+      78 |
+        at <checkout>\tests\topography.spec.js:75:59
+
+    Error Context: test-results\topography-profile-changes-6906a-keeps-bounded-GPU-resources\error-context.md
+
+
+  1 failed
+    tests\topography.spec.js:62:1 › profile changes rebuild collision cache and 120-second playback keeps bounded GPU resources
+  1 passed (3.2m)
+{
+  "config": {
+    "configFile": "<checkout>\\playwright.config.js",
+    "rootDir": "C:/Users/Hamit Kaan Tokmak/Documents/Codex/2026-11-10/tur/work/tur-duellosu/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/Users/Hamit Kaan Tokmak/Documents/Codex/2026-11-10/tur/work/tur-duellosu/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/Hamit Kaan Tokmak/Documents/Codex/2026-11-10/tur/work/tur-duellosu/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.js"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node scripts/serve.cjs 4185",
+      "port": 4185,
+      "reuseExistingServer": true
+    }
+  },
+  "suites": [
+    {
+      "title": "topography.spec.js",
+      "file": "topography.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic surface: tyre support, real telemetry, mesh, cameras and seven application screenshots",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 37781,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "SURFACE_CHECKS {\"maxPenetration\":2.7319410515064257e-8,\"maxGap\":0.00823780048296463,\"maxUpError\":2.264528516818639e-16,\"triangles\":4304,\"degenerate\":0,\"down\":0,\"kerbBelow\":0,\"kerbDetached\":0,\"cameraSteps\":{\"a\":0.6923510209196984,\"b\":0.5835724490554526,\"cockpit\":0.6867087962144858,\"cinematic\":0.6845338615979664,\"compare\":1.0477349742187698},\"cameraContinuity\":{\"a\":0.00027220182897025325,\"b\":0.0002329602251478491,\"cockpit\":0.00026946608076627854,\"cinematic\":0.0002681412928957627,\"compare\":0.00048034359281246},\"totals\":[76.651,76.356],\"finish\":[1,1],\"category\":\"illustrative\",\"records\":[{\"mode\":\"a\",\"worst\":{\"time\":8.525000000000054,\"from\":[702.2042837132859,30.778021531056055,89.70382479723962],\"to\":[706.7642756976968,30.085670510136357,90.3436807360044]}},{\"mode\":\"b\",\"worst\":{\"time\":8.400000000000052,\"from\":[685.1215353970669,33.34746266742972,87.32788854464762],\"to\":[689.0452925345974,32.763890218374264,87.87126454624591]}},{\"mode\":\"cockpit\",\"worst\":{\"time\":8.525000000000054,\"from\":[713.4374010005312,26.75432228661625,91.28604223204238],\"to\":[717.9968784375393,26.067613490401765,91.92954696267135]}},{\"mode\":\"cinematic\",\"worst\":{\"time\":8.525000000000054,\"from\":[707.4472593771421,28.42061309983777,87.21072588459857],\"to\":[712.0080609231139,27.736079238239803,87.85228504087735]}},{\"mode\":\"compare\",\"worst\":{\"time\":8.500000000000053,\"from\":[693.6975263175519,37.66424080484488,78.52316475658426],\"to\":[698.3512575857446,36.61650583062611,79.7074143895015]}}]}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T16:38:06.714Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "01-flat-to-climb",
+                      "contentType": "image/png",
+                      "path": "<checkout>\\test-results\\topography-synthetic-surfa-03b00-ven-application-screenshots\\attachments\\01-flat-to-climb-5ccca3f7c4d2f85de4a6236cb3d5670994096fc9.png"
+                    },
+                    {
+                      "name": "02-uphill",
+                      "contentType": "image/png",
+                      "path": "<checkout>\\test-results\\topography-synthetic-surfa-03b00-ven-application-screenshots\\attachments\\02-uphill-21b9220742455b09fd315479e0b98969ed47c52a.png"
+                    },
+                    {
+                      "name": "03-crest",
+                      "contentType": "image/png",
+                      "path": "<checkout>\\test-results\\topography-synthetic-surfa-03b00-ven-application-screenshots\\attachments\\03-crest-127eec57f007ca7573aa5efd91f338ace6889119.png"
+                    },
+                    {
+                      "name": "04-descent",
+                      "contentType": "image/png",
+                      "path": "<checkout>\\test-results\\topography-synthetic-surfa-03b00-ven-application-screenshots\\attachments\\04-descent-6db07385aca034ad3047136527516c76797376d9.png"
+                    },
+                    {
+                      "name": "05-banked-corner",
+                      "contentType": "image/png",
+                      "path": "<checkout>\\test-results\\topography-synthetic-surfa-03b00-ven-application-screenshots\\attachments\\05-banked-corner-c8bf7f3cd9b085a1e6cbb5c023439c2ae05ff832.png"
+                    },
+                    {
+                      "name": "06-kerbs",
+                      "contentType": "image/png",
+                      "path": "<checkout>\\test-results\\topography-synthetic-surfa-03b00-ven-application-screenshots\\attachments\\06-kerbs-578a8c6beefd1692b0dcf4cf5dbc613be3fff014.png"
+                    },
+                    {
+                      "name": "07-follow-uphill",
+                      "contentType": "image/png",
+                      "path": "<checkout>\\test-results\\topography-synthetic-surfa-03b00-ven-application-screenshots\\attachments\\07-follow-uphill-3a7f16ee9c5ebdb79cda375f8e7b66fe352b06e6.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d6b0bc1e371e95b63382-de5ca9b4be1f40528a9d",
+          "file": "topography.spec.js",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "profile changes rebuild collision cache and 120-second playback keeps bounded GPU resources",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 149947,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m12\u001b[39m\nReceived:   \u001b[31m366\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m12\u001b[39m\nReceived:   \u001b[31m366\u001b[39m\n    at <checkout>\\tests\\topography.spec.js:75:59",
+                    "location": {
+                      "file": "<checkout>\\tests\\topography.spec.js",
+                      "column": 59,
+                      "line": 75
+                    },
+                    "snippet": "  73 |  const after=await page.evaluate(()=>{stopPlay();return {time:st.play.e,memory:{...ghost3d.renderer.info.memory},ready:ghost3d.ready,cache:!!CameraCollision.cache};});\n  74 |  expect(before.rebuilt).toBe(true);expect(after.ready).toBe(true);expect(after.time).toBeGreaterThan(29);expect(after.time).toBeLessThan(40);\n> 75 |  expect(after.memory.geometries-before.memory.geometries).toBeLessThan(12);expect(after.memory.textures-before.memory.textures).toBeLessThan(5);\n     |                                                           ^\n  76 |  fs.writeFileSync(info.outputPath('synthetic-soak.json'),JSON.stringify({before,after},null,2));\n  77 | });\n  78 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<checkout>\\tests\\topography.spec.js",
+                        "column": 59,
+                        "line": 75
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m12\u001b[39m\nReceived:   \u001b[31m366\u001b[39m\n\n  73 |  const after=await page.evaluate(()=>{stopPlay();return {time:st.play.e,memory:{...ghost3d.renderer.info.memory},ready:ghost3d.ready,cache:!!CameraCollision.cache};});\n  74 |  expect(before.rebuilt).toBe(true);expect(after.ready).toBe(true);expect(after.time).toBeGreaterThan(29);expect(after.time).toBeLessThan(40);\n> 75 |  expect(after.memory.geometries-before.memory.geometries).toBeLessThan(12);expect(after.memory.textures-before.memory.textures).toBeLessThan(5);\n     |                                                           ^\n  76 |  fs.writeFileSync(info.outputPath('synthetic-soak.json'),JSON.stringify({before,after},null,2));\n  77 | });\n  78 |\n    at <checkout>\\tests\\topography.spec.js:75:59"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-10T16:38:44.952Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<checkout>\\test-results\\topography-profile-changes-6906a-keeps-bounded-GPU-resources\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<checkout>\\tests\\topography.spec.js",
+                    "column": 59,
+                    "line": 75
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d6b0bc1e371e95b63382-8cb557e934685cd6e7c9",
+          "file": "topography.spec.js",
+          "line": 62,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-10T16:38:05.951Z",
+    "duration": 190370.208,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
+npm notice
+npm notice New major version of npm available! 11.19.1 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

@@ -1,0 +1,57 @@
+
+Running 23 tests using 1 worker
+
+
+
+(node:37344) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:37344) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/23] tests\high-dpi.spec.js:3:1 › Ultra on a high-DPI display uses the reduced real drawing buffer and preserves Blender assets
+[2/23] tests\insight-lab.spec.js:16:1 › real telemetry powers the studio, exact region sums, theories, filtering and chart navigation
+[3/23] tests\insight-lab.spec.js:90:1 › notes preserve spaces, safe imports, downloadable context and round-trip shared URLs
+[4/23] tests\insight-lab.spec.js:160:1 › real race metadata powers tempo, pit coverage, position leadups, phases and weekend dossier
+[5/23] tests\insight-lab.spec.js:209:1 › multi-lap signatures, third driver and another year load actual archive telemetry
+[6/23] tests\insight-lab.spec.js:240:1 › missing secondary archive files produce recoverable state rather than invented results
+[7/23] tests\insight-lab.spec.js:253:1 › initial archive failure can be retried inside the studio without hidden old results
+[8/23] tests\insight-lab.spec.js:271:1 › late secondary data cannot replace a newly selected session
+[9/23] tests\main-integration.spec.js:5:1 › integrated main candidate uses V4 assets and all LODs through a complete real telemetry lap
+tests\main-integration.spec.js:5:1 › integrated main candidate uses V4 assets and all LODs through a complete real telemetry lap
+INTEGRATION_LAP {"data":{"totals":[76.651,76.356],"channels":[{"v":{"count":539,"finite":true,"varied":true},"thr":{"count":539,"finite":true,"varied":true},"brk":{"count":539,"finite":true,"varied":true},"gear":{"count":539,"finite":true,"varied":true},"rpm":{"count":539,"finite":true,"varied":true}},{"v":{"count":539,"finite":true,"varied":true},"thr":{"count":539,"finite":true,"varied":true},"brk":{"count":539,"finite":true,"varied":true},"gear":{"count":539,"finite":true,"varied":true},"rpm":{"count":539,"finite":true,"varied":true}}],"assetErrors":[]},"lods":[{"distance":15,"visible":["high"]},{"distance":55,"visible":["medium"]},{"distance":150,"visible":["low"]}],"finish":{"time":76.651,"playing":false,"progress":[1,1],"delta":-0.29499998688697815,"ready":true,"cars":2,"memory":{"geometries":502,"textures":30},"assetErrors":[]},"wallSeconds":19.513,"loaded":["/","/assets/tracks/mexico.js","/assets/tracks/v3/boundaries.js","/assets/tracks/v3/render-path.js","/assets/tracks/v3/venue-osm.js","/assets/v4/car-high.glb","/assets/v4/car-low.glb","/assets/v4/car-medium.glb","/assets/v4/concrete-color.jpg","/assets/v4/concrete-normal.jpg","/assets/v4/concrete-roughness.jpg","/assets/v4/daylight.hdr","/assets/v4/road-color.ktx2","/assets/v4/road-normal.ktx2","/assets/v4/road-roughness.ktx2","/assets/v4/tree-atlas.png","/assets/v4/tree.glb","/assets/v4/turf-color.jpg","/assets/v4/venue.glb","/src/camera-collision.js","/src/ghost-director.js","/src/ghost-topography.js","/src/ghost-webgl.js","/src/ghost-world.js","/src/ghost.css","/src/insight-core.js","/src/insight-lab.css","/src/insight-lab.js","/src/mexico-v3.js","/src/mexico-v4.js","/src/replay-core.js","/src/track-topography.js","/src/visual-assets.js","http://127.0.0.1:4191/014de79b-4df2-4db3-8fc5-dadfdcb26822","http://127.0.0.1:4191/0545529b-1faf-4717-ae2f-e170221ddce9","http://127.0.0.1:4191/1961a7f3-855c-44dd-a81f-8c3267877b3c","http://127.0.0.1:4191/1dbaf55b-7962-49be-a97a-17fc2cfe9a31","http://127.0.0.1:4191/2acc3adb-e54b-40c6-9c99-80194d3f0728","http://127.0.0.1:4191/58122619-1595-4539-aabc-1869e19e8283","http://127.0.0.1:4191/77a26ca8-53c3-4329-96a2-63ee515471af","http://127.0.0.1:4191/94b607d5-1b15-49f8-9ad7-cb1fbce2053b","http://127.0.0.1:4191/afca7c50-68c5-40b9-b8a1-a1fd486a7701","http://127.0.0.1:4191/ccd8ba2d-4b66-4445-a995-12b62e5a080c"],"errors":[],"failed":[],"consoleErrors":[]}
+
+[10/23] tests\main-integration.spec.js:43:1 › real Mexico race analysis retains summary, charts, strategy, moves and driver tabs
+[11/23] tests\simulator.spec.js:4:1 › real Mexico telemetry, cameras, profiles and Blender assets
+[12/23] tests\simulator.spec.js:34:1 › real Mexico clock, playback and repeated world disposal
+tests\simulator.spec.js:34:1 › real Mexico clock, playback and repeated world disposal
+RUNTIME {
+  fps: undefined,
+  ms: undefined,
+  calls: 301,
+  memory: { geometries: 250, textures: 30 },
+  gpu: 'WebKit WebGL',
+  totals: [ 76.651, 76.356 ]
+}
+
+[13/23] tests\simulator.spec.js:54:1 › real Mexico pilot/lap changes, analysis, mobile and visibility
+[14/23] tests\simulator.spec.js:67:1 › WebGL failure keeps the standard replay available
+[15/23] tests\simulator.spec.js:73:1 › 120-second software-renderer replay soak and resource budget
+tests\simulator.spec.js:73:1 › 120-second software-renderer replay soak and resource budget
+SOAK_120_SECONDS {"fps":59.91611743701669,"ms":16.689999999602637,"ready":true,"geometries":485,"textures":30,"calls":229,"renderer":"ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)","resolution":[1059,416],"frames":600,"p50":16.69999998807907,"p95":18.899999976158142,"cpu":5.199999988079071,"gpu":6.628192,"wallMs":120200,"snapshots":[{"time":40.19080000000002,"ready":true,"memory":{"geometries":469,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":40.055344000000076,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":40.05813600000008,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":40.056272,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":40.05613599999997,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":40.12320000000006,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":485,"textures":30}}],"errors":[],"consoleErrors":[]}
+
+[16/23] tests\simulator.spec.js:86:1 › Ultra effects, diagnostics export and missing asset fallback
+[17/23] tests\simulator.spec.js:92:1 › asset load failure retains working procedural cars and JPEG materials
+[18/23] tests\simulator.spec.js:97:1 › alignment falls back for both laps when one projection is rejected
+[19/23] tests\simulator.spec.js:103:1 › missing Blender venue assets retain cars and working telemetry
+[20/23] tests\simulator.spec.js:105:1 › free camera movement stops before the actual circuit barrier
+[21/23] tests\studio-simulator.spec.js:4:1 › studio and simulator reuse one renderer across repeated camera, pilot and lap changes
+tests\studio-simulator.spec.js:4:1 › studio and simulator reuse one renderer across repeated camera, pilot and lap changes
+STUDIO_SIMULATOR {"cycles":[{"sameRenderer":true,"requests":1,"initialRequests":1,"cacheReplaced":true,"memory":{"geometries":130,"textures":28},"time":0,"drivers":["ALO","STR"],"laps":[2,11],"assets":[]},{"sameRenderer":true,"requests":1,"initialRequests":1,"cacheReplaced":true,"memory":{"geometries":132,"textures":29},"time":0,"drivers":["TSU","LAW"],"laps":[2,8],"assets":[]},{"sameRenderer":true,"requests":1,"initialRequests":1,"cacheReplaced":true,"memory":{"geometries":130,"textures":28},"time":0,"drivers":["ALO","STR"],"laps":[2,11],"assets":[]}],"errors":[],"consoleErrors":[]}
+
+[22/23] tests\topography.spec.js:4:1 › synthetic surface: tyre support, real telemetry, mesh, cameras and seven application screenshots
+tests\topography.spec.js:4:1 › synthetic surface: tyre support, real telemetry, mesh, cameras and seven application screenshots
+SURFACE_CHECKS {"maxPenetration":8.881784197001252e-16,"maxGap":0.007454342845072404,"maxUpError":2.230452372859658e-16,"triangles":4304,"degenerate":0,"down":0,"kerbBelow":0,"kerbDetached":0,"cameraSteps":{"a":0.6923510209196984,"b":0.5835724490554526,"cockpit":0.6867087962144858,"cinematic":0.6845338615979664,"compare":1.0477349742187698},"cameraContinuity":{"a":0.00027220182897025325,"b":0.0002329602251478491,"cockpit":0.00026946608076627854,"cinematic":0.0002681412928957627,"compare":0.00048034359281246},"totals":[76.651,76.356],"finish":[1,1],"category":"illustrative","records":[{"mode":"a","worst":{"time":8.525000000000054,"from":[702.2042837132859,30.778021531056055,89.70382479723962],"to":[706.7642756976968,30.085670510136357,90.3436807360044]}},{"mode":"b","worst":{"time":8.400000000000052,"from":[685.1215353970669,33.34746266742972,87.32788854464762],"to":[689.0452925345974,32.763890218374264,87.87126454624591]}},{"mode":"cockpit","worst":{"time":8.525000000000054,"from":[713.4374010005312,26.75432228661625,91.28604223204238],"to":[717.9968784375393,26.067613490401765,91.92954696267135]}},{"mode":"cinematic","worst":{"time":8.525000000000054,"from":[707.4472593771421,28.42061309983777,87.21072588459857],"to":[712.0080609231139,27.736079238239803,87.85228504087735]}},{"mode":"compare","worst":{"time":8.500000000000053,"from":[693.6975263175519,37.66424080484488,78.52316475658426],"to":[698.3512575857446,36.61650583062611,79.7074143895015]}}]}
+
+[23/23] tests\topography.spec.js:62:1 › profile changes rebuild collision cache and 120-second playback keeps bounded GPU resources
+  23 passed (8.3m)

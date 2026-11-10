@@ -1,0 +1,46 @@
+{
+  "source": "working",
+  "conditions": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "dpr": 1,
+    "quality": "performance",
+    "adaptive": false,
+    "camera": "a",
+    "rate": 1,
+    "physicalGPU": false
+  },
+  "fixed": {
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "calls": 91,
+    "triangles": 514266,
+    "memory": {
+      "geometries": 144,
+      "textures": 30
+    },
+    "resolution": [
+      1059,
+      416
+    ],
+    "totals": [
+      76.651,
+      76.356
+    ]
+  },
+  "runtime": {
+    "frames": 49,
+    "p50": 564.5,
+    "p95": 1035.5999999642372,
+    "fps": 1.2623074981255338,
+    "time": 39.8449,
+    "cpuMs": 4.699999988079071,
+    "memory": {
+      "geometries": 338,
+      "textures": 30
+    }
+  },
+  "wallMs": 30021,
+  "errors": []
+}
