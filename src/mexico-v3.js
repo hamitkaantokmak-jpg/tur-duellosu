@@ -238,7 +238,7 @@ const MexicoV3 = {
       roadVerts = [],
       roadUV = [];
     let dist = 0;
-    const width = (f) => (f.u < 0.25 || f.u > 0.96 ? 7.8 : 7.0);
+    const width = (f) => S.topographyProfile?.samples.some(p=>p.width!==undefined) ? G.surface.sampleAtDistance(f.u*G.surface.length).width/2 : (f.u < 0.25 || f.u > 0.96 ? 7.8 : 7.0);
     frames.forEach((f, i) => {
       let sum = 0;
       for (let d = -8; d <= 8; d++) {
@@ -343,12 +343,13 @@ const MexicoV3 = {
     road.setAttribute("position", new T.Float32BufferAttribute(roadVerts, 3));
     road.setAttribute("uv", new T.Float32BufferAttribute(roadUV, 2));
     road.computeVertexNormals();
-    mesh(road, m.road, G.world);
+    mesh(road, m.road, G.world).name="TopographyRoad";
     for (const [material, vertices] of batches) {
       const g = new T.BufferGeometry();
       g.setAttribute("position", new T.Float32BufferAttribute(vertices, 3));
       g.computeVertexNormals();
       const o = mesh(g, material, G.world, material === m.wall);
+      if(material===m.white||material===m.red)o.name="TopographyKerbsAndMarkings";
       if (material === m.wall) {
         g.setAttribute("uv", new T.Float32BufferAttribute(wallUV, 2));
         o.userData.cameraObstacle = true;
@@ -395,6 +396,7 @@ const MexicoV3 = {
     m.grass.map = grassTex;
     m.grass.color.set("#a5ae8f");
     const ground = mesh(new T.PlaneGeometry(8000, 8000), m.grass, G.world);
+    ground.name="TopographyGround";
     ground.rotation.x = -Math.PI / 2;
     ground.position.set((S.minX + S.maxX) / 2, -0.45, (S.minZ + S.maxZ) / 2);
     // Polygon helpers keep OSM footprints in geographic space; unknown heights remain explicitly illustrative.

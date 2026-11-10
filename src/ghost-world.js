@@ -262,7 +262,7 @@ function ghostAvoidObstacles(camera, target) {
 // Its look target may be anywhere; collision is tested from the previous safe lens, not from that target.
 function ghostConstrainFree(camera, previous) {
   const G=ghost3d;if(!G.ready||!G.world||G.source!==st.A||!previous)return camera;
-  const T=G.T,from=new T.Vector3(...previous),to=new T.Vector3(...camera);to.y=Math.max(.65,to.y);
+  const T=G.T,from=new T.Vector3(...previous),to=new T.Vector3(...camera);to.y=Math.max(.65+(G.surface?.heightAt(to.x,to.z)||0),to.y);
   const direction=to.clone().sub(from),distance=direction.length();if(distance<1e-5)return to.toArray();
   const objects=(G.environment.visible?G.tiles||[]:[]).filter(o=>o.visible&&o.material.name!=='Vegetation');
   G.world.children.forEach(o=>{if(o.userData.cameraObstacle)objects.push(o);});objects.push(...(G.v4Obstacles||[]).filter(o=>o.visible));

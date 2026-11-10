@@ -61,12 +61,16 @@ function ghost3dBuild(S){
   for(let i=0;i<pixels.data.length;i+=4){seed=(Math.imul(seed,1664525)+1013904223)>>>0;const v=105+(seed>>>27);pixels.data[i]=pixels.data[i+1]=pixels.data[i+2]=v;pixels.data[i+3]=255;}tx.putImageData(pixels,0,0);
   const asphalt=new T.CanvasTexture(texCanvas);asphalt.wrapS=asphalt.wrapT=T.RepeatWrapping;asphalt.repeat.set(4,4);asphalt.colorSpace=T.SRGBColorSpace;asphalt.anisotropy=Math.min(8,G.renderer.capabilities.getMaxAnisotropy());roadMat.map=asphalt;roadMat.bumpMap=asphalt;roadMat.bumpScale=.012;G.proceduralAsphalt=asphalt;
   const mesh=(geometry,mat,parent=world)=>{const m=new T.Mesh(geometry,mat);m.castShadow=true;m.receiveShadow=true;parent.add(m);return m;};
-  const heights=G.elevationOn?S.elevation:null;
-  const heightAt=k=>heights?lerp(heights,Math.max(0,Math.min(S.n-1,k))):0;G.heightAt=heightAt;
-  S.edges.forEach((e,i)=>e.height=heightAt(i));
+  const surface=ghostTopography(S);G.surface=surface;
+  if(!G.topographyNotice){G.topographyNotice=document.createElement('span');Object.assign(G.topographyNotice.style,{position:'absolute',bottom:'12px',left:'50%',transform:'translateX(-50%)',background:'#10202be8',color:'#ffd166',padding:'6px 10px',font:'11px sans-serif',zIndex:4,pointerEvents:'none',maxWidth:'65%',textAlign:'center'});$('ghostCanvas').parentElement.append(G.topographyNotice);}
+  G.topographyNotice.hidden=surface.flat;G.topographyNotice.textContent=surface.metadata.label||surface.metadata.category;
+  const heights=null;
+  const edgePoints=S.edges.map(e=>e.p);G.heightAt=k=>{const p=ghostPoint(edgePoints,k);return surface.heightAt(p.x,p.z);};let heightAt=()=>0;
+  // Static geometry starts in its original flat coordinates, then drapes once.
+  S.edges.forEach((e,i)=>e.height=0);
   const roadEdges=S.canonicalEdges||S.edges;
-  if(S.canonicalEdges)roadEdges.forEach((e,i)=>{const u=((i/(S.n-1)-S.registration.phase)*S.registration.dir%1+1)%1;e.height=heightAt(u*(S.n-1));});
-  const point=(e,o,y)=>[e.p.x+e.rx*o,y+(e.height||0),e.p.z+e.rz*o];
+  if(S.canonicalEdges)roadEdges.forEach((e,i)=>{const u=((i/(S.n-1)-S.registration.phase)*S.registration.dir%1+1)%1;e.height=0;});
+  let draped=false;const point=(e,o,y)=>{const x=e.p.x+e.rx*o,z=e.p.z+e.rz*o;return [x,y+(draped?surface.heightAt(x,z):0),z];};
   const box=(parent,x,y,z,w,h,d,mat)=>{const m=mesh(new T.BoxGeometry(w,h,d),mat,parent);m.position.set(x,y,z);return m;};
   if(S.track&&typeof MexicoV3!=='undefined'){MexicoV3.build(T,G,S);}else{
   const point=(e,o,y)=>[e.p.x+e.rx*o,y+(e.height||0),e.p.z+e.rz*o];
@@ -89,7 +93,7 @@ function ghost3dBuild(S){
   const roadGeometry=new T.BufferGeometry();roadGeometry.setAttribute('position',new T.Float32BufferAttribute(positions,3));roadGeometry.setAttribute('uv',new T.Float32BufferAttribute(uvs,2));roadGeometry.computeVertexNormals();mesh(roadGeometry,roadMat).castShadow=false;
   for(const [mat,points] of batches){const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(points,3));geo.computeVertexNormals();const m=mesh(geo,mat);m.castShadow=mat===barrierMat;m.userData.cameraObstacle=mat===barrierMat;}
   const terrainHeight=(x,z)=>{if(!heights)return -.3;let best=Infinity,second=Infinity,one=0,two=0;for(const e of S.edges){const d=(x-e.p.x)**2+(z-e.p.z)**2;if(d<best){second=best;two=one;best=d;one=e.height;}else if(d<second){second=d;two=e.height;}}const a=1/(best+4),b=1/(second+4);return (one*a+two*b)/(a+b)-.55;};
-  const groundMat=material(S.profile.grass),ground=mesh(new T.PlaneGeometry(18000,18000),groundMat);ground.rotation.x=-Math.PI/2;ground.position.set((S.minX+S.maxX)/2,heights?-2:-.3,(S.minZ+S.maxZ)/2);ground.castShadow=false;
+  const groundMat=material(S.profile.grass),ground=mesh(new T.PlaneGeometry(18000,18000),groundMat);ground.name="TopographyGround";ground.rotation.x=-Math.PI/2;ground.position.set((S.minX+S.maxX)/2,heights?-2:-.3,(S.minZ+S.maxZ)/2);ground.castShadow=false;
   if(heights){const width=S.maxX-S.minX+700,depth=S.maxZ-S.minZ+700,cx=(S.minX+S.maxX)/2,cz=(S.minZ+S.maxZ)/2,geo=new T.PlaneGeometry(width,depth,Math.min(128,Math.ceil(width/20)),Math.min(128,Math.ceil(depth/20)));geo.rotateX(-Math.PI/2);const points=geo.attributes.position;for(let i=0;i<points.count;i++){const x=points.getX(i)+cx,z=points.getZ(i)+cz;points.setXYZ(i,x,terrainHeight(x,z),z);}geo.computeVertexNormals();mesh(geo,groundMat).castShadow=false;}
 
   const box=(parent,x,y,z,w,h,d,mat)=>{const m=mesh(new T.BoxGeometry(w,h,d),mat,parent);m.position.set(x,y,z);return m;};
@@ -112,23 +116,24 @@ function ghost3dBuild(S){
   G.tiles=[];environment.traverse(o=>{if(o.userData.environmentTile)G.tiles.push(o);});
   G.detailStats=ghostMergeMeshes(G.detailEnvironment,T);
   }
+  ghostDrapeWorld(S,world);heightAt=G.heightAt;draped=true;
   G.guideGroup=new T.Group();world.add(G.guideGroup);G.guideMarkers=[];
   for(const m of S.guides){
-    const group=new T.Group();group.position.set(m.x,heightAt(m.k)+.09,m.z);G.guideGroup.add(group);
+    const group=new T.Group();group.position.set(m.x,heightAt(m.k)+.09,m.z);G.guideGroup.add(group);group.position.y=surface.heightAt(m.x,m.z)+.09;
     const ring=mesh(new T.TorusGeometry(.65,.055,5,24),new T.MeshBasicMaterial({color:m.color}),group);ring.rotation.x=Math.PI/2;ring.castShadow=false;
     const canvas=document.createElement('canvas');canvas.width=256;canvas.height=64;const ctx=canvas.getContext('2d');ctx.fillStyle='#10202bdb';ctx.fillRect(0,0,256,64);ctx.fillStyle=m.color;ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='bold 24px sans-serif';ctx.fillText('T'+m.n+' '+m.kind,128,32);
     const texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;const label=new T.Sprite(new T.SpriteMaterial({map:texture,transparent:true,depthTest:true}));label.position.y=1.65;label.scale.set(5.2,1.3,1);group.add(label);G.guideMarkers.push({group,label,marker:m});
   }
   G.traces=new T.Group();G.zones=new T.Group();world.add(G.traces,G.zones);
   [st.A,st.B].forEach((L,index)=>{
-    const curve=new T.CatmullRomCurve3(S.paths[index].map((p,i)=>new T.Vector3(p.x,heightAt(i)+.095,p.z)));
+    const curve=new T.CatmullRomCurve3(S.paths[index].map((p,i)=>new T.Vector3(p.x,surface.heightAt(p.x,p.z)+.095,p.z)));
     mesh(new T.TubeGeometry(curve,S.n,.075,3,false),new T.MeshBasicMaterial({color:index?COL.b:COL.a,transparent:true,opacity:.6}),G.traces).castShadow=false;
     const verts=[],side=index?1:-1;
     if(!L.quality.brake.missing)for(let i=0;i<S.n-1;i++)if(L.brk[i]>=.5){const a=S.edges[i],b=S.edges[i+1],p=point(a,side*.8,.07),q=point(b,side*.8,.07),r=point(b,side*4.8,.07),u=point(a,side*4.8,.07);verts.push(...p,...q,...r,...p,...r,...u);}
     if(verts.length){const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(verts,3));geo.computeVertexNormals();mesh(geo,new T.MeshBasicMaterial({color:'#ff435f',transparent:true,opacity:.22,depthWrite:false,side:T.DoubleSide}),G.zones).castShadow=false;}
   });
   G.estimatedTrace=new T.Group();world.add(G.estimatedTrace);
-  if(S.visual){const curve=new T.CatmullRomCurve3(S.visual.path.map((p,i)=>new T.Vector3(p.x,heightAt(i)+.11,p.z)));mesh(new T.TubeGeometry(curve,S.n,.085,3,false),new T.MeshBasicMaterial({color:'#ffd166',transparent:true,opacity:.62}),G.estimatedTrace).castShadow=false;}
+  if(S.visual){const curve=new T.CatmullRomCurve3(S.visual.path.map((p,i)=>new T.Vector3(p.x,surface.heightAt(p.x,p.z)+.11,p.z)));mesh(new T.TubeGeometry(curve,S.n,.085,3,false),new T.MeshBasicMaterial({color:'#ffd166',transparent:true,opacity:.62}),G.estimatedTrace).castShadow=false;}
   // A generic open-wheel model built for this demo; no third-party model or official livery.
   G.cars=[st.A,st.B].map((L,index)=>{
     const group=new T.Group();world.add(group);const color=[COL.a,COL.b][index],paint=material(color,.28,.33),carbon=material('#182027',.58,.15),rubber=material('#15191b',.94),rim=material('#89929b',.3,.75);
@@ -157,20 +162,21 @@ function ghost3dBuild(S){
 function ghost3dRender(S,poses,camera,target,w,h){
   const G=ghost3d;if(!G.ready)return false;
   try{
-    const elevationOn=!!(!S.track&&S.elevation&&$('ghostElevation').checked);$('ghostElevation').disabled=!!S.track||!S.elevation;
-    if(G.source!==st.A||G.elevationOn!==elevationOn){G.elevationOn=elevationOn;ghost3dBuild(S);}
+    const surface=ghostTopography(S),elevationOn=!surface.flat;$('ghostElevation').disabled=!!S.track||!S.elevation;
+    if(G.source!==st.A||G.surface!==surface){G.elevationOn=elevationOn;ghost3dBuild(S);}
     G.canvas.hidden=false;$('ghostCanvas').style.visibility='hidden';
     if(G.width!==w||G.height!==h){G.renderer.setSize(w,h,false);G.camera.aspect=w/h;G.camera.updateProjectionMatrix();G.width=w;G.height=h;}
     ghostApplyAssets(S);
-    const heightA=G.heightAt(kAtTime(st.A,st.play.e)),heightB=G.heightAt(kAtTime(st.B,st.play.e)),focusHeight=ghost.camera==='b'?heightB:ghost.camera==='tv'?(heightA+heightB)/2:ghost.camera==='overview'?0:heightA;
+    const supports=poses.map((p,i)=>ghostSurfacePose(S,p,i,st.play.e)),heightA=supports[0].y,heightB=supports[1].y;
     const nextNear=ghost.camera==='overview'?Math.max(.5,camera[1]/200):ghost.camera==='free'?Math.max(.5,camera[1]/300):.5;if(Math.abs(G.camera.near-nextNear)>.1){G.camera.near=nextNear;G.camera.updateProjectionMatrix();}
-    G.camera.position.set(camera[0],camera[1]+focusHeight,camera[2]);G.camera.lookAt(target[0],target[1]+focusHeight,target[2]);
+    if(ghost.camera==='cockpit'){const n=supports[0].normal;G.camera.up.set(n.x,n.y,n.z);}else G.camera.up.set(0,1,0);
+    G.camera.position.set(camera[0],camera[1],camera[2]);G.camera.lookAt(target[0],target[1],target[2]);
     G.guideGroup.visible=$('ghostGuides').checked;
     G.guideMarkers.forEach(({group,label,marker:m})=>{const near=Math.min(Math.hypot(m.x-poses[0].x,m.z-poses[0].z),Math.hypot(m.x-poses[1].x,m.z-poses[1].z));group.visible=ghost.camera==='overview'?m.kind==='APEKS':near<110;label.visible=ghost.camera!=='overview';});
     G.environment.visible=$('ghostEnvironment').checked;G.traces.visible=$('ghostTraces').checked&&!($('ghostEstimatedLine').checked&&S.visual);G.estimatedTrace.visible=$('ghostTraces').checked&&!!($('ghostEstimatedLine').checked&&S.visual);G.zones.visible=$('ghostZones').checked;
-    poses.forEach((p,i)=>{const car=G.cars[i];const k=kAtTime(i?st.B:st.A,st.play.e),y=G.heightAt(k),slope=(G.heightAt(k+1)-G.heightAt(k-1))/(2*st.H.L/(S.n-1));car.position.set(p.x,y,p.z);car.rotation.order='YXZ';car.rotation.y=Math.atan2(p.fx,p.fz);car.rotation.x=-Math.atan(slope);car.userData.wheels.forEach(wheel=>wheel.rotation.x=-ReplayCore.distanceAt((i?st.B:st.A).source,st.play.e,(i?st.B:st.A).total)/.36);
+    poses.forEach((p,i)=>{const car=G.cars[i];const support=supports[i],y=support.y;car.position.set(p.x,y,p.z);TrackTopography.orientation(G.T,support.normal,p.fx,p.fz,car.quaternion);car.userData.wheels.forEach(wheel=>wheel.rotation.x=-ReplayCore.distanceAt((i?st.B:st.A).source,st.play.e,(i?st.B:st.A).total)/.36);
       const distance=car.position.distanceTo(G.camera.position),quality=$('ghostRenderQuality').value,level=quality==='performance'?'low':quality==='ultra'&&distance<35?'high':distance<80?'medium':'low';if(car.userData.levels)for(const [name,obj]of Object.entries(car.userData.levels))obj.visible=name===level;
-      const progress=ghostCurveAt(S.native[i].progress,st.play.e).v,step=8/(S.visual?.length||4304),before=S.visual?{x:ghostCurveAt(S.visual.x,Math.max(0,progress-step)).v,z:ghostCurveAt(S.visual.z,Math.max(0,progress-step)).v}:p,after=S.visual?{x:ghostCurveAt(S.visual.x,Math.min(1,progress+step)).v,z:ghostCurveAt(S.visual.z,Math.min(1,progress+step)).v}:p;const steer=Math.max(-.3,Math.min(.3,((after.x-p.x)*p.fz-(after.z-p.z)*p.fx)*.14));car.userData.steers?.forEach(o=>o.rotation.y=steer);if(G.carShadows?.[i]){G.carShadows[i].position.set(p.x,y+.025,p.z);G.carShadows[i].rotation.z=-car.rotation.y;}
+      const progress=ghostCurveAt(S.native[i].progress,st.play.e).v,step=8/(S.visual?.length||4304),before=S.visual?{x:ghostCurveAt(S.visual.x,Math.max(0,progress-step)).v,z:ghostCurveAt(S.visual.z,Math.max(0,progress-step)).v}:p,after=S.visual?{x:ghostCurveAt(S.visual.x,Math.min(1,progress+step)).v,z:ghostCurveAt(S.visual.z,Math.min(1,progress+step)).v}:p;const steer=Math.max(-.3,Math.min(.3,((after.x-p.x)*p.fz-(after.z-p.z)*p.fx)*.14));car.userData.steers?.forEach(o=>o.rotation.y=steer);if(G.carShadows?.[i]){G.carShadows[i].position.set(p.x,y+.025,p.z);G.carShadows[i].quaternion.copy(car.quaternion);G.carShadows[i].rotateX(-Math.PI/2);}
     });
     const p=poses[0],now=performance.now(),quality=$('ghostRenderQuality').value,profile=GHOST_QUALITY[quality],detail=quality==='ultra';
     if(G.quality!==quality){G.quality=quality;G.adaptiveScale=profile.ratio;G.renderer.setPixelRatio(Math.min(devicePixelRatio||1,profile.ratio));G.renderer.setSize(w,h,false);const size=profile.shadow;if(G.sun.shadow.mapSize.x!==size){G.sun.shadow.map?.dispose();G.sun.shadow.map=null;G.sun.shadow.mapSize.set(size,size);}G.pendingRatio=null;G.roadMaterial.normalMap=quality==='performance'?null:(VisualAssets.textures.normal||null);G.roadMaterial.roughnessMap=quality==='performance'?null:(VisualAssets.textures.roughness||null);G.roadMaterial.needsUpdate=true;G.shadowStamp=0;G.fpsStamp=0;if(quality==='ultra')VisualAssets.high();}
@@ -185,8 +191,8 @@ function ghost3dRender(S,poses,camera,target,w,h){
     ghostResolution(w,h,profile);G.renderer.info.reset();GhostMetrics.poll();GhostMetrics.begin();const cpuStart=performance.now();GhostDirector.render();GhostMetrics.cpuMs=performance.now()-cpuStart;GhostMetrics.end();
     ghostPerformance(now);
     $('ghostEngine').title='Sabit çevre parçaları: '+G.mergeStats.before+' → '+G.mergeStats.after;
-    $('ghostScenery').textContent=S.profile.name+' · '+(S.track?'coğrafi referans / ':'normalize telemetri / ')+(G.elevationOn?'tahmini eğim':'düz zemin')+' / temsili çevre';
-    G.labels.forEach((label,i)=>{const v=G.labelVector.set(poses[i].x,G.heightAt(kAtTime(i?st.B:st.A,st.play.e))+1.7,poses[i].z).project(G.camera);label.hidden=Math.abs(v.x)>1||Math.abs(v.y)>1||v.z>1;label.style.left=(v.x*.5+.5)*w+'px';label.style.top=(-v.y*.5+.5)*h+'px';label.style.color=i?COL.b:COL.a;label.textContent=(i?'B · ':'A · ')+st.H.drivers[(i?st.B:st.A).meta.d].c;});
+    $('ghostScenery').textContent=S.profile.name+' · '+(S.track?'coğrafi referans / ':'normalize telemetri / ')+(surface.metadata.label||surface.metadata.category)+' / temsili çevre';
+    G.labels.forEach((label,i)=>{const v=G.labelVector.set(poses[i].x,supports[i].y+1.7,poses[i].z).project(G.camera);label.hidden=Math.abs(v.x)>1||Math.abs(v.y)>1||v.z>1;label.style.left=(v.x*.5+.5)*w+'px';label.style.top=(-v.y*.5+.5)*h+'px';label.style.color=i?COL.b:COL.a;label.textContent=(i?'B · ':'A · ')+st.H.drivers[(i?st.B:st.A).meta.d].c;});
     if(!st.play.on||now-(G.miniStamp||0)>70){G.miniStamp=now;G.mini.hidden=false;const mg=G.mini.getContext('2d'),mw=160,mh=100,sc=Math.min(140/(S.maxX-S.minX||1),80/(S.maxZ-S.minZ||1)),map=p=>[80-(p.x-(S.minX+S.maxX)/2)*sc,50-(p.z-(S.minZ+S.maxZ)/2)*sc];mg.clearRect(0,0,mw,mh);mg.fillStyle='#101b26de';mg.fillRect(0,0,mw,mh);mg.strokeStyle='#a1b4bc';mg.lineWidth=2;mg.beginPath();S.edges.forEach((e,i)=>i?mg.lineTo(...map(e.p)):mg.moveTo(...map(e.p)));mg.stroke();poses.forEach((p,i)=>{mg.fillStyle=i?COL.b:COL.a;mg.beginPath();mg.arc(...map(p),3,0,Math.PI*2);mg.fill();});}
     return true;
   }catch(error){ghost3dFallback(error);return false;}
@@ -195,9 +201,11 @@ function ghost3dRender(S,poses,camera,target,w,h){
 // Profiles change GPU cost without rebuilding telemetry, cars, or the circuit.
 const GHOST_QUALITY={performance:{ratio:.85,shadow:512,shadows:false,far:320},balanced:{ratio:1.25,shadow:1024,shadows:true,far:600},ultra:{ratio:1.5,shadow:2048,shadows:true,far:1000}};
 const ghostOrbit={yaw:0,pitch:.55,distance:65,target:null,drag:null};
-function ghostCameraPose(S,poses,aspect){
+function ghostCameraPose(S,poses,aspect){return ghostTopographyCamera(S,poses,ghostPlanCameraPose(S,poses,aspect));}
+function ghostPlanCameraPose(S,poses,aspect){
   $('ghostCanvas').parentElement.classList.toggle('free-camera',ghost.camera==='free');
   const [A,B]=poses,zoom=Number($('ghostZoom').value)/100;
+  if(ghost.camera==='cockpit')return {camera:[A.x+A.fx*.1,.98,A.z+A.fz*.1],target:[A.x+A.fx*9,.98,A.z+A.fz*9]};
   if(ghost.camera==='cinematic'||ghost.camera==='compare'){const p=ghost.camera==='compare'?{x:(A.x+B.x)/2,z:(A.z+B.z)/2,fx:A.fx,fz:A.fz}:A,separation=Math.hypot(A.x-B.x,A.z-B.z),compare=ghost.camera==='compare',distance=(compare?16+separation*.9:6.4)/zoom,height=(compare?7+separation*.28:1.3)/zoom,side=compare?distance*.55:3.2;return {camera:[p.x-p.fx*distance+p.fz*side,height,p.z-p.fz*distance-p.fx*side],target:[p.x,.65,p.z]};}
   if(ghost.camera==='free'){
     if(!ghostOrbit.target){const state=ghost.cameraState;ghostOrbit.target=state?state.target.slice():[A.x,.6,A.z];if(state){const dx=state.camera[0]-state.target[0],dz=state.camera[2]-state.target[2],dy=state.camera[1]-state.target[1];ghostOrbit.distance=Math.max(5,Math.hypot(dx,dz,dy));ghostOrbit.yaw=Math.atan2(dx,dz);ghostOrbit.pitch=Math.asin(dy/ghostOrbit.distance);}}

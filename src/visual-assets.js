@@ -151,7 +151,14 @@ const VisualAssets = {
       root.add(clone);
       levels[name] = clone;
     }
-    root.userData = { wheels, steers, levels, asset: true };
+    root.updateMatrixWorld(true);
+    const contacts=[];
+    levels.low.traverse(o=>{
+      if(o.isMesh||!o.name.startsWith('Wheel_'))return;
+      const bounds=new T.Box3().setFromObject(o);
+      contacts.push({x:(bounds.min.x+bounds.max.x)/2,y:bounds.min.y,z:(bounds.min.z+bounds.max.z)/2});
+    });
+    root.userData = { wheels, steers, levels, contacts, asset: true };
     return root;
   },
   dispose() {

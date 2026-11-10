@@ -59,7 +59,11 @@
       if(!Number.isFinite(d)||!Number.isFinite(offset))throw Error('Nonfinite surface query');
       const p=center(d),h=horizontal(d),e=elevation(d),b=bank(d),tan=Math.tan(b.value),rx=h.fz,rz=-h.fx;
       // dy/d(horizontal station), including bank transition at this lateral offset.
-      const gradient=(e.derivative+offset*b.derivative/(Math.cos(b.value)**2))/h.metric;
+      const before=horizontal(d-1),after=horizontal(d+1);
+      const turn=(after.fx-before.fx)*rx+(after.fz-before.fz)*rz;
+      const curvature=turn/(2*h.metric),jacobian=1-offset*curvature;
+      if(Math.abs(offset)<=widthAt(d).value/2&&jacobian<=.02)throw Error('Track width folds the inner surface');
+      const gradient=(e.derivative+offset*b.derivative/(Math.cos(b.value)**2))/(h.metric*jacobian);
       const normal=unit({x:-h.fx*gradient-rx*tan,y:1,z:-h.fz*gradient-rz*tan});
       const right=unit({x:rx,y:tan,z:rz}),tangent=unit(cross(right,normal));
       return {distance:wrap(d,length),position:{x:p.x+rx*offset,y:e.value+offset*tan,z:p.z+rz*offset},elevation:e.value,gradient,banking:b.value,width:widthAt(d).value,surfaceNormal:normal,tangent,right};
@@ -93,7 +97,10 @@
     forward.addScaledVector(up,-forward.dot(up)).normalize();
     const right=new T.Vector3().crossVectors(up,forward).normalize();
     up.crossVectors(forward,right).normalize();
-    return target.setFromRotationMatrix(new T.Matrix4().makeBasis(right,up,forward));
+    const previous={x:target.x,y:target.y,z:target.z,w:target.w};
+    target.setFromRotationMatrix(new T.Matrix4().makeBasis(right,up,forward));
+    if(target.x*previous.x+target.y*previous.y+target.z*previous.z+target.w*previous.w<0)target.set(-target.x,-target.y,-target.z,-target.w);
+    return target;
   }
   root.TrackTopography={create,orientation,unit,cross,dot};
   if(typeof module!=='undefined')module.exports=root.TrackTopography;

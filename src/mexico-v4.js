@@ -175,8 +175,12 @@ const MexicoV4 = {
             ),
             dummy = new T.Object3D();
           list.forEach((p, i) => {
-            dummy.position.set(p.x, p.y || 0, p.z);
+            dummy.position.set(p.x, (p.y || 0)+(G.surface?.heightAt(p.x,p.z)||0), p.z);
             dummy.rotation.set(0, p.yaw || 0, 0);
+            if(G.surface&&!G.surface.flat&&/KIT_(Barrier|Fence)/.test(name)){
+              const q=G.surface.project(p.x,p.z),f=G.surface.sampleAtDistance(q.distance,q.offset);
+              TrackTopography.orientation(T,f.surfaceNormal,Math.sin(p.yaw||0),Math.cos(p.yaw||0),dummy.quaternion);
+            }
             dummy.scale.set(
               ...(p.scaleXYZ || [p.scale || 1, p.scale || 1, p.scale || 1]),
             );
@@ -468,7 +472,7 @@ const MexicoV4 = {
       world.traverse((o) => {
         if (
           o.geometry?.type === "PlaneGeometry" &&
-          o.geometry.parameters.width === 8000
+          (o.geometry.parameters.width === 8000||o.name==='TopographyGround')
         ) {
           const oldMap = o.material.map;
           if (oldMap && !oldMap.userData.sharedAsset) oldMap.dispose();
