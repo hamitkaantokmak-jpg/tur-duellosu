@@ -5,7 +5,7 @@ const GHOST_FLAT_SUPPORT=Object.freeze({y:0,normal:Object.freeze({x:0,y:1,z:0}),
 function ghostTopography(S) {
   // A test profile must be explicitly injected, requested AND run on loopback.
   const test=GHOST_TOPOGRAPHY_TEST_ENABLED&&window.TOPOGRAPHY_TEST_PROFILE;
-  let profile = test || TrackTopographyProfiles[st.H.event] || null;
+  let profile = test || S.realProfile || TrackTopographyProfiles[st.H.event] || null;
   // Preserve the former opt-in telemetry-height rendering outside Mexico, but
   // identify it as illustrative: telemetry Z units/datum were not surveyed.
   if (!profile && !S.track && S.elevation && $('ghostElevation').checked) {
