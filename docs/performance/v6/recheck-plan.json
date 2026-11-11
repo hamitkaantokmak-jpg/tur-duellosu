@@ -1,0 +1,30 @@
+{
+  "selected": [
+    {
+      "key": "mexico/1920/performance/a",
+      "initialLossPercent": 27.31780971808674
+    },
+    {
+      "key": "mexico/2560/ultra/cockpit",
+      "initialLossPercent": 27.346556548885147
+    },
+    {
+      "key": "spa/2560/performance/cockpit",
+      "initialLossPercent": 26.952394590754956
+    },
+    {
+      "key": "spa/2560/ultra/a",
+      "initialLossPercent": 60.4727064683761
+    },
+    {
+      "key": "spa/2560/ultra/cockpit",
+      "initialLossPercent": 75.01556058979372
+    }
+  ],
+  "order": "v6,v5,v5,v6,v6,v5",
+  "filter": "^(mexico/1920/performance/a|mexico/2560/ultra/cockpit|spa/2560/performance/cockpit|spa/2560/ultra/a|spa/2560/ultra/cockpit)$",
+  "repeatsPerVersion": 3,
+  "method": "Keep the initial window plus all three balanced-order repeats per version. No discarded windows. Median describes window means, not a confidence interval.",
+  "initialMatrixSha256": "48387b282966b9a31c652c10aad8918c78aba84ccb352c06a1c8d7d6c762a4e0",
+  "createdAt": "2026-11-11T18:48:24.131Z"
+}

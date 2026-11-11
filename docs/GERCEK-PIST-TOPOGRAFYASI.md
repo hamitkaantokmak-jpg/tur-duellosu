@@ -2,6 +2,8 @@
 
 Başlangıç: V5 main `a237ca529b31bd769df90165c62f73cdef54a672`. Bu çalışma `feat/v6-real-track-topography` dalında incelemeye sunulur; main'e birleştirilmez. Buradaki “gerçek kaynak” asfaltın mühendislik ölçümü anlamına gelmez. Kabul edilen iki profil, açık lisanslı **arazi modellerinden türetilmiştir**; banking ve süspansiyon ölçülmemiştir.
 
+**Teslim durumu: [taslak PR #10](https://github.com/hamitkaantokmak-jpg/tur-duellosu/pull/10). İşlevsel doğrulama başarılı; %10 performans hedefi tüm koşullarda karşılanmadı.** Spa 1440p Ultra takip/kokpit koşullarında tekrarlar dahil pencere medyanı kayıpları %11.65 / %19.93 kaldı. Performans kabulü verilmedi; bağımsız inceleme ve V6 performans düzeltmesi gerekiyor. Main değişmedi.
+
 ## Pist durumları
 
 | Pist | Veri kaynağı | Doğruluk sınıfı | Üretimde etkin mi? |
@@ -74,7 +76,29 @@ Son test/performance özeti, ham kayıtlarla birlikte [performance/v6](performan
 
 Meksika'nın değişmeyen çizim yolunda bile bazı sınırsız kare pencereleri 120–160 FPS ile 340–460 FPS arasında değişti. Bu değerlerden yazılım hızlanması veya sınırsız GPU kapasitesi sonucu çıkarılmaz. Kesin dış durum nedeni kanıtlanmadı. Son ölçümlerde benzersiz rAF, render sayısı, CPU/GPU süreleri ve GPU saatleri de kaydedilir; ilk başarısız/değişken koşular silinmez.
 
-Performans ölçümü `scripts/audit-v6.cjs` ile: aynı fiziksel NVIDIA GPU, gerçek 1920×1080 / 2560×1440 tamponlar, DPR ve render oranı 1, adaptif çözünürlük/AO kapalı, 1× oynatma; Performans ve Ultra, takip ve kokpit. Her hücre 20 s gerçek oynatma ısınması ve 12 s ölçüm kullanır. FPS ve p95 tüm ölçüm penceresinden hesaplanır. Geometri/doku byte alanları sahne tamponu ve doku depolama **tahminleridir**, ölçülmüş VRAM değildir. V5 COTA/Spa normalize düz sahne, V6 coğrafi arazi sahnesidir; aynı son kullanıcı koşullarının karşılaştırmasıdır, aynı üçgenlerin karşılaştırması değildir. Kare limiti kapatma bayrakları istenir; sunum tavanına takılmak sınırsız GPU kapasitesi göstermez. Son tablo ölçüm tamamlanınca aşağıya eklenecektir.
+Performans ölçümü `scripts/audit-v6.cjs` ile: aynı fiziksel **NVIDIA RTX 5060 Laptop / ANGLE D3D11**, sürücü **621.14**, Chrome **157.0.8103.39**, gerçek 1920×1080 / 2560×1440 tamponlar, DPR ve render oranı 1, adaptif çözünürlük/AO kapalı, 1× oynatma; Performans ve Ultra, takip ve kokpit. Her hücre 20 s gerçek oynatma ısınması ve 12 s ölçüm kullanır. FPS ve p95 tüm ölçüm penceresinden hesaplanır. Geometri/doku byte alanları sahne tamponu ve doku depolama **tahminleridir**, ölçülmüş VRAM değildir. V5 COTA/Spa normalize düz sahne, V6 coğrafi arazi sahnesidir; aynı son kullanıcı koşullarının karşılaştırmasıdır, aynı üçgenlerin karşılaştırması değildir. Kare limiti kapatma bayrakları istenir; sunum tavanına takılmak sınırsız GPU kapasitesi göstermez.
+
+### Son performans sonucu
+
+Son uygulama sürümünde **48 tam matris + 30 tekrar = 78 ölçüm penceresi** kaydedildi. [Ham matris](performance/v6/final-matrix.json), [24 ilk karşılaştırmanın tamamı](performance/v6/PERFORMANS.md), [ham tekrarlar](performance/v6/rechecks.json). Ek olarak ilk 32 pencere ve 9 tanılama penceresi geçmiş kanıt olarak korunur; bunlar son kabul sürümüne karıştırılmaz.
+
+İlk matris %10'u beş koşulda aştı. Bu beş koşul, veri silinmeden, önceden kaydedilmiş `V6,V5,V5,V6,V6,V5` sırasıyla üçer kez tekrarlandı. Her sürümde ilk pencere + üç tekrarın **pencere FPS ortalamalarının medyanı** alındı. Diğer 19 koşul ilk penceresini korur. Bu bir güven aralığı değildir; iyi görünen tek pencere seçilmedi. [Önceden belirlenen plan](performance/v6/recheck-plan.json), [tekrarların tamamı ve aralıklar](performance/v6/TEKRARLAR.md), [makine özeti](performance/v6/repeat-summary.json).
+
+| Tekrarlanan koşul | V5 medyan FPS | V6 medyan FPS | Kayıp | p95 pencere medyanı V5→V6 |
+|---|---:|---:|---:|---:|
+| Meksika 1080p Performans takip | 468.6 | 503.4 | −%7.43 | 2.85→2.65 ms |
+| Meksika 1440p Ultra kokpit | 397.4 | 416.4 | −%4.78 | 3.30→3.20 ms |
+| Spa 1440p Performans kokpit | 690.4 | 663.9 | %3.83 | 1.85→1.95 ms |
+| **Spa 1440p Ultra takip** | **668.5** | **590.7** | **%11.65 — hedef aşımı** | **1.90→3.85 ms** |
+| **Spa 1440p Ultra kokpit** | **681.2** | **545.4** | **%19.93 — hedef aşımı** | **2.00→2.65 ms** |
+
+COTA'nın sekiz ilk karşılaştırmasında en büyük kayıp %3.75; Spa 1080p'de %0.49, Spa 1440p Performans takipte %6.79 oldu. İlk ham matrisin en büyük tek pencere farkı %75.02 idi; bu değer silinmedi veya son medyanla değiştirilmedi. Son ham gate de, tekrar medyanı gate'i de `false` olarak saklanır.
+
+GPU'nun P4/P0 durumu ve çekirdek/bellek saatleri pencereler arasında değişti. Yaklaşık 500 FPS hem V5 hem V6'nın aynı Meksika koşulunda gözlendi; büyük pozitif farklar yazılım hızlanması olarak sunulmaz. Son tekrarların tamamında tick ve benzersiz rAF sayıları kaydedilir. Saat/power geçişinin kesin dış nedeni kanıtlanmadı; laboratuvar düzeyinde sabit saat garantisi yoktur.
+
+Kalan maliyette daha yoğun yol/zemin ve artan çizim grupları dikkate alınmalı. Örneğin Spa 1440p Ultra kokpit sabit t=10 anında draw call **111→148**, üçgen **209260→440328**, sahne geometri buffer'ı **6854768→26382120 byte**, doku depolama tahmini **36503632→36503632 byte**. Bu bir bellek sızıntısı değildir; daha yoğun statik yüzey ve bariyer gruplamasının maliyetidir. Saat değişkenliği nedeniyle bütün FPS farkını tek bileşene kesin olarak bağlamıyorum. Çarpışma için yerel hızlandırmayı çizim gruplamasından ayırmak ve uzak yol geometrisinin yükünü azaltmak V6'da açık performans işi olarak kalır; bu PR bu konuda kabul edilmiş sayılmaz.
+
+Yeniden üretim: V5 `a237ca5` arşivini ve PR dalını ayrı statik portlarda çalıştırın; `CHROMIUM_PATH` tanımlayıp `node scripts/audit-v6.cjs` kullanın. Sonuç `final-matrix.json` olur. Tam test: `npm run test:unit`, `node node_modules/@playwright/test/cli.js test`. Kanıt toplama için Playwright çıktısı `work/v6-post-opt-results` ise `node scripts/collect-v6-evidence.cjs`; istatistikler için `node scripts/summarize-v6.cjs` ve `node scripts/summarize-v6-repeats.cjs`. Tekrar planı ve tüm pencere sırası ham dosyalardadır. Performans başarısızken PR taslak kalır; main'e birleştirilmez.
 
 Görseller gerçek Ultra uygulama ekranlarıdır; her karede `TÜRETİLMİŞ`, veri kurumu ve banking'in ölçülmediği bilgisi görünür. [Görsel dizini](performance/v6/visual/) COTA start/finish, T1 yaklaşım/tepe/iniş, takip/kokpit ve Spa Eau Rouge/Raidillon/tepe/kokpit karelerini içerir.
 
