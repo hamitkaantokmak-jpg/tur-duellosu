@@ -1,5 +1,5 @@
 const fs=require('node:fs'),path=require('node:path'),{execFileSync}=require('node:child_process');
-const root=process.argv[2]||'work/v6-acceptance-results',out='docs/performance/v6',visual=path.join(out,'visual');
+const root=process.argv[2]||'work/v6-post-opt-results',out='docs/performance/v6',visual=path.join(out,'visual');
 fs.mkdirSync(visual,{recursive:true});
 function files(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.name==='attachments'?[]:e.isDirectory()?files(path.join(dir,e.name)):[path.join(dir,e.name)]);}
 const images=[];

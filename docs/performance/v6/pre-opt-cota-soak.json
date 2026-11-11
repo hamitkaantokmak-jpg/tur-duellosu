@@ -1,0 +1,38 @@
+{
+  "before": {
+    "memory": {
+      "geometries": 126,
+      "textures": 11
+    },
+    "time": 0
+  },
+  "after": {
+    "time": 30.271707000001374,
+    "memory": {
+      "geometries": 126,
+      "textures": 11
+    },
+    "unchanged": true
+  },
+  "transitions": [
+    {
+      "same": true,
+      "ready": true,
+      "category": "derived",
+      "unchanged": true
+    },
+    {
+      "same": true,
+      "ready": true,
+      "category": "derived",
+      "unchanged": true
+    },
+    {
+      "same": true,
+      "ready": true,
+      "category": "derived",
+      "unchanged": true
+    }
+  ],
+  "errors": []
+}

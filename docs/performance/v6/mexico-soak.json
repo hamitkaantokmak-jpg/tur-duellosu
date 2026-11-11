@@ -1,6 +1,6 @@
 {
-  "fps": 59.910134797803295,
-  "ms": 16.691666666666666,
+  "fps": 60.08076430893812,
+  "ms": 16.644262294300265,
   "ready": true,
   "geometries": 485,
   "textures": 30,
@@ -11,17 +11,17 @@
     416
   ],
   "frames": 600,
-  "p50": 16.600000023841858,
-  "p95": 20.299999952316284,
-  "cpu": 3.6999999284744263,
-  "gpu": 5.009248,
-  "wallMs": 120152,
+  "p50": 16.699999928474426,
+  "p95": 19.5,
+  "cpu": 3.799999952316284,
+  "gpu": 8.731104,
+  "wallMs": 120212,
   "snapshots": [
     {
-      "time": 40.199599999809344,
+      "time": 40.19799999961862,
       "ready": true,
       "memory": {
-        "geometries": 474,
+        "geometries": 471,
         "textures": 30
       }
     },
@@ -34,23 +34,7 @@
       }
     },
     {
-      "time": 39.989344000000095,
-      "ready": true,
-      "memory": {
-        "geometries": 485,
-        "textures": 30
-      }
-    },
-    {
-      "time": 76.651,
-      "ready": true,
-      "memory": {
-        "geometries": 485,
-        "textures": 30
-      }
-    },
-    {
-      "time": 40.05600000000003,
+      "time": 40.12334400000002,
       "ready": true,
       "memory": {
         "geometries": 485,
@@ -66,7 +50,7 @@
       }
     },
     {
-      "time": 40.056936,
+      "time": 40.05507200000006,
       "ready": true,
       "memory": {
         "geometries": 485,
@@ -82,7 +66,7 @@
       }
     },
     {
-      "time": 39.98733600000005,
+      "time": 39.99013599999999,
       "ready": true,
       "memory": {
         "geometries": 485,
@@ -98,7 +82,23 @@
       }
     },
     {
-      "time": 40.056,
+      "time": 40.05653599999994,
+      "ready": true,
+      "memory": {
+        "geometries": 485,
+        "textures": 30
+      }
+    },
+    {
+      "time": 76.651,
+      "ready": true,
+      "memory": {
+        "geometries": 485,
+        "textures": 30
+      }
+    },
+    {
+      "time": 40.12413599999997,
       "ready": true,
       "memory": {
         "geometries": 485,

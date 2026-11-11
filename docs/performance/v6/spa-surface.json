@@ -38,6 +38,11 @@
   "gap": 0.019632406185489337,
   "upError": 2.240145354958912e-16,
   "cameraEpsilon": 0.00016316140001926271,
+  "collisionSweep": {
+    "requested": 5.999999999999994,
+    "moved": 1.6999995855200696,
+    "clearance": 0.6500000000000001
+  },
   "telemetryUnchanged": true,
   "totals": [
     113.835,

@@ -1,6 +1,6 @@
 // Sequential physical-GPU comparison. Old V5 and V6 both have a cockpit camera.
 const {chromium}=require('@playwright/test'),fs=require('node:fs'),path=require('node:path');
-const out=process.argv[2]||'docs/performance/v6/matrix.json',seconds=Number(process.env.AUDIT_SECONDS||12),warmup=Number(process.env.AUDIT_WARMUP_SECONDS||20);
+const out=process.argv[2]||'docs/performance/v6/final-matrix.json',seconds=Number(process.env.AUDIT_SECONDS||12),warmup=Number(process.env.AUDIT_WARMUP_SECONDS||20);
 const filter=process.env.AUDIT_FILTER?new RegExp(process.env.AUDIT_FILTER):null;
 const diagnostics=process.env.AUDIT_DIAGNOSTICS==='1';
 const versions=(process.env.AUDIT_VERSION_ORDER||'v5,v6').split(','),rows=[];

@@ -1,0 +1,1269 @@
+{
+  "conditions": {
+    "seconds": 12,
+    "warmup": 20,
+    "versions": [
+      "v5",
+      "v6"
+    ],
+    "uncappedRequested": true,
+    "deviceScaleFactor": 1,
+    "renderRatio": 1,
+    "adaptive": false,
+    "AO": false,
+    "rate": 1,
+    "note": "V5 COTA/Spa use their original normalized XY and flat elevation. V6 uses geographic XY and derived terrain: end-user workload comparison, not identical meshes. Byte fields estimate CPU scene buffer/texture storage, not measured VRAM. No camera shim.",
+    "browser": "157.0.8103.39",
+    "node": "v24.22.1"
+  },
+  "rows": [
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1457,
+        "meanFps": 121.43589401631131,
+        "p95Ms": 11.700000047683716,
+        "p50Ms": 7.899999976158142,
+        "time": 21.992600000000174
+      },
+      "wallMs": 12008,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1523,
+        "meanFps": 126.910321150357,
+        "p95Ms": 11.100000023841858,
+        "p50Ms": 7.600000023841858,
+        "time": 21.997600000000165
+      },
+      "wallMs": 12011,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 254,
+        "triangles": 1357536,
+        "residentCounts": {
+          "geometries": 352,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1222,
+        "meanFps": 101.8112742247271,
+        "p95Ms": 14.200000047683716,
+        "p50Ms": 9.5,
+        "time": 21.999900000000114
+      },
+      "wallMs": 12013,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 239,
+        "triangles": 1171672,
+        "residentCounts": {
+          "geometries": 353,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1456,
+        "meanFps": 121.19597789148219,
+        "p95Ms": 11.799999952316284,
+        "p50Ms": 8,
+        "time": 22.003500000000045
+      },
+      "wallMs": 12026,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1696,
+        "meanFps": 141.2862379206931,
+        "p95Ms": 10.100000023841858,
+        "p50Ms": 6.800000071525574,
+        "time": 21.99680000000022
+      },
+      "wallMs": 12012,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1706,
+        "meanFps": 142.13113388319587,
+        "p95Ms": 10.100000023841858,
+        "p50Ms": 6.800000071525574,
+        "time": 21.999400000000144
+      },
+      "wallMs": 12013,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 254,
+        "triangles": 1357536,
+        "residentCounts": {
+          "geometries": 353,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1310,
+        "meanFps": 109.16939590221492,
+        "p95Ms": 12.899999976158142,
+        "p50Ms": 8.800000071525574,
+        "time": 21.991300000000162
+      },
+      "wallMs": 12014,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 239,
+        "triangles": 1171672,
+        "residentCounts": {
+          "geometries": 353,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1394,
+        "meanFps": 116.15021205283098,
+        "p95Ms": 12.600000023841858,
+        "p50Ms": 8.299999952316284,
+        "time": 21.996199999999984
+      },
+      "wallMs": 12011,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1973,
+        "meanFps": 164.3030237409332,
+        "p95Ms": 11.299999952316284,
+        "p50Ms": 6.799999952316284,
+        "time": 22.000700000000233
+      },
+      "wallMs": 12019,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1415,
+        "meanFps": 117.92354553945358,
+        "p95Ms": 11.700000047683716,
+        "p50Ms": 8.199999928474426,
+        "time": 21.985800000000168
+      },
+      "wallMs": 12010,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 254,
+        "triangles": 1357536,
+        "residentCounts": {
+          "geometries": 353,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1190,
+        "meanFps": 99.03956589063712,
+        "p95Ms": 14,
+        "p50Ms": 9.799999952316284,
+        "time": 22.018000000000118
+      },
+      "wallMs": 12028,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 239,
+        "triangles": 1171672,
+        "residentCounts": {
+          "geometries": 353,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1253,
+        "meanFps": 104.34883992009664,
+        "p95Ms": 13,
+        "p50Ms": 9.199999928474426,
+        "time": 22.003099999999975
+      },
+      "wallMs": 12019,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 4123,
+        "meanFps": 343.5318035607516,
+        "p95Ms": 8.300000071525574,
+        "p50Ms": 2.0999999046325684,
+        "time": 21.99350000000038
+      },
+      "wallMs": 12016,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 5539,
+        "meanFps": 461.0300972175882,
+        "p95Ms": 3,
+        "p50Ms": 2.0999999046325684,
+        "time": 22.008300000000453
+      },
+      "wallMs": 12022,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 254,
+        "triangles": 1357536,
+        "residentCounts": {
+          "geometries": 353,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1080,
+        "meanFps": 89.94603238110746,
+        "p95Ms": 16.100000023841858,
+        "p50Ms": 10.699999928474426,
+        "time": 22.00370000000005
+      },
+      "wallMs": 12018,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 239,
+        "triangles": 1171672,
+        "residentCounts": {
+          "geometries": 353,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1137,
+        "meanFps": 94.64667737700871,
+        "p95Ms": 16,
+        "p50Ms": 10,
+        "time": 22.008300000023876
+      },
+      "wallMs": 12025,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 66,
+        "triangles": 51312,
+        "residentCounts": {
+          "geometries": 96,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 4986392,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1982,
+        "meanFps": 165.1900685937072,
+        "p95Ms": 10.199999928474426,
+        "p50Ms": 5.400000095367432,
+        "time": 22.001634000000344
+      },
+      "wallMs": 12009,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 36,
+        "triangles": 35068,
+        "residentCounts": {
+          "geometries": 96,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 4986392,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 2651,
+        "meanFps": 220.6922961668791,
+        "p95Ms": 7,
+        "p50Ms": 4.300000071525574,
+        "time": 22.01006800000037
+      },
+      "wallMs": 12020,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 129,
+        "triangles": 212774,
+        "residentCounts": {
+          "geometries": 144,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 5906996,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1719,
+        "meanFps": 143.24880625966324,
+        "p95Ms": 11.899999976158142,
+        "p50Ms": 6.299999952316284,
+        "time": 22.007300000000225
+      },
+      "wallMs": 12006,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 98,
+        "triangles": 148714,
+        "residentCounts": {
+          "geometries": 144,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 5906996,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 2149,
+        "meanFps": 179.0534910848192,
+        "p95Ms": 8.399999976158142,
+        "p50Ms": 5.399999976158142,
+        "time": 22.001734000000113
+      },
+      "wallMs": 12010,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 67,
+        "triangles": 207698,
+        "residentCounts": {
+          "geometries": 103,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 17151512,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1540,
+        "meanFps": 128.21153237782912,
+        "p95Ms": 12.799999952316284,
+        "p50Ms": 7.299999952316284,
+        "time": 22.013000000000215
+      },
+      "wallMs": 12020,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 37,
+        "triangles": 191454,
+        "residentCounts": {
+          "geometries": 103,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 17151512,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1817,
+        "meanFps": 151.371255289779,
+        "p95Ms": 10.299999952316284,
+        "p50Ms": 6.100000023841858,
+        "time": 22.00630000000025
+      },
+      "wallMs": 12013,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 128,
+        "triangles": 378656,
+        "residentCounts": {
+          "geometries": 143,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1517,
+        "meanFps": 126.43141699839862,
+        "p95Ms": 12.600000023841858,
+        "p50Ms": 7.5,
+        "time": 22.001068000000135
+      },
+      "wallMs": 12006,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 98,
+        "triangles": 314656,
+        "residentCounts": {
+          "geometries": 143,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1781,
+        "meanFps": 148.4117196096412,
+        "p95Ms": 11.600000023841858,
+        "p50Ms": 6.299999952316284,
+        "time": 22.003700000000062
+      },
+      "wallMs": 12012,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 66,
+        "triangles": 51312,
+        "residentCounts": {
+          "geometries": 96,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 4986392,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 2220,
+        "meanFps": 185.03238066698435,
+        "p95Ms": 8.900000095367432,
+        "p50Ms": 5.100000023841858,
+        "time": 22.00063400000036
+      },
+      "wallMs": 12005,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 36,
+        "triangles": 35068,
+        "residentCounts": {
+          "geometries": 96,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 4986392,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1904,
+        "meanFps": 158.59529878252962,
+        "p95Ms": 10,
+        "p50Ms": 5.700000047683716,
+        "time": 22.013434000000277
+      },
+      "wallMs": 12016,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 129,
+        "triangles": 212774,
+        "residentCounts": {
+          "geometries": 144,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 5906996,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1801,
+        "meanFps": 149.92715920915714,
+        "p95Ms": 10.5,
+        "p50Ms": 6.100000023841858,
+        "time": 22.02150000000018
+      },
+      "wallMs": 12018,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 98,
+        "triangles": 148714,
+        "residentCounts": {
+          "geometries": 144,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 5906996,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1730,
+        "meanFps": 144.05622356136385,
+        "p95Ms": 10.600000023841858,
+        "p50Ms": 6.399999976158142,
+        "time": 22.00743400000012
+      },
+      "wallMs": 12016,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 67,
+        "triangles": 207698,
+        "residentCounts": {
+          "geometries": 103,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 17151512,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1752,
+        "meanFps": 145.9063767410114,
+        "p95Ms": 9.799999952316284,
+        "p50Ms": 6.5,
+        "time": 22.010868000000222
+      },
+      "wallMs": 12017,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 37,
+        "triangles": 191454,
+        "residentCounts": {
+          "geometries": 103,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 17151512,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1575,
+        "meanFps": 131.31346817576315,
+        "p95Ms": 11.699999928474426,
+        "p50Ms": 7.100000023841858,
+        "time": 22.001000000000186
+      },
+      "wallMs": 12006,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 128,
+        "triangles": 378656,
+        "residentCounts": {
+          "geometries": 143,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1688,
+        "meanFps": 140.5495420482931,
+        "p95Ms": 10.099999904632568,
+        "p50Ms": 6.899999976158142,
+        "time": 22.00570000000021
+      },
+      "wallMs": 12019,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 98,
+        "triangles": 314656,
+        "residentCounts": {
+          "geometries": 143,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1417,
+        "meanFps": 117.9467117258186,
+        "p95Ms": 12.5,
+        "p50Ms": 8,
+        "time": 22.021900000000056
+      },
+      "wallMs": 12023,
+      "errors": []
+    }
+  ]
+}

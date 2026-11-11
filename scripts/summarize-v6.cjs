@@ -8,7 +8,7 @@ for(const [id,p]of Object.entries(profiles)){
  data[id]={sourceRows:raw.rows.length,sourceSpacingMeters:p.length/raw.rows.length,sourceGridMeters:p.profile.metadata.resolutionMeters,rawRangeMeters:[Math.min(...raw.rows.map(p=>p.elevation)),Math.max(...raw.rows.map(p=>p.elevation))],derivedRelativeRangeMeters:[Math.min(...p.profile.samples.map(p=>p.elevation)),Math.max(...p.profile.samples.map(p=>p.elevation))],maxGrade,maxHorizontalShift,filterMaxResidualMeters:p.profile.metadata.maxFilterResidualMeters,category:p.profile.metadata.category,banking:'unmeasured; modeled zero',license:p.profile.metadata.license,rawSha256:p.profile.metadata.rawSha256};
 }
 fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(path.join(dir,'data-quality.json'),JSON.stringify(data,null,2)+'\n');
-const files=process.argv.slice(2).length?process.argv.slice(2):[path.join(dir,'matrix.json')];
+const files=process.argv.slice(2).length?process.argv.slice(2):[path.join(dir,'final-matrix.json')];
 const selected=new Map(),runs=[];
 for(const file of files){if(!fs.existsSync(file))continue;const m=JSON.parse(fs.readFileSync(file,'utf8'));runs.push({file,conditions:m.conditions,rows:m.rows.length});for(const r of m.rows)selected.set([r.track,r.viewport.width,r.quality,r.camera,r.version].join('/'),{...r,file});}
 const comparisons=[];
