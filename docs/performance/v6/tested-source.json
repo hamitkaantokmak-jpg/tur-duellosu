@@ -1,0 +1,12 @@
+{
+  "baseline": "a237ca529b31bd769df90165c62f73cdef54a672",
+  "candidateCommit": "acff0d9fac493ed6000e7f01c1ed68b8a87dbed8",
+  "candidateTree": "fe48e018e3612f92c01910103879a6f1fc43f7c0",
+  "candidatePublishedCommit": "eba5f598518e53d1f4e1b4f74c90b61f23db0731",
+  "candidatePublishedTree": "fe48e018e3612f92c01910103879a6f1fc43f7c0",
+  "collectedAt": "2026-11-11T17:34:15.010Z",
+  "lastRun": {
+    "status": "passed",
+    "failedTests": []
+  }
+}

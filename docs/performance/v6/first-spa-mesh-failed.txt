@@ -1,0 +1,35 @@
+
+Running 1 test using 1 worker
+
+(node:37684) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:37684) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+REAL_SURFACE spa {"metadata":{"category":"derived","owner":"Service public de Wallonie (SPW)","license":"CC-BY-4.0; centerline MIT","source":"https://geoportail.wallonie.be/catalogue/a004e570-99d6-4fe5-b83d-49b774409278.html","horizontalCRS":"Source EPSG:3812; query EPSG:4326 (server conversion)","verticalDatum":"DNG / EPSG:5710","resolutionMeters":0.5,"uncertainty":"Published regional absolute vertical accuracy ~0.12 m; approximate centerline, bridge exclusion and 2021-2022 acquisition add unquantified asphalt error.","label":"TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi","verticalUnit":"m","bankingStatus":"unmeasured","surface":"bare-earth DEM, not surveyed asphalt","retrievedAt":"2026-11-10T18:53:20.388Z","sourceSpacingMeters":39.79545454545455,"centerlineSha256":"b867de9cc8364cc9b545a044377a56a697b8db77823c849c1a1c03760a943381","rawSha256":"9ec5b514d7f3c5aaf31748402b1b3daafbe47a575c5c2abea4bb57463a006a76","originElevationMeters":416.9878235,"processing":"One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime","maxFilterResidualMeters":0.8401567500000056},"fit":{"a":0.10013844984149194,"b":0.003956187133999082,"flip":-1,"dir":1,"phase":0.982177734375,"tx":101.71878868886878,"tz":243.6981265429622,"rmse":7.063188255782669},"profile":true,"flat":false,"length":7004,"penetration":1.7763568394002505e-15,"gap":0.020733925985293666,"upError":2.2473876566261383e-16,"cameraEpsilon":0.00014436308964960176,"telemetryUnchanged":true,"totals":[113.835,114.095],"finish":[1,1],"mexicoVenue":false,"telemetryZ":[{"present":true,"range":[3654.9931574428565,4679],"classification":"unverified telemetry Z; not used as the terrain source"},{"present":true,"range":[3655,4678.039916573683],"classification":"unverified telemetry Z; not used as the terrain source"}]}
+  x  1 tests\real-topography.spec.js:3:30 › spa real terrain keeps telemetry, tyre contact and cameras stable (11.7s)
+
+
+  1) tests\real-topography.spec.js:3:30 › spa real terrain keeps telemetry, tyre contact and cameras stable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      35 |   },{station,mode});
+      36 |   const path=info.outputPath(id+'-'+name+'.jpg');await page.locator('#ghostCanvas').locator('..').screenshot({path,type:'jpeg',quality:70});await info.attach(id+'-'+name,{path,contentType:'image/jpeg'});fs.writeFileSync(info.outputPath(id+'-'+name+'.json'),JSON.stringify(record,null,2));
+    > 37 |   expect(record.meshGaps.every(v=>v!==null&&v>-.08&&v<.22)).toBe(true);
+         |                                                             ^
+      38 |  }
+      39 |  expect(errors).toEqual([]);
+      40 | });
+        at C:\Users\Hamit Kaan Tokmak\Documents\Codex\2026-11-10\tur\work\tur-duellosu\tests\real-topography.spec.js:37:61
+
+    attachment #1: spa-01-eau-rouge (image/jpeg) ───────────────────────────────────────────────────
+    work\v6-spa-first-results\real-topography-spa-real-t-cb150--contact-and-cameras-stable\attachments\spa-01-eau-rouge-b7dda7dc4943cbfdd61b02cb2dcd2069f750c4f0.jpg
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: work\v6-spa-first-results\real-topography-spa-real-t-cb150--contact-and-cameras-stable\error-context.md
+
+  1 failed
+    tests\real-topography.spec.js:3:30 › spa real terrain keeps telemetry, tyre contact and cameras stable 

@@ -1,0 +1,66 @@
+{
+  "cycles": [
+    {
+      "sameRenderer": true,
+      "requests": 1,
+      "initialRequests": 1,
+      "cacheReplaced": true,
+      "memory": {
+        "geometries": 130,
+        "textures": 28
+      },
+      "time": 0,
+      "drivers": [
+        "ALO",
+        "STR"
+      ],
+      "laps": [
+        2,
+        11
+      ],
+      "assets": []
+    },
+    {
+      "sameRenderer": true,
+      "requests": 1,
+      "initialRequests": 1,
+      "cacheReplaced": true,
+      "memory": {
+        "geometries": 132,
+        "textures": 29
+      },
+      "time": 0,
+      "drivers": [
+        "TSU",
+        "LAW"
+      ],
+      "laps": [
+        2,
+        8
+      ],
+      "assets": []
+    },
+    {
+      "sameRenderer": true,
+      "requests": 1,
+      "initialRequests": 1,
+      "cacheReplaced": true,
+      "memory": {
+        "geometries": 130,
+        "textures": 28
+      },
+      "time": 0,
+      "drivers": [
+        "ALO",
+        "STR"
+      ],
+      "laps": [
+        2,
+        11
+      ],
+      "assets": []
+    }
+  ],
+  "errors": [],
+  "consoleErrors": []
+}

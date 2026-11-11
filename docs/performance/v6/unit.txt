@@ -1,0 +1,59 @@
+
+> test:unit
+> node --test tests/*.test.cjs
+
+✔ camera collision matches Three.js for transformed instances, inside origins, finite rays and layers (64.32ms)
+✔ camera cache refreshes when a world, instance buffer, geometry or count changes (1.0428ms)
+✔ off-ray camera instances skip triangle intersection while retaining a real close wall (7.3104ms)
+✔ mini-sector and corner gains telescope to the measured whole-lap difference (3.1187ms)
+✔ brake, minimum speed, gear and sustained full throttle are derived from real windows (0.3716ms)
+✔ missing or interpolated pedal channels do not become event points or zero statistics (0.6558ms)
+✔ matching rejects missing metadata and separates sessions, compound, age, phase and time (0.3945ms)
+✔ ideal sectors retain source laps and exclude deleted or incomplete sector sums (1.8602ms)
+✔ unusual lap catalog finds lower speed trap combined with faster lap, never the inverse (1.5307ms)
+✔ race pace excludes pit/flags and close-follow indicator uses finish timestamps only (1.7061ms)
+✔ pit scenario reports missing coverage rather than filling nonexistent drivers (0.5957ms)
+✔ raw series does not invent unavailable channels or scale wildly mismatched lap times (0.4193ms)
+✔ study import enforces bounds and strips arbitrary untrusted fields (0.5841ms)
+✔ near-finish exclusion changes pace samples without claiming full-lap traffic detection (0.3288ms)
+✔ stable runs require five consecutive valid laps and position-change leadups retain actual sectors (0.3746ms)
+✔ corner similarity rankings expose the selected metric and omit missing channels (0.534ms)
+✔ a brake block already active at the window boundary is not invented as a new onset (0.6073ms)
+✔ whole-lap display mesh and buffered race boundaries are closed, finite and simple (122.6273ms)
+✔ cota: recorded raw data and centerline match provenance digests (5.0767ms)
+✔ cota: geographic query points map to the exact horizontal station convention (2.302ms)
+✔ cota: derived filter is reproducible; interpolant, seam and grades stay bounded (36.0488ms)
+✔ spa: recorded raw data and centerline match provenance digests (2.5913ms)
+✔ spa: geographic query points map to the exact horizontal station convention (1.3592ms)
+✔ spa: derived filter is reproducible; interpolant, seam and grades stay bounded (23.1332ms)
+✔ real terrain rejects missing provenance, invented bank, invalid coordinates and grades (5.3759ms)
+✔ Mexico has no production elevation and unsupported event cannot adopt a different track (6.3568ms)
+✔ all rates keep wall-clock time across sparse, irregular and dropped frames (1.5071ms)
+✔ clock clamps end and negative timestamps without losing a positive stall (0.1637ms)
+✔ fixed geographic circuit is closed and has declared station length (0.9567ms)
+✔ registration recovers independent units, handedness and start station (21.6394ms)
+✔ bad registration falls back explicitly instead of manufacturing a racing line (23.2835ms)
+✔ wheel distance uses original telemetry distance rather than current speed times elapsed (0.2427ms)
+✔ changing speed accounts for the elapsed interval at the previous rate (0.1406ms)
+✔ flat surface preserves horizontal positions, yaw and zero root height (43.5018ms)
+✔ ascending and descending normals give correct quaternion pitch and bank roll (2.6094ms)
+✔ closed loop has continuous elevation, derivative, banking, normals and quaternion hemispheres (2.1369ms)
+✔ sampled elevations remain finite, bounded and stable over negative and multi-lap queries (17.3826ms)
+✔ provenance, finite samples, monotone distances and seam are validated (0.8966ms)
+✔ independent station length does not rescale XY or reinterpret telemetry metres (0.6879ms)
+✔ surface ribbons and kerb offsets have finite nonzero upward triangles (19.286ms)
+✔ station-hinted projection stays on the requested branch at crossings (1.0814ms)
+✔ normal and heading validation reject nonfinite and degenerate orientations (0.6529ms)
+✔ banking limit, negative elevation and nonzero periodic seam remain finite (6.667ms)
+✔ scalar height query agrees with the full surface without evaluating a normal (4.6977ms)
+✔ profile input is snapshotted so later caller mutation cannot corrupt a cached surface (0.6537ms)
+✔ spatial grid proves the nearest segment even beyond its first occupied ring (0.4297ms)
+✔ Blender GLBs retain four wheel pivots, two steering pivots, authored UVs and bounded LOD budgets (109.7492ms)
+ℹ tests 47
+ℹ suites 0
+ℹ pass 47
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 261.6331

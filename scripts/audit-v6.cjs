@@ -17,6 +17,7 @@ async function metrics(page){return page.evaluate(()=>{
  const conditions={seconds,warmup,versions,uncappedRequested:true,deviceScaleFactor:1,renderRatio:1,adaptive:false,AO:false,rate:1,note:'V5 COTA/Spa use their original normalized XY and flat elevation. V6 uses geographic XY and derived terrain: end-user workload comparison, not identical meshes. Byte fields estimate CPU scene buffer/texture storage, not measured VRAM. No camera shim.'};
  const save=()=>fs.writeFileSync(out,JSON.stringify({conditions,rows},null,2));
  const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH,args:['--disable-frame-rate-limit','--disable-gpu-vsync']});
+ conditions.browser=browser.version();conditions.node=process.version;
  try{
  for(const [id,event]of tracks)for(const viewport of [{width:1920,height:1080},{width:2560,height:1440}])for(const version of versions){
   if(filter&&!['performance','ultra'].some(q=>['a','cockpit'].some(c=>filter.test(`${id}/${viewport.width}/${q}/${c}`))))continue;
