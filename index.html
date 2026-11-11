@@ -2402,8 +2402,15 @@ function ghostBuild() {
     // The telemetry grid (~8 m) is not a suitable tessellation for a curved
     // elevation interpolant. Match the existing V5 surface's ~2 m resolution;
     // keep analysis grids and the number of representative scenery objects.
-    const surface=ghostTopography(ghost.scene),count=Math.ceil(surface.length/2);
-    ghost.scene.canonicalEdges=Array.from({length:count+1},(_,i)=>{const f=surface.sampleAtDistance(i*surface.length/count);return {p:{x:f.position.x,z:f.position.z},rx:f.right.x,rz:f.right.z};});
+    const surface=ghostTopography(ghost.scene),count=Math.ceil(surface.length/2),road=[];
+    const edge=f=>({p:{x:f.position.x,z:f.position.z},rx:f.right.x,rz:f.right.z});
+    for(let i=0;i<count;i++){
+      const a=surface.sampleAtDistance(i*surface.length/count),b=surface.sampleAtDistance((i+1)*surface.length/count);road.push(edge(a));
+      // One extra longitudinal slice on appreciable grades reduces the
+      // field/triangle contact residual without densifying every flat straight.
+      if(Math.max(Math.abs(a.gradient),Math.abs(b.gradient))>.035)road.push(edge(surface.sampleAtDistance((i+.5)*surface.length/count)));
+    }
+    road.push(edge(surface.sampleAtDistance(surface.length)));ghost.scene.canonicalEdges=road;
   }
   ghost.source=A; return ghost.scene;
 }

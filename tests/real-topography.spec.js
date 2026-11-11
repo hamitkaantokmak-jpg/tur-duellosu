@@ -43,9 +43,10 @@ test('COTA derived terrain survives 120 seconds, camera/quality changes and Stud
  test.setTimeout(240000);const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('/#y=2024&e=United%20States%20Grand%20Prix&k=Q&a=HAM&b=RUS&g=1');
  await page.waitForFunction(()=>typeof ghost3d!=='undefined'&&ghost3d.ready&&VisualAssets.state==='ready'&&ghost3d.cars.every(c=>c.userData.asset),null,{timeout:120000});
- const before=await page.evaluate(()=>{stopPlay();window.realFingerprint=()=>JSON.stringify([st.A,st.B].map(L=>[L.total,...['t','v','thr','brk','gear','rpm'].map(k=>Array.from(L[k])),Array.from(L.source.t),Array.from(L.source.rel)]));window.realOriginal=realFingerprint();window.realRenderer=ghost3d.renderer;ghost.camera='overview';drawAll();ghost.camera='a';st.play.e=0;st.play.rate=.25;startPlay();return{memory:{...ghost3d.renderer.info.memory},time:st.play.e};});
+ const before=await page.evaluate(()=>{stopPlay();window.realFingerprint=()=>JSON.stringify([st.A,st.B].map(L=>[L.total,...['t','v','thr','brk','gear','rpm'].map(k=>Array.from(L[k])),Array.from(L.source.t),Array.from(L.source.rel)]));window.realOriginal=realFingerprint();window.realRenderer=ghost3d.renderer;ghost.camera='overview';drawAll();ghost.camera='a';st.play.e=0;drawAll();st.play.rate=.25;startPlay();return{memory:{...ghost3d.renderer.info.memory},time:st.play.e};});
  await page.waitForTimeout(120000);
  const after=await page.evaluate(()=>{stopPlay();return{time:st.play.e,memory:{...ghost3d.renderer.info.memory},unchanged:realOriginal===realFingerprint()};});
+ fs.writeFileSync(info.outputPath('cota-soak-memory.json'),JSON.stringify({before,after},null,2));
  expect(after.time).toBeGreaterThan(29);expect(after.time).toBeLessThan(40);expect(after.unchanged).toBe(true);expect(after.memory.geometries-before.memory.geometries).toBeLessThan(12);expect(after.memory.textures-before.memory.textures).toBeLessThan(5);
  const transitions=[];
  for(const quality of ['performance','balanced','ultra']){
