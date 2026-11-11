@@ -74,7 +74,13 @@ function ghost3dBuild(S){
   const box=(parent,x,y,z,w,h,d,mat)=>{const m=mesh(new T.BoxGeometry(w,h,d),mat,parent);m.position.set(x,y,z);return m;};
   if(S.track&&S.profile.mexico&&typeof MexicoV3!=='undefined'){MexicoV3.build(T,G,S);}else{
   const point=(e,o,y)=>[e.p.x+e.rx*o,y+(e.height||0),e.p.z+e.rz*o];
-  const batches=new Map();function quad(mat,a,b,c,d){if(!batches.has(mat))batches.set(mat,[]);batches.get(mat).push(...a,...b,...c,...a,...c,...d);}
+  const batches=new Map();function quad(mat,a,b,c,d){
+    // Dense terrain ribbons also densify the barriers. Keep their mesh bounds
+    // local so the existing camera raycaster rejects distant triangles before
+    // its narrow phase. Positions/materials and collision semantics are unchanged.
+    const key=S.realProfile&&mat===barrierMat?mat.uuid+':'+Math.floor((a[0]+b[0]+c[0]+d[0])/512)+','+Math.floor((a[2]+b[2]+c[2]+d[2])/512):mat;
+    if(!batches.has(key))batches.set(key,{mat,points:[]});batches.get(key).points.push(...a,...b,...c,...a,...c,...d);
+  }
   let distance=0;const positions=[],uvs=[];
   for(let i=0;i<roadEdges.length-1;i++){
     const a=roadEdges[i],b=roadEdges[i+1],len=Math.hypot(a.p.x-b.p.x,a.p.z-b.p.z);
@@ -98,7 +104,7 @@ function ghost3dBuild(S){
     }
   }
   const roadGeometry=new T.BufferGeometry();roadGeometry.setAttribute('position',new T.Float32BufferAttribute(positions,3));roadGeometry.setAttribute('uv',new T.Float32BufferAttribute(uvs,2));roadGeometry.computeVertexNormals();const road=mesh(roadGeometry,roadMat);road.castShadow=false;road.name='TopographyRoad';
-  for(const [mat,points] of batches){const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(points,3));geo.computeVertexNormals();const m=mesh(geo,mat);m.castShadow=mat===barrierMat;m.userData.cameraObstacle=mat===barrierMat;}
+  for(const {mat,points} of batches.values()){const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(points,3));geo.computeVertexNormals();const m=mesh(geo,mat);m.castShadow=mat===barrierMat;m.userData.cameraObstacle=mat===barrierMat;}
   const terrainHeight=(x,z)=>{if(!heights)return -.3;let best=Infinity,second=Infinity,one=0,two=0;for(const e of S.edges){const d=(x-e.p.x)**2+(z-e.p.z)**2;if(d<best){second=best;two=one;best=d;one=e.height;}else if(d<second){second=d;two=e.height;}}const a=1/(best+4),b=1/(second+4);return (one*a+two*b)/(a+b)-.55;};
   const groundMat=material(S.profile.grass),ground=mesh(new T.PlaneGeometry(18000,18000),groundMat);ground.name="TopographyGround";ground.rotation.x=-Math.PI/2;ground.position.set((S.minX+S.maxX)/2,heights?-2:-.3,(S.minZ+S.maxZ)/2);ground.castShadow=false;
   if(heights){const width=S.maxX-S.minX+700,depth=S.maxZ-S.minZ+700,cx=(S.minX+S.maxX)/2,cz=(S.minZ+S.maxZ)/2,geo=new T.PlaneGeometry(width,depth,Math.min(128,Math.ceil(width/20)),Math.min(128,Math.ceil(depth/20)));geo.rotateX(-Math.PI/2);const points=geo.attributes.position;for(let i=0;i<points.count;i++){const x=points.getX(i)+cx,z=points.getZ(i)+cz;points.setXYZ(i,x,terrainHeight(x,z),z);}geo.computeVertexNormals();mesh(geo,groundMat).castShadow=false;}

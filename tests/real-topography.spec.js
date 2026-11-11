@@ -16,11 +16,14 @@ for(const [id,event]of cases)test(id+' real terrain keeps telemetry, tyre contac
    });
    for(const camera of ['a','b','compare','cockpit','cinematic']){ghost.camera=camera;const a=ghostCameraPose(S,poses,16/9);st.play.e=t+1e-5;const b=ghostCameraPose(S,ghostReplayPoses(S,t+1e-5),16/9);st.play.e=t;cameraEpsilon=Math.max(cameraEpsilon,Math.abs(a.camera[1]-b.camera[1]));}
   }
-  return {metadata:surface.metadata,fit:S.realRegistration,profile:!!S.realProfile,flat:surface.flat,length:surface.length,penetration,gap,upError,cameraEpsilon,telemetryUnchanged:before===fingerprint(),totals:[st.A.total,st.B.total],finish:S.native.map(L=>ghostCurveAt(L.progress,1000).v),mexicoVenue:!!ghost3d.v4Stats,telemetryZ:[st.A,st.B].map(L=>({present:!!L.source.elevation,range:L.source.elevation?[Math.min(...L.source.elevation),Math.max(...L.source.elevation)]:null,classification:'unverified telemetry Z; not used as the terrain source'}))};
+  const f=surface.sampleAtDistance(100),point=offset=>{const x=f.position.x+f.right.x*offset,z=f.position.z+f.right.z*offset;return[x,surface.heightAt(x,z)+.65,z];};
+  const from=point(S.profile.barrier-2),to=point(S.profile.barrier+4),safe=ghostConstrainFree(to,from),collisionSweep={requested:Math.hypot(...to.map((v,i)=>v-from[i])),moved:Math.hypot(...safe.map((v,i)=>v-from[i])),clearance:safe[1]-surface.heightAt(safe[0],safe[2])};
+  return {metadata:surface.metadata,fit:S.realRegistration,profile:!!S.realProfile,flat:surface.flat,length:surface.length,penetration,gap,upError,cameraEpsilon,collisionSweep,telemetryUnchanged:before===fingerprint(),totals:[st.A.total,st.B.total],finish:S.native.map(L=>ghostCurveAt(L.progress,1000).v),mexicoVenue:!!ghost3d.v4Stats,telemetryZ:[st.A,st.B].map(L=>({present:!!L.source.elevation,range:L.source.elevation?[Math.min(...L.source.elevation),Math.max(...L.source.elevation)]:null,classification:'unverified telemetry Z; not used as the terrain source'}))};
  });
  fs.writeFileSync(info.outputPath(id+'-surface.json'),JSON.stringify(result,null,2));console.log('REAL_SURFACE',id,JSON.stringify(result));
  expect(result.profile).toBe(true);expect(result.metadata.category).toBe('derived');expect(result.metadata.bankingStatus).toBe('unmeasured');expect(result.flat).toBe(false);expect(result.fit.rmse).toBeLessThan(25);expect(result.mexicoVenue).toBe(false);
  expect(result.penetration).toBeLessThan(.08);expect(result.gap).toBeLessThan(.22);expect(result.upError).toBeLessThan(1e-6);expect(result.cameraEpsilon).toBeLessThan(.005);expect(result.telemetryUnchanged).toBe(true);expect(result.finish).toEqual([1,1]);
+ expect(result.collisionSweep.moved).toBeGreaterThan(0);expect(result.collisionSweep.moved).toBeLessThan(result.collisionSweep.requested*.8);expect(result.collisionSweep.clearance).toBeGreaterThanOrEqual(.649999);
  await expect(page.locator('#ghostScenery')).toContainText('TÜRETİLMİŞ');
  await page.locator('#ghostRenderQuality').selectOption('ultra');await page.locator('#ghostAdaptive').uncheck();
  await page.waitForFunction(()=>!!VisualAssets.templates.high&&!VisualAssets.highPending,null,{timeout:60000});

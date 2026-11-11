@@ -2,6 +2,7 @@
 const {chromium}=require('@playwright/test'),fs=require('node:fs'),path=require('node:path');
 const out=process.argv[2]||'docs/performance/v6/matrix.json',seconds=Number(process.env.AUDIT_SECONDS||12),warmup=Number(process.env.AUDIT_WARMUP_SECONDS||20);
 const filter=process.env.AUDIT_FILTER?new RegExp(process.env.AUDIT_FILTER):null;
+const diagnostics=process.env.AUDIT_DIAGNOSTICS==='1';
 const versions=(process.env.AUDIT_VERSION_ORDER||'v5,v6').split(','),rows=[];
 const tracks=[['mexico','Mexico City Grand Prix'],['cota','United States Grand Prix'],['spa','Belgian Grand Prix']];
 async function metrics(page){return page.evaluate(()=>{
@@ -14,10 +15,12 @@ async function metrics(page){return page.evaluate(()=>{
  });}
 (async()=>{
  fs.mkdirSync(path.dirname(out),{recursive:true});
- const conditions={seconds,warmup,versions,uncappedRequested:true,deviceScaleFactor:1,renderRatio:1,adaptive:false,AO:false,rate:1,note:'V5 COTA/Spa use their original normalized XY and flat elevation. V6 uses geographic XY and derived terrain: end-user workload comparison, not identical meshes. Byte fields estimate CPU scene buffer/texture storage, not measured VRAM. No camera shim.'};
+ const conditions={seconds,warmup,versions,diagnostics,uncappedRequested:true,deviceScaleFactor:1,renderRatio:1,adaptive:false,AO:false,rate:1,note:'V5 COTA/Spa use their original normalized XY and flat elevation. V6 uses geographic XY and derived terrain: end-user workload comparison, not identical meshes. Byte fields estimate CPU scene buffer/texture storage, not measured VRAM. No camera shim.'};
  const save=()=>fs.writeFileSync(out,JSON.stringify({conditions,rows},null,2));
  const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH,args:['--disable-frame-rate-limit','--disable-gpu-vsync']});
  conditions.browser=browser.version();conditions.node=process.version;
+ conditions.baselineCommit=process.env.AUDIT_BASELINE_COMMIT||'a237ca529b31bd769df90165c62f73cdef54a672';
+ conditions.candidateRuntimeSha256=Object.fromEntries(['index.html','src/track-topography.js','src/real-topography.js','src/ghost-topography.js','src/ghost-world.js','src/ghost-webgl.js','src/camera-collision.js','assets/topography/profiles.js'].map(file=>[file,require('node:crypto').createHash('sha256').update(fs.readFileSync(file)).digest('hex')]));
  try{
  for(const [id,event]of tracks)for(const viewport of [{width:1920,height:1080},{width:2560,height:1440}])for(const version of versions){
   if(filter&&!['performance','ultra'].some(q=>['a','cockpit'].some(c=>filter.test(`${id}/${viewport.width}/${q}/${c}`))))continue;
@@ -34,12 +37,15 @@ async function metrics(page){return page.evaluate(()=>{
     if(filter&&!filter.test(`${id}/${viewport.width}/${quality}/${camera}`))continue;
     await p.evaluate(mode=>{stopPlay();st.play.e=10;ghost.camera=mode;ghost.cameraState=null;GhostDirector.transition=null;drawAll();st.play.rate=1;startPlay();},camera);
     await p.waitForTimeout(warmup*1000);
+    let warmGpu=null;if(diagnostics)try{warmGpu=require('node:child_process').execFileSync('nvidia-smi',['--query-gpu=name,temperature.gpu,pstate,clocks.gr,clocks.mem,power.draw,utilization.gpu','--format=csv,noheader'],{encoding:'utf8',timeout:5000,windowsHide:true}).trim();}catch(e){warmGpu='unavailable: '+e.message;}
     await p.evaluate(()=>{stopPlay();st.play.e=10;ghost.cameraState=null;drawAll();});
     const fixed=await metrics(p);if(!/NVIDIA/.test(fixed.renderer))throw Error('Physical GPU not verified');if(fixed.buffer[0]!==viewport.width||fixed.buffer[1]!==viewport.height)throw Error('Wrong render size');
-    await p.evaluate(()=>{window.auditIntervals=[];window.auditOriginal=GhostMetrics.record;GhostMetrics.record=function(ms){auditIntervals.push(ms);auditOriginal.call(this,ms);};startPlay();});
+    await p.evaluate(diagnostics=>{window.auditIntervals=[];window.auditOriginal=GhostMetrics.record;window.auditTickStamps=[];window.auditGpu=[];window.auditCpu=[];window.auditRenderCalls=0;window.auditOriginalTick=tick;window.auditOriginalRender=GhostDirector.render;window.auditOriginalSupport=ghostSurfacePose;window.auditSupportMs=0;window.auditSupportCalls=0;window.auditOriginalClosest=CameraCollision.closest;window.auditCollisionMs=0;window.auditCollisionCalls=0;
+     if(diagnostics){tick=function(now){auditTickStamps.push(now);return auditOriginalTick(now);};GhostDirector.render=function(){auditRenderCalls++;return auditOriginalRender.call(this);};ghostSurfacePose=function(...args){const t=performance.now();const result=auditOriginalSupport(...args);auditSupportMs+=performance.now()-t;auditSupportCalls++;return result;};CameraCollision.closest=function(...args){const t=performance.now();const result=auditOriginalClosest.apply(this,args);auditCollisionMs+=performance.now()-t;auditCollisionCalls++;return result;};}
+     GhostMetrics.record=function(ms){auditIntervals.push(ms);if(diagnostics){auditCpu.push(GhostMetrics.cpuMs);if(Number.isFinite(GhostMetrics.gpuMs))auditGpu.push(GhostMetrics.gpuMs);}auditOriginal.call(this,ms);};startPlay();},diagnostics);
     const start=Date.now();await p.waitForTimeout(seconds*1000);
-    const timing=await p.evaluate(()=>{stopPlay();GhostMetrics.record=auditOriginal;const a=auditIntervals.slice().sort((a,b)=>a-b),sum=a.reduce((x,y)=>x+y,0);return {frames:a.length,meanFps:a.length*1000/sum,p95Ms:a[Math.floor(a.length*.95)],p50Ms:a[Math.floor(a.length*.5)],time:st.play.e};});
-    rows.push({track:id,version,quality,camera,viewport,fixed,timing,wallMs:Date.now()-start,errors:errors.slice()});save();console.log(JSON.stringify(rows.at(-1)));
+    const timing=await p.evaluate(diagnostics=>{stopPlay();GhostMetrics.record=auditOriginal;if(diagnostics){tick=auditOriginalTick;GhostDirector.render=auditOriginalRender;ghostSurfacePose=auditOriginalSupport;CameraCollision.closest=auditOriginalClosest;}const a=auditIntervals.slice().sort((a,b)=>a-b),sum=a.reduce((x,y)=>x+y,0),median=v=>{v=v.slice().sort((a,b)=>a-b);return v.length?v[Math.floor(v.length/2)]:null;};return {frames:a.length,meanFps:a.length*1000/sum,p95Ms:a[Math.floor(a.length*.95)],p50Ms:a[Math.floor(a.length*.5)],time:st.play.e,...(diagnostics?{tickCalls:auditTickStamps.length,uniqueRafStamps:new Set(auditTickStamps).size,renderCalls:auditRenderCalls,rafFps:(auditTickStamps.length-1)*1000/(auditTickStamps.at(-1)-auditTickStamps[0]),cpuMedianMs:median(auditCpu),gpuMedianMs:median(auditGpu),supportCalls:auditSupportCalls,supportMsPerFrame:auditSupportMs/auditTickStamps.length,collisionCalls:auditCollisionCalls,collisionMsPerFrame:auditCollisionMs/auditTickStamps.length}:{})};},diagnostics);
+    rows.push({track:id,version,quality,camera,viewport,fixed,timing,...(diagnostics?{warmGpu}:{}),wallMs:Date.now()-start,errors:errors.slice()});save();console.log(JSON.stringify(rows.at(-1)));
     if(errors.length||!Number.isFinite(timing.meanFps))throw Error('Invalid measurement');
    }
   }
