@@ -1,26 +1,26 @@
 {
-  "authoring": "Blender 4.3.2; art/blender/build_v4.py and .blend sources",
+  "authoring": "Blender 4.3.2; vehicle: art/blender/build_v7.py, vehicle-v7.blend; venue/tree unchanged",
   "units": "metres",
   "forward": "+Z",
   "compression": "EXT_meshopt_compression",
   "levels": [
     {
       "name": "car-high",
-      "triangles": 59498,
+      "triangles": 32264,
       "primitives": 22,
-      "bytes": 492552
+      "bytes": 276916
     },
     {
       "name": "car-medium",
-      "triangles": 40586,
+      "triangles": 27264,
       "primitives": 22,
-      "bytes": 359992
+      "bytes": 255352
     },
     {
       "name": "car-low",
-      "triangles": 14606,
+      "triangles": 12524,
       "primitives": 22,
-      "bytes": 151832
+      "bytes": 132232
     },
     {
       "name": "venue",

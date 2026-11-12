@@ -71,27 +71,27 @@
   },
   {
     "file": "assets/v4/car-low.glb",
-    "source": "art/blender/build_v4.py",
+    "source": "art/blender/build_v7.py",
     "license": "Original project asset; repository licensing unchanged",
-    "notes": "Original unbranded design, not official team/survey geometry. Blender source and export settings in art/blender.",
-    "sha256": "6398394057ac44fc7da115a595774858cec4b21de4e4caf3863405b89d4c4a31",
-    "bytes": 151832
+    "notes": "V7 original unbranded open-wheel design. No verified team replica; retained 3.32 m wheelbase and 0.36 m radius. Editable source: art/blender/vehicle-v7.blend. No new external geometry or textures.",
+    "sha256": "07cad141da0125689ae544bb4a7157be5a471b54a429840a588ebe9c0311f97a",
+    "bytes": 132232
   },
   {
     "file": "assets/v4/car-medium.glb",
-    "source": "art/blender/build_v4.py",
+    "source": "art/blender/build_v7.py",
     "license": "Original project asset; repository licensing unchanged",
-    "notes": "Original unbranded design, not official team/survey geometry. Blender source and export settings in art/blender.",
-    "sha256": "cd6f123c5f6c41a12dfe1e368b0a27ad305d13da945a051a3d1fbf922c297ea3",
-    "bytes": 359992
+    "notes": "V7 original unbranded open-wheel design. No verified team replica; retained 3.32 m wheelbase and 0.36 m radius. Editable source: art/blender/vehicle-v7.blend. No new external geometry or textures.",
+    "sha256": "ae3f310d44feb7ace662f3901c9640b7108c3b78337ac49331455e9bd799af86",
+    "bytes": 255352
   },
   {
     "file": "assets/v4/car-high.glb",
-    "source": "art/blender/build_v4.py",
+    "source": "art/blender/build_v7.py",
     "license": "Original project asset; repository licensing unchanged",
-    "notes": "Original unbranded design, not official team/survey geometry. Blender source and export settings in art/blender.",
-    "sha256": "6f5eca49f15bb58c13c050af8155ec6ed18195a9de32384da8c7167193213917",
-    "bytes": 492552
+    "notes": "V7 original unbranded open-wheel design. No verified team replica; retained 3.32 m wheelbase and 0.36 m radius. Editable source: art/blender/vehicle-v7.blend. No new external geometry or textures.",
+    "sha256": "7ad588601eb95b76b925a2b6a431446ae54b80bd4b8167217576e2b3005a2164",
+    "bytes": 276916
   },
   {
     "file": "assets/v4/venue.glb",

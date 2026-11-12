@@ -238,11 +238,12 @@ def make_kit():
  export(OUT/'venue-raw.glb')
  return roots
 
-stats=[]
-for name,detail in [('high',3),('medium',2),('low',1)]:
- DETAIL=detail;clear();setup_materials();root=make_car();batch(root)
- if name=='high':bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/vehicle-v4.blend'),compress=True)
- export(OUT/('car-'+name+'-raw.glb'),root);stats.append({'lod':name,'objects':len(root.children_recursive)})
-DETAIL=2;clear();setup_materials();make_kit()
-(OUT/'authoring.json').write_text(json.dumps({'blender':bpy.app.version_string,'units':'metres','exportForward':'+Z','exportUp':'+Y','original':True,'teamGeometry':False,'carWidth_m':2.0,'wheelbase_m':3.32,'tyreRadius_m':.36,'export':{'format':'GLB','applyModifiers':True,'yUp':True,'selection':True,'materials':'EXPORT'},'car':stats},indent=2)+'\n')
-print('V4_BLENDER_BUILD_COMPLETE')
+if __name__=='__main__':
+ stats=[]
+ for name,detail in [('high',3),('medium',2),('low',1)]:
+  DETAIL=detail;clear();setup_materials();root=make_car();batch(root)
+  if name=='high':bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/vehicle-v4.blend'),compress=True)
+  export(OUT/('car-'+name+'-raw.glb'),root);stats.append({'lod':name,'objects':len(root.children_recursive)})
+ DETAIL=2;clear();setup_materials();make_kit()
+ (OUT/'authoring.json').write_text(json.dumps({'blender':bpy.app.version_string,'units':'metres','exportForward':'+Z','exportUp':'+Y','original':True,'teamGeometry':False,'carWidth_m':2.0,'wheelbase_m':3.32,'tyreRadius_m':.36,'export':{'format':'GLB','applyModifiers':True,'yUp':True,'selection':True,'materials':'EXPORT'},'car':stats},indent=2)+'\n')
+ print('V4_BLENDER_BUILD_COMPLETE')
