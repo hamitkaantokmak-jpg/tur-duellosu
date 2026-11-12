@@ -1,0 +1,33 @@
+
+Running 3 tests using 1 worker
+
+(node:18280) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18280) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\vehicle-motion.spec.js:2:127 › V8 mexico body-only motion preserves root, tyre support, telemetry and cameras (8.9s)
+  ok 2 tests\vehicle-motion.spec.js:2:127 › V8 cota body-only motion preserves root, tyre support, telemetry and cameras (1.6m)
+  x  3 tests\vehicle-motion.spec.js:2:127 › V8 spa body-only motion preserves root, tyre support, telemetry and cameras (1.4m)
+
+
+  1) tests\vehicle-motion.spec.js:2:127 › V8 spa body-only motion preserves root, tyre support, telemetry and cameras 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m-0.025[39m
+    Received:   [31m-0.025932491716222472[39m
+
+      40 |  expect(result.pitchMax).toBeLessThanOrEqual(Math.PI/360);expect(result.pitchMin).toBeGreaterThanOrEqual(-Math.PI/360);expect(result.rollMax).toBeLessThanOrEqual(Math.PI/300);
+      41 |  expect(result.bodyClearance).toBeGreaterThan(0);expect(result.seekStable&&result.invalidated&&result.unchanged).toBe(true);
+    > 42 |  expect(result.contactMin).toBeGreaterThan(-.025);expect(result.contactMax).toBeLessThan(.025);expect(result.maxLift).toBeLessThanOrEqual(.06);
+         |                            ^
+      43 |  if(id==='mexico'){expect(result.totals).toEqual([76.651,76.356]);expect(result.delta).toBeCloseTo(-.295,10);}
+      44 |  expect(errors).toEqual([]);
+      45 | });
+        at C:\Users\Hamit Kaan Tokmak\Documents\Codex\2026-11-10\tur\work\tur-duellosu\tests\vehicle-motion.spec.js:42:28
+
+    Error Context: work\v8-corrected\vehicle-motion-V8-spa-body-c3d4e-pport-telemetry-and-cameras\error-context.md
+
+  1 failed
+    tests\vehicle-motion.spec.js:2:127 › V8 spa body-only motion preserves root, tyre support, telemetry and cameras 
+  2 passed (3.1m)
