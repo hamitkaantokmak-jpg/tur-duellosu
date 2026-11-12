@@ -6,8 +6,9 @@
     "serve": "node scripts/serve.cjs 4173",
     "test:unit": "node --test tests/*.test.cjs",
     "test:browser": "playwright test",
-    "assets:build": "blender -b --threads 2 --python art/blender/build_v4.py && node scripts/optimize-v4.mjs",
-    "assets:build:v3": "node scripts/prepare-track.cjs && node scripts/prepare-mexico-v3.mjs && python3 scripts/prepare-boundaries.py && node scripts/build-car.mjs"
+    "assets:build": "blender -b --threads 2 --python art/blender/build_v7.py && node scripts/optimize-v4.mjs --cars-only",
+    "assets:build:v3": "node scripts/prepare-track.cjs && node scripts/prepare-mexico-v3.mjs && python3 scripts/prepare-boundaries.py && node scripts/build-car.mjs",
+    "assets:build:v4": "blender -b --threads 2 --python art/blender/build_v4.py && node scripts/optimize-v4.mjs"
   },
   "devDependencies": {
     "@gltf-transform/core": "4.2.1",

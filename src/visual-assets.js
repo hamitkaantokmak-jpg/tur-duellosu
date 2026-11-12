@@ -32,7 +32,7 @@ const VisualAssets = {
         .setKTX2Loader(ktx);
       this.loader = loader;
       this.Sky = Sky;
-      const carbonCanvas=document.createElement('canvas');carbonCanvas.width=carbonCanvas.height=64;const cg=carbonCanvas.getContext('2d');for(let y=0;y<64;y++)for(let x=0;x<64;x++){const phase=(Math.floor(x/4)+Math.floor(y/4))%2,k=(phase?54:28)+(phase?x%4:y%4)*3;cg.fillStyle='rgb('+k+','+(k+2)+','+(k+3)+')';cg.fillRect(x,y,1,1);}const weave=new T.CanvasTexture(carbonCanvas);weave.wrapS=weave.wrapT=T.RepeatWrapping;weave.repeat.set(24,24);weave.colorSpace=T.SRGBColorSpace;weave.userData.sharedAsset=true;this.textures.carbon=weave;
+      const carbonCanvas=document.createElement('canvas');carbonCanvas.width=carbonCanvas.height=64;const cg=carbonCanvas.getContext('2d');for(let y=0;y<64;y++)for(let x=0;x<64;x++){const phase=(Math.floor(x/4)+Math.floor(y/4))%2,k=(phase?182:164)+(phase?x%4:y%4)*3;cg.fillStyle='rgb('+k+','+(k+2)+','+(k+3)+')';cg.fillRect(x,y,1,1);}const weave=new T.CanvasTexture(carbonCanvas);weave.wrapS=weave.wrapT=T.RepeatWrapping;weave.repeat.set(16,16);weave.colorSpace=T.SRGBColorSpace;weave.userData.sharedAsset=true;this.textures.carbon=weave;
       const textureLoader = new T.TextureLoader();
       const maps = [
         ["color", "road-color"],
@@ -137,7 +137,7 @@ const VisualAssets = {
           if (!materials.has(o.material)) {
             const m = o.material.clone();
             m.name=m.name.replace(/\.\d+$/, "");
-            if (m.name === "Paint") m.color.set("#334850").lerp(new T.Color(color),.05);
+            if (m.name === "Paint") m.color.set("#516974").lerp(new T.Color(color),.05);
             if (m.name === "Accent") m.color.set(color);
             if(m.name === "TyreStripe")m.color.set("#ce4245");
             if(m.name === "Carbon"&&this.textures.carbon)m.map=this.textures.carbon;

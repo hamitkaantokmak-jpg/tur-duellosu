@@ -1,0 +1,147 @@
+
+> test
+> npm run test:unit && npm run test:browser
+
+
+> test:unit
+> node --test tests/*.test.cjs
+
+✔ render grouping preserves every Float32 triangle and material, including negative cells (44.929874ms)
+✔ 128m proxy ranges exactly match native triangles through transforms, inside rays and near/far (11.310626ms)
+✔ ray bounds refresh on position changes and geometry replacement uses the native fallback (5.742281ms)
+✔ off-ray ranges skip triangle raycasts while a near barrier remains exact (42.592883ms)
+✔ flat/synthetic grouping stays unchanged and disposal releases CPU proxies once (2.793365ms)
+✔ camera collision matches Three.js for transformed instances, inside origins, finite rays and layers (63.176666ms)
+✔ camera cache refreshes when a world, instance buffer, geometry or count changes (0.978044ms)
+✔ off-ray camera instances skip triangle intersection while retaining a real close wall (8.082699ms)
+✔ mini-sector and corner gains telescope to the measured whole-lap difference (3.937093ms)
+✔ brake, minimum speed, gear and sustained full throttle are derived from real windows (0.521044ms)
+✔ missing or interpolated pedal channels do not become event points or zero statistics (2.452316ms)
+✔ matching rejects missing metadata and separates sessions, compound, age, phase and time (0.487154ms)
+✔ ideal sectors retain source laps and exclude deleted or incomplete sector sums (0.863172ms)
+✔ unusual lap catalog finds lower speed trap combined with faster lap, never the inverse (0.703251ms)
+✔ race pace excludes pit/flags and close-follow indicator uses finish timestamps only (2.676922ms)
+✔ pit scenario reports missing coverage rather than filling nonexistent drivers (0.396202ms)
+✔ raw series does not invent unavailable channels or scale wildly mismatched lap times (0.374001ms)
+✔ study import enforces bounds and strips arbitrary untrusted fields (0.693732ms)
+✔ near-finish exclusion changes pace samples without claiming full-lap traffic detection (0.302704ms)
+✔ stable runs require five consecutive valid laps and position-change leadups retain actual sectors (0.406571ms)
+✔ corner similarity rankings expose the selected metric and omit missing channels (0.695555ms)
+✔ a brake block already active at the window boundary is not invented as a new onset (3.585335ms)
+✔ whole-lap display mesh and buffered race boundaries are closed, finite and simple (128.394566ms)
+✔ cota: recorded raw data and centerline match provenance digests (3.237112ms)
+✔ cota: geographic query points map to the exact horizontal station convention (1.471976ms)
+✔ cota: derived filter is reproducible; interpolant, seam and grades stay bounded (36.267411ms)
+✔ spa: recorded raw data and centerline match provenance digests (4.332165ms)
+✔ spa: geographic query points map to the exact horizontal station convention (1.522988ms)
+✔ spa: derived filter is reproducible; interpolant, seam and grades stay bounded (28.960439ms)
+✔ real terrain rejects missing provenance, invented bank, invalid coordinates and grades (8.390273ms)
+✔ Mexico has no production elevation and unsupported event cannot adopt a different track (8.350276ms)
+✔ all rates keep wall-clock time across sparse, irregular and dropped frames (0.806581ms)
+✔ clock clamps end and negative timestamps without losing a positive stall (1.419642ms)
+✔ fixed geographic circuit is closed and has declared station length (0.727624ms)
+✔ registration recovers independent units, handedness and start station (22.050618ms)
+✔ bad registration falls back explicitly instead of manufacturing a racing line (24.39744ms)
+✔ wheel distance uses original telemetry distance rather than current speed times elapsed (0.178661ms)
+✔ changing speed accounts for the elapsed interval at the previous rate (0.143492ms)
+✔ flat surface preserves horizontal positions, yaw and zero root height (50.742069ms)
+✔ ascending and descending normals give correct quaternion pitch and bank roll (3.061023ms)
+✔ closed loop has continuous elevation, derivative, banking, normals and quaternion hemispheres (2.008387ms)
+✔ sampled elevations remain finite, bounded and stable over negative and multi-lap queries (29.751485ms)
+✔ provenance, finite samples, monotone distances and seam are validated (1.042494ms)
+✔ independent station length does not rescale XY or reinterpret telemetry metres (1.072914ms)
+✔ surface ribbons and kerb offsets have finite nonzero upward triangles (28.077273ms)
+✔ station-hinted projection stays on the requested branch at crossings (1.219706ms)
+✔ normal and heading validation reject nonfinite and degenerate orientations (0.777454ms)
+✔ banking limit, negative elevation and nonzero periodic seam remain finite (10.120727ms)
+✔ scalar height query agrees with the full surface without evaluating a normal (6.585397ms)
+✔ profile input is snapshotted so later caller mutation cannot corrupt a cached surface (1.769728ms)
+✔ spatial grid proves the nearest segment even beyond its first occupied ring (0.549952ms)
+✔ Blender GLBs retain four wheel pivots, two steering pivots, authored UVs and bounded LOD budgets (105.420519ms)
+✔ V7 three LODs stay inside the actual V6.1 triangle, primitive and download budgets (59.892238ms)
+✔ V7 axle locations, tyre support, front/rear widths and steering hierarchy survive all exports (37.031121ms)
+✔ V7 vehicle sources retain explicit provenance and match every shipped car digest (7.614128ms)
+ℹ tests 55
+ℹ suites 0
+ℹ pass 55
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1371.7253
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> test:browser
+> playwright test
+
+
+Running 30 tests using 1 worker
+
+(node:11375) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:11375) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+V61_BATCHING cota {"collision":{"batches":9,"sourceChunks":64,"hits":96,"misses":0,"maxError":0},"surfaceStable":{"sameGeometry":true,"sameVersion":true,"samePositions":true,"telemetry":true},"disposal":{"rebuilds":[{"memory":{"geometries":76,"textures":10},"sameRenderer":true,"cacheCleared":true,"first":0,"last":9},{"memory":{"geometries":76,"textures":10},"sameRenderer":true,"cacheCleared":true,"first":9,"last":18},{"memory":{"geometries":76,"textures":10},"sameRenderer":true,"cacheCleared":true,"first":18,"last":27}],"disposedRanges":true,"liveRanges":64,"sharedBuffers":true},"errors":[],"consoleErrors":[]}
+  ✓   1 tests/barrier-batching.spec.js:2:92 › cota render batches preserve native collision, static surfaces and disposal across quality changes (36.6s)
+V61_BATCHING spa {"collision":{"batches":13,"sourceChunks":87,"hits":96,"misses":0,"maxError":0},"surfaceStable":{"sameGeometry":true,"sameVersion":true,"samePositions":true,"telemetry":true},"disposal":{"rebuilds":[{"memory":{"geometries":75,"textures":10},"sameRenderer":true,"cacheCleared":true,"first":0,"last":13},{"memory":{"geometries":75,"textures":10},"sameRenderer":true,"cacheCleared":true,"first":13,"last":26},{"memory":{"geometries":75,"textures":10},"sameRenderer":true,"cacheCleared":true,"first":26,"last":39}],"disposedRanges":true,"liveRanges":87,"sharedBuffers":true},"errors":[],"consoleErrors":[]}
+  ✓   2 tests/barrier-batching.spec.js:2:92 › spa render batches preserve native collision, static surfaces and disposal across quality changes (42.8s)
+  ✓   3 tests/high-dpi.spec.js:3:1 › Ultra on a high-DPI display uses the reduced real drawing buffer and preserves Blender assets (30.3s)
+  ✓   4 tests/insight-lab.spec.js:16:1 › real telemetry powers the studio, exact region sums, theories, filtering and chart navigation (9.9s)
+  ✓   5 tests/insight-lab.spec.js:90:1 › notes preserve spaces, safe imports, downloadable context and round-trip shared URLs (2.6s)
+  ✓   6 tests/insight-lab.spec.js:160:1 › real race metadata powers tempo, pit coverage, position leadups, phases and weekend dossier (2.7s)
+  ✓   7 tests/insight-lab.spec.js:209:1 › multi-lap signatures, third driver and another year load actual archive telemetry (4.5s)
+  ✓   8 tests/insight-lab.spec.js:240:1 › missing secondary archive files produce recoverable state rather than invented results (2.0s)
+  ✓   9 tests/insight-lab.spec.js:253:1 › initial archive failure can be retried inside the studio without hidden old results (1.8s)
+  ✓  10 tests/insight-lab.spec.js:271:1 › late secondary data cannot replace a newly selected session (3.3s)
+INTEGRATION_LAP {"data":{"totals":[76.651,76.356],"channels":[{"v":{"count":539,"finite":true,"varied":true},"thr":{"count":539,"finite":true,"varied":true},"brk":{"count":539,"finite":true,"varied":true},"gear":{"count":539,"finite":true,"varied":true},"rpm":{"count":539,"finite":true,"varied":true}},{"v":{"count":539,"finite":true,"varied":true},"thr":{"count":539,"finite":true,"varied":true},"brk":{"count":539,"finite":true,"varied":true},"gear":{"count":539,"finite":true,"varied":true},"rpm":{"count":539,"finite":true,"varied":true}}],"assetErrors":[]},"lods":[{"distance":15,"visible":["high"]},{"distance":55,"visible":["medium"]},{"distance":150,"visible":["low"]}],"finish":{"time":76.651,"playing":false,"progress":[1,1],"delta":-0.29499998688697815,"ready":true,"cars":2,"memory":{"geometries":444,"textures":30},"assetErrors":[]},"wallSeconds":25.173,"loaded":["/","/assets/topography/profiles.js","/assets/tracks/mexico.js","/assets/tracks/v3/boundaries.js","/assets/tracks/v3/render-path.js","/assets/tracks/v3/venue-osm.js","/assets/v4/car-high.glb","/assets/v4/car-low.glb","/assets/v4/car-medium.glb","/assets/v4/concrete-color.jpg","/assets/v4/concrete-normal.jpg","/assets/v4/concrete-roughness.jpg","/assets/v4/daylight.hdr","/assets/v4/road-color.ktx2","/assets/v4/road-normal.ktx2","/assets/v4/road-roughness.ktx2","/assets/v4/tree-atlas.png","/assets/v4/tree.glb","/assets/v4/turf-color.jpg","/assets/v4/venue.glb","/src/barrier-batching.js","/src/camera-collision.js","/src/ghost-director.js","/src/ghost-topography.js","/src/ghost-webgl.js","/src/ghost-world.js","/src/ghost.css","/src/insight-core.js","/src/insight-lab.css","/src/insight-lab.js","/src/mexico-v3.js","/src/mexico-v4.js","/src/real-topography.js","/src/replay-core.js","/src/track-topography.js","/src/visual-assets.js","http://127.0.0.1:4373/14b13c12-9999-43e4-9abe-bc1f952ab723","http://127.0.0.1:4373/28e8ce5e-f942-4923-843e-17acb1a66881","http://127.0.0.1:4373/4b77d104-3ec5-4e48-945d-f763dba2916d","http://127.0.0.1:4373/54b9a97d-7930-40ad-ba94-5ee94bec0080","http://127.0.0.1:4373/55880af3-73cd-4cac-a210-c4980515e957","http://127.0.0.1:4373/5721e9b1-bcfd-46b2-bfc5-e39338a4685e","http://127.0.0.1:4373/5ddeefe5-4053-4495-82a0-b2f6be4f5032","http://127.0.0.1:4373/9bc4d3ea-48f6-491a-9e64-e0b0df0459f7","http://127.0.0.1:4373/d062c753-53dc-47bc-95df-b5c2933e93cd","http://127.0.0.1:4373/deb6bfba-7db3-47d8-addc-eaff6f4fd785"],"errors":[],"failed":[],"consoleErrors":[]}
+  ✓  11 tests/main-integration.spec.js:5:1 › integrated main candidate uses V4 assets and all LODs through a complete real telemetry lap (1.1m)
+  ✓  12 tests/main-integration.spec.js:43:1 › real Mexico race analysis retains summary, charts, strategy, moves and driver tabs (3.5s)
+REAL_SURFACE cota {"metadata":{"category":"derived","owner":"USGS","license":"US Government public domain; centerline MIT","source":"https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/116248","horizontalCRS":"Query EPSG:4326; service EPSG:3857","verticalDatum":"NAVD88","resolutionMeters":1,"uncertainty":"Project QL2 specification: NVA RMSE <=0.10 m, not a local asphalt accuracy guarantee. Approximate centerline and 2017 acquisition add unquantified error.","label":"TÜRETİLMİŞ · USGS 2017 arazi modeli · 1 m grid · banking ölçülmedi","verticalUnit":"m","bankingStatus":"unmeasured","surface":"bare-earth DEM, not surveyed asphalt","retrievedAt":"2026-11-10T18:41:42.558Z","sourceSpacingMeters":19.97826086956522,"centerlineSha256":"199621d61cf0b50429fc9fcf1a8dabf016df453e33bf64299a651e1acad7e158","rawSha256":"c76fc5a7d6c4c0b756ed6435896da0a57aaeb71e135e333b501c0da753a39f2a","originElevationMeters":155.00193786625,"processing":"One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime","horizontalProcessing":"Symmetric station offsets [-6,-3,0,3,6] m, weights [1,2,3,2,1]/9; preserve station parameter","maxFilterResidualMeters":0.29974746675000574},"fit":{"a":0.0997838877730378,"b":0.0009055061089691781,"flip":-1,"dir":1,"phase":0.9461669921875,"tx":-104.36780272840788,"tz":-222.4395333012659,"rmse":6.768484462236583},"profile":true,"flat":false,"length":5514,"penetration":3.552713678800501e-15,"gap":0.031352504780581825,"upError":2.2633986948989007e-16,"cameraEpsilon":0.00010389803420807198,"collisionSweep":{"requested":6.0000000000000036,"moved":1.6999997096686323,"clearance":0.6500000000000004},"telemetryUnchanged":true,"totals":[94.154,92.974],"finish":[1,1],"mexicoVenue":false,"telemetryZ":[{"present":true,"range":[1265.6580330443162,1569],"classification":"unverified telemetry Z; not used as the terrain source"},{"present":true,"range":[1265.7782090168698,1569.5678898658891],"classification":"unverified telemetry Z; not used as the terrain source"}]}
+  ✓  13 tests/real-topography.spec.js:3:30 › cota real terrain keeps telemetry, tyre contact and cameras stable (37.9s)
+REAL_SURFACE spa {"metadata":{"category":"derived","owner":"Service public de Wallonie (SPW)","license":"CC-BY-4.0; centerline MIT","source":"https://geoportail.wallonie.be/catalogue/a004e570-99d6-4fe5-b83d-49b774409278.html","horizontalCRS":"Source EPSG:3812; query EPSG:4326 (server conversion)","verticalDatum":"DNG / EPSG:5710","resolutionMeters":0.5,"uncertainty":"Published regional absolute vertical accuracy ~0.12 m; approximate centerline, bridge exclusion and 2021-2022 acquisition add unquantified asphalt error.","label":"TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi","verticalUnit":"m","bankingStatus":"unmeasured","surface":"bare-earth DEM, not surveyed asphalt","retrievedAt":"2026-11-10T18:53:20.388Z","sourceSpacingMeters":39.79545454545455,"centerlineSha256":"b867de9cc8364cc9b545a044377a56a697b8db77823c849c1a1c03760a943381","rawSha256":"9ec5b514d7f3c5aaf31748402b1b3daafbe47a575c5c2abea4bb57463a006a76","originElevationMeters":416.9878235,"processing":"One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime","horizontalProcessing":"Symmetric station offsets [-6,-3,0,3,6] m, weights [1,2,3,2,1]/9; preserve station parameter","maxFilterResidualMeters":0.8401567500000056},"fit":{"a":0.10013797468515752,"b":0.0039557485229051535,"flip":-1,"dir":1,"phase":0.982177734375,"tx":101.72815800715988,"tz":243.6991799098604,"rmse":7.055156042794931},"profile":true,"flat":false,"length":7004,"penetration":3.552713678800501e-15,"gap":0.01963240619179185,"upError":2.240145354958912e-16,"cameraEpsilon":0.00016316140001926271,"collisionSweep":{"requested":5.999999999999994,"moved":1.6999995855200696,"clearance":0.6500000000000001},"telemetryUnchanged":true,"totals":[113.835,114.095],"finish":[1,1],"mexicoVenue":false,"telemetryZ":[{"present":true,"range":[3654.9931574428565,4679],"classification":"unverified telemetry Z; not used as the terrain source"},{"present":true,"range":[3655,4678.039916573683],"classification":"unverified telemetry Z; not used as the terrain source"}]}
+  ✓  14 tests/real-topography.spec.js:3:30 › spa real terrain keeps telemetry, tyre contact and cameras stable (38.6s)
+  ✓  15 tests/real-topography.spec.js:45:1 › COTA derived terrain survives 120 seconds, camera/quality changes and Studio round trips (3.0m)
+  ✓  16 tests/simulator.spec.js:4:1 › real Mexico telemetry, cameras, profiles and Blender assets (2.0m)
+RUNTIME {
+  fps: 0.5542008423854521,
+  ms: 1804.3999999994412,
+  calls: 281,
+  memory: { geometries: 446, textures: 30 },
+  gpu: 'WebKit WebGL',
+  totals: [ 76.651, 76.356 ]
+}
+  ✓  17 tests/simulator.spec.js:34:1 › real Mexico clock, playback and repeated world disposal (2.0m)
+  ✓  18 tests/simulator.spec.js:54:1 › real Mexico pilot/lap changes, analysis, mobile and visibility (37.7s)
+  ✓  19 tests/simulator.spec.js:67:1 › WebGL failure keeps the standard replay available (7.2s)
+SOAK_120_SECONDS {"fps":1.0735373054213635,"ms":931.5,"ready":true,"geometries":485,"textures":30,"calls":210,"renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)","resolution":[747,294],"frames":89,"p50":1116.2000000001863,"p95":1520.6000000005588,"cpu":3.7000000001862645,"gpu":762.364933,"wallMs":120574,"snapshots":[{"time":28.150000000002244,"ready":true,"memory":{"geometries":289,"textures":30}},{"time":76.48160000000226,"ready":true,"memory":{"geometries":402,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":402,"textures":30}},{"time":38.13156,"ready":true,"memory":{"geometries":470,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":474,"textures":30}},{"time":39.63000000000151,"ready":true,"memory":{"geometries":479,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":479,"textures":30}},{"time":37.56279999999999,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":39.442400000000724,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":39.43680000000005,"ready":true,"memory":{"geometries":485,"textures":30}}],"errors":[],"consoleErrors":[]}
+  ✓  20 tests/simulator.spec.js:73:1 › 120-second software-renderer replay soak and resource budget (2.5m)
+  ✓  21 tests/simulator.spec.js:86:1 › Ultra effects, diagnostics export and missing asset fallback (46.1s)
+  ✓  22 tests/simulator.spec.js:92:1 › asset load failure retains working procedural cars and JPEG materials (10.2s)
+  ✓  23 tests/simulator.spec.js:97:1 › alignment falls back for both laps when one projection is rejected (24.4s)
+  ✓  24 tests/simulator.spec.js:103:1 › missing Blender venue assets retain cars and working telemetry (15.8s)
+  ✓  25 tests/simulator.spec.js:105:1 › free camera movement stops before the actual circuit barrier (14.1s)
+STUDIO_SIMULATOR {"cycles":[{"sameRenderer":true,"requests":1,"initialRequests":1,"cacheReplaced":true,"memory":{"geometries":130,"textures":28},"time":0,"drivers":["ALO","STR"],"laps":[2,11],"assets":[]},{"sameRenderer":true,"requests":1,"initialRequests":1,"cacheReplaced":true,"memory":{"geometries":132,"textures":29},"time":0,"drivers":["TSU","LAW"],"laps":[2,8],"assets":[]},{"sameRenderer":true,"requests":1,"initialRequests":1,"cacheReplaced":true,"memory":{"geometries":130,"textures":28},"time":0,"drivers":["ALO","STR"],"laps":[2,11],"assets":[]}],"errors":[],"consoleErrors":[]}
+  ✓  26 tests/studio-simulator.spec.js:4:1 › studio and simulator reuse one renderer across repeated camera, pilot and lap changes (2.3m)
+SURFACE_CHECKS {"maxPenetration":2.220446049250313e-16,"maxGap":0.007454342851971774,"maxUpError":2.230452372859658e-16,"triangles":4304,"degenerate":0,"down":0,"kerbBelow":0,"kerbDetached":0,"cameraSteps":{"a":0.6923510209196984,"b":0.5835724490554526,"cockpit":0.6867087962144858,"cinematic":0.6845338615979664,"compare":1.0477349742187698},"cameraContinuity":{"a":0.00027220182897025325,"b":0.0002329602251478491,"cockpit":0.00026946608076627854,"cinematic":0.0002681412928957627,"compare":0.00048034359281246},"totals":[76.651,76.356],"finish":[1,1],"category":"illustrative","records":[{"mode":"a","worst":{"time":8.525000000000054,"from":[702.2042837132859,30.778021531056055,89.70382479723962],"to":[706.7642756976968,30.085670510136357,90.3436807360044]}},{"mode":"b","worst":{"time":8.400000000000052,"from":[685.1215353970669,33.34746266742972,87.32788854464762],"to":[689.0452925345974,32.763890218374264,87.87126454624591]}},{"mode":"cockpit","worst":{"time":8.525000000000054,"from":[713.4374010005312,26.75432228661625,91.28604223204238],"to":[717.9968784375393,26.067613490401765,91.92954696267135]}},{"mode":"cinematic","worst":{"time":8.525000000000054,"from":[707.4472593771421,28.42061309983777,87.21072588459857],"to":[712.0080609231139,27.736079238239803,87.85228504087735]}},{"mode":"compare","worst":{"time":8.500000000000053,"from":[693.6975263175519,37.66424080484488,78.52316475658426],"to":[698.3512575857446,36.61650583062611,79.7074143895015]}}]}
+  ✓  27 tests/topography.spec.js:4:1 › synthetic surface: tyre support, real telemetry, mesh, cameras and eight application screenshots (52.6s)
+  ✓  28 tests/topography.spec.js:62:1 › profile changes rebuild collision cache and 120-second playback keeps bounded GPU resources (2.6m)
+  ✓  29 tests/v5-audit.spec.js:3:1 › free camera sweep cannot cross an elevated road between safe endpoints (14.9s)
+  ✓  30 tests/v7-vehicle.spec.js:2:1 › V7 wheels and steering retain distance animation, static geometry and automatic three-level LOD (31.6s)
+
+  Slow test file: tests/simulator.spec.js (9.2m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  30 passed (23.5m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

@@ -1,0 +1,121 @@
+
+> test
+> npm run test:unit && npm run test:browser
+
+
+> test:unit
+> node --test tests/*.test.cjs
+
+✔ render grouping preserves every Float32 triangle and material, including negative cells (63.353653ms)
+✔ 128m proxy ranges exactly match native triangles through transforms, inside rays and near/far (19.033818ms)
+✔ ray bounds refresh on position changes and geometry replacement uses the native fallback (1.777606ms)
+✔ off-ray ranges skip triangle raycasts while a near barrier remains exact (66.047955ms)
+✔ flat/synthetic grouping stays unchanged and disposal releases CPU proxies once (0.82547ms)
+✔ camera collision matches Three.js for transformed instances, inside origins, finite rays and layers (58.209892ms)
+✔ camera cache refreshes when a world, instance buffer, geometry or count changes (1.049402ms)
+✔ off-ray camera instances skip triangle intersection while retaining a real close wall (9.658376ms)
+✔ mini-sector and corner gains telescope to the measured whole-lap difference (6.249675ms)
+✔ brake, minimum speed, gear and sustained full throttle are derived from real windows (0.60702ms)
+✔ missing or interpolated pedal channels do not become event points or zero statistics (0.654213ms)
+✔ matching rejects missing metadata and separates sessions, compound, age, phase and time (0.288235ms)
+✔ ideal sectors retain source laps and exclude deleted or incomplete sector sums (0.945583ms)
+✔ unusual lap catalog finds lower speed trap combined with faster lap, never the inverse (0.36286ms)
+✔ race pace excludes pit/flags and close-follow indicator uses finish timestamps only (2.469917ms)
+✔ pit scenario reports missing coverage rather than filling nonexistent drivers (0.465726ms)
+✔ raw series does not invent unavailable channels or scale wildly mismatched lap times (0.464949ms)
+✔ study import enforces bounds and strips arbitrary untrusted fields (0.571623ms)
+✔ near-finish exclusion changes pace samples without claiming full-lap traffic detection (0.324686ms)
+✔ stable runs require five consecutive valid laps and position-change leadups retain actual sectors (0.354358ms)
+✔ corner similarity rankings expose the selected metric and omit missing channels (0.863134ms)
+✔ a brake block already active at the window boundary is not invented as a new onset (0.229158ms)
+✔ whole-lap display mesh and buffered race boundaries are closed, finite and simple (127.650602ms)
+✔ cota: recorded raw data and centerline match provenance digests (5.620154ms)
+✔ cota: geographic query points map to the exact horizontal station convention (1.625406ms)
+✔ cota: derived filter is reproducible; interpolant, seam and grades stay bounded (54.930821ms)
+✔ spa: recorded raw data and centerline match provenance digests (1.056567ms)
+✔ spa: geographic query points map to the exact horizontal station convention (1.199121ms)
+✔ spa: derived filter is reproducible; interpolant, seam and grades stay bounded (41.54933ms)
+✔ real terrain rejects missing provenance, invented bank, invalid coordinates and grades (8.021761ms)
+✔ Mexico has no production elevation and unsupported event cannot adopt a different track (16.226212ms)
+✔ all rates keep wall-clock time across sparse, irregular and dropped frames (2.214625ms)
+✔ clock clamps end and negative timestamps without losing a positive stall (1.028272ms)
+✔ fixed geographic circuit is closed and has declared station length (0.944299ms)
+✔ registration recovers independent units, handedness and start station (26.638527ms)
+✔ bad registration falls back explicitly instead of manufacturing a racing line (19.232772ms)
+✔ wheel distance uses original telemetry distance rather than current speed times elapsed (0.209263ms)
+✔ changing speed accounts for the elapsed interval at the previous rate (0.139464ms)
+✔ flat surface preserves horizontal positions, yaw and zero root height (44.904935ms)
+✔ ascending and descending normals give correct quaternion pitch and bank roll (2.870144ms)
+✔ closed loop has continuous elevation, derivative, banking, normals and quaternion hemispheres (1.751714ms)
+✔ sampled elevations remain finite, bounded and stable over negative and multi-lap queries (22.989931ms)
+✔ provenance, finite samples, monotone distances and seam are validated (0.625881ms)
+✔ independent station length does not rescale XY or reinterpret telemetry metres (0.703609ms)
+✔ surface ribbons and kerb offsets have finite nonzero upward triangles (22.915429ms)
+✔ station-hinted projection stays on the requested branch at crossings (1.101049ms)
+✔ normal and heading validation reject nonfinite and degenerate orientations (0.715959ms)
+✔ banking limit, negative elevation and nonzero periodic seam remain finite (7.321993ms)
+✔ scalar height query agrees with the full surface without evaluating a normal (12.237141ms)
+✔ profile input is snapshotted so later caller mutation cannot corrupt a cached surface (1.039406ms)
+✔ spatial grid proves the nearest segment even beyond its first occupied ring (0.722404ms)
+✔ Blender GLBs retain four wheel pivots, two steering pivots, authored UVs and bounded LOD budgets (89.157638ms)
+✔ V7 three LODs stay inside the actual V6.1 triangle, primitive and download budgets (57.294545ms)
+✔ V7 axle locations, tyre support, front/rear widths and steering hierarchy survive all exports (31.998981ms)
+✔ V7 vehicle sources retain explicit provenance and match every shipped car digest (3.395548ms)
+ℹ tests 55
+ℹ suites 0
+ℹ pass 55
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1425.516036
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> test:browser
+> playwright test
+
+
+Running 30 tests using 1 worker
+
+(node:9907) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:9907) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+V61_BATCHING cota {"collision":{"batches":9,"sourceChunks":64,"hits":96,"misses":0,"maxError":0},"surfaceStable":{"sameGeometry":true,"sameVersion":true,"samePositions":true,"telemetry":true},"disposal":{"rebuilds":[{"memory":{"geometries":76,"textures":10},"sameRenderer":true,"cacheCleared":true,"first":0,"last":9},{"memory":{"geometries":76,"textures":10},"sameRenderer":true,"cacheCleared":true,"first":9,"last":18},{"memory":{"geometries":76,"textures":10},"sameRenderer":true,"cacheCleared":true,"first":18,"last":27}],"disposedRanges":true,"liveRanges":64,"sharedBuffers":true},"errors":[],"consoleErrors":[]}
+  ✓   1 tests/barrier-batching.spec.js:2:92 › cota render batches preserve native collision, static surfaces and disposal across quality changes (35.5s)
+  ✘   2 tests/barrier-batching.spec.js:2:92 › spa render batches preserve native collision, static surfaces and disposal across quality changes (25.2s)
+
+
+  1) tests/barrier-batching.spec.js:2:92 › spa render batches preserve native collision, static surfaces and disposal across quality changes
+
+    Test was interrupted.
+
+    Error: page.evaluate: Test ended.
+
+      22 |  await page.locator('#ghostRenderQuality').selectOption('ultra');await page.waitForFunction(()=>!!VisualAssets.templates.high&&!VisualAssets.highPending,null,{timeout:60000});
+      23 |  for(const quality of ['performance','ultra'])for(const camera of ['a','cockpit']){
+    > 24 |   await page.evaluate(({quality,camera})=>{$('ghostRenderQuality').value=quality;ghost.camera=camera;ghost.cameraState=null;GhostDirector.transition=null;st.play.e=10;drawAll();},{quality,camera});
+         |              ^
+      25 |  }
+      26 |  const surfaceStable=await page.evaluate(()=>({sameGeometry:v61Road===ghost3d.world.getObjectByName('TopographyRoad').geometry,sameVersion:v61RoadVersion===v61Road.attributes.position.version,samePositions:v61Positions.every((v,i)=>v===v61Road.attributes.position.array[i]),telemetry:v61Original===v61Fingerprint()}));
+      27 |  expect(surfaceStable).toEqual({sameGeometry:true,sameVersion:true,samePositions:true,telemetry:true});
+        at /workspace/work/tur-duellosu-v7/tests/barrier-batching.spec.js:24:14
+
+  1 interrupted
+    tests/barrier-batching.spec.js:2:92 › spa render batches preserve native collision, static surfaces and disposal across quality changes
+  28 did not run
+  1 passed (1.1m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

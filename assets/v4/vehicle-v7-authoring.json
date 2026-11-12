@@ -1,0 +1,29 @@
+{
+  "version": 7,
+  "blender": "4.3.2",
+  "source": "art/blender/build_v7.py",
+  "units": "metres",
+  "exportForward": "+Z",
+  "exportUp": "+Y",
+  "original": true,
+  "teamReplica": false,
+  "wheelbase_m": 3.32,
+  "tyreRadius_m": 0.36,
+  "frontTyreWidth_m": 0.35,
+  "rearTyreWidth_m": 0.39,
+  "suspension": "rigid visual linkages; no suspension physics",
+  "car": [
+    {
+      "lod": "high",
+      "objects": 30
+    },
+    {
+      "lod": "medium",
+      "objects": 30
+    },
+    {
+      "lod": "low",
+      "objects": 30
+    }
+  ]
+}

@@ -4,3 +4,4 @@ playwright-report/
 assets/v4/*-raw.glb
 art/blender/*.blend1
 work/
+__pycache__/

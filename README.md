@@ -37,7 +37,7 @@ npm run assets:build # yalnız Blender 4.3+ ile yeni araç/çevre üretimi
 - [Varlıklar ve lisanslar](docs/VARLIKLAR.md)
 - [Test/ölçüm raporu](docs/TEST-RAPORU.md)
 
-V4 hazır Blender GLB varlıklarını kullanır. Yeniden üretim ve CC0 kaynak ağaç hazırlığı: [art/blender](art/blender/README.md). Tam pist geometrisini tekrar üretmek için önceki iş akışı `npm run assets:build:v3` içinde korunur (Shapely gerekir); ardından V4 üretimi çalıştırılabilir.
+Uygulama hazır Blender GLB varlıklarını kullanır. Bu inceleme dalında araçlar V7, çevre varlıkları V4'tür. `npm run assets:build` yalnız V7 araçlarını yeniden üretir; normal kullanımda Blender gerekmez. Üretim ve CC0 kaynak açıklamaları: [art/blender](art/blender/README.md). Tarihsel tam pist üretimi `npm run assets:build:v3` içinde korunur (Shapely gerekir).
 
 Güncel main, Veri Stüdyosu ve kamera optimizasyonu doğrulaması: [Performans entegrasyon raporu](docs/PERFORMANS-ENTEGRASYON.md).
 
@@ -45,4 +45,6 @@ V5 son denetim, Ultra/1080p/1440p ölçümleri ve entegrasyon kanıtları: [V5 s
 
 V6 inceleme dalındaki COTA/Spa arazi verileri, lisanslar ve doğruluk sınırları: [Gerçek pist topografyası](docs/GERCEK-PIST-TOPOGRAFYASI.md). Bu profiller asfalt ölçümü veya ölçülmüş banking değildir; Meksika düz referansı korunur.
 
-V6.1 bariyer çizim optimizasyonu, regresyon kanıtları ve eş ayarlı görseller: [V6.1 raporu](docs/V6-1-PERFORMANS-OPTIMIZASYONU.md). Aynı fiziksel NVIDIA üzerinde FPS kabulü henüz doğrulanmadığından PR #10 taslaktır; main değişmedi.
+V6.1 bariyer çizim optimizasyonu, regresyon kanıtları ve eş ayarlı görseller: [V6.1 raporu](docs/V6-1-PERFORMANS-OPTIMIZASYONU.md). V7 başlangıç main'i V6.1 merge commit'i `e5ffd2224bb3ee2dceed9ee2470bc6f6da33fc74` içerir; bu birleştirme aynı fiziksel NVIDIA üzerinde FPS kabulünün doğrulandığı anlamına gelmez. Tarihsel rapordaki kabul borcu açık kalır.
+
+V7 özgün araç silüeti, lastikler, PBR, üç LOD ve gerçek önce/sonra görselleri: [V7 araç raporu](docs/V7-ARAC-GORSELLERI.md) · [Galeri](docs/visual/v7/README.md). `feat/v7-car-visuals` bağımsız inceleme dalıdır; V7 main'e birleştirilmedi.

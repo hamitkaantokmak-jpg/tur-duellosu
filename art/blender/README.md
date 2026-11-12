@@ -1,5 +1,15 @@
 # V4 art source and export
 
+## Current V7 vehicle
+
+`npm run assets:build` runs `build_v7.py` and the optimizer's `--cars-only` mode. It updates only the three `assets/v4/car-*.glb` files (stable runtime URLs), their manifest/provenance and `vehicle-v7-authoring.json`. The original, unbranded V7 design and its 2022–2025-style open-wheel proportions are not a verified team replica. `vehicle-v7.blend` is the editable high-detail source, actually reopened in Blender 4.3.2. V4 helper functions are imported without rebuilding the venue.
+
+Retained contract: metres, +Z forward, Y up on export, 3.32 m wheelbase, 0.36 m tyre radius and original `Wheel_*` / `Steer_F*` pivots. Front/rear carcass widths are 0.35/0.39 m. Wheels spin from replay distance; front steering remains the existing visual approximation. Chassis, wishbones and uprights follow the same rigid surface pose: no independent suspension travel, tyre deformation or suspension physics is claimed.
+
+V7 changes the undercut sidepod sections, recessed intake, nose/engine-cover taper, wraparound visor, joined diffuser ramp, tyre shoulder/rim details and bounded PBR values. Invisible rotors behind closed covers are omitted. Shared procedural carbon color texture stays 64×64; no new external models, textures or shader passes are introduced. High/medium/low keep the same wheel support dimensions; subdivision and rotational sampling vary. GPU FPS remains unverified here; V6.1's NVIDIA acceptance debt is separate.
+
+The following V4 reconstruction notes remain available. `npm run assets:build:v4` explicitly rebuilds the historical V4 vehicle **and venue**; it replaces the current vehicle output and is not the V7 vehicle workflow.
+
 Blender **4.3.2** was actually run in this environment. `vehicle-v4.blend`, `venue-v4.blend` and `tree-v4.blend` are editable source files, not renamed glTFs. Metres; authoring uses Blender Z up, exports use glTF Y up / +Z forward. Modifiers are applied on export, while the Python authoring script recreates the modifier workflow. Vehicle and venue are original, unbranded designs; they are not official team or surveyed circuit models.
 
 ## Rebuild original vehicle and venue

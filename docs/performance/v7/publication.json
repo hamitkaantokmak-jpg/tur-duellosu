@@ -1,0 +1,17 @@
+{
+  "startCommit": "e5ffd2224bb3ee2dceed9ee2470bc6f6da33fc74",
+  "method": "GitHub Git Data API commits; every returned tree SHA matched the corresponding local tree. Generated commit metadata differs, source bytes do not.",
+  "codeCommits": [
+    {
+      "local": "d6466f12162c03abba80d81bfceaa25027c8974a",
+      "published": "410ffe83fd515a1d2dd33e1768702026f64e9ea2",
+      "tree": "f6556f306c6367b341a35babae5e19b057310372"
+    },
+    {
+      "local": "76af5fde4c60c1fa4f948be49a78a238dc6ab22e",
+      "published": "82c5a87281ff035b423452aea2cf9757d37d1490",
+      "tree": "0c8d2c8ab47f9417683a8eea113f423fec7738c7"
+    }
+  ],
+  "testedCodePublishedEquivalent": "82c5a87281ff035b423452aea2cf9757d37d1490"
+}

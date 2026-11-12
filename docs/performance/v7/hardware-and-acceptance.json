@@ -1,0 +1,22 @@
+{
+  "observedAt": "2026-11-12T12:31:09.109792+00:00",
+  "browser": "156.0.8078.79",
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "nvidiaSmi": null,
+  "devDriPresent": false,
+  "nvidiaDevicePresent": false,
+  "v61Debt": {
+    "status": "unresolved",
+    "historicalSpaUltra1440pLossPercent": {
+      "follow": 11.65,
+      "cockpit": 19.93
+    },
+    "note": "Main merge e5ffd22 is not evidence of physical NVIDIA performance acceptance."
+  },
+  "v7Performance": {
+    "structuralBudgetsPassed": true,
+    "physicalNvidiaFps": "unmeasured",
+    "acceptance": false,
+    "note": "No hardware FPS claim from SwiftShader counters or CPU timing."
+  }
+}
