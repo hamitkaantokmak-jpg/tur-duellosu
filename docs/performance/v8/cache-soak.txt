@@ -1,0 +1,10 @@
+
+Running 1 test using 1 worker
+
+(node:35744) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:35744) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\vehicle-motion-soak.spec.js:2:1 › V8 120-second replay retains motion/road caches, heap and pause/rate continuity (2.3m)
+
+  1 passed (2.3m)

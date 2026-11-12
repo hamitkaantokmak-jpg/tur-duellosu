@@ -1,0 +1,28 @@
+{
+  "result": {
+    "roadMisses": 0,
+    "roadCells": 2715,
+    "roadPositionBytes": 10680768,
+    "rootError": 0,
+    "wheelError": 0,
+    "cameraError": 0,
+    "maxLift": 0.027809826923268405,
+    "pitchMin": -0.008478544385402844,
+    "pitchMax": 0.00872663355551144,
+    "rollMax": 0.010471946254998032,
+    "contactMin": 0.001998284077563639,
+    "contactMax": 0.002000689554327195,
+    "bodyClearance": 0.05350585293722787,
+    "seekStable": true,
+    "invalidated": true,
+    "unchanged": true,
+    "totals": [
+      113.835,
+      114.095
+    ],
+    "delta": 0.2600000000000051,
+    "tableBytes": 656520,
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+  },
+  "errors": []
+}
