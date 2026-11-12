@@ -1,0 +1,15 @@
+{
+  "dpr": 2,
+  "ratio": 1.5,
+  "css": [
+    766,
+    476
+  ],
+  "buffer": [
+    1149,
+    714
+  ],
+  "assets": true,
+  "ready": true,
+  "errors": []
+}

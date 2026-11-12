@@ -1,0 +1,642 @@
+{
+  "method": "Initial window plus every balanced-order repeat; median of independent window means. No discarded windows. Other cases retain their single original window. Not a confidence interval.",
+  "files": [
+    "docs\\performance\\v6\\final-matrix.json",
+    "docs\\performance\\v6\\rechecks.json"
+  ],
+  "comparisons": [
+    {
+      "key": "mexico/1920/performance/a",
+      "v5": {
+        "windows": 4,
+        "fpsMedian": 468.5881021587302,
+        "fpsRange": [
+          174.75873793724406,
+          515.8710322419395
+        ],
+        "p95MedianMs": 2.850000023841858
+      },
+      "v6": {
+        "windows": 4,
+        "fpsMedian": 503.4200368926016,
+        "fpsRange": [
+          127.01847844181788,
+          519.8786949680754
+        ],
+        "p95MedianMs": 2.649999976158142
+      },
+      "initialLossPercent": 27.31780971808674,
+      "windowMedianLossPercent": -7.433380099367604,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\rechecks.json"
+      ]
+    },
+    {
+      "key": "mexico/1920/performance/cockpit",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 108.0815319751113,
+        "fpsRange": [
+          108.0815319751113,
+          108.0815319751113
+        ],
+        "p95MedianMs": 13.600000023841858
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 126.63391890766798,
+        "fpsRange": [
+          126.63391890766798,
+          126.63391890766798
+        ],
+        "p95MedianMs": 10.900000095367432
+      },
+      "initialLossPercent": -17.165177615014613,
+      "windowMedianLossPercent": -17.165177615014613,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "mexico/1920/ultra/a",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 96.45739798294082,
+        "fpsRange": [
+          96.45739798294082,
+          96.45739798294082
+        ],
+        "p95MedianMs": 15
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 102.76311187314501,
+        "fpsRange": [
+          102.76311187314501,
+          102.76311187314501
+        ],
+        "p95MedianMs": 13.700000047683716
+      },
+      "initialLossPercent": -6.537304573900493,
+      "windowMedianLossPercent": -6.537304573900493,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "mexico/1920/ultra/cockpit",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 97.42559734661701,
+        "fpsRange": [
+          97.42559734661701,
+          97.42559734661701
+        ],
+        "p95MedianMs": 13.900000095367432
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 106.61709541312383,
+        "fpsRange": [
+          106.61709541312383,
+          106.61709541312383
+        ],
+        "p95MedianMs": 12.899999976158142
+      },
+      "initialLossPercent": -9.434376916166777,
+      "windowMedianLossPercent": -9.434376916166777,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "mexico/2560/performance/a",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 113.60704446881769,
+        "fpsRange": [
+          113.60704446881769,
+          113.60704446881769
+        ],
+        "p95MedianMs": 12.600000023841858
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 115.89183428868799,
+        "fpsRange": [
+          115.89183428868799,
+          115.89183428868799
+        ],
+        "p95MedianMs": 12
+      },
+      "initialLossPercent": -2.011133931485576,
+      "windowMedianLossPercent": -2.011133931485576,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "mexico/2560/performance/cockpit",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 117.69504165915,
+        "fpsRange": [
+          117.69504165915,
+          117.69504165915
+        ],
+        "p95MedianMs": 12.199999928474426
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 119.18742660150782,
+        "fpsRange": [
+          119.18742660150782,
+          119.18742660150782
+        ],
+        "p95MedianMs": 11.200000047683716
+      },
+      "initialLossPercent": -1.2680100379078407,
+      "windowMedianLossPercent": -1.2680100379078407,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "mexico/2560/ultra/a",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 102.20996776222032,
+        "fpsRange": [
+          102.20996776222032,
+          102.20996776222032
+        ],
+        "p95MedianMs": 13.300000071525574
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 95.83173613830223,
+        "fpsRange": [
+          95.83173613830223,
+          95.83173613830223
+        ],
+        "p95MedianMs": 15.199999928474426
+      },
+      "initialLossPercent": 6.240322508227669,
+      "windowMedianLossPercent": 6.240322508227669,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "mexico/2560/ultra/cockpit",
+      "v5": {
+        "windows": 4,
+        "fpsMedian": 397.3815575624991,
+        "fpsRange": [
+          136.37234565459988,
+          440.25890722665986
+        ],
+        "p95MedianMs": 3.299999952316284
+      },
+      "v6": {
+        "windows": 4,
+        "fpsMedian": 416.37925005435653,
+        "fpsRange": [
+          99.07920503312361,
+          436.1692383310653
+        ],
+        "p95MedianMs": 3.200000047683716
+      },
+      "initialLossPercent": 27.346556548885147,
+      "windowMedianLossPercent": -4.780718211581703,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\rechecks.json"
+      ]
+    },
+    {
+      "key": "cota/1920/performance/a",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 173.88768538576903,
+        "fpsRange": [
+          173.88768538576903,
+          173.88768538576903
+        ],
+        "p95MedianMs": 9.700000047683716
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 184.54978513571405,
+        "fpsRange": [
+          184.54978513571405,
+          184.54978513571405
+        ],
+        "p95MedianMs": 8.399999976158142
+      },
+      "initialLossPercent": -6.131601399081932,
+      "windowMedianLossPercent": -6.131601399081932,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "cota/1920/performance/cockpit",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 156.92901979782238,
+        "fpsRange": [
+          156.92901979782238,
+          156.92901979782238
+        ],
+        "p95MedianMs": 11.600000023841858
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 181.2394276993307,
+        "fpsRange": [
+          181.2394276993307,
+          181.2394276993307
+        ],
+        "p95MedianMs": 8.600000023841858
+      },
+      "initialLossPercent": -15.491339927330428,
+      "windowMedianLossPercent": -15.491339927330428,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "cota/1920/ultra/a",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 156.0924387262126,
+        "fpsRange": [
+          156.0924387262126,
+          156.0924387262126
+        ],
+        "p95MedianMs": 11.299999952316284
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 150.23442899971457,
+        "fpsRange": [
+          150.23442899971457,
+          150.23442899971457
+        ],
+        "p95MedianMs": 10.299999952316284
+      },
+      "initialLossPercent": 3.752910630586681,
+      "windowMedianLossPercent": 3.752910630586681,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "cota/1920/ultra/cockpit",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 191.5983179982514,
+        "fpsRange": [
+          191.5983179982514,
+          191.5983179982514
+        ],
+        "p95MedianMs": 7.700000047683716
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 437.981750760385,
+        "fpsRange": [
+          437.981750760385,
+          437.981750760385
+        ],
+        "p95MedianMs": 7.699999928474426
+      },
+      "initialLossPercent": -128.59373471346564,
+      "windowMedianLossPercent": -128.59373471346564,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "cota/2560/performance/a",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 155.3903902657288,
+        "fpsRange": [
+          155.3903902657288,
+          155.3903902657288
+        ],
+        "p95MedianMs": 11.700000047683716
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 183.57568434648556,
+        "fpsRange": [
+          183.57568434648556,
+          183.57568434648556
+        ],
+        "p95MedianMs": 8.299999952316284
+      },
+      "initialLossPercent": -18.138376531880684,
+      "windowMedianLossPercent": -18.138376531880684,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "cota/2560/performance/cockpit",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 158.31376271995506,
+        "fpsRange": [
+          158.31376271995506,
+          158.31376271995506
+        ],
+        "p95MedianMs": 11.399999976158142
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 162.26927207657417,
+        "fpsRange": [
+          162.26927207657417,
+          162.26927207657417
+        ],
+        "p95MedianMs": 11
+      },
+      "initialLossPercent": -2.4985252631611665,
+      "windowMedianLossPercent": -2.4985252631611665,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "cota/2560/ultra/a",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 184.50922545980663,
+        "fpsRange": [
+          184.50922545980663,
+          184.50922545980663
+        ],
+        "p95MedianMs": 7.899999976158142
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 241.52496480065304,
+        "fpsRange": [
+          241.52496480065304,
+          241.52496480065304
+        ],
+        "p95MedianMs": 9.5
+      },
+      "initialLossPercent": -30.901294609394302,
+      "windowMedianLossPercent": -30.901294609394302,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "cota/2560/ultra/cockpit",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 156.8914833897203,
+        "fpsRange": [
+          156.8914833897203,
+          156.8914833897203
+        ],
+        "p95MedianMs": 11.100000023841858
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 261.31925418356144,
+        "fpsRange": [
+          261.31925418356144,
+          261.31925418356144
+        ],
+        "p95MedianMs": 8.100000023841858
+      },
+      "initialLossPercent": -66.56050955579363,
+      "windowMedianLossPercent": -66.56050955579363,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "spa/1920/performance/a",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 142.52632280477778,
+        "fpsRange": [
+          142.52632280477778,
+          142.52632280477778
+        ],
+        "p95MedianMs": 12
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 164.24847162234246,
+        "fpsRange": [
+          164.24847162234246,
+          164.24847162234246
+        ],
+        "p95MedianMs": 10.399999976158142
+      },
+      "initialLossPercent": -15.240797903218283,
+      "windowMedianLossPercent": -15.240797903218283,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "spa/1920/performance/cockpit",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 154.2125335157191,
+        "fpsRange": [
+          154.2125335157191,
+          154.2125335157191
+        ],
+        "p95MedianMs": 10.899999976158142
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 157.9188345473465,
+        "fpsRange": [
+          157.9188345473465,
+          157.9188345473465
+        ],
+        "p95MedianMs": 10.899999976158142
+      },
+      "initialLossPercent": -2.4033721171240696,
+      "windowMedianLossPercent": -2.4033721171240696,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "spa/1920/ultra/a",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 137.9218442887844,
+        "fpsRange": [
+          137.9218442887844,
+          137.9218442887844
+        ],
+        "p95MedianMs": 12.899999976158142
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 149.63196372124546,
+        "fpsRange": [
+          149.63196372124546,
+          149.63196372124546
+        ],
+        "p95MedianMs": 11.100000023841858
+      },
+      "initialLossPercent": -8.49040229475333,
+      "windowMedianLossPercent": -8.49040229475333,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "spa/1920/ultra/cockpit",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 133.19126265369863,
+        "fpsRange": [
+          133.19126265369863,
+          133.19126265369863
+        ],
+        "p95MedianMs": 13.5
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 132.53915361546152,
+        "fpsRange": [
+          132.53915361546152,
+          132.53915361546152
+        ],
+        "p95MedianMs": 12.599999904632568
+      },
+      "initialLossPercent": 0.4896034659064852,
+      "windowMedianLossPercent": 0.4896034659064852,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "spa/2560/performance/a",
+      "v5": {
+        "windows": 1,
+        "fpsMedian": 144.3926012331278,
+        "fpsRange": [
+          144.3926012331278,
+          144.3926012331278
+        ],
+        "p95MedianMs": 12.199999928474426
+      },
+      "v6": {
+        "windows": 1,
+        "fpsMedian": 134.5873735902451,
+        "fpsRange": [
+          134.5873735902451,
+          134.5873735902451
+        ],
+        "p95MedianMs": 13.5
+      },
+      "initialLossPercent": 6.790671792837744,
+      "windowMedianLossPercent": 6.790671792837744,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "key": "spa/2560/performance/cockpit",
+      "v5": {
+        "windows": 4,
+        "fpsMedian": 690.376157198134,
+        "fpsRange": [
+          187.98276824587063,
+          789.8245204741805
+        ],
+        "p95MedianMs": 1.850000023841858
+      },
+      "v6": {
+        "windows": 4,
+        "fpsMedian": 663.9152399172308,
+        "fpsRange": [
+          137.31691078561917,
+          790.5368820025824
+        ],
+        "p95MedianMs": 1.9500000476837158
+      },
+      "initialLossPercent": 26.952394590754956,
+      "windowMedianLossPercent": 3.832826062286665,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\rechecks.json"
+      ]
+    },
+    {
+      "key": "spa/2560/ultra/a",
+      "v5": {
+        "windows": 4,
+        "fpsMedian": 668.5480287168948,
+        "fpsRange": [
+          429.1534404784503,
+          740.9688183988115
+        ],
+        "p95MedianMs": 1.9000000357627869
+      },
+      "v6": {
+        "windows": 4,
+        "fpsMedian": 590.6697386708477,
+        "fpsRange": [
+          169.6327401189799,
+          715.7496584158804
+        ],
+        "p95MedianMs": 3.849999964237213
+      },
+      "initialLossPercent": 60.4727064683761,
+      "windowMedianLossPercent": 11.64886989428634,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\rechecks.json"
+      ]
+    },
+    {
+      "key": "spa/2560/ultra/cockpit",
+      "v5": {
+        "windows": 4,
+        "fpsMedian": 681.17501608972,
+        "fpsRange": [
+          654.2219556675415,
+          822.1504445422731
+        ],
+        "p95MedianMs": 2
+      },
+      "v6": {
+        "windows": 4,
+        "fpsMedian": 545.3947596607557,
+        "fpsRange": [
+          163.45368812202352,
+          690.4676663349668
+        ],
+        "p95MedianMs": 2.649999976158142
+      },
+      "initialLossPercent": 75.01556058979372,
+      "windowMedianLossPercent": 19.933240829707742,
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\rechecks.json"
+      ]
+    }
+  ],
+  "plannedRepeatsComplete": true,
+  "complete": true,
+  "maxWindowMedianLossPercent": 19.933240829707742,
+  "withinTenPercentOnWindowMedians": false
+}

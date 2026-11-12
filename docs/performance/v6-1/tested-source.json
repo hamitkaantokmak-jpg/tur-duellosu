@@ -1,0 +1,41 @@
+{
+  "startCommit": "f295c01a8984715334363077fb66ccaad522e246",
+  "baselineMain": "a237ca529b31bd769df90165c62f73cdef54a672",
+  "testedCommit": "551c3d1b0f580a2b6a8f2388be18b6973272a097",
+  "testedTree": "592448278b7ee0d7bf07723f3b8fadf8667691d0",
+  "sourceEntries": [
+    "040000 tree 325a36abe11680d31dc5573c92bb8b03c64b39ce\tart",
+    "040000 tree 7a8b260b9efe01ff6882e262d0d818823d112d64\tassets",
+    "100644 blob 93ed0002875220763db323fdacad96ccb2d41182\tindex.html",
+    "100644 blob 9befacde2240465e8b1295d247e7890eae178f47\tpackage-lock.json",
+    "100644 blob e5aecbf4903c65dcba002ba3eec2ec1d398d6231\tpackage.json",
+    "100644 blob 5d27033cc25050b722d4c15f089be266d8b95910\tplaywright.config.js",
+    "040000 tree e6f10fdba2b02dc12bf72e5664c32e94f6445cfc\tscripts",
+    "040000 tree 9e22c3d38c0ebaf1212994a450ef14d7c4de7604\tsrc",
+    "040000 tree 7f9c668ff4c68cfa63de5f6c3ce0dfa017ea92bb\ttests"
+  ],
+  "protectedSha256": {
+    "assets/topography/profiles.js": "7826b9705d492fb97cb72a2ad78890e97ce33cebab78ce28bb2c98de8c1d3969",
+    "assets/topography/profiles.json": "2b8ae5550097ebf5115bee113c5ee12030058a7c19a75fdd0d0ec7c8b4ebc4d2",
+    "assets/topography/sources/CENTERLINE-LICENSE.txt": "0e1658618c21df9ef4c0ffeb55ae1a2fdfe046af3b4a048d8b6413563df4a616",
+    "assets/topography/sources/README.md": "7ebc54ae0eb8a91367bc8d268268d7fa7363ee10bf2d6ad9c313c025ca8c2e93",
+    "assets/topography/sources/cota-raster-metadata.json": "368c7392570c39302fc13d0a08269fea634a84eccac830f5b80691f9790cfb78",
+    "assets/topography/sources/cota-raw.json": "c76fc5a7d6c4c0b756ed6435896da0a57aaeb71e135e333b501c0da753a39f2a",
+    "assets/topography/sources/cota.geojson": "199621d61cf0b50429fc9fcf1a8dabf016df453e33bf64299a651e1acad7e158",
+    "assets/topography/sources/spa-raw.json": "9ec5b514d7f3c5aaf31748402b1b3daafbe47a575c5c2abea4bb57463a006a76",
+    "assets/topography/sources/spa-service-metadata.json": "6b6e91aebfe73d6291a4f1b8b18e65916cabf9ddef577ec85c90580acbbd1fcd",
+    "assets/topography/sources/spa.geojson": "b867de9cc8364cc9b545a044377a56a697b8db77823c849c1a1c03760a943381",
+    "src/camera-collision.js": "8ecb29c4292e5399f2a582441278e316adbd2552b6703683bc944b7575544a7a",
+    "src/insight-core.js": "ac9c7e4231064fe86a9edf0b29a3518ab11c32529dfc9537e786bfd5ac18d7a4",
+    "src/insight-lab.js": "cf26c78d3d754ed2876bf562712477b57668c46ca6e2d073c95a42e35be6e86b",
+    "src/real-topography.js": "f9ff899c331cbbe6c1375b363f0bdfd53e6c82bef667ab93da5519ae2cf55bab",
+    "src/replay-core.js": "5135612b31597dcd517b045d21f9be1fe452bfbc523be62ccb8252be7a598e2b",
+    "src/track-topography.js": "4a565335edd2df2e1f3ac498b45ed43ddd92775933aaafa2bff18d66542e633e",
+    "tests/fixtures/synthetic-topography.cjs": "130d8cc583c3e6be2d2d1f393e6717aca33e2607ff15cfff6d923dca8aee7693"
+  },
+  "lastRun": {
+    "status": "passed",
+    "failedTests": []
+  },
+  "collectedAt": "2026-11-12T11:37:11.532Z"
+}

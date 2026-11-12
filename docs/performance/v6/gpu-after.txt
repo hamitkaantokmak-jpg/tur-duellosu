@@ -1,0 +1,1 @@
+NVIDIA GeForce RTX 5060 Laptop GPU, 621.14, 49.75, P8, 367 MHz, 405 MHz, 5.18 W, [N/A]

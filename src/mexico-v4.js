@@ -5,6 +5,7 @@ const MexicoV4 = {
       ["idle", "loading"].includes(VisualAssets.state) ||
       !G.ready ||
       !S.track ||
+      !S.profile.mexico ||
       !VisualAssets.venue ||
       G.v4World === G.world
     )

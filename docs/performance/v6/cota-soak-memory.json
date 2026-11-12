@@ -1,0 +1,17 @@
+{
+  "before": {
+    "memory": {
+      "geometries": 189,
+      "textures": 11
+    },
+    "time": 0
+  },
+  "after": {
+    "time": 30.267525000001832,
+    "memory": {
+      "geometries": 189,
+      "textures": 11
+    },
+    "unchanged": true
+  }
+}

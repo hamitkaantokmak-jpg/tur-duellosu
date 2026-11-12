@@ -1,0 +1,42 @@
+{
+  "cota": {
+    "sourceRows": 276,
+    "sourceSpacingMeters": 19.97826086956522,
+    "sourceGridMeters": 1,
+    "rawRangeMeters": [
+      151.106765747,
+      182.097991943
+    ],
+    "derivedRelativeRangeMeters": [
+      -3.8653678894999928,
+      26.796306610000016
+    ],
+    "maxGrade": 0.13243398210545038,
+    "maxHorizontalShift": 0.9007096575379282,
+    "filterMaxResidualMeters": 0.29974746675000574,
+    "category": "derived",
+    "banking": "unmeasured; modeled zero",
+    "license": "US Government public domain; centerline MIT",
+    "rawSha256": "c76fc5a7d6c4c0b756ed6435896da0a57aaeb71e135e333b501c0da753a39f2a"
+  },
+  "spa": {
+    "sourceRows": 176,
+    "sourceSpacingMeters": 39.79545454545455,
+    "sourceGridMeters": 0.5,
+    "rawRangeMeters": [
+      366.578125,
+      468.840637
+    ],
+    "derivedRelativeRangeMeters": [
+      -50.303451499999994,
+      51.74797050000001
+    ],
+    "maxGrade": 0.14589848468577443,
+    "maxHorizontalShift": 0.8809768301869775,
+    "filterMaxResidualMeters": 0.8401567500000056,
+    "category": "derived",
+    "banking": "unmeasured; modeled zero",
+    "license": "CC-BY-4.0; centerline MIT",
+    "rawSha256": "9ec5b514d7f3c5aaf31748402b1b3daafbe47a575c5c2abea4bb57463a006a76"
+  }
+}

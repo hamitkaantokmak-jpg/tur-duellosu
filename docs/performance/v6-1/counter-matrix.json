@@ -1,0 +1,2913 @@
+{
+  "schema": 1,
+  "mode": "non-acceptance-counters",
+  "conditions": {
+    "warmupSeconds": 20,
+    "measurementSeconds": 12,
+    "dpr": 1,
+    "renderRatio": 1,
+    "adaptive": false,
+    "AO": false,
+    "rate": 1,
+    "startTime": 10,
+    "orders": [
+      [
+        "v5",
+        "v6",
+        "v61"
+      ],
+      [
+        "v61",
+        "v6",
+        "v5"
+      ],
+      [
+        "v6",
+        "v61",
+        "v5"
+      ],
+      [
+        "v5",
+        "v61",
+        "v6"
+      ],
+      [
+        "v61",
+        "v5",
+        "v6"
+      ],
+      [
+        "v6",
+        "v5",
+        "v61"
+      ]
+    ],
+    "scenarios": [
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "a",
+        "key": "mexico/1920/performance/a"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "mexico/1920/performance/cockpit"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "mexico/1920/ultra/a"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "mexico/1920/ultra/cockpit"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "a",
+        "key": "mexico/2560/performance/a"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "mexico/2560/performance/cockpit"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "mexico/2560/ultra/a"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "mexico/2560/ultra/cockpit"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "a",
+        "key": "cota/1920/performance/a"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "cota/1920/performance/cockpit"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "cota/1920/ultra/a"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "cota/1920/ultra/cockpit"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "a",
+        "key": "cota/2560/performance/a"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "cota/2560/performance/cockpit"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "cota/2560/ultra/a"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "cota/2560/ultra/cockpit"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "a",
+        "key": "spa/1920/performance/a"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "spa/1920/performance/cockpit"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "spa/1920/ultra/a"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "spa/1920/ultra/cockpit"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "a",
+        "key": "spa/2560/performance/a"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "spa/2560/performance/cockpit"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "spa/2560/ultra/a"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "spa/2560/ultra/cockpit"
+      }
+    ]
+  },
+  "performanceAcceptance": false,
+  "rows": [
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "a",
+      "key": "mexico/1920/performance/a",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 181,
+          "textures": 19
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "mexico/1920/performance/cockpit",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 181,
+          "textures": 19
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "mexico/1920/ultra/a",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 254,
+        "triangles": 1357536,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "mexico/1920/ultra/cockpit",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 239,
+        "triangles": 1171672,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "a",
+      "key": "mexico/2560/performance/a",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 62892741,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "mexico/2560/performance/cockpit",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 62892741,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "mexico/2560/ultra/a",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 254,
+        "triangles": 1357536,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "mexico/2560/ultra/cockpit",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 239,
+        "triangles": 1171672,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "a",
+      "key": "cota/1920/performance/a",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 66,
+        "triangles": 51312,
+        "residentCounts": {
+          "geometries": 56,
+          "textures": 8
+        },
+        "sceneGeometryBytes": 4986392,
+        "sceneTextureBytesEstimate": 17192304,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "95c953f8202fd2356e635442dfd63dde32e24275439e16ee5003388edeeca410",
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "cota/1920/performance/cockpit",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 36,
+        "triangles": 35068,
+        "residentCounts": {
+          "geometries": 56,
+          "textures": 8
+        },
+        "sceneGeometryBytes": 4986392,
+        "sceneTextureBytesEstimate": 17192304,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "95c953f8202fd2356e635442dfd63dde32e24275439e16ee5003388edeeca410",
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "cota/1920/ultra/a",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 129,
+        "triangles": 212774,
+        "residentCounts": {
+          "geometries": 124,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 5906996,
+        "sceneTextureBytesEstimate": 36765776,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "95c953f8202fd2356e635442dfd63dde32e24275439e16ee5003388edeeca410",
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "cota/1920/ultra/cockpit",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 98,
+        "triangles": 148714,
+        "residentCounts": {
+          "geometries": 124,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 5906996,
+        "sceneTextureBytesEstimate": 36765776,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "95c953f8202fd2356e635442dfd63dde32e24275439e16ee5003388edeeca410",
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "a",
+      "key": "cota/2560/performance/a",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 66,
+        "triangles": 51312,
+        "residentCounts": {
+          "geometries": 124,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 5906996,
+        "sceneTextureBytesEstimate": 17192304,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "95c953f8202fd2356e635442dfd63dde32e24275439e16ee5003388edeeca410",
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "cota/2560/performance/cockpit",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 36,
+        "triangles": 35068,
+        "residentCounts": {
+          "geometries": 124,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 5906996,
+        "sceneTextureBytesEstimate": 17192304,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "95c953f8202fd2356e635442dfd63dde32e24275439e16ee5003388edeeca410",
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "cota/2560/ultra/a",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 129,
+        "triangles": 212774,
+        "residentCounts": {
+          "geometries": 124,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 5906996,
+        "sceneTextureBytesEstimate": 36765776,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "95c953f8202fd2356e635442dfd63dde32e24275439e16ee5003388edeeca410",
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "cota/2560/ultra/cockpit",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 98,
+        "triangles": 148714,
+        "residentCounts": {
+          "geometries": 124,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 5906996,
+        "sceneTextureBytesEstimate": 36765776,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "95c953f8202fd2356e635442dfd63dde32e24275439e16ee5003388edeeca410",
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "a",
+      "key": "spa/1920/performance/a",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 76,
+        "triangles": 58622,
+        "residentCounts": {
+          "geometries": 55,
+          "textures": 8
+        },
+        "sceneGeometryBytes": 5934164,
+        "sceneTextureBytesEstimate": 16930160,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "f8b902f92c8290ea94272f4ba86709a9102ce6742d60e1b82bd679ab8acc54d8",
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "spa/1920/performance/cockpit",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 63,
+        "triangles": 53898,
+        "residentCounts": {
+          "geometries": 55,
+          "textures": 8
+        },
+        "sceneGeometryBytes": 5934164,
+        "sceneTextureBytesEstimate": 16930160,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "f8b902f92c8290ea94272f4ba86709a9102ce6742d60e1b82bd679ab8acc54d8",
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "spa/1920/ultra/a",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 124,
+        "triangles": 223344,
+        "residentCounts": {
+          "geometries": 105,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 6854768,
+        "sceneTextureBytesEstimate": 36503632,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "f8b902f92c8290ea94272f4ba86709a9102ce6742d60e1b82bd679ab8acc54d8",
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "spa/1920/ultra/cockpit",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 111,
+        "triangles": 209260,
+        "residentCounts": {
+          "geometries": 105,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 6854768,
+        "sceneTextureBytesEstimate": 36503632,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "f8b902f92c8290ea94272f4ba86709a9102ce6742d60e1b82bd679ab8acc54d8",
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "a",
+      "key": "spa/2560/performance/a",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 76,
+        "triangles": 58622,
+        "residentCounts": {
+          "geometries": 105,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 6854768,
+        "sceneTextureBytesEstimate": 16930160,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "f8b902f92c8290ea94272f4ba86709a9102ce6742d60e1b82bd679ab8acc54d8",
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "spa/2560/performance/cockpit",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 63,
+        "triangles": 53898,
+        "residentCounts": {
+          "geometries": 105,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 6854768,
+        "sceneTextureBytesEstimate": 16930160,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "f8b902f92c8290ea94272f4ba86709a9102ce6742d60e1b82bd679ab8acc54d8",
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "spa/2560/ultra/a",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 124,
+        "triangles": 223344,
+        "residentCounts": {
+          "geometries": 105,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 6854768,
+        "sceneTextureBytesEstimate": 36503632,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "f8b902f92c8290ea94272f4ba86709a9102ce6742d60e1b82bd679ab8acc54d8",
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "spa/2560/ultra/cockpit",
+      "version": "v5",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 111,
+        "triangles": 209260,
+        "residentCounts": {
+          "geometries": 105,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 6854768,
+        "sceneTextureBytesEstimate": 36503632,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": null,
+        "barrierTriangleAndNormalSha256": "f8b902f92c8290ea94272f4ba86709a9102ce6742d60e1b82bd679ab8acc54d8",
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "a",
+      "key": "mexico/1920/performance/a",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 181,
+          "textures": 19
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "mexico/1920/performance/cockpit",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 181,
+          "textures": 19
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "mexico/1920/ultra/a",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 254,
+        "triangles": 1357536,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "mexico/1920/ultra/cockpit",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 239,
+        "triangles": 1171672,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "a",
+      "key": "mexico/2560/performance/a",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 62892741,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "mexico/2560/performance/cockpit",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 62892741,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "mexico/2560/ultra/a",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 254,
+        "triangles": 1357536,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "mexico/2560/ultra/cockpit",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 239,
+        "triangles": 1171672,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "a",
+      "key": "cota/1920/performance/a",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 105,
+        "triangles": 203186,
+        "residentCounts": {
+          "geometries": 98,
+          "textures": 8
+        },
+        "sceneGeometryBytes": 17151512,
+        "sceneTextureBytesEstimate": 17192304,
+        "barrierRenderMeshes": 64,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "cota/1920/performance/cockpit",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 75,
+        "triangles": 186942,
+        "residentCounts": {
+          "geometries": 98,
+          "textures": 8
+        },
+        "sceneGeometryBytes": 17151512,
+        "sceneTextureBytesEstimate": 17192304,
+        "barrierRenderMeshes": 64,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "cota/1920/ultra/a",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 170,
+        "triangles": 362634,
+        "residentCounts": {
+          "geometries": 159,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "barrierRenderMeshes": 64,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "cota/1920/ultra/cockpit",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 140,
+        "triangles": 298634,
+        "residentCounts": {
+          "geometries": 159,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "barrierRenderMeshes": 64,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "a",
+      "key": "cota/2560/performance/a",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 105,
+        "triangles": 203186,
+        "residentCounts": {
+          "geometries": 159,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 17192304,
+        "barrierRenderMeshes": 64,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "cota/2560/performance/cockpit",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 75,
+        "triangles": 186942,
+        "residentCounts": {
+          "geometries": 159,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 17192304,
+        "barrierRenderMeshes": 64,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "cota/2560/ultra/a",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 170,
+        "triangles": 362634,
+        "residentCounts": {
+          "geometries": 159,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "barrierRenderMeshes": 64,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "cota/2560/ultra/cockpit",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 140,
+        "triangles": 298634,
+        "residentCounts": {
+          "geometries": 159,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "barrierRenderMeshes": 64,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "a",
+      "key": "spa/1920/performance/a",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 107,
+        "triangles": 291570,
+        "residentCounts": {
+          "geometries": 127,
+          "textures": 8
+        },
+        "sceneGeometryBytes": 25461516,
+        "sceneTextureBytesEstimate": 16930160,
+        "barrierRenderMeshes": 87,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "spa/1920/performance/cockpit",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 94,
+        "triangles": 286846,
+        "residentCounts": {
+          "geometries": 127,
+          "textures": 8
+        },
+        "sceneGeometryBytes": 25461516,
+        "sceneTextureBytesEstimate": 16930160,
+        "barrierRenderMeshes": 87,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "spa/1920/ultra/a",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 161,
+        "triangles": 454412,
+        "residentCounts": {
+          "geometries": 178,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 36503632,
+        "barrierRenderMeshes": 87,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "spa/1920/ultra/cockpit",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 148,
+        "triangles": 440328,
+        "residentCounts": {
+          "geometries": 178,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 36503632,
+        "barrierRenderMeshes": 87,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "a",
+      "key": "spa/2560/performance/a",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 107,
+        "triangles": 291570,
+        "residentCounts": {
+          "geometries": 178,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 16930160,
+        "barrierRenderMeshes": 87,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "spa/2560/performance/cockpit",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 94,
+        "triangles": 286846,
+        "residentCounts": {
+          "geometries": 178,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 16930160,
+        "barrierRenderMeshes": 87,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "spa/2560/ultra/a",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 161,
+        "triangles": 454412,
+        "residentCounts": {
+          "geometries": 178,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 36503632,
+        "barrierRenderMeshes": 87,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "spa/2560/ultra/cockpit",
+      "version": "v6",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 148,
+        "triangles": 440328,
+        "residentCounts": {
+          "geometries": 178,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 36503632,
+        "barrierRenderMeshes": 87,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "a",
+      "key": "mexico/1920/performance/a",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 181,
+          "textures": 19
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "mexico/1920/performance/cockpit",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 181,
+          "textures": 19
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "mexico/1920/ultra/a",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 254,
+        "triangles": 1357536,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "mexico/1920/ultra/cockpit",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 239,
+        "triangles": 1171672,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "a",
+      "key": "mexico/2560/performance/a",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 62892741,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "mexico/2560/performance/cockpit",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 62892741,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "mexico/2560/ultra/a",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 254,
+        "triangles": 1357536,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "mexico/2560/ultra/cockpit",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 239,
+        "triangles": 1171672,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "barrierRenderMeshes": 1,
+        "barrierQueryChunks": 1,
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "barrierTriangleAndNormalSha256": "08c57cd6088bcd01712e326fe2229440e0f6ed06d0069339dc313210646834f0",
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "a",
+      "key": "cota/1920/performance/a",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 72,
+        "triangles": 204762,
+        "residentCounts": {
+          "geometries": 62,
+          "textures": 8
+        },
+        "sceneGeometryBytes": 17151512,
+        "sceneTextureBytesEstimate": 17192304,
+        "barrierRenderMeshes": 9,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "cota/1920/performance/cockpit",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 42,
+        "triangles": 188518,
+        "residentCounts": {
+          "geometries": 62,
+          "textures": 8
+        },
+        "sceneGeometryBytes": 17151512,
+        "sceneTextureBytesEstimate": 17192304,
+        "barrierRenderMeshes": 9,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "cota/1920/ultra/a",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 134,
+        "triangles": 367210,
+        "residentCounts": {
+          "geometries": 123,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "barrierRenderMeshes": 9,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "cota/1920/ultra/cockpit",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 104,
+        "triangles": 303210,
+        "residentCounts": {
+          "geometries": 123,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "barrierRenderMeshes": 9,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "a",
+      "key": "cota/2560/performance/a",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 72,
+        "triangles": 204762,
+        "residentCounts": {
+          "geometries": 123,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 17192304,
+        "barrierRenderMeshes": 9,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "cota/2560/performance/cockpit",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 42,
+        "triangles": 188518,
+        "residentCounts": {
+          "geometries": 123,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 17192304,
+        "barrierRenderMeshes": 9,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "cota/2560/ultra/a",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 134,
+        "triangles": 367210,
+        "residentCounts": {
+          "geometries": 123,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "barrierRenderMeshes": 9,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "cota/2560/ultra/cockpit",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 104,
+        "triangles": 303210,
+        "residentCounts": {
+          "geometries": 123,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "barrierRenderMeshes": 9,
+        "barrierQueryChunks": 64,
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "barrierTriangleAndNormalSha256": "026cbd2deb43ab38628527400c624d43ab74aa056ecd965e04aee075abaef5c2",
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "a",
+      "key": "spa/1920/performance/a",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 83,
+        "triangles": 297780,
+        "residentCounts": {
+          "geometries": 67,
+          "textures": 8
+        },
+        "sceneGeometryBytes": 25461516,
+        "sceneTextureBytesEstimate": 16930160,
+        "barrierRenderMeshes": 13,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "spa/1920/performance/cockpit",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 70,
+        "triangles": 293056,
+        "residentCounts": {
+          "geometries": 67,
+          "textures": 8
+        },
+        "sceneGeometryBytes": 25461516,
+        "sceneTextureBytesEstimate": 16930160,
+        "barrierRenderMeshes": 13,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "spa/1920/ultra/a",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 135,
+        "triangles": 464480,
+        "residentCounts": {
+          "geometries": 117,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 36503632,
+        "barrierRenderMeshes": 13,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 1920,
+      "height": 1080,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "spa/1920/ultra/cockpit",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 122,
+        "triangles": 450396,
+        "residentCounts": {
+          "geometries": 117,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 36503632,
+        "barrierRenderMeshes": 13,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "a",
+      "key": "spa/2560/performance/a",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 83,
+        "triangles": 297780,
+        "residentCounts": {
+          "geometries": 117,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 16930160,
+        "barrierRenderMeshes": 13,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "performance",
+      "camera": "cockpit",
+      "key": "spa/2560/performance/cockpit",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 70,
+        "triangles": 293056,
+        "residentCounts": {
+          "geometries": 117,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 16930160,
+        "barrierRenderMeshes": 13,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "spa/2560/ultra/a",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 135,
+        "triangles": 464480,
+        "residentCounts": {
+          "geometries": 117,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 36503632,
+        "barrierRenderMeshes": 13,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "cockpit",
+      "key": "spa/2560/ultra/cockpit",
+      "version": "v61",
+      "fixed": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 122,
+        "triangles": 450396,
+        "residentCounts": {
+          "geometries": 117,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 36503632,
+        "barrierRenderMeshes": 13,
+        "barrierQueryChunks": 87,
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "barrierTriangleAndNormalSha256": "9e48ab76d1a4fcd2fe2d179c79f82b1164be02ff07de53495d7cde37cac79d37",
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": null,
+      "errors": []
+    }
+  ],
+  "blockers": [
+    "Counters only; no NVIDIA FPS/p95 acceptance measurements"
+  ],
+  "browser": "156.0.8078.79",
+  "rendererProbe": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "gpuBefore": {
+    "available": false,
+    "error": "ENOENT"
+  },
+  "roots": {
+    "v5": {
+      "commit": "a237ca529b31bd769df90165c62f73cdef54a672",
+      "runtimeSha256": {
+        "index.html": "adbd7bff20dd193ecce69d23cec842273f305e95a665603e1ac37dff6fa37f17",
+        "src/ghost-webgl.js": "35a3604a51317169a1aa6190182987b14a1d9af98402c5a5ba9c8a522d6fdcfb",
+        "src/ghost-topography.js": "68cf7246bbdf596b3015a40219e55a130b6407f26b16d574deee59b207cae948",
+        "src/track-topography.js": "4a565335edd2df2e1f3ac498b45ed43ddd92775933aaafa2bff18d66542e633e",
+        "src/barrier-batching.js": null,
+        "src/real-topography.js": null,
+        "assets/topography/profiles.js": null
+      },
+      "url": "http://127.0.0.1:4380"
+    },
+    "v6": {
+      "commit": "f295c01a8984715334363077fb66ccaad522e246",
+      "runtimeSha256": {
+        "index.html": "aaa44dc77d69eb2579fd60d9175c31d8f62ac4a2d3469bcce2abae285476f679",
+        "src/ghost-webgl.js": "fe9398d2a8f10f2e6c298b14202ae6318e2b6d20a6c0a280f772cd21cc1340a6",
+        "src/ghost-topography.js": "3a3311b1c783ae9875907b88d5a097cf25259738a26f6c0fadc0bac50ec333c2",
+        "src/track-topography.js": "4a565335edd2df2e1f3ac498b45ed43ddd92775933aaafa2bff18d66542e633e",
+        "src/barrier-batching.js": null,
+        "src/real-topography.js": "f9ff899c331cbbe6c1375b363f0bdfd53e6c82bef667ab93da5519ae2cf55bab",
+        "assets/topography/profiles.js": "7826b9705d492fb97cb72a2ad78890e97ce33cebab78ce28bb2c98de8c1d3969"
+      },
+      "url": "http://127.0.0.1:4381"
+    },
+    "v61": {
+      "commit": "a07ddcd07be69486a64d54fda8f3a21b9754eba0",
+      "runtimeSha256": {
+        "index.html": "64809bb2fd7615a6e28cdec62ae5030b3b07c291fc14fc534a26d04b5e4c30a4",
+        "src/ghost-webgl.js": "8f39a7cc849526fff7556f21f36fe8923b3d29d38ccd2d7b52ac6e999496ca2e",
+        "src/ghost-topography.js": "3a3311b1c783ae9875907b88d5a097cf25259738a26f6c0fadc0bac50ec333c2",
+        "src/track-topography.js": "4a565335edd2df2e1f3ac498b45ed43ddd92775933aaafa2bff18d66542e633e",
+        "src/barrier-batching.js": "d9b500b31509090e1e052dcd4b4877a897d7615e5eec630c32fcbe6c856e084e",
+        "src/real-topography.js": "f9ff899c331cbbe6c1375b363f0bdfd53e6c82bef667ab93da5519ae2cf55bab",
+        "assets/topography/profiles.js": "7826b9705d492fb97cb72a2ad78890e97ce33cebab78ce28bb2c98de8c1d3969"
+      },
+      "url": "http://127.0.0.1:4382"
+    }
+  },
+  "gpuAfter": {
+    "available": false,
+    "error": "ENOENT"
+  }
+}

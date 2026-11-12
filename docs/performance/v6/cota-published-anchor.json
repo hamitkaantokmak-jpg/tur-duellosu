@@ -1,0 +1,26 @@
+{
+  "longitude": -97.6422583,
+  "latitude": 30.1335278,
+  "declaredElevationMeters": 154.8,
+  "publishedDatum": "not stated",
+  "source": "https://www.gtamerica.us/documents/notice/1357/1458891346ab3b1c866bbefd3bd1fe.pdf",
+  "response": {
+    "samples": [
+      {
+        "location": {
+          "x": -97.6422583,
+          "y": 30.1335278,
+          "spatialReference": {
+            "wkid": 4326,
+            "latestWkid": 4326
+          }
+        },
+        "locationId": 0,
+        "value": "154.860992432",
+        "rasterId": 116248,
+        "resolution": 1
+      }
+    ]
+  },
+  "note": "Independent published venue anchor, not a datum conversion or local accuracy certificate. No profile adjustment."
+}

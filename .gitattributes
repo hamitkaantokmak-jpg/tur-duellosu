@@ -1,0 +1,2 @@
+# Provenance hashes must survive Windows and Linux checkouts unchanged.
+assets/topography/** text eol=lf

@@ -1,0 +1,153 @@
+{
+  "data": {
+    "totals": [
+      76.651,
+      76.356
+    ],
+    "channels": [
+      {
+        "v": {
+          "count": 539,
+          "finite": true,
+          "varied": true
+        },
+        "thr": {
+          "count": 539,
+          "finite": true,
+          "varied": true
+        },
+        "brk": {
+          "count": 539,
+          "finite": true,
+          "varied": true
+        },
+        "gear": {
+          "count": 539,
+          "finite": true,
+          "varied": true
+        },
+        "rpm": {
+          "count": 539,
+          "finite": true,
+          "varied": true
+        }
+      },
+      {
+        "v": {
+          "count": 539,
+          "finite": true,
+          "varied": true
+        },
+        "thr": {
+          "count": 539,
+          "finite": true,
+          "varied": true
+        },
+        "brk": {
+          "count": 539,
+          "finite": true,
+          "varied": true
+        },
+        "gear": {
+          "count": 539,
+          "finite": true,
+          "varied": true
+        },
+        "rpm": {
+          "count": 539,
+          "finite": true,
+          "varied": true
+        }
+      }
+    ],
+    "assetErrors": []
+  },
+  "lods": [
+    {
+      "distance": 15,
+      "visible": [
+        "high"
+      ]
+    },
+    {
+      "distance": 55,
+      "visible": [
+        "medium"
+      ]
+    },
+    {
+      "distance": 150,
+      "visible": [
+        "low"
+      ]
+    }
+  ],
+  "finish": {
+    "time": 76.651,
+    "playing": false,
+    "progress": [
+      1,
+      1
+    ],
+    "delta": -0.29499998688697815,
+    "ready": true,
+    "cars": 2,
+    "memory": {
+      "geometries": 447,
+      "textures": 30
+    },
+    "assetErrors": []
+  },
+  "wallSeconds": 27.702,
+  "loaded": [
+    "/",
+    "/assets/topography/profiles.js",
+    "/assets/tracks/mexico.js",
+    "/assets/tracks/v3/boundaries.js",
+    "/assets/tracks/v3/render-path.js",
+    "/assets/tracks/v3/venue-osm.js",
+    "/assets/v4/car-high.glb",
+    "/assets/v4/car-low.glb",
+    "/assets/v4/car-medium.glb",
+    "/assets/v4/concrete-color.jpg",
+    "/assets/v4/concrete-normal.jpg",
+    "/assets/v4/concrete-roughness.jpg",
+    "/assets/v4/daylight.hdr",
+    "/assets/v4/road-color.ktx2",
+    "/assets/v4/road-normal.ktx2",
+    "/assets/v4/road-roughness.ktx2",
+    "/assets/v4/tree-atlas.png",
+    "/assets/v4/tree.glb",
+    "/assets/v4/turf-color.jpg",
+    "/assets/v4/venue.glb",
+    "/src/barrier-batching.js",
+    "/src/camera-collision.js",
+    "/src/ghost-director.js",
+    "/src/ghost-topography.js",
+    "/src/ghost-webgl.js",
+    "/src/ghost-world.js",
+    "/src/ghost.css",
+    "/src/insight-core.js",
+    "/src/insight-lab.css",
+    "/src/insight-lab.js",
+    "/src/mexico-v3.js",
+    "/src/mexico-v4.js",
+    "/src/real-topography.js",
+    "/src/replay-core.js",
+    "/src/track-topography.js",
+    "/src/visual-assets.js",
+    "http://127.0.0.1:4361/1caf5ddc-248f-4f4a-9106-2c5bbffaf8cc",
+    "http://127.0.0.1:4361/263bd295-a362-450c-aaeb-17d083a0af6d",
+    "http://127.0.0.1:4361/2ba30f63-473f-4019-abdb-da37d3cc89f1",
+    "http://127.0.0.1:4361/5069fb08-3b5a-4b93-be97-cbd00f825712",
+    "http://127.0.0.1:4361/7a933989-39d4-4fca-baeb-41e24446cad1",
+    "http://127.0.0.1:4361/8e37b7db-9aad-492e-8731-d74d02089c1a",
+    "http://127.0.0.1:4361/a12fb4d7-f7ad-4e9a-8b3c-9420e553d01e",
+    "http://127.0.0.1:4361/a3a2c11a-b7c7-47df-820a-a15169628ae5",
+    "http://127.0.0.1:4361/b27d8698-10dd-4615-9d28-27f49930934d",
+    "http://127.0.0.1:4361/dbb68f68-69a1-4ddd-af14-291234c43845"
+  ],
+  "errors": [],
+  "failed": [],
+  "consoleErrors": []
+}

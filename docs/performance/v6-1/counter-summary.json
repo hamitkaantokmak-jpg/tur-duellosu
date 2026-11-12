@@ -1,0 +1,414 @@
+{
+  "caseCount": 24,
+  "invariantMismatches": [],
+  "rows": [
+    {
+      "key": "mexico/1920/performance/a",
+      "callsBefore": 178,
+      "callsAfter": 178,
+      "trianglesBefore": 331874,
+      "trianglesAfter": 331874,
+      "residentBefore": {
+        "geometries": 181,
+        "textures": 19
+      },
+      "residentAfter": {
+        "geometries": 181,
+        "textures": 19
+      },
+      "geometryBytes": 22293438,
+      "textureBytesEstimate": 62892741
+    },
+    {
+      "key": "mexico/1920/performance/cockpit",
+      "callsBefore": 165,
+      "callsAfter": 165,
+      "trianglesBefore": 327482,
+      "trianglesAfter": 327482,
+      "residentBefore": {
+        "geometries": 181,
+        "textures": 19
+      },
+      "residentAfter": {
+        "geometries": 181,
+        "textures": 19
+      },
+      "geometryBytes": 22293438,
+      "textureBytesEstimate": 62892741
+    },
+    {
+      "key": "mexico/1920/ultra/a",
+      "callsBefore": 254,
+      "callsAfter": 254,
+      "trianglesBefore": 1357536,
+      "trianglesAfter": 1357536,
+      "residentBefore": {
+        "geometries": 246,
+        "textures": 31
+      },
+      "residentAfter": {
+        "geometries": 246,
+        "textures": 31
+      },
+      "geometryBytes": 23214042,
+      "textureBytesEstimate": 82466213
+    },
+    {
+      "key": "mexico/1920/ultra/cockpit",
+      "callsBefore": 239,
+      "callsAfter": 239,
+      "trianglesBefore": 1171672,
+      "trianglesAfter": 1171672,
+      "residentBefore": {
+        "geometries": 246,
+        "textures": 31
+      },
+      "residentAfter": {
+        "geometries": 246,
+        "textures": 31
+      },
+      "geometryBytes": 23214042,
+      "textureBytesEstimate": 82466213
+    },
+    {
+      "key": "mexico/2560/performance/a",
+      "callsBefore": 178,
+      "callsAfter": 178,
+      "trianglesBefore": 331874,
+      "trianglesAfter": 331874,
+      "residentBefore": {
+        "geometries": 246,
+        "textures": 30
+      },
+      "residentAfter": {
+        "geometries": 246,
+        "textures": 30
+      },
+      "geometryBytes": 23214042,
+      "textureBytesEstimate": 62892741
+    },
+    {
+      "key": "mexico/2560/performance/cockpit",
+      "callsBefore": 165,
+      "callsAfter": 165,
+      "trianglesBefore": 327482,
+      "trianglesAfter": 327482,
+      "residentBefore": {
+        "geometries": 246,
+        "textures": 30
+      },
+      "residentAfter": {
+        "geometries": 246,
+        "textures": 30
+      },
+      "geometryBytes": 23214042,
+      "textureBytesEstimate": 62892741
+    },
+    {
+      "key": "mexico/2560/ultra/a",
+      "callsBefore": 254,
+      "callsAfter": 254,
+      "trianglesBefore": 1357536,
+      "trianglesAfter": 1357536,
+      "residentBefore": {
+        "geometries": 246,
+        "textures": 31
+      },
+      "residentAfter": {
+        "geometries": 246,
+        "textures": 31
+      },
+      "geometryBytes": 23214042,
+      "textureBytesEstimate": 82466213
+    },
+    {
+      "key": "mexico/2560/ultra/cockpit",
+      "callsBefore": 239,
+      "callsAfter": 239,
+      "trianglesBefore": 1171672,
+      "trianglesAfter": 1171672,
+      "residentBefore": {
+        "geometries": 246,
+        "textures": 31
+      },
+      "residentAfter": {
+        "geometries": 246,
+        "textures": 31
+      },
+      "geometryBytes": 23214042,
+      "textureBytesEstimate": 82466213
+    },
+    {
+      "key": "cota/1920/performance/a",
+      "callsBefore": 105,
+      "callsAfter": 72,
+      "trianglesBefore": 203186,
+      "trianglesAfter": 204762,
+      "residentBefore": {
+        "geometries": 98,
+        "textures": 8
+      },
+      "residentAfter": {
+        "geometries": 62,
+        "textures": 8
+      },
+      "geometryBytes": 17151512,
+      "textureBytesEstimate": 17192304
+    },
+    {
+      "key": "cota/1920/performance/cockpit",
+      "callsBefore": 75,
+      "callsAfter": 42,
+      "trianglesBefore": 186942,
+      "trianglesAfter": 188518,
+      "residentBefore": {
+        "geometries": 98,
+        "textures": 8
+      },
+      "residentAfter": {
+        "geometries": 62,
+        "textures": 8
+      },
+      "geometryBytes": 17151512,
+      "textureBytesEstimate": 17192304
+    },
+    {
+      "key": "cota/1920/ultra/a",
+      "callsBefore": 170,
+      "callsAfter": 134,
+      "trianglesBefore": 362634,
+      "trianglesAfter": 367210,
+      "residentBefore": {
+        "geometries": 159,
+        "textures": 11
+      },
+      "residentAfter": {
+        "geometries": 123,
+        "textures": 11
+      },
+      "geometryBytes": 18072116,
+      "textureBytesEstimate": 36765776
+    },
+    {
+      "key": "cota/1920/ultra/cockpit",
+      "callsBefore": 140,
+      "callsAfter": 104,
+      "trianglesBefore": 298634,
+      "trianglesAfter": 303210,
+      "residentBefore": {
+        "geometries": 159,
+        "textures": 11
+      },
+      "residentAfter": {
+        "geometries": 123,
+        "textures": 11
+      },
+      "geometryBytes": 18072116,
+      "textureBytesEstimate": 36765776
+    },
+    {
+      "key": "cota/2560/performance/a",
+      "callsBefore": 105,
+      "callsAfter": 72,
+      "trianglesBefore": 203186,
+      "trianglesAfter": 204762,
+      "residentBefore": {
+        "geometries": 159,
+        "textures": 10
+      },
+      "residentAfter": {
+        "geometries": 123,
+        "textures": 10
+      },
+      "geometryBytes": 18072116,
+      "textureBytesEstimate": 17192304
+    },
+    {
+      "key": "cota/2560/performance/cockpit",
+      "callsBefore": 75,
+      "callsAfter": 42,
+      "trianglesBefore": 186942,
+      "trianglesAfter": 188518,
+      "residentBefore": {
+        "geometries": 159,
+        "textures": 10
+      },
+      "residentAfter": {
+        "geometries": 123,
+        "textures": 10
+      },
+      "geometryBytes": 18072116,
+      "textureBytesEstimate": 17192304
+    },
+    {
+      "key": "cota/2560/ultra/a",
+      "callsBefore": 170,
+      "callsAfter": 134,
+      "trianglesBefore": 362634,
+      "trianglesAfter": 367210,
+      "residentBefore": {
+        "geometries": 159,
+        "textures": 11
+      },
+      "residentAfter": {
+        "geometries": 123,
+        "textures": 11
+      },
+      "geometryBytes": 18072116,
+      "textureBytesEstimate": 36765776
+    },
+    {
+      "key": "cota/2560/ultra/cockpit",
+      "callsBefore": 140,
+      "callsAfter": 104,
+      "trianglesBefore": 298634,
+      "trianglesAfter": 303210,
+      "residentBefore": {
+        "geometries": 159,
+        "textures": 11
+      },
+      "residentAfter": {
+        "geometries": 123,
+        "textures": 11
+      },
+      "geometryBytes": 18072116,
+      "textureBytesEstimate": 36765776
+    },
+    {
+      "key": "spa/1920/performance/a",
+      "callsBefore": 107,
+      "callsAfter": 83,
+      "trianglesBefore": 291570,
+      "trianglesAfter": 297780,
+      "residentBefore": {
+        "geometries": 127,
+        "textures": 8
+      },
+      "residentAfter": {
+        "geometries": 67,
+        "textures": 8
+      },
+      "geometryBytes": 25461516,
+      "textureBytesEstimate": 16930160
+    },
+    {
+      "key": "spa/1920/performance/cockpit",
+      "callsBefore": 94,
+      "callsAfter": 70,
+      "trianglesBefore": 286846,
+      "trianglesAfter": 293056,
+      "residentBefore": {
+        "geometries": 127,
+        "textures": 8
+      },
+      "residentAfter": {
+        "geometries": 67,
+        "textures": 8
+      },
+      "geometryBytes": 25461516,
+      "textureBytesEstimate": 16930160
+    },
+    {
+      "key": "spa/1920/ultra/a",
+      "callsBefore": 161,
+      "callsAfter": 135,
+      "trianglesBefore": 454412,
+      "trianglesAfter": 464480,
+      "residentBefore": {
+        "geometries": 178,
+        "textures": 11
+      },
+      "residentAfter": {
+        "geometries": 117,
+        "textures": 11
+      },
+      "geometryBytes": 26382120,
+      "textureBytesEstimate": 36503632
+    },
+    {
+      "key": "spa/1920/ultra/cockpit",
+      "callsBefore": 148,
+      "callsAfter": 122,
+      "trianglesBefore": 440328,
+      "trianglesAfter": 450396,
+      "residentBefore": {
+        "geometries": 178,
+        "textures": 11
+      },
+      "residentAfter": {
+        "geometries": 117,
+        "textures": 11
+      },
+      "geometryBytes": 26382120,
+      "textureBytesEstimate": 36503632
+    },
+    {
+      "key": "spa/2560/performance/a",
+      "callsBefore": 107,
+      "callsAfter": 83,
+      "trianglesBefore": 291570,
+      "trianglesAfter": 297780,
+      "residentBefore": {
+        "geometries": 178,
+        "textures": 10
+      },
+      "residentAfter": {
+        "geometries": 117,
+        "textures": 10
+      },
+      "geometryBytes": 26382120,
+      "textureBytesEstimate": 16930160
+    },
+    {
+      "key": "spa/2560/performance/cockpit",
+      "callsBefore": 94,
+      "callsAfter": 70,
+      "trianglesBefore": 286846,
+      "trianglesAfter": 293056,
+      "residentBefore": {
+        "geometries": 178,
+        "textures": 10
+      },
+      "residentAfter": {
+        "geometries": 117,
+        "textures": 10
+      },
+      "geometryBytes": 26382120,
+      "textureBytesEstimate": 16930160
+    },
+    {
+      "key": "spa/2560/ultra/a",
+      "callsBefore": 161,
+      "callsAfter": 135,
+      "trianglesBefore": 454412,
+      "trianglesAfter": 464480,
+      "residentBefore": {
+        "geometries": 178,
+        "textures": 11
+      },
+      "residentAfter": {
+        "geometries": 117,
+        "textures": 11
+      },
+      "geometryBytes": 26382120,
+      "textureBytesEstimate": 36503632
+    },
+    {
+      "key": "spa/2560/ultra/cockpit",
+      "callsBefore": 148,
+      "callsAfter": 122,
+      "trianglesBefore": 440328,
+      "trianglesAfter": 450396,
+      "residentBefore": {
+        "geometries": 178,
+        "textures": 11
+      },
+      "residentAfter": {
+        "geometries": 117,
+        "textures": 11
+      },
+      "geometryBytes": 26382120,
+      "textureBytesEstimate": 36503632
+    }
+  ]
+}

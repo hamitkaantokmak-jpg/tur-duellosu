@@ -1,0 +1,11 @@
+{
+  "recordedAt": "2026-11-12T10:33:27.360977+00:00",
+  "physicalNvidiaVerified": false,
+  "nvidiaSmiAvailable": false,
+  "deviceNodesPresent": false,
+  "defaultChromiumRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "rawCanvasTimerAvailable": false,
+  "applicationSoftwareTimerAvailable": true,
+  "historicalGpu": "NVIDIA GeForce RTX5060 Laptop /621.14 /Windows D3D11; NOT available in this executor",
+  "performanceAcceptance": false
+}

@@ -1,0 +1,786 @@
+{
+  "runs": [
+    {
+      "file": "docs\\performance\\v6\\final-matrix.json",
+      "conditions": {
+        "seconds": 12,
+        "warmup": 20,
+        "versions": [
+          "v6",
+          "v5"
+        ],
+        "diagnostics": true,
+        "uncappedRequested": true,
+        "deviceScaleFactor": 1,
+        "renderRatio": 1,
+        "adaptive": false,
+        "AO": false,
+        "rate": 1,
+        "note": "V5 COTA/Spa use their original normalized XY and flat elevation. V6 uses geographic XY and derived terrain: end-user workload comparison, not identical meshes. Byte fields estimate CPU scene buffer/texture storage, not measured VRAM. No camera shim.",
+        "browser": "157.0.8103.39",
+        "node": "v24.22.1",
+        "baselineCommit": "a237ca529b31bd769df90165c62f73cdef54a672",
+        "candidateRuntimeSha256": {
+          "index.html": "612da85a60048847c12cc79c8c23da9a7b5e2e79172753a0ba5f068b01850a72",
+          "src/track-topography.js": "9dba3e63338d07dd685f1d92bf1d16672947a3ee976cd7924a78b2d3211bd8da",
+          "src/real-topography.js": "f9ff899c331cbbe6c1375b363f0bdfd53e6c82bef667ab93da5519ae2cf55bab",
+          "src/ghost-topography.js": "c249d9bd22df6d63aeda16cbe951e876911778d2e39c876f25b27fa7b0b9f0b0",
+          "src/ghost-world.js": "f69418a17513823864a97e93614f93913d3cf551c7a0a7ffc28defa90d8bb8de",
+          "src/ghost-webgl.js": "06b2317a65319d16ce2f9b48ba850fc6afc050985f165456cf878b96fdb12fe4",
+          "src/camera-collision.js": "21553e5432e8880365a659d4c821ee1a100a9c8ffec59ce48252e41dc25737de",
+          "assets/topography/profiles.js": "7826b9705d492fb97cb72a2ad78890e97ce33cebab78ce28bb2c98de8c1d3969"
+        }
+      },
+      "rows": 48
+    }
+  ],
+  "comparisons": [
+    {
+      "track": "mexico",
+      "resolution": "1920x1080",
+      "quality": "performance",
+      "camera": "a",
+      "baselineFps": 174.75873793724406,
+      "candidateFps": 127.01847844181788,
+      "lossPercent": 27.31780971808674,
+      "baselineP95Ms": 10.700000047683716,
+      "candidateP95Ms": 10.899999976158142,
+      "drawCalls": [
+        178,
+        178
+      ],
+      "triangles": [
+        331874,
+        331874
+      ],
+      "geometryBytes": [
+        22293438,
+        22293438
+      ],
+      "textureBytesEstimate": [
+        62892741,
+        62892741
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "mexico",
+      "resolution": "1920x1080",
+      "quality": "performance",
+      "camera": "cockpit",
+      "baselineFps": 108.0815319751113,
+      "candidateFps": 126.63391890766798,
+      "lossPercent": -17.165177615014613,
+      "baselineP95Ms": 13.600000023841858,
+      "candidateP95Ms": 10.900000095367432,
+      "drawCalls": [
+        165,
+        165
+      ],
+      "triangles": [
+        327482,
+        327482
+      ],
+      "geometryBytes": [
+        22293438,
+        22293438
+      ],
+      "textureBytesEstimate": [
+        62892741,
+        62892741
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "mexico",
+      "resolution": "1920x1080",
+      "quality": "ultra",
+      "camera": "a",
+      "baselineFps": 96.45739798294082,
+      "candidateFps": 102.76311187314501,
+      "lossPercent": -6.537304573900493,
+      "baselineP95Ms": 15,
+      "candidateP95Ms": 13.700000047683716,
+      "drawCalls": [
+        254,
+        254
+      ],
+      "triangles": [
+        1357536,
+        1357536
+      ],
+      "geometryBytes": [
+        23214042,
+        23214042
+      ],
+      "textureBytesEstimate": [
+        82466213,
+        82466213
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "mexico",
+      "resolution": "1920x1080",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "baselineFps": 97.42559734661701,
+      "candidateFps": 106.61709541312383,
+      "lossPercent": -9.434376916166777,
+      "baselineP95Ms": 13.900000095367432,
+      "candidateP95Ms": 12.899999976158142,
+      "drawCalls": [
+        239,
+        239
+      ],
+      "triangles": [
+        1171672,
+        1171672
+      ],
+      "geometryBytes": [
+        23214042,
+        23214042
+      ],
+      "textureBytesEstimate": [
+        82466213,
+        82466213
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "mexico",
+      "resolution": "2560x1440",
+      "quality": "performance",
+      "camera": "a",
+      "baselineFps": 113.60704446881769,
+      "candidateFps": 115.89183428868799,
+      "lossPercent": -2.011133931485576,
+      "baselineP95Ms": 12.600000023841858,
+      "candidateP95Ms": 12,
+      "drawCalls": [
+        178,
+        178
+      ],
+      "triangles": [
+        331874,
+        331874
+      ],
+      "geometryBytes": [
+        22293438,
+        22293438
+      ],
+      "textureBytesEstimate": [
+        62892741,
+        62892741
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "mexico",
+      "resolution": "2560x1440",
+      "quality": "performance",
+      "camera": "cockpit",
+      "baselineFps": 117.69504165915,
+      "candidateFps": 119.18742660150782,
+      "lossPercent": -1.2680100379078407,
+      "baselineP95Ms": 12.199999928474426,
+      "candidateP95Ms": 11.200000047683716,
+      "drawCalls": [
+        165,
+        165
+      ],
+      "triangles": [
+        327482,
+        327482
+      ],
+      "geometryBytes": [
+        22293438,
+        22293438
+      ],
+      "textureBytesEstimate": [
+        62892741,
+        62892741
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "mexico",
+      "resolution": "2560x1440",
+      "quality": "ultra",
+      "camera": "a",
+      "baselineFps": 102.20996776222032,
+      "candidateFps": 95.83173613830223,
+      "lossPercent": 6.240322508227669,
+      "baselineP95Ms": 13.300000071525574,
+      "candidateP95Ms": 15.199999928474426,
+      "drawCalls": [
+        254,
+        254
+      ],
+      "triangles": [
+        1357536,
+        1357536
+      ],
+      "geometryBytes": [
+        23214042,
+        23214042
+      ],
+      "textureBytesEstimate": [
+        82466213,
+        82466213
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "mexico",
+      "resolution": "2560x1440",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "baselineFps": 136.37234565459988,
+      "candidateFps": 99.07920503312361,
+      "lossPercent": 27.346556548885147,
+      "baselineP95Ms": 11.199999928474426,
+      "candidateP95Ms": 15.100000023841858,
+      "drawCalls": [
+        239,
+        239
+      ],
+      "triangles": [
+        1171672,
+        1171672
+      ],
+      "geometryBytes": [
+        23214042,
+        23214042
+      ],
+      "textureBytesEstimate": [
+        82466213,
+        82466213
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "cota",
+      "resolution": "1920x1080",
+      "quality": "performance",
+      "camera": "a",
+      "baselineFps": 173.88768538576903,
+      "candidateFps": 184.54978513571405,
+      "lossPercent": -6.131601399081932,
+      "baselineP95Ms": 9.700000047683716,
+      "candidateP95Ms": 8.399999976158142,
+      "drawCalls": [
+        66,
+        105
+      ],
+      "triangles": [
+        51312,
+        203186
+      ],
+      "geometryBytes": [
+        4986392,
+        17151512
+      ],
+      "textureBytesEstimate": [
+        17192304,
+        17192304
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "cota",
+      "resolution": "1920x1080",
+      "quality": "performance",
+      "camera": "cockpit",
+      "baselineFps": 156.92901979782238,
+      "candidateFps": 181.2394276993307,
+      "lossPercent": -15.491339927330428,
+      "baselineP95Ms": 11.600000023841858,
+      "candidateP95Ms": 8.600000023841858,
+      "drawCalls": [
+        36,
+        75
+      ],
+      "triangles": [
+        35068,
+        186942
+      ],
+      "geometryBytes": [
+        4986392,
+        17151512
+      ],
+      "textureBytesEstimate": [
+        17192304,
+        17192304
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "cota",
+      "resolution": "1920x1080",
+      "quality": "ultra",
+      "camera": "a",
+      "baselineFps": 156.0924387262126,
+      "candidateFps": 150.23442899971457,
+      "lossPercent": 3.752910630586681,
+      "baselineP95Ms": 11.299999952316284,
+      "candidateP95Ms": 10.299999952316284,
+      "drawCalls": [
+        129,
+        170
+      ],
+      "triangles": [
+        212774,
+        362634
+      ],
+      "geometryBytes": [
+        5906996,
+        18072116
+      ],
+      "textureBytesEstimate": [
+        36765776,
+        36765776
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "cota",
+      "resolution": "1920x1080",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "baselineFps": 191.5983179982514,
+      "candidateFps": 437.981750760385,
+      "lossPercent": -128.59373471346564,
+      "baselineP95Ms": 7.700000047683716,
+      "candidateP95Ms": 7.699999928474426,
+      "drawCalls": [
+        98,
+        140
+      ],
+      "triangles": [
+        148714,
+        298634
+      ],
+      "geometryBytes": [
+        5906996,
+        18072116
+      ],
+      "textureBytesEstimate": [
+        36765776,
+        36765776
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "cota",
+      "resolution": "2560x1440",
+      "quality": "performance",
+      "camera": "a",
+      "baselineFps": 155.3903902657288,
+      "candidateFps": 183.57568434648556,
+      "lossPercent": -18.138376531880684,
+      "baselineP95Ms": 11.700000047683716,
+      "candidateP95Ms": 8.299999952316284,
+      "drawCalls": [
+        66,
+        105
+      ],
+      "triangles": [
+        51312,
+        203186
+      ],
+      "geometryBytes": [
+        4986392,
+        17151512
+      ],
+      "textureBytesEstimate": [
+        17192304,
+        17192304
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "cota",
+      "resolution": "2560x1440",
+      "quality": "performance",
+      "camera": "cockpit",
+      "baselineFps": 158.31376271995506,
+      "candidateFps": 162.26927207657417,
+      "lossPercent": -2.4985252631611665,
+      "baselineP95Ms": 11.399999976158142,
+      "candidateP95Ms": 11,
+      "drawCalls": [
+        36,
+        75
+      ],
+      "triangles": [
+        35068,
+        186942
+      ],
+      "geometryBytes": [
+        4986392,
+        17151512
+      ],
+      "textureBytesEstimate": [
+        17192304,
+        17192304
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "cota",
+      "resolution": "2560x1440",
+      "quality": "ultra",
+      "camera": "a",
+      "baselineFps": 184.50922545980663,
+      "candidateFps": 241.52496480065304,
+      "lossPercent": -30.901294609394302,
+      "baselineP95Ms": 7.899999976158142,
+      "candidateP95Ms": 9.5,
+      "drawCalls": [
+        129,
+        170
+      ],
+      "triangles": [
+        212774,
+        362634
+      ],
+      "geometryBytes": [
+        5906996,
+        18072116
+      ],
+      "textureBytesEstimate": [
+        36765776,
+        36765776
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "cota",
+      "resolution": "2560x1440",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "baselineFps": 156.8914833897203,
+      "candidateFps": 261.31925418356144,
+      "lossPercent": -66.56050955579363,
+      "baselineP95Ms": 11.100000023841858,
+      "candidateP95Ms": 8.100000023841858,
+      "drawCalls": [
+        98,
+        140
+      ],
+      "triangles": [
+        148714,
+        298634
+      ],
+      "geometryBytes": [
+        5906996,
+        18072116
+      ],
+      "textureBytesEstimate": [
+        36765776,
+        36765776
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "spa",
+      "resolution": "1920x1080",
+      "quality": "performance",
+      "camera": "a",
+      "baselineFps": 142.52632280477778,
+      "candidateFps": 164.24847162234246,
+      "lossPercent": -15.240797903218283,
+      "baselineP95Ms": 12,
+      "candidateP95Ms": 10.399999976158142,
+      "drawCalls": [
+        76,
+        107
+      ],
+      "triangles": [
+        58622,
+        291570
+      ],
+      "geometryBytes": [
+        5934164,
+        25461516
+      ],
+      "textureBytesEstimate": [
+        16930160,
+        16930160
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "spa",
+      "resolution": "1920x1080",
+      "quality": "performance",
+      "camera": "cockpit",
+      "baselineFps": 154.2125335157191,
+      "candidateFps": 157.9188345473465,
+      "lossPercent": -2.4033721171240696,
+      "baselineP95Ms": 10.899999976158142,
+      "candidateP95Ms": 10.899999976158142,
+      "drawCalls": [
+        63,
+        94
+      ],
+      "triangles": [
+        53898,
+        286846
+      ],
+      "geometryBytes": [
+        5934164,
+        25461516
+      ],
+      "textureBytesEstimate": [
+        16930160,
+        16930160
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "spa",
+      "resolution": "1920x1080",
+      "quality": "ultra",
+      "camera": "a",
+      "baselineFps": 137.9218442887844,
+      "candidateFps": 149.63196372124546,
+      "lossPercent": -8.49040229475333,
+      "baselineP95Ms": 12.899999976158142,
+      "candidateP95Ms": 11.100000023841858,
+      "drawCalls": [
+        124,
+        161
+      ],
+      "triangles": [
+        223344,
+        454412
+      ],
+      "geometryBytes": [
+        6854768,
+        26382120
+      ],
+      "textureBytesEstimate": [
+        36503632,
+        36503632
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "spa",
+      "resolution": "1920x1080",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "baselineFps": 133.19126265369863,
+      "candidateFps": 132.53915361546152,
+      "lossPercent": 0.4896034659064852,
+      "baselineP95Ms": 13.5,
+      "candidateP95Ms": 12.599999904632568,
+      "drawCalls": [
+        111,
+        148
+      ],
+      "triangles": [
+        209260,
+        440328
+      ],
+      "geometryBytes": [
+        6854768,
+        26382120
+      ],
+      "textureBytesEstimate": [
+        36503632,
+        36503632
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "spa",
+      "resolution": "2560x1440",
+      "quality": "performance",
+      "camera": "a",
+      "baselineFps": 144.3926012331278,
+      "candidateFps": 134.5873735902451,
+      "lossPercent": 6.790671792837744,
+      "baselineP95Ms": 12.199999928474426,
+      "candidateP95Ms": 13.5,
+      "drawCalls": [
+        76,
+        107
+      ],
+      "triangles": [
+        58622,
+        291570
+      ],
+      "geometryBytes": [
+        5934164,
+        25461516
+      ],
+      "textureBytesEstimate": [
+        16930160,
+        16930160
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "spa",
+      "resolution": "2560x1440",
+      "quality": "performance",
+      "camera": "cockpit",
+      "baselineFps": 187.98276824587063,
+      "candidateFps": 137.31691078561917,
+      "lossPercent": 26.952394590754956,
+      "baselineP95Ms": 8.399999976158142,
+      "candidateP95Ms": 12.300000071525574,
+      "drawCalls": [
+        63,
+        94
+      ],
+      "triangles": [
+        53898,
+        286846
+      ],
+      "geometryBytes": [
+        5934164,
+        25461516
+      ],
+      "textureBytesEstimate": [
+        16930160,
+        16930160
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "spa",
+      "resolution": "2560x1440",
+      "quality": "ultra",
+      "camera": "a",
+      "baselineFps": 429.1534404784503,
+      "candidateFps": 169.6327401189799,
+      "lossPercent": 60.4727064683761,
+      "baselineP95Ms": 6.600000023841858,
+      "candidateP95Ms": 8.5,
+      "drawCalls": [
+        124,
+        161
+      ],
+      "triangles": [
+        223344,
+        454412
+      ],
+      "geometryBytes": [
+        6854768,
+        26382120
+      ],
+      "textureBytesEstimate": [
+        36503632,
+        36503632
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    },
+    {
+      "track": "spa",
+      "resolution": "2560x1440",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "baselineFps": 654.2219556675415,
+      "candidateFps": 163.45368812202352,
+      "lossPercent": 75.01556058979372,
+      "baselineP95Ms": 2.100000023841858,
+      "candidateP95Ms": 9.399999976158142,
+      "drawCalls": [
+        111,
+        148
+      ],
+      "triangles": [
+        209260,
+        440328
+      ],
+      "geometryBytes": [
+        6854768,
+        26382120
+      ],
+      "textureBytesEstimate": [
+        36503632,
+        36503632
+      ],
+      "sources": [
+        "docs\\performance\\v6\\final-matrix.json",
+        "docs\\performance\\v6\\final-matrix.json"
+      ]
+    }
+  ],
+  "complete": true,
+  "maxLossPercent": 75.01556058979372,
+  "withinTenPercent": false
+}

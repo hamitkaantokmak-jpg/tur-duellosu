@@ -72,14 +72,26 @@ function ghost3dBuild(S){
   if(S.canonicalEdges)roadEdges.forEach((e,i)=>{const u=((i/(S.n-1)-S.registration.phase)*S.registration.dir%1+1)%1;e.height=0;});
   let draped=false;const point=(e,o,y)=>{const x=e.p.x+e.rx*o,z=e.p.z+e.rz*o;return [x,y+(draped?surface.heightAt(x,z):0),z];};
   const box=(parent,x,y,z,w,h,d,mat)=>{const m=mesh(new T.BoxGeometry(w,h,d),mat,parent);m.position.set(x,y,z);return m;};
-  if(S.track&&typeof MexicoV3!=='undefined'){MexicoV3.build(T,G,S);}else{
+  if(S.track&&S.profile.mexico&&typeof MexicoV3!=='undefined'){MexicoV3.build(T,G,S);}else{
   const point=(e,o,y)=>[e.p.x+e.rx*o,y+(e.height||0),e.p.z+e.rz*o];
-  const batches=new Map();function quad(mat,a,b,c,d){if(!batches.has(mat))batches.set(mat,[]);batches.get(mat).push(...a,...b,...c,...a,...c,...d);}
+  const batches=new Map();function quad(mat,a,b,c,d){
+    // Keep the original 128m collision cells. Rendering packs 4x4 cells below;
+    // the raycast proxies still reject distant triangles at the original scale.
+    const key=S.realProfile&&mat===barrierMat?mat.uuid+':'+Math.floor((a[0]+b[0]+c[0]+d[0])/512)+','+Math.floor((a[2]+b[2]+c[2]+d[2])/512):mat;
+    if(!batches.has(key))batches.set(key,{mat,points:[],cell:S.realProfile&&mat===barrierMat?[Math.floor((a[0]+b[0]+c[0]+d[0])/512),Math.floor((a[2]+b[2]+c[2]+d[2])/512)]:null});batches.get(key).points.push(...a,...b,...c,...a,...c,...d);
+  }
   let distance=0;const positions=[],uvs=[];
-  for(let i=0;i<S.n-1;i++){
+  for(let i=0;i<roadEdges.length-1;i++){
     const a=roadEdges[i],b=roadEdges[i+1],len=Math.hypot(a.p.x-b.p.x,a.p.z-b.p.z);
-    const l=point(a,-7,.02),r=point(a,7,.02),nl=point(b,-7,.02),nr=point(b,7,.02);
-    positions.push(...l,...nl,...r,...r,...nl,...nr);uvs.push(0,distance/15,0,(distance+len)/15,14/15,distance/15,14/15,distance/15,0,(distance+len)/15,14/15,(distance+len)/15);distance+=len;
+    // A curved station field is not planar across the entire 14 m width.
+    // Subdivide derived-terrain ribbons laterally too; retain one draw call.
+    const strips=S.realProfile?14:1;
+    for(let j=0;j<strips;j++){
+      const left=-7+14*j/strips,right=-7+14*(j+1)/strips;
+      const l=point(a,left,.02),r=point(a,right,.02),nl=point(b,left,.02),nr=point(b,right,.02),u=(left+7)/15,v=(right+7)/15;
+      positions.push(...l,...nl,...r,...r,...nl,...nr);uvs.push(u,distance/15,u,(distance+len)/15,v,distance/15,v,distance/15,u,(distance+len)/15,v,(distance+len)/15);
+    }
+    distance+=len;
     for(const sign of [-1,1]){
       quad(concrete,point(a,sign*7.2,-.02),point(b,sign*7.2,-.02),point(b,sign*(S.profile.barrier+6),-.02),point(a,sign*(S.profile.barrier+6),-.02));
       quad(white,point(a,sign*6.94,.04),point(b,sign*6.94,.04),point(b,sign*7.1,.04),point(a,sign*7.1,.04));
@@ -90,8 +102,8 @@ function ghost3dBuild(S){
       if(bend>.025){const pieces=Math.max(1,Math.ceil(len/1.5));for(let j=0;j<pieces;j++){const at=t=>({p:{x:a.p.x+(b.p.x-a.p.x)*t,z:a.p.z+(b.p.z-a.p.z)*t},rx:a.rx+(b.rx-a.rx)*t,rz:a.rz+(b.rz-a.rz)*t,height:a.height+(b.height-a.height)*t}),c=at(j/pieces),d=at((j+1)/pieces);quad((i+j)%2?red:white,point(c,sign*7.1,.045),point(d,sign*7.1,.045),point(d,sign*8,.045),point(c,sign*8,.045));}}
     }
   }
-  const roadGeometry=new T.BufferGeometry();roadGeometry.setAttribute('position',new T.Float32BufferAttribute(positions,3));roadGeometry.setAttribute('uv',new T.Float32BufferAttribute(uvs,2));roadGeometry.computeVertexNormals();mesh(roadGeometry,roadMat).castShadow=false;
-  for(const [mat,points] of batches){const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(points,3));geo.computeVertexNormals();const m=mesh(geo,mat);m.castShadow=mat===barrierMat;m.userData.cameraObstacle=mat===barrierMat;}
+  const roadGeometry=new T.BufferGeometry();roadGeometry.setAttribute('position',new T.Float32BufferAttribute(positions,3));roadGeometry.setAttribute('uv',new T.Float32BufferAttribute(uvs,2));roadGeometry.computeVertexNormals();const road=mesh(roadGeometry,roadMat);road.castShadow=false;road.name='TopographyRoad';
+  for(const batch of BarrierBatching.group(batches.values(),barrierMat,!!S.realProfile)){const packed=BarrierBatching.geometry(T,batch),geo=packed.geometry;geo.computeVertexNormals();const m=mesh(geo,batch.mat);m.castShadow=batch.mat===barrierMat;m.userData.cameraObstacle=batch.mat===barrierMat;if(batch.collision){m.name='TopographyBarrierBatch';m.userData.barrierCollisionRanges=packed.ranges;}}
   const terrainHeight=(x,z)=>{if(!heights)return -.3;let best=Infinity,second=Infinity,one=0,two=0;for(const e of S.edges){const d=(x-e.p.x)**2+(z-e.p.z)**2;if(d<best){second=best;two=one;best=d;one=e.height;}else if(d<second){second=d;two=e.height;}}const a=1/(best+4),b=1/(second+4);return (one*a+two*b)/(a+b)-.55;};
   const groundMat=material(S.profile.grass),ground=mesh(new T.PlaneGeometry(18000,18000),groundMat);ground.name="TopographyGround";ground.rotation.x=-Math.PI/2;ground.position.set((S.minX+S.maxX)/2,heights?-2:-.3,(S.minZ+S.maxZ)/2);ground.castShadow=false;
   if(heights){const width=S.maxX-S.minX+700,depth=S.maxZ-S.minZ+700,cx=(S.minX+S.maxX)/2,cz=(S.minZ+S.maxZ)/2,geo=new T.PlaneGeometry(width,depth,Math.min(128,Math.ceil(width/20)),Math.min(128,Math.ceil(depth/20)));geo.rotateX(-Math.PI/2);const points=geo.attributes.position;for(let i=0;i<points.count;i++){const x=points.getX(i)+cx,z=points.getZ(i)+cz;points.setXYZ(i,x,terrainHeight(x,z),z);}geo.computeVertexNormals();mesh(geo,groundMat).castShadow=false;}
@@ -117,6 +129,8 @@ function ghost3dBuild(S){
   G.detailStats=ghostMergeMeshes(G.detailEnvironment,T);
   }
   ghostDrapeWorld(S,world);heightAt=G.heightAt;draped=true;
+  // Bounds must use the final draped vertices, never the original flat ribbon.
+  world.children.forEach(m=>{if(m.userData.barrierCollisionRanges)BarrierBatching.attach(T,m,m.userData.barrierCollisionRanges);});
   G.guideGroup=new T.Group();world.add(G.guideGroup);G.guideMarkers=[];
   for(const m of S.guides){
     const group=new T.Group();group.position.set(m.x,heightAt(m.k)+.09,m.z);G.guideGroup.add(group);group.position.y=surface.heightAt(m.x,m.z)+.09;
@@ -182,7 +196,7 @@ function ghost3dRender(S,poses,camera,target,w,h){
     if(G.quality!==quality){G.quality=quality;G.adaptiveScale=profile.ratio;G.renderer.setPixelRatio(Math.min(devicePixelRatio||1,profile.ratio));G.renderer.setSize(w,h,false);const size=profile.shadow;if(G.sun.shadow.mapSize.x!==size){G.sun.shadow.map?.dispose();G.sun.shadow.map=null;G.sun.shadow.mapSize.set(size,size);}G.pendingRatio=null;G.roadMaterial.normalMap=quality==='performance'?null:(VisualAssets.textures.normal||null);G.roadMaterial.roughnessMap=quality==='performance'?null:(VisualAssets.textures.roughness||null);G.roadMaterial.needsUpdate=true;G.shadowStamp=0;G.fpsStamp=0;if(quality==='ultra')VisualAssets.high();}
     $('ghostAO').disabled=quality!=='ultra';
     for(const tile of G.tiles||[]){const center=tile.geometry.boundingSphere.center,limit=profile.far;tile.visible=ghost.camera==='overview'||Math.hypot(center.x-p.x,center.z-p.z)<limit+180;}
-    G.detailEnvironment.visible=$('ghostEnvironment').checked&&quality!=='performance';if(S.track&&typeof MexicoV3!=='undefined')MexicoV3.update(G);if(S.track&&typeof MexicoV4!=='undefined')MexicoV4.update(G);
+    G.detailEnvironment.visible=$('ghostEnvironment').checked&&quality!=='performance';if(S.track&&S.profile.mexico&&typeof MexicoV3!=='undefined')MexicoV3.update(G);if(S.track&&S.profile.mexico&&typeof MexicoV4!=='undefined')MexicoV4.update(G);
     const transparent=$('ghostTransparent').checked;
     if(G.transparent!==transparent){G.transparent=transparent;G.cars[1].traverse(o=>{if(o.material){o.material.transparent=transparent;o.material.opacity=transparent?.42:1;o.material.depthWrite=!transparent;o.material.forceSinglePass=transparent;o.material.needsUpdate=true;}if(o.isMesh)o.castShadow=!transparent;});}
     if(!st.play.on||now-(G.shadowStamp||0)>(detail?33:66)||Math.abs(st.play.e-(G.shadowTime||0))>.25){G.sun.position.set(p.x-100,65+heightA,p.z-70);G.sun.target.position.set(p.x,heightA,p.z);G.sun.target.updateMatrixWorld();G.sun.shadow.camera.updateProjectionMatrix();G.renderer.shadowMap.needsUpdate=true;G.shadowStamp=now;G.shadowTime=st.play.e;}

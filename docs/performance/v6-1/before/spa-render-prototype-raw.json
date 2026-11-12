@@ -1,0 +1,868 @@
+{
+  "conditions": {
+    "classification": "software diagnostic, NOT physical NVIDIA acceptance",
+    "browser": "156.0.8078.79",
+    "viewport": [
+      2560,
+      1440
+    ],
+    "dpr": 1,
+    "renderRatio": 1,
+    "adaptive": false,
+    "quality": "ultra",
+    "camera": "cockpit",
+    "startTime": 10,
+    "rate": 1,
+    "requestedWindowMs": 4000
+  },
+  "initial": {
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "timer": true,
+    "buffer": [
+      2560,
+      1440
+    ],
+    "barriers": 87,
+    "barrierVertices": 63576,
+    "roadVertices": 445032,
+    "roadTriangles": 148344,
+    "calls": 148,
+    "triangles": 440328,
+    "memory": {
+      "geometries": 184,
+      "textures": 11
+    }
+  },
+  "windows": [
+    {
+      "build": {
+        "size": 128,
+        "renderBarrierMeshes": 87,
+        "calls": 148,
+        "triangles": 440328
+      },
+      "timing": {
+        "frames": 44,
+        "meanFps": 77.90368271954834,
+        "medianFps": 128.20512820531954,
+        "p95Ms": 44.5,
+        "cpuInclusive": {
+          "projectionInclusive": {
+            "calls": 90,
+            "ms": 0.3999999999650754
+          },
+          "surfaceSampleInclusive": {
+            "calls": 90,
+            "ms": 3.2000000000116415
+          },
+          "heightInclusive": {
+            "calls": 810,
+            "ms": 2.39999999984866
+          },
+          "orientationInclusive": {
+            "calls": 180,
+            "ms": 1
+          },
+          "supportInclusive": {
+            "calls": 180,
+            "ms": 10.299999999988358
+          },
+          "collisionInclusive": {
+            "calls": 45,
+            "ms": 6.39999999984866
+          },
+          "sceneMatrixUpdate": {
+            "calls": 45,
+            "ms": 3.400000000023283
+          },
+          "renderSubmissionInclusive": {
+            "calls": 45,
+            "ms": 11599.299999999988
+          }
+        },
+        "softwareGpuQueryMedianMs": 10590.762066,
+        "roadPositionVersionUnchanged": true,
+        "time": 10.558599999999993,
+        "memory": {
+          "geometries": 186,
+          "textures": 11
+        }
+      },
+      "wallMs": 12070,
+      "heapBefore": {
+        "usedSize": 13934380,
+        "totalSize": 17313792,
+        "embedderHeapUsedSize": 5733456,
+        "backingStorageSize": 42566160
+      },
+      "heapAfter": {
+        "usedSize": 14239692,
+        "totalSize": 20459520,
+        "embedderHeapUsedSize": 9736520,
+        "backingStorageSize": 42566339
+      },
+      "topCpuSamples": [
+        {
+          "functionLocation": "bindTexture ",
+          "ms": 11434.573
+        },
+        {
+          "functionLocation": "(program) ",
+          "ms": 619.898
+        },
+        {
+          "functionLocation": "requestAnimationFrame ",
+          "ms": 73.307
+        },
+        {
+          "functionLocation": "getBoundingClientRect ",
+          "ms": 42.346
+        },
+        {
+          "functionLocation": "setValueT1 https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 38.316
+        },
+        {
+          "functionLocation": "(garbage collector) ",
+          "ms": 34.541
+        },
+        {
+          "functionLocation": "drawElements ",
+          "ms": 33.977
+        },
+        {
+          "functionLocation": "(idle) ",
+          "ms": 18.391
+        },
+        {
+          "functionLocation": "update https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 8.925
+        },
+        {
+          "functionLocation": "bindVertexArray ",
+          "ms": 8.773
+        },
+        {
+          "functionLocation": "WebGLRenderer.renderBufferDirect https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 7.721
+        },
+        {
+          "functionLocation": "uniformMatrix4fv ",
+          "ms": 7.694
+        },
+        {
+          "functionLocation": "(anonymous) http://127.0.0.1:4351/src/ghost-webgl.js",
+          "ms": 7.646
+        },
+        {
+          "functionLocation": "setProgram https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 6.958
+        },
+        {
+          "functionLocation": "refreshUniformsCommon https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 6.341
+        },
+        {
+          "functionLocation": "ghostPerformance http://127.0.0.1:4351/src/ghost-webgl.js",
+          "ms": 5.819
+        },
+        {
+          "functionLocation": "needsUpdate https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 5.26
+        },
+        {
+          "functionLocation": "setValue https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 4.414
+        },
+        {
+          "functionLocation": "tick http://127.0.0.1:4351/",
+          "ms": 4.288
+        },
+        {
+          "functionLocation": "multiplyMatrices https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.core.js",
+          "ms": 4.023
+        },
+        {
+          "functionLocation": "setup https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 3.262
+        },
+        {
+          "functionLocation": "unit http://127.0.0.1:4351/src/track-topography.js",
+          "ms": 2.964
+        },
+        {
+          "functionLocation": "allocateTextureUnit https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 2.804
+        },
+        {
+          "functionLocation": "orientation http://127.0.0.1:4351/src/track-topography.js",
+          "ms": 2.19
+        },
+        {
+          "functionLocation": "raycast https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.core.js",
+          "ms": 2.102
+        }
+      ]
+    },
+    {
+      "build": {
+        "size": 256,
+        "renderBarrierMeshes": 32,
+        "calls": 129,
+        "triangles": 444300
+      },
+      "timing": {
+        "frames": 19,
+        "meanFps": 33.753775093272594,
+        "medianFps": 47.61904761904762,
+        "p95Ms": 62.29999999993015,
+        "cpuInclusive": {
+          "projectionInclusive": {
+            "calls": 40,
+            "ms": 0.30000000004656613
+          },
+          "surfaceSampleInclusive": {
+            "calls": 40,
+            "ms": 0
+          },
+          "heightInclusive": {
+            "calls": 360,
+            "ms": 1.5
+          },
+          "orientationInclusive": {
+            "calls": 80,
+            "ms": 0.5999999999767169
+          },
+          "supportInclusive": {
+            "calls": 80,
+            "ms": 3.5000000004656613
+          },
+          "collisionInclusive": {
+            "calls": 20,
+            "ms": 1.8999999997904524
+          },
+          "sceneMatrixUpdate": {
+            "calls": 20,
+            "ms": 13.900000000372529
+          },
+          "renderSubmissionInclusive": {
+            "calls": 20,
+            "ms": 13898.5
+          }
+        },
+        "softwareGpuQueryMedianMs": 13293.975852,
+        "roadPositionVersionUnchanged": true,
+        "time": 10.559699999999939,
+        "memory": {
+          "geometries": 201,
+          "textures": 11
+        }
+      },
+      "wallMs": 14560,
+      "heapBefore": {
+        "usedSize": 13785984,
+        "totalSize": 15216640,
+        "embedderHeapUsedSize": 5756576,
+        "backingStorageSize": 44092062
+      },
+      "heapAfter": {
+        "usedSize": 13658464,
+        "totalSize": 15740928,
+        "embedderHeapUsedSize": 8509120,
+        "backingStorageSize": 44092062
+      },
+      "topCpuSamples": [
+        {
+          "functionLocation": "uniformMatrix4fv ",
+          "ms": 9820.965
+        },
+        {
+          "functionLocation": "activeTexture ",
+          "ms": 3999.837
+        },
+        {
+          "functionLocation": "(program) ",
+          "ms": 349.973
+        },
+        {
+          "functionLocation": "getBoundingClientRect ",
+          "ms": 211.887
+        },
+        {
+          "functionLocation": "(idle) ",
+          "ms": 89.646
+        },
+        {
+          "functionLocation": "getClientRects ",
+          "ms": 51.864
+        },
+        {
+          "functionLocation": "requestAnimationFrame ",
+          "ms": 47.816
+        },
+        {
+          "functionLocation": "fitCanvas http://127.0.0.1:4351/",
+          "ms": 44.279
+        },
+        {
+          "functionLocation": "drawArrays ",
+          "ms": 23.345
+        },
+        {
+          "functionLocation": "(garbage collector) ",
+          "ms": 18.106
+        },
+        {
+          "functionLocation": "(anonymous) http://127.0.0.1:4351/src/ghost-webgl.js",
+          "ms": 17.943
+        },
+        {
+          "functionLocation": "tick http://127.0.0.1:4351/",
+          "ms": 14.554
+        },
+        {
+          "functionLocation": "ghost3dRender http://127.0.0.1:4351/src/ghost-webgl.js",
+          "ms": 11.642
+        },
+        {
+          "functionLocation": "compose https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.core.js",
+          "ms": 11.256
+        },
+        {
+          "functionLocation": "(anonymous) http://127.0.0.1:4351/",
+          "ms": 8.906
+        },
+        {
+          "functionLocation": "ghostDraw http://127.0.0.1:4351/",
+          "ms": 8.823
+        },
+        {
+          "functionLocation": "enable ",
+          "ms": 6.967
+        },
+        {
+          "functionLocation": "bindVertexArray ",
+          "ms": 4.499
+        },
+        {
+          "functionLocation": "(anonymous) ",
+          "ms": 4.244
+        },
+        {
+          "functionLocation": "setProgram https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 3.989
+        },
+        {
+          "functionLocation": "refreshUniformsPhysical https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 3.866
+        },
+        {
+          "functionLocation": "WebGLRenderer.renderBufferDirect https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 3.784
+        },
+        {
+          "functionLocation": "ghostReadouts http://127.0.0.1:4351/",
+          "ms": 3.009
+        },
+        {
+          "functionLocation": "needsUpdate https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 2.69
+        },
+        {
+          "functionLocation": "update https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 2.361
+        }
+      ]
+    },
+    {
+      "build": {
+        "size": 512,
+        "renderBarrierMeshes": 13,
+        "calls": 122,
+        "triangles": 450396
+      },
+      "timing": {
+        "frames": 0,
+        "meanFps": null,
+        "medianFps": null,
+        "cpuInclusive": {
+          "projectionInclusive": {
+            "calls": 2,
+            "ms": 0.09999999997671694
+          },
+          "surfaceSampleInclusive": {
+            "calls": 2,
+            "ms": 0
+          },
+          "heightInclusive": {
+            "calls": 18,
+            "ms": 0.09999999997671694
+          },
+          "orientationInclusive": {
+            "calls": 4,
+            "ms": 0
+          },
+          "supportInclusive": {
+            "calls": 4,
+            "ms": 0.19999999995343387
+          },
+          "collisionInclusive": {
+            "calls": 1,
+            "ms": 0.09999999997671694
+          },
+          "sceneMatrixUpdate": {
+            "calls": 1,
+            "ms": 0.2000000000698492
+          },
+          "renderSubmissionInclusive": {
+            "calls": 1,
+            "ms": 9093.800000000047
+          }
+        },
+        "softwareGpuQueryMedianMs": null,
+        "roadPositionVersionUnchanged": true,
+        "time": 10.000599999999947,
+        "memory": {
+          "geometries": 194,
+          "textures": 11
+        }
+      },
+      "wallMs": 9121,
+      "heapBefore": {
+        "usedSize": 14166308,
+        "totalSize": 15740928,
+        "embedderHeapUsedSize": 8929784,
+        "backingStorageSize": 45617886
+      },
+      "heapAfter": {
+        "usedSize": 13647852,
+        "totalSize": 14954496,
+        "embedderHeapUsedSize": 9260072,
+        "backingStorageSize": 45617886
+      },
+      "topCpuSamples": [
+        {
+          "functionLocation": "uniformMatrix4fv ",
+          "ms": 9090.828
+        },
+        {
+          "functionLocation": "(program) ",
+          "ms": 200.696
+        },
+        {
+          "functionLocation": "(idle) ",
+          "ms": 15.654
+        },
+        {
+          "functionLocation": "getBoundingClientRect ",
+          "ms": 7.121
+        },
+        {
+          "functionLocation": "requestAnimationFrame ",
+          "ms": 2.505
+        },
+        {
+          "functionLocation": "(anonymous) http://127.0.0.1:4351/",
+          "ms": 2.474
+        },
+        {
+          "functionLocation": "update https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 1.1
+        },
+        {
+          "functionLocation": "needsUpdate https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 1.022
+        },
+        {
+          "functionLocation": "(garbage collector) ",
+          "ms": 0.967
+        }
+      ]
+    },
+    {
+      "build": {
+        "size": 512,
+        "renderBarrierMeshes": 13,
+        "calls": 122,
+        "triangles": 450396
+      },
+      "timing": {
+        "frames": 0,
+        "meanFps": null,
+        "medianFps": null,
+        "cpuInclusive": {
+          "projectionInclusive": {
+            "calls": 2,
+            "ms": 0
+          },
+          "surfaceSampleInclusive": {
+            "calls": 2,
+            "ms": 0
+          },
+          "heightInclusive": {
+            "calls": 18,
+            "ms": 0
+          },
+          "orientationInclusive": {
+            "calls": 4,
+            "ms": 0
+          },
+          "supportInclusive": {
+            "calls": 4,
+            "ms": 0
+          },
+          "collisionInclusive": {
+            "calls": 1,
+            "ms": 0.09999999997671694
+          },
+          "sceneMatrixUpdate": {
+            "calls": 1,
+            "ms": 0
+          },
+          "renderSubmissionInclusive": {
+            "calls": 1,
+            "ms": 12829.79999999993
+          }
+        },
+        "softwareGpuQueryMedianMs": null,
+        "roadPositionVersionUnchanged": true,
+        "time": 10.000400000000038,
+        "memory": {
+          "geometries": 194,
+          "textures": 11
+        }
+      },
+      "wallMs": 12904,
+      "heapBefore": {
+        "usedSize": 14145080,
+        "totalSize": 15478784,
+        "embedderHeapUsedSize": 9614416,
+        "backingStorageSize": 47143710
+      },
+      "heapAfter": {
+        "usedSize": 14413524,
+        "totalSize": 15740928,
+        "embedderHeapUsedSize": 9846168,
+        "backingStorageSize": 47143710
+      },
+      "topCpuSamples": [
+        {
+          "functionLocation": "uniformMatrix4fv ",
+          "ms": 12814.849
+        },
+        {
+          "functionLocation": "(program) ",
+          "ms": 199.497
+        },
+        {
+          "functionLocation": "getBoundingClientRect ",
+          "ms": 13.195
+        },
+        {
+          "functionLocation": "(idle) ",
+          "ms": 11.89
+        },
+        {
+          "functionLocation": "setup https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 7.431
+        },
+        {
+          "functionLocation": "(anonymous) http://127.0.0.1:4351/",
+          "ms": 6.532
+        },
+        {
+          "functionLocation": "getContext ",
+          "ms": 5.078
+        },
+        {
+          "functionLocation": "makeRotationFromEuler https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.core.js",
+          "ms": 3.595
+        },
+        {
+          "functionLocation": "ghostReadouts http://127.0.0.1:4351/",
+          "ms": 2.176
+        },
+        {
+          "functionLocation": "renderObjects https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 2.103
+        },
+        {
+          "functionLocation": "(anonymous) ",
+          "ms": 2.055
+        },
+        {
+          "functionLocation": "multiplyMatrices https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.core.js",
+          "ms": 1.36
+        },
+        {
+          "functionLocation": "setPlayIcon http://127.0.0.1:4351/",
+          "ms": 1.091
+        }
+      ]
+    },
+    {
+      "build": {
+        "size": 256,
+        "renderBarrierMeshes": 32,
+        "calls": 129,
+        "triangles": 444300
+      },
+      "timing": {
+        "frames": 1,
+        "meanFps": 21.73913043478261,
+        "medianFps": 21.73913043478261,
+        "p95Ms": 46,
+        "cpuInclusive": {
+          "projectionInclusive": {
+            "calls": 4,
+            "ms": 0
+          },
+          "surfaceSampleInclusive": {
+            "calls": 4,
+            "ms": 0
+          },
+          "heightInclusive": {
+            "calls": 36,
+            "ms": 0.09999999997671694
+          },
+          "orientationInclusive": {
+            "calls": 8,
+            "ms": 0.10000000009313226
+          },
+          "supportInclusive": {
+            "calls": 8,
+            "ms": 0.10000000009313226
+          },
+          "collisionInclusive": {
+            "calls": 2,
+            "ms": 0
+          },
+          "sceneMatrixUpdate": {
+            "calls": 2,
+            "ms": 0
+          },
+          "renderSubmissionInclusive": {
+            "calls": 2,
+            "ms": 27353.09999999986
+          }
+        },
+        "softwareGpuQueryMedianMs": 13233.35319,
+        "roadPositionVersionUnchanged": true,
+        "time": 10.044700000000011,
+        "memory": {
+          "geometries": 201,
+          "textures": 11
+        }
+      },
+      "wallMs": 27423,
+      "heapBefore": {
+        "usedSize": 14072148,
+        "totalSize": 15216640,
+        "embedderHeapUsedSize": 10407280,
+        "backingStorageSize": 47914686
+      },
+      "heapAfter": {
+        "usedSize": 14491896,
+        "totalSize": 15740928,
+        "embedderHeapUsedSize": 11011760,
+        "backingStorageSize": 47914686
+      },
+      "topCpuSamples": [
+        {
+          "functionLocation": "uniformMatrix4fv ",
+          "ms": 27346.712
+        },
+        {
+          "functionLocation": "(program) ",
+          "ms": 87.709
+        },
+        {
+          "functionLocation": "(idle) ",
+          "ms": 47.559
+        },
+        {
+          "functionLocation": "(garbage collector) ",
+          "ms": 22.637
+        },
+        {
+          "functionLocation": "getBoundingClientRect ",
+          "ms": 14.634
+        },
+        {
+          "functionLocation": "getX https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.core.js",
+          "ms": 2.259
+        },
+        {
+          "functionLocation": "drawArrays ",
+          "ms": 1.373
+        },
+        {
+          "functionLocation": "setup https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "ms": 1.177
+        },
+        {
+          "functionLocation": "bindVertexArray ",
+          "ms": 1.113
+        },
+        {
+          "functionLocation": "(anonymous) http://127.0.0.1:4351/",
+          "ms": 1.09
+        },
+        {
+          "functionLocation": "ghostPerformance http://127.0.0.1:4351/src/ghost-webgl.js",
+          "ms": 1.089
+        },
+        {
+          "functionLocation": "getRGB https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.core.js",
+          "ms": 1.061
+        },
+        {
+          "functionLocation": "ghostDraw http://127.0.0.1:4351/",
+          "ms": 0.867
+        }
+      ]
+    },
+    {
+      "build": {
+        "size": 128,
+        "renderBarrierMeshes": 87,
+        "calls": 148,
+        "triangles": 440328
+      },
+      "timing": {
+        "frames": 0,
+        "meanFps": null,
+        "medianFps": null,
+        "cpuInclusive": {
+          "projectionInclusive": {
+            "calls": 2,
+            "ms": 0
+          },
+          "surfaceSampleInclusive": {
+            "calls": 2,
+            "ms": 0
+          },
+          "heightInclusive": {
+            "calls": 18,
+            "ms": 0.09999999997671694
+          },
+          "orientationInclusive": {
+            "calls": 4,
+            "ms": 0
+          },
+          "supportInclusive": {
+            "calls": 4,
+            "ms": 0.09999999997671694
+          },
+          "collisionInclusive": {
+            "calls": 1,
+            "ms": 0
+          },
+          "sceneMatrixUpdate": {
+            "calls": 1,
+            "ms": 0.2000000000698492
+          },
+          "renderSubmissionInclusive": {
+            "calls": 1,
+            "ms": 28976.800000000047
+          }
+        },
+        "softwareGpuQueryMedianMs": null,
+        "roadPositionVersionUnchanged": true,
+        "time": 10.00049999999997,
+        "memory": {
+          "geometries": 186,
+          "textures": 11
+        }
+      },
+      "wallMs": 29184,
+      "heapBefore": {
+        "usedSize": 14165740,
+        "totalSize": 15216640,
+        "embedderHeapUsedSize": 11432992,
+        "backingStorageSize": 47914686
+      },
+      "heapAfter": {
+        "usedSize": 14434580,
+        "totalSize": 15478784,
+        "embedderHeapUsedSize": 11717032,
+        "backingStorageSize": 47914686
+      },
+      "topCpuSamples": [
+        {
+          "functionLocation": "drawArrays ",
+          "ms": 28908.235
+        },
+        {
+          "functionLocation": "(program) ",
+          "ms": 140.039
+        },
+        {
+          "functionLocation": "(idle) ",
+          "ms": 101.574
+        },
+        {
+          "functionLocation": "getBoundingClientRect ",
+          "ms": 75.683
+        },
+        {
+          "functionLocation": "uniformMatrix4fv ",
+          "ms": 68.498
+        },
+        {
+          "functionLocation": "ghostPerformance http://127.0.0.1:4351/src/ghost-webgl.js",
+          "ms": 5.37
+        },
+        {
+          "functionLocation": "(anonymous) ",
+          "ms": 4.773
+        },
+        {
+          "functionLocation": "ghost3dRender http://127.0.0.1:4351/src/ghost-webgl.js",
+          "ms": 4.248
+        },
+        {
+          "functionLocation": "fitCanvas http://127.0.0.1:4351/",
+          "ms": 3.268
+        },
+        {
+          "functionLocation": "(anonymous) http://127.0.0.1:4351/src/ghost-webgl.js",
+          "ms": 3.223
+        },
+        {
+          "functionLocation": "lineTo ",
+          "ms": 3.217
+        },
+        {
+          "functionLocation": "ghostReadouts http://127.0.0.1:4351/",
+          "ms": 2.931
+        },
+        {
+          "functionLocation": "(anonymous) http://127.0.0.1:4351/",
+          "ms": 2.732
+        },
+        {
+          "functionLocation": "getContext ",
+          "ms": 2.138
+        },
+        {
+          "functionLocation": "ghostBrakeDraw http://127.0.0.1:4351/",
+          "ms": 2.132
+        },
+        {
+          "functionLocation": "map http://127.0.0.1:4351/src/ghost-webgl.js",
+          "ms": 1.926
+        },
+        {
+          "functionLocation": "getElementById ",
+          "ms": 1.595
+        },
+        {
+          "functionLocation": "setPlayIcon http://127.0.0.1:4351/",
+          "ms": 1.085
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

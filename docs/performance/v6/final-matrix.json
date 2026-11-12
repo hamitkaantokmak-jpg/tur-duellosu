@@ -1,0 +1,2433 @@
+{
+  "conditions": {
+    "seconds": 12,
+    "warmup": 20,
+    "versions": [
+      "v6",
+      "v5"
+    ],
+    "diagnostics": true,
+    "uncappedRequested": true,
+    "deviceScaleFactor": 1,
+    "renderRatio": 1,
+    "adaptive": false,
+    "AO": false,
+    "rate": 1,
+    "note": "V5 COTA/Spa use their original normalized XY and flat elevation. V6 uses geographic XY and derived terrain: end-user workload comparison, not identical meshes. Byte fields estimate CPU scene buffer/texture storage, not measured VRAM. No camera shim.",
+    "browser": "157.0.8103.39",
+    "node": "v24.22.1",
+    "baselineCommit": "a237ca529b31bd769df90165c62f73cdef54a672",
+    "candidateRuntimeSha256": {
+      "index.html": "612da85a60048847c12cc79c8c23da9a7b5e2e79172753a0ba5f068b01850a72",
+      "src/track-topography.js": "9dba3e63338d07dd685f1d92bf1d16672947a3ee976cd7924a78b2d3211bd8da",
+      "src/real-topography.js": "f9ff899c331cbbe6c1375b363f0bdfd53e6c82bef667ab93da5519ae2cf55bab",
+      "src/ghost-topography.js": "c249d9bd22df6d63aeda16cbe951e876911778d2e39c876f25b27fa7b0b9f0b0",
+      "src/ghost-world.js": "f69418a17513823864a97e93614f93913d3cf551c7a0a7ffc28defa90d8bb8de",
+      "src/ghost-webgl.js": "06b2317a65319d16ce2f9b48ba850fc6afc050985f165456cf878b96fdb12fe4",
+      "src/camera-collision.js": "21553e5432e8880365a659d4c821ee1a100a9c8ffec59ce48252e41dc25737de",
+      "assets/topography/profiles.js": "7826b9705d492fb97cb72a2ad78890e97ce33cebab78ce28bb2c98de8c1d3969"
+    }
+  },
+  "rows": [
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1526,
+        "meanFps": 127.01847844181788,
+        "p95Ms": 10.899999976158142,
+        "p50Ms": 7.700000047683716,
+        "time": 22.008000000000134,
+        "tickCalls": 1526,
+        "uniqueRafStamps": 1526,
+        "renderCalls": 1527,
+        "rafFps": 126.99866755496336,
+        "cpuMedianMs": 2.799999952316284,
+        "gpuMedianMs": 3.827328,
+        "supportCalls": 3054,
+        "supportMsPerFrame": 0.004062909598744243,
+        "collisionCalls": 1527,
+        "collisionMsPerFrame": 1.7312581883657963
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 53.16, P4, 1672 MHz, 9001 MHz, 18.63 W, 10 %",
+      "wallMs": 12027,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1521,
+        "meanFps": 126.63391890766798,
+        "p95Ms": 10.900000095367432,
+        "p50Ms": 7.600000023841858,
+        "time": 22.004300000000146,
+        "tickCalls": 1521,
+        "uniqueRafStamps": 1521,
+        "renderCalls": 1522,
+        "rafFps": 126.62129403630362,
+        "cpuMedianMs": 2.700000047683716,
+        "gpuMedianMs": 3.900192,
+        "supportCalls": 3044,
+        "supportMsPerFrame": 0.002892833646389311,
+        "collisionCalls": 1522,
+        "collisionMsPerFrame": 1.766140697348831
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 53.31, P4, 1755 MHz, 9001 MHz, 20.36 W, 14 %",
+      "wallMs": 12020,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 254,
+        "triangles": 1357536,
+        "residentCounts": {
+          "geometries": 352,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1234,
+        "meanFps": 102.76311187314501,
+        "p95Ms": 13.700000047683716,
+        "p50Ms": 9.399999976158142,
+        "time": 22.008434000000143,
+        "tickCalls": 1235,
+        "uniqueRafStamps": 1235,
+        "renderCalls": 1235,
+        "rafFps": 102.76110940027655,
+        "cpuMedianMs": 3.799999952316284,
+        "gpuMedianMs": 5.320928,
+        "supportCalls": 2470,
+        "supportMsPerFrame": 0.002914979583338687,
+        "collisionCalls": 1235,
+        "collisionMsPerFrame": 2.215384619535222
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.41, P4, 1522 MHz, 9001 MHz, 19.30 W, 10 %",
+      "wallMs": 12023,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 239,
+        "triangles": 1171672,
+        "residentCounts": {
+          "geometries": 353,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1279,
+        "meanFps": 106.61709541312383,
+        "p95Ms": 12.899999976158142,
+        "p50Ms": 9.200000047683716,
+        "time": 21.990300000000055,
+        "tickCalls": 1280,
+        "uniqueRafStamps": 1280,
+        "renderCalls": 1280,
+        "rafFps": 106.66955789262998,
+        "cpuMedianMs": 3.6999999284744263,
+        "gpuMedianMs": 5.444672,
+        "supportCalls": 2560,
+        "supportMsPerFrame": 0.0021875000558793543,
+        "collisionCalls": 1280,
+        "collisionMsPerFrame": 2.1122656243853273
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 54.53, P4, 1747 MHz, 9001 MHz, 23.45 W, 16 %",
+      "wallMs": 12013,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 2097,
+        "meanFps": 174.75873793724406,
+        "p95Ms": 10.700000047683716,
+        "p50Ms": 6.5,
+        "time": 21.991500000000215,
+        "tickCalls": 2097,
+        "uniqueRafStamps": 2097,
+        "renderCalls": 2098,
+        "rafFps": 174.79047658758287,
+        "cpuMedianMs": 2.100000023841858,
+        "gpuMedianMs": 2.327616,
+        "supportCalls": 4196,
+        "supportMsPerFrame": 0.0023843587780771904,
+        "collisionCalls": 2098,
+        "collisionMsPerFrame": 1.3900333806112033
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.66, P4, 1650 MHz, 9001 MHz, 17.10 W, 9 %",
+      "wallMs": 12014,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1297,
+        "meanFps": 108.0815319751113,
+        "p95Ms": 13.600000023841858,
+        "p50Ms": 8.799999952316284,
+        "time": 21.991900000000104,
+        "tickCalls": 1297,
+        "uniqueRafStamps": 1297,
+        "renderCalls": 1298,
+        "rafFps": 108.07294924073754,
+        "cpuMedianMs": 3.100000023841858,
+        "gpuMedianMs": 4.382528,
+        "supportCalls": 2596,
+        "supportMsPerFrame": 0.0034695456555556958,
+        "collisionCalls": 1298,
+        "collisionMsPerFrame": 2.3076329999642824
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.44, P4, 1680 MHz, 9001 MHz, 19.91 W, 11 %",
+      "wallMs": 12015,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 254,
+        "triangles": 1357536,
+        "residentCounts": {
+          "geometries": 353,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1158,
+        "meanFps": 96.45739798294082,
+        "p95Ms": 15,
+        "p50Ms": 10.199999928474426,
+        "time": 22.001768000000055,
+        "tickCalls": 1159,
+        "uniqueRafStamps": 1159,
+        "renderCalls": 1159,
+        "rafFps": 96.485784427761,
+        "cpuMedianMs": 4.100000023841858,
+        "gpuMedianMs": 5.579872,
+        "supportCalls": 2318,
+        "supportMsPerFrame": 0.0029335638075886974,
+        "collisionCalls": 1159,
+        "collisionMsPerFrame": 2.5124245025249676
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.12, P4, 1620 MHz, 9001 MHz, 18.84 W, 10 %",
+      "wallMs": 12019,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 239,
+        "triangles": 1171672,
+        "residentCounts": {
+          "geometries": 353,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1169,
+        "meanFps": 97.42559734661701,
+        "p95Ms": 13.900000095367432,
+        "p50Ms": 9.899999976158142,
+        "time": 21.989799999999995,
+        "tickCalls": 1170,
+        "uniqueRafStamps": 1170,
+        "renderCalls": 1170,
+        "rafFps": 97.499541276752,
+        "cpuMedianMs": 4,
+        "gpuMedianMs": 5.71088,
+        "supportCalls": 2340,
+        "supportMsPerFrame": 0.0024786323563665406,
+        "collisionCalls": 1170,
+        "collisionMsPerFrame": 2.5303418778965616
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.56, P4, 1582 MHz, 9001 MHz, 20.99 W, 11 %",
+      "wallMs": 12010,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1392,
+        "meanFps": 115.89183428868799,
+        "p95Ms": 12,
+        "p50Ms": 8.300000071525574,
+        "time": 22.005500000000158,
+        "tickCalls": 1392,
+        "uniqueRafStamps": 1392,
+        "renderCalls": 1393,
+        "rafFps": 115.86356253383866,
+        "cpuMedianMs": 3,
+        "gpuMedianMs": 3.836448,
+        "supportCalls": 2786,
+        "supportMsPerFrame": 0.004741379156194884,
+        "collisionCalls": 1393,
+        "collisionMsPerFrame": 2.029382182777613
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.50, P4, 1627 MHz, 9001 MHz, 20.74 W, 11 %",
+      "wallMs": 12023,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1431,
+        "meanFps": 119.18742660150782,
+        "p95Ms": 11.200000047683716,
+        "p50Ms": 8.100000023841858,
+        "time": 22.010900000000188,
+        "tickCalls": 1431,
+        "uniqueRafStamps": 1431,
+        "renderCalls": 1432,
+        "rafFps": 119.05852184265957,
+        "cpuMedianMs": 2.899999976158142,
+        "gpuMedianMs": 4.289216,
+        "supportCalls": 2864,
+        "supportMsPerFrame": 0.0034940600978336828,
+        "collisionCalls": 1432,
+        "collisionMsPerFrame": 1.969322153940474
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.84, P4, 1582 MHz, 9001 MHz, 22.58 W, 14 %",
+      "wallMs": 12018,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 254,
+        "triangles": 1357536,
+        "residentCounts": {
+          "geometries": 353,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1150,
+        "meanFps": 95.83173613830223,
+        "p95Ms": 15.199999928474426,
+        "p50Ms": 10,
+        "time": 21.991999999904774,
+        "tickCalls": 1151,
+        "uniqueRafStamps": 1151,
+        "renderCalls": 1151,
+        "rafFps": 95.89832042847713,
+        "cpuMedianMs": 4.100000023841858,
+        "gpuMedianMs": 5.355296,
+        "supportCalls": 2302,
+        "supportMsPerFrame": 0.004604691738257918,
+        "collisionCalls": 1151,
+        "collisionMsPerFrame": 2.394265855321876
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.78, P4, 1620 MHz, 9001 MHz, 23.50 W, 14 %",
+      "wallMs": 12018,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 239,
+        "triangles": 1171672,
+        "residentCounts": {
+          "geometries": 353,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1189,
+        "meanFps": 99.07920503312361,
+        "p95Ms": 15.100000023841858,
+        "p50Ms": 9.700000047683716,
+        "time": 21.99280000000006,
+        "tickCalls": 1190,
+        "uniqueRafStamps": 1190,
+        "renderCalls": 1190,
+        "rafFps": 99.14281902474828,
+        "cpuMedianMs": 3.799999952316284,
+        "gpuMedianMs": 6.0544,
+        "supportCalls": 2380,
+        "supportMsPerFrame": 0.0031932776715575145,
+        "collisionCalls": 1190,
+        "collisionMsPerFrame": 2.304285714506101
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 54.41, P4, 1777 MHz, 9001 MHz, 25.67 W, 20 %",
+      "wallMs": 12011,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 178,
+        "triangles": 331874,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1365,
+        "meanFps": 113.60704446881769,
+        "p95Ms": 12.600000023841858,
+        "p50Ms": 8.399999976158142,
+        "time": 22.011300000000187,
+        "tickCalls": 1365,
+        "uniqueRafStamps": 1365,
+        "renderCalls": 1366,
+        "rafFps": 113.55973125307007,
+        "cpuMedianMs": 3.100000023841858,
+        "gpuMedianMs": 4.00496,
+        "supportCalls": 2732,
+        "supportMsPerFrame": 0.0038095238444569345,
+        "collisionCalls": 1366,
+        "collisionMsPerFrame": 1.965641026619153
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.56, P4, 1545 MHz, 9001 MHz, 20.04 W, 10 %",
+      "wallMs": 12025,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 165,
+        "triangles": 327482,
+        "residentCounts": {
+          "geometries": 306,
+          "textures": 30
+        },
+        "sceneGeometryBytes": 22293438,
+        "sceneTextureBytesEstimate": 62892741,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1414,
+        "meanFps": 117.69504165915,
+        "p95Ms": 12.199999928474426,
+        "p50Ms": 8.100000023841858,
+        "time": 22.004400000000164,
+        "tickCalls": 1414,
+        "uniqueRafStamps": 1414,
+        "renderCalls": 1415,
+        "rafFps": 117.70684082503081,
+        "cpuMedianMs": 2.899999976158142,
+        "gpuMedianMs": 4.4888,
+        "supportCalls": 2830,
+        "supportMsPerFrame": 0.0033946248901615384,
+        "collisionCalls": 1415,
+        "collisionMsPerFrame": 1.9204384725872834
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.56, P4, 1650 MHz, 9001 MHz, 23.16 W, 13 %",
+      "wallMs": 12029,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 254,
+        "triangles": 1357536,
+        "residentCounts": {
+          "geometries": 353,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1227,
+        "meanFps": 102.20996776222032,
+        "p95Ms": 13.300000071525574,
+        "p50Ms": 9.600000023841858,
+        "time": 21.996768000000078,
+        "tickCalls": 1228,
+        "uniqueRafStamps": 1228,
+        "renderCalls": 1228,
+        "rafFps": 102.27754675259206,
+        "cpuMedianMs": 4,
+        "gpuMedianMs": 5.088928,
+        "supportCalls": 2456,
+        "supportMsPerFrame": 0.002687296475183692,
+        "collisionCalls": 1228,
+        "collisionMsPerFrame": 2.209364820478017
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.88, P4, 1537 MHz, 9001 MHz, 22.64 W, 14 %",
+      "wallMs": 12021,
+      "errors": []
+    },
+    {
+      "track": "mexico",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 239,
+        "triangles": 1171672,
+        "residentCounts": {
+          "geometries": 353,
+          "textures": 31
+        },
+        "sceneGeometryBytes": 23214042,
+        "sceneTextureBytesEstimate": 82466213,
+        "category": "unavailable",
+        "totals": [
+          76.651,
+          76.356
+        ]
+      },
+      "timing": {
+        "frames": 1637,
+        "meanFps": 136.37234565459988,
+        "p95Ms": 11.199999928474426,
+        "p50Ms": 7.600000023841858,
+        "time": 22.003900000000094,
+        "tickCalls": 1638,
+        "uniqueRafStamps": 1638,
+        "renderCalls": 1638,
+        "rafFps": 136.3723456543289,
+        "cpuMedianMs": 2.799999952316284,
+        "gpuMedianMs": 4.414336,
+        "supportCalls": 3276,
+        "supportMsPerFrame": 0.0021367519911974484,
+        "collisionCalls": 1638,
+        "collisionMsPerFrame": 1.6860805860514751
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 54.44, P4, 1807 MHz, 9001 MHz, 29.60 W, 22 %",
+      "wallMs": 12011,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 105,
+        "triangles": 203186,
+        "residentCounts": {
+          "geometries": 164,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 17151512,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 2216,
+        "meanFps": 184.54978513571405,
+        "p95Ms": 8.399999976158142,
+        "p50Ms": 5.199999928474426,
+        "time": 22.016800000000323,
+        "tickCalls": 2216,
+        "uniqueRafStamps": 2216,
+        "renderCalls": 2217,
+        "rafFps": 184.3252779442114,
+        "cpuMedianMs": 1.5,
+        "gpuMedianMs": 2.04112,
+        "supportCalls": 8868,
+        "supportMsPerFrame": 0.10943140837259671,
+        "collisionCalls": 2217,
+        "collisionMsPerFrame": 0.07865523458172698
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 55.03, P4, 2077 MHz, 9001 MHz, 24.47 W, 13 %",
+      "wallMs": 12015,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 75,
+        "triangles": 186942,
+        "residentCounts": {
+          "geometries": 164,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 17151512,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 2175,
+        "meanFps": 181.2394276993307,
+        "p95Ms": 8.600000023841858,
+        "p50Ms": 5.399999976158142,
+        "time": 22.005634000000327,
+        "tickCalls": 2175,
+        "uniqueRafStamps": 2175,
+        "renderCalls": 2176,
+        "rafFps": 181.0816488325399,
+        "cpuMedianMs": 1.399999976158142,
+        "gpuMedianMs": 2.029504,
+        "supportCalls": 8704,
+        "supportMsPerFrame": 0.11117241344232669,
+        "collisionCalls": 2176,
+        "collisionMsPerFrame": 0.08763218572770042
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 55.97, P4, 2137 MHz, 9001 MHz, 26.32 W, 15 %",
+      "wallMs": 12010,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 170,
+        "triangles": 362634,
+        "residentCounts": {
+          "geometries": 205,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1804,
+        "meanFps": 150.23442899971457,
+        "p95Ms": 10.299999952316284,
+        "p50Ms": 6.200000047683716,
+        "time": 22.011334000000197,
+        "tickCalls": 1805,
+        "uniqueRafStamps": 1805,
+        "renderCalls": 1805,
+        "rafFps": 150.19147748285076,
+        "cpuMedianMs": 2.100000023841858,
+        "gpuMedianMs": 3.111296,
+        "supportCalls": 7220,
+        "supportMsPerFrame": 0.11783933447998977,
+        "collisionCalls": 1805,
+        "collisionMsPerFrame": 0.09617728579407583
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 56.41, P4, 1995 MHz, 9001 MHz, 25.69 W, 19 %",
+      "wallMs": 12022,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 140,
+        "triangles": 298634,
+        "residentCounts": {
+          "geometries": 205,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 5256,
+        "meanFps": 437.981750760385,
+        "p95Ms": 7.699999928474426,
+        "p50Ms": 1.2999999523162842,
+        "time": 21.99690000000012,
+        "tickCalls": 5257,
+        "uniqueRafStamps": 5257,
+        "renderCalls": 5257,
+        "rafFps": 438.11317923796946,
+        "cpuMedianMs": 0.5,
+        "gpuMedianMs": 1.127296,
+        "supportCalls": 21028,
+        "supportMsPerFrame": 0.04791706280039816,
+        "collisionCalls": 5257,
+        "collisionMsPerFrame": 0.03737873338986332
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 61.50, P2, 2610 MHz, 11001 MHz, 52.82 W, 44 %",
+      "wallMs": 12006,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 66,
+        "triangles": 51312,
+        "residentCounts": {
+          "geometries": 96,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 4986392,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 2087,
+        "meanFps": 173.88768538576903,
+        "p95Ms": 9.700000047683716,
+        "p50Ms": 5.399999976158142,
+        "time": 22.005534000000367,
+        "tickCalls": 2088,
+        "uniqueRafStamps": 2088,
+        "renderCalls": 2088,
+        "rafFps": 173.83649906784655,
+        "cpuMedianMs": 1.4000000953674316,
+        "gpuMedianMs": 1.455424,
+        "supportCalls": 4176,
+        "supportMsPerFrame": 0.0025383140392230387,
+        "collisionCalls": 2088,
+        "collisionMsPerFrame": 0.31283524946463065
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.91, P4, 1620 MHz, 9001 MHz, 18.73 W, 7 %",
+      "wallMs": 12005,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 36,
+        "triangles": 35068,
+        "residentCounts": {
+          "geometries": 96,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 4986392,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1885,
+        "meanFps": 156.92901979782238,
+        "p95Ms": 11.600000023841858,
+        "p50Ms": 5.799999952316284,
+        "time": 22.01880000000024,
+        "tickCalls": 1886,
+        "uniqueRafStamps": 1886,
+        "renderCalls": 1886,
+        "rafFps": 156.83762106033885,
+        "cpuMedianMs": 1.399999976158142,
+        "gpuMedianMs": 1.34592,
+        "supportCalls": 3772,
+        "supportMsPerFrame": 0.0019088017093541133,
+        "collisionCalls": 1886,
+        "collisionMsPerFrame": 0.32417815651898674
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 54.59, P2, 2400 MHz, 11001 MHz, 22.19 W, 10 %",
+      "wallMs": 12022,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 129,
+        "triangles": 212774,
+        "residentCounts": {
+          "geometries": 144,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 5906996,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1873,
+        "meanFps": 156.0924387262126,
+        "p95Ms": 11.299999952316284,
+        "p50Ms": 5.900000095367432,
+        "time": 22.00483400000016,
+        "tickCalls": 1874,
+        "uniqueRafStamps": 1874,
+        "renderCalls": 1874,
+        "rafFps": 156.02048308206508,
+        "cpuMedianMs": 1.8000000715255737,
+        "gpuMedianMs": 2.414784,
+        "supportCalls": 3748,
+        "supportMsPerFrame": 0.0019210244319227741,
+        "collisionCalls": 1874,
+        "collisionMsPerFrame": 0.3324439690996005
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 54.56, P4, 1882 MHz, 9001 MHz, 23.61 W, 12 %",
+      "wallMs": 12009,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 98,
+        "triangles": 148714,
+        "residentCounts": {
+          "geometries": 144,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 5906996,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 2301,
+        "meanFps": 191.5983179982514,
+        "p95Ms": 7.700000047683716,
+        "p50Ms": 5,
+        "time": 22.012000000000118,
+        "tickCalls": 2302,
+        "uniqueRafStamps": 2302,
+        "renderCalls": 2302,
+        "rafFps": 191.55844155844156,
+        "cpuMedianMs": 1.7999999523162842,
+        "gpuMedianMs": 1.749632,
+        "supportCalls": 4604,
+        "supportMsPerFrame": 0.0033014770386842517,
+        "collisionCalls": 2302,
+        "collisionMsPerFrame": 0.3975238923815206
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 54.03, P4, 1590 MHz, 9001 MHz, 21.73 W, 13 %",
+      "wallMs": 12021,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 105,
+        "triangles": 203186,
+        "residentCounts": {
+          "geometries": 164,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 17151512,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 2203,
+        "meanFps": 183.57568434648556,
+        "p95Ms": 8.299999952316284,
+        "p50Ms": 5.200000047683716,
+        "time": 22.00556800000033,
+        "tickCalls": 2203,
+        "uniqueRafStamps": 2203,
+        "renderCalls": 2204,
+        "rafFps": 183.4148954884933,
+        "cpuMedianMs": 2,
+        "gpuMedianMs": 1.288064,
+        "supportCalls": 8816,
+        "supportMsPerFrame": 0.15111211928464152,
+        "collisionCalls": 2204,
+        "collisionMsPerFrame": 0.1007262823314381
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 55.44, P4, 1987 MHz, 9001 MHz, 25.71 W, 18 %",
+      "wallMs": 12018,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 75,
+        "triangles": 186942,
+        "residentCounts": {
+          "geometries": 164,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 17151512,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1949,
+        "meanFps": 162.26927207657417,
+        "p95Ms": 11,
+        "p50Ms": 5.5,
+        "time": 22.00893400000022,
+        "tickCalls": 1949,
+        "uniqueRafStamps": 1949,
+        "renderCalls": 1950,
+        "rafFps": 162.21256607788834,
+        "cpuMedianMs": 1.5,
+        "gpuMedianMs": 2.408864,
+        "supportCalls": 7800,
+        "supportMsPerFrame": 0.11595690219814561,
+        "collisionCalls": 1950,
+        "collisionMsPerFrame": 0.08973832813026111
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 54.69, P4, 1732 MHz, 9001 MHz, 26.00 W, 16 %",
+      "wallMs": 12020,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 170,
+        "triangles": 362634,
+        "residentCounts": {
+          "geometries": 205,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 2899,
+        "meanFps": 241.52496480065304,
+        "p95Ms": 9.5,
+        "p50Ms": 3.100000023841858,
+        "time": 22.009534000000208,
+        "tickCalls": 2900,
+        "uniqueRafStamps": 2900,
+        "renderCalls": 2900,
+        "rafFps": 241.39154774864704,
+        "cpuMedianMs": 0.8999999761581421,
+        "gpuMedianMs": 1.00656,
+        "supportCalls": 11600,
+        "supportMsPerFrame": 0.07634482708470575,
+        "collisionCalls": 2900,
+        "collisionMsPerFrame": 0.06127586229094144
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 56.31, P4, 1642 MHz, 9001 MHz, 26.52 W, 18 %",
+      "wallMs": 12012,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 140,
+        "triangles": 298634,
+        "residentCounts": {
+          "geometries": 205,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 18072116,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "derived",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 3138,
+        "meanFps": 261.31925418356144,
+        "p95Ms": 8.100000023841858,
+        "p50Ms": 3.5,
+        "time": 22.004234000000054,
+        "tickCalls": 3139,
+        "uniqueRafStamps": 3139,
+        "renderCalls": 3139,
+        "rafFps": 261.40776662634175,
+        "cpuMedianMs": 1,
+        "gpuMedianMs": 2.098912,
+        "supportCalls": 12556,
+        "supportMsPerFrame": 0.08595094038218061,
+        "collisionCalls": 3139,
+        "collisionMsPerFrame": 0.06731443190202473
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 60.34, P2, 2242 MHz, 11001 MHz, 36.13 W, 29 %",
+      "wallMs": 12020,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 66,
+        "triangles": 51312,
+        "residentCounts": {
+          "geometries": 96,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 4986392,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1867,
+        "meanFps": 155.3903902657288,
+        "p95Ms": 11.700000047683716,
+        "p50Ms": 5.799999952316284,
+        "time": 22.018934000000215,
+        "tickCalls": 1868,
+        "uniqueRafStamps": 1868,
+        "renderCalls": 1868,
+        "rafFps": 155.33823548744004,
+        "cpuMedianMs": 1.600000023841858,
+        "gpuMedianMs": 1.564832,
+        "supportCalls": 3736,
+        "supportMsPerFrame": 0.002890792087007641,
+        "collisionCalls": 1868,
+        "collisionMsPerFrame": 0.34004282715233797
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 54.34, P4, 2040 MHz, 9001 MHz, 24.05 W, 16 %",
+      "wallMs": 12023,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 36,
+        "triangles": 35068,
+        "residentCounts": {
+          "geometries": 96,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 4986392,
+        "sceneTextureBytesEstimate": 17192304,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1901,
+        "meanFps": 158.31376271995506,
+        "p95Ms": 11.399999976158142,
+        "p50Ms": 5.5,
+        "time": 22.012934000000207,
+        "tickCalls": 1902,
+        "uniqueRafStamps": 1902,
+        "renderCalls": 1902,
+        "rafFps": 158.24610374118419,
+        "cpuMedianMs": 1.399999976158142,
+        "gpuMedianMs": 2.192032,
+        "supportCalls": 3804,
+        "supportMsPerFrame": 0.0019978970508595494,
+        "collisionCalls": 1902,
+        "collisionMsPerFrame": 0.345162986267503
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 54.81, P4, 1777 MHz, 9001 MHz, 27.27 W, 17 %",
+      "wallMs": 12014,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 129,
+        "triangles": 212774,
+        "residentCounts": {
+          "geometries": 144,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 5906996,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 2214,
+        "meanFps": 184.50922545980663,
+        "p95Ms": 7.899999976158142,
+        "p50Ms": 5.299999952316284,
+        "time": 22.006134000000248,
+        "tickCalls": 2215,
+        "uniqueRafStamps": 2215,
+        "renderCalls": 2215,
+        "rafFps": 184.40573793362617,
+        "cpuMedianMs": 2.0999999046325684,
+        "gpuMedianMs": 1.622976,
+        "supportCalls": 4430,
+        "supportMsPerFrame": 0.0028893905622426326,
+        "collisionCalls": 2215,
+        "collisionMsPerFrame": 0.4099322798558874
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 55.12, P4, 1815 MHz, 9001 MHz, 27.13 W, 16 %",
+      "wallMs": 12009,
+      "errors": []
+    },
+    {
+      "track": "cota",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 98,
+        "triangles": 148714,
+        "residentCounts": {
+          "geometries": 144,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 5906996,
+        "sceneTextureBytesEstimate": 36765776,
+        "category": "unavailable",
+        "totals": [
+          94.154,
+          92.974
+        ]
+      },
+      "timing": {
+        "frames": 1884,
+        "meanFps": 156.8914833897203,
+        "p95Ms": 11.100000023841858,
+        "p50Ms": 5.700000047683716,
+        "time": 22.011034000000095,
+        "tickCalls": 1885,
+        "uniqueRafStamps": 1885,
+        "renderCalls": 1885,
+        "rafFps": 156.85577111845657,
+        "cpuMedianMs": 1.899999976158142,
+        "gpuMedianMs": 2.760768,
+        "supportCalls": 3770,
+        "supportMsPerFrame": 0.002705570177943384,
+        "collisionCalls": 1885,
+        "collisionMsPerFrame": 0.3788859432508838
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 57.03, P2, 1830 MHz, 11001 MHz, 32.26 W, 23 %",
+      "wallMs": 12022,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 107,
+        "triangles": 291570,
+        "residentCounts": {
+          "geometries": 175,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 25461516,
+        "sceneTextureBytesEstimate": 16930160,
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 1972,
+        "meanFps": 164.24847162234246,
+        "p95Ms": 10.399999976158142,
+        "p50Ms": 5.599999904632568,
+        "time": 22.006934000000243,
+        "tickCalls": 1973,
+        "uniqueRafStamps": 1973,
+        "renderCalls": 1973,
+        "rafFps": 164.2384308933489,
+        "cpuMedianMs": 2,
+        "gpuMedianMs": 2.039872,
+        "supportCalls": 7892,
+        "supportMsPerFrame": 0.13710086139035116,
+        "collisionCalls": 1973,
+        "collisionMsPerFrame": 0.13558033415344362
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.88, P4, 1665 MHz, 9001 MHz, 21.20 W, 8 %",
+      "wallMs": 12016,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 94,
+        "triangles": 286846,
+        "residentCounts": {
+          "geometries": 175,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 25461516,
+        "sceneTextureBytesEstimate": 16930160,
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 1897,
+        "meanFps": 157.9188345473465,
+        "p95Ms": 10.899999976158142,
+        "p50Ms": 5.600000023841858,
+        "time": 22.00943400000019,
+        "tickCalls": 1898,
+        "uniqueRafStamps": 1898,
+        "renderCalls": 1898,
+        "rafFps": 157.9591511140326,
+        "cpuMedianMs": 1.899999976158142,
+        "gpuMedianMs": 2.077024,
+        "supportCalls": 7592,
+        "supportMsPerFrame": 0.13356164383561644,
+        "collisionCalls": 1898,
+        "collisionMsPerFrame": 0.12460484613985356
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 53.56, P4, 2047 MHz, 9001 MHz, 20.53 W, 11 %",
+      "wallMs": 12023,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 161,
+        "triangles": 454412,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 36503632,
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 1795,
+        "meanFps": 149.63196372124546,
+        "p95Ms": 11.100000023841858,
+        "p50Ms": 6.100000023841858,
+        "time": 21.994200000000223,
+        "tickCalls": 1795,
+        "uniqueRafStamps": 1795,
+        "renderCalls": 1796,
+        "rafFps": 149.57229327508298,
+        "cpuMedianMs": 2.5,
+        "gpuMedianMs": 3.07312,
+        "supportCalls": 7184,
+        "supportMsPerFrame": 0.12947075134532365,
+        "collisionCalls": 1796,
+        "collisionMsPerFrame": 0.13169916459776898
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 53.66, P4, 1845 MHz, 9001 MHz, 20.32 W, 11 %",
+      "wallMs": 12010,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 148,
+        "triangles": 440328,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 36503632,
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 1591,
+        "meanFps": 132.53915361546152,
+        "p95Ms": 12.599999904632568,
+        "p50Ms": 6.799999952316284,
+        "time": 22.010900000000042,
+        "tickCalls": 1591,
+        "uniqueRafStamps": 1591,
+        "renderCalls": 1592,
+        "rafFps": 132.37975505582435,
+        "cpuMedianMs": 2.3000000715255737,
+        "gpuMedianMs": 3.73776,
+        "supportCalls": 6368,
+        "supportMsPerFrame": 0.1191074812959231,
+        "collisionCalls": 1592,
+        "collisionMsPerFrame": 0.11917032999186153
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.84, P4, 1650 MHz, 9001 MHz, 22.05 W, 11 %",
+      "wallMs": 12012,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 76,
+        "triangles": 58622,
+        "residentCounts": {
+          "geometries": 91,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 5934164,
+        "sceneTextureBytesEstimate": 16930160,
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 1711,
+        "meanFps": 142.52632280477778,
+        "p95Ms": 12,
+        "p50Ms": 6.199999928474426,
+        "time": 22.010234000000327,
+        "tickCalls": 1712,
+        "uniqueRafStamps": 1712,
+        "renderCalls": 1712,
+        "rafFps": 142.46183712990106,
+        "cpuMedianMs": 1.7000000476837158,
+        "gpuMedianMs": 1.94048,
+        "supportCalls": 3424,
+        "supportMsPerFrame": 0.0025116820758748276,
+        "collisionCalls": 1712,
+        "collisionMsPerFrame": 0.4633177584298303
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.38, P4, 1950 MHz, 9001 MHz, 20.75 W, 9 %",
+      "wallMs": 12015,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 63,
+        "triangles": 53898,
+        "residentCounts": {
+          "geometries": 91,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 5934164,
+        "sceneTextureBytesEstimate": 16930160,
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 1852,
+        "meanFps": 154.2125335157191,
+        "p95Ms": 10.899999976158142,
+        "p50Ms": 5.800000071525574,
+        "time": 22.011834000000206,
+        "tickCalls": 1853,
+        "uniqueRafStamps": 1853,
+        "renderCalls": 1853,
+        "rafFps": 154.1812848895514,
+        "cpuMedianMs": 1.5999999046325684,
+        "gpuMedianMs": 1.90752,
+        "supportCalls": 3706,
+        "supportMsPerFrame": 0.0018348624367876048,
+        "collisionCalls": 1853,
+        "collisionMsPerFrame": 0.4344846198060869
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 51.25, P4, 1500 MHz, 9001 MHz, 16.61 W, 7 %",
+      "wallMs": 12017,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 124,
+        "triangles": 223344,
+        "residentCounts": {
+          "geometries": 157,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 6854768,
+        "sceneTextureBytesEstimate": 36503632,
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 1656,
+        "meanFps": 137.9218442887844,
+        "p95Ms": 12.899999976158142,
+        "p50Ms": 6.399999976158142,
+        "time": 22.010234000000107,
+        "tickCalls": 1657,
+        "uniqueRafStamps": 1657,
+        "renderCalls": 1657,
+        "rafFps": 137.88240928528123,
+        "cpuMedianMs": 2,
+        "gpuMedianMs": 2.757504,
+        "supportCalls": 3314,
+        "supportMsPerFrame": 0.0019915510389412034,
+        "collisionCalls": 1657,
+        "collisionMsPerFrame": 0.463789980959734
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 51.81, P4, 1500 MHz, 9001 MHz, 20.38 W, 5 %",
+      "wallMs": 12015,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          1920,
+          1080
+        ],
+        "drawCalls": 111,
+        "triangles": 209260,
+        "residentCounts": {
+          "geometries": 157,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 6854768,
+        "sceneTextureBytesEstimate": 36503632,
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 1600,
+        "meanFps": 133.19126265369863,
+        "p95Ms": 13.5,
+        "p50Ms": 6.700000047683716,
+        "time": 22.017834000000107,
+        "tickCalls": 1601,
+        "uniqueRafStamps": 1601,
+        "renderCalls": 1601,
+        "rafFps": 133.1354718329441,
+        "cpuMedianMs": 2.0999999046325684,
+        "gpuMedianMs": 2.916896,
+        "supportCalls": 3202,
+        "supportMsPerFrame": 0.0024984385504117986,
+        "collisionCalls": 1601,
+        "collisionMsPerFrame": 0.46402248563355464
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.09, P4, 1582 MHz, 9001 MHz, 18.34 W, 9 %",
+      "wallMs": 12024,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 107,
+        "triangles": 291570,
+        "residentCounts": {
+          "geometries": 175,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 25461516,
+        "sceneTextureBytesEstimate": 16930160,
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 1617,
+        "meanFps": 134.5873735902451,
+        "p95Ms": 13.5,
+        "p50Ms": 6.700000047683716,
+        "time": 22.02213400000019,
+        "tickCalls": 1618,
+        "uniqueRafStamps": 1618,
+        "renderCalls": 1618,
+        "rafFps": 134.50191122474592,
+        "cpuMedianMs": 2,
+        "gpuMedianMs": 2.576352,
+        "supportCalls": 6472,
+        "supportMsPerFrame": 0.12453646440293792,
+        "collisionCalls": 1618,
+        "collisionMsPerFrame": 0.11854140860188582
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.53, P4, 1815 MHz, 9001 MHz, 24.57 W, 10 %",
+      "wallMs": 12023,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v6",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 94,
+        "triangles": 286846,
+        "residentCounts": {
+          "geometries": 175,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 25461516,
+        "sceneTextureBytesEstimate": 16930160,
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 1650,
+        "meanFps": 137.31691078561917,
+        "p95Ms": 12.300000071525574,
+        "p50Ms": 6.399999976158142,
+        "time": 22.016434000000245,
+        "tickCalls": 1651,
+        "uniqueRafStamps": 1651,
+        "renderCalls": 1651,
+        "rafFps": 137.3119512827182,
+        "cpuMedianMs": 1.9000000953674316,
+        "gpuMedianMs": 2.673728,
+        "supportCalls": 6604,
+        "supportMsPerFrame": 0.12247123001995121,
+        "collisionCalls": 1651,
+        "collisionMsPerFrame": 0.11859479158448855
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.56, P4, 1635 MHz, 9001 MHz, 22.95 W, 12 %",
+      "wallMs": 12027,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 161,
+        "triangles": 454412,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 36503632,
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 2036,
+        "meanFps": 169.6327401189799,
+        "p95Ms": 8.5,
+        "p50Ms": 5.700000047683716,
+        "time": 22.005200000000197,
+        "tickCalls": 2036,
+        "uniqueRafStamps": 2036,
+        "renderCalls": 2037,
+        "rafFps": 169.50987905241067,
+        "cpuMedianMs": 2.399999976158142,
+        "gpuMedianMs": 2.563264,
+        "supportCalls": 8148,
+        "supportMsPerFrame": 0.13983300632718504,
+        "collisionCalls": 2037,
+        "collisionMsPerFrame": 0.1405697459087859
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 53.88, P4, 1740 MHz, 9001 MHz, 27.85 W, 14 %",
+      "wallMs": 12015,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v6",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 148,
+        "triangles": 440328,
+        "residentCounts": {
+          "geometries": 246,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 36503632,
+        "category": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 1962,
+        "meanFps": 163.45368812202352,
+        "p95Ms": 9.399999976158142,
+        "p50Ms": 5.799999952316284,
+        "time": 22.00660000000005,
+        "tickCalls": 1962,
+        "uniqueRafStamps": 1962,
+        "renderCalls": 1963,
+        "rafFps": 163.32683690636827,
+        "cpuMedianMs": 2.3000000715255737,
+        "gpuMedianMs": 2.637088,
+        "supportCalls": 7852,
+        "supportMsPerFrame": 0.1345565738298842,
+        "collisionCalls": 1963,
+        "collisionMsPerFrame": 0.13409785873177826
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 53.66, P4, 1785 MHz, 9001 MHz, 27.43 W, 16 %",
+      "wallMs": 12015,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 76,
+        "triangles": 58622,
+        "residentCounts": {
+          "geometries": 91,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 5934164,
+        "sceneTextureBytesEstimate": 16930160,
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 1733,
+        "meanFps": 144.3926012331278,
+        "p95Ms": 12.199999928474426,
+        "p50Ms": 6.199999928474426,
+        "time": 22.008034000000258,
+        "tickCalls": 1734,
+        "uniqueRafStamps": 1734,
+        "renderCalls": 1734,
+        "rafFps": 144.32004439694288,
+        "cpuMedianMs": 1.7000000476837158,
+        "gpuMedianMs": 1.884864,
+        "supportCalls": 3468,
+        "supportMsPerFrame": 0.0019031140218556547,
+        "collisionCalls": 1734,
+        "collisionMsPerFrame": 0.411303344894858
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.97, P4, 1905 MHz, 9001 MHz, 22.41 W, 11 %",
+      "wallMs": 12011,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v5",
+      "quality": "performance",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 63,
+        "triangles": 53898,
+        "residentCounts": {
+          "geometries": 91,
+          "textures": 10
+        },
+        "sceneGeometryBytes": 5934164,
+        "sceneTextureBytesEstimate": 16930160,
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 2256,
+        "meanFps": 187.98276824587063,
+        "p95Ms": 8.399999976158142,
+        "p50Ms": 4.899999976158142,
+        "time": 21.996734000000316,
+        "tickCalls": 2257,
+        "uniqueRafStamps": 2257,
+        "renderCalls": 2257,
+        "rafFps": 188.05118126316705,
+        "cpuMedianMs": 1.600000023841858,
+        "gpuMedianMs": 0.813408,
+        "supportCalls": 4514,
+        "supportMsPerFrame": 0.003057155716878733,
+        "collisionCalls": 2257,
+        "collisionMsPerFrame": 0.4870181662031756
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 51.91, P4, 1635 MHz, 9001 MHz, 18.18 W, 8 %",
+      "wallMs": 12014,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "a",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 124,
+        "triangles": 223344,
+        "residentCounts": {
+          "geometries": 157,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 6854768,
+        "sceneTextureBytesEstimate": 36503632,
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 5151,
+        "meanFps": 429.1534404784503,
+        "p95Ms": 6.600000023841858,
+        "p50Ms": 1.600000023841858,
+        "time": 22.00353400000025,
+        "tickCalls": 5152,
+        "uniqueRafStamps": 5152,
+        "renderCalls": 5152,
+        "rafFps": 429.12362309299914,
+        "cpuMedianMs": 0.5,
+        "gpuMedianMs": 0.574048,
+        "supportCalls": 10304,
+        "supportMsPerFrame": 0.001009316733164817,
+        "collisionCalls": 5152,
+        "collisionMsPerFrame": 0.17105978292337856
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 52.88, P4, 1755 MHz, 9001 MHz, 21.78 W, 14 %",
+      "wallMs": 12007,
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "version": "v5",
+      "quality": "ultra",
+      "camera": "cockpit",
+      "viewport": {
+        "width": 2560,
+        "height": 1440
+      },
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "drawCalls": 111,
+        "triangles": 209260,
+        "residentCounts": {
+          "geometries": 158,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 6854768,
+        "sceneTextureBytesEstimate": 36503632,
+        "category": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ]
+      },
+      "timing": {
+        "frames": 7854,
+        "meanFps": 654.2219556675415,
+        "p95Ms": 2.100000023841858,
+        "p50Ms": 1.5,
+        "time": 22.007800000000056,
+        "tickCalls": 7855,
+        "uniqueRafStamps": 7855,
+        "renderCalls": 7855,
+        "rafFps": 654.0748513466237,
+        "cpuMedianMs": 0.3999999761581421,
+        "gpuMedianMs": 0.612832,
+        "supportCalls": 15710,
+        "supportMsPerFrame": 0.0006365372070759288,
+        "collisionCalls": 7855,
+        "collisionMsPerFrame": 0.12910248255896614
+      },
+      "warmGpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 64.41, P2, 2625 MHz, 11001 MHz, 54.61 W, 48 %",
+      "wallMs": 12010,
+      "errors": []
+    }
+  ]
+}
