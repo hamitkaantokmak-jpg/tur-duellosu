@@ -48,7 +48,7 @@ function ghostDisposeWorld(){
   G.scene.remove(G.world);const geometries=new Set(),materials=new Set(),textures=new Set();
   G.world.traverse(o=>{if(o.geometry&&!o.userData.sharedAsset)geometries.add(o.geometry);for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[]){materials.add(m);for(const v of Object.values(m))if(v?.isTexture&&!v.userData.sharedAsset)textures.add(v);}});
   geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose());
-  G.world=null;G.source=null;
+  G.world=null;G.source=null;G.vehicleRoad=null;
 }
 function ghost3dBuild(S){
   const G=ghost3d,T=G.T;

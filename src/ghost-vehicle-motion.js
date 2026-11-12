@@ -42,6 +42,14 @@ function ghostApplyVehicleMotion(car,T,motion){
 }
 function ghostFitVisualTyres(car,T,S,support){
   const data=car.userData;
+  const road=ghost3d.vehicleRoad?.root===ghost3d.world?ghost3d.vehicleRoad.road:ghost3d.world.getObjectByName('TopographyRoad');
+  if(road&&ghost3d.vehicleRoad?.geometry!==road.geometry){
+    road.updateWorldMatrix(true,false);
+    const a=road.geometry.attributes.position,p=new Float64Array(a.count*3),v=new T.Vector3();
+    for(let i=0;i<a.count;i++){v.fromBufferAttribute(a,i).applyMatrix4(road.matrixWorld);p[i*3]=v.x;p[i*3+1]=v.y;p[i*3+2]=v.z;}
+    ghost3d.vehicleRoad={root:ghost3d.world,road,geometry:road.geometry,...VehicleMotion.roadSurface(p,road.geometry.index?.array),misses:0};
+  }
+  const roadHeight=road?ghost3d.vehicleRoad:null;
   if(!data.tyreFit){
     // Every LOD keeps its own axle/steering pivot. Store bind offsets once.
     car.updateWorldMatrix(true,true);
@@ -64,7 +72,10 @@ function ghostFitVisualTyres(car,T,S,support){
     const c=group.contact;point.set(c.x,c.y,c.z).applyQuaternion(car.quaternion).add(car.position);
     let lift=0;
     for(let k=0;k<2;k++){
-      const ground=surface.heightAt(point.x+up.x*lift,point.z+up.z*lift,support.station)+.02;
+      const x=point.x+up.x*lift,z=point.z+up.z*lift;
+      const rendered=roadHeight?.height(x,z,point.y);
+      if(roadHeight&&!Number.isFinite(rendered))roadHeight.misses++;
+      const ground=Number.isFinite(rendered)?rendered+.002:surface.heightAt(x,z,support.station)+.02;
       lift=Math.max(-.06,Math.min(.06,(ground-point.y)/Math.max(.5,up.y)));
     }
     group.lift=lift;

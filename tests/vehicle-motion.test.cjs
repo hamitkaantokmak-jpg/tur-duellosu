@@ -1,5 +1,14 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),M=require('../src/vehicle-motion.js');
 const constant=(a,y=0,v=50)=>M.build(4,(t,o)=>Object.assign(o,{speed:v,acceleration:a,yawRate:y}));
+test('rendered road height grid handles winding, cell borders, bridges and missing asphalt',()=>{
+ const p=new Float64Array([-8,0,-8,8,2,-8,0,1,8,-8,10,-8,8,12,-8,0,11,8]);
+ for(const indices of [null,new Uint32Array([2,1,0,5,4,3])]){
+  const road=M.roadSurface(p,indices);
+  assert.equal(road.height(0,0,0),1);assert.equal(road.height(0,0,11),11);
+  assert.equal(road.height(-8,-8,0),0);assert.ok(Number.isNaN(road.height(90,90,0)));
+  assert.equal(road.height(8,-8,0),2);
+ }
+});
 test('visual pitch has correct brake/acceleration sign and bounded magnitude',()=>{
  assert.ok(M.sample(constant(-12),2,{}).pitch>0);assert.ok(M.sample(constant(8),2,{}).pitch<0);
  for(const a of [-1e6,1e6])assert.ok(Math.abs(M.sample(constant(a),2,{}).pitch)<=M.LIMITS.pitch);

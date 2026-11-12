@@ -32,10 +32,10 @@ for(const [id,event]of [['mexico','Mexico City Grand Prix'],['cota','United Stat
   for(const t of [40,0,10.123,10.123])ghostVehicleMotion(S,0,t);
   const seekStable=JSON.stringify(expected)===JSON.stringify(ghostVehicleMotion(S,0,10.123));
   const prior=S.vehicleMotion;$('ghostEstimatedLine').checked=!$('ghostEstimatedLine').checked;ghostVehicleMotion(S,0,10);const invalidated=prior!==S.vehicleMotion;
-  return {rootError,wheelError,cameraError,maxLift,pitchMin,pitchMax,rollMax,contactMin,contactMax,bodyClearance,seekStable,invalidated,unchanged:original===fingerprint(),totals:[st.A.total,st.B.total],delta:st.B.total-st.A.total,tableBytes:S.vehicleMotion.tables.reduce((n,t)=>n+t.pitch.byteLength+t.roll.byteLength+t.steer.byteLength,0),renderer:G.renderer.getContext().getParameter(G.renderer.getContext().getExtension('WEBGL_debug_renderer_info').UNMASKED_RENDERER_WEBGL)};
+  return {roadMisses:G.vehicleRoad?.misses,roadCells:G.vehicleRoad?.cells,roadPositionBytes:G.vehicleRoad?.positionBytes,rootError,wheelError,cameraError,maxLift,pitchMin,pitchMax,rollMax,contactMin,contactMax,bodyClearance,seekStable,invalidated,unchanged:original===fingerprint(),totals:[st.A.total,st.B.total],delta:st.B.total-st.A.total,tableBytes:S.vehicleMotion.tables.reduce((n,t)=>n+t.pitch.byteLength+t.roll.byteLength+t.steer.byteLength,0),renderer:G.renderer.getContext().getParameter(G.renderer.getContext().getExtension('WEBGL_debug_renderer_info').UNMASKED_RENDERER_WEBGL)};
  });
  fs.writeFileSync(info.outputPath(id+'-motion.json'),JSON.stringify({result,errors},null,2));
- expect(result.rootError).toBeLessThan(1e-10);expect(result.wheelError).toBeLessThan(1e-10);expect(result.cameraError).toBeLessThan(1e-10);
+ expect(result.roadMisses).toBe(0);expect(result.rootError).toBeLessThan(1e-10);expect(result.wheelError).toBeLessThan(1e-10);expect(result.cameraError).toBeLessThan(1e-10);
  expect(result.pitchMin).toBeLessThan(0);expect(result.pitchMax).toBeGreaterThan(0);expect(result.rollMax).toBeGreaterThan(.001);
  expect(result.pitchMax).toBeLessThanOrEqual(Math.PI/360);expect(result.pitchMin).toBeGreaterThanOrEqual(-Math.PI/360);expect(result.rollMax).toBeLessThanOrEqual(Math.PI/300);
  expect(result.bodyClearance).toBeGreaterThan(0);expect(result.seekStable&&result.invalidated&&result.unchanged).toBe(true);
