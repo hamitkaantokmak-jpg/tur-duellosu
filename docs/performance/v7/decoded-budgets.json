@@ -1,0 +1,50 @@
+{
+  "rows": [
+    {
+      "level": "high",
+      "before": {
+        "accessorBytes": 855184,
+        "meshNodes": 27,
+        "nodePrimitives": 27,
+        "nodeTriangles": 62942
+      },
+      "after": {
+        "accessorBytes": 448580,
+        "meshNodes": 22,
+        "nodePrimitives": 22,
+        "nodeTriangles": 32264
+      }
+    },
+    {
+      "level": "medium",
+      "before": {
+        "accessorBytes": 565552,
+        "meshNodes": 27,
+        "nodePrimitives": 27,
+        "nodeTriangles": 44030
+      },
+      "after": {
+        "accessorBytes": 406092,
+        "meshNodes": 22,
+        "nodePrimitives": 22,
+        "nodeTriangles": 27264
+      }
+    },
+    {
+      "level": "low",
+      "before": {
+        "accessorBytes": 204728,
+        "meshNodes": 27,
+        "nodePrimitives": 27,
+        "nodeTriangles": 16002
+      },
+      "after": {
+        "accessorBytes": 179540,
+        "meshNodes": 22,
+        "nodePrimitives": 22,
+        "nodeTriangles": 12524
+      }
+    }
+  ],
+  "note": "Decoded accessor-array byte sum, not physical GPU VRAM. Node primitives assume all meshes of one LOD visible in one color pass; scene shadow passes are separate."
+}

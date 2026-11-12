@@ -1,0 +1,5 @@
+V7_SOURCE_REOPEN {"blender": "4.3.2", "root": "TD_V7_OpenWheel", "objects": 202, "wheels": ["Wheel_R-1", "Wheel_R1", "Wheel_F-1", "Wheel_F1"]}
+Blender 4.3.2
+Read blend: "/workspace/work/tur-duellosu-v7/art/blender/vehicle-v7.blend"
+
+Blender quit

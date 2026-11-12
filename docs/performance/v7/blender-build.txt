@@ -1,0 +1,147 @@
+Info: Saved "vehicle-v7.blend"
+ERROR Draco mesh compression is not available because library could not be found at /usr/bin/4.3/python/lib/python3.13/site-packages/libextern_draco.so
+11:55:15 | INFO: Starting glTF 2.0 export
+11:55:15 | INFO: Extracting primitive: Torus.025
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: Cylinder.150
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: SidewallWitnessMarks
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: Torus.024
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: Torus.029
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: Cylinder.170
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: SidewallWitnessMarks.002
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: Torus.028
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: Torus.033
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: Cylinder.190
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: SidewallWitnessMarks.004
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: Torus.032
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: Torus.037
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: Cylinder.210
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: SidewallWitnessMarks.006
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: Torus.036
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: FrontWingElement.003
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: Cylinder.229
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: Sphere.003
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: CockpitSill
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: Cube.002
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Extracting primitive: WraparoundVisor
+11:55:15 | INFO: Primitives created: 1
+11:55:15 | INFO: Finished glTF 2.0 export in 0.07261896133422852 s
+
+11:55:21 | INFO: Starting glTF 2.0 export
+11:55:21 | INFO: Extracting primitive: Torus.025
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: Cylinder.150
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: SidewallWitnessMarks
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: Torus.024
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: Torus.029
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: Cylinder.164
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: SidewallWitnessMarks.002
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: Torus.028
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: Torus.033
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: Cylinder.178
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: SidewallWitnessMarks.004
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: Torus.032
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: Torus.037
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: Cylinder.192
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: SidewallWitnessMarks.006
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: Torus.036
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: FrontWingElement.003
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: Cylinder.205
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: Sphere.003
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: CockpitSill
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: Cube.002
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Extracting primitive: WraparoundVisor
+11:55:21 | INFO: Primitives created: 1
+11:55:21 | INFO: Finished glTF 2.0 export in 0.07171034812927246 s
+
+11:55:22 | INFO: Starting glTF 2.0 export
+11:55:22 | INFO: Extracting primitive: Torus.025
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: Cylinder.054
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: V7_SlickCarcass
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: Torus.024
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: Torus.029
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: Cylinder.058
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: V7_SlickCarcass.001
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: Torus.028
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: Torus.033
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: Cylinder.062
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: V7_SlickCarcass.002
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: Torus.032
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: Torus.037
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: Cylinder.066
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: V7_SlickCarcass.003
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: Torus.036
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: FrontWingElement.003
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: Cylinder.069
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: Sphere.003
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: CockpitSill
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: Cube.002
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Extracting primitive: WraparoundVisor
+11:55:22 | INFO: Primitives created: 1
+11:55:22 | INFO: Finished glTF 2.0 export in 0.05576634407043457 s
+
+V7_VEHICLE_BUILD_COMPLETE
+Blender 4.3.2
+
+Blender quit

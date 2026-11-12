@@ -1,0 +1,85 @@
+{
+  "before": {
+    "authoring": "Blender 4.3.2; art/blender/build_v4.py and .blend sources",
+    "units": "metres",
+    "forward": "+Z",
+    "compression": "EXT_meshopt_compression",
+    "levels": [
+      {
+        "name": "car-high",
+        "triangles": 59498,
+        "primitives": 22,
+        "bytes": 492552
+      },
+      {
+        "name": "car-medium",
+        "triangles": 40586,
+        "primitives": 22,
+        "bytes": 359992
+      },
+      {
+        "name": "car-low",
+        "triangles": 14606,
+        "primitives": 22,
+        "bytes": 151832
+      },
+      {
+        "name": "venue",
+        "triangles": 39160,
+        "primitives": 37,
+        "bytes": 804144
+      },
+      {
+        "name": "tree",
+        "triangles": 42909,
+        "primitives": 3,
+        "bytes": 1822316
+      }
+    ]
+  },
+  "after": {
+    "authoring": "Blender 4.3.2; vehicle: art/blender/build_v7.py, vehicle-v7.blend; venue/tree unchanged",
+    "units": "metres",
+    "forward": "+Z",
+    "compression": "EXT_meshopt_compression",
+    "levels": [
+      {
+        "name": "car-high",
+        "triangles": 32264,
+        "primitives": 22,
+        "bytes": 276916
+      },
+      {
+        "name": "car-medium",
+        "triangles": 27264,
+        "primitives": 22,
+        "bytes": 255352
+      },
+      {
+        "name": "car-low",
+        "triangles": 12524,
+        "primitives": 22,
+        "bytes": 132232
+      },
+      {
+        "name": "venue",
+        "triangles": 39160,
+        "primitives": 37,
+        "bytes": 804144
+      },
+      {
+        "name": "tree",
+        "triangles": 42909,
+        "primitives": 3,
+        "bytes": 1822316
+      }
+    ]
+  },
+  "newExternalAssets": false,
+  "newShaderPasses": false,
+  "carbonTextureDimensions": [
+    64,
+    64
+  ],
+  "note": "Unique GLB primitives are distinct from full-scene renderer calls including shadow passes. GPU VRAM/FPS not measured."
+}

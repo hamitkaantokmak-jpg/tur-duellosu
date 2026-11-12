@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "category": "derived",
+    "owner": "USGS",
+    "license": "US Government public domain; centerline MIT",
+    "source": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/116248",
+    "horizontalCRS": "Query EPSG:4326; service EPSG:3857",
+    "verticalDatum": "NAVD88",
+    "resolutionMeters": 1,
+    "uncertainty": "Project QL2 specification: NVA RMSE <=0.10 m, not a local asphalt accuracy guarantee. Approximate centerline and 2017 acquisition add unquantified error.",
+    "label": "TÜRETİLMİŞ · USGS 2017 arazi modeli · 1 m grid · banking ölçülmedi",
+    "verticalUnit": "m",
+    "bankingStatus": "unmeasured",
+    "surface": "bare-earth DEM, not surveyed asphalt",
+    "retrievedAt": "2026-11-10T18:41:42.558Z",
+    "sourceSpacingMeters": 19.97826086956522,
+    "centerlineSha256": "199621d61cf0b50429fc9fcf1a8dabf016df453e33bf64299a651e1acad7e158",
+    "rawSha256": "c76fc5a7d6c4c0b756ed6435896da0a57aaeb71e135e333b501c0da753a39f2a",
+    "originElevationMeters": 155.00193786625,
+    "processing": "One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime",
+    "horizontalProcessing": "Symmetric station offsets [-6,-3,0,3,6] m, weights [1,2,3,2,1]/9; preserve station parameter",
+    "maxFilterResidualMeters": 0.29974746675000574
+  },
+  "fit": {
+    "a": 0.0997838877730378,
+    "b": 0.0009055061089691781,
+    "flip": -1,
+    "dir": 1,
+    "phase": 0.9461669921875,
+    "tx": -104.36780272840788,
+    "tz": -222.4395333012659,
+    "rmse": 6.768484462236583
+  },
+  "profile": true,
+  "flat": false,
+  "length": 5514,
+  "penetration": 3.552713678800501e-15,
+  "gap": 0.031352504780581825,
+  "upError": 2.2633986948989007e-16,
+  "cameraEpsilon": 0.00010389803420807198,
+  "collisionSweep": {
+    "requested": 6.0000000000000036,
+    "moved": 1.6999997096686323,
+    "clearance": 0.6500000000000004
+  },
+  "telemetryUnchanged": true,
+  "totals": [
+    94.154,
+    92.974
+  ],
+  "finish": [
+    1,
+    1
+  ],
+  "mexicoVenue": false,
+  "telemetryZ": [
+    {
+      "present": true,
+      "range": [
+        1265.6580330443162,
+        1569
+      ],
+      "classification": "unverified telemetry Z; not used as the terrain source"
+    },
+    {
+      "present": true,
+      "range": [
+        1265.7782090168698,
+        1569.5678898658891
+      ],
+      "classification": "unverified telemetry Z; not used as the terrain source"
+    }
+  ]
+}
