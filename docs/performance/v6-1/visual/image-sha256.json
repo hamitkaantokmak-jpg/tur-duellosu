@@ -1,0 +1,27 @@
+{
+  "sha256": {
+    "after/cota-01-start.jpg": "342ca334d2353818ae5dcccd988e6defbf1231bb9788b2d3373c9dcced3dc867",
+    "after/cota-02-t1-approach.jpg": "5e13a850cb6f77aace61b981e1ecd1036cf1b2cdc4ec6d82546e8775ea36fb59",
+    "after/cota-03-t1-crest.jpg": "f260043ba3d750450692824fb0e0b2c60d9faa7a549a9e1f52d2953289973e13",
+    "after/cota-04-t1-descent.jpg": "00b9112bbe028d81779df44fe2a2342de568752dabfa1202320f50154630a061",
+    "after/cota-05-follow.jpg": "9dc7627f4e79bf523256e7f31a50ec2dfc8eea9d1a7967290b3fa3d41b4640b5",
+    "after/cota-06-cockpit.jpg": "0b1330d4599b9c8ec4ff13ee95d96844c45089355606a1b20988cbe3aba69815",
+    "after/spa-01-eau-rouge.jpg": "3ea5bad966c796e062f2208aea2d73deef79190ebd83d1650b5490fc0dda6a92",
+    "after/spa-02-raidillon.jpg": "efce8405ca83430dbe6e323e7aae5bbcb24d3802dc2b5e466de10bee58d1cc15",
+    "after/spa-03-crest.jpg": "1293f780a8eea2485743c6299d8e45cacf8c5ad2e8363feef78cbe81756ebb37",
+    "after/spa-04-cockpit.jpg": "927277390c08f2d46632ec59ae6c544a00e74b128c2ecd45dd6e04f60fbb45b9",
+    "after/spa-05-contact-regression.jpg": "ec10002b19dd41d75fcc14099c8aa05c63d8abf6913a452f535a3bcc7257115e",
+    "before/cota-01-start.jpg": "342ca334d2353818ae5dcccd988e6defbf1231bb9788b2d3373c9dcced3dc867",
+    "before/cota-02-t1-approach.jpg": "5e13a850cb6f77aace61b981e1ecd1036cf1b2cdc4ec6d82546e8775ea36fb59",
+    "before/cota-03-t1-crest.jpg": "f260043ba3d750450692824fb0e0b2c60d9faa7a549a9e1f52d2953289973e13",
+    "before/cota-04-t1-descent.jpg": "00b9112bbe028d81779df44fe2a2342de568752dabfa1202320f50154630a061",
+    "before/cota-05-follow.jpg": "9dc7627f4e79bf523256e7f31a50ec2dfc8eea9d1a7967290b3fa3d41b4640b5",
+    "before/cota-06-cockpit.jpg": "0b1330d4599b9c8ec4ff13ee95d96844c45089355606a1b20988cbe3aba69815",
+    "before/spa-01-eau-rouge.jpg": "3ea5bad966c796e062f2208aea2d73deef79190ebd83d1650b5490fc0dda6a92",
+    "before/spa-02-raidillon.jpg": "efce8405ca83430dbe6e323e7aae5bbcb24d3802dc2b5e466de10bee58d1cc15",
+    "before/spa-03-crest.jpg": "1293f780a8eea2485743c6299d8e45cacf8c5ad2e8363feef78cbe81756ebb37",
+    "before/spa-04-cockpit.jpg": "927277390c08f2d46632ec59ae6c544a00e74b128c2ecd45dd6e04f60fbb45b9",
+    "before/spa-05-contact-regression.jpg": "ec10002b19dd41d75fcc14099c8aa05c63d8abf6913a452f535a3bcc7257115e"
+  },
+  "identicalPairs": 11
+}

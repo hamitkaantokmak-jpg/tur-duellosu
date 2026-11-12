@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "mode": "physical-nvidia",
+  "conditions": {
+    "warmupSeconds": 20,
+    "measurementSeconds": 12,
+    "dpr": 1,
+    "renderRatio": 1,
+    "adaptive": false,
+    "AO": false,
+    "rate": 1,
+    "startTime": 10,
+    "orders": [
+      [
+        "v5",
+        "v6",
+        "v61"
+      ],
+      [
+        "v61",
+        "v6",
+        "v5"
+      ],
+      [
+        "v6",
+        "v61",
+        "v5"
+      ],
+      [
+        "v5",
+        "v61",
+        "v6"
+      ],
+      [
+        "v61",
+        "v5",
+        "v6"
+      ],
+      [
+        "v6",
+        "v5",
+        "v61"
+      ]
+    ],
+    "scenarios": [
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "a",
+        "key": "mexico/1920/performance/a"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "mexico/1920/performance/cockpit"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "mexico/1920/ultra/a"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "mexico/1920/ultra/cockpit"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "a",
+        "key": "mexico/2560/performance/a"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "mexico/2560/performance/cockpit"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "mexico/2560/ultra/a"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "mexico/2560/ultra/cockpit"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "a",
+        "key": "cota/1920/performance/a"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "cota/1920/performance/cockpit"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "cota/1920/ultra/a"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "cota/1920/ultra/cockpit"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "a",
+        "key": "cota/2560/performance/a"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "cota/2560/performance/cockpit"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "cota/2560/ultra/a"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "cota/2560/ultra/cockpit"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "a",
+        "key": "spa/1920/performance/a"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "spa/1920/performance/cockpit"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "spa/1920/ultra/a"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "spa/1920/ultra/cockpit"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "a",
+        "key": "spa/2560/performance/a"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "spa/2560/performance/cockpit"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "spa/2560/ultra/a"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "spa/2560/ultra/cockpit"
+      }
+    ]
+  },
+  "performanceAcceptance": false,
+  "rows": [],
+  "blockers": [
+    "Same physical NVIDIA GPU/driver state not verified"
+  ],
+  "browser": "156.0.8078.79",
+  "rendererProbe": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "gpuBefore": {
+    "available": false,
+    "error": "ENOENT"
+  },
+  "gpuAfter": {
+    "available": false,
+    "error": "ENOENT"
+  }
+}

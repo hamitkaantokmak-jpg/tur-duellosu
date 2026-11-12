@@ -1,5 +1,7 @@
 # V6: gerçek kaynaklardan türetilmiş pist topografyası
 
+Güncel devam çalışması: [V6.1 performans optimizasyonu ve kabul durumu](V6-1-PERFORMANS-OPTIMIZASYONU.md). Aşağıdaki V6 ölçümleri tarihsel başlangıç kanıtı olarak korunur. Yeni fiziksel NVIDIA tekrarları doğrulanmadığından PR #10 taslak kalır.
+
 Başlangıç: V5 main `a237ca529b31bd769df90165c62f73cdef54a672`. Bu çalışma `feat/v6-real-track-topography` dalında incelemeye sunulur; main'e birleştirilmez. Buradaki “gerçek kaynak” asfaltın mühendislik ölçümü anlamına gelmez. Kabul edilen iki profil, açık lisanslı **arazi modellerinden türetilmiştir**; banking ve süspansiyon ölçülmemiştir.
 
 **Teslim durumu: [taslak PR #10](https://github.com/hamitkaantokmak-jpg/tur-duellosu/pull/10). İşlevsel doğrulama başarılı; %10 performans hedefi tüm koşullarda karşılanmadı.** Spa 1440p Ultra takip/kokpit koşullarında tekrarlar dahil pencere medyanı kayıpları %11.65 / %19.93 kaldı. Performans kabulü verilmedi; bağımsız inceleme ve V6 performans düzeltmesi gerekiyor. Main değişmedi.

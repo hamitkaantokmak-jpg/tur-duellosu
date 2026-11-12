@@ -1,0 +1,54 @@
+{
+  "collision": {
+    "batches": 13,
+    "sourceChunks": 87,
+    "hits": 96,
+    "misses": 0,
+    "maxError": 0
+  },
+  "surfaceStable": {
+    "sameGeometry": true,
+    "sameVersion": true,
+    "samePositions": true,
+    "telemetry": true
+  },
+  "disposal": {
+    "rebuilds": [
+      {
+        "memory": {
+          "geometries": 74,
+          "textures": 10
+        },
+        "sameRenderer": true,
+        "cacheCleared": true,
+        "first": 0,
+        "last": 13
+      },
+      {
+        "memory": {
+          "geometries": 74,
+          "textures": 10
+        },
+        "sameRenderer": true,
+        "cacheCleared": true,
+        "first": 13,
+        "last": 26
+      },
+      {
+        "memory": {
+          "geometries": 74,
+          "textures": 10
+        },
+        "sameRenderer": true,
+        "cacheCleared": true,
+        "first": 26,
+        "last": 39
+      }
+    ],
+    "disposedRanges": true,
+    "liveRanges": 87,
+    "sharedBuffers": true
+  },
+  "errors": [],
+  "consoleErrors": []
+}

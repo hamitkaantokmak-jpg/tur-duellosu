@@ -1,0 +1,518 @@
+{
+  "classification": "CPU-only real-scene work; cloud CPU and SwiftShader setup, not NVIDIA acceptance",
+  "samples": 1200,
+  "warmup": 400,
+  "versions": [
+    "v5",
+    "v6",
+    "v61"
+  ],
+  "order": [
+    "v5",
+    "v6",
+    "v61",
+    "v61",
+    "v6",
+    "v5"
+  ],
+  "provenance": {
+    "v5": {
+      "commit": "a237ca529b31bd769df90165c62f73cdef54a672",
+      "runtimeSha256": {
+        "index.html": "adbd7bff20dd193ecce69d23cec842273f305e95a665603e1ac37dff6fa37f17",
+        "src/ghost-topography.js": "68cf7246bbdf596b3015a40219e55a130b6407f26b16d574deee59b207cae948",
+        "src/ghost-webgl.js": "35a3604a51317169a1aa6190182987b14a1d9af98402c5a5ba9c8a522d6fdcfb",
+        "src/barrier-batching.js": null
+      }
+    },
+    "v6": {
+      "commit": "f295c01a8984715334363077fb66ccaad522e246",
+      "runtimeSha256": {
+        "index.html": "aaa44dc77d69eb2579fd60d9175c31d8f62ac4a2d3469bcce2abae285476f679",
+        "src/ghost-topography.js": "3a3311b1c783ae9875907b88d5a097cf25259738a26f6c0fadc0bac50ec333c2",
+        "src/ghost-webgl.js": "fe9398d2a8f10f2e6c298b14202ae6318e2b6d20a6c0a280f772cd21cc1340a6",
+        "src/barrier-batching.js": null
+      }
+    },
+    "v61": {
+      "commit": "551c3d1b0f580a2b6a8f2388be18b6973272a097",
+      "runtimeSha256": {
+        "index.html": "64809bb2fd7615a6e28cdec62ae5030b3b07c291fc14fc534a26d04b5e4c30a4",
+        "src/ghost-topography.js": "3a3311b1c783ae9875907b88d5a097cf25259738a26f6c0fadc0bac50ec333c2",
+        "src/ghost-webgl.js": "8f39a7cc849526fff7556f21f36fe8923b3d29d38ccd2d7b52ac6e999496ca2e",
+        "src/barrier-batching.js": "d9b500b31509090e1e052dcd4b4877a897d7615e5eec630c32fcbe6c856e084e"
+      }
+    }
+  },
+  "rows": [
+    {
+      "version": "v5",
+      "run": 0,
+      "track": "cota",
+      "supportFourCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 2.399999998509884,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.39999999990686774
+      },
+      "orientationTwoCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 1.6000000005587935,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.10000000009313226
+      },
+      "sceneMatrixUpdate": {
+        "n": 1200,
+        "totalMs": 65.10000000009313,
+        "p50Ms": 0,
+        "p95Ms": 0.10000000009313226,
+        "maxMs": 0.5
+      },
+      "collision": {
+        "n": 1200,
+        "totalMs": 306.59999999869615,
+        "p50Ms": 0.19999999972060323,
+        "p95Ms": 0.3000000002793968,
+        "maxMs": 31.800000000279397
+      },
+      "barrierMeshes": 1,
+      "category": "unavailable",
+      "telemetrySha256": "96f83330b7f763346f6ae927d6ea2880e8449c9ea41cc941580d48274799efef",
+      "outputSha256": "68df8142670aecb43861222aa7a5904efe20460e4ba9ae06229703a6e8d12383"
+    },
+    {
+      "version": "v5",
+      "run": 0,
+      "track": "spa",
+      "supportFourCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 0.8999999999068677,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.10000000009313226
+      },
+      "orientationTwoCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 1.2000000001862645,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.10000000009313226
+      },
+      "sceneMatrixUpdate": {
+        "n": 1200,
+        "totalMs": 98.60000000149012,
+        "p50Ms": 0,
+        "p95Ms": 0.10000000009313226,
+        "maxMs": 35.700000000186265
+      },
+      "collision": {
+        "n": 1200,
+        "totalMs": 204.49999999487773,
+        "p50Ms": 0.19999999972060323,
+        "p95Ms": 0.20000000018626451,
+        "maxMs": 15.600000000093132
+      },
+      "barrierMeshes": 1,
+      "category": "unavailable",
+      "telemetrySha256": "7c28bd109ad625b25cf915f48aea29a7ffaa571e9ec6fcab82481e6bb53c27b0",
+      "outputSha256": "fb3fbeb1913d81fe0d1f48bbda56947743b8e89792582e892346d85a904ab091"
+    },
+    {
+      "version": "v6",
+      "run": 1,
+      "track": "cota",
+      "supportFourCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 49.500000001862645,
+        "p50Ms": 0,
+        "p95Ms": 0.10000000009313226,
+        "maxMs": 2.6000000000931323
+      },
+      "orientationTwoCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 0.9000000008381903,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.10000000009313226
+      },
+      "sceneMatrixUpdate": {
+        "n": 1200,
+        "totalMs": 102.59999999590218,
+        "p50Ms": 0.09999999962747097,
+        "p95Ms": 0.19999999972060323,
+        "maxMs": 23.600000000093132
+      },
+      "collision": {
+        "n": 1200,
+        "totalMs": 36.30000000074506,
+        "p50Ms": 0,
+        "p95Ms": 0.10000000009313226,
+        "maxMs": 1.1000000000931323
+      },
+      "barrierMeshes": 64,
+      "category": "derived",
+      "telemetrySha256": "96f83330b7f763346f6ae927d6ea2880e8449c9ea41cc941580d48274799efef",
+      "exactComparisonWithV61": {
+        "samples": 1200,
+        "candidateWindows": 2,
+        "maxCoordinateDifference": 0
+      },
+      "outputSha256": "10be44361fc958f74b8a8d99fe0d1b04da3f5656c1df66a62f2a806244e70df8"
+    },
+    {
+      "version": "v6",
+      "run": 1,
+      "track": "spa",
+      "supportFourCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 62.10000000335276,
+        "p50Ms": 0,
+        "p95Ms": 0.10000000009313226,
+        "maxMs": 4.300000000279397
+      },
+      "orientationTwoCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 2.0000000009313226,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.2999999998137355
+      },
+      "sceneMatrixUpdate": {
+        "n": 1200,
+        "totalMs": 163.89999999664724,
+        "p50Ms": 0.10000000009313226,
+        "p95Ms": 0.20000000018626451,
+        "maxMs": 31.899999999906868
+      },
+      "collision": {
+        "n": 1200,
+        "totalMs": 128.10000000149012,
+        "p50Ms": 0,
+        "p95Ms": 0.19999999972060323,
+        "maxMs": 35.700000000186265
+      },
+      "barrierMeshes": 87,
+      "category": "derived",
+      "telemetrySha256": "7c28bd109ad625b25cf915f48aea29a7ffaa571e9ec6fcab82481e6bb53c27b0",
+      "exactComparisonWithV61": {
+        "samples": 1200,
+        "candidateWindows": 2,
+        "maxCoordinateDifference": 0
+      },
+      "outputSha256": "97adf86f49cc8b627d26bb9991ad438c4e260bdc519ff8760d84ce069e5f9d67"
+    },
+    {
+      "version": "v61",
+      "run": 2,
+      "track": "cota",
+      "supportFourCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 103.10000000335276,
+        "p50Ms": 0,
+        "p95Ms": 0.19999999972060323,
+        "maxMs": 34.799999999813735
+      },
+      "orientationTwoCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 2,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.10000000009313226
+      },
+      "sceneMatrixUpdate": {
+        "n": 1200,
+        "totalMs": 132.79999999934807,
+        "p50Ms": 0.10000000009313226,
+        "p95Ms": 0.20000000018626451,
+        "maxMs": 23.700000000186265
+      },
+      "collision": {
+        "n": 1200,
+        "totalMs": 57.49999999208376,
+        "p50Ms": 0,
+        "p95Ms": 0.10000000009313226,
+        "maxMs": 4
+      },
+      "barrierMeshes": 9,
+      "category": "derived",
+      "telemetrySha256": "96f83330b7f763346f6ae927d6ea2880e8449c9ea41cc941580d48274799efef",
+      "outputSha256": "10be44361fc958f74b8a8d99fe0d1b04da3f5656c1df66a62f2a806244e70df8"
+    },
+    {
+      "version": "v61",
+      "run": 2,
+      "track": "spa",
+      "supportFourCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 86.60000000102445,
+        "p50Ms": 0,
+        "p95Ms": 0.10000000009313226,
+        "maxMs": 19.600000000093132
+      },
+      "orientationTwoCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 2.1000000005587935,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.10000000009313226
+      },
+      "sceneMatrixUpdate": {
+        "n": 1200,
+        "totalMs": 141.30000000586733,
+        "p50Ms": 0.10000000009313226,
+        "p95Ms": 0.20000000018626451,
+        "maxMs": 34.8000000002794
+      },
+      "collision": {
+        "n": 1200,
+        "totalMs": 93.09999999171123,
+        "p50Ms": 0,
+        "p95Ms": 0.10000000009313226,
+        "maxMs": 35.60000000009313
+      },
+      "barrierMeshes": 13,
+      "category": "derived",
+      "telemetrySha256": "7c28bd109ad625b25cf915f48aea29a7ffaa571e9ec6fcab82481e6bb53c27b0",
+      "outputSha256": "97adf86f49cc8b627d26bb9991ad438c4e260bdc519ff8760d84ce069e5f9d67"
+    },
+    {
+      "version": "v61",
+      "run": 3,
+      "track": "cota",
+      "supportFourCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 83.10000000428408,
+        "p50Ms": 0,
+        "p95Ms": 0.10000000009313226,
+        "maxMs": 15.600000000093132
+      },
+      "orientationTwoCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 1.6000000005587935,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.19999999972060323
+      },
+      "sceneMatrixUpdate": {
+        "n": 1200,
+        "totalMs": 111.19999999320135,
+        "p50Ms": 0.10000000009313226,
+        "p95Ms": 0.20000000018626451,
+        "maxMs": 9.600000000093132
+      },
+      "collision": {
+        "n": 1200,
+        "totalMs": 78.80000000074506,
+        "p50Ms": 0,
+        "p95Ms": 0.10000000009313226,
+        "maxMs": 29.899999999906868
+      },
+      "barrierMeshes": 9,
+      "category": "derived",
+      "telemetrySha256": "96f83330b7f763346f6ae927d6ea2880e8449c9ea41cc941580d48274799efef",
+      "outputSha256": "10be44361fc958f74b8a8d99fe0d1b04da3f5656c1df66a62f2a806244e70df8"
+    },
+    {
+      "version": "v61",
+      "run": 3,
+      "track": "spa",
+      "supportFourCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 100.09999999171123,
+        "p50Ms": 0,
+        "p95Ms": 0.10000000009313226,
+        "maxMs": 31.700000000186265
+      },
+      "orientationTwoCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 2.4000000008381903,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.3000000002793968
+      },
+      "sceneMatrixUpdate": {
+        "n": 1200,
+        "totalMs": 179.0000000097789,
+        "p50Ms": 0.10000000009313226,
+        "p95Ms": 0.20000000018626451,
+        "maxMs": 32
+      },
+      "collision": {
+        "n": 1200,
+        "totalMs": 61.80000000121072,
+        "p50Ms": 0,
+        "p95Ms": 0.10000000009313226,
+        "maxMs": 1
+      },
+      "barrierMeshes": 13,
+      "category": "derived",
+      "telemetrySha256": "7c28bd109ad625b25cf915f48aea29a7ffaa571e9ec6fcab82481e6bb53c27b0",
+      "outputSha256": "97adf86f49cc8b627d26bb9991ad438c4e260bdc519ff8760d84ce069e5f9d67"
+    },
+    {
+      "version": "v6",
+      "run": 4,
+      "track": "cota",
+      "supportFourCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 119.29999999934807,
+        "p50Ms": 0.09999999962747097,
+        "p95Ms": 0.20000000018626451,
+        "maxMs": 11.600000000093132
+      },
+      "orientationTwoCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 1.8999999989755452,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.20000000018626451
+      },
+      "sceneMatrixUpdate": {
+        "n": 1200,
+        "totalMs": 231.49999999720603,
+        "p50Ms": 0.10000000009313226,
+        "p95Ms": 0.20000000018626451,
+        "maxMs": 35.700000000186265
+      },
+      "collision": {
+        "n": 1200,
+        "totalMs": 62.40000000409782,
+        "p50Ms": 0,
+        "p95Ms": 0.10000000009313226,
+        "maxMs": 2.1999999997206032
+      },
+      "barrierMeshes": 64,
+      "category": "derived",
+      "telemetrySha256": "96f83330b7f763346f6ae927d6ea2880e8449c9ea41cc941580d48274799efef",
+      "exactComparisonWithV61": {
+        "samples": 1200,
+        "candidateWindows": 2,
+        "maxCoordinateDifference": 0
+      },
+      "outputSha256": "10be44361fc958f74b8a8d99fe0d1b04da3f5656c1df66a62f2a806244e70df8"
+    },
+    {
+      "version": "v6",
+      "run": 4,
+      "track": "spa",
+      "supportFourCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 120.79999999608845,
+        "p50Ms": 0,
+        "p95Ms": 0.10000000009313226,
+        "maxMs": 31.700000000186265
+      },
+      "orientationTwoCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 1.3999999994412065,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.10000000009313226
+      },
+      "sceneMatrixUpdate": {
+        "n": 1200,
+        "totalMs": 183.60000000149012,
+        "p50Ms": 0.10000000009313226,
+        "p95Ms": 0.20000000018626451,
+        "maxMs": 35.89999999990687
+      },
+      "collision": {
+        "n": 1200,
+        "totalMs": 58.200000003911555,
+        "p50Ms": 0,
+        "p95Ms": 0.10000000009313226,
+        "maxMs": 1.1000000000931323
+      },
+      "barrierMeshes": 87,
+      "category": "derived",
+      "telemetrySha256": "7c28bd109ad625b25cf915f48aea29a7ffaa571e9ec6fcab82481e6bb53c27b0",
+      "exactComparisonWithV61": {
+        "samples": 1200,
+        "candidateWindows": 2,
+        "maxCoordinateDifference": 0
+      },
+      "outputSha256": "97adf86f49cc8b627d26bb9991ad438c4e260bdc519ff8760d84ce069e5f9d67"
+    },
+    {
+      "version": "v5",
+      "run": 5,
+      "track": "cota",
+      "supportFourCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 3.4000000013038516,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.10000000009313226
+      },
+      "orientationTwoCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 2.1999999997206032,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.10000000009313226
+      },
+      "sceneMatrixUpdate": {
+        "n": 1200,
+        "totalMs": 100.8999999971129,
+        "p50Ms": 0.10000000009313226,
+        "p95Ms": 0.20000000018626451,
+        "maxMs": 0.40000000037252903
+      },
+      "collision": {
+        "n": 1200,
+        "totalMs": 338.8000000012107,
+        "p50Ms": 0.20000000018626451,
+        "p95Ms": 0.39999999990686774,
+        "maxMs": 35.8000000002794
+      },
+      "barrierMeshes": 1,
+      "category": "unavailable",
+      "telemetrySha256": "96f83330b7f763346f6ae927d6ea2880e8449c9ea41cc941580d48274799efef",
+      "outputSha256": "68df8142670aecb43861222aa7a5904efe20460e4ba9ae06229703a6e8d12383"
+    },
+    {
+      "version": "v5",
+      "run": 5,
+      "track": "spa",
+      "supportFourCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 2.2000000001862645,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.10000000009313226
+      },
+      "orientationTwoCallsPerFrame": {
+        "n": 1200,
+        "totalMs": 2.099999999627471,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "maxMs": 0.10000000009313226
+      },
+      "sceneMatrixUpdate": {
+        "n": 1200,
+        "totalMs": 120.40000000596046,
+        "p50Ms": 0.10000000009313226,
+        "p95Ms": 0.20000000018626451,
+        "maxMs": 16.100000000093132
+      },
+      "collision": {
+        "n": 1200,
+        "totalMs": 349.2999999928288,
+        "p50Ms": 0.20000000018626451,
+        "p95Ms": 0.39999999990686774,
+        "maxMs": 37.60000000009313
+      },
+      "barrierMeshes": 1,
+      "category": "unavailable",
+      "telemetrySha256": "7c28bd109ad625b25cf915f48aea29a7ffaa571e9ec6fcab82481e6bb53c27b0",
+      "outputSha256": "fb3fbeb1913d81fe0d1f48bbda56947743b8e89792582e892346d85a904ab091"
+    }
+  ],
+  "rawOutputs": {
+    "file": "cpu-outputs.json.gz",
+    "uncompressedSha256": "345e76c72f457f979dcfd044bd7cbf565ecb5831de9137b1c67973bb72c34b33",
+    "note": "All1200 outputs in every forward/reverse window; compressed without discarding samples."
+  }
+}

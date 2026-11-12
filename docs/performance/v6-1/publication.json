@@ -1,0 +1,23 @@
+{
+  "startCommit": "f295c01a8984715334363077fb66ccaad522e246",
+  "mainUnchanged": "a237ca529b31bd769df90165c62f73cdef54a672",
+  "method": "GitHub Git Data API; generated commit metadata differs, every tree verified identical. Branch update uses expected SHA and force=false.",
+  "codeCommits": [
+    {
+      "testedLocalCommit": "278f8121f6893ee78af4e1e3f584dee2e4c6304d",
+      "publishedEquivalentCommit": "9b8de6e3e331715e1fbfb4cf0833a0f7a52cea15",
+      "tree": "040ee3e8b13d778c51d14c23881552a485e18868"
+    },
+    {
+      "testedLocalCommit": "a07ddcd07be69486a64d54fda8f3a21b9754eba0",
+      "publishedEquivalentCommit": "8f46fa7732a6828e8989780905e2d15272dda42d",
+      "tree": "ff25f570e0c94666f5f30d77eccdb6697a98b9ba"
+    },
+    {
+      "testedLocalCommit": "551c3d1b0f580a2b6a8f2388be18b6973272a097",
+      "publishedEquivalentCommit": "3fd8114c84e5acf4bed13dab2585e1cb67980f8c",
+      "tree": "592448278b7ee0d7bf07723f3b8fadf8667691d0"
+    }
+  ],
+  "testedCodePublishedEquivalent": "3fd8114c84e5acf4bed13dab2585e1cb67980f8c"
+}
