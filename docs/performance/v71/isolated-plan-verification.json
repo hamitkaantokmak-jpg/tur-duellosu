@@ -1,0 +1,10 @@
+{
+  "same36Cases": true,
+  "sameTimeoutsAndExpectedStatus": true,
+  "executionChange": "Fresh independent worker/browser per case; base test code/assertions unchanged",
+  "sha256": {
+    "docs/performance/v71/isolated-browser.config.cjs": "3ea43c9c87d726cf05626d506b0e5b039b0c7dfd080a8f448dd6e30e16f08248",
+    "docs/performance/v71/isolated-test-plan.json": "7be2ee7d25f630ade5ca517589cc9ba304125f4f6a38225e468daeeecdd37a26",
+    "playwright.config.js": "1f456ac177e23630ed9eb75ef77d50e72370855cfd36e934e61fe5448cc58cd5"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "originalV7": "257520db3ae8747153011f06cb7e81ddf3819e16",
+  "baselineMain": "ad35d61f5b26ed1d5ff6d82a3ee43b91478cee94",
+  "testedCommit": "3a6628bf15f6a3cb819f3db869e30e16ffdecfb5",
+  "testedTree": "05bd9c798933a62a27341131667ad68fdc0d20f3",
+  "sourceEntries": [
+    "040000 tree 63b37b36f714eec4251fb5c26dce33b1c2efdc46\tart",
+    "040000 tree 43f06e3ddfc2c0236c8021ea2faba8ec7976e02e\tassets",
+    "100644 blob d69bc1f67ce8a745efdb08bd4c9b40f7f5786204\tindex.html",
+    "100644 blob 9befacde2240465e8b1295d247e7890eae178f47\tpackage-lock.json",
+    "100644 blob aea40bb49fb5c75be32f2bef910bff5d53d79311\tpackage.json",
+    "100644 blob 5d27033cc25050b722d4c15f089be266d8b95910\tplaywright.config.js",
+    "040000 tree 5d851f321efb98b7505f2274a4b60893eadfa5fe\tscripts",
+    "040000 tree 4ad144520b31df7af28c009905441b5829079737\tsrc",
+    "040000 tree 98a9eb2cac5bd6ac52c3c440125df85b02e9fcc0\ttests"
+  ],
+  "existingTestsUnchanged": 23,
+  "unit": {
+    "passed": 63,
+    "failed": 0,
+    "skipped": 0
+  },
+  "browser": {
+    "passed": 36,
+    "failed": 0,
+    "skipped": 0
+  },
+  "lastRun": {
+    "status": "passed",
+    "failedTests": []
+  },
+  "protectedSha256": {
+    "assets/topography/profiles.js": "7826b9705d492fb97cb72a2ad78890e97ce33cebab78ce28bb2c98de8c1d3969",
+    "assets/topography/profiles.json": "2b8ae5550097ebf5115bee113c5ee12030058a7c19a75fdd0d0ec7c8b4ebc4d2",
+    "assets/topography/sources/CENTERLINE-LICENSE.txt": "0e1658618c21df9ef4c0ffeb55ae1a2fdfe046af3b4a048d8b6413563df4a616",
+    "assets/topography/sources/README.md": "7ebc54ae0eb8a91367bc8d268268d7fa7363ee10bf2d6ad9c313c025ca8c2e93",
+    "assets/topography/sources/cota-raster-metadata.json": "368c7392570c39302fc13d0a08269fea634a84eccac830f5b80691f9790cfb78",
+    "assets/topography/sources/cota-raw.json": "c76fc5a7d6c4c0b756ed6435896da0a57aaeb71e135e333b501c0da753a39f2a",
+    "assets/topography/sources/cota.geojson": "199621d61cf0b50429fc9fcf1a8dabf016df453e33bf64299a651e1acad7e158",
+    "assets/topography/sources/spa-raw.json": "9ec5b514d7f3c5aaf31748402b1b3daafbe47a575c5c2abea4bb57463a006a76",
+    "assets/topography/sources/spa-service-metadata.json": "6b6e91aebfe73d6291a4f1b8b18e65916cabf9ddef577ec85c90580acbbd1fcd",
+    "assets/topography/sources/spa.geojson": "b867de9cc8364cc9b545a044377a56a697b8db77823c849c1a1c03760a943381",
+    "src/camera-collision.js": "8ecb29c4292e5399f2a582441278e316adbd2552b6703683bc944b7575544a7a",
+    "src/insight-core.js": "ac9c7e4231064fe86a9edf0b29a3518ab11c32529dfc9537e786bfd5ac18d7a4",
+    "src/insight-lab.js": "cf26c78d3d754ed2876bf562712477b57668c46ca6e2d073c95a42e35be6e86b",
+    "src/real-topography.js": "f9ff899c331cbbe6c1375b363f0bdfd53e6c82bef667ab93da5519ae2cf55bab",
+    "src/replay-core.js": "5135612b31597dcd517b045d21f9be1fe452bfbc523be62ccb8252be7a598e2b",
+    "src/track-topography.js": "4a565335edd2df2e1f3ac498b45ed43ddd92775933aaafa2bff18d66542e633e",
+    "tests/fixtures/synthetic-topography.cjs": "130d8cc583c3e6be2d2d1f393e6717aca33e2607ff15cfff6d923dca8aee7693",
+    "src/vehicle-motion.js": "f40b7b0b71b7e37ed5077e077c82cbc5704258f7dd295e6eacdc47e75e5f2679",
+    "src/ghost-vehicle-motion.js": "8356f410d379017c9e93974b9151b649f109aa7f35dccfa90cda91c0aa29179d",
+    "src/ghost-topography.js": "3a3311b1c783ae9875907b88d5a097cf25259738a26f6c0fadc0bac50ec333c2",
+    "src/visual-assets.js": "1cfd7789dddfe98c8860bdfb1abe1c97e6fe50d6628ce77e2e1b42bd53a456b0",
+    "src/barrier-batching.js": "d9b500b31509090e1e052dcd4b4877a897d7615e5eec630c32fcbe6c856e084e"
+  }
+}

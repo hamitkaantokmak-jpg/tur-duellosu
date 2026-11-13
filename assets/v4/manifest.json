@@ -6,21 +6,21 @@
   "levels": [
     {
       "name": "car-high",
-      "triangles": 32264,
+      "triangles": 31068,
       "primitives": 22,
-      "bytes": 276916
+      "bytes": 266280
     },
     {
       "name": "car-medium",
-      "triangles": 27264,
+      "triangles": 26068,
       "primitives": 22,
-      "bytes": 255352
+      "bytes": 244884
     },
     {
       "name": "car-low",
-      "triangles": 12524,
+      "triangles": 11640,
       "primitives": 22,
-      "bytes": 132232
+      "bytes": 123776
     },
     {
       "name": "venue",

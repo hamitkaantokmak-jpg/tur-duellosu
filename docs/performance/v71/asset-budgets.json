@@ -1,0 +1,50 @@
+{
+  "rows": [
+    {
+      "level": "high",
+      "before": {
+        "accessorBytes": 448580,
+        "nodePrimitives": 22,
+        "triangles": 32264,
+        "bytes": 276916
+      },
+      "after": {
+        "accessorBytes": 427264,
+        "nodePrimitives": 22,
+        "triangles": 31068,
+        "bytes": 266280
+      }
+    },
+    {
+      "level": "medium",
+      "before": {
+        "accessorBytes": 406092,
+        "nodePrimitives": 22,
+        "triangles": 27264,
+        "bytes": 255352
+      },
+      "after": {
+        "accessorBytes": 384776,
+        "nodePrimitives": 22,
+        "triangles": 26068,
+        "bytes": 244884
+      }
+    },
+    {
+      "level": "low",
+      "before": {
+        "accessorBytes": 179540,
+        "nodePrimitives": 22,
+        "triangles": 12524,
+        "bytes": 132232
+      },
+      "after": {
+        "accessorBytes": 163496,
+        "nodePrimitives": 22,
+        "triangles": 11640,
+        "bytes": 123776
+      }
+    }
+  ],
+  "note": "Decoded accessor arrays and unique primitives. This is not GPU VRAM or FPS."
+}

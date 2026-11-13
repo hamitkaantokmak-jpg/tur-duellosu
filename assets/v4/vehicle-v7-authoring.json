@@ -1,5 +1,7 @@
 {
-  "version": 7,
+  "version": 7.1,
+  "halo": false,
+  "haloRemoval": "User-requested visual design; not a current regulation-accurate F1 replica",
   "blender": "4.3.2",
   "source": "art/blender/build_v7.py",
   "units": "metres",

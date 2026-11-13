@@ -71,7 +71,7 @@ if (carsOnly) {
     if (!entry) throw new Error("Missing vehicle provenance: " + file);
     const bytes = await fs.readFile(file);
     Object.assign(entry, {source: "art/blender/build_v7.py", sha256: createHash("sha256").update(bytes).digest("hex"), bytes: bytes.length,
-      notes: "V7 original unbranded open-wheel design. No verified team replica; retained 3.32 m wheelbase and 0.36 m radius. Editable source: art/blender/vehicle-v7.blend. No new external geometry or textures."});
+      notes: "V7.1 original unbranded halo-free design requested by the user. No verified team replica; retained 3.32 m wheelbase and 0.36 m radius. Editable source: art/blender/vehicle-v7.blend. No new external geometry or textures."});
   }
   await fs.writeFile("assets/v4/sources.json", JSON.stringify(sources, null, 2) + "\n");
 }

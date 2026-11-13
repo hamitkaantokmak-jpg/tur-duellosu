@@ -1,0 +1,28 @@
+{
+  "result": {
+    "roadMisses": 0,
+    "roadCells": 2148,
+    "roadPositionBytes": 6773760,
+    "rootError": 0,
+    "wheelError": 0,
+    "cameraError": 0,
+    "maxLift": 0.029408802248892564,
+    "pitchMin": -0.0087178528222663,
+    "pitchMax": 0.008726561292895516,
+    "rollMax": 0.010471313759465457,
+    "contactMin": 0.001999445115295373,
+    "contactMax": 0.0020009963626286265,
+    "bodyClearance": 0.059563129975485296,
+    "seekStable": true,
+    "invalidated": true,
+    "unchanged": true,
+    "totals": [
+      94.154,
+      92.974
+    ],
+    "delta": -1.1799999999999926,
+    "tableBytes": 538992,
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+  },
+  "errors": []
+}

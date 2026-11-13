@@ -153,7 +153,8 @@ function ghost3dBuild(S){
     const group=new T.Group();world.add(group);const color=[COL.a,COL.b][index],paint=material(color,.28,.33),carbon=material('#182027',.58,.15),rubber=material('#15191b',.94),rim=material('#89929b',.3,.75);
     
     box(group,0,.16,0,1.8,.14,4.7,carbon);
-    const body=mesh(new T.SphereGeometry(1,24,12),paint,group);body.scale.set(.43,.47,1.65);body.position.set(0,.56,-.6);
+    // Keep the procedural engine cover behind the open cockpit, like the GLBs.
+    const body=mesh(new T.SphereGeometry(1,24,12),paint,group);body.scale.set(.43,.38,1.15);body.position.set(0,.56,-.95);
     const nose=mesh(new T.CylinderGeometry(.12,.3,2.2,16),paint,group);nose.rotation.x=Math.PI/2;nose.position.set(0,.43,1.2);
     for(const sign of [-1,1]){const pod=mesh(new T.SphereGeometry(1,16,10),paint,group);pod.scale.set(.28,.28,1.05);pod.position.set(sign*.57,.48,-.25);box(group,sign*.91,.31,2.17,.05,.3,.64,paint);box(group,sign*.82,.87,-2.2,.05,.6,.52,paint);}
     for(const sign of [-1,1]){const inlet=mesh(new T.SphereGeometry(1,12,8),carbon,group);inlet.scale.set(.2,.12,.07);inlet.position.set(sign*.57,.64,.65);box(group,sign*.6,.7,-.35,.3,.045,1.1,paint);}
@@ -163,7 +164,7 @@ function ghost3dBuild(S){
     box(group,0,.96,-2.2,1.68,.1,.5,paint);box(group,0,.56,-2.15,.12,.7,.14,carbon);
     for(const side of [-1,1]){box(group,side*.55,.85,.25,.2,.09,.3,paint);box(group,side*.42,.76,.22,.04,.18,.04,carbon);}
     for(let fin=-2;fin<=2;fin++)box(group,fin*.22,.21,-2.3,.025,.22,.55,carbon);
-    const haloPoints=[[-.34,.97,-.53],[-.35,1.02,.15],[0,1.04,.42],[.35,1.02,.15],[.34,.97,-.53]].map(p=>new T.Vector3(...p));mesh(new T.TubeGeometry(new T.CatmullRomCurve3(haloPoints),20,.035,6,false),carbon,group);
+    // User-requested halo-free visual model; matches all three GLB LODs.
     const wheels=[];
     for(const x of [-.88,.88])for(const z of [-1.58,1.48]){const wheel=new T.Group();wheel.position.set(x,.39,z);wheel.userData.spins=true;group.add(wheel);const tyre=mesh(new T.CylinderGeometry(.37,.37,.36,24),rubber,wheel);tyre.rotation.z=Math.PI/2;const hub=mesh(new T.CylinderGeometry(.19,.19,.375,16),rim,wheel);hub.rotation.z=Math.PI/2;wheels.push(wheel);
       const side=Math.sign(x),ring=mesh(new T.TorusGeometry(.29,.014,5,32),material(COMP_HEX[L.meta.c]||'#566174',.8),wheel);ring.rotation.y=Math.PI/2;ring.position.x=side*.187;

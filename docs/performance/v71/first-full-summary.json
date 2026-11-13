@@ -1,0 +1,18 @@
+{
+  "firstFullUnitPass": 63,
+  "firstFullBrowserPassed": 33,
+  "firstFullBrowserFailed": 3,
+  "failedCases": [
+    "120-second software-renderer replay soak and resource budget",
+    "V8 cota body-only motion preserves root, tyre support, telemetry and cameras",
+    "halo-free GLBs retain cockpit framing, unclipped near view, all LODs and V8 motion on three tracks"
+  ],
+  "causes": [
+    "External Saira Condensed fonts.gstatic.com request missing CORS allow-origin in that response; subsequent curl returned200 with Access-Control-Allow-Origin:*",
+    "Chrome context fixture setup timed out before COTA test body",
+    "Chrome context fixture setup timed out before visual audit body"
+  ],
+  "sourceUnchangedForRechecks": "3a6628bf15f6a3cb819f3db869e30e16ffdecfb5",
+  "oomKillCount": 0,
+  "recheckStrategy": "Unchanged assertions/timeouts; fresh CLI browser per failed case; writable XDG cache/config within workspace; no blocked-font mocks or certificate-validation bypass."
+}

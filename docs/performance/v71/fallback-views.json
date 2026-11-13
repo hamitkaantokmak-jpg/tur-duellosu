@@ -1,0 +1,244 @@
+{
+  "before": {
+    "records": [
+      {
+        "mode": "cockpit",
+        "event": "Mexico City Grand Prix",
+        "time": 20,
+        "near": 0.5,
+        "camera": [
+          1170.7456967117625,
+          0.98,
+          342.2333339642527
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          1070.7676943309623,
+          65,
+          272.1357834401663
+        ],
+        "buffer": [
+          1406,
+          680
+        ],
+        "cut": {
+          "cuts": 14,
+          "byMaterial": {
+            "unnamed": 14
+          },
+          "visibleMeshes": 19
+        },
+        "calls": 204,
+        "triangles": 303828,
+        "memory": {
+          "geometries": 232,
+          "textures": 17
+        },
+        "assetState": "fallback",
+        "expectedAssetErrors": [
+          "photo tree: Failed to fetch",
+          "venue: Failed to fetch",
+          "low: Failed to fetch",
+          "medium: Failed to fetch"
+        ],
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      {
+        "mode": "free",
+        "event": "Mexico City Grand Prix",
+        "time": 20,
+        "near": 0.5,
+        "camera": [
+          1174.0394402315108,
+          2.1376065270053037,
+          347.7427451275576
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          1070.7676943309623,
+          65,
+          272.1357834401663
+        ],
+        "buffer": [
+          1406,
+          680
+        ],
+        "cut": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 19
+        },
+        "calls": 232,
+        "triangles": 292846,
+        "memory": {
+          "geometries": 313,
+          "textures": 17
+        },
+        "assetState": "fallback",
+        "expectedAssetErrors": [
+          "photo tree: Failed to fetch",
+          "venue: Failed to fetch",
+          "low: Failed to fetch",
+          "medium: Failed to fetch"
+        ],
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      }
+    ],
+    "errors": [],
+    "note": "GLB requests intentionally blocked to exercise the actual procedural fallback."
+  },
+  "after": {
+    "records": [
+      {
+        "mode": "cockpit",
+        "event": "Mexico City Grand Prix",
+        "time": 20,
+        "near": 0.5,
+        "camera": [
+          1170.7456967117625,
+          0.98,
+          342.2333339642527
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          1070.7676943309623,
+          65,
+          272.1357834401663
+        ],
+        "buffer": [
+          1406,
+          680
+        ],
+        "cut": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 19
+        },
+        "calls": 204,
+        "triangles": 303108,
+        "memory": {
+          "geometries": 232,
+          "textures": 17
+        },
+        "assetState": "fallback",
+        "expectedAssetErrors": [
+          "photo tree: Failed to fetch",
+          "venue: Failed to fetch",
+          "low: Failed to fetch",
+          "medium: Failed to fetch"
+        ],
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      },
+      {
+        "mode": "free",
+        "event": "Mexico City Grand Prix",
+        "time": 20,
+        "near": 0.5,
+        "camera": [
+          1174.0394402315108,
+          2.1376065270053037,
+          347.7427451275576
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          1070.7676943309623,
+          65,
+          272.1357834401663
+        ],
+        "buffer": [
+          1406,
+          680
+        ],
+        "cut": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 19
+        },
+        "calls": 232,
+        "triangles": 292126,
+        "memory": {
+          "geometries": 313,
+          "textures": 17
+        },
+        "assetState": "fallback",
+        "expectedAssetErrors": [
+          "photo tree: Failed to fetch",
+          "venue: Failed to fetch",
+          "low: Failed to fetch",
+          "medium: Failed to fetch"
+        ],
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      }
+    ],
+    "errors": [],
+    "note": "GLB requests intentionally blocked to exercise the actual procedural fallback."
+  }
+}

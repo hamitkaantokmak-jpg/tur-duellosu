@@ -1,0 +1,182 @@
+[
+  {
+    "file": "barrier-batching.spec.js",
+    "title": "cota render batches preserve native collision, static surfaces and disposal across quality changes",
+    "line": 2
+  },
+  {
+    "file": "barrier-batching.spec.js",
+    "title": "spa render batches preserve native collision, static surfaces and disposal across quality changes",
+    "line": 2
+  },
+  {
+    "file": "high-dpi.spec.js",
+    "title": "Ultra on a high-DPI display uses the reduced real drawing buffer and preserves Blender assets",
+    "line": 3
+  },
+  {
+    "file": "insight-lab.spec.js",
+    "title": "real telemetry powers the studio, exact region sums, theories, filtering and chart navigation",
+    "line": 16
+  },
+  {
+    "file": "insight-lab.spec.js",
+    "title": "notes preserve spaces, safe imports, downloadable context and round-trip shared URLs",
+    "line": 90
+  },
+  {
+    "file": "insight-lab.spec.js",
+    "title": "real race metadata powers tempo, pit coverage, position leadups, phases and weekend dossier",
+    "line": 160
+  },
+  {
+    "file": "insight-lab.spec.js",
+    "title": "multi-lap signatures, third driver and another year load actual archive telemetry",
+    "line": 209
+  },
+  {
+    "file": "insight-lab.spec.js",
+    "title": "missing secondary archive files produce recoverable state rather than invented results",
+    "line": 240
+  },
+  {
+    "file": "insight-lab.spec.js",
+    "title": "initial archive failure can be retried inside the studio without hidden old results",
+    "line": 253
+  },
+  {
+    "file": "insight-lab.spec.js",
+    "title": "late secondary data cannot replace a newly selected session",
+    "line": 271
+  },
+  {
+    "file": "main-integration.spec.js",
+    "title": "integrated main candidate uses V4 assets and all LODs through a complete real telemetry lap",
+    "line": 5
+  },
+  {
+    "file": "main-integration.spec.js",
+    "title": "real Mexico race analysis retains summary, charts, strategy, moves and driver tabs",
+    "line": 43
+  },
+  {
+    "file": "real-topography.spec.js",
+    "title": "cota real terrain keeps telemetry, tyre contact and cameras stable",
+    "line": 3
+  },
+  {
+    "file": "real-topography.spec.js",
+    "title": "spa real terrain keeps telemetry, tyre contact and cameras stable",
+    "line": 3
+  },
+  {
+    "file": "real-topography.spec.js",
+    "title": "COTA derived terrain survives 120 seconds, camera/quality changes and Studio round trips",
+    "line": 45
+  },
+  {
+    "file": "simulator.spec.js",
+    "title": "real Mexico telemetry, cameras, profiles and Blender assets",
+    "line": 4
+  },
+  {
+    "file": "simulator.spec.js",
+    "title": "real Mexico clock, playback and repeated world disposal",
+    "line": 34
+  },
+  {
+    "file": "simulator.spec.js",
+    "title": "real Mexico pilot/lap changes, analysis, mobile and visibility",
+    "line": 54
+  },
+  {
+    "file": "simulator.spec.js",
+    "title": "WebGL failure keeps the standard replay available",
+    "line": 67
+  },
+  {
+    "file": "simulator.spec.js",
+    "title": "120-second software-renderer replay soak and resource budget",
+    "line": 73
+  },
+  {
+    "file": "simulator.spec.js",
+    "title": "Ultra effects, diagnostics export and missing asset fallback",
+    "line": 86
+  },
+  {
+    "file": "simulator.spec.js",
+    "title": "asset load failure retains working procedural cars and JPEG materials",
+    "line": 92
+  },
+  {
+    "file": "simulator.spec.js",
+    "title": "alignment falls back for both laps when one projection is rejected",
+    "line": 97
+  },
+  {
+    "file": "simulator.spec.js",
+    "title": "missing Blender venue assets retain cars and working telemetry",
+    "line": 103
+  },
+  {
+    "file": "simulator.spec.js",
+    "title": "free camera movement stops before the actual circuit barrier",
+    "line": 105
+  },
+  {
+    "file": "studio-simulator.spec.js",
+    "title": "studio and simulator reuse one renderer across repeated camera, pilot and lap changes",
+    "line": 4
+  },
+  {
+    "file": "topography.spec.js",
+    "title": "synthetic surface: tyre support, real telemetry, mesh, cameras and eight application screenshots",
+    "line": 4
+  },
+  {
+    "file": "topography.spec.js",
+    "title": "profile changes rebuild collision cache and 120-second playback keeps bounded GPU resources",
+    "line": 62
+  },
+  {
+    "file": "v5-audit.spec.js",
+    "title": "free camera sweep cannot cross an elevated road between safe endpoints",
+    "line": 3
+  },
+  {
+    "file": "v7-vehicle.spec.js",
+    "title": "V7 wheels and steering retain distance animation, static geometry and automatic three-level LOD",
+    "line": 2
+  },
+  {
+    "file": "vehicle-motion-soak.spec.js",
+    "title": "V8 120-second replay retains motion/road caches, heap and pause/rate continuity",
+    "line": 2
+  },
+  {
+    "file": "vehicle-motion.spec.js",
+    "title": "V8 mexico body-only motion preserves root, tyre support, telemetry and cameras",
+    "line": 2
+  },
+  {
+    "file": "vehicle-motion.spec.js",
+    "title": "V8 cota body-only motion preserves root, tyre support, telemetry and cameras",
+    "line": 2
+  },
+  {
+    "file": "vehicle-motion.spec.js",
+    "title": "V8 spa body-only motion preserves root, tyre support, telemetry and cameras",
+    "line": 2
+  },
+  {
+    "file": "vehicle-visual-audit.spec.js",
+    "title": "halo-free GLBs retain cockpit framing, unclipped near view, all LODs and V8 motion on three tracks",
+    "line": 2
+  },
+  {
+    "file": "vehicle-visual-audit.spec.js",
+    "title": "halo-free procedural fallback keeps cockpit, visible driver and replay working",
+    "line": 21
+  }
+]
