@@ -1,0 +1,23 @@
+{
+  "baseline": "ad35d61f5b26ed1d5ff6d82a3ee43b91478cee94",
+  "originalV7": "257520db3ae8747153011f06cb7e81ddf3819e16",
+  "method": "GitHub Git Data API; each tree compared to local. Commit metadata differs; source trees are exact.",
+  "codeCommits": [
+    {
+      "local": "722c3bf32236edb67659e82794adec6a83e44c3d",
+      "published": "fdeffa77ff50890426ac73eaf288cbb4dcd32fb2",
+      "tree": "ce68cd0f776c311e49e64d050c88fef5bbfdc8aa"
+    },
+    {
+      "local": "894fc596a5f6e932016017181d318f10d68930d5",
+      "published": "bf022f4326cae0a928b39acd30860c32ae08e98b",
+      "tree": "2892512f1045c279e8b319c6bf9454efe9ee138b"
+    },
+    {
+      "local": "3a6628bf15f6a3cb819f3db869e30e16ffdecfb5",
+      "published": "ea937639939fd68578bffdf0b920240368f82a8c",
+      "tree": "05bd9c798933a62a27341131667ad68fdc0d20f3"
+    }
+  ],
+  "testedCodePublishedEquivalent": "ea937639939fd68578bffdf0b920240368f82a8c"
+}

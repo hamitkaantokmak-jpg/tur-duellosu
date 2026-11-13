@@ -1,0 +1,2579 @@
+{
+  "baseline": "ad35d61f5b26ed1d5ff6d82a3ee43b91478cee94",
+  "rows": [
+    {
+      "name": "01-front-three-quarter",
+      "before": {
+        "frame": {
+          "name": "01-front-three-quarter",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "yaw": 0.75,
+          "pitch": 0.25,
+          "distance": 6.7
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          524.1379743248192,
+          2.1376065270053037,
+          512.7144653614655
+        ],
+        "target": [
+          529.9390826791189,
+          0.48,
+          509.80079371501944
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 360,
+        "triangles": 1415283,
+        "memory": {
+          "geometries": 305,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "after": {
+        "frame": {
+          "name": "01-front-three-quarter",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "yaw": 0.75,
+          "pitch": 0.25,
+          "distance": 6.7
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          524.1379743248192,
+          2.1376065270053037,
+          512.7144653614655
+        ],
+        "target": [
+          529.9390826791189,
+          0.48,
+          509.80079371501944
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 360,
+        "triangles": 1411695,
+        "memory": {
+          "geometries": 305,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "imageSize": [
+        1406,
+        681
+      ],
+      "wheelContactDeltaMeters": 0.0
+    },
+    {
+      "name": "02-side-profile",
+      "before": {
+        "frame": {
+          "name": "02-side-profile",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "yaw": 1.5707963267948966,
+          "pitch": 0.12,
+          "distance": 7.3
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          527.9045575323869,
+          1.3538991132091112,
+          516.7568707536417
+        ],
+        "target": [
+          529.9390826791189,
+          0.48,
+          509.80079371501944
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 304,
+        "triangles": 1280850,
+        "memory": {
+          "geometries": 350,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "after": {
+        "frame": {
+          "name": "02-side-profile",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "yaw": 1.5707963267948966,
+          "pitch": 0.12,
+          "distance": 7.3
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          527.9045575323869,
+          1.3538991132091112,
+          516.7568707536417
+        ],
+        "target": [
+          529.9390826791189,
+          0.48,
+          509.80079371501944
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 304,
+        "triangles": 1277262,
+        "memory": {
+          "geometries": 350,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "imageSize": [
+        1406,
+        681
+      ],
+      "wheelContactDeltaMeters": 0.0
+    },
+    {
+      "name": "03-rear-three-quarter",
+      "before": {
+        "frame": {
+          "name": "03-rear-three-quarter",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "yaw": 2.391592653589793,
+          "pitch": 0.25,
+          "distance": 6.7
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          533.2558097106134,
+          2.1376065270053037,
+          515.3812652363322
+        ],
+        "target": [
+          529.9390826791189,
+          0.48,
+          509.80079371501944
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 443,
+        "triangles": 1764200,
+        "memory": {
+          "geometries": 409,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "after": {
+        "frame": {
+          "name": "03-rear-three-quarter",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "yaw": 2.391592653589793,
+          "pitch": 0.25,
+          "distance": 6.7
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          533.2558097106134,
+          2.1376065270053037,
+          515.3812652363322
+        ],
+        "target": [
+          529.9390826791189,
+          0.48,
+          509.80079371501944
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 443,
+        "triangles": 1759416,
+        "memory": {
+          "geometries": 409,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "imageSize": [
+        1406,
+        681
+      ],
+      "wheelContactDeltaMeters": 0.0
+    },
+    {
+      "name": "04-tyre-suspension",
+      "before": {
+        "frame": {
+          "name": "04-tyre-suspension",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "yaw": 0.85,
+          "pitch": 0.22,
+          "distance": 2.4,
+          "target": [
+            0.6,
+            0.36,
+            1.5
+          ]
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          526.3533802192637,
+          0.8837510953940864,
+          511.2105121590645
+        ],
+        "target": [
+          528.3309659830843,
+          0.36,
+          509.9555861306439
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 357,
+        "triangles": 1424641,
+        "memory": {
+          "geometries": 409,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "after": {
+        "frame": {
+          "name": "04-tyre-suspension",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "yaw": 0.85,
+          "pitch": 0.22,
+          "distance": 2.4,
+          "target": [
+            0.6,
+            0.36,
+            1.5
+          ]
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          526.3533802192637,
+          0.8837510953940864,
+          511.2105121590645
+        ],
+        "target": [
+          528.3309659830843,
+          0.36,
+          509.9555861306439
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 357,
+        "triangles": 1421053,
+        "memory": {
+          "geometries": 409,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "imageSize": [
+        1406,
+        681
+      ],
+      "wheelContactDeltaMeters": 0.0
+    },
+    {
+      "name": "05-cockpit",
+      "before": {
+        "frame": {
+          "name": "05-cockpit",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "mode": "cockpit"
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 66,
+          "byMaterial": {
+            "Carbon": 66
+          },
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          529.8431037330106,
+          0.98,
+          509.7727216309511
+        ],
+        "target": [
+          528.3309659830843,
+          0.36,
+          509.9555861306439
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 404,
+        "triangles": 1790824,
+        "memory": {
+          "geometries": 419,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "after": {
+        "frame": {
+          "name": "05-cockpit",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "mode": "cockpit"
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          529.8431037330106,
+          0.98,
+          509.7727216309511
+        ],
+        "target": [
+          528.3309659830843,
+          0.36,
+          509.9555861306439
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 404,
+        "triangles": 1786040,
+        "memory": {
+          "geometries": 419,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "imageSize": [
+        1406,
+        681
+      ],
+      "wheelContactDeltaMeters": 0.0
+    },
+    {
+      "name": "06-cota-climb",
+      "before": {
+        "frame": {
+          "name": "06-cota-climb",
+          "event": "United States Grand Prix",
+          "station": 180,
+          "yaw": 2.491592653589793,
+          "pitch": 0.22,
+          "distance": 7.3
+        },
+        "event": "United States Grand Prix",
+        "time": 5.975000000000017,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": -0.00022546308901143325,
+          "roll": -6.711809958278964e-07,
+          "steer": -6.386745729080709e-07
+        },
+        "roadMisses": 0,
+        "totals": [
+          94.154,
+          92.974
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          138.39378910026355,
+          12.149837330575556,
+          104.80077158441239
+        ],
+        "target": [
+          140.14128170810352,
+          10.55676108208521,
+          111.70717279285955
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          40.178897310257156,
+          75.07917752558158,
+          41.73715633888018
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0019997918165604034,
+          0.001999791811874374,
+          0.001999787578268908,
+          0.0019997875254098574
+        ],
+        "calls": 112,
+        "triangles": 303350,
+        "memory": {
+          "geometries": 76,
+          "textures": 11
+        },
+        "source": {
+          "category": "derived",
+          "owner": "USGS",
+          "license": "US Government public domain; centerline MIT",
+          "source": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/116248",
+          "horizontalCRS": "Query EPSG:4326; service EPSG:3857",
+          "verticalDatum": "NAVD88",
+          "resolutionMeters": 1,
+          "uncertainty": "Project QL2 specification: NVA RMSE <=0.10 m, not a local asphalt accuracy guarantee. Approximate centerline and 2017 acquisition add unquantified error.",
+          "label": "TÜRETİLMİŞ · USGS 2017 arazi modeli · 1 m grid · banking ölçülmedi",
+          "verticalUnit": "m",
+          "bankingStatus": "unmeasured",
+          "surface": "bare-earth DEM, not surveyed asphalt",
+          "retrievedAt": "2026-11-10T18:41:42.558Z",
+          "sourceSpacingMeters": 19.97826086956522,
+          "centerlineSha256": "199621d61cf0b50429fc9fcf1a8dabf016df453e33bf64299a651e1acad7e158",
+          "rawSha256": "c76fc5a7d6c4c0b756ed6435896da0a57aaeb71e135e333b501c0da753a39f2a",
+          "originElevationMeters": 155.00193786625,
+          "processing": "One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime",
+          "horizontalProcessing": "Symmetric station offsets [-6,-3,0,3,6] m, weights [1,2,3,2,1]/9; preserve station parameter",
+          "maxFilterResidualMeters": 0.29974746675000574
+        }
+      },
+      "after": {
+        "frame": {
+          "name": "06-cota-climb",
+          "event": "United States Grand Prix",
+          "station": 180,
+          "yaw": 2.491592653589793,
+          "pitch": 0.22,
+          "distance": 7.3
+        },
+        "event": "United States Grand Prix",
+        "time": 5.975000000000017,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": -0.00022546308901143325,
+          "roll": -6.711809958278964e-07,
+          "steer": -6.386745729080709e-07
+        },
+        "roadMisses": 0,
+        "totals": [
+          94.154,
+          92.974
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          138.39378910026355,
+          12.149837330575556,
+          104.80077158441239
+        ],
+        "target": [
+          140.14128170810352,
+          10.55676108208521,
+          111.70717279285955
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          40.178897310257156,
+          75.07917752558158,
+          41.73715633888018
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0019997918165604034,
+          0.001999791811874374,
+          0.001999787578268908,
+          0.0019997875254098574
+        ],
+        "calls": 112,
+        "triangles": 298566,
+        "memory": {
+          "geometries": 76,
+          "textures": 11
+        },
+        "source": {
+          "category": "derived",
+          "owner": "USGS",
+          "license": "US Government public domain; centerline MIT",
+          "source": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/116248",
+          "horizontalCRS": "Query EPSG:4326; service EPSG:3857",
+          "verticalDatum": "NAVD88",
+          "resolutionMeters": 1,
+          "uncertainty": "Project QL2 specification: NVA RMSE <=0.10 m, not a local asphalt accuracy guarantee. Approximate centerline and 2017 acquisition add unquantified error.",
+          "label": "TÜRETİLMİŞ · USGS 2017 arazi modeli · 1 m grid · banking ölçülmedi",
+          "verticalUnit": "m",
+          "bankingStatus": "unmeasured",
+          "surface": "bare-earth DEM, not surveyed asphalt",
+          "retrievedAt": "2026-11-10T18:41:42.558Z",
+          "sourceSpacingMeters": 19.97826086956522,
+          "centerlineSha256": "199621d61cf0b50429fc9fcf1a8dabf016df453e33bf64299a651e1acad7e158",
+          "rawSha256": "c76fc5a7d6c4c0b756ed6435896da0a57aaeb71e135e333b501c0da753a39f2a",
+          "originElevationMeters": 155.00193786625,
+          "processing": "One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime",
+          "horizontalProcessing": "Symmetric station offsets [-6,-3,0,3,6] m, weights [1,2,3,2,1]/9; preserve station parameter",
+          "maxFilterResidualMeters": 0.29974746675000574
+        }
+      },
+      "imageSize": [
+        1406,
+        681
+      ],
+      "wheelContactDeltaMeters": 0.0
+    },
+    {
+      "name": "12-cota-cockpit",
+      "before": {
+        "frame": {
+          "name": "12-cota-cockpit",
+          "event": "United States Grand Prix",
+          "station": 180,
+          "mode": "cockpit"
+        },
+        "event": "United States Grand Prix",
+        "time": 5.975000000000017,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 14,
+          "byMaterial": {
+            "Carbon": 14
+          },
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": -0.00022546308901143325,
+          "roll": -6.711809958278964e-07,
+          "steer": -6.386745729080709e-07
+        },
+        "roadMisses": 0,
+        "totals": [
+          94.154,
+          92.974
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          140.25709453792803,
+          11.04869780524825,
+          111.79948765993622
+        ],
+        "target": [
+          140.14128170810352,
+          10.55676108208521,
+          111.70717279285955
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          40.178897310257156,
+          75.07917752558158,
+          41.73715633888018
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0019997918165604034,
+          0.001999791811874374,
+          0.001999787578268908,
+          0.0019997875254098574
+        ],
+        "calls": 92,
+        "triangles": 288262,
+        "memory": {
+          "geometries": 76,
+          "textures": 11
+        },
+        "source": {
+          "category": "derived",
+          "owner": "USGS",
+          "license": "US Government public domain; centerline MIT",
+          "source": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/116248",
+          "horizontalCRS": "Query EPSG:4326; service EPSG:3857",
+          "verticalDatum": "NAVD88",
+          "resolutionMeters": 1,
+          "uncertainty": "Project QL2 specification: NVA RMSE <=0.10 m, not a local asphalt accuracy guarantee. Approximate centerline and 2017 acquisition add unquantified error.",
+          "label": "TÜRETİLMİŞ · USGS 2017 arazi modeli · 1 m grid · banking ölçülmedi",
+          "verticalUnit": "m",
+          "bankingStatus": "unmeasured",
+          "surface": "bare-earth DEM, not surveyed asphalt",
+          "retrievedAt": "2026-11-10T18:41:42.558Z",
+          "sourceSpacingMeters": 19.97826086956522,
+          "centerlineSha256": "199621d61cf0b50429fc9fcf1a8dabf016df453e33bf64299a651e1acad7e158",
+          "rawSha256": "c76fc5a7d6c4c0b756ed6435896da0a57aaeb71e135e333b501c0da753a39f2a",
+          "originElevationMeters": 155.00193786625,
+          "processing": "One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime",
+          "horizontalProcessing": "Symmetric station offsets [-6,-3,0,3,6] m, weights [1,2,3,2,1]/9; preserve station parameter",
+          "maxFilterResidualMeters": 0.29974746675000574
+        }
+      },
+      "after": {
+        "frame": {
+          "name": "12-cota-cockpit",
+          "event": "United States Grand Prix",
+          "station": 180,
+          "mode": "cockpit"
+        },
+        "event": "United States Grand Prix",
+        "time": 5.975000000000017,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": -0.00022546308901143325,
+          "roll": -6.711809958278964e-07,
+          "steer": -6.386745729080709e-07
+        },
+        "roadMisses": 0,
+        "totals": [
+          94.154,
+          92.974
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          140.25709453792803,
+          11.04869780524825,
+          111.79948765993622
+        ],
+        "target": [
+          140.14128170810352,
+          10.55676108208521,
+          111.70717279285955
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          40.178897310257156,
+          75.07917752558158,
+          41.73715633888018
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0019997918165604034,
+          0.001999791811874374,
+          0.001999787578268908,
+          0.0019997875254098574
+        ],
+        "calls": 92,
+        "triangles": 283478,
+        "memory": {
+          "geometries": 76,
+          "textures": 11
+        },
+        "source": {
+          "category": "derived",
+          "owner": "USGS",
+          "license": "US Government public domain; centerline MIT",
+          "source": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/116248",
+          "horizontalCRS": "Query EPSG:4326; service EPSG:3857",
+          "verticalDatum": "NAVD88",
+          "resolutionMeters": 1,
+          "uncertainty": "Project QL2 specification: NVA RMSE <=0.10 m, not a local asphalt accuracy guarantee. Approximate centerline and 2017 acquisition add unquantified error.",
+          "label": "TÜRETİLMİŞ · USGS 2017 arazi modeli · 1 m grid · banking ölçülmedi",
+          "verticalUnit": "m",
+          "bankingStatus": "unmeasured",
+          "surface": "bare-earth DEM, not surveyed asphalt",
+          "retrievedAt": "2026-11-10T18:41:42.558Z",
+          "sourceSpacingMeters": 19.97826086956522,
+          "centerlineSha256": "199621d61cf0b50429fc9fcf1a8dabf016df453e33bf64299a651e1acad7e158",
+          "rawSha256": "c76fc5a7d6c4c0b756ed6435896da0a57aaeb71e135e333b501c0da753a39f2a",
+          "originElevationMeters": 155.00193786625,
+          "processing": "One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime",
+          "horizontalProcessing": "Symmetric station offsets [-6,-3,0,3,6] m, weights [1,2,3,2,1]/9; preserve station parameter",
+          "maxFilterResidualMeters": 0.29974746675000574
+        }
+      },
+      "imageSize": [
+        1406,
+        681
+      ],
+      "wheelContactDeltaMeters": 0.0
+    },
+    {
+      "name": "07-spa-raidillon",
+      "before": {
+        "frame": {
+          "name": "07-spa-raidillon",
+          "event": "Belgian Grand Prix",
+          "station": 1075,
+          "yaw": 2.391592653589793,
+          "pitch": 0.25,
+          "distance": 7.3
+        },
+        "event": "Belgian Grand Prix",
+        "time": 20.02499999999993,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.0005696661090669689,
+          "roll": -0.010243893905612212,
+          "steer": -0.024534006305797162
+        },
+        "roadMisses": 0,
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          496.4879883241304,
+          -7.737571944844304,
+          309.50278790555046
+        ],
+        "target": [
+          492.6295665522624,
+          -9.543620847402321,
+          315.4307528845246
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          392.6392646154723,
+          54.97955846119784,
+          245.48504814972296
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.002000641672857739,
+          0.001999973724705839,
+          0.001999561639253855,
+          0.002000621659602686
+        ],
+        "calls": 154,
+        "triangles": 400066,
+        "memory": {
+          "geometries": 151,
+          "textures": 11
+        },
+        "source": {
+          "category": "derived",
+          "owner": "Service public de Wallonie (SPW)",
+          "license": "CC-BY-4.0; centerline MIT",
+          "source": "https://geoportail.wallonie.be/catalogue/a004e570-99d6-4fe5-b83d-49b774409278.html",
+          "horizontalCRS": "Source EPSG:3812; query EPSG:4326 (server conversion)",
+          "verticalDatum": "DNG / EPSG:5710",
+          "resolutionMeters": 0.5,
+          "uncertainty": "Published regional absolute vertical accuracy ~0.12 m; approximate centerline, bridge exclusion and 2021-2022 acquisition add unquantified asphalt error.",
+          "label": "TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi",
+          "verticalUnit": "m",
+          "bankingStatus": "unmeasured",
+          "surface": "bare-earth DEM, not surveyed asphalt",
+          "retrievedAt": "2026-11-10T18:53:20.388Z",
+          "sourceSpacingMeters": 39.79545454545455,
+          "centerlineSha256": "b867de9cc8364cc9b545a044377a56a697b8db77823c849c1a1c03760a943381",
+          "rawSha256": "9ec5b514d7f3c5aaf31748402b1b3daafbe47a575c5c2abea4bb57463a006a76",
+          "originElevationMeters": 416.9878235,
+          "processing": "One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime",
+          "horizontalProcessing": "Symmetric station offsets [-6,-3,0,3,6] m, weights [1,2,3,2,1]/9; preserve station parameter",
+          "maxFilterResidualMeters": 0.8401567500000056
+        }
+      },
+      "after": {
+        "frame": {
+          "name": "07-spa-raidillon",
+          "event": "Belgian Grand Prix",
+          "station": 1075,
+          "yaw": 2.391592653589793,
+          "pitch": 0.25,
+          "distance": 7.3
+        },
+        "event": "Belgian Grand Prix",
+        "time": 20.02499999999993,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.0005696661090669689,
+          "roll": -0.010243893905612212,
+          "steer": -0.024534006305797162
+        },
+        "roadMisses": 0,
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          496.4879883241304,
+          -7.737571944844304,
+          309.50278790555046
+        ],
+        "target": [
+          492.6295665522624,
+          -9.543620847402321,
+          315.4307528845246
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          392.6392646154723,
+          54.97955846119784,
+          245.48504814972296
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.002000641672857739,
+          0.001999973724705839,
+          0.001999561639253855,
+          0.002000621659602686
+        ],
+        "calls": 154,
+        "triangles": 395282,
+        "memory": {
+          "geometries": 151,
+          "textures": 11
+        },
+        "source": {
+          "category": "derived",
+          "owner": "Service public de Wallonie (SPW)",
+          "license": "CC-BY-4.0; centerline MIT",
+          "source": "https://geoportail.wallonie.be/catalogue/a004e570-99d6-4fe5-b83d-49b774409278.html",
+          "horizontalCRS": "Source EPSG:3812; query EPSG:4326 (server conversion)",
+          "verticalDatum": "DNG / EPSG:5710",
+          "resolutionMeters": 0.5,
+          "uncertainty": "Published regional absolute vertical accuracy ~0.12 m; approximate centerline, bridge exclusion and 2021-2022 acquisition add unquantified asphalt error.",
+          "label": "TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi",
+          "verticalUnit": "m",
+          "bankingStatus": "unmeasured",
+          "surface": "bare-earth DEM, not surveyed asphalt",
+          "retrievedAt": "2026-11-10T18:53:20.388Z",
+          "sourceSpacingMeters": 39.79545454545455,
+          "centerlineSha256": "b867de9cc8364cc9b545a044377a56a697b8db77823c849c1a1c03760a943381",
+          "rawSha256": "9ec5b514d7f3c5aaf31748402b1b3daafbe47a575c5c2abea4bb57463a006a76",
+          "originElevationMeters": 416.9878235,
+          "processing": "One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime",
+          "horizontalProcessing": "Symmetric station offsets [-6,-3,0,3,6] m, weights [1,2,3,2,1]/9; preserve station parameter",
+          "maxFilterResidualMeters": 0.8401567500000056
+        }
+      },
+      "imageSize": [
+        1406,
+        681
+      ],
+      "wheelContactDeltaMeters": 0.0
+    },
+    {
+      "name": "13-spa-cockpit",
+      "before": {
+        "frame": {
+          "name": "13-spa-cockpit",
+          "event": "Belgian Grand Prix",
+          "station": 1075,
+          "mode": "cockpit"
+        },
+        "event": "Belgian Grand Prix",
+        "time": 20.02499999999993,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 11,
+          "byMaterial": {
+            "Carbon": 11
+          },
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.0005696661090669689,
+          "roll": -0.010243893905612212,
+          "steer": -0.024534006305797162
+        },
+        "roadMisses": 0,
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          492.65647875361105,
+          -9.050939623505407,
+          315.58355537508305
+        ],
+        "target": [
+          492.6295665522624,
+          -9.543620847402321,
+          315.4307528845246
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          392.6392646154723,
+          54.97955846119784,
+          245.48504814972296
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.002000641672857739,
+          0.001999973724705839,
+          0.001999561639253855,
+          0.002000621659602686
+        ],
+        "calls": 159,
+        "triangles": 404862,
+        "memory": {
+          "geometries": 159,
+          "textures": 11
+        },
+        "source": {
+          "category": "derived",
+          "owner": "Service public de Wallonie (SPW)",
+          "license": "CC-BY-4.0; centerline MIT",
+          "source": "https://geoportail.wallonie.be/catalogue/a004e570-99d6-4fe5-b83d-49b774409278.html",
+          "horizontalCRS": "Source EPSG:3812; query EPSG:4326 (server conversion)",
+          "verticalDatum": "DNG / EPSG:5710",
+          "resolutionMeters": 0.5,
+          "uncertainty": "Published regional absolute vertical accuracy ~0.12 m; approximate centerline, bridge exclusion and 2021-2022 acquisition add unquantified asphalt error.",
+          "label": "TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi",
+          "verticalUnit": "m",
+          "bankingStatus": "unmeasured",
+          "surface": "bare-earth DEM, not surveyed asphalt",
+          "retrievedAt": "2026-11-10T18:53:20.388Z",
+          "sourceSpacingMeters": 39.79545454545455,
+          "centerlineSha256": "b867de9cc8364cc9b545a044377a56a697b8db77823c849c1a1c03760a943381",
+          "rawSha256": "9ec5b514d7f3c5aaf31748402b1b3daafbe47a575c5c2abea4bb57463a006a76",
+          "originElevationMeters": 416.9878235,
+          "processing": "One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime",
+          "horizontalProcessing": "Symmetric station offsets [-6,-3,0,3,6] m, weights [1,2,3,2,1]/9; preserve station parameter",
+          "maxFilterResidualMeters": 0.8401567500000056
+        }
+      },
+      "after": {
+        "frame": {
+          "name": "13-spa-cockpit",
+          "event": "Belgian Grand Prix",
+          "station": 1075,
+          "mode": "cockpit"
+        },
+        "event": "Belgian Grand Prix",
+        "time": 20.02499999999993,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.0005696661090669689,
+          "roll": -0.010243893905612212,
+          "steer": -0.024534006305797162
+        },
+        "roadMisses": 0,
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          492.65647875361105,
+          -9.050939623505407,
+          315.58355537508305
+        ],
+        "target": [
+          492.6295665522624,
+          -9.543620847402321,
+          315.4307528845246
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          392.6392646154723,
+          54.97955846119784,
+          245.48504814972296
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.002000641672857739,
+          0.001999973724705839,
+          0.001999561639253855,
+          0.002000621659602686
+        ],
+        "calls": 159,
+        "triangles": 400078,
+        "memory": {
+          "geometries": 159,
+          "textures": 11
+        },
+        "source": {
+          "category": "derived",
+          "owner": "Service public de Wallonie (SPW)",
+          "license": "CC-BY-4.0; centerline MIT",
+          "source": "https://geoportail.wallonie.be/catalogue/a004e570-99d6-4fe5-b83d-49b774409278.html",
+          "horizontalCRS": "Source EPSG:3812; query EPSG:4326 (server conversion)",
+          "verticalDatum": "DNG / EPSG:5710",
+          "resolutionMeters": 0.5,
+          "uncertainty": "Published regional absolute vertical accuracy ~0.12 m; approximate centerline, bridge exclusion and 2021-2022 acquisition add unquantified asphalt error.",
+          "label": "TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi",
+          "verticalUnit": "m",
+          "bankingStatus": "unmeasured",
+          "surface": "bare-earth DEM, not surveyed asphalt",
+          "retrievedAt": "2026-11-10T18:53:20.388Z",
+          "sourceSpacingMeters": 39.79545454545455,
+          "centerlineSha256": "b867de9cc8364cc9b545a044377a56a697b8db77823c849c1a1c03760a943381",
+          "rawSha256": "9ec5b514d7f3c5aaf31748402b1b3daafbe47a575c5c2abea4bb57463a006a76",
+          "originElevationMeters": 416.9878235,
+          "processing": "One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime",
+          "horizontalProcessing": "Symmetric station offsets [-6,-3,0,3,6] m, weights [1,2,3,2,1]/9; preserve station parameter",
+          "maxFilterResidualMeters": 0.8401567500000056
+        }
+      },
+      "imageSize": [
+        1406,
+        681
+      ],
+      "wheelContactDeltaMeters": 0.0
+    },
+    {
+      "name": "08-lod-low",
+      "before": {
+        "frame": {
+          "name": "08-lod-low",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "yaw": 0.75,
+          "pitch": 0.25,
+          "distance": 6.7,
+          "lod": "low"
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          524.1379743248192,
+          2.1376065270053037,
+          512.7144653614655
+        ],
+        "target": [
+          529.9390826791189,
+          0.48,
+          509.80079371501944
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "low"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 280,
+        "triangles": 841582,
+        "memory": {
+          "geometries": 305,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "after": {
+        "frame": {
+          "name": "08-lod-low",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "yaw": 0.75,
+          "pitch": 0.25,
+          "distance": 6.7,
+          "lod": "low"
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          524.1379743248192,
+          2.1376065270053037,
+          512.7144653614655
+        ],
+        "target": [
+          529.9390826791189,
+          0.48,
+          509.80079371501944
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "low"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 280,
+        "triangles": 840698,
+        "memory": {
+          "geometries": 305,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "imageSize": [
+        1406,
+        681
+      ],
+      "wheelContactDeltaMeters": 0.0
+    },
+    {
+      "name": "09-lod-medium",
+      "before": {
+        "frame": {
+          "name": "09-lod-medium",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "yaw": 0.75,
+          "pitch": 0.25,
+          "distance": 6.7,
+          "lod": "medium"
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          524.1379743248192,
+          2.1376065270053037,
+          512.7144653614655
+        ],
+        "target": [
+          529.9390826791189,
+          0.48,
+          509.80079371501944
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "medium"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 280,
+        "triangles": 856322,
+        "memory": {
+          "geometries": 323,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "after": {
+        "frame": {
+          "name": "09-lod-medium",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "yaw": 0.75,
+          "pitch": 0.25,
+          "distance": 6.7,
+          "lod": "medium"
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          524.1379743248192,
+          2.1376065270053037,
+          512.7144653614655
+        ],
+        "target": [
+          529.9390826791189,
+          0.48,
+          509.80079371501944
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "medium"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 280,
+        "triangles": 855126,
+        "memory": {
+          "geometries": 323,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "imageSize": [
+        1406,
+        681
+      ],
+      "wheelContactDeltaMeters": 0.0
+    },
+    {
+      "name": "10-lod-high",
+      "before": {
+        "frame": {
+          "name": "10-lod-high",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "yaw": 0.75,
+          "pitch": 0.25,
+          "distance": 6.7,
+          "lod": "high"
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          524.1379743248192,
+          2.1376065270053037,
+          512.7144653614655
+        ],
+        "target": [
+          529.9390826791189,
+          0.48,
+          509.80079371501944
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 280,
+        "triangles": 861322,
+        "memory": {
+          "geometries": 323,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "after": {
+        "frame": {
+          "name": "10-lod-high",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "yaw": 0.75,
+          "pitch": 0.25,
+          "distance": 6.7,
+          "lod": "high"
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          524.1379743248192,
+          2.1376065270053037,
+          512.7144653614655
+        ],
+        "target": [
+          529.9390826791189,
+          0.48,
+          509.80079371501944
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 280,
+        "triangles": 860126,
+        "memory": {
+          "geometries": 323,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "imageSize": [
+        1406,
+        681
+      ],
+      "wheelContactDeltaMeters": 0.0
+    },
+    {
+      "name": "11-follow",
+      "before": {
+        "frame": {
+          "name": "11-follow",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "mode": "a"
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          539.5886989494139,
+          3.3,
+          512.6231297600667
+        ],
+        "target": null,
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 416,
+        "triangles": 1712812,
+        "memory": {
+          "geometries": 393,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "after": {
+        "frame": {
+          "name": "11-follow",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "mode": "a"
+        },
+        "event": "Mexico City Grand Prix",
+        "time": 50,
+        "near": 0.5,
+        "nearInspection": {
+          "cuts": 0,
+          "byMaterial": {},
+          "visibleMeshes": 22
+        },
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "roadMisses": 0,
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "quality": "ultra",
+        "dpr": 1,
+        "adaptive": false,
+        "camera": [
+          539.5886989494139,
+          3.3,
+          512.6231297600667
+        ],
+        "target": null,
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "buffer": [
+          1406,
+          680
+        ],
+        "activeLod": [
+          "high"
+        ],
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "calls": 416,
+        "triangles": 1708028,
+        "memory": {
+          "geometries": 393,
+          "textures": 31
+        },
+        "source": {
+          "category": "unavailable",
+          "source": null,
+          "license": null,
+          "label": "Yükseklik verisi yok · düz referans"
+        }
+      },
+      "imageSize": [
+        1406,
+        681
+      ],
+      "wheelContactDeltaMeters": 0.0
+    }
+  ],
+  "maxWheelContactDeltaMeters": 0,
+  "sameCameraLightMotion": true,
+  "counterOnly": true,
+  "fpsAcceptance": false
+}

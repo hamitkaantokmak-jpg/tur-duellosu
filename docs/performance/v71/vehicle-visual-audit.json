@@ -1,0 +1,293 @@
+{
+  "records": [
+    {
+      "event": "Mexico City Grand Prix",
+      "time": 10,
+      "near": 0.5,
+      "planHeight": 0.98,
+      "cameraError": 0,
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      },
+      "motionReady": true
+    },
+    {
+      "event": "Mexico City Grand Prix",
+      "time": 10,
+      "level": "high",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "event": "Mexico City Grand Prix",
+      "time": 10,
+      "level": "medium",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "event": "Mexico City Grand Prix",
+      "time": 10,
+      "level": "low",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "mode": "follow",
+      "near": 0.5,
+      "headsVisible": true
+    },
+    {
+      "event": "Mexico City Grand Prix",
+      "time": 50,
+      "near": 0.5,
+      "planHeight": 0.98,
+      "cameraError": 0,
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      },
+      "motionReady": true
+    },
+    {
+      "event": "Mexico City Grand Prix",
+      "time": 50,
+      "level": "high",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "event": "Mexico City Grand Prix",
+      "time": 50,
+      "level": "medium",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "event": "Mexico City Grand Prix",
+      "time": 50,
+      "level": "low",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "mode": "follow",
+      "near": 0.5,
+      "headsVisible": true
+    },
+    {
+      "event": "United States Grand Prix",
+      "time": 10,
+      "near": 0.5,
+      "planHeight": 0.98,
+      "cameraError": 0,
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      },
+      "motionReady": true
+    },
+    {
+      "event": "United States Grand Prix",
+      "time": 10,
+      "level": "high",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "event": "United States Grand Prix",
+      "time": 10,
+      "level": "medium",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "event": "United States Grand Prix",
+      "time": 10,
+      "level": "low",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "mode": "follow",
+      "near": 0.5,
+      "headsVisible": true
+    },
+    {
+      "event": "United States Grand Prix",
+      "time": 50,
+      "near": 0.5,
+      "planHeight": 0.98,
+      "cameraError": 0,
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      },
+      "motionReady": true
+    },
+    {
+      "event": "United States Grand Prix",
+      "time": 50,
+      "level": "high",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "event": "United States Grand Prix",
+      "time": 50,
+      "level": "medium",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "event": "United States Grand Prix",
+      "time": 50,
+      "level": "low",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "mode": "follow",
+      "near": 0.5,
+      "headsVisible": true
+    },
+    {
+      "event": "Belgian Grand Prix",
+      "time": 10,
+      "near": 0.5,
+      "planHeight": 0.98,
+      "cameraError": 0,
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      },
+      "motionReady": true
+    },
+    {
+      "event": "Belgian Grand Prix",
+      "time": 10,
+      "level": "high",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "event": "Belgian Grand Prix",
+      "time": 10,
+      "level": "medium",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "event": "Belgian Grand Prix",
+      "time": 10,
+      "level": "low",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "mode": "follow",
+      "near": 0.5,
+      "headsVisible": true
+    },
+    {
+      "event": "Belgian Grand Prix",
+      "time": 50,
+      "near": 0.5,
+      "planHeight": 0.98,
+      "cameraError": 0,
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      },
+      "motionReady": true
+    },
+    {
+      "event": "Belgian Grand Prix",
+      "time": 50,
+      "level": "high",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "event": "Belgian Grand Prix",
+      "time": 50,
+      "level": "medium",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "event": "Belgian Grand Prix",
+      "time": 50,
+      "level": "low",
+      "cut": {
+        "cuts": 0,
+        "byMaterial": {},
+        "visibleMeshes": 22
+      }
+    },
+    {
+      "mode": "follow",
+      "near": 0.5,
+      "headsVisible": true
+    }
+  ],
+  "errors": []
+}

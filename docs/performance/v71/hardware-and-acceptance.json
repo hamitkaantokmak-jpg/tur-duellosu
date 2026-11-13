@@ -1,0 +1,11 @@
+{
+  "observedAt": "2026-11-13T09:39:32.483727+00:00",
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "browser": "156.0.8078.79",
+  "nvidiaSmi": null,
+  "devDriPresent": false,
+  "nvidiaDevicePresent": false,
+  "v61NvidiaAcceptance": "unresolved; historical Spa Ultra follow/cockpit losses 11.65% /19.93% are not V7.1 measurements",
+  "v71PhysicalFpsAcceptance": false,
+  "note": "Matched renderer counters and decoded accessor bytes are not physical NVIDIA FPS or VRAM."
+}

@@ -1,0 +1,36 @@
+
+Running 2 tests using 1 worker
+
+(node:2010) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2010) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/vehicle-visual-audit.spec.js:2:1 › halo-free GLBs retain cockpit framing, unclipped near view, all LODs and V8 motion on three tracks (2.5m)
+  ✘  2 tests/vehicle-visual-audit.spec.js:21:1 › halo-free procedural fallback keeps cockpit, visible driver and replay working (13.6s)
+
+
+  1) tests/vehicle-visual-audit.spec.js:21:1 › halo-free procedural fallback keeps cockpit, visible driver and replay working
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 14
+
+      22 |  test.setTimeout(180000);const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.route('**/*.glb',r=>r.abort());await page.goto('/#y=2024&e=Mexico%20City%20Grand%20Prix&k=Q&a=HAM&b=RUS&g=1');await page.waitForFunction(()=>typeof ghost3d!=='undefined'&&ghost3d.ready&&VisualAssets.state==='fallback',null,{timeout:120000});await page.addScriptTag({content:'window.inspectNearPlane='+inspectNearPlane.toString()+';'});
+      23 |  const result=await page.evaluate(()=>{stopPlay();st.play.e=20;ghost.camera='cockpit';ghost.cameraState=null;GhostDirector.transition=null;drawAll();const G=ghost3d,T=G.T,car=G.cars[0],inverse=new T.Matrix4().copy(car.matrixWorld).invert(),v=new T.Vector3();let haloVertices=0;car.updateWorldMatrix(true,true);car.traverse(o=>{if(!o.isMesh||o.material?.color?.getHexString()!=='182027')return;const a=o.geometry.attributes.position;for(let i=0;i<a.count;i++){v.fromBufferAttribute(a,i).applyMatrix4(o.matrixWorld).applyMatrix4(inverse);if(Math.abs(v.x)>.25&&v.y>.96&&v.z>-.5&&v.z<.5)haloVertices++;}});return{haloVertices,cut:inspectNearPlane(T,car,G.camera),time:st.play.e,near:G.camera.near,cars:G.cars.length,asset:!!car.userData.asset,motion:!!car.userData.motionBodies};});
+    > 24 |  expect(result.haloVertices).toBe(0);expect(result.cut.cuts).toBe(0);expect(result.cars).toBe(2);expect(result.asset).toBe(false);expect(result.motion).toBe(true);expect(result.time).toBe(20);expect(result.near).toBe(.5);expect(errors).toEqual([]);fs.writeFileSync(info.outputPath('vehicle-visual-fallback.json'),JSON.stringify({result,errors},null,2));
+         |                                                              ^
+      25 | });
+      26 |
+        at /workspace/work/tur-duellosu-v71/tests/vehicle-visual-audit.spec.js:24:62
+
+    Error Context: ../v71-targeted/vehicle-visual-audit-halo--2a358-e-driver-and-replay-working/error-context.md
+
+  1 failed
+    tests/vehicle-visual-audit.spec.js:21:1 › halo-free procedural fallback keeps cockpit, visible driver and replay working
+  1 passed (2.9m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

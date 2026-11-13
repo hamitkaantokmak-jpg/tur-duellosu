@@ -1,0 +1,212 @@
+
+> assets:build
+> blender -b --threads 2 --python art/blender/build_v7.py && node scripts/optimize-v4.mjs --cars-only
+
+Info: Saved "vehicle-v7.blend"
+ERROR Draco mesh compression is not available because library could not be found at /usr/bin/4.3/python/lib/python3.13/site-packages/libextern_draco.so
+07:55:06 | INFO: Starting glTF 2.0 export
+07:55:06 | INFO: Extracting primitive: Torus.025
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: Cylinder.150
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: SidewallWitnessMarks
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: Torus.024
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: Torus.029
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: Cylinder.170
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: SidewallWitnessMarks.002
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: Torus.028
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: Torus.033
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: Cylinder.190
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: SidewallWitnessMarks.004
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: Torus.032
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: Torus.037
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: Cylinder.210
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: SidewallWitnessMarks.006
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: Torus.036
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: FrontWingElement.003
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: Cylinder.229
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: Sphere.003
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: CockpitSill
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: Cube.002
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Extracting primitive: WraparoundVisor
+07:55:06 | INFO: Primitives created: 1
+07:55:06 | INFO: Finished glTF 2.0 export in 0.08953094482421875 s
+
+07:55:12 | INFO: Starting glTF 2.0 export
+07:55:12 | INFO: Extracting primitive: Torus.025
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: Cylinder.150
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: SidewallWitnessMarks
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: Torus.024
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: Torus.029
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: Cylinder.164
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: SidewallWitnessMarks.002
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: Torus.028
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: Torus.033
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: Cylinder.178
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: SidewallWitnessMarks.004
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: Torus.032
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: Torus.037
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: Cylinder.192
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: SidewallWitnessMarks.006
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: Torus.036
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: FrontWingElement.003
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: Cylinder.205
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: Sphere.003
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: CockpitSill
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: Cube.002
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Extracting primitive: WraparoundVisor
+07:55:12 | INFO: Primitives created: 1
+07:55:12 | INFO: Finished glTF 2.0 export in 0.07734537124633789 s
+
+07:55:14 | INFO: Starting glTF 2.0 export
+07:55:14 | INFO: Extracting primitive: Torus.025
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: Cylinder.054
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: V7_SlickCarcass
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: Torus.024
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: Torus.029
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: Cylinder.058
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: V7_SlickCarcass.001
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: Torus.028
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: Torus.033
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: Cylinder.062
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: V7_SlickCarcass.002
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: Torus.032
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: Torus.037
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: Cylinder.066
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: V7_SlickCarcass.003
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: Torus.036
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: FrontWingElement.003
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: Cylinder.069
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: Sphere.003
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: CockpitSill
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: Cube.002
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Extracting primitive: WraparoundVisor
+07:55:14 | INFO: Primitives created: 1
+07:55:14 | INFO: Finished glTF 2.0 export in 0.060684919357299805 s
+
+V7_VEHICLE_BUILD_COMPLETE
+Blender 4.3.2
+
+Blender quit
+prune: Removed types... Accessor (88)
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+prune: Removed types... Accessor (54)
+prune: Removed types... Accessor (88)
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+prune: Removed types... Accessor (50)
+prune: Removed types... Accessor (88)
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+quantize: Skipping TEXCOORD_0; out of [0,1] range.
+prune: Removed types... Accessor (54)
+[
+  { name: 'car-high', triangles: 31068, primitives: 22, bytes: 266280 },
+  {
+    name: 'car-medium',
+    triangles: 26068,
+    primitives: 22,
+    bytes: 244884
+  },
+  { name: 'car-low', triangles: 11640, primitives: 22, bytes: 123776 }
+]
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
