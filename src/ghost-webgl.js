@@ -205,7 +205,9 @@ function ghost3dRender(S,poses,camera,target,w,h){
     ghostResolution(w,h,profile);G.renderer.info.reset();GhostMetrics.poll();GhostMetrics.begin();const cpuStart=performance.now();GhostDirector.render();GhostMetrics.cpuMs=performance.now()-cpuStart;GhostMetrics.end();
     ghostPerformance(now);
     $('ghostEngine').title='Sabit çevre parçaları: '+G.mergeStats.before+' → '+G.mergeStats.after;
-    $('ghostScenery').textContent=S.profile.name+' · '+(S.track?'coğrafi referans / ':'normalize telemetri / ')+(surface.metadata.label||surface.metadata.category)+' / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil';
+    const scenery=$('ghostScenery'),sceneryText=S.profile.name+' · '+(S.track?'coğrafi referans / ':'normalize telemetri / ')+(surface.metadata.label||surface.metadata.category)+' / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil';
+    // Replacing identical text invalidates layout before the next canvas measurement.
+    if(scenery.textContent!==sceneryText)scenery.textContent=sceneryText;
     G.labels.forEach((label,i)=>{const v=G.labelVector.set(poses[i].x,supports[i].y+1.7,poses[i].z).project(G.camera);label.hidden=Math.abs(v.x)>1||Math.abs(v.y)>1||v.z>1;label.style.left=(v.x*.5+.5)*w+'px';label.style.top=(-v.y*.5+.5)*h+'px';label.style.color=i?COL.b:COL.a;label.textContent=(i?'B · ':'A · ')+st.H.drivers[(i?st.B:st.A).meta.d].c;});
     if(!st.play.on||now-(G.miniStamp||0)>70){G.miniStamp=now;G.mini.hidden=false;const mg=G.mini.getContext('2d'),mw=160,mh=100,sc=Math.min(140/(S.maxX-S.minX||1),80/(S.maxZ-S.minZ||1)),map=p=>[80-(p.x-(S.minX+S.maxX)/2)*sc,50-(p.z-(S.minZ+S.maxZ)/2)*sc];mg.clearRect(0,0,mw,mh);mg.fillStyle='#101b26de';mg.fillRect(0,0,mw,mh);mg.strokeStyle='#a1b4bc';mg.lineWidth=2;mg.beginPath();S.edges.forEach((e,i)=>i?mg.lineTo(...map(e.p)):mg.moveTo(...map(e.p)));mg.stroke();poses.forEach((p,i)=>{mg.fillStyle=i?COL.b:COL.a;mg.beginPath();mg.arc(...map(p),3,0,Math.PI*2);mg.fill();});}
     return true;
