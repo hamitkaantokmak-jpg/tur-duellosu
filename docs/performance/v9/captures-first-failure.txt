@@ -1,0 +1,22 @@
+main mexico-braking-before.jpg
+main mexico-braking-center.jpg
+main mexico-braking-after.jpg
+main mexico-acceleration-before.jpg
+main mexico-acceleration-center.jpg
+main mexico-acceleration-after.jpg
+main mexico-corner-before.jpg
+main mexico-corner-center.jpg
+main mexico-corner-after.jpg
+main mexico-cockpit.jpg
+main mexico-tyre-contact.jpg
+main mexico-lod-low.jpg
+main mexico-lod-medium.jpg
+main mexico-lod-high.jpg
+main cota-grade.jpg
+main cota-cockpit.jpg
+main cota-follow.jpg
+main spa-grade.jpg
+main spa-cockpit.jpg
+main spa-follow.jpg
+Error: ["Failed to read the 'localStorage' property from 'Window': Access is denied for this document.","Failed to read the 'localStorage' property from 'Window': Access is denied for this document.","Failed to read the 'localStorage' property from 'Window': Access is denied for this document."]
+    at /workspace/work/tur-duellosu-v9/scripts/capture-v9.cjs:19:26

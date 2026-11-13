@@ -1,0 +1,20 @@
+{
+  "before": {
+    "rebuilt": true,
+    "collisionDistance": 3.700123069949833,
+    "memory": {
+      "geometries": 478,
+      "textures": 29
+    }
+  },
+  "after": {
+    "time": 29.723792499999984,
+    "memory": {
+      "geometries": 479,
+      "textures": 29
+    },
+    "ready": true,
+    "cache": true,
+    "telemetryUnchanged": true
+  }
+}

@@ -1,0 +1,1 @@
+{"status":"GEÇTİ","renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)","supported":true,"samples":[0.000551,0.001009,0.001005,0.00102,0.000894,0.001218,0.000887,0.000654],"droppedDisjoint":0,"pending":0,"restored":true,"classification":"Software WebGL timer-query integration only; NOT physical NVIDIA acceptance"}

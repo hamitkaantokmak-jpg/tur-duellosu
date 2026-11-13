@@ -1,0 +1,71 @@
+{
+  "method": "Manual inspection of actual current main/V71 cockpit, tyre close-up, COTA/Spa grade, all three LOD and three adjacent braking frames; metadata/ground raycasts crosschecked. Static images do not establish long-duration perceptual smoothness.",
+  "findings": [
+    {
+      "status": "BAŞARISIZ",
+      "topic": "Main kokpit yakın düzlem görünümü",
+      "finding": "Meksika kokpitinde büyük siyah halo kirişi görüşü kapatıyor; Spa kokpitinin alt merkezinde küçük siyah kesilme görüldü. Üç pistte66/14/11 near kesişmesi kaydedildi. Ayrı PR #13 bu görünümü düzeltir; V9 main uygulamasına taşımadı.",
+      "images": [
+        "main/mexico-cockpit.jpg",
+        "main/spa-cockpit.jpg"
+      ]
+    },
+    {
+      "status": "GEÇTİ",
+      "topic": "Ayrı V7.1 halosuz kokpit örnekleri",
+      "finding": "Aynı kamera ve ışıkta görüşü kapatan parça/kesilme görünmüyor; üç pistte near kesişmesi0. Kullanıcı isteğine bağlı tasarım; fiziksel güvenlik veya güncel takım replikası kabulü değildir.",
+      "images": [
+        "v71/mexico-cockpit.jpg",
+        "v71/cota-cockpit.jpg",
+        "v71/spa-cockpit.jpg"
+      ]
+    },
+    {
+      "status": "GEÇTİ",
+      "topic": "Örneklenen lastik-asfalt desteği",
+      "finding": "Yakın planda ve iki yokuş görünümünde belirgin havada kalma görülmedi. İki araçta dört destek proxy’si bütün karelerde1.99956–2.00064 mm aralığında. Dönen lastiğin her vertex’i ve gerçek temas yaması sınanmış sayılmaz. COTA’da iki ghost yakın olduğu için gövdeler örtüşüyor.",
+      "images": [
+        "v71/mexico-tyre-contact.jpg",
+        "v71/cota-grade.jpg",
+        "v71/spa-grade.jpg"
+      ]
+    },
+    {
+      "status": "GEÇTİ",
+      "topic": "PBR varlık yükleme ve örnek yüzey görünümü",
+      "finding": "Kauçuk, boya ve metal yüzey ayrımı ile yansımalar görünüyor; örneklerde yeni belirgin gölgelenme kopması görülmedi. HDR hazır, KTX2 color/normal/roughness,2048 gölge, environmentIntensity0.6, AO ve saydamlık kapalı; iki sürümde eşit, varlık hatası yok. Fotometrik malzeme doğruluğu veya fotogerçekçilik kanıtı değildir.",
+      "images": [
+        "v71/mexico-tyre-contact.jpg",
+        "v71/mexico-lod-high.jpg"
+      ]
+    },
+    {
+      "status": "GEÇTİ",
+      "topic": "Üç LOD sabit açıda hizalama",
+      "finding": "Düşük LOD’da beklenen faceting ve detay kaybı var; tekerlek/gövde konumlarında örneklerde belirgin kopma görülmedi. Otomatik seçim testi iki sürümde de geçti.",
+      "images": [
+        "v71/mexico-lod-low.jpg",
+        "v71/mexico-lod-medium.jpg",
+        "v71/mexico-lod-high.jpg"
+      ]
+    },
+    {
+      "status": "DOĞRULANAMADI",
+      "topic": "Hareket halinde algısal kamera/LOD akıcılığı",
+      "finding": "±.25 s frenleme/hızlanma/viraj kareleri ve mevcut matematiksel süreklilik testleri vardır; sürekli fiziksel GPU video/FPS kaydı yok. Stillerden her anda titremesiz oynatma veya algısız LOD geçişi sonucu çıkarılmadı.",
+      "images": [
+        "v71/mexico-braking-before.jpg",
+        "v71/mexico-braking-center.jpg",
+        "v71/mexico-braking-after.jpg"
+      ]
+    },
+    {
+      "status": "DOĞRULANAMADI",
+      "topic": "Gerçek süspansiyon ve bütün pozlarda bağlantılar",
+      "finding": "Sert görsel bağlantılar örnek yakın planda gövde/tekerleklerle aynı sahnede yer alıyor. V8’in sınırlı pitch/roll modeli gerçek süspansiyon çözümü değildir; tüm hareketlerde kusursuz bağlantı kinematiği onaylanmadı.",
+      "images": [
+        "v71/mexico-tyre-contact.jpg"
+      ]
+    }
+  ]
+}

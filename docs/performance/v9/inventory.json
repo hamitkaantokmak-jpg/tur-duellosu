@@ -1,0 +1,363 @@
+{
+  "observedAt": "2026-11-13T15:08:21.290Z",
+  "classification": "Static source and asset inventory, not a GPU performance comparison",
+  "versions": {
+    "v5": {
+      "commit": "a237ca529b31bd769df90165c62f73cdef54a672",
+      "tree": "ce2522f4fa76e6f78a5ca5dd43fa6a53c3c75e49",
+      "subject": "Merge PR #9: audited V5 topography and surface-aligned replay",
+      "parents": [
+        "e91e27c7ecde7801541773788a47b4354c47176b",
+        "50757755ed72be41e9b03d0811395a87dc39bcde"
+      ],
+      "cars": [
+        {
+          "level": "high",
+          "file": "assets/v4/car-high.glb",
+          "bytes": 492552,
+          "sha256": "6f5eca49f15bb58c13c050af8155ec6ed18195a9de32384da8c7167193213917",
+          "triangles": 59498,
+          "accessorBytes": 855184,
+          "meshPrimitives": 22,
+          "materials": 9,
+          "nodes": 36
+        },
+        {
+          "level": "medium",
+          "file": "assets/v4/car-medium.glb",
+          "bytes": 359992,
+          "sha256": "cd6f123c5f6c41a12dfe1e368b0a27ad305d13da945a051a3d1fbf922c297ea3",
+          "triangles": 40586,
+          "accessorBytes": 565552,
+          "meshPrimitives": 22,
+          "materials": 9,
+          "nodes": 36
+        },
+        {
+          "level": "low",
+          "file": "assets/v4/car-low.glb",
+          "bytes": 151832,
+          "sha256": "6398394057ac44fc7da115a595774858cec4b21de4e4caf3863405b89d4c4a31",
+          "triangles": 14606,
+          "accessorBytes": 204728,
+          "meshPrimitives": 22,
+          "materials": 9,
+          "nodes": 36
+        }
+      ]
+    },
+    "v6": {
+      "commit": "f295c01a8984715334363077fb66ccaad522e246",
+      "tree": "fb12e952e46a5cd37a92d7d5d6f16bc9ce3f16b6",
+      "subject": "docs: publish final V6 benchmark evidence and failed performance gate",
+      "parents": [
+        "3d5bd83dabd73b9b05a8a4e7a60cc2a5e1b2c1a5"
+      ],
+      "cars": [
+        {
+          "level": "high",
+          "file": "assets/v4/car-high.glb",
+          "bytes": 492552,
+          "sha256": "6f5eca49f15bb58c13c050af8155ec6ed18195a9de32384da8c7167193213917",
+          "triangles": 59498,
+          "accessorBytes": 855184,
+          "meshPrimitives": 22,
+          "materials": 9,
+          "nodes": 36
+        },
+        {
+          "level": "medium",
+          "file": "assets/v4/car-medium.glb",
+          "bytes": 359992,
+          "sha256": "cd6f123c5f6c41a12dfe1e368b0a27ad305d13da945a051a3d1fbf922c297ea3",
+          "triangles": 40586,
+          "accessorBytes": 565552,
+          "meshPrimitives": 22,
+          "materials": 9,
+          "nodes": 36
+        },
+        {
+          "level": "low",
+          "file": "assets/v4/car-low.glb",
+          "bytes": 151832,
+          "sha256": "6398394057ac44fc7da115a595774858cec4b21de4e4caf3863405b89d4c4a31",
+          "triangles": 14606,
+          "accessorBytes": 204728,
+          "meshPrimitives": 22,
+          "materials": 9,
+          "nodes": 36
+        }
+      ]
+    },
+    "v61": {
+      "commit": "e5ffd2224bb3ee2dceed9ee2470bc6f6da33fc74",
+      "tree": "330eb563c36cb94e3c0fc98da94f025e3d0ae84f",
+      "subject": "Merge V6.1 derived terrain and barrier optimizations",
+      "parents": [
+        "a237ca529b31bd769df90165c62f73cdef54a672",
+        "56b2aa42ea696d3a4a43d6d28f3fc9b3f121fb43"
+      ],
+      "cars": [
+        {
+          "level": "high",
+          "file": "assets/v4/car-high.glb",
+          "bytes": 492552,
+          "sha256": "6f5eca49f15bb58c13c050af8155ec6ed18195a9de32384da8c7167193213917",
+          "triangles": 59498,
+          "accessorBytes": 855184,
+          "meshPrimitives": 22,
+          "materials": 9,
+          "nodes": 36
+        },
+        {
+          "level": "medium",
+          "file": "assets/v4/car-medium.glb",
+          "bytes": 359992,
+          "sha256": "cd6f123c5f6c41a12dfe1e368b0a27ad305d13da945a051a3d1fbf922c297ea3",
+          "triangles": 40586,
+          "accessorBytes": 565552,
+          "meshPrimitives": 22,
+          "materials": 9,
+          "nodes": 36
+        },
+        {
+          "level": "low",
+          "file": "assets/v4/car-low.glb",
+          "bytes": 151832,
+          "sha256": "6398394057ac44fc7da115a595774858cec4b21de4e4caf3863405b89d4c4a31",
+          "triangles": 14606,
+          "accessorBytes": 204728,
+          "meshPrimitives": 22,
+          "materials": 9,
+          "nodes": 36
+        }
+      ]
+    },
+    "v7": {
+      "commit": "0d5deecee432230bb1d84c77cc2bd92553358922",
+      "tree": "6895d769a444e23586251df4ae5f2043b1756c43",
+      "subject": "Merge V7 original car visuals and optimized LOD assets",
+      "parents": [
+        "e5ffd2224bb3ee2dceed9ee2470bc6f6da33fc74",
+        "257520db3ae8747153011f06cb7e81ddf3819e16"
+      ],
+      "cars": [
+        {
+          "level": "high",
+          "file": "assets/v4/car-high.glb",
+          "bytes": 276916,
+          "sha256": "7ad588601eb95b76b925a2b6a431446ae54b80bd4b8167217576e2b3005a2164",
+          "triangles": 32264,
+          "accessorBytes": 448580,
+          "meshPrimitives": 22,
+          "materials": 8,
+          "nodes": 31
+        },
+        {
+          "level": "medium",
+          "file": "assets/v4/car-medium.glb",
+          "bytes": 255352,
+          "sha256": "ae3f310d44feb7ace662f3901c9640b7108c3b78337ac49331455e9bd799af86",
+          "triangles": 27264,
+          "accessorBytes": 406092,
+          "meshPrimitives": 22,
+          "materials": 8,
+          "nodes": 31
+        },
+        {
+          "level": "low",
+          "file": "assets/v4/car-low.glb",
+          "bytes": 132232,
+          "sha256": "07cad141da0125689ae544bb4a7157be5a471b54a429840a588ebe9c0311f97a",
+          "triangles": 12524,
+          "accessorBytes": 179540,
+          "meshPrimitives": 22,
+          "materials": 8,
+          "nodes": 31
+        }
+      ]
+    },
+    "v8": {
+      "commit": "ad35d61f5b26ed1d5ff6d82a3ee43b91478cee94",
+      "tree": "1c42c6d971f40c3eeaab1da817a9a40a9b468106",
+      "subject": "Merge V8 telemetry-derived vehicle visual motion",
+      "parents": [
+        "0d5deecee432230bb1d84c77cc2bd92553358922",
+        "9275899437dc847b917ff2a1e0a43a9046a40fec"
+      ],
+      "cars": [
+        {
+          "level": "high",
+          "file": "assets/v4/car-high.glb",
+          "bytes": 276916,
+          "sha256": "7ad588601eb95b76b925a2b6a431446ae54b80bd4b8167217576e2b3005a2164",
+          "triangles": 32264,
+          "accessorBytes": 448580,
+          "meshPrimitives": 22,
+          "materials": 8,
+          "nodes": 31
+        },
+        {
+          "level": "medium",
+          "file": "assets/v4/car-medium.glb",
+          "bytes": 255352,
+          "sha256": "ae3f310d44feb7ace662f3901c9640b7108c3b78337ac49331455e9bd799af86",
+          "triangles": 27264,
+          "accessorBytes": 406092,
+          "meshPrimitives": 22,
+          "materials": 8,
+          "nodes": 31
+        },
+        {
+          "level": "low",
+          "file": "assets/v4/car-low.glb",
+          "bytes": 132232,
+          "sha256": "07cad141da0125689ae544bb4a7157be5a471b54a429840a588ebe9c0311f97a",
+          "triangles": 12524,
+          "accessorBytes": 179540,
+          "meshPrimitives": 22,
+          "materials": 8,
+          "nodes": 31
+        }
+      ]
+    },
+    "v71": {
+      "commit": "5bb2995e20fe45e6af76a23e997915b3202965da",
+      "tree": "d083047fe421719271b2d94032739fb051eb95ba",
+      "subject": "Document V7.1 visual audit with matched screenshots and complete isolated regression evidence",
+      "parents": [
+        "ea937639939fd68578bffdf0b920240368f82a8c"
+      ],
+      "cars": [
+        {
+          "level": "high",
+          "file": "assets/v4/car-high.glb",
+          "bytes": 266280,
+          "sha256": "b55d91cb3332e35de9e64e9256dda13ea7816518fdb49f4f0631fd9ad4f2b8a9",
+          "triangles": 31068,
+          "accessorBytes": 427264,
+          "meshPrimitives": 22,
+          "materials": 8,
+          "nodes": 31
+        },
+        {
+          "level": "medium",
+          "file": "assets/v4/car-medium.glb",
+          "bytes": 244884,
+          "sha256": "e9e866e3508a993a029708bf5d9f6164daf5f7a37cc2c02dc0b34e55e0f11f35",
+          "triangles": 26068,
+          "accessorBytes": 384776,
+          "meshPrimitives": 22,
+          "materials": 8,
+          "nodes": 31
+        },
+        {
+          "level": "low",
+          "file": "assets/v4/car-low.glb",
+          "bytes": 123776,
+          "sha256": "d0a134edd4710bc1f5a45c12853625b2eb9e6010e059f3e09f3cbe653049dee5",
+          "triangles": 11640,
+          "accessorBytes": 163496,
+          "meshPrimitives": 22,
+          "materials": 8,
+          "nodes": 31
+        }
+      ]
+    }
+  },
+  "protectedFiles": {
+    "assets/cars/manifest.json": "83c51788e3eb3bded5469183cd862af559d055ed558a3325682bdc8ccfcd8fea",
+    "assets/cars/open-wheel-high.glb": "69e028a1e1e73ad00cd827701862b06d03db680e7406c31f4717ba0ad79590d7",
+    "assets/cars/open-wheel-low.glb": "c9197894b41be86dda32e2551450c37be400f28ac496dff978b20ce5c245d5ff",
+    "assets/cars/open-wheel-medium.glb": "aeea42e5c7842200be245e61402aff2e82ec82b1300a9b7157fd527f9fc29da7",
+    "assets/environment/spruit-sunrise.hdr": "38199a31e945906f6778431e989256a92d9d78b0cfc0f902accad9f5244bf50f",
+    "assets/licenses/CC0-1.0.txt": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "assets/licenses/MESHOPT-MIT.txt": "e4a26033e3551fb2722888949fbb41e77aee628e8e8f04dcffeee301aa7e5634",
+    "assets/licenses/ODbL-1.0.txt": "8e21e7f5a2d89fdd3703415b06e8c5210f36335eacd391c7eabcf3d6729e852c",
+    "assets/licenses/THREE-MIT.txt": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+    "assets/materials/asphalt-color.jpg": "47c434c444df88e63f5eb40e0ff0512ce90ed8adf00686a57857c317b6d29784",
+    "assets/materials/asphalt-color.ktx2": "bfc7a97343c07f38eb70d5d8c29c30e886bc955a49670be8685d5325c70d3931",
+    "assets/materials/asphalt-normal.jpg": "42a1c381b53204e83a982db2864479a30bc127bbdeebb1006f8ee51bff099df3",
+    "assets/materials/asphalt-normal.ktx2": "18fcb70d2660918fa1004f1121f3b19240330c15e175fbf7145db0426fa2bcf6",
+    "assets/materials/asphalt-roughness.jpg": "70ba3edc65525eb4dc366cf010ca7ae0bd34e0251ff0225c2dad627a873d0712",
+    "assets/materials/asphalt-roughness.ktx2": "e67cf41cd8c3e9375a11e93558cf0b53ed6765f4b5df57c91c458861fa946d5c",
+    "assets/sources.json": "5757d91908f79ea5073d97e1c5f4423adc8d4d546f659d50dde600e126f50164",
+    "assets/topography/profiles.js": "7826b9705d492fb97cb72a2ad78890e97ce33cebab78ce28bb2c98de8c1d3969",
+    "assets/topography/profiles.json": "2b8ae5550097ebf5115bee113c5ee12030058a7c19a75fdd0d0ec7c8b4ebc4d2",
+    "assets/topography/sources/CENTERLINE-LICENSE.txt": "0e1658618c21df9ef4c0ffeb55ae1a2fdfe046af3b4a048d8b6413563df4a616",
+    "assets/topography/sources/README.md": "7ebc54ae0eb8a91367bc8d268268d7fa7363ee10bf2d6ad9c313c025ca8c2e93",
+    "assets/topography/sources/cota-raster-metadata.json": "368c7392570c39302fc13d0a08269fea634a84eccac830f5b80691f9790cfb78",
+    "assets/topography/sources/cota-raw.json": "c76fc5a7d6c4c0b756ed6435896da0a57aaeb71e135e333b501c0da753a39f2a",
+    "assets/topography/sources/cota.geojson": "199621d61cf0b50429fc9fcf1a8dabf016df453e33bf64299a651e1acad7e158",
+    "assets/topography/sources/spa-raw.json": "9ec5b514d7f3c5aaf31748402b1b3daafbe47a575c5c2abea4bb57463a006a76",
+    "assets/topography/sources/spa-service-metadata.json": "6b6e91aebfe73d6291a4f1b8b18e65916cabf9ddef577ec85c90580acbbd1fcd",
+    "assets/topography/sources/spa.geojson": "b867de9cc8364cc9b545a044377a56a697b8db77823c849c1a1c03760a943381",
+    "assets/tracks/LICENSE-MIT.txt": "0e1658618c21df9ef4c0ffeb55ae1a2fdfe046af3b4a048d8b6413563df4a616",
+    "assets/tracks/mexico.geojson": "766760118f0e39e46162c52b5e832eef70d75ea58fe1b5337409bcc29f5ad49b",
+    "assets/tracks/mexico.js": "c4959880a3b120a79360fcc232635b4d6e31ef2482dbac68b2c9fec2495b90e4",
+    "assets/tracks/v3/boundaries.js": "02d550b5f8833090f377eabc81b8838211266e7b6d427e4c5f947fae180e49ee",
+    "assets/tracks/v3/geographic-check.json": "b5ede3b5dd9327e473c8dd0e525e5df4132165c0f88a9ca98d4027ecbc8c1ada",
+    "assets/tracks/v3/render-path.js": "39f800123617425aa9a96133944fa64c0b20445f2a63d6ca77320088b28c9c13",
+    "assets/tracks/v3/sources.json": "832782323462824de464462ba5b06e0048d48411080cefad1e9dd7b7e66e6e15",
+    "assets/tracks/v3/venue-osm.js": "9f63ce7b74585f4c017778194bb156423266d5959ddd411bd8e36c6017c5ca85",
+    "assets/tracks/v3/venue-osm.json": "43c58e89d070cca8c801d0aca51f02b67c1edd76e3bef043e48f2542f241c4cc",
+    "assets/v4/authoring.json": "2306d79fa352991ec371535ebfce7cdec360bbd9a21a80b00a38496b9efcb63e",
+    "assets/v4/car-high.glb": "7ad588601eb95b76b925a2b6a431446ae54b80bd4b8167217576e2b3005a2164",
+    "assets/v4/car-low.glb": "07cad141da0125689ae544bb4a7157be5a471b54a429840a588ebe9c0311f97a",
+    "assets/v4/car-medium.glb": "ae3f310d44feb7ace662f3901c9640b7108c3b78337ac49331455e9bd799af86",
+    "assets/v4/concrete-color.jpg": "6db84a6d87dc50508b9d134d6fbd2b7e876b8081a5f43a118a249ca18de73af5",
+    "assets/v4/concrete-normal.jpg": "fcda391b57a816d646ae15544688be53790478da5cd48dbe514b3c6901415e61",
+    "assets/v4/concrete-roughness.jpg": "c7f026a611b7859903c61ec7fd4574944157223e9e7796413dd6e2a66eaeac7a",
+    "assets/v4/daylight.hdr": "fd94c84997b8a3c353b62c2125a9b44e19509956986a126e472684432a02d798",
+    "assets/v4/manifest.json": "086b8a80626f044f870cb8a999caca3b7b489953edfffa24ca319fffb02cb2e0",
+    "assets/v4/road-color.jpg": "c621cc719175fae35c2a331e62951f3c5621d06e61cc652e8756cdf18869cc3b",
+    "assets/v4/road-color.ktx2": "3b03678e90cb5950f56f3119f14dc83dca1242cd17ed806b5c146a71791a02a8",
+    "assets/v4/road-normal.jpg": "c22b50fa799f8bedaec93cf7f046f007f503368c3067939eee0ecccac3b4eaa5",
+    "assets/v4/road-normal.ktx2": "22e90dfd08d848357308a76868af101cb1ebef7ac6f7d4fbb9e22ac4a5221663",
+    "assets/v4/road-roughness.jpg": "163d105344c7cac92d85aff64b74474d29989c019a201e7bbbfb6f40680777b6",
+    "assets/v4/road-roughness.ktx2": "21d9c2da353c744d514d9947bf15b27e6bc4eb732ed0dadb8e96cf0a96cf65ee",
+    "assets/v4/soil-color.jpg": "c598c555f13cd5328409fd5e2a45496a26e319e52299e3959042f1449c2f1b06",
+    "assets/v4/sources.json": "a67cc1272aa3b53a4d8b3df4c4d2cd8ad216de65ed451b0cc035f4be0d44ffa4",
+    "assets/v4/tree-atlas.png": "067e701f66651005d210995e04f6a484dbfacd8e49dd2f02ae6d7b982b385196",
+    "assets/v4/tree-view-0.png": "4116570296326bcb3de6204e4696746ea5af869680f1e43e160e56afaf9a637b",
+    "assets/v4/tree-view-1.png": "fe494b81cf756d462e55c19b9bf4e18043be995ce222c419eeb3ce9699830f91",
+    "assets/v4/tree-view-2.png": "e990dc077ae929c6c54298dd477f0a58e4606b75eb1527c73e6902e5adc32d28",
+    "assets/v4/tree.glb": "714ee55632427a5ce28d1df83325a72043be1a53da7dfb124abf4a3a308d0e82",
+    "assets/v4/turf-color.jpg": "12e7974cdf9630de05f7d2a654e81af7cec579a6697436bd922af3803b97ef61",
+    "assets/v4/vehicle-v7-authoring.json": "253d1639d1c91bbbc77138e43f9ca59a46023586e22c18eb5e8df6ad988b166c",
+    "assets/v4/venue.glb": "e1e70acb61a771f4a2f3d29a140ce314dbb37a2a8e173fd1ec38b57c6ada1d3c",
+    "index.html": "45be66916c68ff79928e0d467c8de7ebf1db521feb642b3b32edd8306d06375b",
+    "src/barrier-batching.js": "d9b500b31509090e1e052dcd4b4877a897d7615e5eec630c32fcbe6c856e084e",
+    "src/camera-collision.js": "8ecb29c4292e5399f2a582441278e316adbd2552b6703683bc944b7575544a7a",
+    "src/ghost-director.js": "c93347183ce6881eb16c01fb0ef10f24e77ba52dce83d16cb46a196b1127ad58",
+    "src/ghost-topography.js": "3a3311b1c783ae9875907b88d5a097cf25259738a26f6c0fadc0bac50ec333c2",
+    "src/ghost-vehicle-motion.js": "8356f410d379017c9e93974b9151b649f109aa7f35dccfa90cda91c0aa29179d",
+    "src/ghost-webgl.js": "1b98cd56f870c106b756bab463d0f591334500f1aa4a9c00319243b0058ac8df",
+    "src/ghost-world.js": "ee26175af2c3a0dd9637c763ed6b872aabdb4b48dfce2a8b80a8cc801bc8b67e",
+    "src/ghost.css": "df2f040f630c1ece9a1e9cb1bf8f79a713645c8a84367f8661116b1049e513a3",
+    "src/insight-core.js": "ac9c7e4231064fe86a9edf0b29a3518ab11c32529dfc9537e786bfd5ac18d7a4",
+    "src/insight-lab.css": "823d34a80c4a007909e5704944293ae99a4f5b7ece6db8e7bf0ea99610783ab1",
+    "src/insight-lab.js": "cf26c78d3d754ed2876bf562712477b57668c46ca6e2d073c95a42e35be6e86b",
+    "src/mexico-v3.js": "1c7b7217855e25152150935f3662d8f000ae78635fec43f8f355431b30f2846e",
+    "src/mexico-v4.js": "edbc538c345650eb7144dc3b306369cd7e3cb285fb465509dc7f60490eb61af8",
+    "src/real-topography.js": "f9ff899c331cbbe6c1375b363f0bdfd53e6c82bef667ab93da5519ae2cf55bab",
+    "src/replay-core.js": "5135612b31597dcd517b045d21f9be1fe452bfbc523be62ccb8252be7a598e2b",
+    "src/track-topography.js": "4a565335edd2df2e1f3ac498b45ed43ddd92775933aaafa2bff18d66542e633e",
+    "src/vehicle-motion.js": "f40b7b0b71b7e37ed5077e077c82cbc5704258f7dd295e6eacdc47e75e5f2679",
+    "src/visual-assets.js": "1cfd7789dddfe98c8860bdfb1abe1c97e6fe50d6628ce77e2e1b42bd53a456b0"
+  },
+  "v71RuntimeChanges": [
+    "art/blender/README.md",
+    "art/blender/build_v7.py",
+    "art/blender/vehicle-v7.blend",
+    "assets/v4/car-high.glb",
+    "assets/v4/car-low.glb",
+    "assets/v4/car-medium.glb",
+    "assets/v4/manifest.json",
+    "assets/v4/sources.json",
+    "assets/v4/vehicle-v7-authoring.json",
+    "src/ghost-webgl.js"
+  ],
+  "v71NotImported": true,
+  "existingTestFiles": 23
+}

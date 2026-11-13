@@ -1,0 +1,72 @@
+{
+  "classification": "Software functional soak observations, not controlled cross-version GPU memory/FPS measurements",
+  "rows": [
+    {
+      "version": "main",
+      "cacheInput": "main-results/vehicle-motion-soak-V8-120-5dd5a-p-and-pause-rate-continuity--v8-cache-soak.json",
+      "cacheInputSha256": "c4a51e0d4239596795b616a9f3a1235ce0dc05d6570bf2ed9f9a0fa594e5b697",
+      "heapBefore": 12780232,
+      "heapAfter": 13157384,
+      "heapDelta": 377152,
+      "rendererBefore": {
+        "geometries": 115,
+        "textures": 10
+      },
+      "rendererAfter": {
+        "geometries": 115,
+        "textures": 10
+      },
+      "sameTables": true,
+      "sameRoad": true,
+      "mexicoInput": "main-results/simulator-120-second-softw-1837a-ay-soak-and-resource-budget--measurement.json",
+      "mexicoFirst": {
+        "geometries": 223,
+        "textures": 30
+      },
+      "mexicoLast": {
+        "geometries": 485,
+        "textures": 30
+      },
+      "mexicoLastFourGeometries": [
+        482,
+        482,
+        485,
+        485
+      ]
+    },
+    {
+      "version": "v71",
+      "cacheInput": "v71-results/vehicle-motion-soak-V8-120-5dd5a-p-and-pause-rate-continuity--v8-cache-soak.json",
+      "cacheInputSha256": "ba365b2d373fc2d0e442158f3043e6d3421713ff538d9d2201eb820c0b0a3be1",
+      "heapBefore": 12784776,
+      "heapAfter": 13159780,
+      "heapDelta": 375004,
+      "rendererBefore": {
+        "geometries": 115,
+        "textures": 10
+      },
+      "rendererAfter": {
+        "geometries": 115,
+        "textures": 10
+      },
+      "sameTables": true,
+      "sameRoad": true,
+      "mexicoInput": "v71-results/simulator-120-second-softw-1837a-ay-soak-and-resource-budget--measurement.json",
+      "mexicoFirst": {
+        "geometries": 350,
+        "textures": 30
+      },
+      "mexicoLast": {
+        "geometries": 485,
+        "textures": 30
+      },
+      "mexicoLastFourGeometries": [
+        485,
+        485,
+        485,
+        485
+      ]
+    }
+  ],
+  "caveat": "Mexico resident geometry rises during route coverage and later plateaus. This is compatible with lazy GPU uploads/culling; cause is not proven solely by counters. No unlimited leak-free or VRAM claim."
+}

@@ -1,0 +1,109 @@
+
+> test:unit
+> node --test tests/*.test.cjs
+
+✔ render grouping preserves every Float32 triangle and material, including negative cells (60.720519ms)
+✔ 128m proxy ranges exactly match native triangles through transforms, inside rays and near/far (21.872444ms)
+✔ ray bounds refresh on position changes and geometry replacement uses the native fallback (2.084872ms)
+✔ off-ray ranges skip triangle raycasts while a near barrier remains exact (62.485413ms)
+✔ flat/synthetic grouping stays unchanged and disposal releases CPU proxies once (1.869971ms)
+✔ camera collision matches Three.js for transformed instances, inside origins, finite rays and layers (102.529533ms)
+✔ camera cache refreshes when a world, instance buffer, geometry or count changes (1.378731ms)
+✔ off-ray camera instances skip triangle intersection while retaining a real close wall (11.697368ms)
+✔ mini-sector and corner gains telescope to the measured whole-lap difference (7.204473ms)
+✔ brake, minimum speed, gear and sustained full throttle are derived from real windows (0.488005ms)
+✔ missing or interpolated pedal channels do not become event points or zero statistics (0.808515ms)
+✔ matching rejects missing metadata and separates sessions, compound, age, phase and time (0.460677ms)
+✔ ideal sectors retain source laps and exclude deleted or incomplete sector sums (1.188491ms)
+✔ unusual lap catalog finds lower speed trap combined with faster lap, never the inverse (0.530903ms)
+✔ race pace excludes pit/flags and close-follow indicator uses finish timestamps only (2.479005ms)
+✔ pit scenario reports missing coverage rather than filling nonexistent drivers (0.456465ms)
+✔ raw series does not invent unavailable channels or scale wildly mismatched lap times (0.56612ms)
+✔ study import enforces bounds and strips arbitrary untrusted fields (0.766001ms)
+✔ near-finish exclusion changes pace samples without claiming full-lap traffic detection (0.42539ms)
+✔ stable runs require five consecutive valid laps and position-change leadups retain actual sectors (0.670106ms)
+✔ corner similarity rankings expose the selected metric and omit missing channels (0.969488ms)
+✔ a brake block already active at the window boundary is not invented as a new onset (0.319475ms)
+✔ whole-lap display mesh and buffered race boundaries are closed, finite and simple (147.655773ms)
+✔ cota: recorded raw data and centerline match provenance digests (5.281104ms)
+✔ cota: geographic query points map to the exact horizontal station convention (2.456595ms)
+✔ cota: derived filter is reproducible; interpolant, seam and grades stay bounded (49.735438ms)
+✔ spa: recorded raw data and centerline match provenance digests (1.299507ms)
+✔ spa: geographic query points map to the exact horizontal station convention (2.170355ms)
+✔ spa: derived filter is reproducible; interpolant, seam and grades stay bounded (53.847401ms)
+✔ real terrain rejects missing provenance, invented bank, invalid coordinates and grades (7.188477ms)
+✔ Mexico has no production elevation and unsupported event cannot adopt a different track (11.28551ms)
+✔ all rates keep wall-clock time across sparse, irregular and dropped frames (1.094639ms)
+✔ clock clamps end and negative timestamps without losing a positive stall (1.248789ms)
+✔ fixed geographic circuit is closed and has declared station length (1.050052ms)
+✔ registration recovers independent units, handedness and start station (26.257026ms)
+✔ bad registration falls back explicitly instead of manufacturing a racing line (19.932901ms)
+✔ wheel distance uses original telemetry distance rather than current speed times elapsed (0.189813ms)
+✔ changing speed accounts for the elapsed interval at the previous rate (0.143829ms)
+✔ flat surface preserves horizontal positions, yaw and zero root height (42.072095ms)
+✔ ascending and descending normals give correct quaternion pitch and bank roll (2.229441ms)
+✔ closed loop has continuous elevation, derivative, banking, normals and quaternion hemispheres (7.146099ms)
+✔ sampled elevations remain finite, bounded and stable over negative and multi-lap queries (24.496188ms)
+✔ provenance, finite samples, monotone distances and seam are validated (1.110787ms)
+✔ independent station length does not rescale XY or reinterpret telemetry metres (1.461746ms)
+✔ surface ribbons and kerb offsets have finite nonzero upward triangles (28.880003ms)
+✔ station-hinted projection stays on the requested branch at crossings (1.15923ms)
+✔ normal and heading validation reject nonfinite and degenerate orientations (0.372578ms)
+✔ banking limit, negative elevation and nonzero periodic seam remain finite (8.849063ms)
+✔ scalar height query agrees with the full surface without evaluating a normal (6.134599ms)
+✔ profile input is snapshotted so later caller mutation cannot corrupt a cached surface (0.755388ms)
+✔ spatial grid proves the nearest segment even beyond its first occupied ring (0.584287ms)
+✔ Blender GLBs retain four wheel pivots, two steering pivots, authored UVs and bounded LOD budgets (100.682434ms)
+✔ V7 three LODs stay inside the actual V6.1 triangle, primitive and download budgets (53.567601ms)
+✔ V7 axle locations, tyre support, front/rear widths and steering hierarchy survive all exports (30.261204ms)
+✔ V7 vehicle sources retain explicit provenance and match every shipped car digest (3.069841ms)
+✔ V9 never accepts software or ambiguous GPU identity as physical NVIDIA (0.910266ms)
+✖ V9 timestamps include long stalls and produce interval-based FPS and percentiles (1.235698ms)
+✔ V9 rejects missing, nonfinite or nonmonotonic frame observations (0.439238ms)
+✔ V9 keeps the historical maximum 10 percent FPS loss gate (1.402422ms)
+✔ V9 refuses comparisons with different or unrecorded conditions (0.380815ms)
+✔ V9 requires physical verification and five repeats (0.19727ms)
+✔ V9 reports p95 separately rather than turning FPS acceptance into frame consistency acceptance (0.254917ms)
+✔ rendered road height grid handles winding, cell borders, bridges and missing asphalt (1.647634ms)
+✔ visual pitch has correct brake/acceleration sign and bounded magnitude (7.25019ms)
+✔ turns lean outward; steering vanishes at rest, all limits finite (2.779106ms)
+✔ abrupt input is filtered and output derivative is bounded (2.511141ms)
+✔ replay-time integration is identical across FPS, rates, pause and backward seeks (3.593571ms)
+ℹ tests 67
+ℹ suites 0
+ℹ pass 66
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1726.428497
+
+✖ failing tests:
+
+test at tests/v9-metrics.test.cjs:3:1
+✖ V9 timestamps include long stalls and produce interval-based FPS and percentiles (1.235698ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + 90.99999999999999
+  - 91
+
+      at TestContext.<anonymous> (/workspace/work/tur-duellosu-v9/tests/v9-metrics.test.cjs:3:192)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 90.99999999999999,
+    expected: 91,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

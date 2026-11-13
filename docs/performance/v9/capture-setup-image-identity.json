@@ -1,0 +1,126 @@
+{
+  "note": "Initial capture failed on opaque about:blank storage; valid main images are compared byte-for-byte with final fresh main images. This does not turn the failed initial command into a pass.",
+  "rows": [
+    {
+      "file": "mexico-lod-medium.jpg",
+      "firstSha256": "a297f85ad48da7a5db24f581663019f081bee1a95a2f0c67c90f0797fe5917f6",
+      "finalSha256": "a297f85ad48da7a5db24f581663019f081bee1a95a2f0c67c90f0797fe5917f6",
+      "equal": true
+    },
+    {
+      "file": "mexico-acceleration-after.jpg",
+      "firstSha256": "01872c06513334bceaa08972204e252afd80a5eada0a276ec240e9fabb992365",
+      "finalSha256": "01872c06513334bceaa08972204e252afd80a5eada0a276ec240e9fabb992365",
+      "equal": true
+    },
+    {
+      "file": "spa-grade.jpg",
+      "firstSha256": "97bf59671eb6b9605e3129b637b0d60bea6fc3511660eb5499fe8457c43970f3",
+      "finalSha256": "97bf59671eb6b9605e3129b637b0d60bea6fc3511660eb5499fe8457c43970f3",
+      "equal": true
+    },
+    {
+      "file": "mexico-lod-low.jpg",
+      "firstSha256": "6a1be2f6aee567715719d1c96857aab79173d4d0fc83c008b36d058390d19ab9",
+      "finalSha256": "6a1be2f6aee567715719d1c96857aab79173d4d0fc83c008b36d058390d19ab9",
+      "equal": true
+    },
+    {
+      "file": "mexico-corner-after.jpg",
+      "firstSha256": "0351c2f59e79f7f5ab74a77d4bcc57ebc9ae82bec0ad995776aee2b35f2e4dc4",
+      "finalSha256": "0351c2f59e79f7f5ab74a77d4bcc57ebc9ae82bec0ad995776aee2b35f2e4dc4",
+      "equal": true
+    },
+    {
+      "file": "cota-follow.jpg",
+      "firstSha256": "05920d7a22133a4e65d410ee1941a731beb3f3017df75ab731d631c04ee760a4",
+      "finalSha256": "05920d7a22133a4e65d410ee1941a731beb3f3017df75ab731d631c04ee760a4",
+      "equal": true
+    },
+    {
+      "file": "spa-cockpit.jpg",
+      "firstSha256": "50a39ecb7c7b539175084d194ca9870be7234ea3b3e692f5bf8899c40ad16bf3",
+      "finalSha256": "50a39ecb7c7b539175084d194ca9870be7234ea3b3e692f5bf8899c40ad16bf3",
+      "equal": true
+    },
+    {
+      "file": "mexico-corner-center.jpg",
+      "firstSha256": "96d6f51bebde743d5768c262124e63beee710f9fc747539d3544df1e2bf626c2",
+      "finalSha256": "96d6f51bebde743d5768c262124e63beee710f9fc747539d3544df1e2bf626c2",
+      "equal": true
+    },
+    {
+      "file": "cota-grade.jpg",
+      "firstSha256": "6947fc2076451f9aaf70c4a1c06841fbe8eeb6ee1760727d5204b39676596427",
+      "finalSha256": "6947fc2076451f9aaf70c4a1c06841fbe8eeb6ee1760727d5204b39676596427",
+      "equal": true
+    },
+    {
+      "file": "mexico-braking-center.jpg",
+      "firstSha256": "dcfca3c5aa72b6f0ca8154508553bd5688107918959d2689cbe8cac8a3cc40bc",
+      "finalSha256": "dcfca3c5aa72b6f0ca8154508553bd5688107918959d2689cbe8cac8a3cc40bc",
+      "equal": true
+    },
+    {
+      "file": "spa-follow.jpg",
+      "firstSha256": "c777477c84bf53a289c04be40b65552e095028058b03d3dabd9e6164bbdc3316",
+      "finalSha256": "c777477c84bf53a289c04be40b65552e095028058b03d3dabd9e6164bbdc3316",
+      "equal": true
+    },
+    {
+      "file": "mexico-braking-before.jpg",
+      "firstSha256": "200a93e07e638fa21c15b31d5d7b4c3e0ea85c80e0648f6136758fa99ca51c23",
+      "finalSha256": "200a93e07e638fa21c15b31d5d7b4c3e0ea85c80e0648f6136758fa99ca51c23",
+      "equal": true
+    },
+    {
+      "file": "mexico-lod-high.jpg",
+      "firstSha256": "b361e7d1ab4eb18c4e886da29a68996ec1981fbce8049b0c928b9411f7ed6a66",
+      "finalSha256": "b361e7d1ab4eb18c4e886da29a68996ec1981fbce8049b0c928b9411f7ed6a66",
+      "equal": true
+    },
+    {
+      "file": "mexico-tyre-contact.jpg",
+      "firstSha256": "a36d30c9d8cade884448b422fce49fb2f38733c4673a90936405f8d6e2edcc80",
+      "finalSha256": "a36d30c9d8cade884448b422fce49fb2f38733c4673a90936405f8d6e2edcc80",
+      "equal": true
+    },
+    {
+      "file": "mexico-corner-before.jpg",
+      "firstSha256": "fb8774bf17797c1919b84c29c27935ed67e5a9e10646bf7dc029d24412f27ea9",
+      "finalSha256": "fb8774bf17797c1919b84c29c27935ed67e5a9e10646bf7dc029d24412f27ea9",
+      "equal": true
+    },
+    {
+      "file": "mexico-acceleration-before.jpg",
+      "firstSha256": "0fcc67e3feac1601c879694d44269a712557d05d0210d153fc82d3497c8d72c4",
+      "finalSha256": "0fcc67e3feac1601c879694d44269a712557d05d0210d153fc82d3497c8d72c4",
+      "equal": true
+    },
+    {
+      "file": "cota-cockpit.jpg",
+      "firstSha256": "054a8fde00d0200df25cdf6773c7cd482181e86e86ae874ed3c882c9074c5781",
+      "finalSha256": "054a8fde00d0200df25cdf6773c7cd482181e86e86ae874ed3c882c9074c5781",
+      "equal": true
+    },
+    {
+      "file": "mexico-acceleration-center.jpg",
+      "firstSha256": "c9e03b4b476d1524b142f886c55d935b4a685345801181a7d28980e83e7a776b",
+      "finalSha256": "c9e03b4b476d1524b142f886c55d935b4a685345801181a7d28980e83e7a776b",
+      "equal": true
+    },
+    {
+      "file": "mexico-cockpit.jpg",
+      "firstSha256": "cf0c76f778763302599182dd9170ff02acec166c02af1477ce56abca54bcbb92",
+      "finalSha256": "cf0c76f778763302599182dd9170ff02acec166c02af1477ce56abca54bcbb92",
+      "equal": true
+    },
+    {
+      "file": "mexico-braking-after.jpg",
+      "firstSha256": "8ea0d26968b40c1eb0fe42bd873369d197f9d090b2b64b8ac5ddf8aa3c7facb8",
+      "finalSha256": "8ea0d26968b40c1eb0fe42bd873369d197f9d090b2b64b8ac5ddf8aa3c7facb8",
+      "equal": true
+    }
+  ],
+  "allEqual": true
+}

@@ -1,0 +1,16 @@
+{
+  "result": {
+    "haloVertices": 0,
+    "cut": {
+      "cuts": 0,
+      "byMaterial": {},
+      "visibleMeshes": 19
+    },
+    "time": 20,
+    "near": 0.5,
+    "cars": 2,
+    "asset": false,
+    "motion": true
+  },
+  "errors": []
+}

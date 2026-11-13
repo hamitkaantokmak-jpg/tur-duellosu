@@ -48,3 +48,5 @@ V6 inceleme dalındaki COTA/Spa arazi verileri, lisanslar ve doğruluk sınırla
 V6.1 bariyer çizim optimizasyonu, regresyon kanıtları ve eş ayarlı görseller: [V6.1 raporu](docs/V6-1-PERFORMANS-OPTIMIZASYONU.md). V7 başlangıç main'i V6.1 merge commit'i `e5ffd2224bb3ee2dceed9ee2470bc6f6da33fc74` içerir; bu birleştirme aynı fiziksel NVIDIA üzerinde FPS kabulünün doğrulandığı anlamına gelmez. Tarihsel rapordaki kabul borcu açık kalır.
 
 V7 özgün araç silüeti, lastikler, PBR, üç LOD ve gerçek önce/sonra görselleri: [V7 araç raporu](docs/V7-ARAC-GORSELLERI.md) · [Galeri](docs/visual/v7/README.md). `feat/v7-car-visuals` bağımsız inceleme dalıdır; V7 main'e birleştirilmedi.
+
+V9 bağımsız performans/kalite denetimi: [kapsamlı rapor](docs/V9-PERFORMANS-KALITE-DENETIMI.md) ve [eş görüntüler](docs/visual/v9/README.md). V9 main/V8 uygulama kodunu değiştirmez; açık PR #13 (V7.1) ayrı denetlenir. Fiziksel NVIDIA kabulü tamamlanmamıştır; V9 incelemesi taslak olarak tutulur.
