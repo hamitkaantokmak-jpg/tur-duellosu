@@ -2,6 +2,8 @@
 
 ## Current V7 vehicle
 
+V7.1 audit revision: the user explicitly requested halo removal. `HaloRing` and `HaloPillar` are removed before batching in all three LODs; the editable source and procedural fallback match. The remaining design is a custom halo-free visual interpretation, not a current regulation-accurate F1 replica. Camera position, near plane, V8 visual motion, wheel pivots and tyre fitting remain unchanged. No extra material or render pass is added. The build records `halo: false` in `vehicle-v7-authoring.json` and refreshes the three car hashes.
+
 `npm run assets:build` runs `build_v7.py` and the optimizer's `--cars-only` mode. It updates only the three `assets/v4/car-*.glb` files (stable runtime URLs), their manifest/provenance and `vehicle-v7-authoring.json`. The original, unbranded V7 design and its 2022–2025-style open-wheel proportions are not a verified team replica. `vehicle-v7.blend` is the editable high-detail source, actually reopened in Blender 4.3.2. V4 helper functions are imported without rebuilding the venue.
 
 Retained contract: metres, +Z forward, Y up on export, 3.32 m wheelbase, 0.36 m tyre radius and original `Wheel_*` / `Steer_F*` pivots. Front/rear carcass widths are 0.35/0.39 m. Wheels spin from replay distance; front steering remains the existing visual approximation. Chassis, wishbones and uprights follow the same rigid surface pose: no independent suspension travel, tyre deformation or suspension physics is claimed.

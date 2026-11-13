@@ -72,7 +72,7 @@ def tyre(wheel,front,side):
 
 def car():
  root=v.make_car();root.name='TD_V7_OpenWheel'
- remove_named(['RadiatorInlet','SidepodAccent','FloorEdgeStrake','Wishbone','PushRod','DriverVisor'])
+ remove_named(['RadiatorInlet','SidepodAccent','FloorEdgeStrake','Wishbone','PushRod','DriverVisor','HaloRing','HaloPillar'])
  # A visor follows the helmet shell rather than intersecting it as a black bead.
  segments={'high':24,'medium':16,'low':10}[LEVEL];verts=[]
  for latitude in [.10,.30,.50]:
@@ -119,6 +119,6 @@ for level,detail in [('high',3),('medium',2),('low',1)]:
  if level=='high':bpy.ops.wm.save_as_mainfile(filepath=str(v.ROOT/'art/blender/vehicle-v7.blend'),compress=True)
  v.batch(root);v.export(v.OUT/('car-'+level+'-raw.glb'),root)
  stats.append({'lod':level,'objects':len(root.children_recursive)})
-metadata={'version':7,'blender':bpy.app.version_string,'source':'art/blender/build_v7.py','units':'metres','exportForward':'+Z','exportUp':'+Y','original':True,'teamReplica':False,'wheelbase_m':3.32,'tyreRadius_m':.36,'frontTyreWidth_m':.35,'rearTyreWidth_m':.39,'suspension':'rigid visual linkages; no suspension physics','car':stats}
+metadata={'version':7.1,'halo':False,'haloRemoval':'User-requested visual design; not a current regulation-accurate F1 replica','blender':bpy.app.version_string,'source':'art/blender/build_v7.py','units':'metres','exportForward':'+Z','exportUp':'+Y','original':True,'teamReplica':False,'wheelbase_m':3.32,'tyreRadius_m':.36,'frontTyreWidth_m':.35,'rearTyreWidth_m':.39,'suspension':'rigid visual linkages; no suspension physics','car':stats}
 (v.OUT/'vehicle-v7-authoring.json').write_text(json.dumps(metadata,indent=2)+'\n')
 print('V7_VEHICLE_BUILD_COMPLETE')

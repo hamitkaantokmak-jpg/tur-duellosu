@@ -73,25 +73,25 @@
     "file": "assets/v4/car-low.glb",
     "source": "art/blender/build_v7.py",
     "license": "Original project asset; repository licensing unchanged",
-    "notes": "V7 original unbranded open-wheel design. No verified team replica; retained 3.32 m wheelbase and 0.36 m radius. Editable source: art/blender/vehicle-v7.blend. No new external geometry or textures.",
-    "sha256": "07cad141da0125689ae544bb4a7157be5a471b54a429840a588ebe9c0311f97a",
-    "bytes": 132232
+    "notes": "V7.1 original unbranded halo-free design requested by the user. No verified team replica; retained 3.32 m wheelbase and 0.36 m radius. Editable source: art/blender/vehicle-v7.blend. No new external geometry or textures.",
+    "sha256": "d0a134edd4710bc1f5a45c12853625b2eb9e6010e059f3e09f3cbe653049dee5",
+    "bytes": 123776
   },
   {
     "file": "assets/v4/car-medium.glb",
     "source": "art/blender/build_v7.py",
     "license": "Original project asset; repository licensing unchanged",
-    "notes": "V7 original unbranded open-wheel design. No verified team replica; retained 3.32 m wheelbase and 0.36 m radius. Editable source: art/blender/vehicle-v7.blend. No new external geometry or textures.",
-    "sha256": "ae3f310d44feb7ace662f3901c9640b7108c3b78337ac49331455e9bd799af86",
-    "bytes": 255352
+    "notes": "V7.1 original unbranded halo-free design requested by the user. No verified team replica; retained 3.32 m wheelbase and 0.36 m radius. Editable source: art/blender/vehicle-v7.blend. No new external geometry or textures.",
+    "sha256": "e9e866e3508a993a029708bf5d9f6164daf5f7a37cc2c02dc0b34e55e0f11f35",
+    "bytes": 244884
   },
   {
     "file": "assets/v4/car-high.glb",
     "source": "art/blender/build_v7.py",
     "license": "Original project asset; repository licensing unchanged",
-    "notes": "V7 original unbranded open-wheel design. No verified team replica; retained 3.32 m wheelbase and 0.36 m radius. Editable source: art/blender/vehicle-v7.blend. No new external geometry or textures.",
-    "sha256": "7ad588601eb95b76b925a2b6a431446ae54b80bd4b8167217576e2b3005a2164",
-    "bytes": 276916
+    "notes": "V7.1 original unbranded halo-free design requested by the user. No verified team replica; retained 3.32 m wheelbase and 0.36 m radius. Editable source: art/blender/vehicle-v7.blend. No new external geometry or textures.",
+    "sha256": "b55d91cb3332e35de9e64e9256dda13ea7816518fdb49f4f0631fd9ad4f2b8a9",
+    "bytes": 266280
   },
   {
     "file": "assets/v4/venue.glb",
