@@ -1,0 +1,379 @@
+
+> test
+> npm run test:unit && npm run test:browser
+
+
+> test:unit
+> node --test tests/*.test.cjs
+
+✔ render grouping preserves every Float32 triangle and material, including negative cells (47.624175ms)
+✔ 128m proxy ranges exactly match native triangles through transforms, inside rays and near/far (15.630611ms)
+✔ ray bounds refresh on position changes and geometry replacement uses the native fallback (3.575786ms)
+✔ off-ray ranges skip triangle raycasts while a near barrier remains exact (47.932397ms)
+✔ flat/synthetic grouping stays unchanged and disposal releases CPU proxies once (3.199676ms)
+✔ camera collision matches Three.js for transformed instances, inside origins, finite rays and layers (70.368149ms)
+✔ camera cache refreshes when a world, instance buffer, geometry or count changes (1.336634ms)
+✔ off-ray camera instances skip triangle intersection while retaining a real close wall (6.367237ms)
+✔ camera audit counts only near-plane crossings projected inside the viewport (29.927861ms)
+✔ camera audit respects indexed geometry, world transforms, layers and hidden ancestors (0.711192ms)
+✔ user-requested halo removal leaves its ring/pillar volumes empty in every GLB LOD without increasing budgets (93.181533ms)
+✔ mini-sector and corner gains telescope to the measured whole-lap difference (6.401928ms)
+✔ brake, minimum speed, gear and sustained full throttle are derived from real windows (0.399865ms)
+✔ missing or interpolated pedal channels do not become event points or zero statistics (0.610435ms)
+✔ matching rejects missing metadata and separates sessions, compound, age, phase and time (0.237589ms)
+✔ ideal sectors retain source laps and exclude deleted or incomplete sector sums (0.944705ms)
+✔ unusual lap catalog finds lower speed trap combined with faster lap, never the inverse (0.487576ms)
+✔ race pace excludes pit/flags and close-follow indicator uses finish timestamps only (2.439178ms)
+✔ pit scenario reports missing coverage rather than filling nonexistent drivers (0.294999ms)
+✔ raw series does not invent unavailable channels or scale wildly mismatched lap times (0.435534ms)
+✔ study import enforces bounds and strips arbitrary untrusted fields (0.818786ms)
+✔ near-finish exclusion changes pace samples without claiming full-lap traffic detection (0.604954ms)
+✔ stable runs require five consecutive valid laps and position-change leadups retain actual sectors (0.469423ms)
+✔ corner similarity rankings expose the selected metric and omit missing channels (1.024487ms)
+✔ a brake block already active at the window boundary is not invented as a new onset (0.297326ms)
+✔ whole-lap display mesh and buffered race boundaries are closed, finite and simple (134.673756ms)
+✔ cota: recorded raw data and centerline match provenance digests (5.665582ms)
+✔ cota: geographic query points map to the exact horizontal station convention (2.057299ms)
+✔ cota: derived filter is reproducible; interpolant, seam and grades stay bounded (36.651812ms)
+✔ spa: recorded raw data and centerline match provenance digests (2.450571ms)
+✔ spa: geographic query points map to the exact horizontal station convention (2.829879ms)
+✔ spa: derived filter is reproducible; interpolant, seam and grades stay bounded (32.407562ms)
+✔ real terrain rejects missing provenance, invented bank, invalid coordinates and grades (8.107461ms)
+✔ Mexico has no production elevation and unsupported event cannot adopt a different track (9.105148ms)
+✔ all rates keep wall-clock time across sparse, irregular and dropped frames (0.925298ms)
+✔ clock clamps end and negative timestamps without losing a positive stall (1.092886ms)
+✔ fixed geographic circuit is closed and has declared station length (0.808624ms)
+✔ registration recovers independent units, handedness and start station (20.383417ms)
+✔ bad registration falls back explicitly instead of manufacturing a racing line (17.595686ms)
+✔ wheel distance uses original telemetry distance rather than current speed times elapsed (0.180334ms)
+✔ changing speed accounts for the elapsed interval at the previous rate (0.147515ms)
+✔ flat surface preserves horizontal positions, yaw and zero root height (46.456256ms)
+✔ ascending and descending normals give correct quaternion pitch and bank roll (2.324653ms)
+✔ closed loop has continuous elevation, derivative, banking, normals and quaternion hemispheres (2.133063ms)
+✔ sampled elevations remain finite, bounded and stable over negative and multi-lap queries (65.783592ms)
+✔ provenance, finite samples, monotone distances and seam are validated (0.668153ms)
+✔ independent station length does not rescale XY or reinterpret telemetry metres (0.973309ms)
+✔ surface ribbons and kerb offsets have finite nonzero upward triangles (26.969616ms)
+✔ station-hinted projection stays on the requested branch at crossings (1.062969ms)
+✔ normal and heading validation reject nonfinite and degenerate orientations (0.674931ms)
+✔ banking limit, negative elevation and nonzero periodic seam remain finite (8.491449ms)
+✔ scalar height query agrees with the full surface without evaluating a normal (8.314785ms)
+✔ profile input is snapshotted so later caller mutation cannot corrupt a cached surface (2.674868ms)
+✔ spatial grid proves the nearest segment even beyond its first occupied ring (0.528192ms)
+✔ Blender GLBs retain four wheel pivots, two steering pivots, authored UVs and bounded LOD budgets (104.003686ms)
+✔ V7 three LODs stay inside the actual V6.1 triangle, primitive and download budgets (50.1793ms)
+✔ V7 axle locations, tyre support, front/rear widths and steering hierarchy survive all exports (31.639319ms)
+✔ V7 vehicle sources retain explicit provenance and match every shipped car digest (3.154421ms)
+✔ rendered road height grid handles winding, cell borders, bridges and missing asphalt (1.158117ms)
+✔ visual pitch has correct brake/acceleration sign and bounded magnitude (3.207991ms)
+✔ turns lean outward; steering vanishes at rest, all limits finite (2.216728ms)
+✔ abrupt input is filtered and output derivative is bounded (1.350525ms)
+✔ replay-time integration is identical across FPS, rates, pause and backward seeks (3.166182ms)
+ℹ tests 63
+ℹ suites 0
+ℹ pass 63
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1801.188455
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> test:browser
+> playwright test
+
+
+Running 36 tests using 1 worker
+
+(node:23303) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23303) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+V61_BATCHING cota {"collision":{"batches":9,"sourceChunks":64,"hits":96,"misses":0,"maxError":0},"surfaceStable":{"sameGeometry":true,"sameVersion":true,"samePositions":true,"telemetry":true},"disposal":{"rebuilds":[{"memory":{"geometries":76,"textures":10},"sameRenderer":true,"cacheCleared":true,"first":0,"last":9},{"memory":{"geometries":76,"textures":10},"sameRenderer":true,"cacheCleared":true,"first":9,"last":18},{"memory":{"geometries":76,"textures":10},"sameRenderer":true,"cacheCleared":true,"first":18,"last":27}],"disposedRanges":true,"liveRanges":64,"sharedBuffers":true},"errors":[],"consoleErrors":[]}
+  ✓   1 tests/barrier-batching.spec.js:2:92 › cota render batches preserve native collision, static surfaces and disposal across quality changes (33.6s)
+V61_BATCHING spa {"collision":{"batches":13,"sourceChunks":87,"hits":96,"misses":0,"maxError":0},"surfaceStable":{"sameGeometry":true,"sameVersion":true,"samePositions":true,"telemetry":true},"disposal":{"rebuilds":[{"memory":{"geometries":75,"textures":10},"sameRenderer":true,"cacheCleared":true,"first":0,"last":13},{"memory":{"geometries":75,"textures":10},"sameRenderer":true,"cacheCleared":true,"first":13,"last":26},{"memory":{"geometries":75,"textures":10},"sameRenderer":true,"cacheCleared":true,"first":26,"last":39}],"disposedRanges":true,"liveRanges":87,"sharedBuffers":true},"errors":[],"consoleErrors":[]}
+  ✓   2 tests/barrier-batching.spec.js:2:92 › spa render batches preserve native collision, static surfaces and disposal across quality changes (44.6s)
+  ✓   3 tests/high-dpi.spec.js:3:1 › Ultra on a high-DPI display uses the reduced real drawing buffer and preserves Blender assets (24.9s)
+  ✓   4 tests/insight-lab.spec.js:16:1 › real telemetry powers the studio, exact region sums, theories, filtering and chart navigation (9.0s)
+  ✓   5 tests/insight-lab.spec.js:90:1 › notes preserve spaces, safe imports, downloadable context and round-trip shared URLs (2.7s)
+  ✓   6 tests/insight-lab.spec.js:160:1 › real race metadata powers tempo, pit coverage, position leadups, phases and weekend dossier (2.7s)
+  ✓   7 tests/insight-lab.spec.js:209:1 › multi-lap signatures, third driver and another year load actual archive telemetry (4.2s)
+  ✓   8 tests/insight-lab.spec.js:240:1 › missing secondary archive files produce recoverable state rather than invented results (2.2s)
+  ✓   9 tests/insight-lab.spec.js:253:1 › initial archive failure can be retried inside the studio without hidden old results (1.8s)
+  ✓  10 tests/insight-lab.spec.js:271:1 › late secondary data cannot replace a newly selected session (2.9s)
+INTEGRATION_LAP {"data":{"totals":[76.651,76.356],"channels":[{"v":{"count":539,"finite":true,"varied":true},"thr":{"count":539,"finite":true,"varied":true},"brk":{"count":539,"finite":true,"varied":true},"gear":{"count":539,"finite":true,"varied":true},"rpm":{"count":539,"finite":true,"varied":true}},{"v":{"count":539,"finite":true,"varied":true},"thr":{"count":539,"finite":true,"varied":true},"brk":{"count":539,"finite":true,"varied":true},"gear":{"count":539,"finite":true,"varied":true},"rpm":{"count":539,"finite":true,"varied":true}}],"assetErrors":[]},"lods":[{"distance":15,"visible":["high"]},{"distance":55,"visible":["medium"]},{"distance":150,"visible":["low"]}],"finish":{"time":76.651,"playing":false,"progress":[1,1],"delta":-0.29499998688697815,"ready":true,"cars":2,"memory":{"geometries":458,"textures":30},"assetErrors":[]},"wallSeconds":30.373,"loaded":["/","/assets/topography/profiles.js","/assets/tracks/mexico.js","/assets/tracks/v3/boundaries.js","/assets/tracks/v3/render-path.js","/assets/tracks/v3/venue-osm.js","/assets/v4/car-high.glb","/assets/v4/car-low.glb","/assets/v4/car-medium.glb","/assets/v4/concrete-color.jpg","/assets/v4/concrete-normal.jpg","/assets/v4/concrete-roughness.jpg","/assets/v4/daylight.hdr","/assets/v4/road-color.ktx2","/assets/v4/road-normal.ktx2","/assets/v4/road-roughness.ktx2","/assets/v4/tree-atlas.png","/assets/v4/tree.glb","/assets/v4/turf-color.jpg","/assets/v4/venue.glb","/src/barrier-batching.js","/src/camera-collision.js","/src/ghost-director.js","/src/ghost-topography.js","/src/ghost-vehicle-motion.js","/src/ghost-webgl.js","/src/ghost-world.js","/src/ghost.css","/src/insight-core.js","/src/insight-lab.css","/src/insight-lab.js","/src/mexico-v3.js","/src/mexico-v4.js","/src/real-topography.js","/src/replay-core.js","/src/track-topography.js","/src/vehicle-motion.js","/src/visual-assets.js","http://127.0.0.1:4492/218406fe-665a-410b-884b-d11facedf02d","http://127.0.0.1:4492/2aa7e171-9e1f-4b3c-9247-94db451cdfb9","http://127.0.0.1:4492/35e02052-685f-4bff-a081-9432b2625a64","http://127.0.0.1:4492/3cd5f350-44bf-4059-b8db-63d684bfb026","http://127.0.0.1:4492/44325796-14c2-4631-aa55-6fbf7ca38a84","http://127.0.0.1:4492/50cfb615-ad82-479a-a85a-87bbd7faf941","http://127.0.0.1:4492/6d492717-b514-4898-9e1d-bef9108c9758","http://127.0.0.1:4492/aa07ca52-8cb6-4e71-be97-76d75b0d9a41","http://127.0.0.1:4492/be6b4977-8c76-4878-b673-a35b171e8e40","http://127.0.0.1:4492/ee63aeab-6e4f-4bc9-8872-cf392f7f10d4"],"errors":[],"failed":[],"consoleErrors":[]}
+  ✓  11 tests/main-integration.spec.js:5:1 › integrated main candidate uses V4 assets and all LODs through a complete real telemetry lap (1.2m)
+  ✓  12 tests/main-integration.spec.js:43:1 › real Mexico race analysis retains summary, charts, strategy, moves and driver tabs (3.0s)
+REAL_SURFACE cota {"metadata":{"category":"derived","owner":"USGS","license":"US Government public domain; centerline MIT","source":"https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/116248","horizontalCRS":"Query EPSG:4326; service EPSG:3857","verticalDatum":"NAVD88","resolutionMeters":1,"uncertainty":"Project QL2 specification: NVA RMSE <=0.10 m, not a local asphalt accuracy guarantee. Approximate centerline and 2017 acquisition add unquantified error.","label":"TÜRETİLMİŞ · USGS 2017 arazi modeli · 1 m grid · banking ölçülmedi","verticalUnit":"m","bankingStatus":"unmeasured","surface":"bare-earth DEM, not surveyed asphalt","retrievedAt":"2026-11-10T18:41:42.558Z","sourceSpacingMeters":19.97826086956522,"centerlineSha256":"199621d61cf0b50429fc9fcf1a8dabf016df453e33bf64299a651e1acad7e158","rawSha256":"c76fc5a7d6c4c0b756ed6435896da0a57aaeb71e135e333b501c0da753a39f2a","originElevationMeters":155.00193786625,"processing":"One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime","horizontalProcessing":"Symmetric station offsets [-6,-3,0,3,6] m, weights [1,2,3,2,1]/9; preserve station parameter","maxFilterResidualMeters":0.29974746675000574},"fit":{"a":0.0997838877730378,"b":0.0009055061089691781,"flip":-1,"dir":1,"phase":0.9461669921875,"tx":-104.36780272840788,"tz":-222.4395333012659,"rmse":6.768484462236583},"profile":true,"flat":false,"length":5514,"penetration":3.552713678800501e-15,"gap":0.031352504780581825,"upError":2.2633986948989007e-16,"cameraEpsilon":0.00010389803420807198,"collisionSweep":{"requested":6.0000000000000036,"moved":1.6999997096686323,"clearance":0.6500000000000004},"telemetryUnchanged":true,"totals":[94.154,92.974],"finish":[1,1],"mexicoVenue":false,"telemetryZ":[{"present":true,"range":[1265.6580330443162,1569],"classification":"unverified telemetry Z; not used as the terrain source"},{"present":true,"range":[1265.7782090168698,1569.5678898658891],"classification":"unverified telemetry Z; not used as the terrain source"}]}
+  ✓  13 tests/real-topography.spec.js:3:30 › cota real terrain keeps telemetry, tyre contact and cameras stable (35.1s)
+REAL_SURFACE spa {"metadata":{"category":"derived","owner":"Service public de Wallonie (SPW)","license":"CC-BY-4.0; centerline MIT","source":"https://geoportail.wallonie.be/catalogue/a004e570-99d6-4fe5-b83d-49b774409278.html","horizontalCRS":"Source EPSG:3812; query EPSG:4326 (server conversion)","verticalDatum":"DNG / EPSG:5710","resolutionMeters":0.5,"uncertainty":"Published regional absolute vertical accuracy ~0.12 m; approximate centerline, bridge exclusion and 2021-2022 acquisition add unquantified asphalt error.","label":"TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi","verticalUnit":"m","bankingStatus":"unmeasured","surface":"bare-earth DEM, not surveyed asphalt","retrievedAt":"2026-11-10T18:53:20.388Z","sourceSpacingMeters":39.79545454545455,"centerlineSha256":"b867de9cc8364cc9b545a044377a56a697b8db77823c849c1a1c03760a943381","rawSha256":"9ec5b514d7f3c5aaf31748402b1b3daafbe47a575c5c2abea4bb57463a006a76","originElevationMeters":416.9878235,"processing":"One circular [1,2,1]/4 pass, subtract filtered station-zero height, periodic monotone cubic at runtime","horizontalProcessing":"Symmetric station offsets [-6,-3,0,3,6] m, weights [1,2,3,2,1]/9; preserve station parameter","maxFilterResidualMeters":0.8401567500000056},"fit":{"a":0.10013797468515752,"b":0.0039557485229051535,"flip":-1,"dir":1,"phase":0.982177734375,"tx":101.72815800715988,"tz":243.6991799098604,"rmse":7.055156042794931},"profile":true,"flat":false,"length":7004,"penetration":3.552713678800501e-15,"gap":0.01963240619179185,"upError":2.240145354958912e-16,"cameraEpsilon":0.00016316140001926271,"collisionSweep":{"requested":5.999999999999994,"moved":1.6999995855200696,"clearance":0.6500000000000001},"telemetryUnchanged":true,"totals":[113.835,114.095],"finish":[1,1],"mexicoVenue":false,"telemetryZ":[{"present":true,"range":[3654.9931574428565,4679],"classification":"unverified telemetry Z; not used as the terrain source"},{"present":true,"range":[3655,4678.039916573683],"classification":"unverified telemetry Z; not used as the terrain source"}]}
+  ✓  14 tests/real-topography.spec.js:3:30 › spa real terrain keeps telemetry, tyre contact and cameras stable (38.8s)
+  ✓  15 tests/real-topography.spec.js:45:1 › COTA derived terrain survives 120 seconds, camera/quality changes and Studio round trips (3.0m)
+  ✓  16 tests/simulator.spec.js:4:1 › real Mexico telemetry, cameras, profiles and Blender assets (2.0m)
+RUNTIME {
+  fps: 0.5642385600629575,
+  ms: 1772.300000000745,
+  calls: 291,
+  memory: { geometries: 451, textures: 30 },
+  gpu: 'WebKit WebGL',
+  totals: [ 76.651, 76.356 ]
+}
+  ✓  17 tests/simulator.spec.js:34:1 › real Mexico clock, playback and repeated world disposal (1.9m)
+  ✓  18 tests/simulator.spec.js:54:1 › real Mexico pilot/lap changes, analysis, mobile and visibility (32.0s)
+  ✓  19 tests/simulator.spec.js:67:1 › WebGL failure keeps the standard replay available (6.5s)
+SOAK_120_SECONDS {"fps":0.8320852055245299,"ms":1201.800000000745,"ready":true,"geometries":485,"textures":30,"calls":220,"renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)","resolution":[747,294],"frames":88,"p50":1080.5,"p95":1999.800000000745,"cpu":3.699999999254942,"gpu":497.012582,"wallMs":120952,"snapshots":[{"time":36.981200000005956,"ready":true,"memory":{"geometries":350,"textures":30}},{"time":74.91280000000594,"ready":true,"memory":{"geometries":422,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":422,"textures":30}},{"time":38.735200000005946,"ready":true,"memory":{"geometries":483,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":38.613999999994064,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":37.20079999999702,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":38.58159999999998,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":75.24680000000004,"ready":true,"memory":{"geometries":485,"textures":30}},{"time":76.651,"ready":true,"memory":{"geometries":485,"textures":30}}],"errors":[],"consoleErrors":[]}
+  ✓  20 tests/simulator.spec.js:73:1 › 120-second software-renderer replay soak and resource budget (2.5m)
+  ✓  21 tests/simulator.spec.js:86:1 › Ultra effects, diagnostics export and missing asset fallback (45.0s)
+  ✓  22 tests/simulator.spec.js:92:1 › asset load failure retains working procedural cars and JPEG materials (10.6s)
+  ✓  23 tests/simulator.spec.js:97:1 › alignment falls back for both laps when one projection is rejected (23.9s)
+  ✓  24 tests/simulator.spec.js:103:1 › missing Blender venue assets retain cars and working telemetry (16.1s)
+  ✓  25 tests/simulator.spec.js:105:1 › free camera movement stops before the actual circuit barrier (14.0s)
+STUDIO_SIMULATOR {"cycles":[{"sameRenderer":true,"requests":1,"initialRequests":1,"cacheReplaced":true,"memory":{"geometries":130,"textures":28},"time":0,"drivers":["ALO","STR"],"laps":[2,11],"assets":[]},{"sameRenderer":true,"requests":1,"initialRequests":1,"cacheReplaced":true,"memory":{"geometries":132,"textures":29},"time":0,"drivers":["TSU","LAW"],"laps":[2,8],"assets":[]},{"sameRenderer":true,"requests":1,"initialRequests":1,"cacheReplaced":true,"memory":{"geometries":130,"textures":28},"time":0,"drivers":["ALO","STR"],"laps":[2,11],"assets":[]}],"errors":[],"consoleErrors":[]}
+  ✓  26 tests/studio-simulator.spec.js:4:1 › studio and simulator reuse one renderer across repeated camera, pilot and lap changes (2.4m)
+SURFACE_CHECKS {"maxPenetration":2.220446049250313e-16,"maxGap":0.007454342851971774,"maxUpError":2.230452372859658e-16,"triangles":4304,"degenerate":0,"down":0,"kerbBelow":0,"kerbDetached":0,"cameraSteps":{"a":0.6923510209196984,"b":0.5835724490554526,"cockpit":0.6867087962144858,"cinematic":0.6845338615979664,"compare":1.0477349742187698},"cameraContinuity":{"a":0.00027220182897025325,"b":0.0002329602251478491,"cockpit":0.00026946608076627854,"cinematic":0.0002681412928957627,"compare":0.00048034359281246},"totals":[76.651,76.356],"finish":[1,1],"category":"illustrative","records":[{"mode":"a","worst":{"time":8.525000000000054,"from":[702.2042837132859,30.778021531056055,89.70382479723962],"to":[706.7642756976968,30.085670510136357,90.3436807360044]}},{"mode":"b","worst":{"time":8.400000000000052,"from":[685.1215353970669,33.34746266742972,87.32788854464762],"to":[689.0452925345974,32.763890218374264,87.87126454624591]}},{"mode":"cockpit","worst":{"time":8.525000000000054,"from":[713.4374010005312,26.75432228661625,91.28604223204238],"to":[717.9968784375393,26.067613490401765,91.92954696267135]}},{"mode":"cinematic","worst":{"time":8.525000000000054,"from":[707.4472593771421,28.42061309983777,87.21072588459857],"to":[712.0080609231139,27.736079238239803,87.85228504087735]}},{"mode":"compare","worst":{"time":8.500000000000053,"from":[693.6975263175519,37.66424080484488,78.52316475658426],"to":[698.3512575857446,36.61650583062611,79.7074143895015]}}]}
+  ✓  27 tests/topography.spec.js:4:1 › synthetic surface: tyre support, real telemetry, mesh, cameras and eight application screenshots (46.6s)
+  ✓  28 tests/topography.spec.js:62:1 › profile changes rebuild collision cache and 120-second playback keeps bounded GPU resources (2.5m)
+  ✓  29 tests/v5-audit.spec.js:3:1 › free camera sweep cannot cross an elevated road between safe endpoints (15.7s)
+  ✓  30 tests/v7-vehicle.spec.js:2:1 › V7 wheels and steering retain distance animation, static geometry and automatic three-level LOD (32.9s)
+  ✓  31 tests/vehicle-motion-soak.spec.js:2:1 › V8 120-second replay retains motion/road caches, heap and pause/rate continuity (2.4m)
+  ✓  32 tests/vehicle-motion.spec.js:2:127 › V8 mexico body-only motion preserves root, tyre support, telemetry and cameras (21.2s)
+  ✘  33 tests/vehicle-motion.spec.js:2:127 › V8 cota body-only motion preserves root, tyre support, telemetry and cameras (3.0m)
+(node:26094) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:26094) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  34 tests/vehicle-motion.spec.js:2:127 › V8 spa body-only motion preserves root, tyre support, telemetry and cameras (1.1m)
+  ✘  35 tests/vehicle-visual-audit.spec.js:2:1 › halo-free GLBs retain cockpit framing, unclipped near view, all LODs and V8 motion on three tracks (3.0m)
+(node:26382) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:26382) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  36 tests/vehicle-visual-audit.spec.js:21:1 › halo-free procedural fallback keeps cockpit, visible driver and replay working (13.0s)
+
+
+  1) tests/vehicle-motion.spec.js:2:127 › V8 cota body-only motion preserves root, tyre support, telemetry and cameras
+
+    Test timeout of 180000ms exceeded while setting up "context".
+
+    Error: browser.newContext: Test ended.
+    Browser logs:
+
+    [pid=23316][err] [23316:23356:1113/143557.661922:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 23970: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143557.665910:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 23972: Read-only file system (30)
+    [pid=23316][err] [23316:23316:1113/143557.673451:ERROR:chrome/browser/ui/views/user_education/impl/browser_user_education_interface_impl.cc:186] Attempting to show IPH IPH_ExtensionsZeroStatePromo before browser initialization complete; IPH will not be shown.
+    [pid=23316][err] [23316:23356:1113/143557.905297:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 23996: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143557.931724:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24007: Read-only file system (30)
+    [pid=23316][err] [23359:23359:1113/143559.709868:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=23316][err] [23359:23359:1113/143559.716024:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=23316][err] [23359:23359:1113/143559.717190:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=23316][err] [23359:23359:1113/143559.718665:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=23316][err] [23316:23356:1113/143559.762924:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24027: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143559.796826:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24037: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143559.802195:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24039: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143600.064800:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24063: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143600.082800:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24072: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143601.611945:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24092: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143601.630156:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24103: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143601.632647:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24104: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143601.999901:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24131: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143602.015085:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24140: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143604.519417:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24159: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143604.537857:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24168: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143604.540079:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24169: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143604.748696:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24195: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143604.764970:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24204: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143655.310195:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24234: Read-only file system (30)
+    [pid=23316][err] Warning: vkCreateInstance: Found no drivers!
+    [pid=23316][err] Warning: vkCreateInstance failed with VK_ERROR_INCOMPATIBLE_DRIVER
+    [pid=23316][err]     at CheckVkSuccessImpl (../../third_party/dawn/src/dawn/native/vulkan/VulkanError.cpp:106)
+    [pid=23316][err]
+    [pid=23316][err] [23316:23316:1113/143655.536763:ERROR:services/on_device_model/public/cpp/service_client.cc:37] Unexpected on_device_model service disconnect; reason: 1, description: Error loading backend.
+    [pid=23316][err] [23316:23356:1113/143717.391670:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24242: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143717.421592:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24253: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143717.424098:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24254: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143717.655430:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24277: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143717.674206:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24286: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143720.030250:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24308: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143720.052087:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24319: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143720.054903:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24320: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143720.271416:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24345: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143720.300701:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24354: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143755.124694:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24395: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143755.156594:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24404: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143755.159767:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24408: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143755.468377:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24437: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143755.501994:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24448: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143833.967688:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24472: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143833.992228:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24483: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143833.993851:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24484: Read-only file system (30)
+    [pid=23316][err] [23316:23316:1113/143834.000893:ERROR:chrome/browser/ui/views/user_education/impl/browser_user_education_interface_impl.cc:186] Attempting to show IPH IPH_ExtensionsZeroStatePromo before browser initialization complete; IPH will not be shown.
+    [pid=23316][err] [23316:23356:1113/143834.329614:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24509: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/143834.348133:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24518: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144133.223014:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24585: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144133.242654:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24594: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144133.246530:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24598: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144133.527785:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24621: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144133.543296:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24630: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144333.906763:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24750: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144333.947320:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24761: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144333.952823:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24763: Read-only file system (30)
+    [pid=23316][err] [23316:23316:1113/144333.960241:ERROR:chrome/browser/ui/views/user_education/impl/browser_user_education_interface_impl.cc:186] Attempting to show IPH IPH_ExtensionsZeroStatePromo before browser initialization complete; IPH will not be shown.
+    [pid=23316][err] [23316:23356:1113/144334.322255:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24790: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144334.337171:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24799: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144526.984531:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24836: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144527.007520:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24845: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144527.011700:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24848: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144527.257164:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24872: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144527.281894:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24883: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144601.949533:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24911: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144601.967224:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24920: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144601.972857:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24923: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144602.320217:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24947: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144602.339580:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24958: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144604.737835:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24979: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144604.760209:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24990: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144604.762151:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24991: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144605.037087:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25021: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144605.061910:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25034: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144836.590843:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25116: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144836.616656:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25125: Read-only file system (30)
+    [pid=23316][err] [23316:23316:1113/144836.621238:ERROR:chrome/browser/ui/views/user_education/impl/browser_user_education_interface_impl.cc:186] Attempting to show IPH IPH_ExtensionsZeroStatePromo before browser initialization complete; IPH will not be shown.
+    [pid=23316][err] [23316:23356:1113/144836.621529:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25128: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144836.932196:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25152: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144836.951953:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25163: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144921.705352:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25188: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144921.747211:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25198: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144921.749567:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25201: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144922.213279:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25229: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144922.233874:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25238: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144935.265999:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25269: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144935.287523:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25278: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144935.290028:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25282: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144935.528723:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25305: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/144935.553966:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25315: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145000.753241:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25345: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145000.774573:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25354: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145000.777587:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25356: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145001.068417:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25384: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145001.102312:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25393: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145014.496032:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25417: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145014.514458:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25426: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145014.518483:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25427: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145014.769446:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25455: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145014.801860:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25464: Read-only file system (30)
+    [pid=23316][err] [23359:23359:1113/145031.158073:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=23316][err] [23359:23359:1113/145031.162536:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=23316][err] [23359:23359:1113/145031.166821:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=23316][err] [23359:23359:1113/145031.167205:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=23316][err] [23359:23359:1113/145031.167343:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=23316][err] [23359:23359:1113/145031.167677:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=23316][err] [23316:23356:1113/145031.250594:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25492: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145031.269384:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25501: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145031.275631:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25505: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145031.535817:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25530: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145031.558084:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25539: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145250.907185:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25582: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145250.927986:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25591: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145250.930958:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25593: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145251.134932:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25617: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145251.152671:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25628: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145337.573367:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25666: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145337.592516:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25675: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145337.596118:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25678: Read-only file system (30)
+    [pid=23316][err] [23316:23316:1113/145337.602315:ERROR:chrome/browser/ui/views/user_education/impl/browser_user_education_interface_impl.cc:186] Attempting to show IPH IPH_ExtensionsZeroStatePromo before browser initialization complete; IPH will not be shown.
+    [pid=23316][err] [23316:23356:1113/145337.957983:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25705: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145337.976974:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25714: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145607.872320:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25753: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145607.906023:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25762: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145607.911220:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25763: Read-only file system (30)
+    [pid=23316][err] [23316:23316:1113/145607.917612:ERROR:chrome/browser/ui/views/user_education/impl/browser_user_education_interface_impl.cc:186] Attempting to show IPH IPH_ExtensionsZeroStatePromo before browser initialization complete; IPH will not be shown.
+    [pid=23316][err] [23316:23356:1113/145608.249962:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25792: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145608.269492:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25801: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145627.686014:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25828: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145627.708014:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25837: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145627.711972:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25840: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145628.063106:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25865: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145628.105545:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25876: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145659.682019:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25912: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145659.699498:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25921: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145659.705573:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25922: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145700.029591:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25948: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145700.046566:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25957: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145920.817113:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 25998: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145920.845302:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26007: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145920.849030:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26011: Read-only file system (30)
+    [pid=23316][err] [23316:23316:1113/145920.855296:ERROR:chrome/browser/ui/views/user_education/impl/browser_user_education_interface_impl.cc:186] Attempting to show IPH IPH_ExtensionsZeroStatePromo before browser initialization complete; IPH will not be shown.
+    [pid=23316][err] [23316:23356:1113/145921.163565:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26038: Read-only file system (30)
+    [pid=23316][err] [23316:23356:1113/145921.203212:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26049: Read-only file system (30)
+    [pid=23316] <gracefully close start>
+    [pid=23316] <kill>
+    [pid=23316] <will force kill>
+
+  2) tests/vehicle-visual-audit.spec.js:2:1 › halo-free GLBs retain cockpit framing, unclipped near view, all LODs and V8 motion on three tracks
+
+    Test timeout of 180000ms exceeded while setting up "context".
+
+    Error: browser.newContext: Test ended.
+    Browser logs:
+
+    <launching> /usr/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --ignore-certificate-errors-spki-list=n9jEr2dCP1tg9exQzr7xEpZ4TjG2QWO02LUFhmAzII4= --user-data-dir=/tmp/playwright_chromiumdev_profile-eicrN4 --remote-debugging-pipe --no-startup-window
+    <launched> pid=26107
+    [pid=26107][err] [26107:26136:1113/150313.114508:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    [pid=26107][err] [26107:26136:1113/150313.114648:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=26107][err] [26107:26136:1113/150313.114684:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    [pid=26107][err] [26107:26136:1113/150313.114701:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    [pid=26107][err] [26107:26136:1113/150313.114715:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    [pid=26107][err] [26107:26136:1113/150313.114722:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=26107][err] [26107:26136:1113/150313.114745:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=26107][err] [26107:26147:1113/150313.168809:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26150: Read-only file system (30)
+    [pid=26107][err] [26107:26136:1113/150313.234231:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=26107][err] [26107:26147:1113/150313.240965:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26159: Read-only file system (30)
+    [pid=26107][err] [26107:26107:1113/150313.369009:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+    [pid=26107][err] [26107:26107:1113/150313.369111:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+    [pid=26107][err] [26107:26136:1113/150313.369119:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=26107][err] [26107:26136:1113/150313.369151:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=26107][err] [26107:26107:1113/150313.377059:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+    [pid=26107][err] [26107:26136:1113/150313.377163:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=26107][err] [26107:26136:1113/150313.410767:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    [pid=26107][err] [26107:26136:1113/150313.410795:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    [pid=26107][err] [26107:26107:1113/150313.410834:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+    [pid=26107][err] [26107:26107:1113/150313.410899:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+    [pid=26107][err] [26107:26136:1113/150313.410951:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=26107][err] [26107:26107:1113/150313.412830:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+    [pid=26107][err] [26107:26107:1113/150313.414711:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type:
+    [pid=26107][err] [26107:26107:1113/150313.414755:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+    [pid=26107][err] [26107:26136:1113/150313.414850:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=26107][err] [26107:26107:1113/150313.420934:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+    [pid=26107][err] [26107:26136:1113/150313.420999:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=26107][err] [26107:26107:1113/150313.427027:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+    [pid=26107][err] [26107:26147:1113/150313.513912:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26193: Read-only file system (30)
+    [pid=26107][err] [26107:26147:1113/150313.557480:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26202: Read-only file system (30)
+    [pid=26107][err] [26107:26147:1113/150313.570073:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26206: Read-only file system (30)
+    [pid=26107][err] [26107:26147:1113/150314.287957:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26230: Read-only file system (30)
+    [pid=26107][err] [26107:26147:1113/150314.316011:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26239: Read-only file system (30)
+    [pid=26107][err] [26107:26147:1113/150415.458112:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26275: Read-only file system (30)
+    [pid=26107][err] [26107:26147:1113/150415.516247:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26284: Read-only file system (30)
+    [pid=26107] <gracefully close start>
+    [pid=26107] <kill>
+    [pid=26107] <will force kill>
+
+  Slow test file: tests/simulator.spec.js (8.9m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  2 failed
+    tests/vehicle-motion.spec.js:2:127 › V8 cota body-only motion preserves root, tyre support, telemetry and cameras
+    tests/vehicle-visual-audit.spec.js:2:1 › halo-free GLBs retain cockpit framing, unclipped near view, all LODs and V8 motion on three tracks
+  34 passed (34.2m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

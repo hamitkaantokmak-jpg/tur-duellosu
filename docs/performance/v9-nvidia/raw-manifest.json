@@ -1,0 +1,34 @@
+[
+  {
+    "original": "matrix.json",
+    "archive": "matrix.json.gz",
+    "bytes": 12598977,
+    "gzipBytes": 331263,
+    "sha256": "49eae9119fda1d77dd6f72c30af0009d40fe785f3bb9c0f5d4b0232f7c0111ae",
+    "gzipSha256": "b7a7eee87729ecaaab0b603be48b8287df428e1ef1cb6643a41f43af62ee84e0",
+    "rows": 432,
+    "blockers": []
+  },
+  {
+    "original": "rechecks.json",
+    "archive": "rechecks.json.gz",
+    "bytes": 8928117,
+    "gzipBytes": 237508,
+    "sha256": "edfac07eda28d2156b1461fff3c8dac2a3b95a4d47b26873fc6642f2a06cba3b",
+    "gzipSha256": "57860dc56a8127f04a79da2a7b28e759f525e62ecf51a36f0705813f8006fa77",
+    "rows": 306,
+    "blockers": []
+  },
+  {
+    "original": "main-attempt-01.json",
+    "archive": "main-attempt-01.json.gz",
+    "bytes": 4840890,
+    "gzipBytes": 134312,
+    "sha256": "bfc7c3a824929efb8730eb4748d0c66ae16f41c513d9a94a56e6646b7df722c4",
+    "gzipSha256": "90eb7a05d14b72110861545ba4b1a5e200586c78a31db4d4632fe22802d7514f",
+    "rows": 164,
+    "blockers": [
+      "Error: Invalid window\n    at C:\\Users\\Hamit Kaan Tokmak\\Documents\\Codex\\2026-11-10\\tur\\work\\tur-duellosu\\scripts\\nvidia-v9\\audit-v9.cjs:111:367"
+    ]
+  }
+]

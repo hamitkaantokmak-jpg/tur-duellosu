@@ -1,0 +1,849 @@
+{
+  "source": "docs/performance/v9/physical-attempt.json",
+  "mode": "physical-nvidia",
+  "overall": "DOĞRULANAMADI",
+  "note": "Same-label conditions do not establish thermal/background equivalence. FPS gate is separate from p95/p99 review. Native-profile results cannot silently close the historical uncapped/renderRatio1 V6 debt.",
+  "observedPhysicalWindows": 0,
+  "rows": [
+    {
+      "scenario": "spa/1920/ultra/a",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/ultra/a",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/ultra/a",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/ultra/a",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/ultra/a",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/performance/a",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/performance/a",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/performance/a",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/performance/a",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/performance/a",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/1920/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/ultra/a",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/ultra/a",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/ultra/a",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/ultra/a",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/ultra/a",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/performance/a",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/performance/a",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/performance/a",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/performance/a",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/performance/a",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "spa/2560/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/ultra/a",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/ultra/a",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/ultra/a",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/ultra/a",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/ultra/a",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/performance/a",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/performance/a",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/performance/a",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/performance/a",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/performance/a",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/1920/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/ultra/a",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/ultra/a",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/ultra/a",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/ultra/a",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/ultra/a",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/performance/a",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/performance/a",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/performance/a",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/performance/a",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/performance/a",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "cota/2560/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/ultra/a",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/ultra/a",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/ultra/a",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/ultra/a",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/ultra/a",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/performance/a",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/performance/a",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/performance/a",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/performance/a",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/performance/a",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/1920/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/ultra/a",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/ultra/a",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/ultra/a",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/ultra/a",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/ultra/a",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/ultra/cockpit",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/performance/a",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/performance/a",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/performance/a",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/performance/a",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/performance/a",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v6",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v61",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v7",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v8",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    },
+    {
+      "scenario": "mexico/2560/performance/cockpit",
+      "reference": "v5",
+      "candidate": "v71",
+      "status": "DOĞRULANAMADI",
+      "reason": "Missing controlled physical samples or inconsistent repeat conditions"
+    }
+  ]
+}

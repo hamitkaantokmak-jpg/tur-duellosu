@@ -1,0 +1,289 @@
+{
+  "main": {
+    "status": "BAŞARISIZ",
+    "browserExpected": 34,
+    "lastRun": {
+      "status": "failed",
+      "failedTests": [
+        "47851113d3563e13e71e-73a128ccc58705024977"
+      ]
+    },
+    "rawLog": "main-regression-first.txt",
+    "unitFinalExpected": 70,
+    "artifacts": [
+      {
+        "file": "main-results/simulator-120-second-softw-1837a-ay-soak-and-resource-budget--measurement.json",
+        "sha256": "84020454893db6eedcd0bc330eb2bb60e44eafbecd38ce2d7286095336a74783"
+      },
+      {
+        "file": "main-results/vehicle-motion-soak-V8-120-5dd5a-p-and-pause-rate-continuity--v8-cache-soak.json",
+        "sha256": "c4a51e0d4239596795b616a9f3a1235ce0dc05d6570bf2ed9f9a0fa594e5b697"
+      },
+      {
+        "file": "main-results/real-topography-spa-real-t-cb150--contact-and-cameras-stable--spa-04-cockpit.json",
+        "sha256": "9758a01eb26fde7448c37131202be2ec49b1157ca50881e0f928e2f298bb7902"
+      },
+      {
+        "file": "main-results/real-topography-spa-real-t-cb150--contact-and-cameras-stable--spa-01-eau-rouge.json",
+        "sha256": "b553150a1f66802ba7e551df6f1b8270549326f87401ca95de62eec5fc4cd76e"
+      },
+      {
+        "file": "main-results/real-topography-spa-real-t-cb150--contact-and-cameras-stable--spa-02-raidillon.json",
+        "sha256": "52f3c74144f75a8bcf280fd5ac448491ee221a0149ec672f05953fbfa0078bdb"
+      },
+      {
+        "file": "main-results/real-topography-spa-real-t-cb150--contact-and-cameras-stable--spa-03-crest.json",
+        "sha256": "903b18e163b6267fd4e1397a26525f71632f757ddf74b512d2e70355424cee18"
+      },
+      {
+        "file": "main-results/real-topography-spa-real-t-cb150--contact-and-cameras-stable--spa-surface.json",
+        "sha256": "0a39cc246991744992f927821654ec0969c4132c31c51e92ac2a88f7c26c9cbb"
+      },
+      {
+        "file": "main-results/real-topography-spa-real-t-cb150--contact-and-cameras-stable--spa-05-contact-regression.json",
+        "sha256": "0f995668ed4d59f973b291f44c0bbe6872f225890b52997441633bf71070b289"
+      },
+      {
+        "file": "main-results/real-topography-cota-real--1c5c4--contact-and-cameras-stable--cota-surface.json",
+        "sha256": "3e0c1dd042da019804d5a3c299c36f5cb6af5ee5b3e801fe002b5ef7035357f2"
+      },
+      {
+        "file": "main-results/real-topography-cota-real--1c5c4--contact-and-cameras-stable--cota-05-follow.json",
+        "sha256": "e1c969650d2af4917c708940a79edd1483865b21689fb953688874e0a8176ce4"
+      },
+      {
+        "file": "main-results/real-topography-cota-real--1c5c4--contact-and-cameras-stable--cota-04-t1-descent.json",
+        "sha256": "bfb4a98392f97dee6c5a95975e21a97e67c38cd8158ca689fe731ac2a0f988ef"
+      },
+      {
+        "file": "main-results/real-topography-cota-real--1c5c4--contact-and-cameras-stable--cota-06-cockpit.json",
+        "sha256": "0bf038377fd9dcefa0413a39ce20386dee5c83813ab2ec5dcada8b4c202516a7"
+      },
+      {
+        "file": "main-results/real-topography-cota-real--1c5c4--contact-and-cameras-stable--cota-02-t1-approach.json",
+        "sha256": "962d6a7b286d51707161e59fe64a44af1976186a1aaa4ede82ee43a6a7415163"
+      },
+      {
+        "file": "main-results/real-topography-cota-real--1c5c4--contact-and-cameras-stable--cota-01-start.json",
+        "sha256": "cb23ad831e9f6ad3887e2db26d239bba76a595ef2e139d78c9e54bc9b893957a"
+      },
+      {
+        "file": "main-results/real-topography-cota-real--1c5c4--contact-and-cameras-stable--cota-03-t1-crest.json",
+        "sha256": "8e76a8283e5d2d7c27c78beea85f3744b355bde190748b2e2d60785d5709928e"
+      },
+      {
+        "file": "main-results/topography-synthetic-surfa-619e0-ght-application-screenshots--surface-checks.json",
+        "sha256": "f871dd6b64e1767544d276f55184b3846cf098bd8fbc5847473805b77566e496"
+      },
+      {
+        "file": "main-results/main-integration-real-Mexi-0dff2-ategy-moves-and-driver-tabs--race-analysis.json",
+        "sha256": "ee82d883fde34b9b44889614a035d6d6893d1b0246cf31233950f50a861865d3"
+      },
+      {
+        "file": "main-results/v7-vehicle-V7-wheels-and-s-604a6-d-automatic-three-level-LOD--v7-vehicle.json",
+        "sha256": "06bfa92fdb8fc036728cb5e5c45c5c329e7634a6292e0359c0cdbdf39a3c6646"
+      },
+      {
+        "file": "main-results/high-dpi-Ultra-on-a-high-D-b70b1-nd-preserves-Blender-assets--high-dpi.json",
+        "sha256": "5b32debe0cdbc96c7b86e99406f9ede4b395c70c18c6197fc1c02b2d0c1c45a0"
+      },
+      {
+        "file": "main-results/vehicle-motion-V8-mexico-b-25803-pport-telemetry-and-cameras--mexico-motion.json",
+        "sha256": "7d8866d847ef765571fc980de0a18e42b1f0035195a720160e5238c6b2a3dca6"
+      },
+      {
+        "file": "main-results/barrier-batching-cota-rend-fa801-osal-across-quality-changes--v61-cota.json",
+        "sha256": "79ec5834303faaabcb8b3e79c97ee1e7fbf9184c83122467c41460ca8012e9e7"
+      },
+      {
+        "file": "main-results/topography-profile-changes-6906a-keeps-bounded-GPU-resources--synthetic-soak.json",
+        "sha256": "9ee95a532d453944fa34d225c853675111fea306c281de1060e9242be04f872f"
+      },
+      {
+        "file": "main-results/vehicle-motion-V8-spa-body-c3d4e-pport-telemetry-and-cameras--spa-motion.json",
+        "sha256": "2d9d3ca64a98c2a85d03f668d073a068bb69fdea4533d0ea5c21be8ad2a9a4ac"
+      },
+      {
+        "file": "main-results/barrier-batching-spa-rende-3054e-osal-across-quality-changes--v61-spa.json",
+        "sha256": "f79f430fcb1f6519b7dadfd2674553e1b10ec2f98dd1855e1acfdbacbf781a0d"
+      },
+      {
+        "file": "main-results/main-integration-integrate-6c403-complete-real-telemetry-lap--integration-lap.json",
+        "sha256": "1c6ea3f7ce0d864831b9bf11b8adc7726de179c49ea15cd511496a34048aaa65"
+      },
+      {
+        "file": "main-results/studio-simulator-studio-an-fa167-amera-pilot-and-lap-changes--studio-simulator.json",
+        "sha256": "3111eff70f7b0161fd34d74d27fc74bd28612dec29791280245db0608bd129a4"
+      },
+      {
+        "file": "main-results/real-topography-COTA-deriv-aa870-nges-and-Studio-round-trips--cota-soak-memory.json",
+        "sha256": "69d8433127df3b724e85047662dd0b16a06c5b4be70c4d81e3dcd79108a9bc50"
+      },
+      {
+        "file": "main-results/real-topography-COTA-deriv-aa870-nges-and-Studio-round-trips--cota-soak.json",
+        "sha256": "2b92c59de6dd8a0947f7f821666f0c8bfc7174c9650171cd63dce8d462a777aa"
+      },
+      {
+        "file": "main-results/v5-audit-free-camera-sweep-e9e52-road-between-safe-endpoints--terrain-collision.json",
+        "sha256": "75eed71daf2660e692888ed7a66a1f1b89ea9b93aa949d1a41d2998d558c60b5"
+      }
+    ],
+    "browserPassed": 33,
+    "browserFailed": 1,
+    "exitCode": 1,
+    "freshCotaRecheck": {
+      "passed": true,
+      "exitCode": 0,
+      "rawLog": "main-cota-recheck.txt",
+      "note": "Fresh Chromium, unchanged assertions/timeout; does not replace the failed shared-browser full run"
+    }
+  },
+  "v71": {
+    "status": "BAŞARISIZ",
+    "browserExpected": 36,
+    "lastRun": {
+      "status": "failed",
+      "failedTests": [
+        "47851113d3563e13e71e-73a128ccc58705024977",
+        "51942140268fe9690ec4-240e4a3b81425c0f3434"
+      ]
+    },
+    "rawLog": "v71-regression-first.txt",
+    "unitFinalExpected": 63,
+    "artifacts": [
+      {
+        "file": "v71-results/simulator-120-second-softw-1837a-ay-soak-and-resource-budget--measurement.json",
+        "sha256": "018080e885dbb1d336aeab0b76745aa83eb3d83599405fd4bbbf5c9a228a6054"
+      },
+      {
+        "file": "v71-results/vehicle-motion-soak-V8-120-5dd5a-p-and-pause-rate-continuity--v8-cache-soak.json",
+        "sha256": "ba365b2d373fc2d0e442158f3043e6d3421713ff538d9d2201eb820c0b0a3be1"
+      },
+      {
+        "file": "v71-results/real-topography-spa-real-t-cb150--contact-and-cameras-stable--spa-04-cockpit.json",
+        "sha256": "9758a01eb26fde7448c37131202be2ec49b1157ca50881e0f928e2f298bb7902"
+      },
+      {
+        "file": "v71-results/real-topography-spa-real-t-cb150--contact-and-cameras-stable--spa-01-eau-rouge.json",
+        "sha256": "b553150a1f66802ba7e551df6f1b8270549326f87401ca95de62eec5fc4cd76e"
+      },
+      {
+        "file": "v71-results/real-topography-spa-real-t-cb150--contact-and-cameras-stable--spa-02-raidillon.json",
+        "sha256": "52f3c74144f75a8bcf280fd5ac448491ee221a0149ec672f05953fbfa0078bdb"
+      },
+      {
+        "file": "v71-results/real-topography-spa-real-t-cb150--contact-and-cameras-stable--spa-03-crest.json",
+        "sha256": "903b18e163b6267fd4e1397a26525f71632f757ddf74b512d2e70355424cee18"
+      },
+      {
+        "file": "v71-results/real-topography-spa-real-t-cb150--contact-and-cameras-stable--spa-surface.json",
+        "sha256": "0a39cc246991744992f927821654ec0969c4132c31c51e92ac2a88f7c26c9cbb"
+      },
+      {
+        "file": "v71-results/real-topography-spa-real-t-cb150--contact-and-cameras-stable--spa-05-contact-regression.json",
+        "sha256": "0f995668ed4d59f973b291f44c0bbe6872f225890b52997441633bf71070b289"
+      },
+      {
+        "file": "v71-results/real-topography-cota-real--1c5c4--contact-and-cameras-stable--cota-surface.json",
+        "sha256": "3e0c1dd042da019804d5a3c299c36f5cb6af5ee5b3e801fe002b5ef7035357f2"
+      },
+      {
+        "file": "v71-results/real-topography-cota-real--1c5c4--contact-and-cameras-stable--cota-05-follow.json",
+        "sha256": "e1c969650d2af4917c708940a79edd1483865b21689fb953688874e0a8176ce4"
+      },
+      {
+        "file": "v71-results/real-topography-cota-real--1c5c4--contact-and-cameras-stable--cota-04-t1-descent.json",
+        "sha256": "bfb4a98392f97dee6c5a95975e21a97e67c38cd8158ca689fe731ac2a0f988ef"
+      },
+      {
+        "file": "v71-results/real-topography-cota-real--1c5c4--contact-and-cameras-stable--cota-06-cockpit.json",
+        "sha256": "0bf038377fd9dcefa0413a39ce20386dee5c83813ab2ec5dcada8b4c202516a7"
+      },
+      {
+        "file": "v71-results/real-topography-cota-real--1c5c4--contact-and-cameras-stable--cota-02-t1-approach.json",
+        "sha256": "962d6a7b286d51707161e59fe64a44af1976186a1aaa4ede82ee43a6a7415163"
+      },
+      {
+        "file": "v71-results/real-topography-cota-real--1c5c4--contact-and-cameras-stable--cota-01-start.json",
+        "sha256": "cb23ad831e9f6ad3887e2db26d239bba76a595ef2e139d78c9e54bc9b893957a"
+      },
+      {
+        "file": "v71-results/real-topography-cota-real--1c5c4--contact-and-cameras-stable--cota-03-t1-crest.json",
+        "sha256": "8e76a8283e5d2d7c27c78beea85f3744b355bde190748b2e2d60785d5709928e"
+      },
+      {
+        "file": "v71-results/topography-synthetic-surfa-619e0-ght-application-screenshots--surface-checks.json",
+        "sha256": "f871dd6b64e1767544d276f55184b3846cf098bd8fbc5847473805b77566e496"
+      },
+      {
+        "file": "v71-results/vehicle-visual-audit-halo--2a358-e-driver-and-replay-working--vehicle-visual-fallback.json",
+        "sha256": "556aad80a415abf312600971dba43888f79c2811fe4694ccad3448f7a63854a5"
+      },
+      {
+        "file": "v71-results/main-integration-real-Mexi-0dff2-ategy-moves-and-driver-tabs--race-analysis.json",
+        "sha256": "ee82d883fde34b9b44889614a035d6d6893d1b0246cf31233950f50a861865d3"
+      },
+      {
+        "file": "v71-results/v7-vehicle-V7-wheels-and-s-604a6-d-automatic-three-level-LOD--v7-vehicle.json",
+        "sha256": "06bfa92fdb8fc036728cb5e5c45c5c329e7634a6292e0359c0cdbdf39a3c6646"
+      },
+      {
+        "file": "v71-results/high-dpi-Ultra-on-a-high-D-b70b1-nd-preserves-Blender-assets--high-dpi.json",
+        "sha256": "5b32debe0cdbc96c7b86e99406f9ede4b395c70c18c6197fc1c02b2d0c1c45a0"
+      },
+      {
+        "file": "v71-results/vehicle-motion-V8-mexico-b-25803-pport-telemetry-and-cameras--mexico-motion.json",
+        "sha256": "7d8866d847ef765571fc980de0a18e42b1f0035195a720160e5238c6b2a3dca6"
+      },
+      {
+        "file": "v71-results/barrier-batching-cota-rend-fa801-osal-across-quality-changes--v61-cota.json",
+        "sha256": "79ec5834303faaabcb8b3e79c97ee1e7fbf9184c83122467c41460ca8012e9e7"
+      },
+      {
+        "file": "v71-results/topography-profile-changes-6906a-keeps-bounded-GPU-resources--synthetic-soak.json",
+        "sha256": "889a0004cb0ee116e2a7e224e694edeb3d828731b81b3c2baf806c63fe86046f"
+      },
+      {
+        "file": "v71-results/vehicle-motion-V8-spa-body-c3d4e-pport-telemetry-and-cameras--spa-motion.json",
+        "sha256": "2d9d3ca64a98c2a85d03f668d073a068bb69fdea4533d0ea5c21be8ad2a9a4ac"
+      },
+      {
+        "file": "v71-results/barrier-batching-spa-rende-3054e-osal-across-quality-changes--v61-spa.json",
+        "sha256": "f79f430fcb1f6519b7dadfd2674553e1b10ec2f98dd1855e1acfdbacbf781a0d"
+      },
+      {
+        "file": "v71-results/main-integration-integrate-6c403-complete-real-telemetry-lap--integration-lap.json",
+        "sha256": "e3bbb74337831ba183e40d085b1310e285e362835ae3e638af3db3313f0a1c34"
+      },
+      {
+        "file": "v71-results/studio-simulator-studio-an-fa167-amera-pilot-and-lap-changes--studio-simulator.json",
+        "sha256": "3111eff70f7b0161fd34d74d27fc74bd28612dec29791280245db0608bd129a4"
+      },
+      {
+        "file": "v71-results/real-topography-COTA-deriv-aa870-nges-and-Studio-round-trips--cota-soak-memory.json",
+        "sha256": "87c37993505f91911384baf0adfa25964893ff8fb94f4e7f2c558542518390ed"
+      },
+      {
+        "file": "v71-results/real-topography-COTA-deriv-aa870-nges-and-Studio-round-trips--cota-soak.json",
+        "sha256": "55203e99980240941a5e3f9c6cdb175e7a0cf67574fc26253f01b42cca9a9cca"
+      },
+      {
+        "file": "v71-results/v5-audit-free-camera-sweep-e9e52-road-between-safe-endpoints--terrain-collision.json",
+        "sha256": "75eed71daf2660e692888ed7a66a1f1b89ea9b93aa949d1a41d2998d558c60b5"
+      }
+    ],
+    "browserPassed": 34,
+    "browserFailed": 2,
+    "exitCode": 1,
+    "freshCotaRecheck": {
+      "passed": true,
+      "exitCode": 0,
+      "rawLog": "v71-cota-recheck.txt"
+    },
+    "freshVisualRecheck": {
+      "passed": true,
+      "exitCode": 0,
+      "rawLog": "v71-visual-recheck.txt"
+    }
+  }
+}

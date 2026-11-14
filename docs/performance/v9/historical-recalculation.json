@@ -1,0 +1,74 @@
+{
+  "classification": "Recalculation of stored historical observations only; not new hardware measurements or current physical verification",
+  "inputs": {
+    "final-matrix.json": "48387b282966b9a31c652c10aad8918c78aba84ccb352c06a1c8d7d6c762a4e0",
+    "rechecks.json": "1e8101f927e8ef8a5304e5b0a6f40809b9d91cafe9f7d6729e1570c7e0221412",
+    "repeat-summary.json": "449e932b98e8b5885d130b9c4cfd17b8db4d157b0ba6e862970ac939b69625d7",
+    "gpu-before.txt": "24394d8c65bd929297c01e54ad7e64e90aa61dbb747a7024819952c9b51300d6"
+  },
+  "conditions": {
+    "seconds": 12,
+    "warmup": 20,
+    "versions": [
+      "v6",
+      "v5"
+    ],
+    "diagnostics": true,
+    "uncappedRequested": true,
+    "deviceScaleFactor": 1,
+    "renderRatio": 1,
+    "adaptive": false,
+    "AO": false,
+    "rate": 1,
+    "note": "V5 COTA/Spa use their original normalized XY and flat elevation. V6 uses geographic XY and derived terrain: end-user workload comparison, not identical meshes. Byte fields estimate CPU scene buffer/texture storage, not measured VRAM. No camera shim.",
+    "browser": "157.0.8103.39",
+    "node": "v24.22.1",
+    "baselineCommit": "a237ca529b31bd769df90165c62f73cdef54a672",
+    "candidateRuntimeSha256": {
+      "index.html": "612da85a60048847c12cc79c8c23da9a7b5e2e79172753a0ba5f068b01850a72",
+      "src/track-topography.js": "9dba3e63338d07dd685f1d92bf1d16672947a3ee976cd7924a78b2d3211bd8da",
+      "src/real-topography.js": "f9ff899c331cbbe6c1375b363f0bdfd53e6c82bef667ab93da5519ae2cf55bab",
+      "src/ghost-topography.js": "c249d9bd22df6d63aeda16cbe951e876911778d2e39c876f25b27fa7b0b9f0b0",
+      "src/ghost-world.js": "f69418a17513823864a97e93614f93913d3cf551c7a0a7ffc28defa90d8bb8de",
+      "src/ghost-webgl.js": "06b2317a65319d16ce2f9b48ba850fc6afc050985f165456cf878b96fdb12fe4",
+      "src/camera-collision.js": "21553e5432e8880365a659d4c821ee1a100a9c8ffec59ce48252e41dc25737de",
+      "assets/topography/profiles.js": "7826b9705d492fb97cb72a2ad78890e97ce33cebab78ce28bb2c98de8c1d3969"
+    }
+  },
+  "cases": [
+    {
+      "key": "spa/2560/ultra/a",
+      "v5": {
+        "windows": 4,
+        "fpsMedian": 668.5480287168948,
+        "p95MedianMs": 1.9000000357627869
+      },
+      "v6": {
+        "windows": 4,
+        "fpsMedian": 590.6697386708477,
+        "p95MedianMs": 3.849999964237213
+      },
+      "lossPercent": 11.64886989428634,
+      "arithmeticMatchesStoredSummary": true,
+      "meetsNewFiveRepeatMinimum": false,
+      "withinTenPercent": false
+    },
+    {
+      "key": "spa/2560/ultra/cockpit",
+      "v5": {
+        "windows": 4,
+        "fpsMedian": 681.17501608972,
+        "p95MedianMs": 2
+      },
+      "v6": {
+        "windows": 4,
+        "fpsMedian": 545.3947596607557,
+        "p95MedianMs": 2.649999976158142
+      },
+      "lossPercent": 19.933240829707742,
+      "arithmeticMatchesStoredSummary": true,
+      "meetsNewFiveRepeatMinimum": false,
+      "withinTenPercent": false
+    }
+  ]
+}

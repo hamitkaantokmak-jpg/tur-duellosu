@@ -1,0 +1,30 @@
+locator.uncheck: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('#ghostAdaptive')
+    - locator resolved to <input checked type="checkbox" id="ghostAdaptive"/>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="ghost-stage">…</div> intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="ghost-stage">…</div> intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    41 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div class="ghost-stage">…</div> intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+    at /workspace/work/tur-duellosu-v9/scripts/audit-v9.cjs:23:105 {
+  name: 'TimeoutError'
+}

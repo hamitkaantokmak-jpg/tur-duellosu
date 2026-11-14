@@ -1,0 +1,862 @@
+{
+  "animation": {
+    "samples": [
+      [
+        {
+          "time": 5,
+          "expected": -1160.1835692339873,
+          "wheels": [
+            {
+              "angle": -1160.1835692339873,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1160.1835692339873,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1160.1835692339873,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1160.1835692339873,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1160.1835692339873,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1160.1835692339873,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1160.1835692339873,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1160.1835692339873,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1160.1835692339873,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1160.1835692339873,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1160.1835692339873,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1160.1835692339873,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 0
+            }
+          ],
+          "steers": [
+            -0.00020840188931640254,
+            -0.00020840188931640254,
+            -0.00020840188931640254,
+            -0.00020840188931640254,
+            -0.00020840188931640254,
+            -0.00020840188931640254
+          ]
+        },
+        {
+          "time": 5,
+          "expected": -1139.519943744633,
+          "wheels": [
+            {
+              "angle": -1139.519943744633,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 1.1102230246251565e-16
+            },
+            {
+              "angle": -1139.519943744633,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 1.1102230246251565e-16
+            },
+            {
+              "angle": -1139.519943744633,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 1.1102230246251565e-16
+            },
+            {
+              "angle": -1139.519943744633,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 1.1102230246251565e-16
+            },
+            {
+              "angle": -1139.519943744633,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 1.1102230246251565e-16
+            },
+            {
+              "angle": -1139.519943744633,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 1.1102230246251565e-16
+            },
+            {
+              "angle": -1139.519943744633,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 1.1102230246251565e-16
+            },
+            {
+              "angle": -1139.519943744633,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 1.1102230246251565e-16
+            },
+            {
+              "angle": -1139.519943744633,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 1.1102230246251565e-16
+            },
+            {
+              "angle": -1139.519943744633,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 1.1102230246251565e-16
+            },
+            {
+              "angle": -1139.519943744633,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 1.1102230246251565e-16
+            },
+            {
+              "angle": -1139.519943744633,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 1.1102230246251565e-16
+            }
+          ],
+          "steers": [
+            -0.00023913215898609087,
+            -0.00023913215898609087,
+            -0.00023913215898609087,
+            -0.00023913215898609087,
+            -0.00023913215898609087,
+            -0.00023913215898609087
+          ]
+        }
+      ],
+      [
+        {
+          "time": 5.013,
+          "expected": -1163.458567324538,
+          "wheels": [
+            {
+              "angle": -1163.458567324538,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1163.458567324538,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1163.458567324538,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1163.458567324538,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1163.458567324538,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1163.458567324538,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1163.458567324538,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1163.458567324538,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1163.458567324538,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1163.458567324538,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1163.458567324538,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1163.458567324538,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 0
+            }
+          ],
+          "steers": [
+            -0.00019345367679219675,
+            -0.00019345367679219675,
+            -0.00019345367679219675,
+            -0.00019345367679219675,
+            -0.00019345367679219675,
+            -0.00019345367679219675
+          ]
+        },
+        {
+          "time": 5.013,
+          "expected": -1142.7243174672224,
+          "wheels": [
+            {
+              "angle": -1142.7243174672224,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1142.7243174672224,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1142.7243174672224,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1142.7243174672224,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1142.7243174672224,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1142.7243174672224,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1142.7243174672224,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1142.7243174672224,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1142.7243174672224,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1142.7243174672224,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1142.7243174672224,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -1142.7243174672224,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 0
+            }
+          ],
+          "steers": [
+            -0.00024088878214163908,
+            -0.00024088878214163908,
+            -0.00024088878214163908,
+            -0.00024088878214163908,
+            -0.00024088878214163908,
+            -0.00024088878214163908
+          ]
+        }
+      ],
+      [
+        {
+          "time": 50,
+          "expected": -8087.920591196844,
+          "wheels": [
+            {
+              "angle": -8087.920591196844,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8087.920591196844,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8087.920591196844,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8087.920591196844,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8087.920591196844,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8087.920591196844,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8087.920591196844,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8087.920591196844,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8087.920591196844,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8087.920591196844,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8087.920591196844,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8087.920591196844,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 0
+            }
+          ],
+          "steers": [
+            0.008607861727607986,
+            0.008607861727607986,
+            0.008607861727607986,
+            0.008607861727607986,
+            0.008607861727607986,
+            0.008607861727607986
+          ]
+        },
+        {
+          "time": 50,
+          "expected": -8136.010373971348,
+          "wheels": [
+            {
+              "angle": -8136.010373971348,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8136.010373971348,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8136.010373971348,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8136.010373971348,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8136.010373971348,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8136.010373971348,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8136.010373971348,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8136.010373971348,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8136.010373971348,
+              "mesh": false,
+              "parent": "Axle_R-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8136.010373971348,
+              "mesh": false,
+              "parent": "Axle_R1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8136.010373971348,
+              "mesh": false,
+              "parent": "Steer_F-1",
+              "unitQuaternion": 0
+            },
+            {
+              "angle": -8136.010373971348,
+              "mesh": false,
+              "parent": "Steer_F1",
+              "unitQuaternion": 0
+            }
+          ],
+          "steers": [
+            -0.018268986041709533,
+            -0.018268986041709533,
+            -0.018268986041709533,
+            -0.018268986041709533,
+            -0.018268986041709533,
+            -0.018268986041709533
+          ]
+        }
+      ]
+    ],
+    "staticGeometry": true,
+    "meshLocalRotationUnchanged": true,
+    "telemetryUnchanged": true,
+    "materials": [
+      [
+        {
+          "Carbon": {
+            "roughness": 0.4300000071525574,
+            "metalness": 0.07999999821186066,
+            "clearcoat": 0,
+            "carbonMap": true
+          },
+          "Metal": {
+            "roughness": 0.3199999928474426,
+            "metalness": 0.6800000071525574,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Tyre": {
+            "roughness": 0.8799999952316284,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "TyreStripe": {
+            "roughness": 0.800000011920929,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Accent": {
+            "roughness": 0.30000001192092896,
+            "metalness": 0.25,
+            "clearcoat": 0.3799999952316284,
+            "carbonMap": false
+          },
+          "Helmet": {
+            "roughness": 0.3199999928474426,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Paint": {
+            "roughness": 0.2800000011920929,
+            "metalness": 0.2800000011920929,
+            "clearcoat": 0.3799999952316284,
+            "carbonMap": false
+          },
+          "Visor": {
+            "roughness": 0.1599999964237213,
+            "metalness": 0.6499999761581421,
+            "clearcoat": 0,
+            "carbonMap": false
+          }
+        },
+        {
+          "Carbon": {
+            "roughness": 0.4300000071525574,
+            "metalness": 0.07999999821186066,
+            "clearcoat": 0,
+            "carbonMap": true
+          },
+          "Metal": {
+            "roughness": 0.3199999928474426,
+            "metalness": 0.6800000071525574,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Tyre": {
+            "roughness": 0.8799999952316284,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "TyreStripe": {
+            "roughness": 0.800000011920929,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Accent": {
+            "roughness": 0.30000001192092896,
+            "metalness": 0.25,
+            "clearcoat": 0.3799999952316284,
+            "carbonMap": false
+          },
+          "Helmet": {
+            "roughness": 0.3199999928474426,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Paint": {
+            "roughness": 0.2800000011920929,
+            "metalness": 0.2800000011920929,
+            "clearcoat": 0.3799999952316284,
+            "carbonMap": false
+          },
+          "Visor": {
+            "roughness": 0.1599999964237213,
+            "metalness": 0.6499999761581421,
+            "clearcoat": 0,
+            "carbonMap": false
+          }
+        },
+        {
+          "Carbon": {
+            "roughness": 0.4300000071525574,
+            "metalness": 0.07999999821186066,
+            "clearcoat": 0,
+            "carbonMap": true
+          },
+          "Metal": {
+            "roughness": 0.3199999928474426,
+            "metalness": 0.6800000071525574,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Tyre": {
+            "roughness": 0.8799999952316284,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "TyreStripe": {
+            "roughness": 0.800000011920929,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Accent": {
+            "roughness": 0.30000001192092896,
+            "metalness": 0.25,
+            "clearcoat": 0.3799999952316284,
+            "carbonMap": false
+          },
+          "Helmet": {
+            "roughness": 0.3199999928474426,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Paint": {
+            "roughness": 0.2800000011920929,
+            "metalness": 0.2800000011920929,
+            "clearcoat": 0.3799999952316284,
+            "carbonMap": false
+          },
+          "Visor": {
+            "roughness": 0.1599999964237213,
+            "metalness": 0.6499999761581421,
+            "clearcoat": 0,
+            "carbonMap": false
+          }
+        }
+      ],
+      [
+        {
+          "Carbon": {
+            "roughness": 0.4300000071525574,
+            "metalness": 0.07999999821186066,
+            "clearcoat": 0,
+            "carbonMap": true
+          },
+          "Metal": {
+            "roughness": 0.3199999928474426,
+            "metalness": 0.6800000071525574,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Tyre": {
+            "roughness": 0.8799999952316284,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "TyreStripe": {
+            "roughness": 0.800000011920929,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Accent": {
+            "roughness": 0.30000001192092896,
+            "metalness": 0.25,
+            "clearcoat": 0.3799999952316284,
+            "carbonMap": false
+          },
+          "Helmet": {
+            "roughness": 0.3199999928474426,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Paint": {
+            "roughness": 0.2800000011920929,
+            "metalness": 0.2800000011920929,
+            "clearcoat": 0.3799999952316284,
+            "carbonMap": false
+          },
+          "Visor": {
+            "roughness": 0.1599999964237213,
+            "metalness": 0.6499999761581421,
+            "clearcoat": 0,
+            "carbonMap": false
+          }
+        },
+        {
+          "Carbon": {
+            "roughness": 0.4300000071525574,
+            "metalness": 0.07999999821186066,
+            "clearcoat": 0,
+            "carbonMap": true
+          },
+          "Metal": {
+            "roughness": 0.3199999928474426,
+            "metalness": 0.6800000071525574,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Tyre": {
+            "roughness": 0.8799999952316284,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "TyreStripe": {
+            "roughness": 0.800000011920929,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Accent": {
+            "roughness": 0.30000001192092896,
+            "metalness": 0.25,
+            "clearcoat": 0.3799999952316284,
+            "carbonMap": false
+          },
+          "Helmet": {
+            "roughness": 0.3199999928474426,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Paint": {
+            "roughness": 0.2800000011920929,
+            "metalness": 0.2800000011920929,
+            "clearcoat": 0.3799999952316284,
+            "carbonMap": false
+          },
+          "Visor": {
+            "roughness": 0.1599999964237213,
+            "metalness": 0.6499999761581421,
+            "clearcoat": 0,
+            "carbonMap": false
+          }
+        },
+        {
+          "Carbon": {
+            "roughness": 0.4300000071525574,
+            "metalness": 0.07999999821186066,
+            "clearcoat": 0,
+            "carbonMap": true
+          },
+          "Metal": {
+            "roughness": 0.3199999928474426,
+            "metalness": 0.6800000071525574,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Tyre": {
+            "roughness": 0.8799999952316284,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "TyreStripe": {
+            "roughness": 0.800000011920929,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Accent": {
+            "roughness": 0.30000001192092896,
+            "metalness": 0.25,
+            "clearcoat": 0.3799999952316284,
+            "carbonMap": false
+          },
+          "Helmet": {
+            "roughness": 0.3199999928474426,
+            "metalness": 0,
+            "clearcoat": 0,
+            "carbonMap": false
+          },
+          "Paint": {
+            "roughness": 0.2800000011920929,
+            "metalness": 0.2800000011920929,
+            "clearcoat": 0.3799999952316284,
+            "carbonMap": false
+          },
+          "Visor": {
+            "roughness": 0.1599999964237213,
+            "metalness": 0.6499999761581421,
+            "clearcoat": 0,
+            "carbonMap": false
+          }
+        }
+      ]
+    ]
+  },
+  "lod": [
+    {
+      "requested": 12,
+      "actual": 12.180507940536177,
+      "visible": [
+        "high"
+      ]
+    },
+    {
+      "requested": 50,
+      "actual": 50.17364736963789,
+      "visible": [
+        "medium"
+      ]
+    },
+    {
+      "requested": 110,
+      "actual": 110.17245008993898,
+      "visible": [
+        "low"
+      ]
+    }
+  ],
+  "errors": [],
+  "consoleErrors": []
+}

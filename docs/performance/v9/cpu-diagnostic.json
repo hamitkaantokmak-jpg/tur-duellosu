@@ -1,0 +1,774 @@
+{
+  "classification": "Software setup, isolated CPU operations; NOT physical GPU/FPS acceptance",
+  "samplesPerRepeat": 1200,
+  "repeats": 5,
+  "rows": [
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "quality": "performance",
+      "buffer": [
+        651,
+        346
+      ],
+      "totals": [
+        113.835,
+        114.095
+      ],
+      "coldForcedRebuild": {
+        "counts": {
+          "motionBuild": 2,
+          "roadBuild": 1
+        },
+        "buildMs": {
+          "motion": [
+            33.69999999925494,
+            30.199999999254942
+          ],
+          "road": [
+            9.300000000745058
+          ]
+        },
+        "coldDrawInclusiveMs": 144.80000000074506,
+        "note": "Includes deliberately reset tables/index; not native startup latency, no FPS"
+      },
+      "repeats": [
+        {
+          "motion": {
+            "count": 1200,
+            "totalMs": 1.3999999985098839,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.29999999701976776,
+            "zeroSamples": 1189
+          },
+          "surface": {
+            "count": 1200,
+            "totalMs": 43.10000006109476,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 1.300000000745058,
+            "zeroSamples": 828
+          },
+          "tyres": {
+            "count": 1200,
+            "totalMs": 65.09999995306134,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 30.5,
+            "zeroSamples": 881
+          },
+          "matrices": {
+            "count": 1200,
+            "totalMs": 61.599999971687794,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 2.099999997764826,
+            "zeroSamples": 676
+          },
+          "collision": {
+            "count": 1200,
+            "totalMs": 105.20000002905726,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 34.5,
+            "zeroSamples": 870
+          }
+        },
+        {
+          "motion": {
+            "count": 1200,
+            "totalMs": 5.800000000745058,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 4.899999998509884,
+            "zeroSamples": 1190
+          },
+          "surface": {
+            "count": 1200,
+            "totalMs": 128.50000000745058,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 36.100000001490116,
+            "zeroSamples": 805
+          },
+          "tyres": {
+            "count": 1200,
+            "totalMs": 43.6999999769032,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 4.900000002235174,
+            "zeroSamples": 902
+          },
+          "matrices": {
+            "count": 1200,
+            "totalMs": 151.40000006183982,
+            "medianMs": 0,
+            "p95Ms": 0.19999999925494194,
+            "maxMs": 34.600000001490116,
+            "zeroSamples": 646
+          },
+          "collision": {
+            "count": 1200,
+            "totalMs": 40.39999996870756,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 1.199999999254942,
+            "zeroSamples": 869
+          }
+        },
+        {
+          "motion": {
+            "count": 1200,
+            "totalMs": 1.4000000059604645,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.10000000149011612,
+            "zeroSamples": 1186
+          },
+          "surface": {
+            "count": 1200,
+            "totalMs": 144.40000003948808,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 34.399999998509884,
+            "zeroSamples": 829
+          },
+          "tyres": {
+            "count": 1200,
+            "totalMs": 39.69999995455146,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 4.200000002980232,
+            "zeroSamples": 883
+          },
+          "matrices": {
+            "count": 1200,
+            "totalMs": 53.79999998956919,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 3.300000000745058,
+            "zeroSamples": 736
+          },
+          "collision": {
+            "count": 1200,
+            "totalMs": 35.599999997764826,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 4,
+            "zeroSamples": 921
+          }
+        },
+        {
+          "motion": {
+            "count": 1200,
+            "totalMs": 0.6999999992549419,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.10000000149011612,
+            "zeroSamples": 1193
+          },
+          "surface": {
+            "count": 1200,
+            "totalMs": 74.29999999329448,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 34.30000000074506,
+            "zeroSamples": 830
+          },
+          "tyres": {
+            "count": 1200,
+            "totalMs": 61.60000002384186,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 30.5,
+            "zeroSamples": 901
+          },
+          "matrices": {
+            "count": 1200,
+            "totalMs": 48.70000000670552,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 0.3999999985098839,
+            "zeroSamples": 758
+          },
+          "collision": {
+            "count": 1200,
+            "totalMs": 28.600000001490116,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 0.4000000022351742,
+            "zeroSamples": 932
+          }
+        },
+        {
+          "motion": {
+            "count": 1200,
+            "totalMs": 0.6999999992549419,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.10000000149011612,
+            "zeroSamples": 1193
+          },
+          "surface": {
+            "count": 1200,
+            "totalMs": 75.70000003650784,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 36.30000000074506,
+            "zeroSamples": 830
+          },
+          "tyres": {
+            "count": 1200,
+            "totalMs": 31.599999990314245,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 0.6000000014901161,
+            "zeroSamples": 907
+          },
+          "matrices": {
+            "count": 1200,
+            "totalMs": 85.19999999925494,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 30.600000001490116,
+            "zeroSamples": 700
+          },
+          "collision": {
+            "count": 1200,
+            "totalMs": 30.499999966472387,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 0.30000000074505806,
+            "zeroSamples": 913
+          }
+        }
+      ],
+      "road": {
+        "cells": 2715,
+        "positionBytes": 10680768,
+        "misses": 0
+      },
+      "cachesStable": true,
+      "telemetryUnchanged": true,
+      "memory": {
+        "geometries": 85,
+        "textures": 10
+      },
+      "timingResolutionCaveat": "performance.now granularity and instrumentation overhead; zero samples retained, not imputed"
+    },
+    {
+      "track": "cota",
+      "event": "United States Grand Prix",
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "quality": "performance",
+      "buffer": [
+        651,
+        346
+      ],
+      "totals": [
+        94.154,
+        92.974
+      ],
+      "coldForcedRebuild": {
+        "counts": {
+          "motionBuild": 2,
+          "roadBuild": 1
+        },
+        "buildMs": {
+          "motion": [
+            30,
+            26.5
+          ],
+          "road": [
+            9
+          ]
+        },
+        "coldDrawInclusiveMs": 135,
+        "note": "Includes deliberately reset tables/index; not native startup latency, no FPS"
+      },
+      "repeats": [
+        {
+          "motion": {
+            "count": 1200,
+            "totalMs": 1.5999999940395355,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.10000000149011612,
+            "zeroSamples": 1184
+          },
+          "surface": {
+            "count": 1200,
+            "totalMs": 115.69999998435378,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 34.399999998509884,
+            "zeroSamples": 812
+          },
+          "tyres": {
+            "count": 1200,
+            "totalMs": 38.80000003054738,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 4.600000001490116,
+            "zeroSamples": 904
+          },
+          "matrices": {
+            "count": 1200,
+            "totalMs": 126.6000000089407,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 34.30000000074506,
+            "zeroSamples": 734
+          },
+          "collision": {
+            "count": 1200,
+            "totalMs": 113.59999999776483,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 34.5,
+            "zeroSamples": 900
+          }
+        },
+        {
+          "motion": {
+            "count": 1200,
+            "totalMs": 1.1999999955296516,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.10000000149011612,
+            "zeroSamples": 1188
+          },
+          "surface": {
+            "count": 1200,
+            "totalMs": 115.89999998733401,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 34,
+            "zeroSamples": 832
+          },
+          "tyres": {
+            "count": 1200,
+            "totalMs": 66.60000001639128,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 2.199999999254942,
+            "zeroSamples": 876
+          },
+          "matrices": {
+            "count": 1200,
+            "totalMs": 174.19999998435378,
+            "medianMs": 0,
+            "p95Ms": 0.19999999925494194,
+            "maxMs": 37,
+            "zeroSamples": 704
+          },
+          "collision": {
+            "count": 1200,
+            "totalMs": 89.30000001564622,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 33.900000002235174,
+            "zeroSamples": 890
+          }
+        },
+        {
+          "motion": {
+            "count": 1200,
+            "totalMs": 1.9000000059604645,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.4000000022351742,
+            "zeroSamples": 1186
+          },
+          "surface": {
+            "count": 1200,
+            "totalMs": 68.89999998733401,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 4.599999997764826,
+            "zeroSamples": 808
+          },
+          "tyres": {
+            "count": 1200,
+            "totalMs": 87.99999998882413,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 32.30000000074506,
+            "zeroSamples": 894
+          },
+          "matrices": {
+            "count": 1200,
+            "totalMs": 114.09999999031425,
+            "medianMs": 0,
+            "p95Ms": 0.19999999925494194,
+            "maxMs": 34.30000000074506,
+            "zeroSamples": 707
+          },
+          "collision": {
+            "count": 1200,
+            "totalMs": 66.10000001639128,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 26.199999999254942,
+            "zeroSamples": 944
+          }
+        },
+        {
+          "motion": {
+            "count": 1200,
+            "totalMs": 1.699999999254942,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.30000000074505806,
+            "zeroSamples": 1185
+          },
+          "surface": {
+            "count": 1200,
+            "totalMs": 78.2999999821186,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 4.5,
+            "zeroSamples": 724
+          },
+          "tyres": {
+            "count": 1200,
+            "totalMs": 147.29999999329448,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 38.19999999925494,
+            "zeroSamples": 893
+          },
+          "matrices": {
+            "count": 1200,
+            "totalMs": 157.70000002160668,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 40.100000001490116,
+            "zeroSamples": 741
+          },
+          "collision": {
+            "count": 1200,
+            "totalMs": 45.6000000089407,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 4.100000001490116,
+            "zeroSamples": 927
+          }
+        },
+        {
+          "motion": {
+            "count": 1200,
+            "totalMs": 1.0000000037252903,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.10000000149011612,
+            "zeroSamples": 1190
+          },
+          "surface": {
+            "count": 1200,
+            "totalMs": 50.69999998435378,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 2.600000001490116,
+            "zeroSamples": 794
+          },
+          "tyres": {
+            "count": 1200,
+            "totalMs": 28.30000003054738,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 0.3999999985098839,
+            "zeroSamples": 946
+          },
+          "matrices": {
+            "count": 1200,
+            "totalMs": 56.79999991878867,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 0.9000000022351742,
+            "zeroSamples": 690
+          },
+          "collision": {
+            "count": 1200,
+            "totalMs": 26.400000043213367,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 0.4000000022351742,
+            "zeroSamples": 955
+          }
+        }
+      ],
+      "road": {
+        "cells": 2148,
+        "positionBytes": 6773760,
+        "misses": 0
+      },
+      "cachesStable": true,
+      "telemetryUnchanged": true,
+      "memory": {
+        "geometries": 47,
+        "textures": 10
+      },
+      "timingResolutionCaveat": "performance.now granularity and instrumentation overhead; zero samples retained, not imputed"
+    },
+    {
+      "track": "mexico",
+      "event": "Mexico City Grand Prix",
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "quality": "performance",
+      "buffer": [
+        651,
+        346
+      ],
+      "totals": [
+        76.651,
+        76.356
+      ],
+      "coldForcedRebuild": {
+        "counts": {
+          "motionBuild": 2,
+          "roadBuild": 1
+        },
+        "buildMs": {
+          "motion": [
+            61.69999999925494,
+            24.5
+          ],
+          "road": [
+            2.5
+          ]
+        },
+        "coldDrawInclusiveMs": 105.89999999850988,
+        "note": "Includes deliberately reset tables/index; not native startup latency, no FPS"
+      },
+      "repeats": [
+        {
+          "motion": {
+            "count": 1200,
+            "totalMs": 2.4999999962747097,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.10000000149011612,
+            "zeroSamples": 1175
+          },
+          "surface": {
+            "count": 1200,
+            "totalMs": 2.700000010430813,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.19999999925494194,
+            "zeroSamples": 1174
+          },
+          "tyres": {
+            "count": 1200,
+            "totalMs": 14.200000002980232,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 0.19999999925494194,
+            "zeroSamples": 1059
+          },
+          "matrices": {
+            "count": 1200,
+            "totalMs": 339.29999995976686,
+            "medianMs": 0.19999999925494194,
+            "p95Ms": 0.30000000074505806,
+            "maxMs": 34.5,
+            "zeroSamples": 8
+          },
+          "collision": {
+            "count": 1200,
+            "totalMs": 1878.600000038743,
+            "medianMs": 1,
+            "p95Ms": 1.300000000745058,
+            "maxMs": 36.600000001490116,
+            "zeroSamples": 0
+          }
+        },
+        {
+          "motion": {
+            "count": 1200,
+            "totalMs": 2.700000010430813,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.10000000149011612,
+            "zeroSamples": 1173
+          },
+          "surface": {
+            "count": 1200,
+            "totalMs": 2.1999999955296516,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.10000000149011612,
+            "zeroSamples": 1178
+          },
+          "tyres": {
+            "count": 1200,
+            "totalMs": 12.100000027567148,
+            "medianMs": 0,
+            "p95Ms": 0.10000000149011612,
+            "maxMs": 0.20000000298023224,
+            "zeroSamples": 1082
+          },
+          "matrices": {
+            "count": 1200,
+            "totalMs": 226.70000000670552,
+            "medianMs": 0.19999999925494194,
+            "p95Ms": 0.30000000074505806,
+            "maxMs": 34.400000002235174,
+            "zeroSamples": 58
+          },
+          "collision": {
+            "count": 1200,
+            "totalMs": 1444.899999987334,
+            "medianMs": 1,
+            "p95Ms": 1.2999999970197678,
+            "maxMs": 35.30000000074506,
+            "zeroSamples": 0
+          }
+        },
+        {
+          "motion": {
+            "count": 1200,
+            "totalMs": 2.200000010430813,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.19999999925494194,
+            "zeroSamples": 1179
+          },
+          "surface": {
+            "count": 1200,
+            "totalMs": 3.4000000096857548,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 1,
+            "zeroSamples": 1175
+          },
+          "tyres": {
+            "count": 1200,
+            "totalMs": 11.49999999254942,
+            "medianMs": 0,
+            "p95Ms": 0.09999999776482582,
+            "maxMs": 0.9000000022351742,
+            "zeroSamples": 1103
+          },
+          "matrices": {
+            "count": 1200,
+            "totalMs": 161.49999997392297,
+            "medianMs": 0.10000000149011612,
+            "p95Ms": 0.29999999701976776,
+            "maxMs": 3,
+            "zeroSamples": 151
+          },
+          "collision": {
+            "count": 1200,
+            "totalMs": 863.0000000223517,
+            "medianMs": 0.6000000014901161,
+            "p95Ms": 1.5,
+            "maxMs": 8.5,
+            "zeroSamples": 0
+          }
+        },
+        {
+          "motion": {
+            "count": 1200,
+            "totalMs": 1.5999999903142452,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.10000000149011612,
+            "zeroSamples": 1184
+          },
+          "surface": {
+            "count": 1200,
+            "totalMs": 1.3999999947845936,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.19999999925494194,
+            "zeroSamples": 1187
+          },
+          "tyres": {
+            "count": 1200,
+            "totalMs": 9.100000005215406,
+            "medianMs": 0,
+            "p95Ms": 0.09999999776482582,
+            "maxMs": 0.10000000149011612,
+            "zeroSamples": 1109
+          },
+          "matrices": {
+            "count": 1200,
+            "totalMs": 134.39999997243285,
+            "medianMs": 0.10000000149011612,
+            "p95Ms": 0.20000000298023224,
+            "maxMs": 0.5,
+            "zeroSamples": 158
+          },
+          "collision": {
+            "count": 1200,
+            "totalMs": 685.9000000543892,
+            "medianMs": 0.5999999977648258,
+            "p95Ms": 0.7000000029802322,
+            "maxMs": 3.300000000745058,
+            "zeroSamples": 0
+          }
+        },
+        {
+          "motion": {
+            "count": 1200,
+            "totalMs": 1.4000000096857548,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.10000000149011612,
+            "zeroSamples": 1186
+          },
+          "surface": {
+            "count": 1200,
+            "totalMs": 1.1000000052154064,
+            "medianMs": 0,
+            "p95Ms": 0,
+            "maxMs": 0.10000000149011612,
+            "zeroSamples": 1189
+          },
+          "tyres": {
+            "count": 1200,
+            "totalMs": 8.400000009685755,
+            "medianMs": 0,
+            "p95Ms": 0.09999999776482582,
+            "maxMs": 0.5,
+            "zeroSamples": 1121
+          },
+          "matrices": {
+            "count": 1200,
+            "totalMs": 136.4000000320375,
+            "medianMs": 0.10000000149011612,
+            "p95Ms": 0.20000000298023224,
+            "maxMs": 3.899999998509884,
+            "zeroSamples": 176
+          },
+          "collision": {
+            "count": 1200,
+            "totalMs": 763.7999999448657,
+            "medianMs": 0.5999999977648258,
+            "p95Ms": 0.7999999970197678,
+            "maxMs": 55.600000001490116,
+            "zeroSamples": 0
+          }
+        }
+      ],
+      "road": {
+        "cells": 1662,
+        "positionBytes": 309888,
+        "misses": 0
+      },
+      "cachesStable": true,
+      "telemetryUnchanged": true,
+      "memory": {
+        "geometries": 192,
+        "textures": 30
+      },
+      "timingResolutionCaveat": "performance.now granularity and instrumentation overhead; zero samples retained, not imputed"
+    }
+  ],
+  "errors": [],
+  "browser": "156.0.8078.79"
+}

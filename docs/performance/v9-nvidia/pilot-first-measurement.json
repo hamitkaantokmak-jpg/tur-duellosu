@@ -1,0 +1,793 @@
+{
+  "schema": 1,
+  "phase": "excluded-pilot",
+  "startedAt": "2026-11-12T20:38:23.383Z",
+  "commits": {
+    "v5": "a237ca529b31bd769df90165c62f73cdef54a672",
+    "v6": "f295c01a8984715334363077fb66ccaad522e246",
+    "v61": "e5ffd2224bb3ee2dceed9ee2470bc6f6da33fc74",
+    "v7": "0d5deecee432230bb1d84c77cc2bd92553358922",
+    "v8": "ad35d61f5b26ed1d5ff6d82a3ee43b91478cee94"
+  },
+  "plan": {
+    "warmup": 6,
+    "seconds": 8,
+    "repeats": 1,
+    "orders": [
+      [
+        "v5",
+        "v6",
+        "v61",
+        "v7",
+        "v8"
+      ],
+      [
+        "v8",
+        "v7",
+        "v61",
+        "v6",
+        "v5"
+      ],
+      [
+        "v61",
+        "v7",
+        "v8",
+        "v5",
+        "v6"
+      ]
+    ],
+    "scenarios": [
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "spa/2560/ultra/a"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "spa/2560/ultra/cockpit"
+      }
+    ],
+    "lossThresholdPercent": 10,
+    "dpr": 1,
+    "renderRatio": 1,
+    "adaptive": false,
+    "AO": false,
+    "rate": 1,
+    "measurementReplayInterval": [
+      10,
+      18
+    ],
+    "note": "Only pixel ratio is normalized upward to a real 1920x1080/2560x1440 buffer; native geometry, LOD, shadows, lights and materials remain untouched. V5 COTA/Spa are flat normalized XY, later versions derived terrain: end-user workload comparison, not identical meshes. Pilot excluded, no windows discarded."
+  },
+  "roots": {
+    "v5": {
+      "url": "http://127.0.0.1:4390",
+      "runtimeSha256": {
+        "index.html": "f957f18a03ca424be73f26556aade328bd7a11a9caa54fdd5f4f17affe9dbea0",
+        "src/ghost-webgl.js": "b1c69d302c0cf3a445662e5c9865e87295016ecd93d4737fdf36c28ae75ef151",
+        "src/ghost-topography.js": "520845a78f126c583625ddc7ab3c913c601e5197e99eedbfc40899d52bbd526a",
+        "src/track-topography.js": "9dba3e63338d07dd685f1d92bf1d16672947a3ee976cd7924a78b2d3211bd8da",
+        "src/barrier-batching.js": null,
+        "src/ghost-vehicle-motion.js": null,
+        "src/vehicle-motion.js": null
+      }
+    },
+    "v6": {
+      "url": "http://127.0.0.1:4391",
+      "runtimeSha256": {
+        "index.html": "612da85a60048847c12cc79c8c23da9a7b5e2e79172753a0ba5f068b01850a72",
+        "src/ghost-webgl.js": "06b2317a65319d16ce2f9b48ba850fc6afc050985f165456cf878b96fdb12fe4",
+        "src/ghost-topography.js": "c249d9bd22df6d63aeda16cbe951e876911778d2e39c876f25b27fa7b0b9f0b0",
+        "src/track-topography.js": "9dba3e63338d07dd685f1d92bf1d16672947a3ee976cd7924a78b2d3211bd8da",
+        "src/barrier-batching.js": null,
+        "src/ghost-vehicle-motion.js": null,
+        "src/vehicle-motion.js": null
+      }
+    },
+    "v61": {
+      "url": "http://127.0.0.1:4392",
+      "runtimeSha256": {
+        "index.html": "d505f47c5edc464390f67098a7d6b2d4e7d3b1a82b0ff5b75b7893e9da1f791c",
+        "src/ghost-webgl.js": "3125d88a74158ce7c95e0fa65d5abd6cb048c502beda0a198d76f32e0676e170",
+        "src/ghost-topography.js": "c249d9bd22df6d63aeda16cbe951e876911778d2e39c876f25b27fa7b0b9f0b0",
+        "src/track-topography.js": "9dba3e63338d07dd685f1d92bf1d16672947a3ee976cd7924a78b2d3211bd8da",
+        "src/barrier-batching.js": "133b29bca819216e765e6e423ccfb631fe585d249ea6d3669049f3683bbc4db0",
+        "src/ghost-vehicle-motion.js": null,
+        "src/vehicle-motion.js": null
+      }
+    },
+    "v7": {
+      "url": "http://127.0.0.1:4393",
+      "runtimeSha256": {
+        "index.html": "d505f47c5edc464390f67098a7d6b2d4e7d3b1a82b0ff5b75b7893e9da1f791c",
+        "src/ghost-webgl.js": "3125d88a74158ce7c95e0fa65d5abd6cb048c502beda0a198d76f32e0676e170",
+        "src/ghost-topography.js": "c249d9bd22df6d63aeda16cbe951e876911778d2e39c876f25b27fa7b0b9f0b0",
+        "src/track-topography.js": "9dba3e63338d07dd685f1d92bf1d16672947a3ee976cd7924a78b2d3211bd8da",
+        "src/barrier-batching.js": "133b29bca819216e765e6e423ccfb631fe585d249ea6d3669049f3683bbc4db0",
+        "src/ghost-vehicle-motion.js": null,
+        "src/vehicle-motion.js": null
+      }
+    },
+    "v8": {
+      "url": "http://127.0.0.1:4394",
+      "runtimeSha256": {
+        "index.html": "854fb0c18c4f6b8fbae32ac22ebf375b3f6ad4993bccc9ebc46028e220cbbb6b",
+        "src/ghost-webgl.js": "9a1f2b99a6aefe29b1f2921c79814001ef6dc6e4e8da5f6039d26a3d29b0b73d",
+        "src/ghost-topography.js": "c249d9bd22df6d63aeda16cbe951e876911778d2e39c876f25b27fa7b0b9f0b0",
+        "src/track-topography.js": "9dba3e63338d07dd685f1d92bf1d16672947a3ee976cd7924a78b2d3211bd8da",
+        "src/barrier-batching.js": "133b29bca819216e765e6e423ccfb631fe585d249ea6d3669049f3683bbc4db0",
+        "src/ghost-vehicle-motion.js": "19268dd5214a649677ef3771105f1048e1fff5938bcb4197762842a140c7802d",
+        "src/vehicle-motion.js": "c8df620aed167cfea44549f59434dd8b860268dae5e1650666df3e9c8bf3e16a"
+      }
+    }
+  },
+  "rows": [
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "spa/2560/ultra/a",
+      "version": "v5",
+      "repeat": 0,
+      "wallMs": 8015,
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "dpr": 1,
+        "ratio": 1,
+        "quality": "ultra",
+        "profile": {
+          "ratio": 1,
+          "shadow": 2048,
+          "shadows": true,
+          "far": 1000
+        },
+        "shadowMap": [
+          2048,
+          2048
+        ],
+        "drawCalls": 124,
+        "triangles": 223344,
+        "resident": {
+          "geometries": 119,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 6854768,
+        "sceneTextureBytesEstimate": 36503632,
+        "cpuRoadPositionBytes": 0,
+        "sourceCategory": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "heap": 35510824
+      },
+      "timing": {
+        "frames": 5430,
+        "ticks": 5430,
+        "uniqueRaf": 5430,
+        "observedMs": 8006.299999952316,
+        "fps": 678.2159049788717,
+        "frameMs": {
+          "count": 5430,
+          "mean": 1.474290976054541,
+          "p50": 1.399999976158142,
+          "p95": 2,
+          "max": 11.299999952316284
+        },
+        "tickCpuMs": {
+          "count": 5430,
+          "mean": 0.6594290975488132,
+          "p50": 0.6000000238418579,
+          "p95": 0.8999999761581421,
+          "max": 2.100000023841858
+        },
+        "renderSubmissionMs": {
+          "count": 5430,
+          "mean": 0.3898342545300338,
+          "p50": 0.3999999761581421,
+          "p95": 0.5,
+          "max": 1.600000023841858
+        },
+        "gpuCompletedQueryMs": {
+          "count": 5398,
+          "mean": 0.6474762030381634,
+          "p50": 0.580928,
+          "p95": 1.023712,
+          "max": 11.263104
+        },
+        "time": 18.004800000000266
+      },
+      "cpu": {
+        "allBrowserProcessesOneCorePercent": 244.15437842844287,
+        "allBrowserProcessesMachinePercent": 10.17309910118512,
+        "pageTaskPercent": 80.69868728424467,
+        "jsHeapBefore": 11916004,
+        "jsHeapAfter": 12717192
+      },
+      "gpuSamples": [
+        {
+          "at": 1794515945017,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P2",
+          "graphicsMHz": 2610,
+          "memoryMHz": 11001,
+          "watts": 57.81,
+          "temperatureC": 59.06,
+          "gpuUtilPercent": 43,
+          "memoryUtilPercent": 20,
+          "globalMemoryMiB": 2585,
+          "totalMemoryMiB": 8151
+        },
+        {
+          "at": 1794515946081,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P2",
+          "graphicsMHz": 2617,
+          "memoryMHz": 11001,
+          "watts": 57.49,
+          "temperatureC": 60.19,
+          "gpuUtilPercent": 50,
+          "memoryUtilPercent": 22,
+          "globalMemoryMiB": 2585,
+          "totalMemoryMiB": 8151
+        },
+        {
+          "at": 1794515947103,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P2",
+          "graphicsMHz": 2632,
+          "memoryMHz": 11001,
+          "watts": 61.78,
+          "temperatureC": 60.88,
+          "gpuUtilPercent": 59,
+          "memoryUtilPercent": 26,
+          "globalMemoryMiB": 2585,
+          "totalMemoryMiB": 8151
+        },
+        {
+          "at": 1794515948099,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P2",
+          "graphicsMHz": 2625,
+          "memoryMHz": 11001,
+          "watts": 60.17,
+          "temperatureC": 61.16,
+          "gpuUtilPercent": 51,
+          "memoryUtilPercent": 23,
+          "globalMemoryMiB": 2584,
+          "totalMemoryMiB": 8151
+        },
+        {
+          "at": 1794515949098,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P2",
+          "graphicsMHz": 2625,
+          "memoryMHz": 11001,
+          "watts": 60.45,
+          "temperatureC": 61.59,
+          "gpuUtilPercent": 55,
+          "memoryUtilPercent": 25,
+          "globalMemoryMiB": 2585,
+          "totalMemoryMiB": 8151
+        },
+        {
+          "at": 1794515950085,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P2",
+          "graphicsMHz": 2632,
+          "memoryMHz": 11001,
+          "watts": 59.61,
+          "temperatureC": 60.5,
+          "gpuUtilPercent": 45,
+          "memoryUtilPercent": 20,
+          "globalMemoryMiB": 2585,
+          "totalMemoryMiB": 8151
+        },
+        {
+          "at": 1794515951086,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P2",
+          "graphicsMHz": 2632,
+          "memoryMHz": 11001,
+          "watts": 58.09,
+          "temperatureC": 61.03,
+          "gpuUtilPercent": 48,
+          "memoryUtilPercent": 22,
+          "globalMemoryMiB": 2588,
+          "totalMemoryMiB": 8151
+        },
+        {
+          "at": 1794515952084,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P2",
+          "graphicsMHz": 2632,
+          "memoryMHz": 11001,
+          "watts": 58.09,
+          "temperatureC": 61.41,
+          "gpuUtilPercent": 51,
+          "memoryUtilPercent": 23,
+          "globalMemoryMiB": 2588,
+          "totalMemoryMiB": 8151
+        }
+      ],
+      "after": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "dpr": 1,
+        "ratio": 1,
+        "quality": "ultra",
+        "profile": {
+          "ratio": 1,
+          "shadow": 2048,
+          "shadows": true,
+          "far": 1000
+        },
+        "shadowMap": [
+          2048,
+          2048
+        ],
+        "drawCalls": 88,
+        "triangles": 134890,
+        "resident": {
+          "geometries": 127,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 6854768,
+        "sceneTextureBytesEstimate": 36503632,
+        "cpuRoadPositionBytes": 0,
+        "sourceCategory": "unavailable",
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "heap": 36404342
+      },
+      "errors": []
+    },
+    {
+      "track": "spa",
+      "event": "Belgian Grand Prix",
+      "width": 2560,
+      "height": 1440,
+      "quality": "ultra",
+      "camera": "a",
+      "key": "spa/2560/ultra/a",
+      "version": "v6",
+      "repeat": 0,
+      "wallMs": 8029,
+      "fixed": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "dpr": 1,
+        "ratio": 1,
+        "quality": "ultra",
+        "profile": {
+          "ratio": 1,
+          "shadow": 2048,
+          "shadows": true,
+          "far": 1000
+        },
+        "shadowMap": [
+          2048,
+          2048
+        ],
+        "drawCalls": 161,
+        "triangles": 454412,
+        "resident": {
+          "geometries": 198,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 36503632,
+        "cpuRoadPositionBytes": 0,
+        "sourceCategory": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "heap": 55437009
+      },
+      "timing": {
+        "frames": 4292,
+        "ticks": 4291,
+        "uniqueRaf": 4291,
+        "observedMs": 8011.700000047684,
+        "fps": 535.7165145942129,
+        "frameMs": {
+          "count": 4292,
+          "mean": 1.865843429647643,
+          "p50": 1.2000000476837158,
+          "p95": 5.900000095367432,
+          "max": 18.5
+        },
+        "tickCpuMs": {
+          "count": 4291,
+          "mean": 1.030668842545258,
+          "p50": 0.7000000476837158,
+          "p95": 3.3000000715255737,
+          "max": 11.199999928474426
+        },
+        "renderSubmissionMs": {
+          "count": 4292,
+          "mean": 0.7121854619455471,
+          "p50": 0.5,
+          "p95": 2.299999952316284,
+          "max": 7.199999928474426
+        },
+        "gpuCompletedQueryMs": {
+          "count": 3671,
+          "mean": 1.1492339743938966,
+          "p50": 0.865664,
+          "p95": 3.060352,
+          "max": 11.888128
+        },
+        "time": 17.99780000002405
+      },
+      "cpu": {
+        "allBrowserProcessesOneCorePercent": 294.51857907634536,
+        "allBrowserProcessesMachinePercent": 12.27160746151439,
+        "pageTaskPercent": 95.79677222005716,
+        "jsHeapBefore": 13237288,
+        "jsHeapAfter": 15174768
+      },
+      "gpuSamples": [
+        {
+          "at": 1794515959392,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P4",
+          "graphicsMHz": 1837,
+          "memoryMHz": 9001,
+          "watts": 28.85,
+          "temperatureC": 53.78,
+          "gpuUtilPercent": 5,
+          "memoryUtilPercent": 3,
+          "globalMemoryMiB": 2665,
+          "totalMemoryMiB": 8151
+        },
+        {
+          "at": 1794515960491,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P4",
+          "graphicsMHz": 1965,
+          "memoryMHz": 9001,
+          "watts": 27.81,
+          "temperatureC": 55.19,
+          "gpuUtilPercent": 15,
+          "memoryUtilPercent": 8,
+          "globalMemoryMiB": 2652,
+          "totalMemoryMiB": 8151
+        },
+        {
+          "at": 1794515961504,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P2",
+          "graphicsMHz": 1987,
+          "memoryMHz": 11001,
+          "watts": 28.46,
+          "temperatureC": 57.66,
+          "gpuUtilPercent": 39,
+          "memoryUtilPercent": 18,
+          "globalMemoryMiB": 2676,
+          "totalMemoryMiB": 8151
+        },
+        {
+          "at": 1794515962491,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P2",
+          "graphicsMHz": 2595,
+          "memoryMHz": 11001,
+          "watts": 77.97,
+          "temperatureC": 67.56,
+          "gpuUtilPercent": 91,
+          "memoryUtilPercent": 43,
+          "globalMemoryMiB": 2676,
+          "totalMemoryMiB": 8151
+        },
+        {
+          "at": 1794515963465,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P2",
+          "graphicsMHz": 2355,
+          "memoryMHz": 11001,
+          "watts": 79.9,
+          "temperatureC": 64.12,
+          "gpuUtilPercent": 95,
+          "memoryUtilPercent": 44,
+          "globalMemoryMiB": 2675,
+          "totalMemoryMiB": 8151
+        },
+        {
+          "at": 1794515964502,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P2",
+          "graphicsMHz": 2197,
+          "memoryMHz": 11001,
+          "watts": 68.56,
+          "temperatureC": 63.94,
+          "gpuUtilPercent": 76,
+          "memoryUtilPercent": 36,
+          "globalMemoryMiB": 2659,
+          "totalMemoryMiB": 8151
+        },
+        {
+          "at": 1794515965470,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P2",
+          "graphicsMHz": 2295,
+          "memoryMHz": 11001,
+          "watts": 69.36,
+          "temperatureC": 64.34,
+          "gpuUtilPercent": 86,
+          "memoryUtilPercent": 40,
+          "globalMemoryMiB": 2687,
+          "totalMemoryMiB": 8151
+        },
+        {
+          "at": 1794515966485,
+          "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+          "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driver": "621.14",
+          "pstate": "P2",
+          "graphicsMHz": 2235,
+          "memoryMHz": 11001,
+          "watts": 67.61,
+          "temperatureC": 61.62,
+          "gpuUtilPercent": 63,
+          "memoryUtilPercent": 29,
+          "globalMemoryMiB": 2690,
+          "totalMemoryMiB": 8151
+        }
+      ],
+      "after": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "buffer": [
+          2560,
+          1440
+        ],
+        "dpr": 1,
+        "ratio": 1,
+        "quality": "ultra",
+        "profile": {
+          "ratio": 1,
+          "shadow": 2048,
+          "shadows": true,
+          "far": 1000
+        },
+        "shadowMap": [
+          2048,
+          2048
+        ],
+        "drawCalls": 119,
+        "triangles": 368288,
+        "resident": {
+          "geometries": 204,
+          "textures": 11
+        },
+        "sceneGeometryBytes": 26382120,
+        "sceneTextureBytesEstimate": 36503632,
+        "cpuRoadPositionBytes": 0,
+        "sourceCategory": "derived",
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "heap": 58607299
+      },
+      "errors": []
+    }
+  ],
+  "blockers": [
+    "Error: Invalid window\n    at C:\\Users\\Hamit Kaan Tokmak\\Documents\\Codex\\2026-11-10\\tur\\work\\tur-duellosu\\scripts\\audit-v9.cjs:72:189"
+  ],
+  "performanceAcceptance": false,
+  "powerBefore": {
+    "powerSaving": 0,
+    "acLineStatus": 1,
+    "batteryPercent": 100,
+    "scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Dengeli)",
+    "success": true
+  },
+  "gpuBefore": {
+    "at": 1794515904426,
+    "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+    "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "driver": "621.14",
+    "pstate": "P8",
+    "graphicsMHz": 382,
+    "memoryMHz": 405,
+    "watts": 4.83,
+    "temperatureC": 47.22,
+    "gpuUtilPercent": 1,
+    "memoryUtilPercent": 9,
+    "globalMemoryMiB": 1035,
+    "totalMemoryMiB": 8151
+  },
+  "logicalCpuCount": 24,
+  "cpuModel": "13th Gen Intel(R) Core(TM) i7-13700HX",
+  "launchArgs": [
+    "--no-sandbox",
+    "--disable-frame-rate-limit",
+    "--disable-gpu-vsync",
+    "--disable-background-timer-throttling",
+    "--disable-renderer-backgrounding",
+    "--disable-backgrounding-occluded-windows"
+  ],
+  "browser": "157.0.8103.51",
+  "systemGpu": {
+    "gpu": {
+      "devices": [
+        {
+          "vendorId": 4318,
+          "deviceId": 11545,
+          "subSysId": 325064024,
+          "revision": 161,
+          "vendorString": "",
+          "deviceString": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driverVendor": "NVIDIA",
+          "driverVersion": "32.0.16.2114"
+        },
+        {
+          "vendorId": 32902,
+          "deviceId": 18056,
+          "subSysId": 324015448,
+          "revision": 12,
+          "vendorString": "",
+          "deviceString": "Intel(R) UHD Graphics",
+          "driverVendor": "",
+          "driverVersion": "32.0.101.7092"
+        },
+        {
+          "vendorId": 5140,
+          "deviceId": 140,
+          "subSysId": 0,
+          "revision": 0,
+          "vendorString": "",
+          "deviceString": "Microsoft Basic Render Driver",
+          "driverVendor": "",
+          "driverVersion": "10.0.26100.9711"
+        }
+      ],
+      "auxAttributes": {
+        "amdSwitchable": false,
+        "bgra8OverlaySupport": "SCALING",
+        "canSupportThreadedTextureMailbox": false,
+        "directComposition": true,
+        "directMLFeatureLevel": "Not supported",
+        "directRenderingVersion": "",
+        "displayType": "ANGLE_D3D11",
+        "dx12FeatureLevel": "Not supported",
+        "glExtensions": "GL_AMD_performance_monitor GL_ANGLE_base_vertex_base_instance_shader_builtin GL_ANGLE_blob_cache GL_ANGLE_client_arrays GL_ANGLE_clip_cull_distance GL_ANGLE_copy_texture_3d GL_ANGLE_depth_texture GL_ANGLE_framebuffer_blit GL_ANGLE_framebuffer_multisample GL_ANGLE_get_serialized_context_string GL_ANGLE_get_tex_level_parameter GL_ANGLE_instanced_arrays GL_ANGLE_memory_size GL_ANGLE_multiview_multisample GL_ANGLE_pack_reverse_row_order GL_ANGLE_polygon_mode GL_ANGLE_program_binary_readiness_query GL_ANGLE_program_cache_control GL_ANGLE_provoking_vertex GL_ANGLE_renderability_validation GL_ANGLE_request_extension GL_ANGLE_robust_client_memory GL_ANGLE_shader_pixel_local_storage GL_ANGLE_shader_pixel_local_storage_coherent GL_ANGLE_stencil_texturing GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ANGLE_texture_multisample GL_ANGLE_texture_usage GL_ANGLE_translated_shader_source GL_APPLE_clip_distance GL_ARM_rgba8 GL_CHROMIUM_bind_generates_resource GL_CHROMIUM_bind_uniform_location GL_CHROMIUM_copy_compressed_texture GL_CHROMIUM_copy_texture GL_CHROMIUM_lose_context GL_EXT_EGL_image_external_wrap_modes GL_EXT_base_instance GL_EXT_blend_func_extended GL_EXT_blend_minmax GL_EXT_clip_control GL_EXT_clip_cull_distance GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_depth GL_EXT_debug_label GL_EXT_debug_marker GL_EXT_depth_clamp GL_EXT_discard_framebuffer GL_EXT_disjoint_timer_query GL_EXT_draw_buffers GL_EXT_draw_buffers_indexed GL_EXT_draw_elements_base_vertex GL_EXT_float_blend GL_EXT_frag_depth GL_EXT_instanced_arrays GL_EXT_map_buffer_range GL_EXT_occlusion_query_boolean GL_EXT_polygon_offset_clamp GL_EXT_read_format_bgra GL_EXT_render_snorm GL_EXT_robustness GL_EXT_sRGB GL_EXT_shader_texture_lod GL_EXT_texture_border_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc_srgb GL_EXT_texture_filter_anisotropic GL_EXT_texture_format_BGRA8888 GL_EXT_texture_mirror_clamp_to_edge GL_EXT_texture_norm16 GL_EXT_texture_rg GL_EXT_texture_storage GL_EXT_texture_type_2_10_10_10_REV GL_EXT_unpack_subimage GL_KHR_debug GL_KHR_parallel_shader_compile GL_KHR_robustness GL_NV_EGL_stream_consumer_external GL_NV_fence GL_NV_framebuffer_blit GL_NV_pack_subimage GL_NV_pixel_buffer_object GL_NV_shader_noperspective_interpolation GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_EGL_image_external_essl3 GL_OES_depth24 GL_OES_depth32 GL_OES_draw_buffers_indexed GL_OES_draw_elements_base_vertex GL_OES_element_index_uint GL_OES_fbo_render_mipmap GL_OES_get_program_binary GL_OES_mapbuffer GL_OES_packed_depth_stencil GL_OES_required_internalformat GL_OES_rgb8_rgba8 GL_OES_sample_variables GL_OES_shader_multisample_interpolation GL_OES_standard_derivatives GL_OES_surfaceless_context GL_OES_texture_border_clamp GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_texture_stencil8 GL_OES_texture_storage_multisample_2d_array GL_OES_vertex_array_object GL_OVR_multiview GL_OVR_multiview2 ",
+        "glImplementationParts": "(gl=egl-angle,angle=d3d11)",
+        "glRenderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11-32.0.16.2114)",
+        "glResetNotificationStrategy": 33362,
+        "glVendor": "Google Inc. (NVIDIA)",
+        "glVersion": "OpenGL ES 3.0 (ANGLE 2.1.29097 git hash: 751417514a52)",
+        "glWsExtensions": "EGL_EXT_create_context_robustness EGL_ANGLE_d3d_share_handle_client_buffer EGL_ANGLE_d3d_texture_client_buffer EGL_ANGLE_surface_d3d_texture_2d_share_handle EGL_ANGLE_query_surface_pointer EGL_ANGLE_window_fixed_size EGL_ANGLE_keyed_mutex EGL_ANGLE_surface_orientation EGL_ANGLE_direct_composition EGL_NV_post_sub_buffer EGL_KHR_create_context EGL_KHR_image EGL_KHR_image_base EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_gl_renderbuffer_image EGL_KHR_get_all_proc_addresses EGL_KHR_stream EGL_KHR_stream_consumer_gltexture EGL_NV_stream_consumer_gltexture_yuv EGL_ANGLE_stream_producer_d3d_texture EGL_ANGLE_create_context_webgl_compatibility EGL_CHROMIUM_create_context_bind_generates_resource EGL_CHROMIUM_sync_control EGL_EXT_pixel_format_float EGL_KHR_surfaceless_context EGL_ANGLE_display_texture_share_group EGL_ANGLE_display_semaphore_share_group EGL_ANGLE_create_context_client_arrays EGL_ANGLE_program_cache_control EGL_ANGLE_robust_resource_initialization EGL_ANGLE_create_context_extensions_enabled EGL_ANDROID_blob_cache EGL_ANDROID_recordable EGL_ANGLE_image_d3d11_texture EGL_ANGLE_create_context_backwards_compatible EGL_KHR_no_config_context EGL_KHR_create_context_no_error EGL_KHR_reusable_sync EGL_ANGLE_memory_usage_report ",
+        "glWsVendor": "Google Inc. (NVIDIA)",
+        "glWsVersion": "1.5 (ANGLE 2.1.29097 git hash: 751417514a52)",
+        "inProcessGpu": false,
+        "initializationTime": 0.268367,
+        "isAsan": false,
+        "isClangCoverage": false,
+        "jpegDecodeAcceleratorSupported": false,
+        "maxMsaaSamples": "8",
+        "nv12OverlaySupport": "SCALING",
+        "optimus": false,
+        "p010OverlaySupport": "SCALING",
+        "passthroughCmdDecoder": true,
+        "pixelShaderVersion": "5.0",
+        "processCrashCount": 0,
+        "rgb10a2OverlaySupport": "SCALING",
+        "sandboxed": false,
+        "skiaBackendType": "GaneshGL",
+        "subpixelFontRendering": true,
+        "supportsD3dSharedImages": false,
+        "supportsDirectML": false,
+        "supportsDx12": false,
+        "supportsOverlays": true,
+        "supportsVulkan": false,
+        "targetCpuBits": 64,
+        "vertexShaderVersion": "5.0",
+        "visibilityCallbackCallCount": 0,
+        "vulkanVersion": "Not supported",
+        "yuy2OverlaySupport": "SCALING"
+      },
+      "featureStatus": {
+        "2d_canvas": "enabled",
+        "direct_rendering_display_compositor": "disabled_off_ok",
+        "gpu_compositing": "enabled",
+        "multiple_raster_threads": "enabled_on",
+        "opengl": "enabled_on",
+        "rasterization": "enabled",
+        "skia_graphite": "disabled_off",
+        "trees_in_viz": "disabled_off",
+        "video_decode": "enabled",
+        "video_encode": "enabled",
+        "webgl": "enabled",
+        "webgpu": "enabled",
+        "webnn": "disabled_off"
+      },
+      "driverBugWorkarounds": [
+        "disable_d3d11_vp9_ksvc_decoding",
+        "enable_webgl_timer_query_extensions",
+        "exit_on_context_lost",
+        "unpack_overlapping_rows_separately_unpack_buffer",
+        "use_g22_topleft_color_space_for_yuv_vp",
+        "disabled_extension_GL_KHR_blend_equation_advanced",
+        "disabled_extension_GL_KHR_blend_equation_advanced_coherent"
+      ],
+      "videoDecoding": [],
+      "videoEncoding": []
+    },
+    "modelName": "",
+    "modelVersion": "",
+    "commandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --disable-frame-rate-limit --disable-gpu-vsync --disable-background-timer-throttling --disable-renderer-backgrounding --disable-backgrounding-occluded-windows --user-data-dir=\"C:\\Users\\Hamit Kaan Tokmak\\AppData\\Local\\Packages\\sandbox.{1c2e6635-b0e9-4f29-9e12-a5aa11cf2497}\\AC\\Temp\\playwright_chromiumdev_profile-dWPrzs\" --remote-debugging-pipe --no-startup-window --noerrdialogs --flag-switches-begin --flag-switches-end"
+  },
+  "gpuAfter": {
+    "at": 1794515967545,
+    "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+    "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "driver": "621.14",
+    "pstate": "P2",
+    "graphicsMHz": 2460,
+    "memoryMHz": 11001,
+    "watts": 32.62,
+    "temperatureC": 56.84,
+    "gpuUtilPercent": 18,
+    "memoryUtilPercent": 7,
+    "globalMemoryMiB": 2688,
+    "totalMemoryMiB": 8151
+  }
+}

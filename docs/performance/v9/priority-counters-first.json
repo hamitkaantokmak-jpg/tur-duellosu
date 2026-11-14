@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "mode": "software-counters",
+  "observedAt": "2026-11-13T15:13:21.487Z",
+  "versions": {
+    "v5": "a237ca529b31bd769df90165c62f73cdef54a672",
+    "v6": "f295c01a8984715334363077fb66ccaad522e246",
+    "v61": "e5ffd2224bb3ee2dceed9ee2470bc6f6da33fc74",
+    "v7": "0d5deecee432230bb1d84c77cc2bd92553358922",
+    "v8": "ad35d61f5b26ed1d5ff6d82a3ee43b91478cee94",
+    "v71": "5bb2995e20fe45e6af76a23e997915b3202965da"
+  },
+  "conditions": {
+    "seconds": 12,
+    "warmup": 20,
+    "repeats": 5,
+    "orders": [
+      [
+        "v5",
+        "v6",
+        "v61",
+        "v7",
+        "v8",
+        "v71"
+      ],
+      [
+        "v5",
+        "v71",
+        "v8",
+        "v7",
+        "v61",
+        "v6"
+      ],
+      [
+        "v61",
+        "v7",
+        "v8",
+        "v71",
+        "v5",
+        "v6"
+      ],
+      [
+        "v61",
+        "v6",
+        "v5",
+        "v71",
+        "v8",
+        "v7"
+      ],
+      [
+        "v8",
+        "v71",
+        "v5",
+        "v6",
+        "v61",
+        "v7"
+      ]
+    ],
+    "scenarios": [
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "spa/2560/ultra/a"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "spa/2560/ultra/cockpit"
+      }
+    ],
+    "dpr": 1,
+    "adaptive": false,
+    "startTime": 10,
+    "rate": 1,
+    "renderScalePolicy": "native profiles, actual buffers recorded; unequal buffers cannot be compared",
+    "qualityPolicy": "No profile ratios, shadows, light, AO or geometry overridden",
+    "powerProfile": null
+  },
+  "physicalAcceptance": "DOĞRULANAMADI",
+  "rows": [],
+  "blockers": [
+    "locator.uncheck: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#ghostAdaptive')\u001b[22m\n\u001b[2m    - locator resolved to <input checked type=\"checkbox\" id=\"ghostAdaptive\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"ghost-stage\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"ghost-stage\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    41 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div class=\"ghost-stage\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+  ],
+  "browser": "156.0.8078.79",
+  "launchArgs": [
+    "--no-sandbox",
+    "--use-angle=swiftshader",
+    "--enable-unsafe-swiftshader",
+    "--ignore-certificate-errors-spki-list=n9jEr2dCP1tg9exQzr7xEpZ4TjG2QWO02LUFhmAzII4="
+  ],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "gpuBefore": {
+    "available": false,
+    "error": "ENOENT"
+  },
+  "roots": {
+    "v5": {
+      "commit": "a237ca529b31bd769df90165c62f73cdef54a672",
+      "url": "http://127.0.0.1:4510"
+    },
+    "v6": {
+      "commit": "f295c01a8984715334363077fb66ccaad522e246",
+      "url": "http://127.0.0.1:4511"
+    },
+    "v61": {
+      "commit": "e5ffd2224bb3ee2dceed9ee2470bc6f6da33fc74",
+      "url": "http://127.0.0.1:4512"
+    },
+    "v7": {
+      "commit": "0d5deecee432230bb1d84c77cc2bd92553358922",
+      "url": "http://127.0.0.1:4513"
+    },
+    "v8": {
+      "commit": "ad35d61f5b26ed1d5ff6d82a3ee43b91478cee94",
+      "url": "http://127.0.0.1:4514"
+    },
+    "v71": {
+      "commit": "5bb2995e20fe45e6af76a23e997915b3202965da",
+      "url": "http://127.0.0.1:4515"
+    }
+  }
+}

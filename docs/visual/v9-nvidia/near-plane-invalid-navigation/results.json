@@ -1,0 +1,308 @@
+{
+  "browser": "157.0.8103.51",
+  "classification": "Actual physical NVIDIA cockpit quality recheck, not FPS acceptance; diagnostic intersections are not an exact pixel area",
+  "viewport": [
+    1440,
+    1000
+  ],
+  "records": {
+    "before": [
+      {
+        "frame": {
+          "id": "mexico",
+          "name": "cockpit",
+          "time": 50,
+          "mode": "cockpit"
+        },
+        "near": 0.5,
+        "inspection": {
+          "cuts": 66,
+          "byMaterial": {
+            "Carbon": 66
+          },
+          "visibleMeshes": 22
+        },
+        "camera": [
+          529.8431037330106,
+          0.98,
+          509.7727216309511
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "buffer": [
+          1406,
+          680
+        ],
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "file": "before/mexico-cockpit.png"
+      },
+      {
+        "frame": {
+          "id": "cota",
+          "name": "cockpit",
+          "time": 5.975000000000017,
+          "mode": "cockpit"
+        },
+        "near": 0.5,
+        "inspection": {
+          "cuts": 70,
+          "byMaterial": {
+            "Carbon": 70
+          },
+          "visibleMeshes": 22
+        },
+        "camera": [
+          475.57017001001554,
+          0.98,
+          65.10939973969123
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "buffer": [
+          1406,
+          680
+        ],
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "file": "before/cota-cockpit.png"
+      },
+      {
+        "frame": {
+          "id": "spa",
+          "name": "cockpit",
+          "time": 20.02499999999993,
+          "mode": "cockpit"
+        },
+        "near": 0.5,
+        "inspection": {
+          "cuts": 66,
+          "byMaterial": {
+            "Carbon": 66
+          },
+          "visibleMeshes": 22
+        },
+        "camera": [
+          1170.5719772567084,
+          0.98,
+          343.0011670579904
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "buffer": [
+          1406,
+          680
+        ],
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "file": "before/spa-cockpit.png"
+      }
+    ],
+    "after": [
+      {
+        "frame": {
+          "id": "mexico",
+          "name": "cockpit",
+          "time": 50,
+          "mode": "cockpit"
+        },
+        "near": 0.5,
+        "inspection": {
+          "cuts": 66,
+          "byMaterial": {
+            "Carbon": 66
+          },
+          "visibleMeshes": 22
+        },
+        "camera": [
+          529.8431037330106,
+          0.98,
+          509.7727216309511
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "buffer": [
+          1406,
+          680
+        ],
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "file": "after/mexico-cockpit.png"
+      },
+      {
+        "frame": {
+          "id": "cota",
+          "name": "cockpit",
+          "time": 5.975000000000017,
+          "mode": "cockpit"
+        },
+        "near": 0.5,
+        "inspection": {
+          "cuts": 70,
+          "byMaterial": {
+            "Carbon": 70
+          },
+          "visibleMeshes": 22
+        },
+        "camera": [
+          475.57017001001554,
+          0.98,
+          65.10939973969123
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "buffer": [
+          1406,
+          680
+        ],
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "file": "after/cota-cockpit.png"
+      },
+      {
+        "frame": {
+          "id": "spa",
+          "name": "cockpit",
+          "time": 20.02499999999993,
+          "mode": "cockpit"
+        },
+        "near": 0.5,
+        "inspection": {
+          "cuts": 66,
+          "byMaterial": {
+            "Carbon": 66
+          },
+          "visibleMeshes": 22
+        },
+        "camera": [
+          1170.5719772567084,
+          0.98,
+          343.0011670579904
+        ],
+        "projection": [
+          1.0862766758569462,
+          0,
+          0,
+          0,
+          0,
+          2.246036773904216,
+          0,
+          0,
+          0,
+          0,
+          -1.00010000500025,
+          -1,
+          0,
+          0,
+          -1.000050002500125,
+          0
+        ],
+        "buffer": [
+          1406,
+          680
+        ],
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "file": "after/spa-cockpit.png"
+      }
+    ]
+  }
+}

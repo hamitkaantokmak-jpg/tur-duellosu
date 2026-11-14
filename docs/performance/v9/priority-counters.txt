@@ -1,0 +1,12 @@
+v5 spa/2560/ultra/a software-counters
+v6 spa/2560/ultra/a software-counters
+v61 spa/2560/ultra/a software-counters
+v7 spa/2560/ultra/a software-counters
+v8 spa/2560/ultra/a software-counters
+v71 spa/2560/ultra/a software-counters
+v5 spa/2560/ultra/cockpit software-counters
+v6 spa/2560/ultra/cockpit software-counters
+v61 spa/2560/ultra/cockpit software-counters
+v7 spa/2560/ultra/cockpit software-counters
+v8 spa/2560/ultra/cockpit software-counters
+v71 spa/2560/ultra/cockpit software-counters

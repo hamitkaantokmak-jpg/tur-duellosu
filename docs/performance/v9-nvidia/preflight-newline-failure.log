@@ -1,0 +1,5 @@
+Error: Archive file hash mismatch v5/index.html
+    at C:\Users\Hamit Kaan Tokmak\Documents\Codex\2026-11-10\tur\work\tur-duellosu\scripts\nvidia-v9\audit-v9.cjs:50:588
+    at Array.map (<anonymous>)
+    at C:\Users\Hamit Kaan Tokmak\Documents\Codex\2026-11-10\tur\work\tur-duellosu\scripts\nvidia-v9\audit-v9.cjs:50:42
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)

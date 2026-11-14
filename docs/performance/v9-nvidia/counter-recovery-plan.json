@@ -1,0 +1,90 @@
+{
+  "createdAt": "2026-11-13T21:59:27.626Z",
+  "original": "main-attempt-01.json",
+  "originalSha256": "bfc7c3a824929efb8730eb4748d0c66ae16f41c513d9a94a56e6646b7df722c4",
+  "originalRows": 164,
+  "retainedCompleteRows": 162,
+  "retainedKeys": [
+    "spa/2560/ultra/a",
+    "spa/2560/ultra/cockpit",
+    "spa/2560/performance/a",
+    "spa/2560/performance/cockpit",
+    "spa/1920/ultra/a",
+    "spa/1920/ultra/cockpit",
+    "spa/1920/performance/a",
+    "spa/1920/performance/cockpit",
+    "cota/2560/ultra/a"
+  ],
+  "retainedPrefixSha256": "caaa846bb2614f35eb426672874e539e20d21896cd27eb565053cac1bff44235",
+  "excludedIncompleteCondition": "cota/2560/ultra/cockpit",
+  "excludedRows": [
+    163,
+    164
+  ],
+  "invalidEvidence": {
+    "frames": 4973,
+    "ticks": 4973,
+    "uniqueRaf": 4972,
+    "offTickRenders": 0,
+    "observedMs": 8007.0999999940395,
+    "fps": 621.0737970056202,
+    "frameMs": {
+      "count": 4973,
+      "mean": 1.609913533077426,
+      "p50": 1.0999999940395355,
+      "p95": 2.5,
+      "max": 51.20000000298023
+    },
+    "tickCpuMs": {
+      "count": 4973,
+      "mean": 1.0106374421021167,
+      "p50": 0.5,
+      "p95": 1.5999999940395355,
+      "max": 51.79999999701977
+    },
+    "renderSubmissionMs": {
+      "count": 4973,
+      "mean": 0.8396742408535214,
+      "p50": 0.3999999910593033,
+      "p95": 1.2999999970197678,
+      "max": 50.5
+    },
+    "gpuCompletedQueryMs": {
+      "count": 81,
+      "mean": 1.6646581728395065,
+      "p50": 1.68352,
+      "p95": 2.09664,
+      "max": 2.22064
+    },
+    "drawCalls": {
+      "count": 4973,
+      "mean": 118.70138749245928,
+      "p50": 113,
+      "p95": 144,
+      "max": 186
+    },
+    "triangles": {
+      "count": 4973,
+      "mean": 289360.87029961793,
+      "p50": 289606,
+      "p95": 308246,
+      "max": 375864
+    },
+    "functions": {},
+    "time": 17.962999999996228
+  },
+  "reason": "One duplicate RAF timestamp stopped the strict original collector. Preserve the original attempt; retain only complete valid conditions. Repeat the entire incomplete condition for all six versions. New counter groups equal timestamps and uses final completion; unique-stamp inputs are mathematically unchanged. No FPS threshold, workload, source, quality or timing changes.",
+  "counterVersion": "unique-raf-v2",
+  "newScriptsSha256": {
+    "scripts/nvidia-v9/audit-v9.cjs": "80af8082271718d47575d0da82e1cd549e1a4397703b70a1c80b138f2bce6e50",
+    "scripts/nvidia-v9/frame-window.cjs": "a584991bdf05165f066f24a04b52633972aad3475d255213d8ec1b1a4961d1f3",
+    "scripts/nvidia-v9/control-chrome-v9.ps1": "ad02a4f4d404878b68e76bdda21885c3f1527fe725bf418a1d9ef81e7eebb96e",
+    "scripts/nvidia-v9/read-power-v9.ps1": "db9f28a50b8c0036f7769b74a60dab4b771425c134fe3c83ed4f159a6c1dce96"
+  },
+  "oldScriptsSha256": {
+    "scripts/nvidia-v9/audit-v9.cjs": "4823906a6f70338849e3801db1200b9a3d5aa4cf77fc608e4e99abdf0dae407a",
+    "scripts/nvidia-v9/control-chrome-v9.ps1": "ad02a4f4d404878b68e76bdda21885c3f1527fe725bf418a1d9ef81e7eebb96e",
+    "scripts/nvidia-v9/read-power-v9.ps1": "db9f28a50b8c0036f7769b74a60dab4b771425c134fe3c83ed4f159a6c1dce96"
+  },
+  "unitTestsPassed": 74
+}

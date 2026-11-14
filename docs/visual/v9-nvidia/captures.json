@@ -1,0 +1,2126 @@
+{
+  "browser": "157.0.8103.51",
+  "beforeCommit": "ad35d61f5b26ed1d5ff6d82a3ee43b91478cee94",
+  "afterCommit": "e0bc34698170e4a2035b505ad4bec501d5c330e7",
+  "viewport": [
+    1440,
+    1000
+  ],
+  "records": {
+    "before": [
+      {
+        "frame": {
+          "name": "spa-eau-rouge",
+          "event": "Belgian Grand Prix",
+          "station": 915
+        },
+        "time": 18.12500000000004,
+        "pose": {
+          "x": 395.0124751034328,
+          "z": 194.6056134155881,
+          "fx": 0.7991720757846642,
+          "fz": 0.6011023151561061
+        },
+        "support": {
+          "y": -26.825059752190633,
+          "normal": {
+            "x": 0.000004668287479107151,
+            "y": 0.9999999898058102,
+            "z": 0.0001427115505672103
+          },
+          "station": 914.6727189191588,
+          "banking": 0,
+          "gradient": -0.00042347653543380536
+        },
+        "camera": [
+          401.96974844358874,
+          -24.84414847819193,
+          193.51772779004096
+        ],
+        "sun": [
+          295.0124751034328,
+          38.17494024780937,
+          124.6056134155881
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": -0.0006901209392590417,
+          "roll": 0.008972728323347529,
+          "steer": 0.01258136344223696
+        },
+        "contacts": [
+          0.001999999999991786,
+          0.001999999999995339,
+          0.0019999999999882334,
+          0.0019999999999882334,
+          0.001999981189264588,
+          0.001999982533597233,
+          0.0019999806741743953,
+          0.001999978737142527
+        ],
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 106,
+        "triangles": 361350,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Kalıcı pist · coğrafi referans / TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "file": "docs/visual/v9-nvidia/before/spa-eau-rouge.png",
+        "pngSha256": "63282bf0fe8a3d7ac32ca349bbe98551602c7a78719f6c3e7a3518ac1f9e7427",
+        "originalRecordedFile": "docs\\visual\\v9\\before\\spa-eau-rouge.png"
+      },
+      {
+        "frame": {
+          "name": "spa-raidillon",
+          "event": "Belgian Grand Prix",
+          "station": 1075
+        },
+        "time": 20.02499999999993,
+        "pose": {
+          "x": 492.6392646154723,
+          "z": 315.48504814972296,
+          "fx": 0.17214138138764273,
+          "fz": 0.9850722536006962
+        },
+        "support": {
+          "y": -10.020441538802158,
+          "normal": {
+            "x": -0.020204298354006923,
+            "y": 0.9933764404163268,
+            "z": -0.11311513582987091
+          },
+          "station": 1075.739696189522,
+          "banking": 0,
+          "gradient": 0.11561746030597742
+        },
+        "camera": [
+          498.45019370546527,
+          -8.042709568510405,
+          319.3940299220647
+        ],
+        "sun": [
+          392.6392646154723,
+          54.97955846119784,
+          245.48504814972296
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": 0.0005696661090669689,
+          "roll": -0.010243893905612212,
+          "steer": -0.024534006305797162
+        },
+        "contacts": [
+          0.002000641672857739,
+          0.001999973724705839,
+          0.001999561639253855,
+          0.002000621659602686,
+          0.0019998434702648282,
+          0.001999877299903474,
+          0.001999892074005416,
+          0.0019998703951298324
+        ],
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 110,
+        "triangles": 362122,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Kalıcı pist · coğrafi referans / TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "file": "docs/visual/v9-nvidia/before/spa-raidillon.png",
+        "pngSha256": "32caf2e879e88030fc7886636c48e9dad52c81fe9ac914986fd04c189a79a0a0",
+        "originalRecordedFile": "docs\\visual\\v9\\before\\spa-raidillon.png"
+      },
+      {
+        "frame": {
+          "name": "spa-crest",
+          "event": "Belgian Grand Prix",
+          "station": 1154
+        },
+        "time": 20.94999999999988,
+        "pose": {
+          "x": 512.4638576970674,
+          "z": 389.26663909055856,
+          "fx": 0.3993038044866377,
+          "fz": 0.9168186689430451
+        },
+        "support": {
+          "y": -3.219748685269183,
+          "normal": {
+            "x": -0.02870656287190867,
+            "y": 0.9981403541092972,
+            "z": -0.053775149898887015
+          },
+          "station": 1153.6382139246343,
+          "banking": 0,
+          "gradient": 0.060826310430765376
+        },
+        "camera": [
+          519.0404012706658,
+          -1.2397300364048032,
+          391.72173647470663
+        ],
+        "sun": [
+          412.4638576970674,
+          61.78025131473082,
+          319.26663909055856
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": -0.0006377385662668726,
+          "roll": 0.007818086240981252,
+          "steer": 0.00918661172426264
+        },
+        "contacts": [
+          0.0019999518351419,
+          0.001999937829060272,
+          0.001999978757916132,
+          0.00199997465985291,
+          0.0019999892155373455,
+          0.0019999891864268537,
+          0.0019999892164230815,
+          0.0019999892450530687
+        ],
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 116,
+        "triangles": 364810,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Kalıcı pist · coğrafi referans / TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "file": "docs/visual/v9-nvidia/before/spa-crest.png",
+        "pngSha256": "648e812fd5d4eed5d9dcc282bda87ac33739ffa61ee4d99d54fc9f10a0e8c84e",
+        "originalRecordedFile": "docs\\visual\\v9\\before\\spa-crest.png"
+      },
+      {
+        "frame": {
+          "name": "spa-cockpit",
+          "event": "Belgian Grand Prix",
+          "station": 1075,
+          "mode": "cockpit"
+        },
+        "time": 20.02499999999993,
+        "pose": {
+          "x": 492.6392646154723,
+          "z": 315.48504814972296,
+          "fx": 0.17214138138764273,
+          "fz": 0.9850722536006962
+        },
+        "support": {
+          "y": -10.020441538802158,
+          "normal": {
+            "x": -0.020204298354006923,
+            "y": 0.9933764404163268,
+            "z": -0.11311513582987091
+          },
+          "station": 1075.739696189522,
+          "banking": 0,
+          "gradient": 0.11561746030597742
+        },
+        "camera": [
+          492.65647875361105,
+          -9.050939623505407,
+          315.58355537508305
+        ],
+        "sun": [
+          392.6392646154723,
+          54.97955846119784,
+          245.48504814972296
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": 0.0005696661090669689,
+          "roll": -0.010243893905612212,
+          "steer": -0.024534006305797162
+        },
+        "contacts": [
+          0.002000641672857739,
+          0.001999973724705839,
+          0.001999561639253855,
+          0.002000621659602686,
+          0.0019998434702648282,
+          0.001999877299903474,
+          0.001999892074005416,
+          0.0019998703951298324
+        ],
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 159,
+        "triangles": 404862,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Kalıcı pist · coğrafi referans / TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "file": "docs/visual/v9-nvidia/before/spa-cockpit.png",
+        "pngSha256": "01dc46a2e86604017687b493f149faeb5ebfe15bebf7dd68f8f0cd4ff32d18b9",
+        "originalRecordedFile": "docs\\visual\\v9\\before\\spa-cockpit.png"
+      },
+      {
+        "frame": {
+          "name": "cota-t1-approach",
+          "event": "United States Grand Prix",
+          "station": 180
+        },
+        "time": 5.975000000000017,
+        "pose": {
+          "x": 140.17889731025716,
+          "z": 111.73715633888018,
+          "fx": 0.7819722767086701,
+          "fz": 0.6233132105603563
+        },
+        "support": {
+          "y": 10.079177525581589,
+          "normal": {
+            "x": -0.07836583782009734,
+            "y": 0.994965742715877,
+            "z": -0.062465720876310804
+          },
+          "station": 179.26325713268488,
+          "banking": 0,
+          "gradient": 0.1007466731790193
+        },
+        "camera": [
+          147.12636734256014,
+          12.057672360977126,
+          110.81507189486494
+        ],
+        "sun": [
+          40.178897310257156,
+          75.07917752558158,
+          41.73715633888018
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": -0.00022546308901143325,
+          "roll": -6.711809958278964e-7,
+          "steer": -6.386745729080709e-7
+        },
+        "contacts": [
+          0.0019997918165604034,
+          0.001999791811874374,
+          0.001999787578268908,
+          0.0019997875254098574,
+          0.0019997953673644986,
+          0.001999795362499057,
+          0.0019997943573812904,
+          0.001999794379457853
+        ],
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 118,
+        "triangles": 306630,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Austin · COTA · coğrafi referans / TÜRETİLMİŞ · USGS 2017 arazi modeli · 1 m grid · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          94.154,
+          92.974
+        ],
+        "file": "docs/visual/v9-nvidia/before/cota-t1-approach.png",
+        "pngSha256": "b9cfc7e6f2a646606546c105a118381d7ac9cd6e621c29fadf06ebdb4c2aac08",
+        "originalRecordedFile": "docs\\visual\\v9\\before\\cota-t1-approach.png"
+      },
+      {
+        "frame": {
+          "name": "cota-t1-crest",
+          "event": "United States Grand Prix",
+          "station": 350
+        },
+        "time": 9.550000000000068,
+        "pose": {
+          "x": 275.89300289142574,
+          "z": 177.554108739508,
+          "fx": 0.2189319014459298,
+          "fz": -0.9757401408824328
+        },
+        "support": {
+          "y": 26.810671525344688,
+          "normal": {
+            "x": 0.0001180112920671832,
+            "y": 0.9999989444292061,
+            "z": -0.0014481760282135305
+          },
+          "station": 350.4098889418783,
+          "banking": 0,
+          "gradient": -0.0014513803731279987
+        },
+        "camera": [
+          272.0382122811836,
+          28.791582297562623,
+          171.66041624793485
+        ],
+        "sun": [
+          175.89300289142574,
+          91.81067152534469,
+          107.554108739508
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": 0.003240828896575492,
+          "roll": 0.010468533042317232,
+          "steer": 0.17413948660903023
+        },
+        "contacts": [
+          0.002000000000016655,
+          0.002000000000005997,
+          0.001999999999981128,
+          0.001999999999981128,
+          0.0020000000000024443,
+          0.001999999999995339,
+          0.0020000000000024443,
+          0.0019999999999988916
+        ],
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 106,
+        "triangles": 300070,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Austin · COTA · coğrafi referans / TÜRETİLMİŞ · USGS 2017 arazi modeli · 1 m grid · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          94.154,
+          92.974
+        ],
+        "file": "docs/visual/v9-nvidia/before/cota-t1-crest.png",
+        "pngSha256": "7154febf052da232ecfcb6d0c674b61e423e7b99c3e686391311f1e7e22b9775",
+        "originalRecordedFile": "docs\\visual\\v9\\before\\cota-t1-crest.png"
+      },
+      {
+        "frame": {
+          "name": "cota-t1-descent",
+          "event": "United States Grand Prix",
+          "station": 520
+        },
+        "time": 13.650000000000126,
+        "pose": {
+          "x": 226.69716998077237,
+          "z": 17.552320957299937,
+          "fx": -0.21866748011611925,
+          "fz": -0.9757994328445098
+        },
+        "support": {
+          "y": 12.30507845609715,
+          "normal": {
+            "x": -0.015440878087845217,
+            "y": 0.9974026462462938,
+            "z": -0.07035297111541614
+          },
+          "station": 519.430603638456,
+          "banking": 0,
+          "gradient": -0.07210897754501906
+        },
+        "camera": [
+          220.68771181047563,
+          14.284743005187286,
+          13.835794064434214
+        ],
+        "sun": [
+          126.69716998077237,
+          77.30507845609715,
+          -52.44767904270006
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": -0.005295410762645568,
+          "roll": -0.008021705928315258,
+          "steer": -0.019528501798444297
+        },
+        "contacts": [
+          0.0019999715693810316,
+          0.0019999902607530373,
+          0.0019999990606240914,
+          0.0019999476635526037,
+          0.001999905894058074,
+          0.0019999849263339087,
+          0.0019999720078107686,
+          0.001999918126896816
+        ],
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 111,
+        "triangles": 304354,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Austin · COTA · coğrafi referans / TÜRETİLMİŞ · USGS 2017 arazi modeli · 1 m grid · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          94.154,
+          92.974
+        ],
+        "file": "docs/visual/v9-nvidia/before/cota-t1-descent.png",
+        "pngSha256": "9e16d735383b0c60adb36e52c25d36a399e9db23160d7006402d973445094130",
+        "originalRecordedFile": "docs\\visual\\v9\\before\\cota-t1-descent.png"
+      },
+      {
+        "frame": {
+          "name": "cota-cockpit",
+          "event": "United States Grand Prix",
+          "station": 180,
+          "mode": "cockpit"
+        },
+        "time": 5.975000000000017,
+        "pose": {
+          "x": 140.17889731025716,
+          "z": 111.73715633888018,
+          "fx": 0.7819722767086701,
+          "fz": 0.6233132105603563
+        },
+        "support": {
+          "y": 10.079177525581589,
+          "normal": {
+            "x": -0.07836583782009734,
+            "y": 0.994965742715877,
+            "z": -0.062465720876310804
+          },
+          "station": 179.26325713268488,
+          "banking": 0,
+          "gradient": 0.1007466731790193
+        },
+        "camera": [
+          140.25709453792803,
+          11.04869780524825,
+          111.79948765993622
+        ],
+        "sun": [
+          40.178897310257156,
+          75.07917752558158,
+          41.73715633888018
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": -0.00022546308901143325,
+          "roll": -6.711809958278964e-7,
+          "steer": -6.386745729080709e-7
+        },
+        "contacts": [
+          0.0019997918165604034,
+          0.001999791811874374,
+          0.001999787578268908,
+          0.0019997875254098574,
+          0.0019997953673644986,
+          0.001999795362499057,
+          0.0019997943573812904,
+          0.001999794379457853
+        ],
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 92,
+        "triangles": 288262,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Austin · COTA · coğrafi referans / TÜRETİLMİŞ · USGS 2017 arazi modeli · 1 m grid · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          94.154,
+          92.974
+        ],
+        "file": "docs/visual/v9-nvidia/before/cota-cockpit.png",
+        "pngSha256": "7a1e0202397474d211fd00f0b0344fe47b61e88e229bae094b58d026e2b4a690",
+        "originalRecordedFile": "docs\\visual\\v9\\before\\cota-cockpit.png"
+      },
+      {
+        "frame": {
+          "name": "mexico-braking",
+          "event": "Mexico City Grand Prix",
+          "time": 13.375
+        },
+        "time": 13.375,
+        "pose": {
+          "x": 1113.0635168655908,
+          "z": 153.53791372828843,
+          "fx": 0.9466493321538652,
+          "fz": 0.322265483619703
+        },
+        "support": {
+          "y": 0,
+          "normal": {
+            "x": 0,
+            "y": 1,
+            "z": 0
+          },
+          "station": 0
+        },
+        "camera": [
+          1119.3357812548536,
+          1.9809112788919168,
+          150.336981869582
+        ],
+        "sun": [
+          1013.0635168655908,
+          65,
+          83.53791372828843
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": 0.008726499415015694,
+          "roll": -0.003170458143063506,
+          "steer": -0.011341001933191494
+        },
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000142126,
+          0.0020000000000142126
+        ],
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 496,
+        "triangles": 1577007,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Autódromo Hermanos Rodríguez · Meksika · coğrafi referans / Yükseklik verisi yok · düz referans / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "file": "docs/visual/v9-nvidia/before/mexico-braking.png",
+        "pngSha256": "5375cc200fea1f9cb6a9555e087b05bdb44a1c7aa63feba15ea16f428da42842",
+        "originalRecordedFile": "docs\\visual\\v9\\before\\mexico-braking.png"
+      },
+      {
+        "frame": {
+          "name": "mexico-corner",
+          "event": "Mexico City Grand Prix",
+          "time": 74.875
+        },
+        "time": 74.875,
+        "pose": {
+          "x": -144.4237276851598,
+          "z": -20.522681713699157,
+          "fx": 0.9988898913076482,
+          "fz": 0.04710610409909954
+        },
+        "support": {
+          "y": 0,
+          "normal": {
+            "x": 0,
+            "y": 1,
+            "z": 0
+          },
+          "station": 0
+        },
+        "camera": [
+          -139.28513271366128,
+          1.9809112788919168,
+          -25.337461776358836
+        ],
+        "sun": [
+          -244.4237276851598,
+          65,
+          -90.52268171369916
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": -0.0051275908727660855,
+          "roll": -0.010465603791831405,
+          "steer": -0.039335841813908506
+        },
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 221,
+        "triangles": 1107878,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Autódromo Hermanos Rodríguez · Meksika · coğrafi referans / Yükseklik verisi yok · düz referans / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "file": "docs/visual/v9-nvidia/before/mexico-corner.png",
+        "pngSha256": "6e1427cdf792e7cf00f44f97de9f0073d620cd7befd1bc1239ea76a2f68916b8",
+        "originalRecordedFile": "docs\\visual\\v9\\before\\mexico-corner.png"
+      },
+      {
+        "frame": {
+          "name": "mexico-lod-low",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "lod": "low"
+        },
+        "time": 50,
+        "pose": {
+          "x": 529.9390826791189,
+          "z": 509.80079371501944,
+          "fx": -0.9597894610829596,
+          "fz": -0.28072084068355546
+        },
+        "support": {
+          "y": 0,
+          "normal": {
+            "x": 0,
+            "y": 1,
+            "z": 0
+          },
+          "station": 0
+        },
+        "camera": [
+          523.8122142278187,
+          1.9809112788919168,
+          513.2719244116882
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000142126,
+          0.0020000000000142126
+        ],
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "activeLod": [
+          "low"
+        ],
+        "forcedLod": "low",
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 274,
+        "triangles": 840946,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Autódromo Hermanos Rodríguez · Meksika · coğrafi referans / Yükseklik verisi yok · düz referans / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "file": "docs/visual/v9-nvidia/before/mexico-lod-low.png",
+        "pngSha256": "4884156fd805a8427c92381f93fd8112034b276aff7da3e43907666a40d9380b",
+        "originalRecordedFile": "docs\\visual\\v9\\before\\mexico-lod-low.png"
+      },
+      {
+        "frame": {
+          "name": "mexico-lod-medium",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "lod": "medium"
+        },
+        "time": 50,
+        "pose": {
+          "x": 529.9390826791189,
+          "z": 509.80079371501944,
+          "fx": -0.9597894610829596,
+          "fz": -0.28072084068355546
+        },
+        "support": {
+          "y": 0,
+          "normal": {
+            "x": 0,
+            "y": 1,
+            "z": 0
+          },
+          "station": 0
+        },
+        "camera": [
+          523.8122142278187,
+          1.9809112788919168,
+          513.2719244116882
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000142126,
+          0.0020000000000142126
+        ],
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "activeLod": [
+          "medium"
+        ],
+        "forcedLod": "medium",
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 274,
+        "triangles": 855686,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Autódromo Hermanos Rodríguez · Meksika · coğrafi referans / Yükseklik verisi yok · düz referans / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "file": "docs/visual/v9-nvidia/before/mexico-lod-medium.png",
+        "pngSha256": "4b9bbc287c272402946ef61297c1a736e60958739fb49a805a816da3339f3c94",
+        "originalRecordedFile": "docs\\visual\\v9\\before\\mexico-lod-medium.png"
+      },
+      {
+        "frame": {
+          "name": "mexico-lod-high",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "lod": "high"
+        },
+        "time": 50,
+        "pose": {
+          "x": 529.9390826791189,
+          "z": 509.80079371501944,
+          "fx": -0.9597894610829596,
+          "fz": -0.28072084068355546
+        },
+        "support": {
+          "y": 0,
+          "normal": {
+            "x": 0,
+            "y": 1,
+            "z": 0
+          },
+          "station": 0
+        },
+        "camera": [
+          523.8122142278187,
+          1.9809112788919168,
+          513.2719244116882
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000142126,
+          0.0020000000000142126
+        ],
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": "high",
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 274,
+        "triangles": 860686,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Autódromo Hermanos Rodríguez · Meksika · coğrafi referans / Yükseklik verisi yok · düz referans / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "file": "docs/visual/v9-nvidia/before/mexico-lod-high.png",
+        "pngSha256": "ed58435405c3913df0277e6339678b3f7e6370a3e09e2073de574752e819d07b",
+        "originalRecordedFile": "docs\\visual\\v9\\before\\mexico-lod-high.png"
+      }
+    ],
+    "after": [
+      {
+        "frame": {
+          "name": "spa-eau-rouge",
+          "event": "Belgian Grand Prix",
+          "station": 915
+        },
+        "time": 18.12500000000004,
+        "pose": {
+          "x": 395.0124751034328,
+          "z": 194.6056134155881,
+          "fx": 0.7991720757846642,
+          "fz": 0.6011023151561061
+        },
+        "support": {
+          "y": -26.825059752190633,
+          "normal": {
+            "x": 0.000004668287479107151,
+            "y": 0.9999999898058102,
+            "z": 0.0001427115505672103
+          },
+          "station": 914.6727189191588,
+          "banking": 0,
+          "gradient": -0.00042347653543380536
+        },
+        "camera": [
+          401.96974844358874,
+          -24.84414847819193,
+          193.51772779004096
+        ],
+        "sun": [
+          295.0124751034328,
+          38.17494024780937,
+          124.6056134155881
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": -0.0006901209392590417,
+          "roll": 0.008972728323347529,
+          "steer": 0.01258136344223696
+        },
+        "contacts": [
+          0.001999999999991786,
+          0.001999999999995339,
+          0.0019999999999882334,
+          0.0019999999999882334,
+          0.001999981189264588,
+          0.001999982533597233,
+          0.0019999806741743953,
+          0.001999978737142527
+        ],
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 106,
+        "triangles": 361350,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Kalıcı pist · coğrafi referans / TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "file": "docs/visual/v9-nvidia/after/spa-eau-rouge.png",
+        "pngSha256": "52834b444f362de426e866130d61fedfa27b9327e1485daf2f800feefda2fe7a",
+        "originalRecordedFile": "docs\\visual\\v9\\after\\spa-eau-rouge.png"
+      },
+      {
+        "frame": {
+          "name": "spa-raidillon",
+          "event": "Belgian Grand Prix",
+          "station": 1075
+        },
+        "time": 20.02499999999993,
+        "pose": {
+          "x": 492.6392646154723,
+          "z": 315.48504814972296,
+          "fx": 0.17214138138764273,
+          "fz": 0.9850722536006962
+        },
+        "support": {
+          "y": -10.020441538802158,
+          "normal": {
+            "x": -0.020204298354006923,
+            "y": 0.9933764404163268,
+            "z": -0.11311513582987091
+          },
+          "station": 1075.739696189522,
+          "banking": 0,
+          "gradient": 0.11561746030597742
+        },
+        "camera": [
+          498.45019370546527,
+          -8.042709568510405,
+          319.3940299220647
+        ],
+        "sun": [
+          392.6392646154723,
+          54.97955846119784,
+          245.48504814972296
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": 0.0005696661090669689,
+          "roll": -0.010243893905612212,
+          "steer": -0.024534006305797162
+        },
+        "contacts": [
+          0.002000641672857739,
+          0.001999973724705839,
+          0.001999561639253855,
+          0.002000621659602686,
+          0.0019998434702648282,
+          0.001999877299903474,
+          0.001999892074005416,
+          0.0019998703951298324
+        ],
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 110,
+        "triangles": 362122,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Kalıcı pist · coğrafi referans / TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "file": "docs/visual/v9-nvidia/after/spa-raidillon.png",
+        "pngSha256": "e2633e321c3c0cab211b0b309b9285ee8aa0caf8513834d0f4a7965703391276",
+        "originalRecordedFile": "docs\\visual\\v9\\after\\spa-raidillon.png"
+      },
+      {
+        "frame": {
+          "name": "spa-crest",
+          "event": "Belgian Grand Prix",
+          "station": 1154
+        },
+        "time": 20.94999999999988,
+        "pose": {
+          "x": 512.4638576970674,
+          "z": 389.26663909055856,
+          "fx": 0.3993038044866377,
+          "fz": 0.9168186689430451
+        },
+        "support": {
+          "y": -3.219748685269183,
+          "normal": {
+            "x": -0.02870656287190867,
+            "y": 0.9981403541092972,
+            "z": -0.053775149898887015
+          },
+          "station": 1153.6382139246343,
+          "banking": 0,
+          "gradient": 0.060826310430765376
+        },
+        "camera": [
+          519.0404012706658,
+          -1.2397300364048032,
+          391.72173647470663
+        ],
+        "sun": [
+          412.4638576970674,
+          61.78025131473082,
+          319.26663909055856
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": -0.0006377385662668726,
+          "roll": 0.007818086240981252,
+          "steer": 0.00918661172426264
+        },
+        "contacts": [
+          0.0019999518351419,
+          0.001999937829060272,
+          0.001999978757916132,
+          0.00199997465985291,
+          0.0019999892155373455,
+          0.0019999891864268537,
+          0.0019999892164230815,
+          0.0019999892450530687
+        ],
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 116,
+        "triangles": 364810,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Kalıcı pist · coğrafi referans / TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "file": "docs/visual/v9-nvidia/after/spa-crest.png",
+        "pngSha256": "12a60305c99460495d7602d1aa8206fafcdc48754f8a25db91e2e517e51fbf18",
+        "originalRecordedFile": "docs\\visual\\v9\\after\\spa-crest.png"
+      },
+      {
+        "frame": {
+          "name": "spa-cockpit",
+          "event": "Belgian Grand Prix",
+          "station": 1075,
+          "mode": "cockpit"
+        },
+        "time": 20.02499999999993,
+        "pose": {
+          "x": 492.6392646154723,
+          "z": 315.48504814972296,
+          "fx": 0.17214138138764273,
+          "fz": 0.9850722536006962
+        },
+        "support": {
+          "y": -10.020441538802158,
+          "normal": {
+            "x": -0.020204298354006923,
+            "y": 0.9933764404163268,
+            "z": -0.11311513582987091
+          },
+          "station": 1075.739696189522,
+          "banking": 0,
+          "gradient": 0.11561746030597742
+        },
+        "camera": [
+          492.65647875361105,
+          -9.050939623505407,
+          315.58355537508305
+        ],
+        "sun": [
+          392.6392646154723,
+          54.97955846119784,
+          245.48504814972296
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": 0.0005696661090669689,
+          "roll": -0.010243893905612212,
+          "steer": -0.024534006305797162
+        },
+        "contacts": [
+          0.002000641672857739,
+          0.001999973724705839,
+          0.001999561639253855,
+          0.002000621659602686,
+          0.0019998434702648282,
+          0.001999877299903474,
+          0.001999892074005416,
+          0.0019998703951298324
+        ],
+        "roadPositionSha256": "ff9918e2fc490d90203ca3a755da97a8e5aa1ca7fed02abae74acc3a2dfc9375",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 159,
+        "triangles": 404862,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Kalıcı pist · coğrafi referans / TÜRETİLMİŞ · © SPW 2021–2022 · CC BY 4.0 · arazi modeli · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          113.835,
+          114.095
+        ],
+        "file": "docs/visual/v9-nvidia/after/spa-cockpit.png",
+        "pngSha256": "9212473d6be70eab62f9ccc01d678696d326a69aa584e632db98f40e063138f5",
+        "originalRecordedFile": "docs\\visual\\v9\\after\\spa-cockpit.png"
+      },
+      {
+        "frame": {
+          "name": "cota-t1-approach",
+          "event": "United States Grand Prix",
+          "station": 180
+        },
+        "time": 5.975000000000017,
+        "pose": {
+          "x": 140.17889731025716,
+          "z": 111.73715633888018,
+          "fx": 0.7819722767086701,
+          "fz": 0.6233132105603563
+        },
+        "support": {
+          "y": 10.079177525581589,
+          "normal": {
+            "x": -0.07836583782009734,
+            "y": 0.994965742715877,
+            "z": -0.062465720876310804
+          },
+          "station": 179.26325713268488,
+          "banking": 0,
+          "gradient": 0.1007466731790193
+        },
+        "camera": [
+          147.12636734256014,
+          12.057672360977126,
+          110.81507189486494
+        ],
+        "sun": [
+          40.178897310257156,
+          75.07917752558158,
+          41.73715633888018
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": -0.00022546308901143325,
+          "roll": -6.711809958278964e-7,
+          "steer": -6.386745729080709e-7
+        },
+        "contacts": [
+          0.0019997918165604034,
+          0.001999791811874374,
+          0.001999787578268908,
+          0.0019997875254098574,
+          0.0019997953673644986,
+          0.001999795362499057,
+          0.0019997943573812904,
+          0.001999794379457853
+        ],
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 118,
+        "triangles": 306630,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Austin · COTA · coğrafi referans / TÜRETİLMİŞ · USGS 2017 arazi modeli · 1 m grid · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          94.154,
+          92.974
+        ],
+        "file": "docs/visual/v9-nvidia/after/cota-t1-approach.png",
+        "pngSha256": "497118a6cacc00449d7befc72cbd54181bb97baf16bf10f91a54b39032e44e89",
+        "originalRecordedFile": "docs\\visual\\v9\\after\\cota-t1-approach.png"
+      },
+      {
+        "frame": {
+          "name": "cota-t1-crest",
+          "event": "United States Grand Prix",
+          "station": 350
+        },
+        "time": 9.550000000000068,
+        "pose": {
+          "x": 275.89300289142574,
+          "z": 177.554108739508,
+          "fx": 0.2189319014459298,
+          "fz": -0.9757401408824328
+        },
+        "support": {
+          "y": 26.810671525344688,
+          "normal": {
+            "x": 0.0001180112920671832,
+            "y": 0.9999989444292061,
+            "z": -0.0014481760282135305
+          },
+          "station": 350.4098889418783,
+          "banking": 0,
+          "gradient": -0.0014513803731279987
+        },
+        "camera": [
+          272.0382122811836,
+          28.791582297562623,
+          171.66041624793485
+        ],
+        "sun": [
+          175.89300289142574,
+          91.81067152534469,
+          107.554108739508
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": 0.003240828896575492,
+          "roll": 0.010468533042317232,
+          "steer": 0.17413948660903023
+        },
+        "contacts": [
+          0.002000000000016655,
+          0.002000000000005997,
+          0.001999999999981128,
+          0.001999999999981128,
+          0.0020000000000024443,
+          0.001999999999995339,
+          0.0020000000000024443,
+          0.0019999999999988916
+        ],
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 106,
+        "triangles": 300070,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Austin · COTA · coğrafi referans / TÜRETİLMİŞ · USGS 2017 arazi modeli · 1 m grid · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          94.154,
+          92.974
+        ],
+        "file": "docs/visual/v9-nvidia/after/cota-t1-crest.png",
+        "pngSha256": "9468c16bccd3f8e9d027f74379a3ad11604c82834b5df5295b91873a6dc5e5cf",
+        "originalRecordedFile": "docs\\visual\\v9\\after\\cota-t1-crest.png"
+      },
+      {
+        "frame": {
+          "name": "cota-t1-descent",
+          "event": "United States Grand Prix",
+          "station": 520
+        },
+        "time": 13.650000000000126,
+        "pose": {
+          "x": 226.69716998077237,
+          "z": 17.552320957299937,
+          "fx": -0.21866748011611925,
+          "fz": -0.9757994328445098
+        },
+        "support": {
+          "y": 12.30507845609715,
+          "normal": {
+            "x": -0.015440878087845217,
+            "y": 0.9974026462462938,
+            "z": -0.07035297111541614
+          },
+          "station": 519.430603638456,
+          "banking": 0,
+          "gradient": -0.07210897754501906
+        },
+        "camera": [
+          220.68771181047563,
+          14.284743005187286,
+          13.835794064434214
+        ],
+        "sun": [
+          126.69716998077237,
+          77.30507845609715,
+          -52.44767904270006
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": -0.005295410762645568,
+          "roll": -0.008021705928315258,
+          "steer": -0.019528501798444297
+        },
+        "contacts": [
+          0.0019999715693810316,
+          0.0019999902607530373,
+          0.0019999990606240914,
+          0.0019999476635526037,
+          0.001999905894058074,
+          0.0019999849263339087,
+          0.0019999720078107686,
+          0.001999918126896816
+        ],
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 111,
+        "triangles": 304354,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Austin · COTA · coğrafi referans / TÜRETİLMİŞ · USGS 2017 arazi modeli · 1 m grid · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          94.154,
+          92.974
+        ],
+        "file": "docs/visual/v9-nvidia/after/cota-t1-descent.png",
+        "pngSha256": "350622bd6f7e76a32e41d48a613c94291d8ef09b3cbaab6c4b921843d11709e8",
+        "originalRecordedFile": "docs\\visual\\v9\\after\\cota-t1-descent.png"
+      },
+      {
+        "frame": {
+          "name": "cota-cockpit",
+          "event": "United States Grand Prix",
+          "station": 180,
+          "mode": "cockpit"
+        },
+        "time": 5.975000000000017,
+        "pose": {
+          "x": 140.17889731025716,
+          "z": 111.73715633888018,
+          "fx": 0.7819722767086701,
+          "fz": 0.6233132105603563
+        },
+        "support": {
+          "y": 10.079177525581589,
+          "normal": {
+            "x": -0.07836583782009734,
+            "y": 0.994965742715877,
+            "z": -0.062465720876310804
+          },
+          "station": 179.26325713268488,
+          "banking": 0,
+          "gradient": 0.1007466731790193
+        },
+        "camera": [
+          140.25709453792803,
+          11.04869780524825,
+          111.79948765993622
+        ],
+        "sun": [
+          40.178897310257156,
+          75.07917752558158,
+          41.73715633888018
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": -0.00022546308901143325,
+          "roll": -6.711809958278964e-7,
+          "steer": -6.386745729080709e-7
+        },
+        "contacts": [
+          0.0019997918165604034,
+          0.001999791811874374,
+          0.001999787578268908,
+          0.0019997875254098574,
+          0.0019997953673644986,
+          0.001999795362499057,
+          0.0019997943573812904,
+          0.001999794379457853
+        ],
+        "roadPositionSha256": "a0b5f69020c52b1430f36cdfe4942e566427fdf4b085d426db782cfac7520713",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 92,
+        "triangles": 288262,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Austin · COTA · coğrafi referans / TÜRETİLMİŞ · USGS 2017 arazi modeli · 1 m grid · banking ölçülmedi / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          94.154,
+          92.974
+        ],
+        "file": "docs/visual/v9-nvidia/after/cota-cockpit.png",
+        "pngSha256": "d80d992d4b18405c3514bd86ea6b741f2639e6c5ad246cc033b4c26d3e1b4181",
+        "originalRecordedFile": "docs\\visual\\v9\\after\\cota-cockpit.png"
+      },
+      {
+        "frame": {
+          "name": "mexico-braking",
+          "event": "Mexico City Grand Prix",
+          "time": 13.375
+        },
+        "time": 13.375,
+        "pose": {
+          "x": 1113.0635168655908,
+          "z": 153.53791372828843,
+          "fx": 0.9466493321538652,
+          "fz": 0.322265483619703
+        },
+        "support": {
+          "y": 0,
+          "normal": {
+            "x": 0,
+            "y": 1,
+            "z": 0
+          },
+          "station": 0
+        },
+        "camera": [
+          1119.3357812548536,
+          1.9809112788919168,
+          150.336981869582
+        ],
+        "sun": [
+          1013.0635168655908,
+          65,
+          83.53791372828843
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": 0.008726499415015694,
+          "roll": -0.003170458143063506,
+          "steer": -0.011341001933191494
+        },
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000142126,
+          0.0020000000000142126
+        ],
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 496,
+        "triangles": 1577007,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Autódromo Hermanos Rodríguez · Meksika · coğrafi referans / Yükseklik verisi yok · düz referans / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "file": "docs/visual/v9-nvidia/after/mexico-braking.png",
+        "pngSha256": "4ea675eb91454456576f5b5b324c55714c1223d8a8393f759bdab20518c0a353",
+        "originalRecordedFile": "docs\\visual\\v9\\after\\mexico-braking.png"
+      },
+      {
+        "frame": {
+          "name": "mexico-corner",
+          "event": "Mexico City Grand Prix",
+          "time": 74.875
+        },
+        "time": 74.875,
+        "pose": {
+          "x": -144.4237276851598,
+          "z": -20.522681713699157,
+          "fx": 0.9988898913076482,
+          "fz": 0.04710610409909954
+        },
+        "support": {
+          "y": 0,
+          "normal": {
+            "x": 0,
+            "y": 1,
+            "z": 0
+          },
+          "station": 0
+        },
+        "camera": [
+          -139.28513271366128,
+          1.9809112788919168,
+          -25.337461776358836
+        ],
+        "sun": [
+          -244.4237276851598,
+          65,
+          -90.52268171369916
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": -0.0051275908727660855,
+          "roll": -0.010465603791831405,
+          "steer": -0.039335841813908506
+        },
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018
+        ],
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": null,
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 221,
+        "triangles": 1107878,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Autódromo Hermanos Rodríguez · Meksika · coğrafi referans / Yükseklik verisi yok · düz referans / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "file": "docs/visual/v9-nvidia/after/mexico-corner.png",
+        "pngSha256": "92b4950176b40d476228952e538957d8269c51cc3097ccc08b73c4df8cd03b11",
+        "originalRecordedFile": "docs\\visual\\v9\\after\\mexico-corner.png"
+      },
+      {
+        "frame": {
+          "name": "mexico-lod-low",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "lod": "low"
+        },
+        "time": 50,
+        "pose": {
+          "x": 529.9390826791189,
+          "z": 509.80079371501944,
+          "fx": -0.9597894610829596,
+          "fz": -0.28072084068355546
+        },
+        "support": {
+          "y": 0,
+          "normal": {
+            "x": 0,
+            "y": 1,
+            "z": 0
+          },
+          "station": 0
+        },
+        "camera": [
+          523.8122142278187,
+          1.9809112788919168,
+          513.2719244116882
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000142126,
+          0.0020000000000142126
+        ],
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "activeLod": [
+          "low"
+        ],
+        "forcedLod": "low",
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 274,
+        "triangles": 840946,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Autódromo Hermanos Rodríguez · Meksika · coğrafi referans / Yükseklik verisi yok · düz referans / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "file": "docs/visual/v9-nvidia/after/mexico-lod-low.png",
+        "pngSha256": "79c6bfecd0ed19d3f7d823fac5fdf464f60d9665ee76ada026fd05db7f496df4",
+        "originalRecordedFile": "docs\\visual\\v9\\after\\mexico-lod-low.png"
+      },
+      {
+        "frame": {
+          "name": "mexico-lod-medium",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "lod": "medium"
+        },
+        "time": 50,
+        "pose": {
+          "x": 529.9390826791189,
+          "z": 509.80079371501944,
+          "fx": -0.9597894610829596,
+          "fz": -0.28072084068355546
+        },
+        "support": {
+          "y": 0,
+          "normal": {
+            "x": 0,
+            "y": 1,
+            "z": 0
+          },
+          "station": 0
+        },
+        "camera": [
+          523.8122142278187,
+          1.9809112788919168,
+          513.2719244116882
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000142126,
+          0.0020000000000142126
+        ],
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "activeLod": [
+          "medium"
+        ],
+        "forcedLod": "medium",
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 274,
+        "triangles": 855686,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Autódromo Hermanos Rodríguez · Meksika · coğrafi referans / Yükseklik verisi yok · düz referans / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "file": "docs/visual/v9-nvidia/after/mexico-lod-medium.png",
+        "pngSha256": "728725c4e6a9ce844cab0bc8b5f647f608255761f240a33f8b14360fc45ef515",
+        "originalRecordedFile": "docs\\visual\\v9\\after\\mexico-lod-medium.png"
+      },
+      {
+        "frame": {
+          "name": "mexico-lod-high",
+          "event": "Mexico City Grand Prix",
+          "time": 50,
+          "lod": "high"
+        },
+        "time": 50,
+        "pose": {
+          "x": 529.9390826791189,
+          "z": 509.80079371501944,
+          "fx": -0.9597894610829596,
+          "fz": -0.28072084068355546
+        },
+        "support": {
+          "y": 0,
+          "normal": {
+            "x": 0,
+            "y": 1,
+            "z": 0
+          },
+          "station": 0
+        },
+        "camera": [
+          523.8122142278187,
+          1.9809112788919168,
+          513.2719244116882
+        ],
+        "sun": [
+          429.9390826791189,
+          65,
+          439.80079371501944
+        ],
+        "exposure": 0.95,
+        "motion": {
+          "pitch": 0.00805170829723041,
+          "roll": 0.0034920472325318157,
+          "steer": 0.008607861727607986
+        },
+        "contacts": [
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000000018,
+          0.0020000000000142126,
+          0.0020000000000142126
+        ],
+        "roadPositionSha256": "32d7c9b9e53f488a9b3dfced35fdf0d7f1c495f64e30bf9bfebe97a5a31db2f7",
+        "activeLod": [
+          "high"
+        ],
+        "forcedLod": "high",
+        "quality": "ultra",
+        "buffer": [
+          1406,
+          680
+        ],
+        "calls": 274,
+        "triangles": 860686,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "scenery": "Autódromo Hermanos Rodríguez · Meksika · coğrafi referans / Yükseklik verisi yok · düz referans / temsili çevre · gövde hareketi: görsel yaklaşım, ölçülmüş süspansiyon değil",
+        "totals": [
+          76.651,
+          76.356
+        ],
+        "file": "docs/visual/v9-nvidia/after/mexico-lod-high.png",
+        "pngSha256": "b3d3f586251a4a5ac2a4f4554becd182bf113d75a475878557477cfe4abedfd8",
+        "originalRecordedFile": "docs\\visual\\v9\\after\\mexico-lod-high.png"
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "name": "spa-eau-rouge",
+      "same": {
+        "time": true,
+        "pose": true,
+        "camera": true,
+        "sun": true,
+        "exposure": true,
+        "motion": true,
+        "roadPositionSha256": true,
+        "activeLod": true,
+        "quality": true,
+        "buffer": true,
+        "calls": true,
+        "triangles": true,
+        "scenery": true
+      },
+      "pngByteIdentical": false
+    },
+    {
+      "name": "spa-raidillon",
+      "same": {
+        "time": true,
+        "pose": true,
+        "camera": true,
+        "sun": true,
+        "exposure": true,
+        "motion": true,
+        "roadPositionSha256": true,
+        "activeLod": true,
+        "quality": true,
+        "buffer": true,
+        "calls": true,
+        "triangles": true,
+        "scenery": true
+      },
+      "pngByteIdentical": false
+    },
+    {
+      "name": "spa-crest",
+      "same": {
+        "time": true,
+        "pose": true,
+        "camera": true,
+        "sun": true,
+        "exposure": true,
+        "motion": true,
+        "roadPositionSha256": true,
+        "activeLod": true,
+        "quality": true,
+        "buffer": true,
+        "calls": true,
+        "triangles": true,
+        "scenery": true
+      },
+      "pngByteIdentical": false
+    },
+    {
+      "name": "spa-cockpit",
+      "same": {
+        "time": true,
+        "pose": true,
+        "camera": true,
+        "sun": true,
+        "exposure": true,
+        "motion": true,
+        "roadPositionSha256": true,
+        "activeLod": true,
+        "quality": true,
+        "buffer": true,
+        "calls": true,
+        "triangles": true,
+        "scenery": true
+      },
+      "pngByteIdentical": false
+    },
+    {
+      "name": "cota-t1-approach",
+      "same": {
+        "time": true,
+        "pose": true,
+        "camera": true,
+        "sun": true,
+        "exposure": true,
+        "motion": true,
+        "roadPositionSha256": true,
+        "activeLod": true,
+        "quality": true,
+        "buffer": true,
+        "calls": true,
+        "triangles": true,
+        "scenery": true
+      },
+      "pngByteIdentical": false
+    },
+    {
+      "name": "cota-t1-crest",
+      "same": {
+        "time": true,
+        "pose": true,
+        "camera": true,
+        "sun": true,
+        "exposure": true,
+        "motion": true,
+        "roadPositionSha256": true,
+        "activeLod": true,
+        "quality": true,
+        "buffer": true,
+        "calls": true,
+        "triangles": true,
+        "scenery": true
+      },
+      "pngByteIdentical": false
+    },
+    {
+      "name": "cota-t1-descent",
+      "same": {
+        "time": true,
+        "pose": true,
+        "camera": true,
+        "sun": true,
+        "exposure": true,
+        "motion": true,
+        "roadPositionSha256": true,
+        "activeLod": true,
+        "quality": true,
+        "buffer": true,
+        "calls": true,
+        "triangles": true,
+        "scenery": true
+      },
+      "pngByteIdentical": false
+    },
+    {
+      "name": "cota-cockpit",
+      "same": {
+        "time": true,
+        "pose": true,
+        "camera": true,
+        "sun": true,
+        "exposure": true,
+        "motion": true,
+        "roadPositionSha256": true,
+        "activeLod": true,
+        "quality": true,
+        "buffer": true,
+        "calls": true,
+        "triangles": true,
+        "scenery": true
+      },
+      "pngByteIdentical": false
+    },
+    {
+      "name": "mexico-braking",
+      "same": {
+        "time": true,
+        "pose": true,
+        "camera": true,
+        "sun": true,
+        "exposure": true,
+        "motion": true,
+        "roadPositionSha256": true,
+        "activeLod": true,
+        "quality": true,
+        "buffer": true,
+        "calls": true,
+        "triangles": true,
+        "scenery": true
+      },
+      "pngByteIdentical": false
+    },
+    {
+      "name": "mexico-corner",
+      "same": {
+        "time": true,
+        "pose": true,
+        "camera": true,
+        "sun": true,
+        "exposure": true,
+        "motion": true,
+        "roadPositionSha256": true,
+        "activeLod": true,
+        "quality": true,
+        "buffer": true,
+        "calls": true,
+        "triangles": true,
+        "scenery": true
+      },
+      "pngByteIdentical": false
+    },
+    {
+      "name": "mexico-lod-low",
+      "same": {
+        "time": true,
+        "pose": true,
+        "camera": true,
+        "sun": true,
+        "exposure": true,
+        "motion": true,
+        "roadPositionSha256": true,
+        "activeLod": true,
+        "quality": true,
+        "buffer": true,
+        "calls": true,
+        "triangles": true,
+        "scenery": true
+      },
+      "pngByteIdentical": false
+    },
+    {
+      "name": "mexico-lod-medium",
+      "same": {
+        "time": true,
+        "pose": true,
+        "camera": true,
+        "sun": true,
+        "exposure": true,
+        "motion": true,
+        "roadPositionSha256": true,
+        "activeLod": true,
+        "quality": true,
+        "buffer": true,
+        "calls": true,
+        "triangles": true,
+        "scenery": true
+      },
+      "pngByteIdentical": false
+    },
+    {
+      "name": "mexico-lod-high",
+      "same": {
+        "time": true,
+        "pose": true,
+        "camera": true,
+        "sun": true,
+        "exposure": true,
+        "motion": true,
+        "roadPositionSha256": true,
+        "activeLod": true,
+        "quality": true,
+        "buffer": true,
+        "calls": true,
+        "triangles": true,
+        "scenery": true
+      },
+      "pngByteIdentical": false
+    }
+  ]
+}
