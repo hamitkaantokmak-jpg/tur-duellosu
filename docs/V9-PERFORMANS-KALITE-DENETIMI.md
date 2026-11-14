@@ -1,3 +1,5 @@
+> Güncel fiziksel NVIDIA devam denetimi: [738 pencerelik rapor](V9-NVIDIA-FIZIKSEL-DOGRULAMA.md). Aşağıdaki önceki yazılımsal denetim ve başarısızlık kayıtları tarihsel kanıt olarak korunur.
+
 # V9 — Performans, görsel kalite ve sistem kararlılığı denetimi
 
 ## 1. Yönetici özeti

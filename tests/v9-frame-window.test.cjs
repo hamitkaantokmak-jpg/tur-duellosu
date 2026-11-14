@@ -1,0 +1,5 @@
+const test=require('node:test'),assert=require('node:assert/strict'),count=require('../scripts/nvidia-v9/frame-window.cjs');
+test('unique stamps preserve original FPS and intervals exactly',()=>{const t=[11,23,37,49];const r=count(0,50,[0,10,20,30],t);assert.equal(r.fps,t.length*1000/50);assert.deepEqual(r.intervals,t.map((x,i)=>x-(i?t[i-1]:0)));});
+test('duplicate callbacks count once and retain their final completion cost',()=>{const r=count(0,50,[1,2,2,3],[10,20,29,40]);assert.equal(r.frames,3);assert.equal(r.fps,60);assert.equal(r.duplicateRafCallbacks,1);assert.deepEqual(r.intervals,[10,19,11]);assert.equal(r.tailMs,10);});
+test('repeated stamps cannot inflate FPS',()=>{const r=count(0,50,[1,1,1],[10,20,40]);assert.equal(r.frames,1);assert.equal(r.fps,20);assert.deepEqual(r.intervals,[40]);});
+test('reject mismatched, reversed and nonfinite samples',()=>{for(const args of [[0,50,[1],[]],[0,50,[2,1],[10,20]],[0,50,[1,2],[20,10]],[0,50,[NaN],[10]],[0,50,[1],[51]]])assert.throws(()=>count(...args));});

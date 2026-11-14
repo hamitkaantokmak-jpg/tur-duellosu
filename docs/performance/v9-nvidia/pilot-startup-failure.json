@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "phase": "excluded-pilot",
+  "startedAt": "2026-11-12T20:37:46.282Z",
+  "commits": {
+    "v5": "a237ca529b31bd769df90165c62f73cdef54a672",
+    "v6": "f295c01a8984715334363077fb66ccaad522e246",
+    "v61": "e5ffd2224bb3ee2dceed9ee2470bc6f6da33fc74",
+    "v7": "0d5deecee432230bb1d84c77cc2bd92553358922",
+    "v8": "ad35d61f5b26ed1d5ff6d82a3ee43b91478cee94"
+  },
+  "plan": {
+    "warmup": 6,
+    "seconds": 8,
+    "repeats": 1,
+    "orders": [
+      [
+        "v5",
+        "v6",
+        "v61",
+        "v7",
+        "v8"
+      ],
+      [
+        "v8",
+        "v7",
+        "v61",
+        "v6",
+        "v5"
+      ],
+      [
+        "v61",
+        "v7",
+        "v8",
+        "v5",
+        "v6"
+      ]
+    ],
+    "scenarios": [
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "spa/2560/ultra/a"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "spa/2560/ultra/cockpit"
+      }
+    ],
+    "lossThresholdPercent": 10,
+    "dpr": 1,
+    "renderRatio": 1,
+    "adaptive": false,
+    "AO": false,
+    "rate": 1,
+    "measurementReplayInterval": [
+      10,
+      18
+    ],
+    "note": "Only pixel ratio is normalized upward to a real 1920x1080/2560x1440 buffer; native geometry, LOD, shadows, lights and materials remain untouched. V5 COTA/Spa are flat normalized XY, later versions derived terrain: end-user workload comparison, not identical meshes. Pilot excluded, no windows discarded."
+  },
+  "roots": {},
+  "rows": [],
+  "blockers": [
+    "Error: Command failed: powershell.exe -NoProfile -File C:\\Users\\Hamit Kaan Tokmak\\Documents\\Codex\\2026-11-10\\tur\\work\\tur-duellosu\\scripts\\read-power-v9.ps1\nFile C:\\Users\\Hamit Kaan Tokmak\\Documents\\Codex\\2026-11-10\\tur\\work\\tur-duellosu\\scripts\\read-power-v9.ps1 cannot be lo\r\naded because running scripts is disabled on this system. For more information, see about_Execution_Policies at https:/g\r\no.microsoft.com/fwlink/?LinkID=135170.\r\n    + CategoryInfo          : SecurityError: (:) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : UnauthorizedAccess\r\n\n    at genericNodeError (node:internal/errors:986:15)\n    at wrappedFn (node:internal/errors:540:14)\n    at ChildProcess.exithandler (node:child_process:417:12)\n    at ChildProcess.emit (node:events:514:28)\n    at maybeClose (node:internal/child_process:1172:16)\n    at ChildProcess._handle.onexit (node:internal/child_process:335:5)"
+  ],
+  "performanceAcceptance": false,
+  "gpuAfter": {
+    "at": 1794515866685,
+    "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+    "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "driver": "621.14",
+    "pstate": "P8",
+    "graphicsMHz": 390,
+    "memoryMHz": 405,
+    "watts": 5.15,
+    "temperatureC": 47.31,
+    "gpuUtilPercent": 1,
+    "memoryUtilPercent": 13,
+    "globalMemoryMiB": 1041,
+    "totalMemoryMiB": 8151
+  }
+}

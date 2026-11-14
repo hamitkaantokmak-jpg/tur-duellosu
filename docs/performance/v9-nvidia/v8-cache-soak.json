@@ -1,0 +1,59 @@
+{
+  "before": {
+    "memory": {
+      "geometries": 115,
+      "textures": 10
+    },
+    "roadBytes": 6773760
+  },
+  "after": {
+    "time": 45.04211800002666,
+    "motion": {
+      "pitch": -0.006500714271592082,
+      "roll": 1.672123190517481e-8,
+      "steer": 1.2188574398017197e-7
+    },
+    "memory": {
+      "geometries": 115,
+      "textures": 10
+    },
+    "sameScene": true,
+    "sameTables": true,
+    "sameRoad": true,
+    "sameFit": true,
+    "misses": 0
+  },
+  "paused": {
+    "time": 45.04211800002666,
+    "motion": {
+      "pitch": -0.006500714271592082,
+      "roll": 1.672123190517481e-8,
+      "steer": 1.2188574398017197e-7
+    }
+  },
+  "heapBefore": 12791716,
+  "heapAfter": 13762128,
+  "segments": [
+    {
+      "time": 7.509542999988021,
+      "on": true,
+      "rate": 0.5
+    },
+    {
+      "time": 22.520843000000028,
+      "on": true,
+      "rate": 0.25
+    },
+    {
+      "time": 30.026917999988992,
+      "on": true,
+      "rate": 0.5
+    },
+    {
+      "time": 45.03956800002666,
+      "on": true,
+      "rate": 0.25
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,26 @@
+{
+  "createdAt": "2026-11-13T23:20:01.443Z",
+  "mainSha256": "49eae9119fda1d77dd6f72c30af0009d40fe785f3bb9c0f5d4b0232f7c0111ae",
+  "keys": [
+    "spa/2560/ultra/a",
+    "spa/2560/performance/a",
+    "spa/2560/performance/cockpit",
+    "spa/1920/ultra/a",
+    "spa/1920/ultra/cockpit",
+    "spa/1920/performance/a",
+    "spa/1920/performance/cockpit",
+    "cota/2560/ultra/cockpit",
+    "cota/2560/performance/a",
+    "cota/1920/ultra/a",
+    "cota/1920/ultra/cockpit",
+    "cota/1920/performance/a",
+    "cota/1920/performance/cockpit",
+    "mexico/1920/ultra/a",
+    "mexico/1920/ultra/cockpit",
+    "mexico/1920/performance/a",
+    "mexico/1920/performance/cockpit"
+  ],
+  "filter": "^(spa/2560/ultra/a|spa/2560/performance/a|spa/2560/performance/cockpit|spa/1920/ultra/a|spa/1920/ultra/cockpit|spa/1920/performance/a|spa/1920/performance/cockpit|cota/2560/ultra/cockpit|cota/2560/performance/a|cota/1920/ultra/a|cota/1920/ultra/cockpit|cota/1920/performance/a|cota/1920/performance/cockpit|mexico/1920/ultra/a|mexico/1920/ultra/cockpit|mexico/1920/performance/a|mexico/1920/performance/cockpit)$",
+  "repeatsPerVersion": 3,
+  "method": "All original windows plus all three predeclared rotated/reverse-order repeats for all versions of every selected condition. No discarded windows."
+}

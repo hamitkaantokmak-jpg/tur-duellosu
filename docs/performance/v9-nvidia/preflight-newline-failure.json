@@ -1,0 +1,705 @@
+{
+  "schema": 1,
+  "phase": "main",
+  "startedAt": "2026-11-13T20:47:38.685Z",
+  "commits": {
+    "v5": "a237ca529b31bd769df90165c62f73cdef54a672",
+    "v6": "f295c01a8984715334363077fb66ccaad522e246",
+    "v61": "e5ffd2224bb3ee2dceed9ee2470bc6f6da33fc74",
+    "v7": "0d5deecee432230bb1d84c77cc2bd92553358922",
+    "v8": "ad35d61f5b26ed1d5ff6d82a3ee43b91478cee94",
+    "v9": "12b85328235b095d2362a44e058cc28ec023d302"
+  },
+  "plan": {
+    "warmup": 6,
+    "seconds": 8,
+    "repeats": 3,
+    "orders": [
+      [
+        "v5",
+        "v6",
+        "v61",
+        "v7",
+        "v8",
+        "v9"
+      ],
+      [
+        "v9",
+        "v8",
+        "v7",
+        "v61",
+        "v6",
+        "v5"
+      ],
+      [
+        "v61",
+        "v7",
+        "v8",
+        "v9",
+        "v5",
+        "v6"
+      ]
+    ],
+    "scenarios": [
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "spa/2560/ultra/a"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "spa/2560/ultra/cockpit"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "a",
+        "key": "spa/2560/performance/a"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "spa/2560/performance/cockpit"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "spa/1920/ultra/a"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "spa/1920/ultra/cockpit"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "a",
+        "key": "spa/1920/performance/a"
+      },
+      {
+        "track": "spa",
+        "event": "Belgian Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "spa/1920/performance/cockpit"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "cota/2560/ultra/a"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "cota/2560/ultra/cockpit"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "a",
+        "key": "cota/2560/performance/a"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "cota/2560/performance/cockpit"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "cota/1920/ultra/a"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "cota/1920/ultra/cockpit"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "a",
+        "key": "cota/1920/performance/a"
+      },
+      {
+        "track": "cota",
+        "event": "United States Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "cota/1920/performance/cockpit"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "mexico/2560/ultra/a"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "mexico/2560/ultra/cockpit"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "a",
+        "key": "mexico/2560/performance/a"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 2560,
+        "height": 1440,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "mexico/2560/performance/cockpit"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "a",
+        "key": "mexico/1920/ultra/a"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "ultra",
+        "camera": "cockpit",
+        "key": "mexico/1920/ultra/cockpit"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "a",
+        "key": "mexico/1920/performance/a"
+      },
+      {
+        "track": "mexico",
+        "event": "Mexico City Grand Prix",
+        "width": 1920,
+        "height": 1080,
+        "quality": "performance",
+        "camera": "cockpit",
+        "key": "mexico/1920/performance/cockpit"
+      }
+    ],
+    "lossThresholdPercent": 10,
+    "dpr": 1,
+    "renderRatio": 1,
+    "adaptive": false,
+    "AO": false,
+    "rate": 1,
+    "measurementReplayInterval": [
+      10,
+      18
+    ],
+    "historicalSpa1440Ultra": {
+      "warmup": 20,
+      "seconds": 12,
+      "replayInterval": [
+        10,
+        22
+      ]
+    },
+    "domDiagnostic": null,
+    "processControl": "Only disposable CDP-owned Chrome processes: execution-speed and timer-resolution throttling OFF, affinity to OS-reported highest EfficiencyClass cores. No global plan or GPU clock change.",
+    "note": "Only pixel ratio is normalized upward to a real 1920x1080/2560x1440 buffer; native geometry, LOD, shadows, lights and materials remain untouched. V5 COTA/Spa are flat normalized XY, later versions derived terrain: end-user workload comparison, not identical meshes. Pilot/profile/diagnostic excluded, no windows discarded."
+  },
+  "scriptsSha256": {
+    "scripts/nvidia-v9/audit-v9.cjs": "4823906a6f70338849e3801db1200b9a3d5aa4cf77fc608e4e99abdf0dae407a",
+    "scripts/nvidia-v9/control-chrome-v9.ps1": "ad02a4f4d404878b68e76bdda21885c3f1527fe725bf418a1d9ef81e7eebb96e",
+    "scripts/nvidia-v9/read-power-v9.ps1": "db9f28a50b8c0036f7769b74a60dab4b771425c134fe3c83ed4f159a6c1dce96"
+  },
+  "roots": {},
+  "rows": [],
+  "blockers": [
+    "Error: Archive file hash mismatch v5/index.html\n    at C:\\Users\\Hamit Kaan Tokmak\\Documents\\Codex\\2026-11-10\\tur\\work\\tur-duellosu\\scripts\\nvidia-v9\\audit-v9.cjs:50:588\n    at Array.map (<anonymous>)\n    at C:\\Users\\Hamit Kaan Tokmak\\Documents\\Codex\\2026-11-10\\tur\\work\\tur-duellosu\\scripts\\nvidia-v9\\audit-v9.cjs:50:42\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)"
+  ],
+  "performanceAcceptance": false,
+  "powerBefore": {
+    "powerSaving": 0,
+    "acLineStatus": 1,
+    "batteryPercent": 100,
+    "scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Dengeli)",
+    "success": true
+  },
+  "gpuBefore": {
+    "at": 1794602860228,
+    "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+    "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "driver": "621.14",
+    "pstate": "P8",
+    "graphicsMHz": 367,
+    "memoryMHz": 405,
+    "watts": 4.77,
+    "temperatureC": 47.72,
+    "gpuUtilPercent": 1,
+    "memoryUtilPercent": 1,
+    "globalMemoryMiB": 636,
+    "totalMemoryMiB": 8151,
+    "softwarePowerCap": "Not Active",
+    "softwareThermalSlowdown": "Not Active",
+    "hardwareSlowdown": "Not Active"
+  },
+  "logicalCpuCount": 24,
+  "cpuModel": "13th Gen Intel(R) Core(TM) i7-13700HX",
+  "processId": 23844,
+  "sessions": [
+    {
+      "startedAt": "2026-11-13T20:47:40.229Z",
+      "processId": 23844,
+      "rowsAtStart": 0,
+      "gpuBefore": {
+        "at": 1794602860228,
+        "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+        "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+        "driver": "621.14",
+        "pstate": "P8",
+        "graphicsMHz": 367,
+        "memoryMHz": 405,
+        "watts": 4.77,
+        "temperatureC": 47.72,
+        "gpuUtilPercent": 1,
+        "memoryUtilPercent": 1,
+        "globalMemoryMiB": 636,
+        "totalMemoryMiB": 8151,
+        "softwarePowerCap": "Not Active",
+        "softwareThermalSlowdown": "Not Active",
+        "hardwareSlowdown": "Not Active"
+      },
+      "powerBefore": {
+        "powerSaving": 0,
+        "acLineStatus": 1,
+        "batteryPercent": 100,
+        "scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Dengeli)",
+        "success": true
+      }
+    }
+  ],
+  "harnessSnapshots": {
+    "scripts/nvidia-v9/audit-v9.cjs": "docs\\performance\\v9-nvidia\\harness-snapshots\\4823906a6f70338849e3801db1200b9a3d5aa4cf77fc608e4e99abdf0dae407a.cjs",
+    "scripts/nvidia-v9/control-chrome-v9.ps1": "docs\\performance\\v9-nvidia\\harness-snapshots\\ad02a4f4d404878b68e76bdda21885c3f1527fe725bf418a1d9ef81e7eebb96e.ps1",
+    "scripts/nvidia-v9/read-power-v9.ps1": "docs\\performance\\v9-nvidia\\harness-snapshots\\db9f28a50b8c0036f7769b74a60dab4b771425c134fe3c83ed4f159a6c1dce96.ps1"
+  },
+  "launchArgs": [
+    "--no-sandbox",
+    "--disable-frame-rate-limit",
+    "--disable-gpu-vsync",
+    "--disable-background-timer-throttling",
+    "--disable-renderer-backgrounding",
+    "--disable-backgrounding-occluded-windows"
+  ],
+  "browser": "157.0.8103.51",
+  "systemGpu": {
+    "gpu": {
+      "devices": [
+        {
+          "vendorId": 4318,
+          "deviceId": 11545,
+          "subSysId": 325064024,
+          "revision": 161,
+          "vendorString": "",
+          "deviceString": "NVIDIA GeForce RTX 5060 Laptop GPU",
+          "driverVendor": "NVIDIA",
+          "driverVersion": "32.0.16.2114"
+        },
+        {
+          "vendorId": 32902,
+          "deviceId": 18056,
+          "subSysId": 324015448,
+          "revision": 12,
+          "vendorString": "",
+          "deviceString": "Intel(R) UHD Graphics",
+          "driverVendor": "",
+          "driverVersion": "32.0.101.7092"
+        },
+        {
+          "vendorId": 5140,
+          "deviceId": 140,
+          "subSysId": 0,
+          "revision": 0,
+          "vendorString": "",
+          "deviceString": "Microsoft Basic Render Driver",
+          "driverVendor": "",
+          "driverVersion": "10.0.26100.9818"
+        }
+      ],
+      "auxAttributes": {
+        "amdSwitchable": false,
+        "bgra8OverlaySupport": "SCALING",
+        "canSupportThreadedTextureMailbox": false,
+        "directComposition": true,
+        "directMLFeatureLevel": "Not supported",
+        "directRenderingVersion": "",
+        "displayType": "ANGLE_D3D11",
+        "dx12FeatureLevel": "Not supported",
+        "glExtensions": "GL_AMD_performance_monitor GL_ANGLE_base_vertex_base_instance_shader_builtin GL_ANGLE_blob_cache GL_ANGLE_client_arrays GL_ANGLE_clip_cull_distance GL_ANGLE_copy_texture_3d GL_ANGLE_depth_texture GL_ANGLE_framebuffer_blit GL_ANGLE_framebuffer_multisample GL_ANGLE_get_serialized_context_string GL_ANGLE_get_tex_level_parameter GL_ANGLE_instanced_arrays GL_ANGLE_memory_size GL_ANGLE_multiview_multisample GL_ANGLE_pack_reverse_row_order GL_ANGLE_polygon_mode GL_ANGLE_program_binary_readiness_query GL_ANGLE_program_cache_control GL_ANGLE_provoking_vertex GL_ANGLE_renderability_validation GL_ANGLE_request_extension GL_ANGLE_robust_client_memory GL_ANGLE_shader_pixel_local_storage GL_ANGLE_shader_pixel_local_storage_coherent GL_ANGLE_stencil_texturing GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ANGLE_texture_multisample GL_ANGLE_texture_usage GL_ANGLE_translated_shader_source GL_APPLE_clip_distance GL_ARM_rgba8 GL_CHROMIUM_bind_generates_resource GL_CHROMIUM_bind_uniform_location GL_CHROMIUM_copy_compressed_texture GL_CHROMIUM_copy_texture GL_CHROMIUM_lose_context GL_EXT_EGL_image_external_wrap_modes GL_EXT_base_instance GL_EXT_blend_func_extended GL_EXT_blend_minmax GL_EXT_clip_control GL_EXT_clip_cull_distance GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_depth GL_EXT_debug_label GL_EXT_debug_marker GL_EXT_depth_clamp GL_EXT_discard_framebuffer GL_EXT_disjoint_timer_query GL_EXT_draw_buffers GL_EXT_draw_buffers_indexed GL_EXT_draw_elements_base_vertex GL_EXT_float_blend GL_EXT_frag_depth GL_EXT_instanced_arrays GL_EXT_map_buffer_range GL_EXT_occlusion_query_boolean GL_EXT_polygon_offset_clamp GL_EXT_read_format_bgra GL_EXT_render_snorm GL_EXT_robustness GL_EXT_sRGB GL_EXT_shader_texture_lod GL_EXT_texture_border_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc_srgb GL_EXT_texture_filter_anisotropic GL_EXT_texture_format_BGRA8888 GL_EXT_texture_mirror_clamp_to_edge GL_EXT_texture_norm16 GL_EXT_texture_rg GL_EXT_texture_storage GL_EXT_texture_type_2_10_10_10_REV GL_EXT_unpack_subimage GL_KHR_debug GL_KHR_parallel_shader_compile GL_KHR_robustness GL_NV_EGL_stream_consumer_external GL_NV_fence GL_NV_framebuffer_blit GL_NV_pack_subimage GL_NV_pixel_buffer_object GL_NV_shader_noperspective_interpolation GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_EGL_image_external_essl3 GL_OES_depth24 GL_OES_depth32 GL_OES_draw_buffers_indexed GL_OES_draw_elements_base_vertex GL_OES_element_index_uint GL_OES_fbo_render_mipmap GL_OES_get_program_binary GL_OES_mapbuffer GL_OES_packed_depth_stencil GL_OES_required_internalformat GL_OES_rgb8_rgba8 GL_OES_sample_variables GL_OES_shader_multisample_interpolation GL_OES_standard_derivatives GL_OES_surfaceless_context GL_OES_texture_border_clamp GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_texture_stencil8 GL_OES_texture_storage_multisample_2d_array GL_OES_vertex_array_object GL_OVR_multiview GL_OVR_multiview2 ",
+        "glImplementationParts": "(gl=egl-angle,angle=d3d11)",
+        "glRenderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Laptop GPU (0x00002D19) Direct3D11 vs_5_0 ps_5_0, D3D11-32.0.16.2114)",
+        "glResetNotificationStrategy": 33362,
+        "glVendor": "Google Inc. (NVIDIA)",
+        "glVersion": "OpenGL ES 3.0 (ANGLE 2.1.29097 git hash: 751417514a52)",
+        "glWsExtensions": "EGL_EXT_create_context_robustness EGL_ANGLE_d3d_share_handle_client_buffer EGL_ANGLE_d3d_texture_client_buffer EGL_ANGLE_surface_d3d_texture_2d_share_handle EGL_ANGLE_query_surface_pointer EGL_ANGLE_window_fixed_size EGL_ANGLE_keyed_mutex EGL_ANGLE_surface_orientation EGL_ANGLE_direct_composition EGL_NV_post_sub_buffer EGL_KHR_create_context EGL_KHR_image EGL_KHR_image_base EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_gl_renderbuffer_image EGL_KHR_get_all_proc_addresses EGL_KHR_stream EGL_KHR_stream_consumer_gltexture EGL_NV_stream_consumer_gltexture_yuv EGL_ANGLE_stream_producer_d3d_texture EGL_ANGLE_create_context_webgl_compatibility EGL_CHROMIUM_create_context_bind_generates_resource EGL_CHROMIUM_sync_control EGL_EXT_pixel_format_float EGL_KHR_surfaceless_context EGL_ANGLE_display_texture_share_group EGL_ANGLE_display_semaphore_share_group EGL_ANGLE_create_context_client_arrays EGL_ANGLE_program_cache_control EGL_ANGLE_robust_resource_initialization EGL_ANGLE_create_context_extensions_enabled EGL_ANDROID_blob_cache EGL_ANDROID_recordable EGL_ANGLE_image_d3d11_texture EGL_ANGLE_create_context_backwards_compatible EGL_KHR_no_config_context EGL_KHR_create_context_no_error EGL_KHR_reusable_sync EGL_ANGLE_memory_usage_report ",
+        "glWsVendor": "Google Inc. (NVIDIA)",
+        "glWsVersion": "1.5 (ANGLE 2.1.29097 git hash: 751417514a52)",
+        "inProcessGpu": false,
+        "initializationTime": 0.241048,
+        "isAsan": false,
+        "isClangCoverage": false,
+        "jpegDecodeAcceleratorSupported": false,
+        "maxMsaaSamples": "8",
+        "nv12OverlaySupport": "SCALING",
+        "optimus": false,
+        "p010OverlaySupport": "SCALING",
+        "passthroughCmdDecoder": true,
+        "pixelShaderVersion": "5.0",
+        "processCrashCount": 0,
+        "rgb10a2OverlaySupport": "SCALING",
+        "sandboxed": false,
+        "skiaBackendType": "GaneshGL",
+        "subpixelFontRendering": true,
+        "supportsD3dSharedImages": false,
+        "supportsDirectML": false,
+        "supportsDx12": false,
+        "supportsOverlays": true,
+        "supportsVulkan": false,
+        "targetCpuBits": 64,
+        "vertexShaderVersion": "5.0",
+        "visibilityCallbackCallCount": 0,
+        "vulkanVersion": "Not supported",
+        "yuy2OverlaySupport": "SCALING"
+      },
+      "featureStatus": {
+        "2d_canvas": "enabled",
+        "direct_rendering_display_compositor": "disabled_off_ok",
+        "gpu_compositing": "enabled",
+        "multiple_raster_threads": "enabled_on",
+        "opengl": "enabled_on",
+        "rasterization": "enabled",
+        "skia_graphite": "disabled_off",
+        "trees_in_viz": "disabled_off",
+        "video_decode": "enabled",
+        "video_encode": "enabled",
+        "webgl": "enabled",
+        "webgpu": "enabled",
+        "webnn": "disabled_off"
+      },
+      "driverBugWorkarounds": [
+        "disable_d3d11_vp9_ksvc_decoding",
+        "enable_webgl_timer_query_extensions",
+        "exit_on_context_lost",
+        "unpack_overlapping_rows_separately_unpack_buffer",
+        "use_g22_topleft_color_space_for_yuv_vp",
+        "disabled_extension_GL_KHR_blend_equation_advanced",
+        "disabled_extension_GL_KHR_blend_equation_advanced_coherent"
+      ],
+      "videoDecoding": [],
+      "videoEncoding": []
+    },
+    "modelName": "",
+    "modelVersion": "",
+    "commandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --disable-frame-rate-limit --disable-gpu-vsync --disable-background-timer-throttling --disable-renderer-backgrounding --disable-backgrounding-occluded-windows --user-data-dir=\"C:\\Users\\Hamit Kaan Tokmak\\AppData\\Local\\Packages\\sandbox.{d35345f5-b287-4da5-a57d-5adff8b9f77e}\\AC\\Temp\\playwright_chromiumdev_profile-ioikAR\" --remote-debugging-pipe --no-startup-window --noerrdialogs --flag-switches-begin --flag-switches-end"
+  },
+  "initialProcessControl": {
+    "selectedAffinity": 65535,
+    "selectedEfficiencyClass": 1,
+    "processes": [
+      {
+        "id": 3464,
+        "set": true,
+        "readAfter": true,
+        "beforeControl": 0,
+        "startUtc": "2026-11-13T20:47:40.2526296Z",
+        "name": "chrome",
+        "affinityBefore": 16777215,
+        "affinityAfter": 65535,
+        "afterControl": 5,
+        "beforeState": 0,
+        "afterState": 0,
+        "read": true,
+        "priority": "Normal",
+        "type": "browser"
+      },
+      {
+        "id": 18324,
+        "set": true,
+        "readAfter": true,
+        "beforeControl": 4,
+        "startUtc": "2026-11-13T20:47:40.9687912Z",
+        "name": "chrome",
+        "affinityBefore": 16777215,
+        "affinityAfter": 65535,
+        "afterControl": 5,
+        "beforeState": 0,
+        "afterState": 0,
+        "read": true,
+        "priority": "AboveNormal",
+        "type": "GPU"
+      }
+    ],
+    "cpuSets": [
+      [
+        0,
+        0,
+        0,
+        1,
+        256
+      ],
+      [
+        0,
+        1,
+        0,
+        1,
+        257
+      ],
+      [
+        0,
+        2,
+        2,
+        1,
+        258
+      ],
+      [
+        0,
+        3,
+        2,
+        1,
+        259
+      ],
+      [
+        0,
+        4,
+        4,
+        1,
+        260
+      ],
+      [
+        0,
+        5,
+        4,
+        1,
+        261
+      ],
+      [
+        0,
+        6,
+        6,
+        1,
+        262
+      ],
+      [
+        0,
+        7,
+        6,
+        1,
+        263
+      ],
+      [
+        0,
+        8,
+        8,
+        1,
+        264
+      ],
+      [
+        0,
+        9,
+        8,
+        1,
+        265
+      ],
+      [
+        0,
+        10,
+        10,
+        1,
+        266
+      ],
+      [
+        0,
+        11,
+        10,
+        1,
+        267
+      ],
+      [
+        0,
+        12,
+        12,
+        1,
+        268
+      ],
+      [
+        0,
+        13,
+        12,
+        1,
+        269
+      ],
+      [
+        0,
+        14,
+        14,
+        1,
+        270
+      ],
+      [
+        0,
+        15,
+        14,
+        1,
+        271
+      ],
+      [
+        0,
+        16,
+        16,
+        0,
+        272
+      ],
+      [
+        0,
+        17,
+        17,
+        0,
+        273
+      ],
+      [
+        0,
+        18,
+        18,
+        0,
+        274
+      ],
+      [
+        0,
+        19,
+        19,
+        0,
+        275
+      ],
+      [
+        0,
+        20,
+        20,
+        0,
+        276
+      ],
+      [
+        0,
+        21,
+        21,
+        0,
+        277
+      ],
+      [
+        0,
+        22,
+        22,
+        0,
+        278
+      ],
+      [
+        0,
+        23,
+        23,
+        0,
+        279
+      ]
+    ],
+    "applied": true
+  },
+  "gpuAfter": {
+    "at": 1794602862535,
+    "uuid": "GPU-00d36a2c-43fa-4710-35c8-dd27636dbbec",
+    "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "driver": "621.14",
+    "pstate": "P0",
+    "graphicsMHz": 2062,
+    "memoryMHz": 12001,
+    "watts": 12.76,
+    "temperatureC": 49.03,
+    "gpuUtilPercent": 0,
+    "memoryUtilPercent": 0,
+    "globalMemoryMiB": 645,
+    "totalMemoryMiB": 8151,
+    "softwarePowerCap": "Not Active",
+    "softwareThermalSlowdown": "Not Active",
+    "hardwareSlowdown": "Not Active"
+  }
+}

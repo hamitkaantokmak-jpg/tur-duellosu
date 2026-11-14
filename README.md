@@ -49,4 +49,4 @@ V6.1 bariyer çizim optimizasyonu, regresyon kanıtları ve eş ayarlı görsell
 
 V7 özgün araç silüeti, lastikler, PBR, üç LOD ve gerçek önce/sonra görselleri: [V7 araç raporu](docs/V7-ARAC-GORSELLERI.md) · [Galeri](docs/visual/v7/README.md). `feat/v7-car-visuals` bağımsız inceleme dalıdır; V7 main'e birleştirilmedi.
 
-V9 bağımsız performans/kalite denetimi: [kapsamlı rapor](docs/V9-PERFORMANS-KALITE-DENETIMI.md) ve [eş görüntüler](docs/visual/v9/README.md). V9 main/V8 uygulama kodunu değiştirmez; açık PR #13 (V7.1) ayrı denetlenir. Fiziksel NVIDIA kabulü tamamlanmamıştır; V9 incelemesi taslak olarak tutulur.
+V9 fiziksel NVIDIA denetimi: [738 pencerelik rapor](docs/V9-NVIDIA-FIZIKSEL-DOGRULAMA.md), [metrik tablosu](docs/performance/v9-nvidia/KARSILASTIRMA.md) ve [gerçek önce/sonra görseller](docs/visual/v9-nvidia/README.md). Sayısal %10 FPS kapısı geçti; tekrar kararlılığı ve mevcut kokpit yakın düzlem sorunu açık. PR #14 taslak, main merge yok. Tek runtime düzeltmesi değişmeyen açıklama metnine gereksiz DOM yazısını önler; varlıklar/telemetri/kalite korunur. [Önceki yazılımsal denetim](docs/V9-PERFORMANS-KALITE-DENETIMI.md) tarihsel kayıt olarak tutulur.

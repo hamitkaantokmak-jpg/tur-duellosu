@@ -1,0 +1,16 @@
+
+> Driver Version                                         : 621.14 [Deprecated; will be removed in CUDA 14.0. Use KMD Version instead]
+  CUDA Version                                           : 13.5 [Deprecated; will be removed in CUDA 14.0. Use CUDA UMD Version instead]
+  KMD Version                                            : 621.14
+>     Product Name                                       : NVIDIA GeForce RTX 5060 Laptop GPU
+      Product Brand                                      : GeForce
+      Product Architecture                               : Blackwell
+>     Driver Model
+          Current                                        : WDDM
+          Pending                                        : WDDM
+>     GPU Virtualization Mode
+>         Virtualization Mode                            : None
+          Host VGPU Mode                                 : N/A
+          vGPU Heterogeneous Mode                        : N/A
+
+

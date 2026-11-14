@@ -1,0 +1,13 @@
+{
+  "localRuntimeCommit": "e0bc34698170e4a2035b505ad4bec501d5c330e7",
+  "publishedRuntimeCommit": "12b85328235b095d2362a44e058cc28ec023d302",
+  "localBrowserTestTree": "0f651599fe072775fca65551364681ff7ed0a4a4",
+  "publishedRuntimeTree": "d7616d92ad08a1514121e5e01428b70a16f070b4",
+  "priorAuditHeadPreserved": "88fa33e6b162a0352ae219bedb71b7f702892187",
+  "entireTreesEqual": false,
+  "verifiedEquivalentPaths": ["index.html", "src", "assets", "art", "tests/*.spec.js"],
+  "equivalenceDiffFiles": [],
+  "base": "ad35d61f5b26ed1d5ff6d82a3ee43b91478cee94",
+  "branch": "audit/v9-performance-quality",
+  "note": "The existing V9 branch contained a separate software-only audit. It is preserved, not overwritten. The published candidate adds only the measured scenery DOM-write guard above that audit. All application, asset and browser-test files equal the local tested candidate; complete trees differ because prior audit scripts/evidence are retained. Benchmarks use the fetchable published commit. Raw regression/capture records retain their original local source ID. The initially assumed branch mapping was rejected after checking the fetched tree."
+}

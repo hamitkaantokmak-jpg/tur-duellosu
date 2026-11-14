@@ -1,0 +1,251 @@
+{
+  "complete": true,
+  "repeatsComplete": true,
+  "invalidWindows": 0,
+  "v9VsV5NumericalGate": true,
+  "v9VsV8NumericalGate": true,
+  "allVersionCvAtMost15": false,
+  "thresholdPercent": 10,
+  "unstable": [
+    {
+      "key": "spa/2560/ultra/a",
+      "version": "v5",
+      "cvPercent": 18.90192193602466
+    },
+    {
+      "key": "spa/2560/ultra/a",
+      "version": "v6",
+      "cvPercent": 17.06623973794235
+    },
+    {
+      "key": "spa/2560/ultra/a",
+      "version": "v7",
+      "cvPercent": 15.065087554630155
+    },
+    {
+      "key": "spa/2560/ultra/a",
+      "version": "v8",
+      "cvPercent": 16.13489066063851
+    },
+    {
+      "key": "spa/2560/ultra/a",
+      "version": "v9",
+      "cvPercent": 16.20327811538968
+    },
+    {
+      "key": "spa/2560/performance/a",
+      "version": "v6",
+      "cvPercent": 22.786383275086447
+    },
+    {
+      "key": "spa/2560/performance/cockpit",
+      "version": "v6",
+      "cvPercent": 17.23195081137307
+    },
+    {
+      "key": "spa/2560/performance/cockpit",
+      "version": "v7",
+      "cvPercent": 15.147614759844613
+    },
+    {
+      "key": "spa/2560/performance/cockpit",
+      "version": "v9",
+      "cvPercent": 15.014956425665554
+    },
+    {
+      "key": "spa/1920/ultra/a",
+      "version": "v5",
+      "cvPercent": 15.1047235295069
+    },
+    {
+      "key": "spa/1920/ultra/a",
+      "version": "v7",
+      "cvPercent": 23.340385406477438
+    },
+    {
+      "key": "spa/1920/ultra/a",
+      "version": "v8",
+      "cvPercent": 16.358677516602246
+    },
+    {
+      "key": "spa/1920/ultra/cockpit",
+      "version": "v6",
+      "cvPercent": 16.504296473749385
+    },
+    {
+      "key": "spa/1920/ultra/cockpit",
+      "version": "v61",
+      "cvPercent": 15.61323062118143
+    },
+    {
+      "key": "cota/2560/performance/a",
+      "version": "v5",
+      "cvPercent": 18.42622804850891
+    },
+    {
+      "key": "cota/2560/performance/a",
+      "version": "v8",
+      "cvPercent": 17.43955145154476
+    },
+    {
+      "key": "cota/2560/performance/a",
+      "version": "v9",
+      "cvPercent": 21.582058933954585
+    },
+    {
+      "key": "cota/1920/ultra/a",
+      "version": "v6",
+      "cvPercent": 16.955439863549373
+    },
+    {
+      "key": "cota/1920/ultra/a",
+      "version": "v61",
+      "cvPercent": 16.64377331962385
+    },
+    {
+      "key": "cota/1920/ultra/a",
+      "version": "v7",
+      "cvPercent": 15.216768166247817
+    },
+    {
+      "key": "cota/1920/ultra/a",
+      "version": "v9",
+      "cvPercent": 20.725635256983406
+    },
+    {
+      "key": "cota/1920/ultra/cockpit",
+      "version": "v5",
+      "cvPercent": 19.79020374415628
+    },
+    {
+      "key": "cota/1920/ultra/cockpit",
+      "version": "v61",
+      "cvPercent": 23.06818398949054
+    },
+    {
+      "key": "cota/1920/ultra/cockpit",
+      "version": "v7",
+      "cvPercent": 16.101469128406936
+    },
+    {
+      "key": "cota/1920/ultra/cockpit",
+      "version": "v8",
+      "cvPercent": 21.16557483796544
+    },
+    {
+      "key": "cota/1920/ultra/cockpit",
+      "version": "v9",
+      "cvPercent": 23.968433363523197
+    },
+    {
+      "key": "cota/1920/performance/a",
+      "version": "v5",
+      "cvPercent": 15.535708104120364
+    },
+    {
+      "key": "cota/1920/performance/a",
+      "version": "v6",
+      "cvPercent": 15.41901938607951
+    }
+  ],
+  "v9VsV8": [
+    {
+      "key": "spa/2560/ultra/a",
+      "lossPercent": -17.397554403025506
+    },
+    {
+      "key": "spa/2560/ultra/cockpit",
+      "lossPercent": -18.192061072755862
+    },
+    {
+      "key": "spa/2560/performance/a",
+      "lossPercent": -18.38886062611744
+    },
+    {
+      "key": "spa/2560/performance/cockpit",
+      "lossPercent": -14.01251272140749
+    },
+    {
+      "key": "spa/1920/ultra/a",
+      "lossPercent": -27.496964644664313
+    },
+    {
+      "key": "spa/1920/ultra/cockpit",
+      "lossPercent": -28.334579045934525
+    },
+    {
+      "key": "spa/1920/performance/a",
+      "lossPercent": -19.93170580636152
+    },
+    {
+      "key": "spa/1920/performance/cockpit",
+      "lossPercent": -18.757496462464317
+    },
+    {
+      "key": "cota/2560/ultra/a",
+      "lossPercent": -26.953121511665845
+    },
+    {
+      "key": "cota/2560/ultra/cockpit",
+      "lossPercent": -1.9179598288916022
+    },
+    {
+      "key": "cota/2560/performance/a",
+      "lossPercent": -5.310330156140064
+    },
+    {
+      "key": "cota/2560/performance/cockpit",
+      "lossPercent": -6.789488345884664
+    },
+    {
+      "key": "cota/1920/ultra/a",
+      "lossPercent": -13.521614613685419
+    },
+    {
+      "key": "cota/1920/ultra/cockpit",
+      "lossPercent": -19.03790917808219
+    },
+    {
+      "key": "cota/1920/performance/a",
+      "lossPercent": -14.315097018032974
+    },
+    {
+      "key": "cota/1920/performance/cockpit",
+      "lossPercent": -16.67889997613985
+    },
+    {
+      "key": "mexico/2560/ultra/a",
+      "lossPercent": -9.62715067753377
+    },
+    {
+      "key": "mexico/2560/ultra/cockpit",
+      "lossPercent": -1.7364329391284405
+    },
+    {
+      "key": "mexico/2560/performance/a",
+      "lossPercent": -8.486825686110278
+    },
+    {
+      "key": "mexico/2560/performance/cockpit",
+      "lossPercent": -11.383615312864247
+    },
+    {
+      "key": "mexico/1920/ultra/a",
+      "lossPercent": -5.571495780827096
+    },
+    {
+      "key": "mexico/1920/ultra/cockpit",
+      "lossPercent": -5.382366659421178
+    },
+    {
+      "key": "mexico/1920/performance/a",
+      "lossPercent": -5.122793916308499
+    },
+    {
+      "key": "mexico/1920/performance/cockpit",
+      "lossPercent": -13.908480712848537
+    }
+  ],
+  "performanceAcceptance": false,
+  "note": "Numerical thresholds and reproducibility are separate. Review uncertainty and all functional/visual/provenance evidence; no automatic performance acceptance."
+}

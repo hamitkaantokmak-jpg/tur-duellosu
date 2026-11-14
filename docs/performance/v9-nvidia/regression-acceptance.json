@@ -1,0 +1,120 @@
+{
+  "unitWorkingFiles": {
+    "tests/barrier-batching.test.cjs": {
+      "workingSha256": "eb3ba29643dc052ba413fc0ee5a031d5f715bceede603d6db134bd32a29a6ef8",
+      "canonicalGitBlob": "3d39cd61b394f6876643a319c7f52abef02b0998"
+    },
+    "tests/camera-collision.test.cjs": {
+      "workingSha256": "22185f56306541fa6be604a7a5d88104082bad9fcee219d1317148f54c0a417d",
+      "canonicalGitBlob": "d21d2ed20929ece0a70df420e17fe58e7d67e3be"
+    },
+    "tests/insight-core.test.cjs": {
+      "workingSha256": "87ca1424471ed78cddf3aabb1aeed77801220f176a434e2f17a835bb6fe697f0",
+      "canonicalGitBlob": "0d4ed5fb755d55593d20e6d8e8e1fbaf3c8319e2"
+    },
+    "tests/mexico-geometry.test.cjs": {
+      "workingSha256": "80dbf30093343317cc56cff049bb1641594181e03e9242769ce2e8dbc22049cd",
+      "canonicalGitBlob": "8591a748828c71e6d53b4b759efc1d66c43d5f86"
+    },
+    "tests/real-topography.test.cjs": {
+      "workingSha256": "175ca9fbc5143398b8bf503da7714c2434c855554ebd71421dd48bf4f6865a1d",
+      "canonicalGitBlob": "96d04ba54e11a1a77a7959e6001a65892f8f9807"
+    },
+    "tests/replay-core.test.cjs": {
+      "workingSha256": "1288946cf3a8573474ebcb6fbb0a16b58a33753d0a2c674049d60a9c3a852b41",
+      "canonicalGitBlob": "7b1d044e35cfcf92d21b464d816f97b88522ba7b"
+    },
+    "tests/track-topography.test.cjs": {
+      "workingSha256": "0f79233d492f000fbfa5ddfc5f9665c1ea95f8d2526a1a37f69b437c61faa1fa",
+      "canonicalGitBlob": "bb99b0bfcd980548163dc86eb99f7b78e869b57e"
+    },
+    "tests/v4-assets.test.cjs": {
+      "workingSha256": "51f3aea8b4f30d820eb2fd52ea04ee1bdfefcb157c2a47ab82ab8d2131695193",
+      "canonicalGitBlob": "7c88ead38b3409e413b8f2a80ae6ac4227c96d0b"
+    },
+    "tests/v7-vehicle.test.cjs": {
+      "workingSha256": "166ee35d8c3b1a59cf84aef39df1ff6e18dc97b6a716fd663b63fbca1022d984",
+      "canonicalGitBlob": "0e989886a975fb5ca54bf7bb9ced34f7683e7362"
+    },
+    "tests/v9-frame-window.test.cjs": {
+      "workingSha256": "6cc46db70e4c00e7872339dc100c5fbf1142e800f59a8c86576eca7710e3d926",
+      "canonicalGitBlob": "4fc82441bc6afa63201b068cc0d440d242dbad26"
+    },
+    "tests/v9-metrics.test.cjs": {
+      "workingSha256": "0246181b33718a6d2eaaac691a1b9bcd9de3ff1a26f824d26b7bda8e0eb983b5",
+      "canonicalGitBlob": "6b6174aa7d182f6668ce390069ef3455d8eecca3"
+    },
+    "tests/vehicle-motion.test.cjs": {
+      "workingSha256": "72734f4a6e63fe208f102d9c7d97f3fbffc78837bb859afc4dd0f2229e3f7625",
+      "canonicalGitBlob": "2e1f59cf5ab32a20a6fd575c0dde669039d388dc"
+    },
+    "scripts/nvidia-v9/frame-window.cjs": {
+      "workingSha256": "a584991bdf05165f066f24a04b52633972aad3475d255213d8ec1b1a4961d1f3",
+      "canonicalGitBlob": "877c4d0aa60aa611d7c05db693c0e945ce045a04"
+    }
+  },
+  "unitSourceNote": "Unit tests include the recorded working files; local HEAD alone does not identify uncommitted audit harness changes.",
+  "runtimeLocal": "12b85328235b095d2362a44e058cc28ec023d302",
+  "runtimeTree": "d7616d92ad08a1514121e5e01428b70a16f070b4",
+  "publishedRuntime": "12b85328235b095d2362a44e058cc28ec023d302",
+  "publishedRuntimeTree": "d7616d92ad08a1514121e5e01428b70a16f070b4",
+  "unitAuditSourceLocal": "adb66a7b80c8ea1f525004f5fbf824f4706bf0aa",
+  "applicationAndBrowserTestDiffFiles": [],
+  "base": "ad35d61f5b26ed1d5ff6d82a3ee43b91478cee94",
+  "unitPassed": 74,
+  "browserPassed": 34,
+  "skipped": 0,
+  "retries": 0,
+  "protectedPaths": [
+    "assets",
+    "art",
+    "src/replay-core.js",
+    "src/track-topography.js",
+    "src/ghost-topography.js",
+    "src/vehicle-motion.js",
+    "src/ghost-vehicle-motion.js"
+  ],
+  "changed": [],
+  "canonicalGitFileHashes": {
+    "assets/topography/sources/cota-raw.json": {
+      "gitBlob": "72166e7adec1cc6305a0a29ad3527dcde85dd859",
+      "sha256": "c76fc5a7d6c4c0b756ed6435896da0a57aaeb71e135e333b501c0da753a39f2a"
+    },
+    "assets/topography/sources/spa-raw.json": {
+      "gitBlob": "280879a83db047e951ad29bdc53bbab33aa55e8d",
+      "sha256": "9ec5b514d7f3c5aaf31748402b1b3daafbe47a575c5c2abea4bb57463a006a76"
+    },
+    "assets/topography/sources/cota.geojson": {
+      "gitBlob": "ca02d9fba2a8d2cabaae76049bf780d3adb7a0d0",
+      "sha256": "199621d61cf0b50429fc9fcf1a8dabf016df453e33bf64299a651e1acad7e158"
+    },
+    "assets/topography/sources/spa.geojson": {
+      "gitBlob": "f063a30add10634b6138126def498484237e53c3",
+      "sha256": "b867de9cc8364cc9b545a044377a56a697b8db77823c849c1a1c03760a943381"
+    },
+    "assets/topography/profiles.json": {
+      "gitBlob": "352e2f9e5186defeaf356ea2f272f1ff2c65aa2c",
+      "sha256": "2b8ae5550097ebf5115bee113c5ee12030058a7c19a75fdd0d0ec7c8b4ebc4d2"
+    },
+    "assets/v4/car-low.glb": {
+      "gitBlob": "81167776a882e6fbdc5f238f77dbf69a739a9820",
+      "sha256": "07cad141da0125689ae544bb4a7157be5a471b54a429840a588ebe9c0311f97a"
+    },
+    "assets/v4/car-medium.glb": {
+      "gitBlob": "c3153285345ec67255a14fa0e272df99d9f82a9a",
+      "sha256": "ae3f310d44feb7ace662f3901c9640b7108c3b78337ac49331455e9bd799af86"
+    },
+    "assets/v4/car-high.glb": {
+      "gitBlob": "d5933740a2ee5d03c5f7a23182792fdcb7270c7f",
+      "sha256": "7ad588601eb95b76b925a2b6a431446ae54b80bd4b8167217576e2b3005a2164"
+    },
+    "assets/v4/sources.json": {
+      "gitBlob": "c67277903855d55fe5316557941cde2643776bb4",
+      "sha256": "a67cc1272aa3b53a4d8b3df4c4d2cd8ad216de65ed451b0cc035f4be0d44ffa4"
+    },
+    "assets/v4/vehicle-v7-authoring.json": {
+      "gitBlob": "ee19a004e62f3567579ea716f50feedb97347ae7",
+      "sha256": "253d1639d1c91bbbc77138e43f9ca59a46023586e22c18eb5e8df6ad988b166c"
+    }
+  }
+}

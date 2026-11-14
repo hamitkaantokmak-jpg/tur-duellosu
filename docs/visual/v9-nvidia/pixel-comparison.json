@@ -1,0 +1,226 @@
+{
+  "method": "Full PNG RGBA pixel comparison. The additional y>=250 count is an explicitly defined world/vehicle region, not a replacement for the full image metric. No image masking or editing.",
+  "rows": [
+    {
+      "name": "spa-eau-rouge",
+      "width": 1406,
+      "height": 681,
+      "changedPixels": 150,
+      "changedChannels": 435,
+      "changedPercent": 0.015666025404026795,
+      "maxChannelDifference": 39,
+      "rmse": 0.1520549361005191,
+      "differenceBounds": [
+        51,
+        27,
+        1344,
+        102
+      ],
+      "changedPixelsBelowTopHud250": 0
+    },
+    {
+      "name": "spa-raidillon",
+      "width": 1406,
+      "height": 681,
+      "changedPixels": 171,
+      "changedChannels": 501,
+      "changedPercent": 0.017859268960590546,
+      "maxChannelDifference": 37,
+      "rmse": 0.15072520273547307,
+      "differenceBounds": [
+        51,
+        27,
+        1344,
+        184
+      ],
+      "changedPixelsBelowTopHud250": 0
+    },
+    {
+      "name": "spa-crest",
+      "width": 1406,
+      "height": 681,
+      "changedPixels": 166,
+      "changedChannels": 483,
+      "changedPercent": 0.017337068113789652,
+      "maxChannelDifference": 37,
+      "rmse": 0.15108076983410906,
+      "differenceBounds": [
+        51,
+        27,
+        1345,
+        184
+      ],
+      "changedPixelsBelowTopHud250": 0
+    },
+    {
+      "name": "spa-cockpit",
+      "width": 1406,
+      "height": 681,
+      "changedPixels": 170,
+      "changedChannels": 493,
+      "changedPercent": 0.017754828791230366,
+      "maxChannelDifference": 40,
+      "rmse": 0.15124486138085197,
+      "differenceBounds": [
+        51,
+        27,
+        1344,
+        184
+      ],
+      "changedPixelsBelowTopHud250": 0
+    },
+    {
+      "name": "cota-t1-approach",
+      "width": 1406,
+      "height": 681,
+      "changedPixels": 204,
+      "changedChannels": 589,
+      "changedPercent": 0.02130579454947644,
+      "maxChannelDifference": 39,
+      "rmse": 0.15924710271521983,
+      "differenceBounds": [
+        51,
+        27,
+        1344,
+        184
+      ],
+      "changedPixelsBelowTopHud250": 0
+    },
+    {
+      "name": "cota-t1-crest",
+      "width": 1406,
+      "height": 681,
+      "changedPixels": 113,
+      "changedChannels": 326,
+      "changedPercent": 0.011801739137700185,
+      "maxChannelDifference": 34,
+      "rmse": 0.1310879981755652,
+      "differenceBounds": [
+        55,
+        27,
+        1344,
+        184
+      ],
+      "changedPixelsBelowTopHud250": 0
+    },
+    {
+      "name": "cota-t1-descent",
+      "width": 1406,
+      "height": 681,
+      "changedPixels": 128,
+      "changedChannels": 368,
+      "changedPercent": 0.013368341678102866,
+      "maxChannelDifference": 33,
+      "rmse": 0.1347902513607593,
+      "differenceBounds": [
+        72,
+        27,
+        1344,
+        184
+      ],
+      "changedPixelsBelowTopHud250": 0
+    },
+    {
+      "name": "cota-cockpit",
+      "width": 1406,
+      "height": 681,
+      "changedPixels": 205,
+      "changedChannels": 585,
+      "changedPercent": 0.02141023471883662,
+      "maxChannelDifference": 36,
+      "rmse": 0.1458156054020576,
+      "differenceBounds": [
+        51,
+        27,
+        1344,
+        184
+      ],
+      "changedPixelsBelowTopHud250": 0
+    },
+    {
+      "name": "mexico-braking",
+      "width": 1406,
+      "height": 681,
+      "changedPixels": 153,
+      "changedChannels": 441,
+      "changedPercent": 0.01597934591210733,
+      "maxChannelDifference": 39,
+      "rmse": 0.1493775156568155,
+      "differenceBounds": [
+        166,
+        27,
+        1344,
+        102
+      ],
+      "changedPixelsBelowTopHud250": 0
+    },
+    {
+      "name": "mexico-corner",
+      "width": 1406,
+      "height": 681,
+      "changedPixels": 114,
+      "changedChannels": 331,
+      "changedPercent": 0.011906179307060364,
+      "maxChannelDifference": 39,
+      "rmse": 0.14939149838788207,
+      "differenceBounds": [
+        166,
+        27,
+        1344,
+        179
+      ],
+      "changedPixelsBelowTopHud250": 0
+    },
+    {
+      "name": "mexico-lod-low",
+      "width": 1406,
+      "height": 681,
+      "changedPixels": 125,
+      "changedChannels": 365,
+      "changedPercent": 0.01305502117002233,
+      "maxChannelDifference": 32,
+      "rmse": 0.12396818067926497,
+      "differenceBounds": [
+        51,
+        27,
+        1344,
+        173
+      ],
+      "changedPixelsBelowTopHud250": 0
+    },
+    {
+      "name": "mexico-lod-medium",
+      "width": 1406,
+      "height": 681,
+      "changedPixels": 125,
+      "changedChannels": 365,
+      "changedPercent": 0.01305502117002233,
+      "maxChannelDifference": 32,
+      "rmse": 0.12396818067926497,
+      "differenceBounds": [
+        51,
+        27,
+        1344,
+        173
+      ],
+      "changedPixelsBelowTopHud250": 0
+    },
+    {
+      "name": "mexico-lod-high",
+      "width": 1406,
+      "height": 681,
+      "changedPixels": 125,
+      "changedChannels": 365,
+      "changedPercent": 0.01305502117002233,
+      "maxChannelDifference": 32,
+      "rmse": 0.12396818067926497,
+      "differenceBounds": [
+        51,
+        27,
+        1344,
+        173
+      ],
+      "changedPixelsBelowTopHud250": 0
+    }
+  ]
+}

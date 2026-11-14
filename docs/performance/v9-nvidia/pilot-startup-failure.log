@@ -1,0 +1,24 @@
+Error: Command failed: powershell.exe -NoProfile -File C:\Users\Hamit Kaan Tokmak\Documents\Codex\2026-11-10\tur\work\tur-duellosu\scripts\read-power-v9.ps1
+File C:\Users\Hamit Kaan Tokmak\Documents\Codex\2026-11-10\tur\work\tur-duellosu\scripts\read-power-v9.ps1 cannot be lo
+aded because running scripts is disabled on this system. For more information, see about_Execution_Policies at https:/g
+o.microsoft.com/fwlink/?LinkID=135170.
+    + CategoryInfo          : SecurityError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+
+    at genericNodeError (node:internal/errors:986:15)
+    at wrappedFn (node:internal/errors:540:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:514:28)
+    at maybeClose (node:internal/child_process:1172:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:335:5) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'powershell.exe -NoProfile -File C:\\Users\\Hamit Kaan Tokmak\\Documents\\Codex\\2026-11-10\\tur\\work\\tur-duellosu\\scripts\\read-power-v9.ps1',
+  stdout: '',
+  stderr: 'File C:\\Users\\Hamit Kaan Tokmak\\Documents\\Codex\\2026-11-10\\tur\\work\\tur-duellosu\\scripts\\read-power-v9.ps1 cannot be lo\r\n' +
+    'aded because running scripts is disabled on this system. For more information, see about_Execution_Policies at https:/g\r\n' +
+    'o.microsoft.com/fwlink/?LinkID=135170.\r\n' +
+    '    + CategoryInfo          : SecurityError: (:) [], ParentContainsErrorRecordException\r\n' +
+    '    + FullyQualifiedErrorId : UnauthorizedAccess\r\n'
+}
