@@ -37,14 +37,16 @@ npm run assets:build # yalnız Blender 4.3+ ile yeni araç/çevre üretimi
 - [Varlıklar ve lisanslar](docs/VARLIKLAR.md)
 - [Test/ölçüm raporu](docs/TEST-RAPORU.md)
 
-Uygulama hazır Blender GLB varlıklarını kullanır. Bu inceleme dalında araçlar V7, çevre varlıkları V4'tür. `npm run assets:build` yalnız V7 araçlarını yeniden üretir; normal kullanımda Blender gerekmez. Üretim ve CC0 kaynak açıklamaları: [art/blender](art/blender/README.md). Tarihsel tam pist üretimi `npm run assets:build:v3` içinde korunur (Shapely gerekir).
+Uygulama hazır Blender GLB varlıklarını kullanır. Main'de araçlar V7, çevre varlıkları V4'tür; araç gövde hareketi V8 katmanından gelir. `npm run assets:build` yalnız V7 araçlarını yeniden üretir; normal kullanımda Blender gerekmez. Üretim ve CC0 kaynak açıklamaları: [art/blender](art/blender/README.md). Tarihsel tam pist üretimi `npm run assets:build:v3` içinde korunur (Shapely gerekir).
 
 Güncel main, Veri Stüdyosu ve kamera optimizasyonu doğrulaması: [Performans entegrasyon raporu](docs/PERFORMANS-ENTEGRASYON.md).
 
 V5 son denetim, Ultra/1080p/1440p ölçümleri ve entegrasyon kanıtları: [V5 son denetim](docs/V5-SON-DENETIM.md).
 
-V6 inceleme dalındaki COTA/Spa arazi verileri, lisanslar ve doğruluk sınırları: [Gerçek pist topografyası](docs/GERCEK-PIST-TOPOGRAFYASI.md). Bu profiller asfalt ölçümü veya ölçülmüş banking değildir; Meksika düz referansı korunur.
+V6 ile main'e giren COTA/Spa arazi verileri, lisanslar ve doğruluk sınırları: [Gerçek pist topografyası](docs/GERCEK-PIST-TOPOGRAFYASI.md). Bu profiller asfalt ölçümü veya ölçülmüş banking değildir; Meksika düz referansı korunur.
 
 V6.1 bariyer çizim optimizasyonu, regresyon kanıtları ve eş ayarlı görseller: [V6.1 raporu](docs/V6-1-PERFORMANS-OPTIMIZASYONU.md). V7 başlangıç main'i V6.1 merge commit'i `e5ffd2224bb3ee2dceed9ee2470bc6f6da33fc74` içerir; bu birleştirme aynı fiziksel NVIDIA üzerinde FPS kabulünün doğrulandığı anlamına gelmez. Tarihsel rapordaki kabul borcu açık kalır.
 
-V7 özgün araç silüeti, lastikler, PBR, üç LOD ve gerçek önce/sonra görselleri: [V7 araç raporu](docs/V7-ARAC-GORSELLERI.md) · [Galeri](docs/visual/v7/README.md). `feat/v7-car-visuals` bağımsız inceleme dalıdır; V7 main'e birleştirilmedi.
+V7 özgün araç silüeti, lastikler, PBR, üç LOD ve gerçek önce/sonra görselleri: [V7 araç raporu](docs/V7-ARAC-GORSELLERI.md) · [Galeri](docs/visual/v7/README.md). V7 main'e `0d5deec` ile birleştirildi.
+
+V8 telemetriden türetilen görsel gövde pitch/roll, direksiyon ve lastik yüzey oturtması: [V8 araç hareketi raporu](docs/ARAC-HAREKET-V8.md) · [Galeri](docs/visual/v8/README.md). V8 main'e `ad35d61` ile birleştirildi. Bu katman görsel yaklaşımdır; ölçülmüş süspansiyon veya araç fiziği değildir. Fiziksel NVIDIA FPS kabul borcu V8 için de açıktır.
